@@ -1,0 +1,218 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ResponsiveContent_popup.Master.cs" Inherits="CKDSurveillance_RD.MasterPages.PopupMaster" %>
+
+<!DOCTYPE html>
+
+
+<%--<%@ Register Src="~/UserControls/TemplateLocal/ucFooterLocalContact.ascx" TagName="LocalContact" TagPrefix="ucLocal" %>
+<%@ Register Src="~/UserControls/TemplateLocal/ucSkipNavigation_Popup.ascx" TagPrefix="ucLocal" TagName="ucSkipNavigation_Popup" %>--%>
+
+
+
+
+
+
+
+<!--[if lt IE 8]>      <html class="no-js nav theme-rose lt-ie10 lt-ie9 lt-ie8" lang="en-us"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js nav theme-rose lt-ie10 lt-ie9" lang="en-us"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js nav theme-rose lt-ie10" lang="en-us"> <![endif]-->
+<!--[if !IE]><!-->
+<html class="no-js nav theme-teal esp" lang="en-us">
+<!--<![endif]-->
+
+<head runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+
+    <title>Chronic Kidney Disease (CKD) Surveillance Project</title>
+
+
+    <meta name="description" content="Chronic Kidney Disease (CKD) Surveillance Project" />
+    <meta name="keywords" content="CDC, CKD, Surveillance, Chronic Kidney Disease" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <%--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/TemplatePackage/3.0/images/cdc-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/TemplatePackage/3.0/images/cdc-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/TemplatePackage/3.0/images/cdc-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" href="/TemplatePackage/3.0/images/cdc-touch-icon-57x57.png" />
+	<link rel="shortcut icon" href="/TemplatePackage/3.0/images/favicon.ico" />--%>
+
+    <meta name="robots" content="index,follow" />
+    <%--<meta property="cdc:template_version" content="3.0" />--%>
+
+    <% Response.WriteFile(ConfigurationManager.AppSettings["TemplatePackageFolder"].ToString() + "/4.0/includes/head-content.html"); %>
+
+
+
+    <%--************--%>
+    <%--*Javascript*--%>
+    <%--************--%>
+    <!-- jQuery is part of the libs.min.js.   It is version 1.8.3.   The responsive template does not support the use of other version.  
+     If you find you  have a specific needs to an newer version please consult with Chronic development team. -->
+
+    <%--Scripts--%>
+    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/scripts.html"));%>
+    <%--End Scripts--%>
+
+    <%--*****--%>
+    <%--*CSS*--%>
+    <%--*****--%>
+    <%--<link href="/TemplatePackage/4.0/css/lib/bootstrap24.css" rel="stylesheet" />--%>
+    <link href="../App_Themes/custom.css" rel="stylesheet" />
+    <link href="../App_Themes/local.css" rel="stylesheet" />
+    <link href="../App_Themes/theme-teal.css" rel="stylesheet" />
+
+
+    <%--*CSS*--%>
+    <%--<link href="../App_Themes/DefaultPage.css" rel="stylesheet" />--%>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+
+    <%--<ucLocal:ucSkipNavigation_Popup runat="server" id="ucSkipNavigation_Popup" />--%>
+
+
+    <%--<% Response.WriteFile(ConfigurationManager.AppSettings["TemplatePackageFolder"].ToString() + "/4.0/includes/chromeFrame.html"); %>--%>
+    <header id="header">
+        <div class="container">
+            <!-- header -->
+            <div class="row " style="margin-left: 20px;">
+                <div id="logo" class="col-xl-9">
+                    <% Response.WriteFile(ConfigurationManager.AppSettings["TemplatePackageFolder"].ToString() + "/4.0/includes/header-logo.html"); %>
+                </div>
+            </div>
+
+            <%-- <div class="row">
+                <div id="gi">
+                    <img style="max-width:470px" src="images/graphic_identifier.png" alt="Chronic Kidney Disease (CKD) Surveillance System" />
+                </div>
+            </div>--%>
+
+            <%--*****************--%>
+            <%--*Close Page Link*--%>
+            <%--*****************--%>
+            <%--            <div class="row">
+                <div class="col-xl-12 text-right" style="margin-bottom:-1.8em; color:white; font-weight:bold;">
+                    <br />
+                    <a onclick="javascript:window.close(); return false;" class="anchorCloseWindow btn btn-primary" style="cursor:pointer;">
+                        X
+                    </a>
+                    <br />
+                </div>
+            </div>--%>
+        </div>
+    </header>
+
+
+    <br />
+
+
+    <form id="form1" runat="server">
+
+        <%-- <a id="contentArea" name="contentArea" />--%><%--Skip Nave - only One skip in this Masterpage--%>
+        <div class="container">
+            <div class="row" style="margin-left: 20px;">
+                <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server" ClientIDMode="Static">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- /end row -->
+        </div>
+
+
+
+        <!-- footer -->
+        <%--footer--%>
+        <footer role="contentinfo" aria-label="footer">
+            <div class="container-fluid footer-wrapper">
+                <div class="container">
+                    <%--<telerik:RadCodeBlock runat="server">--%>
+                    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/footer-cdc.html"));%>
+                    <%--</telerik:RadCodeBlock>--%>
+                </div>
+            </div>
+            <div class="container-fluid agency-footer">
+                <div class="container">
+                    <%--<telerik:RadCodeBlock runat="server">--%>
+                    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/footer-agency.html"));%>
+                    <%--</telerik:RadCodeBlock>--%>
+                </div>
+            </div>
+        </footer>
+        <%--end footer--%>
+
+
+        <div id="sessionTimeoutWarning" style="display: none"></div>
+
+        <%--************--%>
+        <%--*Javascript*--%>
+        <%--************--%>
+        <!-- jQuery is part of the libs.min.js.   It is version 1.8.3.   The responsive template does not support the use of other version.  
+     If you find you  have a specific needs to an newer version please consult with Chronic development team. -->
+        <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/metrics.html"));%>
+
+        <asp:ScriptManager LoadScriptsBeforeUI="False" ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+
+
+        <!-- It is expected that any page level javasript to be added to the Custom Javascript content section on the page implementing the master page. -->
+        <asp:ContentPlaceHolder ID="CustomJavaScript" runat="server">
+
+            <script type="text/javascript">
+                var onloadCallback = function () {
+                    try {
+                        grecaptcha.render('g-recaptcha', {
+                            'sitekey': '6LcYlBMTAAAAAFpu9YY0uN_PEu4usgUDaSRIolrH',
+                            'expired-callback': expCallback
+                        });
+                    }
+                    catch (err) {
+                        //silent fail
+                    }
+                };
+                var expCallback = function () {
+                    grecaptcha.reset();
+                    $('.buttonSubmit').addClass('aspNetDisabled').attr('disabled', 'disabled');
+                };
+
+
+                //*508*
+                $(window).on('load', function () {
+                    //console.log('done');
+                    $('#g-recaptcha-response').attr('aria-labelledby', 'verificationLbl');
+                })
+
+            </script>
+
+
+        </asp:ContentPlaceHolder>
+
+
+        <div id="metrics">
+            <script type="text/javascript"><!--
+    if (navigator.appVersion.indexOf('MSIE') >= 0) document.write(unescape('%3C') + '\!-' + '-');
+        //-->
+            </script>
+
+            <noscript>
+                <a href="http://www.omniture.com">
+                    <img
+                        src="http://mtrics.cdc.gov/b/ss/cdcgov/1/H.21--NS/0" height="1" width="1" alt="Web Analytics" /></a>
+            </noscript>
+            <!--/DO NOT REMOVE/-->
+            <!-- End SiteCatalyst code version: H.21. -->
+            <!-- Begin Google Analytics Execution Code -->
+
+            <!-- End Google Analytics Execution Code -->
+        </div>
+        <!-- xxxxxxxxxxxxxxxxxx METRICS code ends here xxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+
+
+
+    </form>
+    <%--</div>--%>
+    <%--<ucLocal:Omniture ID="Omniture1" runat="server" />--%>
+</body>
+</html>

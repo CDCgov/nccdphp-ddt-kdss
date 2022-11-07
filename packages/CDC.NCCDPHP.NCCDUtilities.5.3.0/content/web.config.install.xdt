@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<appSettings>
+    <add key="ErrorLogType" xdt:Transform="Remove" xdt:Locator="Match(key)" />
+    <add key="ErrorLogType" value="ALL" xdt:Transform="Insert"/>
+    <add key="ErrorLogAPI" xdt:Transform="Remove" xdt:Locator="Match(key)"/>
+    <add key="ErrorLogAPI" value="https://nccdgis.cdc.gov/Logger/ApplicationError" xdt:Transform="Insert" />
+	</appSettings>
+</configuration>

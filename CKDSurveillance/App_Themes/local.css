@@ -1,0 +1,2022 @@
+﻿/*
+===============================================================
+This section contains the original css content for this file.
+It is the content from the original Responsive Design Template.
+===============================================================
+*/
+
+.skip {
+    position: absolute;
+    top: -1000px;
+    left: -1000px;
+    height: 1px;
+    width: 1px;
+    text-align: left;
+    overflow: hidden;
+}
+
+a.skip:active, 
+a.skip:focus, 
+a.skip:hover {
+    left: 0; 
+    top: 0;
+    width: auto; 
+    height: auto; 
+    overflow: visible; 
+}
+
+.accessibleHide 
+{
+    position: absolute; 
+    left:-10000px; 
+    top: auto;
+    width:1px; 
+    height:1px; 
+    overflow: hidden;
+}
+
+
+/* 
+=============================================================
+Override Global Style - Style to remove right column from the content main area.
+=============================================================
+*/
+.secondTier #content-main
+{
+    margin-right: 0px;
+}
+
+.widePage #datestamp
+{
+    margin-top: 9px;
+}
+#plugin-legend
+{
+    display: block;
+    float: left;
+    clear: both;
+    width: auto;
+    padding: 9px 0px 6px 6px;
+}
+#plugin-legend p
+{
+    width: 600px;
+    display: block;
+    float: left;
+    clear: right;
+    padding-top: 0px;
+}
+#plugin-legend ul
+{
+    display: inline;
+    float: left;
+    clear: left;
+}
+
+
+/* 
+=============================================================
+Override Global Style - Style for making the content area on left nav template minimum of 350px 
+=============================================================
+*/
+#content-main .main-inner
+{
+    min-height: 350px;
+}
+
+/* 
+===========================================================
+Override Global Style - Paragraph, Text and Table Styles in the Body Content
+===========================================================
+*/
+
+
+/***//*Fix the font increase issue*/
+div, table, span, ul, li /*,p*/
+{
+    font-family: Verdana;
+    font-size: 14pt;
+}
+
+p {
+    font-size: 12pt;
+}
+
+
+legend
+{
+    padding-right: 3px;
+    padding-left: 3px;
+}
+table, table tr, table td, table th
+{
+    border: none;
+    padding: 0px;
+}
+table span
+{
+    display: block;
+    float: left;
+    clear: none;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+}
+.ckd-initiative-Subtitle span 
+{
+	float:none !important;
+    }
+ 
+ .ckd-initiative-Subtitle span.tp-label
+ {
+ 	float:none !important;
+ 	background-color: Green;
+    }
+    .test
+    {
+    	float: none;
+    }
+    
+    
+table caption
+{
+    font-size: 1.6em;
+    font-weight: normal;
+    font-family: Trebuchet MS, Arial, sans-serif;
+    padding-bottom: .5em;
+}
+
+table th
+{
+    text-align: inherit;
+}
+
+
+/*
+======================================================
+NCCD template specific styles
+======================================================
+*/
+
+/* Login page style */
+#tblLogin
+{
+    width: 300px;
+    border-spacing: 5px;
+}
+
+#tblLogin .labelCol
+{
+    width: 100px;
+    font-weight: bold;
+}
+/* End Login page style */
+
+
+/* Change Password page style */
+
+#tblChangePassword
+{
+    width: 460px;
+}
+
+#tblChangePassword .labelCol
+{
+    width: 130px;
+    font-weight: bold;
+}
+
+/* End Change Password page style*/
+
+.btnRow
+{
+    text-align: center;
+}
+
+.commonControlWrapper
+{
+    padding: 20px 0px 20px 10px;
+}
+
+/*
+ * Overrides of core TemplatePackage styles.
+ */
+.pageOptions-horizontal .pageOptions-inner ul.forWide
+{
+    margin-left: 86px;
+}
+
+#return-link
+{
+    visibility: hidden;
+    height: 3px;
+}
+
+.roundem.grey
+{
+    background-color: #F6F6F6 !important;
+}
+
+div.module.page-curl.bulleted-links.find-health-data div.module-inputs
+{
+    margin: 0px 0px 0px 0px;
+    padding-bottom: 0px;
+    display: block;
+    clear: both;
+}
+div.module.page-curl.bulleted-links.find-health-data div.module-buttons
+{
+    margin: 12px 12px 12px 0px;
+    display: block;
+    clear: both;
+    text-align: right;
+}
+div.module.page-curl.bulleted-links.find-health-data div.module-buttons input
+{
+    font-weight: bold;
+    width: 80px;
+    height: 24px;
+}
+div.module.page-curl.bulleted-links.find-health-data .label
+{
+    font-weight: bold;
+    display: block;
+    clear: both;
+    margin: 12px 0px 3px 0px;
+}
+div.module.page-curl.bulleted-links.find-health-data .value
+{
+    display: block;
+    clear: both;
+    width: 98%;
+}
+
+
+.data-page-nav div.module-inputs-horizontal
+{
+    margin-top: 12px;
+    display: inline;
+    clear: both;
+    background-color: #cfcfcf;
+    padding: 6px;
+    border: solid 1px #afafaf;
+    font-weight: bold;
+}
+.data-page-nav div.module-buttons
+{
+    margin: 12px 12px 12px 0px;
+    display: inline;
+    clear: both;
+    text-align: right;
+}
+.data-page-nav div.module-buttons input
+{
+    font-weight: bold;
+    width: 80px;
+    height: 24px;
+    display: inline;
+}
+
+.data-page-nav
+{
+    background-color: #c5ded6;
+}
+.data-page-nav div.module-inputs
+{
+    display: inline-block;
+    clear: both;
+    padding: 6px;
+    font-weight: bold;
+}
+.data-page-nav div.module-inputs select
+{
+    margin-right: 24px;
+}
+.data-page-nav div.module-buttons
+{
+    margin: 12px 12px 12px 0px;
+    display: inline;
+    clear: both;
+    text-align: right;
+}
+.data-page-nav div.module-buttons input
+{
+    font-weight: bold;
+    width: 80px;
+    height: 24px;
+    display: inline;
+}
+
+.back-to-top
+{
+    display: block;
+    width: 100%;
+    float: right;
+    clear: both;
+    text-align: right;
+}
+
+/*
+ * LearnMoreControl.ascx (CKD Initiative Module)
+ */
+.module.rounders.bullet-list.initiative .twoColumn
+{
+    height: 85px;
+}
+
+/*
+ * Contact Info module
+ */
+#contact-info ul li
+{
+    border: medium none;
+    margin-left: 0;
+    padding: 2px 0 2px 2.75em;
+    position: relative;
+}
+
+/*
+ * HomePageCategoryControl.ascx
+ */
+
+.top-blocks
+{
+    padding-top: 9px;
+}
+#content-main .module.page-curl.bulleted-links ul
+{
+    padding-top: 3px;
+    display: block;
+    clear: both;
+}
+.module.page-curl.bulleted-links li.list-left
+{
+    width: 45%;
+    display: inline-block;
+    float: left;
+    clear: left;
+}
+.module.page-curl.bulleted-links li.list-right
+{
+    width: 45%;
+    display: inline-block;
+    float: right;
+    clear: right;
+}
+
+.ckd-explanation-accordion-header
+{
+    background-color: #c5ded6;
+    padding: 3px;
+    border: solid 1px #BFBFBF;
+    font-family: Verdana;
+    font-size: 10pt;
+    text-decoration: none;
+    color: #1a7aa2;
+}
+
+.ckd-explanation-body
+{
+    display:none;
+    border:1px solid #BFBFBF;
+    padding:5px;
+    margin-top:-1px;
+}
+
+.ckd-accordion
+{
+}
+.ckd-accordion-content
+{
+
+}
+
+.ckd-accordion-table-header-row
+{
+    background-color: #C1DED5;
+    padding-top:8px;
+    padding-bottom:8px;
+    border-radius:5px;
+}
+
+.ckd-accordion-header-title
+{
+
+}
+
+.ckd-accordion-header
+{
+    background-color: #F6FCFB;
+    padding: 3px;
+    /*border: solid 1px #CECECE;*/
+    font-family: Verdana;
+    font-size: 10pt;
+    text-decoration: none;
+    color: #1a7aa2;
+}
+
+.ckd-accordion table
+{
+    margin:0px;
+    width:100%;
+}
+
+.ckd-accordion table span
+{
+    float:none;
+}
+
+.ckd-accordion-header:hover
+{
+    cursor: pointer;
+}
+.ckd-accordion-header.selected:hover
+{
+    cursor: default;
+}
+
+.ckd-accordion span.minus,
+.ckd-accordion span.plus
+{
+    float:left;
+    display: inline-block;
+    width: 25px;
+}
+
+.ckd-accordion-category-description
+{
+    margin: 0px 0px 0px 20px; 
+    color:Black; 
+}
+.ckd-accordion-category-description a
+{
+	text-decoration:none !important;
+}
+.ckd-accordion-category-description a:hover
+{
+	text-decoration:underline !important;
+}
+
+.ckd-accordion span.hide
+{
+    display: none;
+}
+.ckd-accordion-header-label
+{
+    margin-right: 15px;
+    padding-left: 20px;
+    font-weight:bold;
+    cursor: pointer;
+    color:Black;
+}
+
+.ckd-accordion-indicator-row1
+{
+    background-color: #E8EEE9;
+}
+
+.ckd-accordion-indicator-row2
+{
+    background-color: white;
+}
+
+.ckd-accordion-subcat-header {
+    padding-left: 20px;
+    background-color: #E8EEE9 !important;
+}
+.ckd-accordion-subcat-header a
+{
+	  text-decoration:none !important;
+}
+.ckd-accordion-subcat-header a:hover
+{
+	  text-decoration:underline !important;
+}
+
+
+.ckd-accordion-subcat-label
+{
+    margin-right: 15px;
+    padding-left: 20px;
+    cursor: pointer;
+    display:inline !important;
+}
+
+.ckd-accordion-minus
+{
+    background: transparent url(../images/collapse.gif) no-repeat scroll left top;
+    /*width:50%;*/
+}
+
+.ckd-accordion-plus
+{
+    background: transparent url(../images/expand.gif) no-repeat scroll left top;
+    /*width:50%;*/
+}
+
+.ToolTipContent
+{
+    color: Black;
+    background-color: Red;
+}
+
+.ckd-accordion-indicator-hover-area
+{
+    position:relative;
+    margin-left:45px;
+    margin-top:4px;
+    text-align:left;    
+}
+
+.ckd-accordion-indicator-hover-area a
+{
+	text-decoration:none !important;
+}
+.ckd-accordion-indicator-hover-area a:hover
+{
+	text-decoration:underline !important;
+}
+.ckd-accordion-indicator
+{
+
+}
+
+#ckd-accordion-tooltip
+{
+    left:-1000px;
+    display:none;
+    height:10px;
+    position:absolute;
+    width:340px;
+    top:0px;
+}
+
+.borderdraw 
+{
+    line-height:0px;
+    width:0px;
+    height:0px;
+    line-height: 0%; 
+    border-style:solid;
+    font-size:0px;   	   
+    margin-top:20px; /*differences */
+    margin-left:35px;
+    float:left;  
+    clear:both;              
+	border-width: 00px 10px 20px 10px;			
+	border-color: #A8A8A8;
+    /*border-color: transparent transparent #F3F2F9 transparent;  Lighter grey*/
+    
+    /*
+    line-height:0px;width:0px;height:0px;
+    border-style:solid;
+    font-size:0px;
+    line-height: 0%; 
+    margin-top:40px;
+    margin-top:15px;
+    float:left;
+    border-width: 10px 40px 10px 00px;
+    border-width: 10px 20px 10px 00px;
+    border-color: transparent black transparent transparent;
+    border-color: transparent #a8a8a8 transparent transparent;
+    border-left:none;
+*/
+}
+
+.ckd-accordion-tooltip-body
+{
+    overflow:auto;
+   /* scroll:auto;*/
+    width:300px;
+    width:275px;
+    float:left;
+    background-color:#fff;
+    background-color:#f5f5f5; 
+    z-index:100; 
+    border:solid 1px black;
+    border:solid 1px #a8a8a8;
+    font-weight:normal;
+    font-size:10px; 
+    padding: 5px 5px 5px 5px;
+    height:75px;
+}
+
+.ckd-accordion-indicator-tooltip-content
+{
+    visibility:hidden;
+    height:0px;
+    position:absolute;
+    left:-10000px;
+    overflow:hidden;  
+}
+
+.ckd-tooltip-description-header
+{
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+#ckd-accordion-indicator-table
+{
+}
+#ckd-accordion-indicator-table td.ckd-accordion-indicator-table-col1
+{
+    width:60%;
+}
+#ckd-accordion-indicator-table td.ckd-accordion-indicator-table-col2
+{
+    width:15%;
+    text-align:center;
+}
+#ckd-accordion-indicator-table td.ckd-accordion-indicator-table-col3
+{
+    width:25%;
+    text-align:center;
+}
+
+#ckd-accordion-table
+{
+    border: 1px solid #E8EEE9;
+}
+
+#ckd-accordion-table td.ckd-accordion-table-col1
+{
+    width:60%;
+    padding:3px 0px 3px 3px;
+    font-weight:bold;
+    color: #1a7aa2;
+}
+#ckd-accordion-table td.ckd-accordion-table-col2
+{
+    width:15%;
+    padding:3px 0px 3px 0px;
+    text-align: center;
+    font-weight:bold;
+     color: #1a7aa2;
+}
+#ckd-accordion-table td.ckd-accordion-table-col3
+{
+    width:25%;
+    padding:3px 0px 3px 0px;
+    font-weight:bold;
+    text-align:center;
+     color: #1a7aa2;
+}
+
+.col1-header-accordion
+{
+ color: #1a7aa2; 
+ width:60%; 
+ padding:3px 0px 3px 3px; 
+ font-weight:bold; 
+ text-align:left;   
+}
+
+.col2-header-accordion
+{
+ color: #1a7aa2; 
+ width:15%; 
+ padding:3px 0px 3px 0px; 
+ text-align: center; 
+ font-weight:bold;   
+}
+
+.col3-header-accordion
+{
+ color: #1a7aa2; 
+ width:25%; 
+ padding:3px 0px 3px 0px; 
+ font-weight:bold;  
+ text-align:center;   
+}
+
+.detail-module-header
+{
+    font-weight: bold;
+}
+
+.details-module
+{
+    margin-top: 10px;
+}
+.ckd-category-combobox, .ckd-indicator-combobox 
+{
+    padding:0 5px 5px 5px;
+}
+
+.find-health-data .ckd-select-indicator
+{
+    width: 580px;
+}
+.find-health-data .ckd-select-indicator .module-inputs
+{
+    width: auto;
+    /*white-space: nowrap;*/
+    padding-top: 15px;
+}
+
+.find-health-data .ckd-select-indicator .ckd-category-combobox
+{
+    float:left;
+    width: auto;
+}
+.find-health-data .ckd-select-indicator .ckd-indicator-combobox
+{
+    float:left;
+    width: auto;
+    vertical-align: top;
+}
+.find-health-data .ckd-select-indicator-label
+{
+    font-weight: bold;
+    /*padding: 0px 0px 6px 0px;*/
+    width: 75px;
+    display: inline-block;
+    /*margin-top: -3px;*/
+}
+
+/* View Data & Trends By Module (HomePageCategoryControl.ascx) */
+.module.page-curl.bulleted-links.view-by .subc
+{
+    height: 155px;
+}
+
+.details-page .ckd-select-indicator
+{
+    /*width: 765px;*/ /* was 960, but flowed off the page */
+    overflow: visible;
+}
+
+.details-page .ckd-select-indicator .module-inputs
+{
+    width: auto;
+    white-space: nowrap;
+    padding-top: 2px;
+}
+
+.details-page .ckd-select-indicator .ckd-category-combobox
+{
+    float:left;
+    width: auto;
+}
+.details-page .ckd-select-indicator .ckd-indicator-combobox
+{
+    float:left;
+    width: auto;
+}
+
+.DDLWidget
+{
+    border:solid 1px silver;    
+    height:6em;
+}
+
+.data-page-nav .ckd-select-indicator .module-buttons-select-indicator
+{
+    float:left;
+    margin:13px 0 0 0;
+    /*text-align: right;*/
+    width: 80px;
+    vertical-align: top;
+}
+
+.data-page-nav .ckd-select-indicator .module-buttons-select-indicator input
+{
+    font-weight: bold;
+    width: 80px;
+    height: 24px;
+}
+
+.ckd-select-indicator .module-buttons-select-indicator
+{
+    margin: 0px 4px 12px 5px;
+    /*text-align: right;*/
+    width: 100%;
+    display: block;
+}
+
+.ckd-select-indicator .module-buttons-select-indicator input
+{
+    font-weight: bold;
+    width: 80px;
+    height: 24px;
+    display: inline;
+}
+
+.details-page .ckd-select-indicator-label
+{
+    font-weight: bold;
+    display: inline-block;
+    /*margin-top: 3px;*/
+    vertical-align: top;
+}
+
+.ckd-details-panel
+{
+    border-left: 1px solid #C4C4C4;
+    border-right: 1px solid #C4C4C4;
+    border-bottom: 1px solid #C4C4C4;
+    clear: both;
+    padding: 5px 5px 5px 5px; /*border-top:1px solid red;*/
+}
+
+/*Data sources tab*/
+.tabStrip
+{
+    /*border-bottom: 1px solid #C4C4C4;*/
+    clear: both; /*float: left;*/
+    width: 100%;
+    display: inline-block; 
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+
+
+.ckd-curvy-tab a
+{
+    text-align: center;
+    width: auto;
+    font-weight: bold !important;
+    padding: 5px 24px;
+    text-decoration: none;
+    display: inline-block;
+    margin-right:0px;
+    border-style: none;
+    color:#FFFFFF !Important;
+    cursor:pointer;
+    /*background-color:#cdcdcd;*/
+}
+
+.ckd-curvy-tab
+{
+    /*border-left: 5px solid #cdcdcd;
+    border-right: 2px solid #cdcdcd;
+    border-top: 1px solid #cdcdcd;*/
+    margin-left: 10px;
+    float: left;
+    cursor:pointer;
+}
+
+/*
+.tabStrip a.tabOff, .tabStrip a.tabOn  {
+    font-weight: bold !important;
+    padding: 5px 24px;
+    text-decoration:none;
+    display:block;
+}
+*/
+.tabOff
+{       
+    /*border-left: 1px solid #cdcdcd;
+    border-right: 2px solid #cdcdcd;
+    border-top: 1px solid #cdcdcd;*/
+    margin-left: 10px;
+    float: left;
+    background-color: #BFBFBF; /*background: none repeat scroll 0 0 #C4C4C4 !important;*/
+    white-space: nowrap;
+}
+
+.tabOn
+{    
+    /*border-left: 1px solid #cdcdcd;
+    border-right: 2px solid #cdcdcd;
+    border-top: 1px solid #cdcdcd;*/
+    margin-left: 10px;
+    float: left;
+    background-color: #1a7aa2; /*background: none repeat scroll 0 0 white !important;*/
+    white-space:nowrap;
+    cursor:default;
+    text-decoration: none;
+    
+}
+
+
+.ckd-tab-datasource-type
+{    
+    display: block;
+}
+
+.detail-left-control
+{
+    float: left;
+    width: 150px;
+    background-color: #F6F6F6;
+    margin: 4px;
+    padding: 5px;
+    border:solid 1px #c0c0c0;
+}
+
+.detail-right-control
+{
+    margin-left: 170px; /*Set left margin to LeftColumnWidth was 170px*/
+}
+
+.detail-full-width-control
+{
+    float:left;
+    margin-left:0px;    
+}
+
+.detail-static-subtitle
+{
+    font-size: 9pt;
+}
+
+.detail-static-title
+{
+    font-weight: bold; font-size: 10pt; font-family:Verdana;
+}
+
+.data-page-nav
+{
+    background-color: #c5ded6;
+    padding: 5px;
+    border: 1px solid #CDCDCD;
+    margin: 10px 0px 20px 0px;
+}
+
+.detail-key-points
+{
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.detail-static-graph
+{
+    padding: 5px;
+}
+
+.detail-ancillary-data
+{
+    padding: 5px;
+}
+
+.module-header-text
+{
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.detail-explanation-tooltip
+{
+    margin-right: 15px;
+    padding-left: 24px;
+    background: transparent url(../images/EnKP.jpg) no-repeat scroll left top;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #0A29A5;
+}
+
+.detail-related-indicators-tooltip
+{
+    margin-right: 15px;
+    padding-left: 24px;
+    background: transparent url(../images/related.png) no-repeat scroll left top;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #0A29A5;
+}
+
+.detail-methods-tooltip
+{
+    margin-right: 15px;
+    padding-left: 24px;
+    background: transparent url(../images/methods.jpg) no-repeat scroll left top;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #0A29A5;
+}
+.ckd-label-categories
+{
+    font-weight: bold;
+    display: inline-block;
+    margin: 5px 0px 7px 0px;
+}
+
+.rtCloseButton
+{
+    position: relative !important;
+}
+
+.rtWrapperTopCenter
+{
+    padding: 5px !important;
+}
+
+.rtTitlebar
+{
+    font: 12px "Segoe UI" ,Arial,Sans-serif !important;
+    font-weight: bold !important;
+}
+
+body[id="applicationsPage"]
+{
+    width: 1024px;
+    min-width: 1024px;
+}
+.ckd-faq-glossary-area
+{
+    float: right;
+    clear: right;
+    background: transparent url(../images/help.jpg) no-repeat scroll left top;
+    padding: 0px 9px 3px 21px;
+}
+.ckd-glossary-link
+{
+}
+.ckd-help-link
+{
+}
+.ckd-contactArea
+{
+    text-align: right;
+    float: right;
+    padding: 0px 10px 0px 10px; /* was 21,10,0,10 ml changed 7/31/2012*/
+    height: 100%;    
+}
+.ckd-home-page .ckd-contactArea
+{
+    float: none;
+    clear: both;
+}
+.ckd-contact-us-link
+{
+    margin-bottom: 8px;
+}
+
+#topic-intro
+{
+    clear: none !important;
+}
+span.ckd-spotlight-description
+{
+    display: block;
+    margin-top: 5px;
+}
+.ckd-glossary-table
+{
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin-left: 0px;
+    margin-left: 0px !important;
+}
+
+.ckd-glossary-table td
+{
+    border: 1px solid black;
+    padding: 3px;
+}
+
+.ckd-glossary-table-cell-center
+{
+    text-align: center;
+}
+
+ul.ckd-spotlight-list
+{
+    margin-left: 0px;
+}
+
+.ckd-detail-area {
+    border-top: 2px solid #1a7aa2;
+    border-bottom:1px solid #C4C4C4;
+    border-left:1px solid #C4C4C4;
+    border-right:1px solid #C4C4C4;
+}
+
+.RadComboBoxDropDown .rcbList
+{
+    float: left;
+}
+
+.rcbSlide
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: inline-block;
+}
+
+div.ckd-details-title-control-wrapper-color div.detail-static-title-div
+{
+    background-color: #c5ded6 !important;
+    padding: 5px;
+    margin: 5px 0px 0px 0px;
+}
+
+div.ckd-details-title-control-wrapper-nocolor div.detail-static-title-div
+{
+    background-color: white !important;
+    padding: 5px;
+    margin: 5px 0px 0px 0px;
+}
+
+.ckd-download-data 
+{
+    margin-bottom: 10px;
+}
+    
+.ckd-download-data a 
+{
+    margin-left: 5px;
+    padding-left: 20px;
+    background: transparent url(../images/download.jpg) no-repeat scroll left top;
+}
+
+.ckd-footnotes-dagger 
+{
+    width:10px;
+    /*float:left;*/
+}
+
+.ckd-footnotes-text
+{
+    margin-left: 10px;
+}
+
+.accordionBrandingImage 
+{
+    max-width:400px;
+}
+
+.ckd-home-image
+{
+    float: left;
+    margin-right: 10px;
+    height: 60px;
+    width: 256px;
+}
+image.ckd-healthy-people
+{
+    /*height: 46px;
+    width: 88px;*/
+    float: left;
+    clear: left;
+    margin: 3px 6px 0px 0px;
+}
+
+.ckd-fast-facts-rotator-title
+{
+    font-weight:bold;
+}
+
+.ckd-fast-facts-rotator-body
+{
+    margin-top:4px;
+    margin-bottom:5px;
+    margin-right:3px;
+    width:340px;
+}
+
+.ckd-fast-facts-rotator-image
+{
+    float: left;
+    margin-right: 10px;
+    width: 100px;
+}
+
+.ckd-fast-facts-rotator-wrapper
+{
+    width:340px;
+}
+
+/* Suggested Citation Module */
+.ckd-suggested-citation
+{
+    /*margin: 3px 0px 9px 0px;*/    
+    padding-left:.5em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-right:.5em;
+    background-color:#f6fcfb;
+    border:solid 1px silver;   
+}
+#content .ckd-suggested-citation h3
+{
+    font-weight: bold;
+    font-size: 14px;
+}
+.ckd-suggested-citation .citation-block
+{
+}
+
+/* Executive Summary Module */
+.ckd-exec-summary
+{
+  /*  margin: 2px;*/
+}
+#content .ckd-exec-summary h3
+{
+    font-weight: bold;
+    font-size: 14px;
+}
+.ckd-exec-summary .description
+{
+    padding: 9px 0px;
+}
+.ckd-exec-summary img.branding
+{
+   display: none;
+   margin-left:-20px !important;
+   padding-top:2px !important;
+}
+.ckd-exec-summary ul
+{
+    list-style-type: none;
+}
+.ckd-exec-summary ul li
+{
+    display: inline-block;
+}
+
+.module .ckd-exec-summary-hp .subc
+{
+    padding-top: 3px;
+}
+.ckd-exec-summary-hp .ckd-more-link
+{
+    display: inline-block;
+    margin: 6px 0px;
+}
+.ckd-exec-summary-hp img.branding
+{
+    float: left;
+    clear: left;
+    height: 100px;
+    width: 60px;
+    padding: 6px 4px 3px 0px !important;
+    
+}
+.ckd-exec-summary-lbltitle
+{
+	color:Black;
+}
+.ckd-exec-summary-hp .description
+{
+}
+
+/* Healthy People 2020 Home Page Module */
+.ckd-healthy-people
+{
+}
+.ckd-healthy-people .description
+{
+}
+.ckd-healthy-people img
+{
+}
+.ckd-healthy-people .more-link
+{
+    float: none;
+    clear: both;
+    padding: 0px 0px 6px 0px;
+}
+
+/* Help Page */
+body.widePage.ckd-popup div#content div.main-inner
+{
+    padding-top: 18px;
+}
+
+.ckd-hide-button
+{
+    display: none;
+}
+.ckd-help-wizard
+{
+    width: 96%;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+.ckd-help-wizard.sidebar
+{
+    width: 20%;
+    vertical-align: top;
+    padding-right: 9px;
+    border-right: solid 1px gray;
+}
+.ckd-help-wizard.step
+{
+    width: 80%;
+    vertical-align: top;
+    height: 800px;
+    padding-left: 9px;
+}
+.ckd-sidebar-link
+{
+    margin: 6px 0px;
+   
+    
+}
+
+.ckd-sidebar-link a
+{
+    text-decoration:none;
+     
+}
+.ckd-sidebar-link a:hover
+{
+    text-decoration:underline !important;
+   
+    
+}
+
+.module.roundem.ckd-initiative table tr td
+{
+    padding: 9px;
+}
+.ckd-initiative-wizard td
+{
+    float: left;
+    clear: both;
+    width: 1000px;
+    display: inline;
+}
+.ckd-initiative-wizard-sidebar .module.roundem.ckd-initiative table
+{
+    display: inline;
+    width: 100%;
+    margin: 0;
+}
+.ckd-initiative-wizard-sidebar .module.roundem.ckd-initiative table tr,
+.ckd-initiative-wizard-sidebar .module.roundem.ckd-initiative table tr td
+{
+    display: inline;
+    float: left;
+    width: auto;
+}
+.module.roundem.ckd-initiative
+{
+    padding: 3px 0px 0px 12px;
+}
+.padding3
+{
+    padding:3px;
+}
+
+.text-center
+{
+    text-align:center;
+}
+
+#content .module ul.exec-summary
+{
+    margin: 6px 0px;
+    padding:0px;
+}
+#content .module ul.exec-summary li.inline,
+#content .module ul.exec-summary li.inline a.inline
+{
+    display: inline;
+    border: none;
+}
+
+.ckd-contact-us
+{
+}
+.ckd-contact-us tr td
+{
+    vertical-align: top;
+    padding: 6px 3px;
+}
+
+.ckd-contact-us tr td.buttons
+{
+    text-align: center;
+}
+
+.ckd-contact-us tr td.buttons input
+{
+    font-weight: bold;
+    width: 80px;
+}
+
+.ckd-contact-us.contact-info
+{
+    float: left;
+    display: block;
+}
+
+.ckd-contact-us.contact-info .address
+{
+    width: 320px;
+    display: inline;
+    float: left;
+    padding: 18px 0px 18px 27px;
+    background: url(/ckd/TemplatePackage/images/icon_mail.gif) no-repeat 0px 18px;
+}
+.ckd-contact-us.contact-info .phone-email
+{
+    width: 300px;
+    display: inline;
+    float: left;
+    padding: 18px 0px;
+}
+
+.ckd-contact-us.contact-info .phone-email .phone
+{
+    padding-left: 27px;
+    padding-bottom: 6px;
+    background: url(/ckd/TemplatePackage/images/icon_phone.gif) no-repeat 0px 0px;
+}
+.ckd-contact-us.contact-info .phone-email .email
+{
+    padding-left: 27px;
+    background: url(/ckd/TemplatePackage/images/icon_envelope.gif) no-repeat 0px 0px;
+}
+
+.ckd-contact-us-confirm-message
+{
+    display: block;
+    height: 350px;
+    vertical-align: middle;
+    margin: 0px auto;
+}
+
+.validator-error
+{
+    display: block;
+    width: 100%;
+    color: Red;
+}
+
+.label
+{
+    font-weight: bold;
+}
+.label.extra
+{
+    color: Gray;
+    display: block;
+    width: 100%;
+}
+.value.extra
+{
+    color: Gray;
+    display: block;
+    width: 100%;
+}
+
+/* Secondar Window (aka Popups) styles */
+body.widePage.ckd-popup,
+body.widePage.ckd-popup div#wrapper
+{
+    width: 770px;
+    min-width: 770px;
+    max-width: 770px;
+}
+body.widePage.ckd-popup .main-inner
+{
+    text-align: left;
+}
+body.widePage.ckd-popup #topic-title
+{
+    border-top: solid 4px black;
+    margin-top: -10px;
+}
+body.widePage.ckd-popup div#branding
+{
+    background: none;
+    height: 80px;
+}
+body.widePage.ckd-popup div.preFoot
+{
+    height: 10px;
+    min-height: 10px;
+    border-bottom: solid 4px black;    
+}
+body.widePage.ckd-popup div#siteinfo-nav
+{
+    background-color: Transparent;
+    height: 0px;
+    min-height: 0px;
+}
+body.widePage.ckd-popup div#branding div#branding-logo
+{
+    background-position: 5px 0px;
+}
+body.widePage.ckd-popup div#branding div#branding-logoImage
+{
+    float: left;
+    display: inline;
+    clear: left;
+}
+body.widePage.ckd-popup div.ckd-close-window
+{
+    float: right;
+    display: inline;
+    clear: right;
+    vertical-align:middle;
+    margin-top:17px;
+    
+}
+.main-inner.ckd-close-window.a:visited
+{
+	
+	}
+.main-inner.ckd-close-window.a:visited
+{
+	
+	}
+.ckd-close-window a:hover
+{
+	text-decoration:none !important;
+	}
+
+.main-inner.ckd-close-window.a:active
+{
+	
+	}
+body.widePage.ckd-popup input.value.name
+{
+    width: 300px;
+}
+body.widePage.ckd-popup input.value.telephone
+{
+    width: 300px;
+}
+body.widePage.ckd-popup input.value.e-mail
+{
+    width: 300px;
+}
+
+.ckd-detail-area table
+{
+    margin:0px !Important;
+}
+
+table.ckd-details-dynamic-table
+{
+    /*border-collapse: collapse;*/
+    /*border:1px solid silver;*/
+}
+
+table.ckd-details-dynamic-table td
+{
+    padding:20px;
+    border:1px solid #BFBFBF;
+    text-align:center;
+    font-size:11px;
+}
+
+table.ckd-details-dynamic-table th
+{
+    padding:3px;
+    border:1px solid #BFBFBF;
+    color:#1a7aa2;
+    background-color:#C1DED5;
+    text-align:center;
+}
+
+table.labelHeader th
+{
+    padding:0px;
+    border:1px solid #BFBFBF;
+    color:#1a7aa2;
+    background-color:#C1DED5;
+    text-align:center;
+}
+
+table.ckd-details-dynamic-table caption
+{
+    background-color:#C1DED5;
+    border:1px solid #BFBFBF;
+    color:#1a7aa2;
+    text-align:center;
+    font-size:10pt;
+    font-weight:bold;
+    }
+.module.roundem.select-help
+{
+    margin-top: 9px;
+}
+
+/* Glossary Module */
+.module.roundem.glossary
+{
+
+}
+.module.roundem.glossary ul
+{
+     list-style-type: none;
+}
+.module.roundem.glossary ul li
+{
+    list-style-type: none;
+    border: none;
+    display:inline;
+    float: left;
+    
+    
+}
+
+/* FAQs Module */
+.module.roundem.faqs
+{
+}
+.module.roundem.faqs ul
+{
+    padding-left: 24px;
+}
+.module.roundem.faqs ul li
+{
+    /*list-style-type: decimal;*/
+    list-style-type:none;
+    border: none;
+}
+
+/* Data Sources Help Module */
+.module.roundem.datasources
+{
+    margin-top: 12px;
+}
+.module.roundem.datasources ul
+{
+    padding: 0;
+    margin: 0;
+}
+.module.roundem.datasources ul li
+{
+    list-style-type: none;
+    border: none;
+    display: inline;
+    float: left;
+}
+.ckd-data-source-help.datasources
+{
+}
+.ckd-data-source-help.datasources ul
+{
+    padding: 0;
+    margin: 0;
+}
+.ckd-data-source-help.datasources ul li
+{
+    list-style-type: none;
+}
+.ckd-data-source-help.datasources ul li span
+{
+    float: none;
+    padding: 0px 0px 0px 0px;
+}
+
+
+/* Categories/Topics Help Module */
+.module.roundem.topics
+{
+    margin-top: 12px;
+}
+.module.roundem.topics ul
+{
+    padding: 0;
+    margin: 0;
+}
+.module.roundem.topics ul li
+{
+    list-style-type: none;
+    border: none;
+    display: inline;
+    float: left;
+}
+.ckd-data-source-help.topics
+{
+}
+.ckd-data-source-help.topics ul
+{
+    padding: 0;
+    margin: 0;
+}
+.ckd-data-source-help.topics ul li
+{
+    list-style-type: none;
+}
+.ckd-data-source-help.topics ul li span
+{
+    float: none;
+    padding: 0px 0px 0px 0px;
+}
+
+
+/* Key Points Help Module */
+.ckd-data-source-help.keypoints
+{
+}
+.ckd-data-source-help.keypoints ul
+{
+    padding: 0;
+    margin: 0;
+}
+.ckd-data-source-help.keypoints ul li
+{
+    list-style-type: none;
+}
+.ckd-data-source-help.keypoints ul li span
+{
+    float: none;
+    padding: 0px 0px 0px 0px;
+}
+.title
+{
+	/* border-top: solid 4px white;*/
+    margin: 25px 0px 7px 8px;
+    
+    font-family: Trebuchet MS !important ;
+	font-size : 16pt !important;
+	color: #1a7aa2 !important;
+	font-weight:normal !important;
+	
+}
+.Pagetitle
+{
+	 border-top: solid 4px white;
+	/*  margin: 60px 0px 30px 0px;*/
+    font-family: Trebuchet MS !important ;
+	font-size : 14pt !important;
+	color: #1a7aa2 !important;
+	font-weight: normal;
+		
+}
+.execSummarytitle
+{
+	  
+    font-family: Trebuchet MS !important ;
+	font-size : 15pt !important;
+	color: #1a7aa2 !important;
+	
+	
+}
+
+.ckd-initiative-title
+{
+	font-family: Trebuchet MS ;
+	font-size:12pt;
+	 color: #1a7aa2;
+	 font-weight:bold;
+}
+.ckd-initiative-Subtitle
+{
+	font-family: Trebuchet MS !important;
+	font-size:10pt !important;
+	 color: #1a7aa2 !important;
+	 font-weight:bold !important;
+}
+.EnabledGoButton
+{
+	background-color: #1a7aa2 !important;
+	border-color: #808080 !important; 
+	color: #FFFFFF !important;
+}
+.DisabledGoButton
+{
+	background-color: #F5F4EA !important;
+	border-color: #C9C7BA !important; 
+	color: #C9C7BA !important;
+}
+
+table.specs_sheet, .specs_sheet th, .specs_sheet td 
+{border:solid 1px #000000; text-align:left; vertical-align:top; }
+.specs_sheet th[scope="row"], .specs_sheet td{font-weight:normal;}
+/* HTML DATA TABLE */
+table#tblResults caption
+{   color:#1a7aa2; background-color:#c1ded5;font-size:1.5em; padding:0.5em 0.5em;font-size:1.25em;
+    border:1px solid #bfbfbf;border-bottom:solid 0px transparent; white-space:normal;font-weight:bold;
+    text-align:left;font-size:11pt; font-family:Verdana;
+}
+table#tblResults caption sup
+{   font-size:17pt;
+}
+table#tblResults 
+{   border-collapse:collapse;width:100%;
+}
+
+table#tblResults th
+{   padding:0.5em; border:1px solid #bfbfbf; width:15em; /*font-family:Verdana Sans-Serif;*/
+}
+table#tblResults th[mode="row"],table#tblResults th[scope="row"]
+{   text-align:left;
+}
+table#tblResults th[mode="col"],table#tblResults th[scope="col"]
+{   text-align:center;color:#1a7aa2; background-color:#c1ded5; 
+}
+
+table#tblResults td
+{   text-align:center;padding:0.5em; border:1px solid #bfbfbf;width:15em; height:5em;
+}
+.spanDataText{padding-left:0.5em;}
+.spanDataSymbol{padding-left:0.1em; }
+/* HTML DATA TABLE */
+
+
+a.lastcrumb:link, a.lastcrumb:hover, a.lastcrumb:visited{text-decoration:none; color:Black;}
+
+/*div.detail-static-title sup{font-weight:bold; font-size:1em; font-family:Verdana; font-size:16pt;}*/
+div.detail-static-title sup{font-weight:bold; font-family:Verdana; font-size:9pt;}
+
+div#divResultsScroller{overflow-y:auto; width: 60em;}
+
+.hidden 
+{
+    position:absolute;
+    left:-10000px;
+    top :auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+/* Handles HTML dropdown */
+select 
+{
+   border:solid 1px #808080;
+   background-color:#F2F2F2;
+}
+optgroup 
+{
+    font-size:10px;
+    /*text-transform:uppercase;*/
+    color:#1155cc;
+}
+option 
+{
+    text-indent:5px;
+    /*text-transform:capitalize;*/
+    color:Black;
+}
+.keypoints_methods_data 
+{
+    border:solid 1px silver; 
+    padding: 5px 0px 0px 0px; 
+    border-top-color:#1a7aa2; 
+    border-top-width:2px;
+}
+.methods_table
+{
+    padding:2px 2px 2px 4px;
+}
+
+.ckd-tab-datasource-type
+{
+    text-decoration:underline;
+}
+.btnNoUnderline
+{
+    text-decoration:none;
+}
+.btnUnderline
+{
+    text-decoration:underline;
+}
+.gentleborder
+{
+    border:solid 1px silver;
+}
+.versionheader
+{
+     border:solid 1px silver; 
+     background-color:#DCDCDC;          
+}
+.versionInformationDIV
+{
+    display:block;
+    color:gray;
+    margin-left:10px;    
+}
+.indent
+{
+    padding:0px 0px 0px 15px;   
+}
+.padcontents10
+{
+ padding-bottom:10px;
+ padding-right:10px;
+ padding-left:10px;
+ padding-top:10px; 
+}
+.PointyFinger
+{
+    cursor:pointer;
+}
+.errorLinks
+{
+    top:-10px;
+    left:-10px;
+    width:952px;
+    height:20px;
+    position:relative;
+    padding:3px 3px 3px 3px;
+    background-color:#F5F9ED;    
+}
+.keypointMethods_repeater_table_div
+{
+    clear:both;    
+    width: 95%; 
+    display:inline-block;
+    margin: 1px 60px 5px 0px;    
+}
+.keypointMethods_table
+{  
+    clear:both;
+    padding: 1px 2px 2px 2px;
+    position:relative;    
+    float:left;
+    text-align:left;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.keypointsMethods_table_td
+{    
+    padding: 2px 2px 2px 4px;   
+}
+
+.articleTitle
+{
+ font-size:1.1em; 
+ font-family:Arial; 
+ font-weight:bold;   
+}
+
+.articleCitation
+{
+  font-size:.9em; 
+  font-family:Arial;   
+}
+.spotlightNavigation
+{
+    left:-3px; 
+    width: 350px; 
+    position:relative; 
+    background-color:#c5ded6;
+}
+
+.FAQSources sup, .glossaryAnswer sup
+{
+    /*These are comomises to get <sup> in Chrome, FF and IE to look presentable*/
+    font-size:0.8em;
+    font-weight:bold;
+    /*vertical-align:top;*/
+}
+
+.WKDLinks
+{
+ display:inline-block; 
+ padding-top:5px;       
+}
+
+.wkdTagLine
+{
+    float:right; 
+    border:solid 1px silver; 
+    background-color:#D8232A;
+    color:White; 
+    font-weight:bold;
+    text-align:center;
+}
+.wkdLogo
+{
+    float:left;
+    border:solid 1px silver;
+}
+
+.WHDLinks
+{
+ display:inline-block; 
+ padding-top:5px;       
+}
+
+.whdTagLine
+{
+    float:right; 
+    border:solid 1px silver; 
+    background-color:#CCCCFF;
+    color:Maroon; 
+    font-weight:bold;
+    text-align:center;
+}
+.whdLogo
+{
+    float:left;
+    border:solid 1px silver;
+}
+.HP2020LogoOverlay
+{
+ z-index:2000;
+ position:relative;
+ top: 100px;
+ left: 600px;
+}
+
+/*Tag line at top of  Default page*/
+.FrontPageTagLine
+{
+ font-size:16px; 
+ color:#1a7aa2;
+}
+
+/* Drop downs on SelectIndicatorControl */
+.selectRounder
+{    
+    border-radius: 5px;
+    -webkit-border-radius: 5px; /* For safari */
+    -moz-border-radius: 5px; /* For mozilla */       
+}

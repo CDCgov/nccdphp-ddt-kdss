@@ -1,0 +1,88 @@
+﻿/*.OuterBox
+{    
+    border:solid .05em silver;
+    
+    margin-bottom:.5em;
+    margin-top:.5em;    
+}*/
+
+
+.widgetTitleH3
+{    
+    background-color:#c5ded6; 
+    
+    margin:0em 0em 0em 0em; 
+    padding-left:.5em; 
+    
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+.widgetUL
+{
+    padding-top:.7em;
+}
+
+.subc
+{
+    float:left; 
+    width:100%;
+}
+#divspLEFT
+{
+    clear:left; 
+    float: left; 
+    
+    width: 49%; 
+    height: 190px; 
+    
+    border:solid .1em silver;
+}
+#divspRIGHT
+{
+    clear: right; 
+    float: right; 
+    
+    width: 49%; 
+    height: 190px; 
+    
+    border:solid .1em silver;
+}
+.widgetBorder
+{
+    border:solid .1em silver;
+}
+.darkWidget
+{
+    background-color:#c5ded6;
+}
+.lighterWidget
+{
+    background-color:#f5fbfa;
+}
+.PhoneTopics
+{
+    background-color: #EFEFEF;
+    border:solid .09em silver;
+}
+.PhoneTopicsTitle
+{
+    background-color: #c5ded6;
+    border:solid .09em silver;
+    text-align:center;
+    font-weight:bold;
+}
+.phoneTopics
+{
+    text-decoration:none;
+    cursor:pointer;
+}
+.module-typeA h3
+{
+    background-color:#c5ded6 !important;
+    color:#1a7aa2 !important;
+}
+
+.topicButtonSpans
+{
+    border-right:solid .1em silver;
+}

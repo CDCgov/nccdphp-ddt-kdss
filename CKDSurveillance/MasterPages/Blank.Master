@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Blank.master.cs" Inherits="CKDSurveillance_RD.MasterPages.Blank" %>
+
+<!DOCTYPE html>
+<%@ Register Src="~/UserControls/TemplateLocal/ucOmniture.ascx" TagName="Omniture" TagPrefix="ucLocal" %>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+
+    <script src="/TemplatePackage/3.0/js/libs.min.js"></script>
+    <%--<script src="../TemplatePackage/3.0/js/core.min.js"></script>--%>
+    <%--<script src="../TemplatePackage/3.0/js/app.min.js"></script>--%>
+
+
+    
+    <link href="/TemplatePackage/3.0/css/themes/theme-teal.css" rel="stylesheet" />
+    <%--<link href="../App_Themes/bootstrap.min.css" rel="stylesheet" />--%>
+    <link href="/TemplatePackage/3.0/css/lib/bootstrap24.css" rel="stylesheet" />
+    <%--<link href="../App_Themes/bootstrap.min.css" rel="stylesheet" />--%>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentMain" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    <ucLocal:Omniture ID="Omniture1" runat="server" />
+</body>
+</html>

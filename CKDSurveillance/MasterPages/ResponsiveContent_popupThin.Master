@@ -1,0 +1,183 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ResponsiveContent_popupThin.Master.cs" Inherits="CKDSurveillance_RD.MasterPages.PopupMasterThin" %>
+
+<%@ Register Src="~/UserControls/TemplateLocal/ucSkipNavigation_PopupThin.ascx" TagPrefix="uc1" TagName="ucSkipNavigation_PopupThin" %>
+
+<!DOCTYPE html>  
+
+
+<%--<%@ Register Src="~/UserControls/TemplateLocal/ucOmniture.ascx" TagPrefix="ucLocal" TagName="ucOmniture" %>--%>
+
+
+
+
+
+
+<!--[if lt IE 8]>      <html class="no-js nav theme-teal lt-ie10 lt-ie9 lt-ie8" lang="en-us"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js nav theme-teal lt-ie10 lt-ie9" lang="en-us"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js nav theme-teal lt-ie10" lang="en-us"> <![endif]-->
+<!--[if !IE]><!-->     <html class="no-js nav theme-teal esp" lang="en-us"> <!--<![endif]-->
+
+<head runat="server" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    
+    <title>Chronic Kidney Disease (CKD) Surveillance Project</title>
+    
+
+	<meta name="description" content="Chronic Kidney Disease (CKD) Surveillance Project" />
+	<meta name="keywords" content="CDC, CKD, Surveillance, Chronic Kidney Disease" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/TemplatePackage/3.0/images/cdc-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/TemplatePackage/3.0/images/cdc-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/TemplatePackage/3.0/images/cdc-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" href="/TemplatePackage/3.0/images/cdc-touch-icon-57x57.png" />
+	<link rel="shortcut icon" href="/TemplatePackage/3.0/images/favicon.ico" />
+
+	<meta name="robots" content="index,follow" />
+	<meta property="cdc:template_version" content="3.0" />
+	
+    <% Response.WriteFile(ConfigurationManager.AppSettings["TemplatePackageFolder"].ToString() + "/3.0/includes/Head.html"); %>    	    
+    
+
+    <%--************--%>
+    <%--*Javascript*--%>
+    <%--************--%>
+     <!-- jQuery is part of the libs.min.js.   It is version 1.8.3.   The responsive template does not support the use of other version.  
+     If you find you  have a specific needs to an newer version please consult with Chronic development team. -->    
+    <script type='text/javascript' src='<%= ResolveUrl("/TemplatePackage/3.0/js/libs.min.js") %>'></script>
+    <script type='text/javascript' src='<%= ResolveUrl("/TemplatePackage/3.0/js/core.min.js") %>'></script>
+        
+
+
+    <%--*****--%>
+    <%--*CSS*--%>
+    <%--*****--%>
+    <link href="/TemplatePackage/3.0/css/lib/bootstrap24.css" rel="stylesheet" />
+    <link href="../App_Themes/custom.css" rel="stylesheet" />
+    <link href="../App_Themes/local.css" rel="stylesheet" />
+    <link href="../App_Themes/theme-teal.css" rel="stylesheet" />
+    
+
+    <%--*CSS*--%>
+    
+    
+           
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+     <style type="text/css">
+            
+            .anchorCloseWindow
+            {
+                text-decoration:underline; 
+                cursor:pointer;
+            }
+            .divCloseWindow
+            {
+                display:block;
+                width:99%;
+                text-align:right;  
+                border-top:solid .4em black;              
+            }
+            .outerContentDiv 
+            {
+                padding-left:15px;
+            }
+
+        </style>
+</head>
+<body>
+  
+    <uc1:ucSkipNavigation_PopupThin runat="server" id="ucSkipNavigation_PopupThin" /><%--Only two navs to skip in this MP--%>
+
+   <%--<div  id="wrapper" >--%>
+    <a name="wrapper"></a>
+
+
+    <div id="logo" class="span14">
+        <% Response.WriteFile(ConfigurationManager.AppSettings["TemplatePackageFolder"].ToString() + "/3.0/includes/logo.html"); %>    	    
+	</div>
+
+
+    <%--*****************--%>
+    <%--*Close Page Link*--%>
+    <%--*****************--%>
+    <div>
+        <br />        
+        <a onclick="javascript:window.close(); return false;" class="anchorCloseWindow" >
+            Close Window
+        </a>
+    </div>
+    
+       <br />
+       
+    <%--*************************************--%>
+    <%--*uses a gradient png as a background*--%>
+    <%--*************************************--%>
+    <div class="SeparatorBar" ></div>
+
+    <br />
+    <br />
+
+
+    <%--********************************--%>
+    <%--*Multi-lined Project Page Title*--%>
+    <%--********************************--%>
+    <div class="title">
+        <h2 class="title">Chronic Kidney Disease (CKD) Surveillance Project</h2>                    
+    </div>   
+
+   <form id="form1" runat="server">
+
+    <div class="outerContentDiv">
+        <asp:ContentPlaceHolder ID="contentArea2" runat="server" ClientIDMode="Static">
+        
+        </asp:ContentPlaceHolder>
+	</div>
+            
+    <br />
+
+       <%--*****************--%>
+       <%--*Close Page Link*--%>
+       <%--*****************--%>
+       <div class="divCloseWindow">                
+        <a onclick="javascript:window.close(); return false;" class="anchorCloseWindow" >            
+            Close<br />Window
+        </a>
+    </div>
+
+
+
+
+    <div id="sessionTimeoutWarning" style="display: none"></div>
+
+       
+    
+
+    <%--************--%>
+    <%--*Javascript*--%>
+    <%--************--%>
+     <!-- jQuery is part of the libs.min.js.   It is version 1.8.3.   The responsive template does not support the use of other version.  
+     If you find you  have a specific needs to an newer version please consult with Chronic development team. -->
+        
+    
+         
+
+     <asp:ScriptManager LoadScriptsBeforeUI="False" ID="ScriptManager1" runat="server">
+        
+    </asp:ScriptManager>    
+
+
+    <!-- It is expected that any page level javasript to be added to the Custom Javascript content section on the page implementing the master page. -->
+     <asp:ContentPlaceHolder ID="CustomJavaScript" runat="server">
+
+         
+    </asp:ContentPlaceHolder>   
+
+	</form>
+   <%--</div>--%>
+    <%--<ucLocal:ucOmniture runat="server" id="ucOmniture" />--%>
+</body>
+</html>

@@ -1,0 +1,553 @@
+﻿body {
+    font-size: 18px !important;
+}
+
+.dataSourceRBTitle {
+    font-size: 16px !important;
+}
+
+/*----------------------------------------------------------------------*/
+/**************/
+/**Data Table**/
+/**************/
+.IndicatorPagetitle {
+    border-top: solid 4px white;
+    font-family: Trebuchet MS !important;
+    font-size: 28pt !important;
+    color: #333333 !important;
+    font-weight: normal;
+}
+
+.Pagetitle {
+    border-top: solid 4px white;
+    font-family: Trebuchet MS !important;
+    font-size: 14pt !important;
+    color: #1a7aa2 !important;
+    font-weight: normal;
+}
+
+table.ckd-details-dynamic-table td {
+    padding: 20px;
+    border: 1px solid #BFBFBF;
+    text-align: center;
+    font-size: 16px;
+}
+
+table.ckd-details-dynamic-table th {
+    padding: 3px;
+    border: 1px solid #BFBFBF;
+    color: #1a7aa2;
+    background-color: #C1DED5;
+    text-align: center;
+}
+
+
+/*------------------------------------------------------------------*/
+/***********************************************/
+/*Indicator selector for Populations Indicators*/
+/***********************************************/
+.nonMMTMISelect {
+    width: 62%;
+    background-color: #F5F0DD; /*#E1F5FE;*/ /*#B3E5FC;*/
+    border: 2px solid #F4791F;
+    font-size: 16px !important;
+}
+
+    .nonMMTMISelect option {
+        font-weight: normal;
+    }
+
+    .nonMMTMISelect optgroup {
+        font-weight: bold;
+        color: #084239;
+    }
+
+
+
+/*---------------------------------------------------------------*/
+/* Suggested Citation Module */
+.citationHeader {
+    font-family: "Verdana", "Helvetica Neue";
+    font-size: 16px !important;
+    font-weight: bold;
+}
+
+.citation-block {
+    font-size: 15px;
+}
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/**********************************/
+/**General page CSS (was in-page)**/
+/**********************************/
+div.hovertooltip { /*for the maps hover overs*/
+    position: absolute;
+    text-align: left;
+    height: 45px;
+    padding: 6px;
+    font: bold 12px sans-serif;
+    background: #EEE;
+    border: 1px solid #555;
+    border-radius: 8px;
+    pointer-events: none;
+    display: none;
+    opacity: 1;
+}
+
+div.hovertooltip_tabs { /*for the maps hover overs*/
+    position: absolute;
+    text-align: left;
+    min-width: 200px;
+    height: 155px;
+    padding: 6px;
+    font: Arial;
+    background: #EEE;
+    border: 1px solid #555;
+    border-radius: 8px;
+    pointer-events: none;
+    display: none;
+    opacity: 1;
+}
+
+.questionContents {
+    border: solid .1em silver;
+    margin-right: -1em;
+    margin-top: -.1em;
+    padding-left: .4em;
+}
+
+.scrunchLine {
+    line-height: .9em;
+}
+
+a:not([href]) {
+    font-weight: bold !important;
+}
+
+#pnlFootnotes em {
+    padding: 0px !important;
+}
+
+#pnlFootnotes u {
+    padding: 0px !important;
+}
+
+#pnlFootnotes sup {
+    padding: 0px !important;
+}
+
+.relatedIndicatorPanel {
+    padding-bottom: 5px;
+}
+
+.divRightContainer {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 20px;
+}
+
+.sliderInfoDisplay {
+    height: 14px;
+    width: 32px;
+    background-color: #DEEEE9;
+    padding: 2px;
+    border: solid 1px silver;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+    color: maroon;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    vertical-align: middle;
+}
+
+
+.vTickerNavButton {
+    border: solid 1px gray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: silver;
+    color: #000000;
+    margin-top: 3px;
+    padding: 3px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+    .vTickerNavButton:hover {
+        border: solid 1px #084239;
+        background-color: #000000;
+        color: #Deeee9;
+    }
+
+.sliderWrapperDiv {
+    border: solid 1px silver;
+    height: 115px;
+    background-color: #DEEEE9;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /*box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+}
+
+.smallscreenmessage {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.MapAnimationButtons {
+    width: 27px;
+    height: 27px;
+    cursor: pointer;
+}
+
+.MapAnimationNext {
+}
+
+.mapsOverTime {
+    /*width: 175px;*/
+    cursor: pointer;
+    padding-top: 2px;
+
+}
+
+    .mapsOverTime label {
+        font-family: Verdana;
+        font-size: 12px;
+    }
+
+
+.modal-body, .modal {
+    height: 200px;
+    z-index: 100000;
+}
+
+.form-horizontal {
+    text-align: center;
+}
+
+.modal {
+    width: 300px !important;
+    height: 300px !important;
+    left: 40%;
+    top: 40%;
+    margin: 0px !important;
+}
+
+.modal-open .modal {
+    overflow-y: hidden !important;
+}
+
+.modal-backdrop, .modal-backdrop.fade.in {
+    opacity: .6;
+}
+
+fieldset {
+    border: none;
+}
+
+.overlayText {
+    z-index: 1000000;
+    opacity: 1;
+    color: black;
+    background-color: White;
+}
+
+.overlayContainer {
+    left: 44%;
+    top: 65%;
+    position: absolute;
+    height: 150px;
+    width: 250px;
+    z-index: 999999;
+    border: solid 1px silver;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: White;
+    color: #000000 !important;
+    text-align: center;
+    /*visibility:hidden;*/
+    display: none;
+}
+
+.dropdown-menu {
+    width: 100%;
+}
+
+/*****************/
+/**Media Queries**/
+/*****************/
+@media (max-width: 991px) {
+    /*widget strats and years*/
+    .stratButtonsContainingDiv, .YearButtonsContainingDiv, .divLeftContainer, #pnlMap {
+        display: none;
+    }
+
+    .sliderWrapperDiv {
+        display: none;
+    }
+
+    .ddlStrats, .ddlYears {
+        display: table-cell;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .questionContents {
+        border: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .ddlYears, .ddlStrats, .ddlStratHeader {
+        display: none;
+    }
+
+    .smallscreenmessage {
+        display: none;
+    }
+}
+
+
+.bread-crumb.hidden-one { /*disabling the breadcrumbs*/
+    pointer-events: none;
+    cursor: default;
+}
+
+
+#share-bar {
+    margin-bottom: 0px !important; /*removing the addtional margin associated with the social media buttons*/
+}
+
+#contentArea {
+    margin-top: -20px; /*moving the content area links up to remove additional space between it and the social media buttons*/
+}
+
+.TMIBreadcrumbs {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #DEEEE9;
+    border: solid 1px silver;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.TMITopic {
+    /*background-color: #084239;*/
+    color: #084239;
+}
+
+.TMIMeasure {
+    /*color: Navy;*/
+    /*font-weight: bold;*/
+}
+
+.TMIIndicator {
+    /*color: #084239;*/
+}
+
+
+
+.dsTab {
+    line-height: 1.2em;
+    text-decoration: underline;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.dsTabInactive {
+    background-color: #084239;
+    border-top: 2px solid #084239;
+    border-right: 2px solid #084239;
+    border-left: 2px solid #084239;
+    cursor: pointer;
+}
+
+.dsTabActive {
+    background-color: #F5F0DD; /*silver; */
+    border-top: 2px solid #F4791F;
+    border-right: 2px solid #F4791F;
+    border-left: 2px solid #F4791F;
+    color: #F4791F;
+    cursor: not-allowed;
+}
+
+.kptext {
+    background-color: white;
+    padding: .5em .5em .5em .5em;
+    margin-bottom: 1em;
+    margin-left: .7em;
+    width: 96%;
+}
+
+.tabbyDiv {
+    width: 95%;
+}
+
+.divRightContainer {
+    background-color: #F6F6F6;
+    /*border:solid 1px silver;*/
+    border-left: solid 1px #e0e0e0;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    /*min-height:100px;*/
+}
+
+.divLeftContainer {
+    background-color: #FFFFFF;
+    /*border:solid 1px silver;*/
+    /*border-right:solid 1px #e0e0e0;*/
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    min-height: 100px;
+}
+
+.gutterHeaders {
+    font-weight: bold;
+    /*font-size:14px;*/
+    font-size: .9em;
+    font-family: Verdana;
+    margin-left: .5em;
+    margin-top: .4em;
+}
+
+.toggler {
+    max-width: 80px;
+}
+
+.vdbLabel {
+    font-size: 12px;
+    font-family: Verdana;
+}
+
+.btnClicked {
+    color: black;
+}
+
+#tab-Methods, #tab-Notes, #tab-KeyPoints, #tab-RefDataSources, #tab-SpecSheet, #tab-ChartDescription {
+    height: 250px;
+    overflow-y: auto;
+}
+
+    #tab-Notes.ui-tabs-panel, #tab-Methods.ui-tabs-panel, #tab-KeyPoints.ui-tabs-panel, #tab-RefDataSources.ui-tabs-panel, #tab-SpecSheet.ui-tabs-panel, #tab-ChartDescription.ui-tabs-panel {
+        background-color: #fff !important;
+    }
+
+.dataSourceRBTitle {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.ulNoIndent {
+    list-style: none;
+    margin-left: 0 !important;
+}
+
+.measureTitle {
+    font-size: 11px;
+}
+
+
+#spnViewDataTable {
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: navy; /*#1a7aa2;*/
+}
+
+    #spnViewDataTable:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+.ulNoIndent {
+    background-color: #F6F6F6;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+    .ulNoIndent li {
+        margin-bottom: 3px;
+        padding-left: 12px !important;
+        font-family: Verdana !important;
+    }
+
+.ulNoIndent {
+    padding-bottom: 5px;
+}
+ ul {
+         padding-inline-start: 0px;
+ }
+li strong {
+    font-family: Verdana !important;
+}
+
+.radioButtonList label {
+    display: inline;
+    padding: 3px;
+    padding-right: 8px;
+}
+
+.radioButtonList input {
+    margin-top: 0px;
+}
+
+.radioButtonList {
+    margin: 5px;
+}
+
+.checkBoxList input {
+    margin-left: 5px;
+}
+
+.checkBoxList label {
+    display: inline;
+    padding: 3px;
+}
+
+.visually-hidden {
+    position: absolute;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}

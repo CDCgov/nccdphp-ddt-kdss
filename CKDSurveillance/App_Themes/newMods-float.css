@@ -1,0 +1,1040 @@
+@charset "UTF-8";
+/**
+ * CDC - (X)HTML/CSS Framework
+ *
+ * @package         TemplatePackage 'B'
+ * @version         2.5.2
+ * @builddate       06-16-2010 (We, 16 June 2010)
+ */
+
+@media screen, projection
+{
+
+.top-blocks { position:relative;
+	margin:0 0 10px 0;
+	border:none;
+	padding:0;
+	overflow:visible;
+}
+*:first-child+html #moduleTypeII .rounders.top-blocks {width:100%;}
+
+	body .top-blocks .c1 {
+		display:inline;
+		float:left;
+		padding:0;
+		width:49.25%;
+	}
+	*:first-child+html body .top-blocks .c1 {width:49%;}
+	
+	body .top-blocks .c2 {
+		display:inline;
+		float:right;
+		padding:0;
+		width:49.25%;
+	}
+	*:first-child+html body .top-blocks .c2 {width:49%;}
+
+	.top-blocks dl:hover {
+		background-color:#fdf8da;
+		border-top:1px solid #cecfb5;
+		border-left:1px solid #cecfb5;
+		border-right:1px solid #666;
+		border-bottom:1px solid #666;
+		cursor:pointer;
+	}
+	.top-blocks dl {
+		background-color:rgb( 254, 254, 254);
+		display:block;
+		margin:5px 0;
+		border-top:1px solid #dfdfdf;
+		border-right:1px solid #999;
+		border-bottom:1px solid #999;
+		border-left:1px solid #dfdfdf;
+		padding:10px;
+		min-height:4.15em;
+		width:auto;
+		overflow:hidden;
+	}
+
+	.top-blocks .group:hover {
+		background-color:#fdf8da;
+		border-top:1px solid #cecfb5;
+		border-left:1px solid #cecfb5;
+		border-right:1px solid #666;
+		border-bottom:1px solid #666;
+		cursor:pointer;
+	}
+	.top-blocks .group {
+		background-color:rgb( 254, 254, 254);
+		margin:5px 0;
+		border-top:1px solid #dfdfdf;
+		border-right:1px solid #999;
+		border-bottom:1px solid #999;
+		border-left:1px solid #dfdfdf;
+		padding:3px 0;
+		position:relative;
+		min-height:6em;
+		/*height:6em;*/
+		width:auto;
+		overflow:hidden;
+	}
+		#content .top-blocks .group.subTwoCl {margin:2.5px 2.5px 2.5px 0;}
+		#content .top-blocks .group.subTwoCr {margin:2.5px 0 2.5px 2.5px;}
+		
+			#content .top-blocks .group:hover h5 a {text-decoration:underline;}
+			#content .top-blocks .group:hover a {text-decoration:underline;}
+			
+			.top-blocks .group dl:hover {
+				background-color:transparent;
+				border:none;
+				cursor:auto;
+			}
+			.top-blocks .group dl {
+				background-color:transparent;
+				display:block;
+				margin:0;
+				border:none;
+				padding:0;
+				height:auto;
+				min-height:100%;
+			}
+			*:first-child+html .top-blocks dt {min-width:100%;}
+
+*:first-child+html .top-blocks .group {
+	position:relative;
+	width:100%;
+}
+
+	.top-blocks .group div {padding:10px;}
+	.top-blocks div .group img {
+		clear:both;
+		display:block;
+		float:left;
+		position:relative;
+		margin-right:5px;
+		margin-bottom:5px;
+		border:none;
+	}
+	#bottom-container .top-blocks dl:hover a {
+		text-decoration:underline;
+		display:block;
+	}
+	#bottom-container .top-blocks dl a {
+		display:block;
+		font-size:1.1em;
+		font-weight:bold;
+		text-decoration:none;
+	}
+.top-blocks dd {
+	display:inline;
+	font-size:0.9em;
+}
+.top-blocks p {font-size:0.9em;}
+
+.top-blocks h5 {
+	margin-bottom:0;
+	padding-bottom:0;
+	line-height:1;
+}
+
+.double-rule {
+	background-color:#ebf5dd;
+	margin:0 0 10px;
+	border:1px solid #cdcdcd;
+	padding:3px;
+}
+.double-rule > div {
+	background-color:#fff;
+	margin:0;
+	padding:0;
+}
+
+.noBorder {
+	background-color:#fff; 
+	margin:0 0 10px;
+	padding:4px;
+}
+.noBorder > div {
+	background-color:#fff;
+	margin:0;
+	padding:0;
+}
+.noBorder.noHeader .inner {margin-top:12px;}
+
+/* ====== testing ====== */	.module .inner p:last-child {margin-bottom:0; border-bottom:none;}
+
+	.module .noCorner {padding:5px;}
+	.module .c1 .noCorner {margin-right:0.5em;}
+	.module .c2 .noCorner {margin-left:0.5em;}
+		.module .c1 .noCorner p {margin-bottom:0;}
+/**
+ * = Reset last paragraph to bottom padding smaller ===============================================
+ */
+/* ====== testing ====== */	/*.module p:last-child,
+.module.blocklist .typeC p:last-child,
+.module.blocklist .typeD p:last-child {
+	margin:0;
+	padding-bottom:0.5em;
+}*/
+
+.typeD img,
+.noCorner img,
+img.center,
+#content .twoColumn img.center,
+#content .subTwoCol img.center {
+	float:none;
+	display:block;
+	margin:5px auto;
+}
+
+.page-curl {
+	background:#fff url('/ckd/TemplatePackage/images/bgPagecurlShadow.gif') right bottom no-repeat;
+	margin:0 0 3px 0;
+	padding:0 0 7px 0;
+}
+.page-curl > div {
+	background-color:#fff;
+	margin:0;
+	border:1px solid #cdcdcd;
+	padding:3px;
+}
+
+.twoColumn {
+	padding:0 5px;
+	overflow:hidden;
+}
+.right + .twoColumn {padding:0 5px 0 0;}
+.left + .twoColumn {padding:0 0 0 5px;}
+
+.top-blocks .twoColumn {
+	margin:0;
+	padding:0 9px;
+}
+.rounders .twoColumn {padding:0;}
+
+#content .module h3,
+#content .rounders h3,
+#content #topList h3 {
+	color:#0c5205;
+	font-family:"Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0.5em 1%;
+	line-height:1;
+}
+#content .rounders h3,
+#content .roundem h3 {padding:2px 1px 6px 1px;}
+
+.double-rule h3 {background:#eef7e3 url('/ckd/TemplatePackage/images/bgDoubleH2-noIcon.gif') right bottom repeat-x;}
+
+.page-curl h3 {background-color:#eef7e3;}
+.page-curl h5 {
+	display:block;
+	position:relative;
+}
+.page-curl > div > h3 + h5 {margin-top:0.75em;}
+
+	.type2 p {margin:0.5em 0 0 !important;}
+
+.two-columns {
+	margin:0 0 10px 0;
+	padding:0;
+	width:auto;
+	overflow:hidden;
+}
+
+.module.underline {
+	clear:both;
+	width:auto;
+	overflow:visible;
+}
+
+	.module .c1 {
+		display:inline;
+		float:left;
+		margin-left:0;
+		width:49%;
+	}
+	.module .c2 {
+		display:inline;
+		float:right;
+		margin-right:0;
+		width:49%;
+	}
+
+.module ul,
+.module ol {
+	/*position:relative;*/
+	margin:0;
+	padding:0;
+}
+
+.module li,
+.rounders li {
+	margin:0;
+	display:list-item;
+	border-bottom:1px dotted #999;
+	padding:3px 2.5px; 
+	list-style:none;
+}
+
+.module .menu {margin-bottom:1em;}
+.module .menu li,
+.rounders .menu li {
+	border-bottom:none;
+}
+
+.module .inliner,
+.rounders .inliner {display:inline-block;}
+
+	#content .module a:hover,
+	#content .rounders li a:hover {text-decoration:underline;}
+	
+	#content .module li a,
+	#content .rounders li a {
+		display:block;
+		padding-top:0;
+		padding-bottom:0;
+		text-decoration:none;
+	}
+	
+	#content .module .menu li a,
+	#content  .rounders .menu li a {display:inline;}
+	
+	#content .module a.external:hover span.tp-label,
+	#content .rounders a.external:hover span.tp-label {text-decoration:underline;}
+
+	#content .module a.external:hover,
+	#content .rounders a.external:hover,
+	#content .module a.noDecoration:hover,
+	#content .rounders a.noDecoration:hover {text-decoration:none;}
+	
+	#content .module a {text-decoration:none;}
+
+.blocklist p {
+	display:block;
+	margin:0 0 0.5em;
+	border-bottom:1px dotted #999;
+	padding:0 0 0.5em 0;
+	overflow:hidden;
+}
+*:first-child+html .blocklist p {min-height:100%; min-width:100%; overflow:auto;}
+
+.module p.lastChild,
+.module .lastChild {
+	border:none;
+	padding-bottom:0.5em;
+	margin-bottom:0;
+}
+
+.nolines li, .nolines p {border:none;}
+
+.module .nolines li,
+.module.primaryBox li {border-bottom:1px solid #fff;}
+
+.module.bullet-list .nolines li,
+.module .bullet-list.nolines li,
+.module.primaryBox.bullet-list li {
+	border-bottom:1px solid transparent;
+	padding:3px 0 3px 1.25em;
+}
+	.boldlinks a,
+	.subc p a,
+	.subcl p a,
+	.subcr p a {font-weight:bold;}
+	
+	.clearLine {/*display:block;*/clear:both;}
+
+.bullets li,
+.bullet-list li { /** = this should never have links inside of the list = */ 
+	background:transparent url('/ckd/TemplatePackage/images/black_bullet.png') no-repeat 0.3em 0.65em;
+	margin:0;
+	border-bottom:1px solid transparent;
+	list-style:none;
+	padding:3px 0 3px 1.25em;
+}
+/**:first-child+html .page-curl ul,
+*:first-child+html .page-curl ol {min-width:100%;}*/
+
+.bulleted-links li,
+.cdcForYou ul li {
+	background:transparent url('/ckd/TemplatePackage/images/blue_bullet.png') 0.3em 0.65em no-repeat;
+	display:block;
+	position:relative;
+	margin:0;
+	border-bottom:1px solid transparent;
+	padding:3px 0 3px 1.25em;
+	list-style:none;
+}
+
+.module.primaryBox {clear:both;} /** = determined if this is still supported = */
+
+	.module.primaryBox .c1 {
+		display:inline;
+		float:left;
+		margin:0;
+		padding:0;
+		width:33%;
+	}
+	.module.primaryBox .c2 {
+		display:inline;
+		float:left;
+		margin:0;
+		padding:0;
+		width:33%;
+	}
+	*:first-child+html .module.primaryBox .c2 {
+		min-width:33%;
+		max-width:33%;
+	}
+	.module.primaryBox .c3 {
+		display:inline;
+		float:right;
+		margin:0 0 0 -5px;
+		padding:0;
+		width:33%;
+	}
+
+.somemore, .module p.somemore {
+	clear:both;
+	color:#0061aa;
+	margin:0;
+	border:none;
+	padding:0;
+	text-align:right;
+}
+	.somemore a:hover {text-decoration:underline;}
+	.somemore a {
+		background:transparent url('/ckd/TemplatePackage/images/btn_dblArrows.gif') right bottom no-repeat;
+		clear:both;
+		display:block;
+		font-weight:bold;
+		margin:0 2px 0 0;
+		padding:2px 1em 4px 0;
+		text-align:right;
+		text-decoration:none;
+		float:right;
+	}
+	
+	#content .arrow a {
+		position:relative;
+		background:transparent url('/ckd/TemplatePackage/images/btn_dblArrows.gif') right 0.55em no-repeat;
+		display:block;
+		font-weight:bold;
+		margin:0;
+		padding:3px 1em 3px 0;
+		text-align:left;
+		text-decoration:none;
+		width:auto;
+		clear:both;
+	}
+
+#content .lastChild {
+	border-bottom:none;
+	margin-bottom:0;
+}
+
+.roundem {
+	background-color:#f6faec;
+	border:1px solid #cdcdcd; /* for testing purpose not part of official release */
+														border-radius: 7px;
+														-webkit-border-radius: 7px;
+														-moz-border-radius: 7px;
+	margin:0 0 1em;
+}
+
+.roundem .inner {
+	padding:10px;
+	overflow:hidden;
+}
+*:first-child+html .roundem .inner {overflow:auto;}
+
+.roundem p:last-child {
+	margin-bottom:0;
+	border-bottom:none;
+	padding-bottom:0;
+}
+
+.rounders {
+	position:relative;
+	margin:0;
+	z-index:1;
+	margin-left:12px; /** = default, width of left corner = */
+	margin-bottom:10px; /** = spacing under rounders = */
+}
+.module.rounders {margin-bottom:10px;}
+
+.rounders .inner,
+.rounders .t,
+.rounders .b,
+.rounders .b div {background:transparent url('/ckd/TemplatePackage/images/bg_twoBlocksGreen.gif') top right no-repeat;}
+
+#content-secondary #news-events .inner,
+#content-secondary #news-events .t,
+#content-secondary #news-events .b,
+#content-secondary #news-events .b div {background-image:url('/ckd/TemplatePackage/images/bg_twoBlocksGreen.gif');}
+
+#content #content-secondary #news-events.rounders h3 {color:#0c5307;}
+
+.rounders.top-blocks .inner,
+.rounders.top-blocks .t,
+.rounders.top-blocks .b,
+.rounders.top-blocks .b div {background-image:url('/ckd/TemplatePackage/images/bg_twoBlocksGreen.gif');}
+
+.rounders.grey .inner,
+.rounders.grey .t,
+.rounders.grey .b,
+.rounders.grey .b div {background-image:url('/ckd/TemplatePackage/images/bg_greyStroke.gif');}
+
+.rounders.gold .inner,
+.rounders.gold .t,
+.rounders.gold .b,
+.rounders.gold .b div {background-image:url('/ckd/TemplatePackage/images/bg_roundersGold.gif');}
+
+.rounders.email .inner,
+.rounders.email .t,
+.rounders.email .b,
+.rounders.email .b div,
+#nav-container .rounders .inner,
+#nav-container .rounders .t,
+#nav-container .rounders .b,
+#nav-container .rounders .b div {background-image:url('/ckd/TemplatePackage/images/bg_emailUpdates.gif');}
+
+.rounders .inner {
+	position:relative;
+	margin:0;
+	padding:12px 12px 0 0;
+}
+
+*:first-child+html .rounders .inner {padding-bottom:1px;}
+
+.rounders .t {
+	/** = top+left vertical slice = */
+	position:absolute;
+	left:0;
+	top:0;
+	width:12px; /** = top slice width = */
+	margin-left:-12px;
+	height:100%;
+	background-position:top left;
+	z-index:-10;
+}
+
+.rounders .b {
+	/** = bottom = */
+	position:relative;
+	width:100%;
+}
+	*:first-child+html .rounders .b {min-width:100%;}
+
+.rounders .b,
+.rounders .b div {
+	background-color:transparent;
+	height:12px; /** = height of bottom cap/shade = */
+	font-size:1px;
+}
+
+.rounders .b {
+	background-position:bottom right;
+	background-color:transparent;
+}
+
+.rounders .b div {
+	position:relative;
+	width:12px; /** = bottom corner width = */
+	margin-left:-12px;
+	background-position:bottom left;
+}
+
+.rounders .hd,
+.rounders .bd,
+.rounders .ft,
+.multiPage-horiz .hd,
+.multiPage-horiz .bd,
+.multiPage-horiz .ft {position:relative;}
+
+.rounders .bd span,
+.roundem .bd span{display:block; margin-top:1em; padding-bottom:0.25em;}
+
+.rounders .wraps{
+	/** = extra rounders-inner protector - preventing vertical overflow (past background) = */
+	position:static;
+	max-height:1600px;
+	overflow:hidden; /** = note that overflow:auto causes a rather annoying redraw "lag" in Firefox 2, and may degrade performance. Might be worth trying without if you aren't worried about height/overflow issues. = */
+}
+
+.rounders h1,
+.rounders h4,
+.rounders h5,
+.rounders ul,
+.rounders ol {
+	position:relative;
+	margin:0; /** = margins will blow out backgrounds, leaving whitespace. = */
+	padding:0;
+}
+
+.rounders ol {padding:0;}
+.rounders ol li {
+	margin-left:2em;
+	border:none;
+	background:transparent;
+	list-style:decimal outside;
+}
+.rounders.grey li, 
+.module.rounders.grey li {border-bottom:1px solid #f6f6f6;}
+
+.module ol li.mySelection,
+.module ul li.mySelection,
+.rounders ol li.mySelection,
+.rounders ul li.mySelection,
+#multiPage ol li.mySelection {
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+.rounders p {
+	position:relative;
+	margin:0 0 0.25em;
+	padding:0 0 0.5em;
+}
+	.rounders p.lastChild, 
+	.rounders p:last-child {
+		margin:0;
+		padding:0;
+	}
+	
+	.rounders p.somemore { /** = margins will blow out backgrounds, leaving whitespace. = */
+		margin-bottom:-4px;
+		padding:0.5em 0 0.25em;
+	}
+
+.rounders h3 {padding-bottom:0;}
+
+.rounders div img,
+.roundem .inner img {
+	display:block;
+	margin-right:auto;
+	margin-left:auto;
+	padding:3px;
+}
+
+/*div.bulleted-links li a span, .relatedMaterial li a span {text-transform:uppercase;}*/
+
+#content-main a span.plugIns {display:inline-block;}
+
+#content a.external span.tp-label,
+#content a.noDecoration span.tp-label,
+#content .pageOptions-inner a.noDecoration:hover span.tp-label,
+#content div.cdc-caption .cdc-caption-text a.external span.tp-label {
+	text-decoration:underline;
+	display:inline;
+}
+
+#content a.external img.externalImg,
+#content ul li a.external span.tp-label,
+#content ul li a.external:hover,
+#content .module a.external span.tp-label,
+#content .module a.noDecoration span.tp-label,
+#content .relatedMaterial li a.external span.tp-label,
+#content .relatedMaterial li a.noDecoration span.tp-label,
+#content .rounders li a.noDecoration,
+#content .rounders li a.noDecoration:hover,
+#content .rounders li a.noDecoration span.tp-label,
+#content .rounders li a.external span.tp-label,
+#content ul li a.noDecoration span.tp-label,
+#content ul li a.noDecoration:hover,
+#content ul li a,
+#content .pageOptions-inner a.noDecoration,
+#content .pageOptions-inner a.noDecoration span.tp-label,
+#content a.noDecoration:hover span.tp-label,
+#content div.cdc-caption .cdc-caption-text a.external:hover span.tp-label {text-decoration:none;}
+
+#content ul li a:hover,
+#content ul li a:hover span.tp-label,
+#content ul li a.noDecoration:hover span.tp-label,
+#content .module a:hover span.tp-label,
+#content .relatedMaterial li a:hover span.tp-label,
+#content .rounders li a:hover span.tp-label {text-decoration:underline;}
+
+#content a span.plugIns,
+#content .module a span.plugIns,
+#content .relatedMaterial li a plugIns,
+#content .rounders li a span.plugIns {
+	color:gray;
+	font-size:90%;
+}
+
+#content a:hover span.plugIns,
+#content a:hover span.tp-label {
+	text-decoration:none;
+	cursor:pointer;
+}
+
+.email .inner img{margin:0 auto;}
+.rounders.email .inner a {display:block;}
+
+.inner p a {color:#0a29a5;}
+.inner p a:hover {text-decoration:underline;}
+
+#onthispage, #onthispage2 {
+	float:right;
+	margin:0 0 0 10px;
+	padding:0;
+	width:33.3%;
+}
+#onthispage2 {width:66.6%;}
+
+.subColumns #onthispage {margin:0;}
+
+.multiPage {
+	float:right;
+	position:relative;
+	margin-left:0.5em;
+	border:1px solid #cdcdcd;
+	padding:0;
+	width:45%;
+}
+
+#content-main .multiPage-horiz h4,
+#content-main .multiPage-horiz h5 { position:relative;
+	margin:0 auto;
+	border-bottom:1px solid #cdcdcd;
+	padding:4px 0;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:1em;
+	text-align:center;
+	width:auto;
+}
+	#multiPage .inner {
+		margin:0;
+		padding:4px 8px;
+		width:auto;
+	}
+	#multiPage ol {
+		/*margin:0 0 0 1.75em;*/
+		padding:0 0 0 2em;
+		list-style:decimal;
+	}
+	*:first-child+html .multiPage ol {margin-left:2em;}
+		#multiPage ol li {
+			display:list-item;
+			border-bottom:none;
+			padding:0;
+			list-style:decimal;
+			vertical-align:middle;
+		}
+		*:first-child+html .multiPage ol li {overflow:hidden;}
+		
+			#content #multiPage ol li a {padding:3px 0;}
+
+.numbLinks li {color:#0a29a5;}
+	.numbLinks li a {
+		display:block;
+		padding:3px 0;
+		z-index:10;
+	}
+	*:first-child+html .numbLinks li a,
+	*:first-child+html .module li a,
+	*:first-child+html #onthispage li a,
+	*:first-child+html #multiPage li a,
+	*:first-child+html .double-rule>.inner {min-width:100%;}
+	
+	#onthispage .bulleted-links li {list-style:none; overflow:hidden;}
+
+.page-curl > div,
+.double-rule > div,
+.noBorder > div {
+	background-color:#fff;
+	overflow:hidden;
+}
+/* ====== testing ====== */	*:first-child+html .module .inner {overflow:visible;}
+
+.module .inner .subc {
+	margin:0 1%;
+	padding:0;
+	/* ====== testing ====== */	overflow:hidden;
+}
+*:first-child+html .module .inner .subc {padding:0 3px; max-width:none;}
+
+	.module .inner .subc h5 {margin-top:0.5em;}
+
+.module.multiPage-horiz.border { /* = this is affecting IE6 it is inheriting the border = */
+	display:block;
+	float:none;
+	position:relative;
+	margin-bottom:1em;
+	border:1px solid #cdcdcd;
+	padding:0;
+	width:auto;
+	overflow:auto;
+}
+.multiPage-horiz {
+	position:relative;
+	width:auto;
+}
+
+.roundem.multiPage-horiz {background-color:#f6f6f6;}
+
+#content-main .multiPage-horiz h4,
+#content-main .multiPage-horiz h5,
+#content-main .multiPage h5 {
+	display:block;
+	position:relative;
+	margin:0 auto;
+	font-size:1em;
+	font-weight:normal;
+	min-width:100%;
+	text-align:center;
+	overflow:hidden;
+}
+#content-main .multiPage-horiz h5 {border-bottom:none;}
+
+#content-main .multiPage-horiz h4 {
+	border-bottom:1px dashed #cdcdcd;
+	position:relative;
+	text-align:right;
+	margin:0;
+}
+	.module.multiPage-horiz h4 span,
+	.multiPage-horiz h4 span {
+		display:inline;
+		float:left;
+		text-align:left;
+		width:50%;
+	}
+	.multiPage-horiz h4 span.nextLink {
+		display:inline;
+		float:right;
+		text-align:right;
+		width:50%;
+	}
+	.module.multiPage-horiz h4 span a,
+	.multiPage-horiz h4 span a {
+		background:transparent url('/ckd/TemplatePackage/images/arrow-blue-lt.png') 0 center no-repeat;
+		padding:0 0 0 1em;
+		text-align:left;
+	}
+	.multiPage-horiz h4 span.nextLink a {
+		background:transparent url('/ckd/TemplatePackage/images/arrow-blue-rt.png') right center no-repeat;
+		padding:0 1em 0 0;
+		float:none;
+	}
+
+.module.multiPage-horiz.border .inner {
+	position:relative;
+	text-align:center;
+	margin-bottom:1em;
+	padding:0 12px;
+}
+.rounders.multiPage-horiz .inner,
+.roundem.multiPage-horiz .inner {
+	text-align:center;
+	margin-bottom:auto;
+}
+.multiPage-horiz ol { display:block;
+	position:relative;
+	margin:0.5em auto 0;
+	padding:0;
+	list-style:none;
+	width:auto;
+	text-align:center;
+}
+	.multiPage-horiz ol li {
+		display:inline;
+		float:none;
+		margin:0 auto;
+		border:none;
+		padding:0;
+		width:12px;
+		text-align:center;
+	}
+		#content-main .multiPage-horiz ol li a {
+			display:inline;
+			float:none;
+			margin:0 auto;
+			padding:4px
+		}
+
+/**
+ * = Blog Module Rules ===========================
+ */
+
+ /** 
+ * = new row type module ====================
+ */
+.module noBorder.rowBlock {margin-bottom:1em;}
+
+.rowBlock .twoColumn {
+	background:transparent url(/TemplatePackage/images/modules/bg_rowBlock_dashed.jpg) center bottom repeat-x;
+	margin:0 3px;
+	padding:0 0 1px;
+}
+*:first-child+html .rowBlock .twoColumn {width:100%;}
+
+.rowBlock .twoColumn:last-child, .rowBlock .twoColumn.lastChild {background-image:none;}
+
+.module.rowBlock .subc {padding:0;}
+		.rowBlock .inner .twoColumn .subc {padding:0;}
+
+.module.noBorder.rowBlock .inner .subc, .noBorder .inner .twoColumn .subc {padding:0 3px;} {padding:0 3px;}
+
+.module.rowBlock .subc:first-child {margin:0.5em 0 0;}
+
+.rowBlock p {
+	float:left;
+	margin:0 0.75%;
+	padding-bottom:0.5em;
+	width:48%;
+	min-width:48%;
+}
+
+.rowBlock p:first-child {
+	margin-left:0;
+	padding-right:0.25%;
+	width:49%;
+	min-width:49%;
+}
+.rowBlock p + P {
+	margin-right:0;
+	/*padding-left:0.25%;*/
+	width:49%;
+	min-width:49%;
+}
+
+.rowBlock p img {
+	float:left;
+	margin:3px 5px 0 0;
+	vertical-align:text-top;
+}
+
+.rowBlock p a {display:block;}
+
+/**
+ *================================================
+ * = Modules for content-secodary Right Rail
+ */
+
+#content-secondary .module {margin-right:12px;}
+
+#content-secondary .related {
+	background:transparent url('/ckd/TemplatePackage/images/bgRelatedLinks.png') 0 0 no-repeat;
+	margin:12px 0;
+	position:relative;
+	width:169px;
+}
+
+/**
+ * = MODULES TAKEN FROM THEME-BLUEHOME.CSS =======
+ */
+#topList {
+	clear:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	width:100%;
+}
+#topList h3 {
+	color:#09316c;
+	font-size:1.4em;
+	margin:0 0 5px 0;
+	padding:0;
+	width:100%;
+}
+.listScroll {
+	height:115px;
+	width:98%;
+	background-color:#fff;
+	border:1px solid #000;
+	margin-bottom:10px;
+	font-size:0.95em;
+	overflow:auto;
+}
+ul.noBullet li {
+	background-color:#fff;
+	background-image:none;
+	display:block;
+	margin:0;
+	padding:5px;
+	list-style:none;
+	width:auto;
+	border-bottom:1px dotted #cdcdcd;
+}
+
+/** 
+ * = New modules in development below =======
+ */
+.relatedMaterial {clear:both;}
+
+.relatedMaterial.rounders li a {
+	display:inline-block;
+	padding:0;
+}
+
+.relatedMaterial.rounders ul {padding:0;}
+
+.relatedMaterial.rounders li {
+	display:list-item;
+	background:transparent url('/ckd/TemplatePackage/images/blue_bullet.png') 0.25em 0.65em no-repeat;
+	padding:3px 0 3px 1.25em;
+}
+
+/*.azMenuList {display:none;}
+.homepage .azMenuList, .topicHome .azMenuList {display:block;}*/
+
+.rounders.azMenuList .inner, .rounders.azMenuList .t, .rounders.azMenuList .b, .rounders.azMenuList .b div {background-image:url('/ckd/TemplatePackage/images/bg_accent.gif');}
+.rounders.azMenuList .inner {padding:6px 12px 0 0;}
+.rounders.azMenuList .b {
+	background-color:transparent;
+	background-position:right bottom;
+	margin-top:-4px;
+	z-index:-10;
+}
+ 
+.module .groupBlock.btmDots {border-bottom:1px dotted #cdcdcd;}
+
+.twoColumn .subTwoCl {padding:0 0.5em 0 0;}
+.twoColumn .subTwoCr {padding:0 0 0 0.5em;}
+
+.twoColumn img.lefty {
+	float:left;
+	margin:2px 10px 0 0;
+}
+.twoColumn img.righty {
+	float:right;
+	margin:2px 0 0 10px;
+}
+
+.module .one {padding-bottom:10px;}
+/** = Future development for standard grid = */
+			.cdc-left {float:left; margin-right:10px;}
+			.cdc-right {float:right; margin-left:10px;}
+			
+			.oneZ {width:100px;}
+			.twoZ {width:200px;}
+			.threeZ {width:300px;}
+			.fourZ {width:400px;}
+			.fiveZ {width:500px;}
+			
+						.main-inner .cdc-caption.c25r, .main-inner img.pic.c25r {float:right; margin:0 0 0 1%; width:24%}
+						
+						.main-inner .cdc-caption.c25r .subc, .main-inner .cdc-caption.c25r .subc {margin:0;}
+						
+						.main-inner div.cdc-caption img {width:100%;}
+						.main-inner div.cdc-caption img.externalImg, .main-inner div.cdc-caption img.plugin {width:auto;}
+						/*.main-inner div.cdc-caption img.stroke, .main-inner div.cdc-caption img.frame {margin:0 auto; width:92% !important;}*/
+			
+			div.oneZ img.pic, div.oneZ a {width:92px;}
+			div.twoZ img.pic, div.twoZ a {width:192px;}
+			div.threeZ img.pic, div.threeZ a {width:292px;}
+			div.fourZ img.pic, div.fourZ a {width:392px;}
+			div.fiveZ img.pic, div.fiveZ a {width:498px;}
+			
+			div.oneZ img.stroke, div.oneZ img.frame {margin:0 auto; width:84px !important;}
+			div.twoZ img.stroke, div.twoZ img.frame {margin:0 auto; width:184px !important;}
+			div.threeZ img.stroke, div.threeZ img.frame {margin:0 auto; width:284px !important;}
+			div.fourZ img.stroke, div.fourZ img.frame {margin:0 auto; width:384px !important;}
+			div.fiveZ img.stroke, div.fiveZ img.frame {margin:0 auto; width:484px !important;}
+			
+			#wrapper #content .frame {border:1px solid /*#ddd*/#b5ce9e;}
+			/*.pic.frame {margin-top:0.25em; padding:3px; width:95%;}*/
+/** = end development = */
+}

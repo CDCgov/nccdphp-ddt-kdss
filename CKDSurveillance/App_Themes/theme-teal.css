@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/**
+ * CDC - (X)HTML/CSS Framework - TEAL COLOR THEME - Main=#c5ded6, Accent=#fefbe9, secondry=#f6fcfb, secondary-border=#9ecfc0
+ *
+ * @package         TemplatePackage 'B'
+ * @version         2.5.2
+ * @builddate       06-16-2010 (We, 16 June 2010)
+ */
+
+@media screen, projection
+{
+*:first-child+html body.secondTier #content {background: #fff url('/ckd/TemplatePackage/images/theme-teal/bg_content.gif') left 10px repeat-x;}
+/* 
+===========================================================
+Header Colors 
+===========================================================
+*/
+#topic-title h1,
+#content-main h1,
+#topic-title h2,
+#topic-title h1 a,
+#topic-title h2 a {color: #1a7aa2;}
+
+#topic-title h1 a:hover, #topic-title h2 a:hover {border-bottom: 1px solid #1a7aa2;}
+
+/* 
+===========================================================
+Breadcrumb Colors 
+===========================================================
+*/
+#breadBox,
+#breadBox ul {background-color: #f6fcfb;}
+
+/* 
+===========================================================
+Left Nav Colors 
+===========================================================
+*/
+#content #nav-container h3 a {background-image: url('/ckd/TemplatePackage/images/theme-teal/bg_navH3.gif');}
+
+#nav,
+#nav-container .bottom {background: transparent url('/ckd/TemplatePackage/images/theme-teal/bg_leftNav.gif') repeat-y top left;}
+#nav ul li {background: #c1ded5;}
+#nav ul li ul li {background: #c5ded6;}
+#nav-container .bottom {background-position: bottom left;}
+
+/* Selected state for Level 1, 2, 3, and 4 link */
+#nav-container #nav li a.selected, #nav-fourth-level ul a.selected {background-image: url('/ckd/TemplatePackage/images/theme-teal/leftNav_arrow.gif');}
+
+/*#nav-fourth-level ul a:hover {background-color: #f6fcfb;}*/
+
+/**
+ * ========================================================
+ * = Page Options Colors
+ */
+#content-secondary .pageOptions {
+	background: #f6fcfb url('/ckd/TemplatePackage/images/theme-teal/bg_repeatPageOptions.gif') 0 0;
+	border-top: 1px solid #9ecfc0;
+}
+#content-secondary .pageOptions .pageOptions-inner {background: transparent url('/ckd/TemplatePackage/images/theme-teal/bg_pageOptions.gif') 0 bottom no-repeat;}
+.pageOptions-horizontal, #blog .pageOptions-horizontal,
+.pageOptions-horizontal ul {background-color: #f6fcfb;}
+
+/**
+ * ========================================================
+ * = A-Z list color options and header
+ */
+#content .AZlist-local li a {background-color: #f6fcfb;}
+#content .AZlist-local li.selected a {background-color: #1a7aa2;}
+
+#content .azMenuList .AZlist-local li a {background: transparent;}/* This should only be for proofing and needed when sight goes live */
+
+#AZ-content h1 span {color: #1a7aa2;}
+
+/**
+ * ========================================================
+ * = Module Colors
+ */
+.frame {border:1px solid #9ecfc0 !important;}
+.cdc-caption, .roundem {background-color:#f6fcfb !important;}
+/*.accent, */.roundem.accent {background-color:#fefbe9 !important;}
+
+#wrapper .module h3,
+#wrapper .rounders h3,
+#content-main h2 {color: #1a7aa2;}
+
+.rounders .inner,
+.rounders .t,
+.rounders .b,
+.rounders .b div,
+.rounders.top-blocks .inner,
+.rounders.top-blocks .t,
+.rounders.top-blocks .b,
+.rounders.top-blocks .b div,
+#blog .rounders.option2 .inner,
+#blog .rounders.option2 .t,
+#blog .rounders.option2 .b,
+#blog .rounders.option2 .b div {background-image: url('/ckd/TemplatePackage/images/theme-teal/bg_twoBlocks.gif');}
+
+#content-secondary .rounders .inner,
+#content-secondary .rounders .t,
+#content-secondary .rounders .b,
+#content-secondary .rounders .b div {background-image:url('/ckd/TemplatePackage/images/theme-teal/bg_smallRails.gif');}
+
+.rounders .t {
+	position:absolute;
+	left:0;
+	top:0;
+	width:12px; 
+	margin-left:-12px;
+	height:100%;
+	background-position:top left;
+}
+
+.rounders .b {
+	position:relative;
+	width:100%;
+}
+
+.rounders .b,
+.rounders .b div {
+	height:12px; 
+	font-size:1px;
+}
+
+.rounders .b {background-position:bottom right;}
+
+.rounders .b div {
+	position:relative;
+	width:12px;
+	margin-left:-12px;
+	background-position:bottom left;
+}
+
+.rounders .hd,
+.rounders .bd,
+.rounders .ft {position:relative;}
+
+.page-curl h3 {background-color:#c5ded6;}
+
+.double-rule {background: #c5ded6/* url('/ckd/TemplatePackage/images/theme-teal/bgDivDouble.jpg') 0 0 repeat-x*/;}
+.double-rule h3 {background: #c5ded6 url('/ckd/TemplatePackage/images/theme-teal/bgDoubleRule.gif') right bottom repeat-x;}
+
+}

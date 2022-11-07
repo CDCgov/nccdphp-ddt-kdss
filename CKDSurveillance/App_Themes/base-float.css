@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/**
+ * CDC - (X)HTML/CSS Framework
+ *
+ * @package         TemplatePackage 'B'
+ * @version         2.5.2
+ * @builddate       06-16-2010 (We, 16 June 2010)
+ */
+
+@import 'reset.css';
+
+@import 'columns-float.css';
+
+@import 'type.css';
+
+@import 'grid.css';
+
+@import 'leftNav.css';
+
+@import 'widgets-float.css';
+
+@import 'newMods-float.css';

@@ -1,0 +1,155 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ckdlibV2
+</name>
+</assembly>
+<members>
+<member name="P:ckdlibV2.MapBuilder.MapDivID">
+ <summary>
+ What is the ID of the Div used to show the map (do not include a '#')
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.DivTitle">
+ <summary>
+ Text that appears when mousing over the div
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.UseFullStateNames">
+ <summary>
+ true = full state name (Michigan) false = Abbreviated state names (MI)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.UseStateLabels">
+ <summary>
+ true=show labes on each state, false=blank
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.StateTextFontColor">
+ <summary>
+ color of font on state
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.StateValues">
+ <summary>
+ Provide a Datatable with two columns - 1:state abbrev. (eg. MI) 2:hex color (eg. #FF0000)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.useLegendValuesToColorStates">
+ <summary>
+ Apply legend ranges and colors to states table
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.showMouseOvers">
+ <summary>
+ Whether the map will show mouseovers with state data (eg: MI: 56.76)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.MouseOverBackGroundColor">
+ <summary>
+ Background color of the mouseovers on the map
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.MouseOverTextColor">
+ <summary>
+ Color of the mouseover text on the maps
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.MapTitleLine1">
+ <summary>
+ First line of map title - will need trial and error Mapping tool doesn't have word wrap
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.MapTitleLine2">
+ <summary>
+ Second line of map title - will need trial and error Mapping tool doesn't have word wrap
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.MapTitleTextFontLine1">
+ <summary>
+ What font-family to use for the title? (eg. calibri)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.MapTitleFontColorLine1">
+ <summary>
+ What color should the Title Text be? (eg. #ff0000)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.MapTitleTextFontSizeLine1">
+ <summary>
+ How big to make Map Title Font (eg. 22px)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.MapTitleTextFontLine2">
+ <summary>
+ What font-family to use for the title Line2? (eg. calibri)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.MapTitleFontColorLine2">
+ <summary>
+ What color should the Title Text be (Line 2)? (eg. #ff0000)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.MapTitleTextFontSizeLine2">
+ <summary>
+ How big to make Map Title Font Line 2(eg. 12px)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.LegendValues">
+ <summary>
+ Provide a DataTable with two string-valued columns - first column: legend text | second columns: Hex color for box (eg. #FF0000) (or color name eg: silver).
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.LegendTitle">
+ <summary>
+  <summary>Add the title that will appear above the legend.</summary>
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.LegendFontSize">
+ <summary>
+ Legend font size
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.LegendTextFont">
+ <summary>
+ What font-family to use for the legend? (eg. calibri)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.LegendTextFontColor">
+ <summary>
+ What color should the Legend Text be? (eg. #ff0000)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.LogoPath">
+ <summary>
+ Relative path to the logo (will have to be appropriately sized)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.LogoTextLine1">
+ <summary>
+ First line of Logo Text (map tool has no understanding of word wrap)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.LogoTextLine2">
+ <summary>
+ Second line of Logo Text (map tool has no understanding of word wrap)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.LogoTextFont">
+ <summary>
+ What font family to use with the logo text? (eg. Times, Verdana)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.LogoFontSize">
+ <summary>
+ How big should the font be? (eg. 12px)
+ </summary>
+</member>
+<member name="P:ckdlibV2.MapBuilder.LogoFontColor">
+ <summary>
+ What color should the Logo Text be? (eg. #ff0000)
+ </summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,204 @@
+﻿body {
+    font-size: 16px !important;
+}
+
+.title {
+    /* border-top: solid 4px white;*/
+    margin: 25px 0px 7px 8px;
+    font-family: Trebuchet MS !important;
+    font-size: 16pt !important;
+    color: #1a7aa2 !important;
+    font-weight: normal !important;
+}
+
+.Pagetitle {
+    border-top: solid 4px white;
+    /*  margin: 60px 0px 30px 0px;*/
+    font-family: Trebuchet MS !important;
+    font-size: 14pt !important;
+    color: #1a7aa2 !important;
+    font-weight: normal;
+}
+
+.execSummarytitle {
+    font-family: Trebuchet MS !important;
+    font-size: 15pt !important;
+    color: #1a7aa2 !important;
+}
+
+.ckd-initiative-title {
+    font-family: Trebuchet MS;
+    font-size: 12pt;
+    color: #1a7aa2;
+    font-weight: bold;
+}
+
+.ckd-initiative-Subtitle {
+    font-family: Trebuchet MS !important;
+    font-size: 10pt !important;
+    color: #1a7aa2 !important;
+    font-weight: bold !important;
+}
+
+.ckd-explanation-accordion-header {
+    background-color: #c5ded6;
+    padding: 3px;
+    border: solid 1px #BFBFBF;
+    font-family: Verdana;
+    font-size: 10pt;
+    text-decoration: none;
+    color: #1a7aa2;
+}
+
+.ckd-explanation-body {
+    display: none;
+    border: 1px solid #BFBFBF;
+    padding: 5px;
+    margin-top: -1px;
+}
+
+.ckd-accordion {
+}
+
+.ckd-accordion-content {
+}
+
+.ckd-accordion-table-header-row {
+    background-color: #C1DED5;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+}
+
+.ckd-accordion-header-title {
+}
+
+.ckd-accordion-header {
+    background-color: #F6FCFB;
+    padding: 3px;
+    /*border: solid 1px #CECECE;*/
+    font-family: Verdana;
+    font-size: 10pt;
+    text-decoration: none;
+    color: #1a7aa2;
+}
+
+.ckd-accordion table {
+    margin: 0px;
+    width: 100%;
+}
+
+    .ckd-accordion table span {
+        float: none;
+    }
+
+.ckd-accordion-header:hover {
+    cursor: pointer;
+}
+
+.ckd-accordion-header.selected:hover {
+    cursor: default;
+}
+
+.ckd-accordion span.minus,
+.ckd-accordion span.plus {
+    float: left;
+    display: inline-block;
+    width: 25px;
+}
+
+.ckd-accordion-category-description {
+    margin: 0px 0px 0px 20px;
+    color: Black;
+}
+
+    .ckd-accordion-category-description a {
+        text-decoration: none !important;
+    }
+
+        .ckd-accordion-category-description a:hover {
+            text-decoration: underline !important;
+        }
+
+.ckd-accordion span.hide {
+    display: none;
+}
+
+.ckd-accordion-header-label {
+    margin-right: 15px;
+    padding-left: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: Black;
+}
+
+.ckd-accordion-indicator-row1 {
+    background-color: #E8EEE9;
+}
+
+.ckd-accordion-indicator-row2 {
+    background-color: white;
+}
+
+.ckd-accordion-subcat-header {
+    padding-left: 20px;
+    background-color: #E8EEE9 !important;
+}
+
+    .ckd-accordion-subcat-header a {
+        text-decoration: none !important;
+    }
+
+        .ckd-accordion-subcat-header a:hover {
+            text-decoration: underline !important;
+        }
+
+
+.ckd-accordion-subcat-label {
+    margin-right: 15px;
+    padding-left: 20px;
+    cursor: pointer;
+    display: inline !important;
+}
+
+.ckd-accordion-minus {
+    background: transparent url(../images/collapse.gif) no-repeat scroll left top;
+    /*width:50%;*/
+}
+
+.ckd-accordion-plus {
+    background: transparent url(../images/expand.gif) no-repeat scroll left top;
+    /*width:50%;*/
+}
+
+.ToolTipContent {
+    color: Black;
+    background-color: Red;
+}
+
+.ckd-accordion-indicator-hover-area {
+    position: relative;
+    margin-left: 45px;
+    margin-top: 4px;
+    text-align: left;
+}
+
+    .ckd-accordion-indicator-hover-area a {
+        text-decoration: none !important;
+    }
+
+        .ckd-accordion-indicator-hover-area a:hover {
+            text-decoration: underline !important;
+        }
+
+.ckd-accordion-indicator {
+}
+
+#ckd-accordion-tooltip {
+    left: -1000px;
+    display: none;
+    height: 10px;
+    position: absolute;
+    width: 340px;
+    top: 0px;
+}

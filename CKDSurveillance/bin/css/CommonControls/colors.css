@@ -1,0 +1,253 @@
+﻿/* THEME COLORS */
+/* 
+Note: Base colors are C_01 colors from appropriate palette. Light colors are C_03 colors from appropriate palette.
+*/
+
+
+.disabled
+{
+    background-color: #cccccc !important;    
+}
+
+/*  purple theme */
+#wrapper .purple{background:#3d316a}
+#wrapper .purple.forecolor{color:#3d316a}
+#wrapper .purple.light{background:#DAD5EB}
+#wrapper .purple.border{border: 1px solid #3d316a;}
+#wrapper .purple.gradient{
+    background: #DAD5EB; 
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#DAD5EB) to(#3d316a));
+    background: -webkit-linear-gradient(#DAD5EB, #3d316a);
+    background: -moz-linear-gradient(#DAD5EB, #3d316a);
+    background: -ms-linear-gradient(#DAD5EB, #3d316a);
+    background: -o-linear-gradient(#DAD5EB, #3d316a);
+    background: linear-gradient(#DAD5EB, #3d316a);
+    -pie-background: linear-gradient(#DAD5EB, #3d316a);
+}
+#wrapper .purple.light.gradient{
+    background: #FFFFFF; 
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF) to(#DAD5EB));
+    background: -webkit-linear-gradient(#FFFFFF, #DAD5EB);
+    background: -moz-linear-gradient(#FFFFFF, #DAD5EB);
+    background: -ms-linear-gradient(#FFFFFF, #DAD5EB);
+    background: -o-linear-gradient(#FFFFFF, #DAD5EB);
+    background: linear-gradient(#FFFFFF, #DAD5EB);
+    -pie-background: linear-gradient(#FFFFFF, #DAD5EB);
+}
+
+
+/*  PCOS theme */
+.pcos{background:#486BA3}
+.pcos.forecolor{color:#486BA3}
+.pcos.light{background:#486BA3}
+.pcos.border{border: 1px solid #486BA3;}
+.pcos.gradient {
+    background: #486BA3;
+    background: -webkit-gradient(linear, left top, left bottom, from(#486BA3), to(#041C47));
+	background: -webkit-linear-gradient(top, #486BA3, #041C47);
+	background: -moz-linear-gradient(top, #486BA3, #041C47);
+	background: -ms-linear-gradient(top, #486BA3, #041C47);
+	background: -o-linear-gradient(top, #486BA3, #041C47);
+	background: linear-gradient(top, #486BA3, #041C47);
+	
+	/* SVG as background image (IE9/Chrome/Safari/Opera) */ 
+    background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9ImcxMzciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiM1QTg4OUQiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiMwNDFDNDciIG9mZnNldD0iMSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2cxMzcpIiAvPgo8L3N2Zz4=);
+	
+    
+    -pie-background: linear-gradient(#486BA3, #041C47);
+}
+
+
+
+/*  teal theme */
+#wrapper .teal{background:#1a7aa2}
+#wrapper .teal.forecolor{color:#1a7aa2}
+#wrapper .teal.light{background:#c5ded6}
+#wrapper .teal.border{border: 1px solid #1a7aa2;}
+#wrapper .teal.gradient {
+    background: #c5ded6;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#c5ded6) to(#1a7aa2));
+    background: -webkit-linear-gradient(#c5ded6, #1a7aa2);
+    background: -moz-linear-gradient(#c5ded6, #1a7aa2);
+    background: -ms-linear-gradient(#c5ded6, #1a7aa2);
+    background: -o-linear-gradient(#c5ded6, #1a7aa2);
+    background: linear-gradient(#c5ded6, #1a7aa2);
+    -pie-background: linear-gradient(#c5ded6, #1a7aa2);
+}
+#wrapper .teal.light.gradient {
+    background: #FFFFFF;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF) to(#c5ded6));
+    background: -webkit-linear-gradient(#FFFFFF, #c5ded6);
+    background: -moz-linear-gradient(#FFFFFF, #c5ded6);
+    background: -ms-linear-gradient(#FFFFFF, #c5ded6);
+    background: -o-linear-gradient(#FFFFFF, #c5ded6);
+    background: linear-gradient(#FFFFFF, #c5ded6);
+    -pie-background: linear-gradient(#FFFFFF, #c5ded6);
+}
+
+
+/*  rose theme */
+#wrapper .rose{background:#621919}
+#wrapper .rose.forecolor{color:#621919 !important}
+#wrapper .rose.light{background:#EFD9D9}
+#wrapper .rose.border{border: 1px solid #621919;}
+#wrapper .rose.gradient {
+    background: #EFD9D9;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#EFD9D9) to(#621919));
+    background: -webkit-linear-gradient(#EFD9D9, #621919);
+    background: -moz-linear-gradient(#EFD9D9, #621919);
+    background: -ms-linear-gradient(#EFD9D9, #621919);
+    background: -o-linear-gradient(#EFD9D9, #621919);
+    background: linear-gradient(#EFD9D9, #621919);
+    -pie-background: linear-gradient(#EFD9D9, #621919);
+}
+#wrapper .rose.light.gradient {
+    background: #FFFFFF;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF) to(#EFD9D9));
+    background: -webkit-linear-gradient(#FFFFFF, #EFD9D9);
+    background: -moz-linear-gradient(#FFFFFF, #EFD9D9);
+    background: -ms-linear-gradient(#FFFFFF, #EFD9D9);
+    background: -o-linear-gradient(#FFFFFF, #EFD9D9);
+    background: linear-gradient(#FFFFFF, #EFD9D9);
+    -pie-background: linear-gradient(#FFFFFF, #EFD9D9);
+}
+
+
+/*  orange theme */
+#wrapper .orange{background:#612E1F}
+#wrapper .orange.forecolor{color:#612E1F !important}
+#wrapper .orange.light{background:#FBD69A}
+#wrapper .orange.border{border: 1px solid #612E1F;}
+#wrapper .orange.gradient {
+    background: #FBD69A;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FBD69A) to(#612E1F));
+    background: -webkit-linear-gradient(#FBD69A, #612E1F);
+    background: -moz-linear-gradient(#FBD69A, #612E1F);
+    background: -ms-linear-gradient(#FBD69A, #612E1F);
+    background: -o-linear-gradient(#FBD69A, #612E1F);
+    background: linear-gradient(#FBD69A, #612E1F);
+    -pie-background: linear-gradient(#FBD69A, #612E1F);
+}
+#wrapper .orange.light.gradient {
+    background: #FFFFFF;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF) to(#FBD69A));
+    background: -webkit-linear-gradient(#FFFFFF, #FBD69A);
+    background: -moz-linear-gradient(#FFFFFF, #FBD69A);
+    background: -ms-linear-gradient(#FFFFFF, #FBD69A);
+    background: -o-linear-gradient(#FFFFFF, #FBD69A);
+    background: linear-gradient(#FFFFFF, #FBD69A);
+    -pie-background: linear-gradient(#FFFFFF, #FBD69A);
+}
+
+
+/*  tan theme */
+#wrapper .tan{background:#503608}
+#wrapper .tan.forecolor{color:#503608 !important}
+#wrapper .tan.light{background:#E4DABC}
+#wrapper .tan.border{border: 1px solid #503608;}
+#wrapper .tan.gradient {
+    background: #E4DABC;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#E4DABC) to(#503608));
+    background: -webkit-linear-gradient(#E4DABC, #503608);
+    background: -moz-linear-gradient(#E4DABC, #503608);
+    background: -ms-linear-gradient(#E4DABC, #503608);
+    background: -o-linear-gradient(#E4DABC, #503608);
+    background: linear-gradient(#E4DABC, #503608);
+    -pie-background: linear-gradient(#E4DABC, #503608);
+}
+#wrapper .tan.light.gradient {
+    background: #FFFFFF;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF) to(#E4DABC));
+    background: -webkit-linear-gradient(#FFFFFF, #E4DABC);
+    background: -moz-linear-gradient(#FFFFFF, #E4DABC);
+    background: -ms-linear-gradient(#FFFFFF, #E4DABC);
+    background: -o-linear-gradient(#FFFFFF, #E4DABC);
+    background: linear-gradient(#FFFFFF, #E4DABC);
+    -pie-background: linear-gradient(#FFFFFF, #E4DABC);
+}
+
+
+/*  Default theme = Green */
+#wrapper .default-theme{background:#085100}
+#wrapper .default-theme.forecolor{color:#085100 !important}
+#wrapper .default-theme.light{background:#D7E4CC}
+#wrapper .default-theme.border{border: 1px solid #085100;}
+#wrapper .default-theme.gradient {
+    background: #D7E4CC;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#D7E4CC) to(#085100));
+    background: -webkit-linear-gradient(#D7E4CC, #085100);
+    background: -moz-linear-gradient(#D7E4CC, #085100);
+    background: -ms-linear-gradient(#D7E4CC, #085100);
+    background: -o-linear-gradient(#D7E4CC, #085100);
+    background: linear-gradient(#D7E4CC, #085100);
+    -pie-background: linear-gradient(#D7E4CC, #085100);
+}
+#wrapper .default-theme.light.gradient {
+    background: #FFFFFF;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF) to(#D7E4CC));
+    background: -webkit-linear-gradient(#FFFFFF, #D7E4CC);
+    background: -moz-linear-gradient(#FFFFFF, #D7E4CC);
+    background: -ms-linear-gradient(#FFFFFF, #D7E4CC);
+    background: -o-linear-gradient(#FFFFFF, #D7E4CC);
+    background: linear-gradient(#FFFFFF, #D7E4CC);
+    -pie-background: linear-gradient(#FFFFFF, #D7E4CC);
+}
+
+
+/*  it's not easy being theme */
+#wrapper .green{background:#085100}
+#wrapper .green.forecolor{color:#085100 !important}
+#wrapper .green.light{background:#D7E4CC}
+#wrapper .green.border{border: 1px solid #085100;}
+#wrapper .green.gradient {
+    background: #D7E4CC;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#D7E4CC) to(#085100));
+    background: -webkit-linear-gradient(#D7E4CC, #085100);
+    background: -moz-linear-gradient(#D7E4CC, #085100);
+    background: -ms-linear-gradient(#D7E4CC, #085100);
+    background: -o-linear-gradient(#D7E4CC, #085100);
+    background: linear-gradient(#D7E4CC, #085100);
+    -pie-background: linear-gradient(#D7E4CC, #085100);
+}
+#wrapper .green.light.gradient {
+    background: #FFFFFF;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF) to(#D7E4CC));
+    background: -webkit-linear-gradient(#FFFFFF, #D7E4CC);
+    background: -moz-linear-gradient(#FFFFFF, #D7E4CC);
+    background: -ms-linear-gradient(#FFFFFF, #D7E4CC);
+    background: -o-linear-gradient(#FFFFFF, #D7E4CC);
+    background: linear-gradient(#FFFFFF, #D7E4CC);
+    -pie-background: linear-gradient(#FFFFFF, #D7E4CC);
+}
+
+
+/* other */
+#wrapper .white{background:#fff}
+#wrapper .white.forecolor{color:#fff !important}
+#wrapper .gray{background:#eee}
+#wrapper .grey{background:#bbb}
+#wrapper .gray.border{border: 1px solid #eee;}
+#wrapper .grey.border{border: 1px solid #bbb;}
+#wrapper .grey.gradient, #wrapper .gray.gradient {
+    background: #CCC;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff) to(#bbb));
+    background: -webkit-linear-gradient(#fff, #bbb);
+    background: -moz-linear-gradient(#fff, #bbb);
+    background: -ms-linear-gradient(#fff, #bbb);
+    background: -o-linear-gradient(#fff, #bbb);
+    background: linear-gradient(#fff, #bbb);
+    -pie-background: linear-gradient(#fff, #bbb);
+}
+
+#wrapper .disabled{background:#eee;color:#bbb !important}
+#wrapper .disabled.border{border: 1px solid #bbb;}
+#wrapper .disabled.gradient, #wrapper .disabled.gradient {
+    background: #CCC;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff) to(#bbb));
+    background: -webkit-linear-gradient(#fff, #bbb);
+    background: -moz-linear-gradient(#fff, #bbb);
+    background: -ms-linear-gradient(#fff, #bbb);
+    background: -o-linear-gradient(#fff, #bbb);
+    background: linear-gradient(#fff, #bbb);
+    -pie-background: linear-gradient(#fff, #bbb);
+}

@@ -1,0 +1,209 @@
+﻿
+/*Styles for the calculators.aspx page*/
+/* 12/2018 */
+
+.QLabelLeft {
+    width: 60%;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: solid 1px silver;
+    font-weight: normal !important;
+}
+
+.QLabelRight {
+    width: 40%;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: solid 1px silver;
+}
+
+.btnRow {
+    text-align: right;
+    padding-right: 3px;
+    border-left: none;
+}
+
+.BangTable {
+    width: 100%;
+}
+
+input[type=radio] {
+    margin-right: 3px;
+}
+
+.score {
+    border: solid 1px silver;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #fafad2;
+    /*min-height: 35px;*/
+    height:635px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    /*margin: 0 auto;
+            text-align:center;*/
+}
+
+.btnSubtle {
+    color: gray;
+}
+
+
+.introduction {
+    border: solid 1px silver;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #c8dfd8;
+    min-height: 35px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 15px;
+}
+    /* Make the Ordered lists start the numbers where padding tells it*/
+    .introduction ol {
+        list-style-position:inside;
+    }
+
+.description {
+    border: solid 1px silver;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #e0e0e0;
+    min-height: 35px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.references {
+    border: solid 1px silver;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: whitesmoke;
+    min-height: 35px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.footnote {
+    /*border: solid 1px silver;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;*/
+    font-family: Arial;
+    font-size: 16px;
+    background-color: white;
+    min-height: 25px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#spnBangAnswer, #spnTangriAnswer {
+    font-size: 12px;
+    /*font-weight:bold;*/
+}
+
+.bangGraph, .tangriGraph {
+    /*width:350px;*/
+    height: 500px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.svg.container {
+    background-color: #fafad2;
+}
+
+input[type=radio] {
+    margin-left: 5px;
+}
+
+thead th {
+    background-color: silver;
+    text-align: center;
+    font-weight: bold;
+}
+
+.req {
+    vertical-align: super;
+    color: red;
+    text-align: right;
+    cursor: pointer;
+}
+
+.instructionLine {
+    background-color: #F0F0F0;
+    font-weight: normal !important;
+}
+
+#divDiabetesPopover {
+    border: solid 1px silver;
+    border-radius: 5px;
+    padding: 5px;
+    left: 15%;
+    position: absolute;
+    background-color: #F0F0F0;
+}
+
+.closeX {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial;
+    color: gray;
+    cursor: pointer;
+    padding-right: 8px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+legend {
+    display: none;
+}
+
+/*Hide the Plotly hover options*/
+.modebar-group, .modebar, .modebar--hover {
+    display: none;
+}
+
+
+.req 
+{
+    font-weight:bold;
+    color:maroon;
+    font-size:20px;
+}
+.answered 
+{
+    color:white;
+}
+.inPageNote 
+{
+    font-style:italic;
+    color:gray;
+}
+.tangri_required_messages, .tangri_req_list li , .bang_required_messages, .bang_req_list li{
+    font-weight:bold;
+    color:maroon;
+    font-size:16px !important;
+}
+
+.hiddenMsg {
+    display:none;
+}

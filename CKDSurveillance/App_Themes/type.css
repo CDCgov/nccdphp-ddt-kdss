@@ -1,0 +1,365 @@
+@charset "UTF-8";
+/**
+ * CDC - (X)HTML/CSS Framework
+ *
+ * @package         TemplatePackage 'B'
+ * @version         2.5.2
+ * @builddate       06-16-2010 (We, 16 June 2010)
+ */
+ 
+@media screen, projection
+{
+
+/**
+ * = TYPOGRAPHY STYLE SHEET ===============================
+ * = Header Styles in the Body Content ====================
+ */
+
+sup{ /* keep superscript text from breaking the line-spacing */
+	position:relative;
+	font-size:smaller;
+	vertical-align:baseline;
+	bottom:0.33em;
+}
+
+#content-main h1,
+#content-main h2,
+#content-main h3,
+#content-main h4,
+#content-main h5{
+	font-family:"Trebuchet MS", Arial, sans-serif;
+}
+
+#content-main h1{
+	color:#0c5205;
+	font-size:2em;
+	font-weight:normal;
+	margin-top:0;
+	padding-bottom:10px;
+}
+
+#content-main h2{
+	color:#0c5205;
+	font-size:1.6em;
+	font-weight:normal;
+}
+
+#content h3{
+	color:#000;
+	font-size:1.5em;
+	font-weight:normal;
+}
+
+#content-main h4{
+	color:#000;
+	font-size:1.3em;
+	font-weight:bold;
+}
+
+#content-main h5{
+	color:#000;
+	font-size:1em;
+	font-weight:bold;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+/**
+ * = Link Styles in the Body Content =================
+ */
+#blog .main-inner a:hover {
+	text-decoration:underline;
+}
+#content-main a:visited {color:#4a006e;}
+
+#wrapper/*content*/ a,
+#nav-container .related a {color:#0a29a5;}
+
+
+#content a:hover,
+#bottom-container a:hover,
+#top-container a:hover,
+#blog .main-inner a {text-decoration:none;}
+
+#bottom-container a,
+#top-container a,
+.main-inner a {
+	color:#0a29a5;
+	text-decoration:underline;
+}
+#content #bottom-container a.noDecoration,
+#content #bottom-container a.external,
+#content .main-inner a.noDecoration,
+#content .main-inner a.external,
+#bottom-container .rounders a,
+#bottom-container .module a {text-decoration:none;}
+
+#bottom-container .rounders a:hover,
+#bottom-container .module a:hover {text-decoration:underline;}
+
+/**
+ * = Bulleted Lists in the Body Content =======================
+ */
+ul, ol {
+	margin-left:1em;
+	list-style:disc;
+}
+	/*#content-main .main-inner > ul, #content-main .main-inner > ol, #content-main .main-inner > dl {overflow:auto;}*/
+
+ul li, ol li {margin-left:1.5em;}
+
+ul li, 
+ol li,
+ul li ul li, 
+ol li ol li,
+ul li ul li ul li,
+ol li ol li ol li {
+	margin-top:.7em;
+	margin-bottom:.7em;
+}
+
+ul ul {list-style:circle;}
+
+ul ul ul {list-style:square;}
+
+ol {
+	list-style:decimal;
+	margin-left:0;
+	padding-left:2em;
+	overflow:hidden;
+}
+	.uppr-alpha {list-style:upper-alpha;}
+	.lwr-alpha {list-style:lower-alpha;}
+
+ol ol {list-style:lower-alpha;}
+
+ol ol ol {list-style:lower-roman;}
+
+ul.inliner {overflow:auto;}
+
+/**
+ * = Paragraph, Text and Table Styles in the Body Content ==================
+ */
+p {
+	line-height:1.33em;
+	margin:0 0 1em 0;
+	text-align:left;
+}
+p.lastChild {margin-bottom:0;}
+
+table, table td, table th {
+	border:1px solid #000;
+	padding:2.5px;
+}
+
+table caption {
+	font-size:1.6em;
+	font-weight:normal;
+	font-family:Trebuchet MS, Arial, sans-serif; 
+	padding-bottom:.5em;
+}
+
+table th {text-align:center;}
+
+/**
+ * = Primary Topic Title Header ============================================
+ */
+
+#branding-pageheader h1 {
+	margin:0;
+	padding:0 4px;
+	line-height:1.8;
+	height:36px;
+	clear:left;
+}
+
+#index #branding-pageheader h1 a,
+#index #branding-pageheader h1 a:visited,
+#branding-pageheader h1 a,
+#branding-pageheader h1 a:visited {
+	color:#5a8e29;
+	font-family:"Trebuchet MS", Arial, sans-serif; 
+	font-size:2.5em;	
+	margin:0 0 0 10px;
+	padding:0;
+	text-decoration:none;
+	font-weight:normal;
+}
+
+#index #branding-pageheader h1 a:hover,
+#branding-pageheader h1 a:hover {
+	color:#5a8e29;
+	text-decoration:none;
+	margin:0;
+	margin-left:10px;
+	padding:0;
+	border-bottom:1px dotted #5a8e29;
+}
+
+#branding-pageheader h1 a,
+#branding-pageheader h1 a:visited {
+	color:#fff;
+	font-size:1.8em;
+	border-bottom:1px dotted #fff;
+}
+
+#branding-pageheader h1 a:hover {
+	color:#fff;
+	border-bottom:1px solid #fff;
+}
+
+#topic-title{
+	position:relative;
+	margin-top:40px;
+	width:auto;
+	overflow:hidden;
+}
+#topic-title h1,
+#topic-title h2 {
+	color:#0c5205;
+	padding-right:0.5em;
+	font-family:"Trebuchet MS", Arial, sans-serif;
+	font-size:1.8em;
+	font-weight:normal;
+	position:relative;
+	margin:10px;
+}
+#topic-title h1 a:hover,
+#topic-title h2 a:hover {border-bottom:1px solid #5a8e29;}
+
+#topic-title h1 a,
+#topic-title h2 a {
+	color:#0c5205;
+	font-family:"Trebuchet MS", Arial, sans-serif;
+	margin:0;
+	padding:0;
+	text-decoration:none;
+	font-weight:normal;
+	border-bottom:none;
+}
+#topic-title h1 em,
+#topic-title h2 em{
+	font-size:0.85em;
+	font-style:normal;
+	color:#999;
+}
+
+/**
+ * = Module Heading Styles ===========================================
+ */
+body div#two-column-grid h2{
+	background:transparent url("/ckd/TemplatePackage/images/bg_gradient-yellow.gif") 0 0;
+	color:#72490E;
+	font:1.1em Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	margin:0 -4px;
+	border:none;
+	padding:2px 5px;
+	min-height:15px;
+}
+
+body#index #topic-intro a {text-decoration:none;}
+
+body#index #topic-intro a:hover {text-decoration:underline;}
+
+/**
+ * = Contact Info and Datestamp Modules ================================
+ */
+#contact-info h5{
+	margin:0 0.5em 0.75em;
+	font-family:"Trebuchet MS";
+	font-size:1.1em;
+	font-weight:bold;
+	width:auto;
+}
+
+#contact-info li {font-size:0.9em;}
+
+#contact-info li a{
+	color:#0a29a5;
+	text-decoration:underline;
+}
+
+#contact-info li a:hover{
+	color:#0a29a5;
+	text-decoration:none;	
+}
+
+#siteinfo-credits p,
+#siteinfo-credits address{
+	background:transparent;
+	padding:10px 0 0 10px;
+	font-size:0.9em;
+	line-height:1.55em;
+	text-align:left;
+}
+
+#siteinfo-credits address a{
+	color:#0a29a5;
+	text-decoration:underline;
+}
+
+#siteinfo-credits address a:hover{text-decoration:none;}
+
+#datestamp, #blog #datestamp {
+	background-color:#fff;
+	clear:left;
+	margin:0 185px 0 0;
+	border:none;
+	padding:1em 1em 1em 0;
+	color:#696969;
+	font-size:0.9em;
+	list-style:none;
+	min-height:30px;
+}
+#index #datestamp, #blog #datestamp, .widePage #datestamp {padding:1em;}
+.secondTier.optionalTwo #datestamp {margin-right:0;}
+
+#applicationsPage #datestamp {padding-top:0;}
+
+.secondTier #datestamp {
+	border-left:189px solid #fff;
+	overflow:hidden;
+}
+
+#datestamp ul {margin-left:0;}/* -- This is used to override line rule on line 102 -- */
+
+.secondTier #datestamp ul {
+	margin:0;
+	z-index:-2;
+}
+*:first-child+html .secondTier #datestamp ul {min-width:100%;}
+
+#datestamp ul li{
+	margin:0 1em 0 0;
+	padding:0;
+	line-height:14px;
+	list-style:none;	
+}
+	#datestamp ul li h3{ 
+		clear:left;
+		padding-top:2px;
+		font-size:1.1em;
+		color:#999;
+		font-weight:bold;
+		border:none;
+		position:relative;
+	}
+#datestamp ul li.contentsource{ 
+	padding-right:0;
+	position:relative;
+	float:left;
+}
+#datestamp ul a, #datestamp ul a:visited{color:#0a29a5;}
+#datestamp ul a:hover{text-decoration:underline;}
+
+#pageOptions li a:hover{text-decoration:underline;}
+
+/**
+ * = THIS IS USED TO MAKE STANDARD TEXT SMALLER FOR APPEARANCE ==========
+ */
+ 
+.smallerFont{font-size:0.85em;}
+
+.heavyFont{font-size:1.25em;}
+
+}

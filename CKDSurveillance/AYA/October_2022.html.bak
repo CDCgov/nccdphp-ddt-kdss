@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>       
+    <title>Chronic Kidney Disease Is Prevalent Among Adults with Prediabetes or Undiagnosed Diabetes</title>    
+    <meta name="description" content="Centers for Disease Control and Prevention (CDC) - CKD Surveillance System - October 2022 Are You Aware "   />
+</head>
+<body>
+     <style>
+        div, table, span, ul, li, p {
+            /*font-family:Arial,sans-serif !important;*/
+            line-height:20px !important;
+        }
+
+        h1 {
+            display: block;
+            font-size: 2em !important;
+            -webkit-margin-before: 0.67em;
+            -webkit-margin-after: 0.67em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            font-weight: bold;
+        }
+         hr { 
+            display: block;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: inset;
+            border-width: 1px;
+        } 
+    </style>
+    <div style="align-content:center">
+        <div class='wide' id='page_margins'>
+            <div class='bulletin_display' id='bulletin_content'>
+                <h1 class='bulletin_subject'>Chronic Kidney Disease Is Prevalent Among Adults with Prediabetes or Undiagnosed Diabetes</h1>
+                <div class='bulletin_header rs_skip' id='bulletin_header'></div>
+
+                <p style='margin-top:12.0pt;margin-right:0in;margin-bottom:12.0pt;  margin-left:0in;text-align:right'>
+                    <strong>
+                        <span style='font-family:"Arial","sans-serif";  '>
+                            October 2022
+                        </span>
+                    </strong>
+                </p>
+                <p style='margin-top:12.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left: 0in'>
+                    <span style='font-size:10.0pt;font-family:"Arial","sans-serif"; '>
+                        In the United States, 96 million individuals (38% of adults) are affected by prediabetes, which is when blood sugar levels are higher than normal, but not high enough yet to be diagnosed as type 2 diabetes.1 Although prediabetes is potentially reversible, it can progress to type 2 diabetes, which affects all major organs in the body, including the kidneys, blood vessels, nerves, and eyes. It is not widely known that prediabetes is also an important risk factor for chronic kidney disease (CKD), in addition to diabetes, hypertension, and obesity.<span>&#178; &#179;</span>
+                        <br /><br />
+
+                        Data on adults aged 18 years or older from the National Health and Nutrition Examination Survey (NHANES, 1999–2020) reveal that the prevalence of CKD stages 3–4, when kidney function is less than 60 ml/min/1.73 m², is similar among individuals with prediabetes and those with undiagnosed diabetes. During this period, the prevalence of stages 3–4 CKD was approximately 4% (~5 million adults) among individuals without diabetes, 10%–14% among individuals with prediabetes (~5 million adults) or undiagnosed diabetes (~0.6 million adults), and approximately 20% among individuals with diagnosed diabetes (~5 million adults).
+
+                        <br /><br />
+
+                        Healthy habits, such as regular physical activity and healthy diet, can improve risk factors for diabetes. Healthy dietary habits include increasing consumption of plant-based foods, reducing consumption of red meat, lowering intake of refined sugar and carbohydrates, and limiting sodium intake. Evidence-based programs have enormous potential to prevent diabetes and save millions of lives and dollars.5 Future studies could investigate the value of screening for the presence of kidney disease among those with prediabetes to prevent downstream consequences of progressive kidney disease.
+                    </span>
+                </p>
+                <p style='margin-top:12.0pt;margin-right:0in;margin-bottom:12.0pt;  margin-left:0in;text-align:left'>
+                    <strong>Figure: Prevalence of Stages 3–4 Chronic Kidney Disease, Stratified by Diabetes Status</strong>
+                </p>
+                <p style='margin:0in;margin-bottom:.0001pt;font-family:"Arial",sans-serif'>
+                    <a class="ayaurl" title="Chart: Chronic Kidney Disease Is Prevalent Among Adults with Prediabetes or Undiagnosed Diabetes">
+                        <span style='text-decoration: none;'>
+                            <img id="_x0000_i1026" class="img-fluid imageurl" src="AYA/Images/October_2022.png" style="cursor:pointer;" alt="Chart: Chronic Kidney Disease Is Prevalent Among Adults with Prediabetes or Undiagnosed Diabetes" TabIndex="0" onkeypress="checkEnterKey(event);" title="Chart: Chronic Kidney Disease Is Prevalent Among Adults with Prediabetes or Undiagnosed Diabetes" usemap="#Chart1ImageMap" />
+                        </span>
+                    </a>
+                </p>
+
+                <p style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;margin-left: 0in'>
+                    <span style='font-size:10.0pt;font-family:"Arial","sans-serif";  font-weight:bold;'>
+                        References: <!-- CHANGE IN THE SUB HEADER TEXT-->
+                    </span>                    
+                        <ol type="1" style='font-size:10.0pt;font-family:"Arial","sans-serif"'>
+                            <li>
+                                CDC National Diabetes Statistics Report. Accessed October 18, 2022.
+                                <br />
+                                <a href="https://www.cdc.gov/diabetes/data/statistics-report/index.html">https://www.cdc.gov/diabetes/data/statistics-report/index.html</a>
+                            </li>
+                            <li>
+                                Honigberg MC, Zekavat SM, Pirruccello JP, Natarajan P, Vaduganathan M. Cardiovascular and kidney outcomes across the glycemic spectrum: insights from the UK Biobank. J Am Coll Cardiol. 2021 Aug 3;78(5):453–464. Epub 2021 May 17. PMID: 34015477; PMCID: PMC8324525. doi:10.1016/j.jacc.2021.05.004
+                            </li>
+                            <li>
+                                Schlesinger S, Neuenschwander M, Barbaresko J, et al. Prediabetes and risk of mortality, diabetes-related complications and comorbidities: umbrella review of meta-analyses of prospective studies. Diabetologia. 2022 Feb;65(2):275–285. Epub 2021 Oct 31. PMID: 34718834; PMCID: PMC8741660. doi: 10.1007/s00125-021-05592-3
+                            </li>
+                            <li>
+                                Varady KA, Cienfuegos S, Ezpeleta M, Gabel K. Clinical application of intermittent fasting for weight loss: progress and future directions. Nat Rev Endocrinol. 2022 May;18(5):309–321. Epub 2022 Feb 22. PMID: 35194176. doi:10.1038/s41574-022-00638-x
+                            </li>
+                            <li>
+                                CDC National Diabetes Prevention Program. Accessed October 18, 2022. <br/>
+                                <a href="https://www.cdc.gov/diabetes/prevention/index.html">https://www.cdc.gov/diabetes/prevention/index.html</a>
+                            </li>
+                        </ol>
+                    
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+     <script>
+         $(document).ready(function () {
+             var document_href = document.location.href;
+             document_href = document_href.substring(0, document_href.indexOf("AreYouAware"));
+             var newhref = document_href + "detail.aspx?Qnum=Q702#refreshPosition"
+
+             $(".imageurl").attr("onclick", "window.open('" + newhref + "', 'blank')");
+             $(".ayaurl").attr("onclick", "window.open('" + newhref + "', 'blank')");
+         });
+         
+         function checkEnterKey(e) {
+             /* check if enter key was pressed whilst the image hath focus (508 from 3/12/2020)*/
+             if (e.keyCode == 13) {                                  
+                 $(".imageurl").trigger('click');
+             }
+         }
+    </script>
+</body>
+</html>

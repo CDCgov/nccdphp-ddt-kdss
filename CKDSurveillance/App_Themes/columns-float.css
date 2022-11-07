@@ -1,0 +1,222 @@
+@charset "UTF-8";
+/**
+ * CDC - (X)HTML/CSS Framework
+ *
+ * @package         TemplatePackage 'B'
+ * @version         2.5.2
+ * @builddate       06-16-2010 (We, 16 June 2010)
+ */
+
+@media screen, projection
+{
+
+/** 
+ * = THREE COLUMN STYLE SHEET =====================
+ */
+
+p.access, .hideme {display:none;}
+
+/* General layout divisions */
+
+body {
+	font-family:sans-serif;
+	margin:0;
+	padding:0 2px;
+}
+*:first-child+html body {padding:0;}
+
+#wrapper 
+{
+	background:transparent url('/ckd/TemplatePackage/images/bgWrapperRt.png') top right repeat-y;
+	position:relative;
+	margin:0 auto;
+	border:none;
+	padding:0 10px;
+	max-width:1000px;
+	min-width:749px;
+	min-height:auto; /* = resets hasLayout for IE7 = */
+}
+
+body[id=applicationsPage] #wrapper {
+	background:#fff;
+	max-width:none;
+	padding:0;
+}
+#blog #wrapper {max-width:800px;}
+
+#wrapper .top {
+	/* top+left vertical slice */
+	position:absolute;
+	left:0;
+	top:0;
+	width:10px; /* top slice width */
+	margin-left:0;
+	height:100%;
+	background:transparent url('/ckd/TemplatePackage/images/bgWrapperLft.png') top left;
+	/* z-index:-10; 	* = a negative z-index will cause this not to display in firefox 2 = */
+}
+
+#applicationsPage #wrapper .top {visibility:hidden;}
+
+#wrapper-inner /* = v230 = */ {background:#fff;}
+
+#content {
+	background-color:#fff;
+	clear:both;
+	float:left;			/** This is needed to support pre-v2.3.0 pages from not displaying background color */
+	margin:0;
+	border:none;
+	padding:0;
+	/* ====== testing ====== */	/*position:relative;*/
+	width:100%;
+}
+*:first-child+html #wrapper-inner #content {float:none; min-height:auto;}
+
+*:first-child+html body.optionalTwo #content {overflow:hidden;}
+
+/**.v240 #content {		 = future development = 
+	float:none;
+	width:auto;
+}*/
+
+body#applicationsPage #content, body#applicationsPage #branding, body#applicationsPage #siteinfo, body#applicationsPage .preFoot {margin:0 auto;}
+
+body#applicationsPage.appsPage .preFoot {margin:0 0 0 179px;}
+
+body#applicationsPage.appsPage #content-main {
+	clear:right;
+	margin-left:179px;
+}
+
+#content-inner {
+	float:left;
+	/* ====== testing ====== */	/*position:relative;*/
+	margin:0;
+	margin-right:175px;
+	padding:0;
+	width:auto;
+}
+.widePage #content-inner {float:none;}
+.secondTier.optionalTwo #content-inner, .secondTier.optional #content-inner, .widePage #content-inner {
+	margin-right:0;
+	/*overflow:hidden;*/
+}
+
+#moduleTypeII #content-inner {margin:0;}
+
+/**
+ * = Added new #content-main-wrap class ==========================
+ */
+#content-main-wrap {
+	background-color:#fff;
+	float:none;
+	padding-bottom:1em;
+	position:relative;
+	width:100%;
+}
+
+#nav-container {
+	background-color:#fff;
+	float:left;
+	/* ====== testing ====== */	/*position:relative;*/
+	margin:0;
+	border:none;
+	padding:0;
+	width:179px;
+}
+/* ====== testing ====== */	.widePage #nav-container, .offScreen {position:absolute; left:-9999px; display:none;}
+
+.widePage.appsPage #nav-container {
+	left:0;
+	/* ====== testing ====== */	/*position:relative;*/
+	z-index:10;
+}
+#applicationsPage.widePage.appsPage #nav-container {/* ====== testing ====== */	display:inline;}
+
+#content-main {
+	background-color:#fff;
+	/* ====== testing ====== */	/*position:relative;*/
+	margin:10px auto 0;
+	border:none;
+	padding:0;
+	text-align:left;
+}
+
+.secondTier #content-main {margin-left:179px;}
+
+#blog #content-main {margin:0;}
+
+.optional #content-main,
+.optionalTwo #content-main {margin-top:10px;}
+
+body.widePage #content-main {clear:both;}
+body.widePage #content-main,
+.topicHome #content-main {margin-top:10px;}
+
+	.main-inner {padding:0 10px;}
+	*:first-child+html .secondTier #content-main .main-inner {overflow:hidden;}
+	
+	*:first-child+html body.widePage #content .main-inner {padding-bottom:10px;}
+	
+	.training #content .main-inner {margin:0 0 1em 0}
+
+body div.main-inner:after {
+	content:"This is some really long text to take up some space for Firefox and force the page to take up 100% of the available screen width. This style should not be deleted.";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+#content-secondary{
+	background-color:transparent;
+	float:right;
+	margin:0;
+	margin-top:10px;
+	margin-right:0;
+	margin-left:-175px;
+	border:none;
+	padding:0;
+	width:175px;
+}
+*:first-child+html #content-secondary {margin-right:0;}
+
+.optional #content-main #content-secondary, .optionalTwo #content-main #content-secondary {
+	position:relative;
+	right:-10px;
+	margin:0 0 1em;
+	z-index:10;
+}
+
+#blog #content-secondary {margin-top:0;}
+
+#branding, #siteinfo, .preFoot {
+	background:white;
+	clear:both;
+	margin:0;
+	border:none;
+	padding:0;
+}
+
+/**
+ * = new stuff added to home pages ===============================
+ */
+#top-container{
+	margin:0;
+	padding:0;
+}
+.topicHome #top-container {margin-bottom:10px;}
+
+#topic-intro{
+	margin:0;
+	padding:0;
+	clear:right;
+	overflow:hidden;
+}
+	#topic-intro p{
+		clear:left;
+		margin:0;
+		width:auto;
+	}
+
+}

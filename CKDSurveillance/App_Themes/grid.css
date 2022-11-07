@@ -1,0 +1,550 @@
+@charset "UTF-8";
+/**
+ * CDC - (X)HTML/CSS Framework
+ *
+ * @package         TemplatePackage 'B'
+ * @version         2.5.2
+ * @builddate       06-16-2010 (We, 16 June 2010)
+ */
+
+@media screen, projection
+{
+
+body {
+	border:none;
+	background:#bec3cc fixed url('/ckd/TemplatePackage/images/bgMainDropShadowGradient.png') 0 0 repeat-x;
+	font:75% Verdana, Arial, Helvetica, sans-serif;
+	text-align:left;
+}
+
+#branding {
+	position:relative;
+	background:white url('/ckd/TemplatePackage/images/bgHdrAZ.gif') 0 0 repeat-x;
+	height:auto;
+	min-width:1px;
+}
+#index #branding {min-height:112px;}
+
+	#branding #branding-logo {
+		margin:0;
+		padding:0;
+		height:65px;
+		max-width:98%;
+		background:transparent url('/ckd/TemplatePackage/images/cdcHeaderLogo.gif') 5px 20px no-repeat;
+	}
+	.esp #branding #branding-logo {
+		max-width:98%;
+		background:transparent url('/ckd/TemplatePackage/images/esp/cdcHeaderLogo.gif') 5px 20px no-repeat;
+	}
+		#branding-logo span {
+			display:none;
+		}
+			#branding #branding-logoImage a {
+				width:480px;
+				height:60px;
+				position:absolute;
+			}
+			#branding #branding-logo img {
+				display:none;
+			}
+
+#index #branding-pageheader {
+	background:transparent;
+	margin:0;
+	padding:0;
+	width:auto;
+	height:50px;
+	border:none;
+}
+
+#branding span {
+	margin:5px 0 0 9px;
+	position:absolute;
+	text-align:center;
+}
+	#branding span a,
+	#branding span a:visited {
+		font-size:.9em;
+		color:#666;
+		text-decoration:none;
+	}
+	#branding span a:hover {
+		font-size:.9em;
+		color:#396da5;
+		text-decoration:underline;
+	}
+
+a.skippy {
+	/*position:absolute;
+	top:-1000px;
+	left:-1000px;
+    --ML changed this because on a huge page of links, the skip nav can scroll off the screen (3/10/2013)
+    */
+	
+	position: fixed;
+	top: -1px;
+	left:-1px;
+		
+	height:1px;
+	width:1px;
+	text-align:left;
+	overflow:hidden;
+}
+
+a.skippy:active, a.skippy:focus, a.skippy:hover {
+	top:0;
+	left:0;
+	font-size:1em;
+	font-weight:bold;
+	color:#fff;
+	background-color:#5271ad;
+	height:auto;
+	overflow:auto;
+	width:99%;
+	padding:5px;
+	z-index:100;
+}
+
+#emergency-alert {
+	height:auto;
+	margin-top:50px;
+	margin-bottom:-10px;
+	background:#f00;
+	padding:10px;
+	border:1px solid #000;
+}
+	#emergency-alert h1 {
+		text-transform:uppercase;
+		color:#fc0;
+		clear:both;
+		font-family:Trebuchet MS, Arial, sans-serif;
+		font-size:2em;
+		font-weight:bold;
+	}
+	#emergency-alert p {
+		clear:both;
+		font-size:1.2em;
+		font-weight:bold;
+		color:#fff;
+	}
+	#emergency-alert a, #emergency-alert a:visited {
+		clear:both;
+		font-size:1em;
+		text-decoration:underline;
+		font-weight:bold;
+		color:#fc0;
+	}
+
+noscript div.noscript, div.noscript {
+	color:brown;
+	font-weight:bold;
+	margin:4em 10px -2em 10px;
+}
+
+/* 
+===========================================================
+
+===========================================================
+*/
+
+#index #content-header {
+	background:transparent;
+	margin-bottom:0.75em;
+	max-height:186px;
+	min-height:166px;
+	width:auto;
+	overflow:hidden;
+}
+	#content-header h1 {
+		display:block;
+		min-width:200px;
+		margin-bottom:0.25em;
+	}
+
+#section-header { /* -- this will need to be removed after #section-header is removed from Template -- */
+	background:#f7db8c;
+	padding:0;
+	height:25px;
+	display:none;
+}
+
+/**
+ ==========================================================
+ * = SEARCH FORM ELEMENTS
+ ==========================================================
+ */
+
+#searchForm {
+	float:right;
+	margin-top:45px;
+	padding:0;
+	height:29px;
+	width:300px;
+	height:0;
+}
+	#searchForm fieldset, #searchFormLocal fieldset {
+		margin:0;
+		padding:0;
+		border:none;
+	}
+	#searchForm label, #searchFormLocal label {
+		display:block;
+		margin:0;
+		padding:0;
+		text-align:left;
+		height:16px;
+	}
+	#searchForm label.search, #searchForm label.searchButton, #metrics {display:none;}
+
+	input#searchBox, input#searchBoxLocal {
+		display:inline;
+		float:left;
+		margin:0;
+		padding:0;
+		border:1px solid #525967;
+		font-size:1.2em;
+		color:#003366;
+		height:19px;
+		width:230px;
+	}
+	input#searchBoxSmall {
+		float:right;
+		margin:0;
+		padding:0;
+		border:1px solid #525967;
+		font-size:1.2em;
+		color:#003366;
+		height:19px;
+		width:120px;
+	}
+	input#searchBox:focus, textarea:focus {
+		background-color:yellow;
+	}
+	input#searchButton, input#searchButtonLocal {
+		display:block;
+		margin:0;
+		padding:0;
+		height:21px;
+		width:62px;
+		float:right;
+	}
+	input.submit {
+		display:block;
+		margin:0;
+		padding:0 0.25em;
+		width:auto;
+		float:right;
+	}
+
+#searchFormLocal {
+	display:none;
+	position:absolute;
+	left:-9999px;
+}
+.localSearch #searchFormLocal {
+	display:block;
+	position:absolute;
+	top:13px;
+	right:32px;
+	left:auto;
+	width:300px;
+	z-index:10000;
+}
+
+.structural {
+	position:absolute;
+	left:-9999px;
+}
+input[type=radio] {float:left; margin:1px 0.25em 0 0.25em; padding:0; vertical-align:baseline; height:12px; width:12px;}
+
+
+/**
+ ==========================================================
+ * =PageOptions
+ ==========================================================
+ */
+
+#content-secondary .pageOptions {
+	background:#f5faed url('/ckd/TemplatePackage/images/bg_repeatPageOptions.gif') 0 0;
+	margin:0;
+	padding:0;
+	border:none;
+	border-top:1px solid #b5ce9e;
+	height:auto;
+	width:175px;
+	overflow:visible;
+	z-index:999;
+}
+	.pageOptions .pageOptions-inner {
+		background:transparent url('/ckd/TemplatePackage/images/bg_pageOptions.gif') 0 bottom no-repeat;
+		margin:0;
+		padding:0 0.5em 5px 0.75em;
+		height:auto;
+		width:auto;
+	}
+
+/* will need to update above for new layout */
+#siteinfo {
+	min-height:103px;
+	z-index:-22;
+}
+	#siteinfo-credits {
+		background-color:#fff;
+		margin:0;
+		border:none;
+		padding:0;
+		padding-top:6px;
+		color:#000;
+		line-height:1.2;
+		min-height:70px;
+	}
+		#siteinfo-credits img {
+			margin:-6px 0.25em 0 0;
+			border:none;
+			padding:0 0 1em 0;
+			float:left;
+			clear:right;
+		}
+
+/**
+ ===================================
+ * = RULES
+ ===================================
+ */
+#siteinfo-logos {
+	display:inline;
+	float:right;
+	height:55px;
+	width:auto;
+	margin:0;
+	padding:0;
+	vertical-align:middle;
+	border:1px solid #fff;
+}
+
+#siteinfo-credits #siteinfo-logos img {
+	float:left;
+	display:inline;
+	margin:0;
+	border:none;
+	padding:0;	
+}
+#siteinfo-logos a:first-child img {margin-top:0.7em;}
+
+.lefty {
+	position:relative;
+	margin-right:10px;
+	float:left;
+	vertical-align:baseline;
+}
+.righty {
+	position:relative;
+	margin-left:10px;
+	float:right;
+	vertical-align:baseline;
+}
+
+#wrapper img.center {
+	display:block;
+	margin:0.25em auto;
+	margin-bottom:0.5em;
+}
+
+.clearfix:after {
+	content:".";
+	display:block;
+	font-size:0;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+/* ====== testing ====== *//*.clearfix {
+	background:transparent;
+	clear:both;
+	display:block;
+	float:none;
+	margin:0;
+	border:0 none;
+	padding:0;
+	font-size:0;
+	height:0;
+	width:0;
+	overflow:hidden;
+	visibility:hidden;
+}*/
+/* ====== testing ====== */	/* IE7 */*:first-child+html .clearfix {zoom:1; height:0;}
+*:first-child+html/* .roundem*/ .azMenuList .clearfix {min-width:100%;}
+
+/* ====== testing ====== */	.clearMeL {clear:left;}
+/* ====== testing ====== */	.clearMeR {clear:right; position:relative;}
+
+#content-main table {
+	border-collapse:collapse;
+	margin:0 auto 1em;
+	word-wrap:break-word;
+}
+
+#omniture {
+	position:absolute;
+	left:-9999px;
+	height:0;
+	overflow:hidden;
+}
+
+/**
+ ===================================
+ * = Moved from homeColumn.css
+ ===================================
+ */
+#bottom-container {
+	clear:both;
+	position:relative;
+	margin:0;
+	padding:10px 0 0 0;
+	width:auto;
+	overflow:hidden;
+}
+
+#left-column, .left-column {
+	clear:left;
+	display:inline;
+	float:left;
+	position:relative;
+	margin:0;
+	border:none;
+	padding:0;
+	width:66.666%;
+}
+body.homepage #left-column, body.homepage .left-column {width:66%;}
+	#left-column div.column-inner, .left-column div.column-inner {padding:0 5px 0 0;}
+
+#right-column, .right-column {
+	clear:right;
+	display:inline;
+	float:right;
+	position:relative;
+	margin:0;
+	border:none;
+	padding:0;
+	width:33.333%;
+}
+body.homepage #right-column, body.homepage .right-column {width:33%;}
+	#right-column div.column-inner, .right-column div.column-inner {padding:0 0 0 5px;}
+
+.two-columns {
+	background:transparent;
+	position:relative;
+	margin:0;
+	padding:0;
+	width:auto;
+	max-width:772px;
+	min-width:8em;
+	overflow:auto;
+}
+
+.two-columns .column1 {
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0;
+	width:50%;
+	clear:left;
+}
+.two-columns .column2 {
+	position:relative;
+	float:none;
+	margin:0;
+	margin-left:50%;
+	margin-right:0;
+	padding:0;
+}
+
+.two-columns .column1 > div {
+	position:relative;
+	margin-right:5px;
+}
+.two-columns .column2 > div {
+	position:relative;
+	margin-left:5px;
+}
+
+.two-columns .rounded-corner .column1 div {margin-right:5px;}
+.two-columns .rounded-corner .column2 div{margin-left:5px;}
+
+#right-column .rounded-corner {margin-left:0;}
+
+.top-blocks .column1 {
+	position:relative;
+	float:left;
+	margin:0;
+	margin-left:0;
+	padding:0;
+	width:50%;
+	clear:left;
+}
+.top-blocks .column2 {
+	position:relative;
+	float:none;
+	margin:0;
+	margin-left:50%;
+	margin-right:0;
+	padding:0;
+	width:auto;
+}
+.top-blocks .column1 dl {margin-right:2.5px;}
+.top-blocks .column2 dl {margin-left:2.5px;}
+
+/**
+ ==========================================================
+ * = SUBGRIDS
+ ==========================================================
+ */
+
+.subColumns {
+	width:auto;
+	overflow:hidden;
+}
+*:first-child+html .inner > .subColumns {width:100%;}
+
+.c50l, .c25l, .c33l, .c38l, .c66l, .c75l, .c62l {float:left;}
+.c50r, .c25r, .c33r, .c38r, .c66r, .c75r, .c62r {float:right; margin-left:-5px;}
+
+.c25l, .c25r {width:25%;}
+.c33l, .c33r {width:33.333%;}
+.c50l, .c50r {width:50%;}
+.c66l, .c66r {width:66.666%;}
+.c75l, .c75r {width:75%;}
+.c38l, .c38r {width:38.2%;}/* Golden Ratio */
+.c62l, .c62r {width:61.8%;}/* Golden Ratio */
+/** ==================================================================== */
+*:first-child+html .c1, *:first-child+html .c2 {min-width:49%;}
+*:first-child+html .c25l, *:first-child+html .c25r {min-width:25%;}
+*:first-child+html .c33l, *:first-child+html .c33r {min-width:33.333%;}
+*:first-child+html .c50l, *:first-child+html .c50r {min-width:50%;}
+*:first-child+html .c66l, *:first-child+html .c66r {min-width:66.666%;}
+*:first-child+html .c75l, *:first-child+html .c75r {min-width:75%;}
+*:first-child+html .c38l, *:first-child+html .c38r {min-width:38.2%;} 
+*:first-child+html .c62l, *:first-child+html .c62r {min-width:61.8%;}
+
+.subc {padding:0 3px;}
+ div.module .inner div.middle > .subc, #content .main-inner div.middle > .subc {padding:0 3px !important;}
+.subcl {padding:0 5px 0 0;}
+.subcr {padding:0 0 0 5px;}
+.c50l > .subc, .c25l > .subc, .c33l > .subc, .c38l > .subc, .c66l > .subc, .c75l > .subc, .c62l > .subc {
+	/* ====== testing ====== */	margin:0 !important;
+	padding:0 5px 0 0 !important;
+}
+.c50r > .subc, .c25r > .subc, .c33r > .subc, .c38r > .subc, .c66r > .subc, .c75r > .subc, .c62r > .subc {
+	/* ====== testing ====== */	margin:0 !important;
+	padding:0 0 0 5px !important;
+}
+
+.rounders .subc {margin:0; padding:0;}
+
+.subc .flow a, .subcl .flow a, .subcr .flow a {display:inline-block;}
+*:first-child+html .subc .flow a, *:first-child+html .subcl .flow a, *:first-child+html .subcr .flow a {
+	max-width:none;
+	min-width:1%;
+}
+
+}

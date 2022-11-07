@@ -1,0 +1,381 @@
+﻿/* Beginning of roundbutton */
+a.roundbutton
+{
+    behavior: url(/IE.htc);
+    float: left;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #CCC;
+    margin-right: 10px;
+    padding: 7px;
+    text-decoration:none !important;
+    outline: none;
+    color:#fff;
+    position:relative;
+    /*z-index:1;
+    text-align:center;*/
+}
+a.roundbutton:hover,a.roundbutton:focus 
+{
+    -webkit-box-shadow: #999 2px 2px 6px;
+    -moz-box-shadow: #999 2px 2px 6px;
+    box-shadow: #999 2px 2px 6px;
+    color:#fff;
+    text-decoration:none !important;
+}
+
+a.roundbutton:active
+{
+    -webkit-box-shadow: inset #999 2px 2px 6px;
+    -moz-box-shadow: inset #999 2px 2px 6px;
+    box-shadow: inset #999 2px 2px 6px;
+    /*font-weight: bold;*/
+    text-decoration:none !important;
+}
+
+a.roundbutton.disabled:hover
+{
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+a.roundbutton.disabled:active
+{
+    -webkit-box-shadow:  none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+/* End of roundbutton */
+
+
+/* Beginning of panelbutton */
+.panelbutton
+{
+    cursor: pointer;
+    /*display: table; took this off because it didn't render properly in FF and also sizes of buttons were affecte*/
+    vertical-align: middle;
+}
+
+.panelbutton table
+{
+    margin: 0;
+    width:100%;
+    height:100%
+}
+
+.panelbutton img
+{
+  vertical-align: middle;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.panelbutton a 
+{
+  float: left;
+  font-weight: bold;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.panelbutton a:active, .panelbutton a:focus
+{
+    outline: 0 none !important;
+}
+
+.panelbutton a:hover
+{
+    text-decoration: none !important;
+}
+
+div.panelbutton:hover
+{
+    -webkit-box-shadow: #999 2px 2px 6px;
+    -moz-box-shadow: #999 2px 2px 6px;
+    box-shadow: #999 2px 2px 6px;
+    color:#fff;
+    text-decoration:none !important;
+}
+/* End of panelbutton */
+
+/* Begin Carousel */
+#carousel
+{
+}
+#carousel, #carousel li
+{
+    margin: 0;
+    padding: 0;
+}
+.bx-prev
+{
+    outline:0 none !important;
+}
+.bx-next
+{
+    position: absolute;
+    right: 0;
+    outline:0 none !important;
+}
+
+/* Begin Carousel */
+
+/* Message Box begin */
+.messageBox {
+    background-color: #F6F6F6;
+/*    border: 1px solid #800000; 
+    float: left;*/
+    font-weight: bold;
+    width: 99%;
+}
+
+.mbErrorBorder {
+    border: 1px solid #800000;
+}
+
+.mbWarningBorder {
+    border: 1px solid #ffcc00;
+}
+
+.mbConfirmBorder {
+    border: 1px solid #00cd00;
+}
+
+.mbLeftCell {
+    vertical-align: top;
+    padding: 10px; 
+    width: 1%;
+}
+
+.mbRightCell {
+    vertical-align: top;
+    padding: 10px 10px 10px 0pt; 
+}
+
+.mbTblMessage {
+    clear: both; 
+}
+
+.mbDivMessage {
+    clear: both; 
+    padding-top: 5px; 
+    font-weight: normal;
+}
+
+
+/* End Message box */
+
+
+/* Panels beging */
+.outer
+{
+    background: #c0c0c0;
+}
+
+/* moved the shadow, so the panels won't have drop shadows by default */
+.shadow
+{
+    -webkit-box-shadow: #999 2px 2px 6px;
+    -moz-box-shadow: #999 2px 2px 6px;
+    box-shadow: #999 2px 2px 6px;
+}
+
+.roundpanel
+{
+    /*float: left;*/
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #CCC;
+    margin: 10px;
+    padding: 10px;
+    position:relative;
+    z-index:1;
+}
+
+.roundheading
+{
+    display:block;
+    position: relative;
+    top: -10px;
+    left: -10px;
+    -webkit-border-radius: 8px 8px 0 0;
+    -moz-border-radius: 8px 8px 0 0;
+    border-radius: 8px 8px 0 0;  
+    height:15px;
+    padding:10px;
+    width:100%;
+    border-bottom:1px solid #bbb;
+}
+
+.roundheading h3
+{
+    margin-top: -5px;
+}
+
+/* Panels End */
+
+
+/* Tabs begin */
+
+/* default tab settings, shouldn't need to edit */
+/* old tab strip
+.tabstrip {
+  display: block;
+  height: 22px;
+  margin: 0;
+  overflow-y: hidden;
+  padding: 0;
+}
+.tabstrip span{width:200px;font:bold 9pt Verdana, Arial;padding:4px 0;text-align:center;float:left;margin:0 5px 0 0}
+.tabstrip span a{text-decoration:none}
+.tabstrip span.active a{color:#fff !important}
+.tabstrip span.inactive a{color:#000 !important}
+.tabstrip + #tabbar + .subtabstrip{width:100%;height:20px;background:#eee;margin:0;border-bottom: 1px solid #C0C0C0}
+.tabstrip .inactive {color:#000;background:#ccc}
+.tabstrip + #tabbar{width:100%;height:7px;clear:both;}
+
+.subtabstrip div{font:normal 7pt Verdana, Arial;float:left;margin:5px 5px 0 15px}
+.subtabstrip div a{text-decoration:none;color:#000!important}
+.subtabstrip div a{text-decoration:underline}
+*/
+
+/* new tab strip */
+.tabBox
+{
+    clear: left;
+    padding: 0 3px;
+}
+.tabBox .tabs
+{
+    overflow: visible;
+    height: 2.25em;  /*4.25em for 2 lines */
+    margin: 0 0 -1px;
+    display: block;
+}
+.tabBox .tabs span
+{
+    float: left;
+    height: 2em;
+    overflow: visible;
+    position: relative;
+    z-index: 1;
+    margin: -1px;
+    padding: .25em .25em 0;
+    display: block;
+}
+.tabBox .tabs span.selected
+{
+    z-index: 3;
+}
+.tabBox .tabs span img
+{
+  float: left;
+  /*height: 35px;*/
+  height: 2.25em;
+  left: 10px;
+  position: absolute;
+  top: -15px;
+  z-index: 3;
+}
+.tabBox .tabs a
+{
+    float: left;
+    height: 2em; /*4em for 2 lines */
+    line-height: 2em;
+    /*border: 1px solid #4d4d4d;*/
+    /*border: 1px solid;*/
+    /* border-color: */
+    text-align: center;
+    width: 200px;
+    -webkit-border-radius: 8px 8px 0 0;
+    -moz-border-radius: 8px 8px 0 0;
+    border-radius: 8px 8px 0 0;
+    /*background: #bbb;*/
+    color: #000 !important;
+    font-weight:bold;
+}
+
+.tabBox .tabs .selected a
+{
+    color: #fff !important;
+    font-weight:bold;
+}
+
+.tabBox .tabs a.disabled
+{
+    cursor: default; 
+    text-decoration:none !important;
+}
+
+.tabBox .tabs a:hover
+{
+    font-weight:bold;
+    /*text-decoration:none !important;*/
+}        
+.tabBox .subtabs
+{
+    background-color: #EEE;
+    display: block;
+    padding: 0.5em 1em;
+    position: relative;
+    z-index: 3;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+}
+.tabBox .subtabs span
+{
+    font-size: body-text;
+    margin: 0 5px;
+    /*color: #0A29A5; */
+}
+.tabBox .border
+{
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    display: block;
+    height: 2px;
+    position:relative;
+    z-index:1;
+}
+.tabBox h3{line-height:40px; margin-left: 10px;}
+
+
+/* Tabs begin */
+
+
+
+
+/* validation summary, info summary and validators */
+.ValidationSummary > ul
+{
+    padding-left: 20px;
+}
+
+.ErrorIconColor
+{
+    color: #800000 !important;
+}
+
+.InfoIconColor
+{
+    color: #0B6C37 !important;
+    /*color: #00cd00 !important;*/
+}
+
+.WarningIconColor
+{
+    color: #ffcc00 !important;
+}
+
+.Validator
+{
+    background: -moz-linear-gradient(center top , #FAECEC, #F2DBDB) repeat scroll 0 0 transparent !important;
+    border-color: #e5b8b7 !important;
+}
+
+/* end of validation summary, info summary and validators */

@@ -1,0 +1,1829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Build.Tasks.Git.1.0.0\build\Microsoft.Build.Tasks.Git.props" Condition="Exists('..\packages\Microsoft.Build.Tasks.Git.1.0.0\build\Microsoft.Build.Tasks.Git.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F40B0EA-6F9F-48C1-AB9A-74AD15D64F13}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CKDSurveillance_RD</RootNamespace>
+    <AssemblyName>CKDSurveillance_RD</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;INTERNETx</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DeployIisAppPath>Default Web Site/OSHAdmin</DeployIisAppPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;INTERNET</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="Common, Version=4.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.Commons.4.5.2\lib\Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAccess, Version=4.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.DataAccess.4.6.1\lib\DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="DecryptAesByPassPhrase, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\DecryptAesByPassPhrase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DecryptAesSymmetric, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\DecryptAesSymmetric.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.18.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.18.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EncryptAesByPassPhrase, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\EncryptAesByPassPhrase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EncryptAesSymmetric, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\EncryptAesSymmetric.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="GetHash, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.Crypto.GetHash.4.5\lib\net45\GetHash.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NCCDAppUser, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.NCCDAppUser.4.5.1\lib\net45\NCCDAppUser.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NCCDCryptography, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\NCCDCryptography.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NCCDPassword, Version=4.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.PasswordPolicy.4.5.2\lib\NCCDPassword.dll</HintPath>
+    </Reference>
+    <Reference Include="NCCDUtilities, Version=5.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.NCCDUtilities.5.3.0\lib\NCCDUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="NG.CodeSecure.Common, Version=1.2020.5.6, Culture=neutral, PublicKeyToken=61c49a1a9e79cc28, processorArchitecture=MSIL">
+      <HintPath>..\packages\NG.CodeSecure.Common.7.0.0\lib\NG.CodeSecure.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SSLUtility, Version=4.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CDC.NCCDPHP.SSLUtility.4.5.2\lib\SSLUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.4, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.4\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AccessDenied.aspx" />
+    <Content Include="App_Browsers\adapters.browser" />
+    <Content Include="App_Browsers\ie.browser" />
+    <Content Include="App_Themes\base-float.css" />
+    <Content Include="App_Themes\bootstrap.min.css" />
+    <Content Include="App_Themes\Calculators.css" />
+    <Content Include="App_Themes\columns-float.css" />
+    <Content Include="App_Themes\graphic-identifier.css" />
+    <Content Include="App_Themes\grid.css" />
+    <Content Include="App_Themes\ion.rangeSlider.css" />
+    <Content Include="App_Themes\ion.rangeSlider.skinHTML5.css" />
+    <Content Include="App_Themes\ion.rangeSlider.skinModern.css" />
+    <Content Include="App_Themes\ion.rangeSlider.skinNice.css" />
+    <Content Include="App_Themes\ion.rangeSlider.skinSimple.css" />
+    <Content Include="App_Themes\jquery.range.css" />
+    <Content Include="App_Themes\newMods-float.css" />
+    <Content Include="App_Themes\normalize.css" />
+    <Content Include="App_Themes\reset.css" />
+    <Content Include="App_Themes\RSWidgets.css" />
+    <Content Include="App_Themes\simple-slider-volume.css" />
+    <Content Include="App_Themes\simple-slider.css" />
+    <Content Include="App_Themes\theme-teal.css" />
+    <Content Include="App_Themes\type.css" />
+    <Content Include="App_Themes\widgets-float.css" />
+    <Content Include="AreYouAware.aspx" />
+    <Content Include="AYA\112017.png" />
+    <Content Include="AYA\11_11_2016.html" />
+    <Content Include="AYA\11_24_2015.html" />
+    <Content Include="AYA\1_11_2016.html" />
+    <Content Include="AYA\1_25_2017.html" />
+    <Content Include="AYA\2_26_2016.html" />
+    <Content Include="AYA\3_1_2017.html" />
+    <Content Include="AYA\3_23_2016.html" />
+    <Content Include="AYA\3_3_2016.html" />
+    <Content Include="AYA\5_3_2016.html" />
+    <Content Include="AYA\5_9_2017.html" />
+    <Content Include="AYA\8_18_2016.html" />
+    <Content Include="AYA\9_6_2016.html" />
+    <Content Include="AYA\August_2016.html" />
+    <Content Include="AYA\August_2018.html" />
+    <Content Include="AYA\August_2020.html" />
+    <Content Include="AYA\AYA_template.html" />
+    <Content Include="AYA\February_2016.html" />
+    <Content Include="AYA\February_2019.html" />
+    <Content Include="AYA\Images\May_2021.png" />
+    <Content Include="AYA\Images\July_2021.png" />
+    <Content Include="AYA\Images\October_2022.png" />
+    <Content Include="AYA\Images\September_2021.png" />
+    <Content Include="AYA\March_2021.html" />
+    <Content Include="AYA\Images\012018.png" />
+    <Content Include="AYA\Images\012019.png" />
+    <Content Include="AYA\Images\012020_1.png" />
+    <Content Include="AYA\Images\012020_2.png" />
+    <Content Include="AYA\Images\022019.png" />
+    <Content Include="AYA\Images\03012017.png" />
+    <Content Include="AYA\Images\032018.png" />
+    <Content Include="AYA\Images\032019.png" />
+    <Content Include="AYA\Images\032020.png" />
+    <Content Include="AYA\Images\052017.png" />
+    <Content Include="AYA\Images\052018.png" />
+    <Content Include="AYA\Images\052019.png" />
+    <Content Include="AYA\Images\052020.png" />
+    <Content Include="AYA\Images\072017.png" />
+    <Content Include="AYA\Images\072019.png" />
+    <Content Include="AYA\Images\082018.png" />
+    <Content Include="AYA\Images\082020.png" />
+    <Content Include="AYA\Images\092017.png" />
+    <Content Include="AYA\Images\092019.png" />
+    <Content Include="AYA\Images\092020.png" />
+    <Content Include="AYA\Images\102018.png" />
+    <Content Include="AYA\Images\112017.png" />
+    <Content Include="AYA\Images\112020.png" />
+    <Content Include="AYA\Images\11242015.PNG" />
+    <Content Include="AYA\Images\August_2016.jpg" />
+    <Content Include="AYA\Images\Feb_2016.png" />
+    <Content Include="AYA\Images\Jan_2016.png" />
+    <Content Include="AYA\Images\March2_2016.png" />
+    <Content Include="AYA\Images\March_2016.png" />
+    <Content Include="AYA\Images\March_2021.png" />
+    <Content Include="AYA\Images\May_2016.png" />
+    <Content Include="AYA\Images\November_2016.jpg" />
+    <Content Include="AYA\Images\September_2016.png" />
+    <Content Include="AYA\January_2016.html" />
+    <Content Include="AYA\January_2017.html" />
+    <Content Include="AYA\January_2018.html" />
+    <Content Include="AYA\January_2019.html" />
+    <Content Include="AYA\January_2020.html" />
+    <Content Include="AYA\July_2017.html" />
+    <Content Include="AYA\July_2019.html" />
+    <Content Include="AYA\July_2021.html" />
+    <Content Include="AYA\March_2016.html" />
+    <Content Include="AYA\March_2016_2.html" />
+    <Content Include="AYA\March_2017.html" />
+    <Content Include="AYA\March_2018.html" />
+    <Content Include="AYA\March_2019.html" />
+    <Content Include="AYA\March_2020.html" />
+    <Content Include="AYA\May_2016.html" />
+    <Content Include="AYA\May_2017.html" />
+    <Content Include="AYA\May_2018.html" />
+    <Content Include="AYA\May_2019.html" />
+    <Content Include="AYA\May_2020.html" />
+    <Content Include="AYA\May_2021.html" />
+    <Content Include="AYA\November_2015.html" />
+    <Content Include="AYA\November_2016.html" />
+    <Content Include="AYA\November_2017.html" />
+    <Content Include="AYA\November_2020.html" />
+    <Content Include="AYA\October_2018.html" />
+    <Content Include="AYA\October_2022.html" />
+    <Content Include="AYA\September_2016.html" />
+    <Content Include="AYA\September_2017.html" />
+    <Content Include="AYA\September_2019.html" />
+    <Content Include="AYA\September_2020.html" />
+    <Content Include="AYA\September_2021.html" />
+    <Content Include="AYA\September_2022.html" />
+    <Content Include="Blocked.aspx" />
+    <Content Include="Calculators.aspx" />
+    <Content Include="css\SocialMedia.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Default\Default.aspx" />
+    <Content Include="Default\Logout.aspx" />
+    <Content Include="DisparityExplorerV2.aspx" />
+    <Content Include="FactorsofInterest.aspx" />
+    <Content Include="images\032019_infocard.jpg" />
+    <Content Include="images\084239gradient.png" />
+    <Content Include="images\112017.png" />
+    <Content Include="images\16_262603_leonard_mar_ckd.jpg" />
+    <Content Include="images\17_283823-A_Ojeda_Natl_Diabetes_Month_B.png" />
+    <Content Include="images\18_297149_diabetes_month_CKD_info_card_blue_1.jpg" />
+    <Content Include="images\2020_Nov_Diabetes_Month.jpg" />
+    <Content Include="images\20_320514_burrows_FB_live_graphic_1400x1400_black.jpg" />
+    <Content Include="images\AAKH-cover.png" />
+    <Content Include="images\Awareness.png" />
+    <Content Include="images\Awareness_answer3.png" />
+    <Content Include="images\Awareness_r2_rs2.jpg" />
+    <Content Include="images\BG_HP2020.png" />
+    <Content Include="images\bookicon.PNG" />
+    <Content Include="images\Burden.png" />
+    <Content Include="images\Burden_answer4.png" />
+    <Content Include="images\Burden_r2_re2.jpg" />
+    <Content Include="images\CDC_LOGO_narrow.png" />
+    <Content Include="images\CKD1.2.jpg" />
+    <Content Include="images\CKD2.2.jpg" />
+    <Content Include="images\CKD3.2.jpg" />
+    <Content Include="images\CKD4.2.jpg" />
+    <Content Include="images\CKD5.6.jpg" />
+    <Content Include="images\CKD_GI_Larger.png" />
+    <Content Include="images\close.gif" />
+    <Content Include="images\collapse.gif" />
+    <Content Include="images\comment-warning_Green.png" />
+    <Content Include="images\Disparities_Green.png" />
+    <Content Include="images\DrOffice_answer1.png" />
+    <Content Include="images\Email1_Green.png" />
+    <Content Include="images\Email_blue.png" />
+    <Content Include="images\EmergingTopics_Green.png" />
+    <Content Include="images\Health System_r2_rs2.jpg" />
+    <Content Include="images\HealthConsequences_answer3.png" />
+    <Content Include="images\HealthSystem_answer4.png" />
+    <Content Include="images\Health_Cons_r2_rs2.jpg" />
+    <Content Include="images\HP2030-logo-noyear_cropped.jpg" />
+    <Content Include="images\hypertension_WG_500x500.png" />
+    <Content Include="images\hypertension_WG_500x500_2.png" />
+    <Content Include="images\Kidney_Blue.png" />
+    <Content Include="images\Kidney_Green.png" />
+    <Content Include="images\Know_Your_Numbers385_385.jpg" />
+    <Content Include="images\CommonControls\calendargray.gif" />
+    <Content Include="App_Themes\data-table.css" />
+    <Content Include="images\DEEEE9_to_084239_gradient.png" />
+    <Content Include="images\DiabetesMonth_2019.jpg" />
+    <Content Include="images\disabled_go.gif" />
+    <Content Include="images\disk.png" />
+    <Content Include="images\down.png" />
+    <Content Include="images\download.jpg" />
+    <Content Include="images\down_dark.png" />
+    <Content Include="images\Emerging Topics.png" />
+    <Content Include="images\EnKP.jpg" />
+    <Content Include="images\expand.gif" />
+    <Content Include="images\fast_forward.png" />
+    <Content Include="images\ffffff_to_084239_gradient.png" />
+    <Content Include="images\fifteen-percent.jpg" />
+    <Content Include="images\Funnel2.png" />
+    <Content Include="images\go.gif" />
+    <Content Include="images\GO.png" />
+    <Content Include="images\GO_Clicked.png" />
+    <Content Include="images\graphic_identifier.png" />
+    <Content Include="images\Hands.png" />
+    <Content Include="images\HealthCareSystemCapacity.png" />
+    <Content Include="images\HealthConsequences.png" />
+    <Content Include="images\healthyPeople.jpg" />
+    <Content Include="images\help.jpg" />
+    <Content Include="images\help_transBG.png" />
+    <Content Include="images\hypertensionDay_309x309.jpg" />
+    <Content Include="images\icon_out.png" />
+    <Content Include="images\ImageCarousel_V2-01.png" />
+    <Content Include="images\ImageCarousel_V2-02.png" />
+    <Content Include="images\ImageCarousel_V2-03.png" />
+    <Content Include="images\ImageCarousel_V2-04.png" />
+    <Content Include="images\ImageCarousel_V2-05.png" />
+    <Content Include="images\imgFruitsVegsLowerKidneyFail.png" />
+    <Content Include="images\Incidence.png" />
+    <Content Include="images\KDSMad.jpg" />
+    <Content Include="images\LoadSwirl.gif" />
+    <Content Include="images\LocalSearchSmall.png" />
+    <Content Include="images\MaskOnSleevesUp2.png" />
+    <Content Include="images\methods.jpg" />
+    <Content Include="images\methods.png" />
+    <Content Include="images\Newspaper.png" />
+    <Content Include="images\nonDayWidget1.jpg" />
+    <Content Include="images\NonDayWidget2.jpg" />
+    <Content Include="images\one-in-three-LinkedIn.jpg" />
+    <Content Include="images\one-in-three-Yellow.jpg" />
+    <Content Include="images\one-of-two-linkedin.jpg" />
+    <Content Include="images\PatientInfo_Green.png" />
+    <Content Include="images\Patients_Green.png" />
+    <Content Include="images\Play.png" />
+    <Content Include="images\Prev. and Inc_r2_rs2.jpg" />
+    <Content Include="images\Prevalence.png" />
+    <Content Include="images\P_and_I_answer4.png" />
+    <Content Include="images\Qual of Care_r2_rs2.jpg" />
+    <Content Include="images\QualityOfCare.png" />
+    <Content Include="images\Quality_answer4.png" />
+    <Content Include="images\Refresh.png" />
+    <Content Include="images\Research_Blue.png" />
+    <Content Include="images\Research_Green.png" />
+    <Content Include="images\Rewind.png" />
+    <Content Include="images\RiskFactors_Blue.png" />
+    <Content Include="images\RiskFactors_Green.png" />
+    <Content Include="images\smallStopSquare.png" />
+    <Content Include="images\SocialMedia\su.png" />
+    <Content Include="images\SpecialPops2_Green.png" />
+    <Content Include="images\sprite-skin-flat.png" />
+    <Content Include="images\sprite-skin-modern.png" />
+    <Content Include="images\sprite-skin-nice.png" />
+    <Content Include="images\sprite-skin-simple.png" />
+    <Content Include="images\steth2.png" />
+    <Content Include="images\Tools_blue.png" />
+    <Content Include="images\Tools_Green.png" />
+    <Content Include="images\Tote2_Green.png" />
+    <Content Include="images\up.png" />
+    <Content Include="images\up_light.png" />
+    <Content Include="images\Videobar.JPG" />
+    <Content Include="images\WDD2016.jpg" />
+    <Content Include="images\WDD4.jpg" />
+    <Content Include="images\WDDlogosmall.png" />
+    <Content Include="images\web20.gif" />
+    <Content Include="images\whd_2016.jpg" />
+    <Content Include="images\WKD2017.jpg" />
+    <Content Include="images\WKD2018.jpg" />
+    <Content Include="images\WKD_2020.jpg" />
+    <Content Include="images\WorldHypertensionDay_2.jpg" />
+    <Content Include="MapHandler.aspx" />
+    <Content Include="Help.aspx" />
+    <Content Include="contactus.aspx" />
+    <Content Include="data.aspx" />
+    <Content Include="detail.aspx" />
+    <Content Include="MasterPages\ResponsiveContent_popupThinNew.Master" />
+    <Content Include="menus\CKDMenu.html" />
+    <Content Include="menus\helpMenu.html" />
+    <Content Include="NewIndicatorList.aspx" />
+    <Content Include="PrimaryCarePhysicians.aspx" />
+    <Content Include="Research.aspx" />
+    <Content Include="scripts\D3MapFiles\topojson.v1.min.js" />
+    <Content Include="scripts\D3MapFiles\Coordinates\us-states.json" />
+    <Content Include="scripts\D3MapFiles\Coordinates\us-10m.v1.json" />
+    <Content Include="scripts\AccordionUtility.js" />
+    <Content Include="scripts\AccordionUtility.js" />
+    <Content Include="scripts\bootstrap-dropdown.js" />
+    <Content Include="scripts\Calculators.js" />
+    <Content Include="scripts\d3.v4.min.js" />
+    <Content Include="scripts\ion.rangeSlider.js" />
+    <Content Include="scripts\jquery.range.js" />
+    <Content Include="scripts\plotly-latest.min.js" />
+    <Content Include="scripts\SliderFunctions.js" />
+    <Content Include="scripts\UtilityRD.js" />
+    <Content Include="SearchResults.aspx" />
+    <Content Include="Methods.aspx" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\ckd.js" />
+    <Content Include="scripts\highlight.js" />
+    <Content Include="scripts\jquery.corner.js" />
+    <Content Include="scripts\jquery.curvycorners.js" />
+    <Content Include="scripts\jquery.cycle2.carousel.min.js" />
+    <Content Include="scripts\jquery.cycle2.js" />
+    <Content Include="scripts\jquery.usmap2.js" />
+    <Content Include="scripts\jquery.watermark.js" />
+    <Content Include="scripts\raphael.js" />
+    <Content Include="scripts\templateContentLeftNav.js" />
+    <Content Include="scripts\jquery.idletimer.js" />
+    <Content Include="scripts\jquery.session-idle.js" />
+    <Content Include="MasterPages\Blank.Master" />
+    <Content Include="MasterPages\ResponsiveContent_popup.Master" />
+    <Content Include="MasterPages\ResponsiveContent_popupThin.Master" />
+    <Content Include="css\CommonControls\ie.browser" />
+    <Content Include="css\CommonControls\adapters.browser" />
+    <Content Include="css\DefaultCSS.css" />
+    <Content Include="css\DetailCSS.css" />
+    <Content Include="css\FactorsOfInterest.css" />
+    <Content Include="JSHandler.ashx" />
+    <Content Include="packages.config" />
+    <Content Include="Handlers\DisparityExplorer_Handler.ashx" />
+    <Content Include="Handlers\MapData_Handler.ashx" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="scripts\local.js" />
+    <Content Include="scripts\templateContentEmpty.js" />
+    <Content Include="css\Lato\SIL Open Font License.txt" />
+    <Content Include="RegExpExclusion.xml" />
+    <Content Include="App_Themes\custom.css" />
+    <Content Include="App_Themes\local.css" />
+    <Content Include="App_Browsers\IE.htc" />
+    <Content Include="css\CommonControls\colors.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\CommonControls\CommonControls.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\CommonControls\datepicker.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\CommonControls\IE.htc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Entypo\licence.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\CommonControls\calendar.gif" />
+    <Content Include="images\CommonControls\Confirm.gif" />
+    <Content Include="images\CommonControls\Confirm_big.gif" />
+    <Content Include="images\CommonControls\Error.gif" />
+    <Content Include="images\CommonControls\Error_big.gif" />
+    <Content Include="images\CommonControls\Warning.gif" />
+    <Content Include="images\CommonControls\Warning_big.gif" />
+    <Content Include="scripts\jquery-ui.js" />
+    <Content Include="scripts\app.js" />
+    <Content Include="scripts\jquery.colorbox-min.js" />
+    <Content Include="MasterPages\ResponsiveContentLeftNav.Master" />
+    <Content Include="css\Lato\Lato-Bla.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Lato\Lato-BlaIta.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Lato\Lato-Bol.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Lato\Lato-BolIta.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Lato\Lato-Hai.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Lato\Lato-HaiIta.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Lato\Lato-Lig.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Lato\Lato-LigIta.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Lato\Lato-Reg.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Lato\Lato-RegIta.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Error.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="scripts\jquery.blockUI.js" />
+    <Content Include="scripts\Utility.js" />
+    <Content Include="scripts\Utility508.js" />
+    <Content Include="TopicHome\Awareness.aspx" />
+    <Content Include="TopicHome\BurdenOfRiskFactors.aspx" />
+    <Content Include="TopicHome\HealthCareSystemCapacity.aspx" />
+    <Content Include="TopicHome\HealthConsequences.aspx" />
+    <Content Include="TopicHome\PrevalenceIncidence.aspx" />
+    <Content Include="TopicHome\QualityOfCare.aspx" />
+    <Content Include="UserControls\AccordionIndicatorControl.ascx" />
+    <Content Include="UserControls\AccordionIndicatorControlSearch.ascx" />
+    <Content Include="UserControls\accordionindicatorcontrolSpecialFactor.ascx" />
+    <Content Include="UserControls\AccordionSubCatControl.ascx" />
+    <Content Include="UserControls\AccordionSubcatControlSearch.ascx" />
+    <Content Include="UserControls\accordionsubcatcontrolSpecialFactor.ascx" />
+    <Content Include="UserControls\Bibliography.ascx" />
+    <Content Include="UserControls\ChooseStratLong.ascx" />
+    <Content Include="UserControls\DataSources.ascx" />
+    <Content Include="UserControls\DetailCategoryControl.ascx" />
+    <Content Include="UserControls\FAQ.ascx" />
+    <Content Include="UserControls\FAQGlossaryControl.ascx" />
+    <Content Include="UserControls\FPWidgets\AAKH.ascx" />
+    <Content Include="UserControls\FPWidgets\AYA_Disparities_Tools.ascx" />
+    <Content Include="UserControls\FPWidgets\Calculators.ascx" />
+    <Content Include="UserControls\FPWidgets\Combined_Initiative_FactSheet.ascx" />
+    <Content Include="UserControls\FPWidgets\CurrentTopics.ascx" />
+    <Content Include="UserControls\FPWidgets\Disparities.ascx" />
+    <Content Include="UserControls\FPWidgets\Disparitiesrrr.ascx" />
+    <Content Include="UserControls\FPWidgets\EmailSubscribe.ascx" />
+    <Content Include="UserControls\FPWidgets\EmergingTopics.ascx" />
+    <Content Include="UserControls\FPWidgets\Factsheet.ascx" />
+    <Content Include="UserControls\FPWidgets\FocusOnRiskFactors.ascx" />
+    <Content Include="UserControls\FPWidgets\Initiative.ascx" />
+    <Content Include="UserControls\FPWidgets\NewIndicators.ascx" />
+    <Content Include="UserControls\FPWidgets\PatientFocusedInformation.ascx" />
+    <Content Include="UserControls\FPWidgets\ResearchAndPublications.ascx" />
+    <Content Include="UserControls\FPWidgets\SpecialDay.ascx" />
+    <Content Include="UserControls\FPWidgets\SpecialPopulations.ascx" />
+    <Content Include="UserControls\FPWidgets\SpotlightOnIndicators.ascx" />
+    <Content Include="UserControls\FPWidgets\SuggestedCitationAndVersioning.ascx" />
+    <Content Include="UserControls\FrontPageRotater.ascx" />
+    <Content Include="UserControls\FrontPageRotater_NewRotater.ascx" />
+    <Content Include="UserControls\Glossary.ascx" />
+    <Content Include="UserControls\HealthyPeopleControlLong.ascx" />
+    <Content Include="UserControls\LearnMoreControl2.ascx" />
+    <Content Include="UserControls\Navigation\MainNav.ascx" />
+    <Content Include="UserControls\Patients.ascx" />
+    <Content Include="UserControls\ProjectIntroVideo.ascx" />
+    <Content Include="UserControls\RDVersions\AreYouAwareWidget.ascx" />
+    <Content Include="UserControls\RDVersions\CKDInitiativeRD.ascx" />
+    <Content Include="UserControls\RDVersions\DataSourceDDLsRD.ascx" />
+    <Content Include="UserControls\RDVersions\EmailSubscribeRD.ascx" />
+    <Content Include="UserControls\RDVersions\EmergingTopicsRD.ascx" />
+    <Content Include="UserControls\RDVersions\HealthyPeopleControlLongRD.ascx" />
+    <Content Include="UserControls\RDVersions\LearnMoreControlRD.ascx" />
+    <Content Include="UserControls\RDVersions\NewIndicatorWidget.ascx" />
+    <Content Include="UserControls\RDVersions\PatientsRD.ascx" />
+    <Content Include="UserControls\RDVersions\PrimaryCarePhysicianWidget.ascx" />
+    <Content Include="UserControls\RDVersions\ProjectIntroVideoRD.ascx" />
+    <Content Include="UserControls\RDVersions\ResearchWidget.ascx" />
+    <Content Include="UserControls\RDVersions\RiskFactorsRD.ascx" />
+    <Content Include="UserControls\RDVersions\SiteNavigationRD2_Options.ascx" />
+    <Content Include="UserControls\RDVersions\SpecialPopulationsListRD.ascx" />
+    <Content Include="UserControls\RDVersions\StratYearsRD.ascx" />
+    <Content Include="UserControls\RDVersions\ToolsWidget.ascx" />
+    <Content Include="UserControls\RDVersions\TopicHomeContent.ascx" />
+    <Content Include="UserControls\RDVersions\VersionRD.ascx" />
+    <Content Include="UserControls\RDVersions\FactorsOfInterestContent.ascx" />
+    <Content Include="UserControls\RiskFactors.ascx" />
+    <Content Include="UserControls\AboutTheProject.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\Covid.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\FluShot.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\FruitsVegetables.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\InfoCardWidget.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\NonDayWidget.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\WorldDiabetesDay2016.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\WorldDiabetesDay2017.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\WorldDiabetesDayGeneral.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\WorldDiabetesDayRD.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\WorldHypertensionDay2016.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\WorldHypertensionDayGeneral.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\WorldKidneyDay2016.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\WorldKidneyDay2017.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\WorldKidneyDay2018.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\WorldKidneyDay2020.ascx" />
+    <Content Include="UserControls\SpecialDayWidgets\WorldKidneyDayGeneral.ascx" />
+    <Content Include="UserControls\SpecialPopulationsList.ascx" />
+    <Content Include="UserControls\StratYearsButtons.ascx" />
+    <Content Include="UserControls\StratYearsLinks.ascx" />
+    <Content Include="UserControls\StratYearsLinksMaps.ascx" />
+    <Content Include="UserControls\SuggestedCitationControl.ascx" />
+    <Content Include="UserControls\SurveyModal.ascx" />
+    <Content Include="UserControls\TemplateLocal\ucBreadcrumbs.ascx" />
+    <Content Include="UserControls\TemplateLocal\ucEmailUpdates.ascx" />
+    <Content Include="UserControls\TemplateLocal\ucNav.ascx" />
+    <Content Include="UserControls\TemplateLocal\ucOmniture.ascx" />
+    <Content Include="UserControls\TemplateLocal\ucRelatedLinks.ascx" />
+    <Content Include="UserControls\TemplateLocal\ucFooterLocalContact.ascx" />
+    <Content Include="UserControls\TemplateLocal\ucSkipNav.ascx" />
+    <Content Include="UserControls\TemplateLocal\ucSkipNavigation.ascx" />
+    <Content Include="UserControls\TemplateLocal\ucSkipNavigation_Popup.ascx" />
+    <Content Include="UserControls\TemplateLocal\ucSkipNavigation_PopupThin.ascx" />
+    <Content Include="UserControls\UnfamiliarTermControl.ascx" />
+    <Content Include="UserControls\WDD4.ascx" />
+    <Content Include="UserControls\WorldDiabetesDay.ascx" />
+    <Content Include="UserControls\WorldHypertensionDayControl.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\Dev Internet.pubxml" />
+    <None Include="Properties\PublishProfiles\QA Internet.pubxml" />
+    <None Include="Web.config.prod.Debug.TED">
+      <DependentUpon>Web.config.prod.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.prod.DEV Internet.TED">
+      <DependentUpon>Web.config.prod.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.prod.DEV.TED">
+      <DependentUpon>Web.config.prod.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.prod.TED">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config.prod.PROD.TED">
+      <DependentUpon>Web.config.prod.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.prod.QA Internet.TED">
+      <DependentUpon>Web.config.prod.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.prod.QA.TED">
+      <DependentUpon>Web.config.prod.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.prod.QA_SCAN.TED">
+      <DependentUpon>Web.config.prod.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.prod.Release.TED">
+      <DependentUpon>Web.config.prod.TED</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config.prod.Scan.TED">
+      <DependentUpon>Web.config.prod.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.prod.VA Scan.TED">
+      <DependentUpon>Web.config.prod.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.stg.Debug.TED">
+      <DependentUpon>Web.config.stg.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.stg.DEV Internet.TED">
+      <DependentUpon>Web.config.stg.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.stg.DEV.TED">
+      <DependentUpon>Web.config.stg.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.stg.PROD.TED">
+      <DependentUpon>Web.config.stg.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.stg.QA Internet.TED">
+      <DependentUpon>Web.config.stg.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.stg.QA.TED">
+      <DependentUpon>Web.config.stg.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.stg.QA_SCAN.TED">
+      <DependentUpon>Web.config.stg.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.stg.Release.TED">
+      <DependentUpon>Web.config.stg.TED</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config.stg.Scan.TED">
+      <DependentUpon>Web.config.stg.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.stg.TED">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config.stg.VA Scan.TED">
+      <DependentUpon>Web.config.stg.TED</DependentUpon>
+    </None>
+    <None Include="Web.config.stg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config.Debug.stg">
+      <DependentUpon>Web.config.stg</DependentUpon>
+    </None>
+    <None Include="Web.config.DEV Internet.stg">
+      <DependentUpon>Web.config.stg</DependentUpon>
+    </None>
+    <None Include="Web.config.DEV.stg">
+      <DependentUpon>Web.config.stg</DependentUpon>
+    </None>
+    <None Include="Web.config.PROD.stg">
+      <DependentUpon>Web.config.stg</DependentUpon>
+    </None>
+    <None Include="Web.config.QA Internet.stg">
+      <DependentUpon>Web.config.stg</DependentUpon>
+    </None>
+    <None Include="Web.config.QA.stg">
+      <DependentUpon>Web.config.stg</DependentUpon>
+    </None>
+    <None Include="Web.config.QA_SCAN.stg">
+      <DependentUpon>Web.config.stg</DependentUpon>
+    </None>
+    <None Include="Web.config.Release.stg">
+      <DependentUpon>Web.config.stg</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config.Scan.stg">
+      <DependentUpon>Web.config.stg</DependentUpon>
+    </None>
+    <None Include="Web.config.VA Scan.stg">
+      <DependentUpon>Web.config.stg</DependentUpon>
+    </None>
+    <None Include="Web.config.prod">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config.Debug.prod">
+      <DependentUpon>Web.config.prod</DependentUpon>
+    </None>
+    <None Include="Web.config.DEV Internet.prod">
+      <DependentUpon>Web.config.prod</DependentUpon>
+    </None>
+    <None Include="Web.config.DEV.prod">
+      <DependentUpon>Web.config.prod</DependentUpon>
+    </None>
+    <None Include="Web.config.PROD.prod">
+      <DependentUpon>Web.config.prod</DependentUpon>
+    </None>
+    <None Include="Web.config.QA Internet.prod">
+      <DependentUpon>Web.config.prod</DependentUpon>
+    </None>
+    <None Include="Web.config.QA.prod">
+      <DependentUpon>Web.config.prod</DependentUpon>
+    </None>
+    <None Include="Web.config.QA_SCAN.prod">
+      <DependentUpon>Web.config.prod</DependentUpon>
+    </None>
+    <None Include="Web.config.Release.prod">
+      <DependentUpon>Web.config.prod</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config.Scan.prod">
+      <DependentUpon>Web.config.prod</DependentUpon>
+    </None>
+    <None Include="Web.config.VA Scan.prod">
+      <DependentUpon>Web.config.prod</DependentUpon>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.DEV Internet.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.DEV.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.PROD.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.QA Internet.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.QA.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.QA_SCAN.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Scan.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.VA Scan.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AreYouAware.aspx.cs">
+      <DependentUpon>AreYouAware.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AreYouAware.aspx.designer.cs">
+      <DependentUpon>AreYouAware.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Blocked.aspx.cs">
+      <DependentUpon>Blocked.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Blocked.aspx.designer.cs">
+      <DependentUpon>Blocked.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Calculators.aspx.cs">
+      <DependentUpon>Calculators.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calculators.aspx.designer.cs">
+      <DependentUpon>Calculators.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\AppCache.cs" />
+    <Compile Include="Classes\Constants.cs" />
+    <Compile Include="Classes\MapTexts.cs" />
+    <Compile Include="Classes\NCCDSession.cs" />
+    <Compile Include="Classes\DBUtility.cs" />
+    <Compile Include="Classes\DynamicLibrary.cs" />
+    <Compile Include="Classes\NCCDPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DisparityExplorerV2.aspx.cs">
+      <DependentUpon>DisparityExplorerV2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DisparityExplorerV2.aspx.designer.cs">
+      <DependentUpon>DisparityExplorerV2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FactorsofInterest.aspx.cs">
+      <DependentUpon>FactorsofInterest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FactorsofInterest.aspx.designer.cs">
+      <DependentUpon>FactorsofInterest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\DisparityExplorer_Handler.ashx.cs">
+      <DependentUpon>DisparityExplorer_Handler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\MapData_Handler.ashx.cs">
+      <DependentUpon>MapData_Handler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="JSHandler.ashx.cs">
+      <DependentUpon>JSHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="MapHandler.aspx.cs">
+      <DependentUpon>MapHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MapHandler.aspx.designer.cs">
+      <DependentUpon>MapHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\Blank.Master.cs">
+      <DependentUpon>Blank.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\Blank.Master.designer.cs">
+      <DependentUpon>Blank.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\ResponsiveContent_popupThin.Master.cs">
+      <DependentUpon>ResponsiveContent_popupThin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\ResponsiveContent_popupThin.Master.designer.cs">
+      <DependentUpon>ResponsiveContent_popupThin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\ResponsiveContent_popup.Master.cs">
+      <DependentUpon>ResponsiveContent_popup.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\ResponsiveContent_popup.Master.designer.cs">
+      <DependentUpon>ResponsiveContent_popup.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help.aspx.designer.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contactus.aspx.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contactus.aspx.designer.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="data.aspx.cs">
+      <DependentUpon>data.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="data.aspx.designer.cs">
+      <DependentUpon>data.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="detail.aspx.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="detail.aspx.designer.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\ResponsiveContentLeftNav.Master.cs">
+      <DependentUpon>ResponsiveContentLeftNav.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\ResponsiveContentLeftNav.Master.designer.cs">
+      <DependentUpon>ResponsiveContentLeftNav.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\ResponsiveContent_popupThinNew.Master.cs">
+      <DependentUpon>ResponsiveContent_popupThinNew.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\ResponsiveContent_popupThinNew.Master.designer.cs">
+      <DependentUpon>ResponsiveContent_popupThinNew.Master</DependentUpon>
+    </Compile>
+    <Compile Include="NewIndicatorList.aspx.cs">
+      <DependentUpon>NewIndicatorList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewIndicatorList.aspx.designer.cs">
+      <DependentUpon>NewIndicatorList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrimaryCarePhysicians.aspx.cs">
+      <DependentUpon>PrimaryCarePhysicians.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrimaryCarePhysicians.aspx.designer.cs">
+      <DependentUpon>PrimaryCarePhysicians.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Research.aspx.cs">
+      <DependentUpon>Research.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Research.aspx.designer.cs">
+      <DependentUpon>Research.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResults.aspx.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchResults.aspx.designer.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Methods.aspx.cs">
+      <DependentUpon>Methods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Methods.aspx.designer.cs">
+      <DependentUpon>Methods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TopicHome\Awareness.aspx.cs">
+      <DependentUpon>Awareness.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopicHome\Awareness.aspx.designer.cs">
+      <DependentUpon>Awareness.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TopicHome\BurdenOfRiskFactors.aspx.cs">
+      <DependentUpon>BurdenOfRiskFactors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopicHome\BurdenOfRiskFactors.aspx.designer.cs">
+      <DependentUpon>BurdenOfRiskFactors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TopicHome\HealthCareSystemCapacity.aspx.cs">
+      <DependentUpon>HealthCareSystemCapacity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopicHome\HealthCareSystemCapacity.aspx.designer.cs">
+      <DependentUpon>HealthCareSystemCapacity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TopicHome\HealthConsequences.aspx.cs">
+      <DependentUpon>HealthConsequences.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopicHome\HealthConsequences.aspx.designer.cs">
+      <DependentUpon>HealthConsequences.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TopicHome\PrevalenceIncidence.aspx.cs">
+      <DependentUpon>PrevalenceIncidence.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopicHome\PrevalenceIncidence.aspx.designer.cs">
+      <DependentUpon>PrevalenceIncidence.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TopicHome\QualityOfCare.aspx.cs">
+      <DependentUpon>QualityOfCare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopicHome\QualityOfCare.aspx.designer.cs">
+      <DependentUpon>QualityOfCare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccordionIndicatorControl.ascx.cs">
+      <DependentUpon>AccordionIndicatorControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccordionIndicatorControl.ascx.designer.cs">
+      <DependentUpon>AccordionIndicatorControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccordionIndicatorControlSearch.ascx.cs">
+      <DependentUpon>AccordionIndicatorControlSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccordionIndicatorControlSearch.ascx.designer.cs">
+      <DependentUpon>AccordionIndicatorControlSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\accordionindicatorcontrolSpecialFactor.ascx.cs">
+      <DependentUpon>accordionindicatorcontrolSpecialFactor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\accordionindicatorcontrolSpecialFactor.ascx.designer.cs">
+      <DependentUpon>accordionindicatorcontrolSpecialFactor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccordionSubCatControl.ascx.cs">
+      <DependentUpon>AccordionSubCatControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccordionSubCatControl.ascx.designer.cs">
+      <DependentUpon>AccordionSubCatControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccordionSubcatControlSearch.ascx.cs">
+      <DependentUpon>AccordionSubcatControlSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccordionSubcatControlSearch.ascx.designer.cs">
+      <DependentUpon>AccordionSubcatControlSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\accordionsubcatcontrolSpecialFactor.ascx.cs">
+      <DependentUpon>accordionsubcatcontrolSpecialFactor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\accordionsubcatcontrolSpecialFactor.ascx.designer.cs">
+      <DependentUpon>accordionsubcatcontrolSpecialFactor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bibliography.ascx.cs">
+      <DependentUpon>Bibliography.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Bibliography.ascx.designer.cs">
+      <DependentUpon>Bibliography.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ChooseStratLong.ascx.cs">
+      <DependentUpon>ChooseStratLong.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ChooseStratLong.ascx.designer.cs">
+      <DependentUpon>ChooseStratLong.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataSources.ascx.cs">
+      <DependentUpon>DataSources.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataSources.ascx.designer.cs">
+      <DependentUpon>DataSources.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DetailCategoryControl.ascx.cs">
+      <DependentUpon>DetailCategoryControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\DetailCategoryControl.ascx.designer.cs">
+      <DependentUpon>DetailCategoryControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FAQ.ascx.cs">
+      <DependentUpon>FAQ.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FAQ.ascx.designer.cs">
+      <DependentUpon>FAQ.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FAQGlossaryControl.ascx.cs">
+      <DependentUpon>FAQGlossaryControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FAQGlossaryControl.ascx.designer.cs">
+      <DependentUpon>FAQGlossaryControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\AAKH.ascx.cs">
+      <DependentUpon>AAKH.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\AAKH.ascx.designer.cs">
+      <DependentUpon>AAKH.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\AYA_Disparities_Tools.ascx.cs">
+      <DependentUpon>AYA_Disparities_Tools.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\AYA_Disparities_Tools.ascx.designer.cs">
+      <DependentUpon>AYA_Disparities_Tools.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Calculators.ascx.cs">
+      <DependentUpon>Calculators.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Calculators.ascx.designer.cs">
+      <DependentUpon>Calculators.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Combined_Initiative_FactSheet.ascx.cs">
+      <DependentUpon>Combined_Initiative_FactSheet.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Combined_Initiative_FactSheet.ascx.designer.cs">
+      <DependentUpon>Combined_Initiative_FactSheet.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\CurrentTopics.ascx.cs">
+      <DependentUpon>CurrentTopics.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\CurrentTopics.ascx.designer.cs">
+      <DependentUpon>CurrentTopics.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Disparities.ascx.cs">
+      <DependentUpon>Disparities.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Disparities.ascx.designer.cs">
+      <DependentUpon>Disparities.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Disparitiesrrr.ascx.cs">
+      <DependentUpon>Disparitiesrrr.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Disparitiesrrr.ascx.designer.cs">
+      <DependentUpon>Disparitiesrrr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\EmailSubscribe.ascx.cs">
+      <DependentUpon>EmailSubscribe.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\EmailSubscribe.ascx.designer.cs">
+      <DependentUpon>EmailSubscribe.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\EmergingTopics.ascx.cs">
+      <DependentUpon>EmergingTopics.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\EmergingTopics.ascx.designer.cs">
+      <DependentUpon>EmergingTopics.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Factsheet.ascx.cs">
+      <DependentUpon>Factsheet.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Factsheet.ascx.designer.cs">
+      <DependentUpon>Factsheet.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\FocusOnRiskFactors.ascx.cs">
+      <DependentUpon>FocusOnRiskFactors.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\FocusOnRiskFactors.ascx.designer.cs">
+      <DependentUpon>FocusOnRiskFactors.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Initiative.ascx.cs">
+      <DependentUpon>Initiative.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Initiative.ascx.designer.cs">
+      <DependentUpon>Initiative.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\NewIndicators.ascx.cs">
+      <DependentUpon>NewIndicators.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\NewIndicators.ascx.designer.cs">
+      <DependentUpon>NewIndicators.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\PatientFocusedInformation.ascx.cs">
+      <DependentUpon>PatientFocusedInformation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\PatientFocusedInformation.ascx.designer.cs">
+      <DependentUpon>PatientFocusedInformation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\ResearchAndPublications.ascx.cs">
+      <DependentUpon>ResearchAndPublications.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\ResearchAndPublications.ascx.designer.cs">
+      <DependentUpon>ResearchAndPublications.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\SpecialDay.ascx.cs">
+      <DependentUpon>SpecialDay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\SpecialDay.ascx.designer.cs">
+      <DependentUpon>SpecialDay.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\SpecialPopulations.ascx.cs">
+      <DependentUpon>SpecialPopulations.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\SpecialPopulations.ascx.designer.cs">
+      <DependentUpon>SpecialPopulations.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\SpotlightOnIndicators.ascx.cs">
+      <DependentUpon>SpotlightOnIndicators.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\SpotlightOnIndicators.ascx.designer.cs">
+      <DependentUpon>SpotlightOnIndicators.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\SuggestedCitationAndVersioning.ascx.cs">
+      <DependentUpon>SuggestedCitationAndVersioning.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\SuggestedCitationAndVersioning.ascx.designer.cs">
+      <DependentUpon>SuggestedCitationAndVersioning.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FrontPageRotater.ascx.cs">
+      <DependentUpon>FrontPageRotater.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FrontPageRotater.ascx.designer.cs">
+      <DependentUpon>FrontPageRotater.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FrontPageRotater_NewRotater.ascx.cs">
+      <DependentUpon>FrontPageRotater_NewRotater.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FrontPageRotater_NewRotater.ascx.designer.cs">
+      <DependentUpon>FrontPageRotater_NewRotater.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Glossary.ascx.cs">
+      <DependentUpon>Glossary.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Glossary.ascx.designer.cs">
+      <DependentUpon>Glossary.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HealthyPeopleControlLong.ascx.cs">
+      <DependentUpon>HealthyPeopleControlLong.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\HealthyPeopleControlLong.ascx.designer.cs">
+      <DependentUpon>HealthyPeopleControlLong.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LearnMoreControl2.ascx.cs">
+      <DependentUpon>LearnMoreControl2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\LearnMoreControl2.ascx.designer.cs">
+      <DependentUpon>LearnMoreControl2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Navigation\MainNav.ascx.cs">
+      <DependentUpon>MainNav.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Navigation\MainNav.ascx.designer.cs">
+      <DependentUpon>MainNav.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Patients.ascx.cs">
+      <DependentUpon>Patients.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Patients.ascx.designer.cs">
+      <DependentUpon>Patients.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProjectIntroVideo.ascx.cs">
+      <DependentUpon>ProjectIntroVideo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProjectIntroVideo.ascx.designer.cs">
+      <DependentUpon>ProjectIntroVideo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\AreYouAwareWidget.ascx.cs">
+      <DependentUpon>AreYouAwareWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\AreYouAwareWidget.ascx.designer.cs">
+      <DependentUpon>AreYouAwareWidget.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\CKDInitiativeRD.ascx.cs">
+      <DependentUpon>CKDInitiativeRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\CKDInitiativeRD.ascx.designer.cs">
+      <DependentUpon>CKDInitiativeRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\DataSourceDDLsRD.ascx.cs">
+      <DependentUpon>DataSourceDDLsRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\DataSourceDDLsRD.ascx.designer.cs">
+      <DependentUpon>DataSourceDDLsRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\EmailSubscribeRD.ascx.cs">
+      <DependentUpon>EmailSubscribeRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\EmailSubscribeRD.ascx.designer.cs">
+      <DependentUpon>EmailSubscribeRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\EmergingTopicsRD.ascx.cs">
+      <DependentUpon>EmergingTopicsRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\EmergingTopicsRD.ascx.designer.cs">
+      <DependentUpon>EmergingTopicsRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\FactorsOfInterestContent.ascx.cs">
+      <DependentUpon>FactorsOfInterestContent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\FactorsOfInterestContent.ascx.designer.cs">
+      <DependentUpon>FactorsOfInterestContent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\HealthyPeopleControlLongRD.ascx.cs">
+      <DependentUpon>HealthyPeopleControlLongRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\HealthyPeopleControlLongRD.ascx.designer.cs">
+      <DependentUpon>HealthyPeopleControlLongRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\LearnMoreControlRD.ascx.cs">
+      <DependentUpon>LearnMoreControlRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\LearnMoreControlRD.ascx.designer.cs">
+      <DependentUpon>LearnMoreControlRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\NewIndicatorWidget.ascx.cs">
+      <DependentUpon>NewIndicatorWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\NewIndicatorWidget.ascx.designer.cs">
+      <DependentUpon>NewIndicatorWidget.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\PatientsRD.ascx.cs">
+      <DependentUpon>PatientsRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\PatientsRD.ascx.designer.cs">
+      <DependentUpon>PatientsRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\PrimaryCarePhysicianWidget.ascx.cs">
+      <DependentUpon>PrimaryCarePhysicianWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\PrimaryCarePhysicianWidget.ascx.designer.cs">
+      <DependentUpon>PrimaryCarePhysicianWidget.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\ProjectIntroVideoRD.ascx.cs">
+      <DependentUpon>ProjectIntroVideoRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\ProjectIntroVideoRD.ascx.designer.cs">
+      <DependentUpon>ProjectIntroVideoRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\ResearchWidget.ascx.cs">
+      <DependentUpon>ResearchWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\ResearchWidget.ascx.designer.cs">
+      <DependentUpon>ResearchWidget.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\RiskFactorsRD.ascx.cs">
+      <DependentUpon>RiskFactorsRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\RiskFactorsRD.ascx.designer.cs">
+      <DependentUpon>RiskFactorsRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\SiteNavigationRD2_Options.ascx.cs">
+      <DependentUpon>SiteNavigationRD2_Options.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\SiteNavigationRD2_Options.ascx.designer.cs">
+      <DependentUpon>SiteNavigationRD2_Options.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\SpecialPopulationsListRD.ascx.cs">
+      <DependentUpon>SpecialPopulationsListRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\SpecialPopulationsListRD.ascx.designer.cs">
+      <DependentUpon>SpecialPopulationsListRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\StratYearsRD.ascx.cs">
+      <DependentUpon>StratYearsRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\StratYearsRD.ascx.designer.cs">
+      <DependentUpon>StratYearsRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\ToolsWidget.ascx.cs">
+      <DependentUpon>ToolsWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\ToolsWidget.ascx.designer.cs">
+      <DependentUpon>ToolsWidget.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\TopicHomeContent.ascx.cs">
+      <DependentUpon>TopicHomeContent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\TopicHomeContent.ascx.designer.cs">
+      <DependentUpon>TopicHomeContent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\VersionRD.ascx.cs">
+      <DependentUpon>VersionRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RDVersions\VersionRD.ascx.designer.cs">
+      <DependentUpon>VersionRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RiskFactors.ascx.cs">
+      <DependentUpon>RiskFactors.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RiskFactors.ascx.designer.cs">
+      <DependentUpon>RiskFactors.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AboutTheProject.ascx.cs">
+      <DependentUpon>AboutTheProject.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AboutTheProject.ascx.designer.cs">
+      <DependentUpon>AboutTheProject.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\Covid.ascx.cs">
+      <DependentUpon>Covid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\Covid.ascx.designer.cs">
+      <DependentUpon>Covid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\FluShot.ascx.cs">
+      <DependentUpon>FluShot.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\FluShot.ascx.designer.cs">
+      <DependentUpon>FluShot.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\FruitsVegetables.ascx.cs">
+      <DependentUpon>FruitsVegetables.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\FruitsVegetables.ascx.designer.cs">
+      <DependentUpon>FruitsVegetables.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\InfoCardWidget.ascx.cs">
+      <DependentUpon>InfoCardWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\InfoCardWidget.ascx.designer.cs">
+      <DependentUpon>InfoCardWidget.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\NonDayWidget.ascx.cs">
+      <DependentUpon>NonDayWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\NonDayWidget.ascx.designer.cs">
+      <DependentUpon>NonDayWidget.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldDiabetesDay2016.ascx.cs">
+      <DependentUpon>WorldDiabetesDay2016.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldDiabetesDay2016.ascx.designer.cs">
+      <DependentUpon>WorldDiabetesDay2016.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldDiabetesDay2017.ascx.cs">
+      <DependentUpon>WorldDiabetesDay2017.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldDiabetesDay2017.ascx.designer.cs">
+      <DependentUpon>WorldDiabetesDay2017.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldDiabetesDayGeneral.ascx.cs">
+      <DependentUpon>WorldDiabetesDayGeneral.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldDiabetesDayGeneral.ascx.designer.cs">
+      <DependentUpon>WorldDiabetesDayGeneral.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldDiabetesDayRD.ascx.cs">
+      <DependentUpon>WorldDiabetesDayRD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldDiabetesDayRD.ascx.designer.cs">
+      <DependentUpon>WorldDiabetesDayRD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldHypertensionDay2016.ascx.cs">
+      <DependentUpon>WorldHypertensionDay2016.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldHypertensionDay2016.ascx.designer.cs">
+      <DependentUpon>WorldHypertensionDay2016.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldHypertensionDayGeneral.ascx.cs">
+      <DependentUpon>WorldHypertensionDayGeneral.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldHypertensionDayGeneral.ascx.designer.cs">
+      <DependentUpon>WorldHypertensionDayGeneral.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldKidneyDay2016.ascx.cs">
+      <DependentUpon>WorldKidneyDay2016.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldKidneyDay2016.ascx.designer.cs">
+      <DependentUpon>WorldKidneyDay2016.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldKidneyDay2017.ascx.cs">
+      <DependentUpon>WorldKidneyDay2017.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldKidneyDay2017.ascx.designer.cs">
+      <DependentUpon>WorldKidneyDay2017.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldKidneyDay2018.ascx.cs">
+      <DependentUpon>WorldKidneyDay2018.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldKidneyDay2018.ascx.designer.cs">
+      <DependentUpon>WorldKidneyDay2018.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldKidneyDay2020.ascx.cs">
+      <DependentUpon>WorldKidneyDay2020.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldKidneyDay2020.ascx.designer.cs">
+      <DependentUpon>WorldKidneyDay2020.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldKidneyDayGeneral.ascx.cs">
+      <DependentUpon>WorldKidneyDayGeneral.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialDayWidgets\WorldKidneyDayGeneral.ascx.designer.cs">
+      <DependentUpon>WorldKidneyDayGeneral.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecialPopulationsList.ascx.cs">
+      <DependentUpon>SpecialPopulationsList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SpecialPopulationsList.ascx.designer.cs">
+      <DependentUpon>SpecialPopulationsList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StratYearsButtons.ascx.cs">
+      <DependentUpon>StratYearsButtons.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\StratYearsButtons.ascx.designer.cs">
+      <DependentUpon>StratYearsButtons.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StratYearsLinks.ascx.cs">
+      <DependentUpon>StratYearsLinks.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\StratYearsLinks.ascx.designer.cs">
+      <DependentUpon>StratYearsLinks.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StratYearsLinksMaps.ascx.cs">
+      <DependentUpon>StratYearsLinksMaps.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\StratYearsLinksMaps.ascx.designer.cs">
+      <DependentUpon>StratYearsLinksMaps.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SuggestedCitationControl.ascx.cs">
+      <DependentUpon>SuggestedCitationControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SuggestedCitationControl.ascx.designer.cs">
+      <DependentUpon>SuggestedCitationControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SurveyModal.ascx.cs">
+      <DependentUpon>SurveyModal.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SurveyModal.ascx.designer.cs">
+      <DependentUpon>SurveyModal.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucBreadcrumbs.ascx.cs">
+      <DependentUpon>ucBreadcrumbs.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucBreadcrumbs.ascx.designer.cs">
+      <DependentUpon>ucBreadcrumbs.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucEmailUpdates.ascx.cs">
+      <DependentUpon>ucEmailUpdates.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucEmailUpdates.ascx.designer.cs">
+      <DependentUpon>ucEmailUpdates.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucNav.ascx.cs">
+      <DependentUpon>ucNav.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucNav.ascx.designer.cs">
+      <DependentUpon>ucNav.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucOmniture.ascx.cs">
+      <DependentUpon>ucOmniture.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucOmniture.ascx.designer.cs">
+      <DependentUpon>ucOmniture.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucRelatedLinks.ascx.cs">
+      <DependentUpon>ucRelatedLinks.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucRelatedLinks.ascx.designer.cs">
+      <DependentUpon>ucRelatedLinks.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucFooterLocalContact.ascx.cs">
+      <DependentUpon>ucFooterLocalContact.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucFooterLocalContact.ascx.designer.cs">
+      <DependentUpon>ucFooterLocalContact.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucSkipNav.ascx.cs">
+      <DependentUpon>ucSkipNav.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucSkipNav.ascx.designer.cs">
+      <DependentUpon>ucSkipNav.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucSkipNavigation.ascx.cs">
+      <DependentUpon>ucSkipNavigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucSkipNavigation.ascx.designer.cs">
+      <DependentUpon>ucSkipNavigation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucSkipNavigation_Popup.ascx.cs">
+      <DependentUpon>ucSkipNavigation_Popup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucSkipNavigation_Popup.ascx.designer.cs">
+      <DependentUpon>ucSkipNavigation_Popup.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucSkipNavigation_PopupThin.ascx.cs">
+      <DependentUpon>ucSkipNavigation_PopupThin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TemplateLocal\ucSkipNavigation_PopupThin.ascx.designer.cs">
+      <DependentUpon>ucSkipNavigation_PopupThin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UnfamiliarTermControl.ascx.cs">
+      <DependentUpon>UnfamiliarTermControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UnfamiliarTermControl.ascx.designer.cs">
+      <DependentUpon>UnfamiliarTermControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WDD4.ascx.cs">
+      <DependentUpon>WDD4.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WDD4.ascx.designer.cs">
+      <DependentUpon>WDD4.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WorldDiabetesDay.ascx.cs">
+      <DependentUpon>WorldDiabetesDay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WorldDiabetesDay.ascx.designer.cs">
+      <DependentUpon>WorldDiabetesDay.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WorldHypertensionDayControl.ascx.cs">
+      <DependentUpon>WorldHypertensionDayControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WorldHypertensionDayControl.ascx.designer.cs">
+      <DependentUpon>WorldHypertensionDayControl.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Themes\Default\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\Entypo\entypo-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Entypo\entypo-webfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Entypo\entypo-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\Entypo\entypo-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CKDLib\ckdlib_v2.vbproj">
+      <Project>{66a45849-6c2e-4528-ac2d-1b03e34abbe3}</Project>
+      <Name>ckdlib_v2</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA_SCAN|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PROD|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEV Internet|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA Internet|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'VA Scan|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEV|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '_Scan|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Scan|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <Target Name="AfterBuild">
+    <CallTarget Targets="TransformExtraFilesInternet" Condition="$(Configuration.Contains('QA')) " />
+  </Target>
+  <Target Name="TransformExtraFilesInternet">
+    <Message Text="### Transforming Extra Files Internet ###" Importance="high" />
+    <TransformXml Source="Web.config" Transform="Web.QA_SCAN.config" Destination="$(AGENT_BUILDDIRECTORY)/target/extraConfigs/web.config.QA_SCAN" />
+    <!--<TransformXml Source="Web.config" Transform="Web.PROD.config" Destination="$(AGENT_BUILDDIRECTORY)/target/extraConfigs/web.config.PROD" />-->
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52871</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/CKDSurveillance</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Build.Tasks.Git.1.0.0\build\Microsoft.Build.Tasks.Git.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Build.Tasks.Git.1.0.0\build\Microsoft.Build.Tasks.Git.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Build.Tasks.Git.1.0.0\build\Microsoft.Build.Tasks.Git.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Build.Tasks.Git.1.0.0\build\Microsoft.Build.Tasks.Git.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Build.Tasks.Git.1.0.0\build\Microsoft.Build.Tasks.Git.targets" Condition="Exists('..\packages\Microsoft.Build.Tasks.Git.1.0.0\build\Microsoft.Build.Tasks.Git.targets')" />
+</Project>
