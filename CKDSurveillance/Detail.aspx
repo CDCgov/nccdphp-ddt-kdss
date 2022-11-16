@@ -866,10 +866,12 @@
                                 </div>
                                 <div class="col-md-6 col-12" style="float: right; width: 65%; text-align: right;">
                                     <%--*Download Buttons*--%>
-                                    <asp:LinkButton ID="lnkDownload" CssClass="noPrint btn btn-light" runat="server" Text="Download Table" Visible="true" OnClick="lnkDownloadBottom_Click">
-                                        <span class="cdc-icon-download_01"><span id="trackDownload" class="visually-hidden" aria-hidden="true">Clicked DownloadTable Button</span>&nbsp;Download Table</span>
-                                    </asp:LinkButton>
-                                    <asp:LinkButton ID="btnDownloadChart" runat="server" CssClass="btn btn-light" OnClick="btnDownloadChart_Click"><span class="cdc-icon-download_01"></span>&nbsp;Download Chart</asp:LinkButton>
+                                    <asp:Button ID="lnkDownload" CssClass="noPrint btn btn-light cdc-icon-download_01" runat="server" Text="Download Table" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01">
+                                        <%--<span class="cdc-icon-download_01"><span id="trackDownload" class="visually-hidden" aria-hidden="true">Clicked DownloadTable Button</span>&nbsp;Download Table</span>--%>
+                                    </asp:Button>
+                                    <asp:Button ID="btnDownloadChart" runat="server" CssClass="btn btn-light cdc-icon-download_01" OnClick="btnDownloadChart_Click" class="cdc-icon-download_01">
+                                        <%--<span class="cdc-icon-download_01"></span>&nbsp;Download Chart --%>
+                                    </asp:Button>
                                 </div>
                             </div>
                         </div>

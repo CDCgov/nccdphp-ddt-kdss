@@ -505,7 +505,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkDownload;
+        protected global::System.Web.UI.WebControls.Button lnkDownload;
         
         /// <summary>
         /// btnDownloadChart control.
@@ -514,7 +514,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnDownloadChart;
+        protected global::System.Web.UI.WebControls.Button btnDownloadChart;
         
         /// <summary>
         /// gvData control.
