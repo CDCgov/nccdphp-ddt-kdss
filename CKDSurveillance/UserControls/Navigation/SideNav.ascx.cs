@@ -98,7 +98,21 @@ namespace CKDSurveillance_RD
             }
             //Set this in session for access by Methods page
             Session["qnum"] = QNum;
+            
 
+            if (Request.RawUrl.IndexOf("AreYouAware.aspx") >= 0)
+            {
+                Lit_IndicatorText.Visible = false;
+                divAYA.Visible = true;
+                divAYARF.Visible = true;
+                return;
+            }
+            else {
+                Lit_IndicatorText.Visible = true;
+                divAYA.Visible = false;
+                divAYARF.Visible = false;
+            }
+            
             if (string.IsNullOrEmpty(TopicID) && string.IsNullOrEmpty(QNum))
                 return;
 

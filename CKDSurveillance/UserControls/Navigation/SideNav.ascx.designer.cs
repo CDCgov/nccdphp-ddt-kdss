@@ -33,6 +33,24 @@ namespace CKDSurveillance_RD
         protected global::System.Web.UI.WebControls.Literal Lit_IndicatorText;
 
         /// <summary>
+        /// divAYA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAYA;
+
+        /// <summary>
+        /// divAYARF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAYARF;
+
+        /// <summary>
         /// HF_TopicText control.
         /// </summary>
         /// <remarks>

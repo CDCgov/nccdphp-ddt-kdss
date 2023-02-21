@@ -623,7 +623,6 @@
     <Content Include="UserControls\Navigation\SideNav.ascx" />
     <Content Include="UserControls\Navigation\MainNavNew.ascx" />
     <Content Include="UserControls\Navigation\MainNav.ascx" />
-    <Content Include="UserControls\Navigation\SideNavAYA.ascx" />
     <Content Include="UserControls\Navigation\SideNavHP.ascx" />
     <Content Include="UserControls\Patients.ascx" />
     <Content Include="UserControls\ProjectIntroVideo.ascx" />
@@ -1455,13 +1454,6 @@
     </Compile>
     <Compile Include="UserControls\Navigation\MainNav.ascx.designer.cs">
       <DependentUpon>MainNav.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Navigation\SideNavAYA.ascx.cs">
-      <DependentUpon>SideNavAYA.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\Navigation\SideNavAYA.ascx.designer.cs">
-      <DependentUpon>SideNavAYA.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Navigation\SideNavHP.ascx.cs">
       <DependentUpon>SideNavHP.ascx</DependentUpon>

@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AreYouAwareWidget.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.RDVersions.AreYouAwareWidget" %>
-<%@ Register Src="~/UserControls/Navigation/SideNavAYA.ascx" TagPrefix="uc1" TagName="SideNavAYA" %>
+<%@ Register Src="~/UserControls/Navigation/SideNav.ascx" TagPrefix="uc1" TagName="SideNav" %>
 
 
 <style type="text/css">
@@ -199,7 +199,7 @@
 				<nav role="navigation" aria-label="Left Navigation Menu" style="border-bottom-color:white">
 					<div id="cdc-left-nav-menu" >
 						<br />	
-                        <uc1:SideNavAYA runat="server" ID="SideNavAYA" />
+                        <uc1:SideNav runat="server" ID="SideNav" />
 					</div>	
 				</nav>
 			</div>

@@ -202,21 +202,48 @@
 				
 					<asp:Literal ID="Lit_IndicatorText" runat="server"></asp:Literal>
 					<br />
+					  
+                    <div><%-- class="card-header nav-section-home navSectionLinks navlist"--%>
+						<div id="divAYA" runat="server"  class="navBoldHeader nav-section-home d-sm-block" aria-multiselectable="true" role="tabpanel"><%-- class="card-header nav-section-home navSectionLinks navlist"--%>
+							Are You Aware Topics          
+						</div>
+						<div id="divAYARF" runat="server"><%--style="padding-left:1px;padding-right:1px;"--%>
+							<div class="accordion indicator-plus accordion-white" aria-multiselectable="true" role="tabpanel">
+								<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+								<%--Risk Factors – Diabetes--%>
+								<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+								<div  style="padding-left:0px; background-color: none !important;"> <%-- class="card bar "--%>
+									<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-17" data-target="#accordion-4i-collapse-17" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: none !important;">
+										<a id="RiskFactorsDiabetes" title="Risk Factors – Diabetes" style="display:inline; background-color: none !important;"  tabindex="0" data-controls="accordion-4i-collapse-17"> <%--class="card-title"--%>
+										   <i class="fi cdc-icon-minus nav-minus"  style = "float: right; background-color: none !important;" id="navplusicon"></i>Risk Factors – Diabetes</a>
+									</div>
+									<div aria-labelledby="accordion-4i-card-17" class="collapse" id="accordion-4i-collapse-17" role="tabpanel">
+										<div >  <%--class="card body"--%>
+											<div class="row" style="padding-bottom:2px">
+												<div class="col-12" style="padding-left:20px;">
+													<div id="link_October_2022"   data-parentid="17" >  <%--class="row articlelinkdiv"--%>
+														<ul>                                                        
+															<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
+																<a href="javascript:changeContent('October_2022')" class="articleLink">Chronic Kidney Disease Is Prevalent Among Adults with Prediabetes or Undiagnosed Diabetes - October 2022.</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						  </div>
+                    </div>
+                
 					<div class="navSectionHeading ">						
 						<span style="font-weight:600;" >Additional Resources </span><div style="height:7px;"></div>
-						<div>
-
-<%--							<div class="navARbottomline navARtopline"><a href="/Help.aspx?section=F" class="navARandGIlinks"  target="popup"  onclick="window.open('/help.aspx?section=F','popup','width=800,height=600'); return false;" >Frequently Asked Questions</a></div>
-							<div class="navARbottomline"><a href="/data.aspx" class="navARandGIlinks" >Complete Indicators List</a></div>--%>
-							<div class="navARbottomline"><a href="https://health.gov/healthypeople" class="navARandGIlinks">Healthy People &nbsp;</a>
-                                <%--<img class="HealthyPeopleImg" src="../../images/DataCharts/HPArrow.jpg" />--%>
-							</div>
-							<div class="navARbottomline"><a href="/Help.aspx?section=G" class="navARandGIlinks"  target="popup"  onclick="window.open('/help.aspx?section=G','popup','width=800,height=600'); return false;" >Glossary</a></div>	
-
+						<div><div>
 							<div class="navARbottomline"><a href="https://health.gov/healthypeople" class="navARandGIlinks">Healthy People &nbsp;</a></div>
 							<div class="navARbottomline"><a href="/Help.aspx?section=G" class="navARandGIlinks"  target="popup"  onclick="window.open('/help.aspx?section=G','popup','width=800,height=600'); return false;" >Glossary</a></div>
-
 							<div class="navARbottomline"><a href="/Help.aspx?section=D" class="navARandGIlinks" target="popup"  onclick="window.open('/help.aspx?section=D','popup','width=800,height=600'); return false;">Data Sources</a></div>
+						</div>
 						</div>							
 
 					</div>
@@ -229,9 +256,8 @@
                                 <span class="navARandGIlinks">Download CKD Fact Sheet</span>
                             </a>
 						</div>
-
+						</div>	
 					</div>
-				</div>	
 			</nav>
     <%--</main>--%>
     <%--  TODO: uncomment --%>

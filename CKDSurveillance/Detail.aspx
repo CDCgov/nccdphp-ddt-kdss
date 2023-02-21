@@ -616,9 +616,9 @@
                                     .chartToolDiv {
                                         position: absolute;
                                         left:65%;
-                                        padding-top: 40px!important;
+                                        /*padding-top: 2%!important;*/
                                     }
-
+                                    
                                     .chartDownloadBtn {
                                         margin-bottom: 3px;
                                         background-image: url("../images/CommonControls/download_csv_sm.png");
@@ -635,8 +635,8 @@
                                         background: #00695C 0% 0% no-repeat padding-box;
                                         opacity: 1;
                                         width: 362px;
-                                        height: 107px;
-                                        padding-top:15px;
+                                        height: 96px;
+                                        padding-top: 10px;
                                     }
 
                                     .viewDataByLabel {
@@ -649,23 +649,21 @@
                                     }
                                     
                                     .menu-content div{
-                                        display:inline-block;
+                                        display:inline-table;
                                         padding-left: 15px;
                                         padding-right: 15px;
                                     }
                                     .menu-content{
-                                        vertical-align: top;
+                                        /*vertical-align: top;*/
                                         background: #00695C14 0% 0% no-repeat padding-box;
                                         opacity: 1;
                                         margin-left: 2px;
-                                        margin-right: 2px;
-                                        height:107px;
+                                        margin-right: 2px;                                        
                                     }
                                     .menu-content-menu {
                                         margin-left: 2px;
                                         margin-right: 2px;
-                                        padding-top: 40px;
-                                        padding-bottom: 2%;
+                                        vertical-align:sub;
                                     }
 
                                     @media (max-width: 767px) {
@@ -700,19 +698,19 @@
                                     }
                                 </style>
 
-                            <div class="menu-content">
+                            <div class="menu-content" id="divMenuContent" style="padding-top:5px;padding-bottom:5px;">
                                 <%--*Data Source*--%>
                                 <%--<div class="col ccolstyle">
                                     <asp:Literal ID="litSourceTabs" runat="server" ClientIDMode="Static" />
                                 </div>--%>
 
                                 <%--*View Data By*--%>
-                                <uc1:StratYearsButtons runat="server" ID="StratYear1" />
+                                <uc1:StratYearsButtons runat="server" ID="StratYear1" />                                
                                 <div class="menu-content-menu">
                                     <asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList chartMenuLabel col" Text="95% Confidence Intervals" runat="server" />
                                 </div>
                                 <%-- View as table--%>
-                                <div class="chartToolDiv menu-content-menu">
+                                <div class="menu-content-menu" id="divMenuData" style="margin-left:40%">
                                     <div class="custom-control custom-switch">
                                         <input type="checkbox" class="custom-control-input" id="chViewTable"  onclick="toggleChartTable()">
                                         <label class="custom-control-label chartMenuLabel viewTableBtnLabel" for="chViewTable">View as table</label>
@@ -1534,6 +1532,12 @@
             }
 
             $(document).ready(function () {
+                var divVD = document.getElementById("divViewDataBy");
+                if (typeof (divVD) != 'undefined' && divVD != null) {
+                    $('#divMenuData').removeAttr("style");
+                    $('#divMenuContent').removeAttr("style");
+                }
+                
                 var sw = $(window).width();
                 $('#tableHeaderBar').hide();
 

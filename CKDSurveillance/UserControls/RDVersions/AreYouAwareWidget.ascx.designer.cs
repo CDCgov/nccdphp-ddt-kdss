@@ -42,12 +42,12 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
         protected global::System.Web.UI.WebControls.Literal Lit_Desc;
 
         /// <summary>
-        /// SideNavAYA control.
+        /// SideNav control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKDSurveillance_RD.SideNavAYA SideNavAYA;
+        protected global::CKDSurveillance_RD.SideNav SideNav;
     }
 }
