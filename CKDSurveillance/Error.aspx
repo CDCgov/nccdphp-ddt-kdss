@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" CodeBehind="Error.aspx.cs" Inherits="CKDSurveillance_RD.Error" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" CodeBehind="Error.aspx.cs" Inherits="CKDSurveillance_RD.Error" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 </asp:Content>

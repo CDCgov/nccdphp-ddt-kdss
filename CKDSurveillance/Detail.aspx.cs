@@ -19,8 +19,8 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using ClosedXML.Excel;
 using ckdlibV2;
 using CKDSurveillance_RD.Classes;
-
-
+using CKDSurveillance_RD.UserControls;
+using DocumentFormat.OpenXml.Bibliography;
 
 namespace CKDSurveillance_RD.MasterPages
 {
@@ -30,6 +30,14 @@ namespace CKDSurveillance_RD.MasterPages
         MemoryStream ms = new MemoryStream();
         bool istriplestrat = false;
         bool isIEorEdge = false;
+        ArborDataAccessV2 DAL = new ArborDataAccessV2();
+        public string directoryPath;
+        public bool isDetailpage = true;
+        private int datasourceCount = 0;
+        private int viewdatabyCount = 0;
+
+        DataTable _dtStratyears;
+
         #region Properties
 
         public string QNum
@@ -160,6 +168,12 @@ namespace CKDSurveillance_RD.MasterPages
             set { ViewState["showCI"] = value; }
         }
 
+        public string CurrentYear
+        {
+            get { return Convert.ToString(Session["currentYear"]); }
+            set { Session["currentYear"] = value; }
+        }
+
         #endregion
 
 
@@ -202,6 +216,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             //resetting the Title to avoid duplicate text on postback
             litTopic.Text = "";
+            litTopicMobile.Text = "";
 
             if (hasParamErrors() == true)
             {
@@ -236,10 +251,155 @@ namespace CKDSurveillance_RD.MasterPages
                     CB_ChartCI.Checked = false;
                 }
 
+                //*Header Info*            
+                DataTable dtHeader = getHeaderInfo();
+
+                if (dtHeader != null && dtHeader.Rows.Count > 0 && Request.QueryString["topic"] != null)
+                {
+                    string href = "";
+                    string topicText = dtHeader.Rows[0]["Topic"].ToString();
+                    string measureText = dtHeader.Rows[0]["Measure"].ToString();
+                    string indicatorText = dtHeader.Rows[0]["Indicator"].ToString();
+                    string topicID = Request.QueryString["topic"].ToString();
+
+                    switch (topicID)
+                    {
+                        case "1":
+                            href = "/TopicHome/PrevalenceIncidence.aspx?topic=1";
+                            break;
+                        case "3":
+                            href = "/TopicHome/Awareness.aspx?topic=3";
+                            break;
+                        case "4":
+                            href = "/TopicHome/BurdenOfRiskFactors.aspx?topic=4";
+                            break;
+                        case "5":
+                            href = "/TopicHome/HealthConsequences.aspx?topic=5";
+                            break;
+                        case "6":
+                            href = "/TopicHome/QualityOfCare.aspx?topic=6";
+                            break;
+                        case "24":
+                            href = "/TopicHome/SocialDeterminantsOfHealth.aspx?topic=24";
+                            break;
+                        default:
+                            href = "/default.aspx";
+                            break;
+                    }
+
+                    bcTopicLink.HRef = href;
+                    bcTopicLink.InnerText= topicText;
+                    bcMeasure.InnerText = measureText + " > " ;
+                    bcIndicator.InnerText = indicatorText;
+                }
 
                 //*Load the page*
-                createPageContent();
+                if (QNum != "Q760" && QNum != "Q761")
+                {
+                    StratYear1.Visible = true;
+                    StratYearsLinksMaps.Visible = true;
+                    chartFormatOptions.Visible = true;
+                    chartColorOptions.Visible = false;
+                    chartFormatControls.Visible = false;
+                    chartColorControls.Visible = false;
+                    divRightContainer.Visible = true;
+                    //litSourceTabs.Visible = true;
+                    StratYear1.Visible = true;
+                    CB_ChartCI.Visible = true;
+
+                    divStaticLeft.Visible = false;
+                    pnlMap.Style.Remove("overflow-x");
+                    pnlMap.Style.Add("overflow-x", "auto");
+
+                    staticDownloadButton.Visible = false;
+                    
+                    map1.Visible = false;
+                    map2.Visible = false;
+                    
+                    createPageContent();
+                }
+                else
+                {
+                    StratYear1.Visible = false;
+                    StratYearsLinksMaps.Visible = false;
+                    chartFormatOptions.Visible = false;
+                    chartColorOptions.Visible = false;
+                    chartFormatControls.Visible = false;
+                    chartColorControls.Visible = false;
+                    divRightContainer.Visible = false;
+                    //litSourceTabs.Visible = false;
+                    StratYear1.Visible = false;
+                    CB_ChartCI.Visible = false;
+                    divMapMenu.Visible = false;
+
+                    divStaticLeft.Visible = true;
+                    pnlMap.Style.Remove("overflow-x");
+                    pnlMap.Style.Add("overflow-x", "hidden");
+                    
+                    staticDownloadButton.Visible = true;
+                    staticDownloadButton.HRef = "./Documents/" + QNum + ".xlsx";
+                    exportButton.Visible = false;
+                    lnkDownload.Visible = false;
+                    btnDownloadChart.Visible = false;
+
+                    if (QNum == "Q760") {
+                        map1.Visible = false;
+                        map2.Visible = true;
+                    }
+                    else { 
+                        map1.Visible = true;
+                        map2.Visible = false;
+                    }
+                    //createStaticPageContent("Q705");
+                    createStaticPageContent(QNum);
+                }
             }
+        }
+        private void createStaticPageContent(string _qNum) {
+            ArborDataAccessV2 DAL = new ArborDataAccessV2();
+
+            if (QNum == "Q761") { 
+                litTopic.Text = litTopic.Text + "Poverty level and CKD in the US Medicare Population at County-level";
+                litTopicMobile.Text = litTopic.Text;
+                lblExplanationBody.Text += "<strong>Chart Explanation:&nbsp;</strong><br/>The average of percentage prevalence rate of CKD is 22.3 (SD=7.7, n=3,195). Prevalence counts are based on 5% Medicare data from 2005–2016. CKD status identified using a CKD code (ICD-9-CM or ICD-10-CM diagnosis code, excluding ESRD). Prevalent CKD rate within state/county is calculated by the total number of patients identified with CKD using CKD code divided by total number of Medicare eligible patients in the state/county. The average of the Social Vulnerability Index is 0.5(SD = 0.3, n = 3, 142).The social vulnerability index is high in counties in the Southwestern and the Southern States. The social vulnerability index and the prevalence of CKD are both high in counties in the Southern region.";
+            }
+            else if (QNum == "Q760") {
+                litTopic.Text = litTopic.Text + "Average daily PM2.5 and CKD in the US Medicare Population at County-level";
+                litTopicMobile.Text = litTopic.Text;
+                lblExplanationBody.Text += "<strong>Chart Explanation:&nbsp;</strong><br/>The average of percentage prevalence rate of CKD is 22.3 (SD=7.7, n=3,195). Prevalence counts are based on 5% Medicare data from 2005–2016. CKD status identified using a CKD code (ICD-9-CM or ICD-10-CM diagnosis code, excluding ESRD). Prevalent CKD rate within state/county is calculated by the total number of patients identified with CKD using CKD code divided by total number of Medicare eligible patients in the state/county. The average daily PM2.5 is varied across the United States(mean = 8.7 μg / m3, SD = 0.3 μg / m3, n = 3, 108).The average daily PM2.5 and the prevalence of CKD are both high in counties in California, the rust-belt area, and the Southern region.";
+            }
+
+            //************
+            //*Foot Notes*
+            //************
+            //populateFootNotes();
+
+            //************
+            //*Key points*
+            //************
+            populateKeyPointsMethods();
+
+            //************************
+            //*References and Sources*
+            //************************
+            DataTable dtReferences = DAL.getReferences(QNum); //Todo: caching
+            if (dtReferences.Rows.Count > 0)
+            {
+                rptrReferences.DataSource = dtReferences;
+                rptrReferences.DataBind();
+                pnlReferences.Visible = true;
+            }
+            else
+            {
+                pnlReferences.Visible = false;
+            }
+
+            //litSourceTabs.Text = createSDOHSourceLinks();
+
+            //**********************
+            //*Methods & Spec Sheet*
+            //**********************
+            loadMethodsAndSpecSheet(DAL, _qNum, 1); //TODO: SQL cleanup/caching
         }
         private void createPageContent()
         {
@@ -260,7 +420,7 @@ namespace CKDSurveillance_RD.MasterPages
             //*Get DataSources*
             //*****************            
             DataTable dtDataSources = getCachedDataSourcesFromIndicatorCode(QNum);
-            litSourceTabs.Text = createDataSourceLinks(dtDataSources, QNum);
+            createDataSourceLinksDropDown(dtDataSources, QNum);
 
 
             //Now the phone only DDL version of the Data Source Tab
@@ -286,7 +446,8 @@ namespace CKDSurveillance_RD.MasterPages
                 topic.Contains("native americans") ||
                 topic.Contains("polycystic kidney disease population"))
             {
-                litTopic.Text = " &mdash; " + dtPage.Rows[0]["Topic"].ToString().Trim();
+                litTopic.Text = dtPage.Rows[0]["Topic"].ToString().Trim();
+                litTopicMobile.Text = litTopic.Text;
                 litDDLMeasInd.Text = createNavDropDown(QNum);
             }
 
@@ -305,11 +466,15 @@ namespace CKDSurveillance_RD.MasterPages
             string chartStyle = dtPage.Rows[0]["ChartStyleID"].ToString();
             bool onStateMapPage = (chartStyle == "5");
             bool onCountyMapPage = (chartStyle == "6");
+            divMapMenu.Visible = true;
             if (onStateMapPage == false)
             {
                 StratYear1.loadStratsAndYears(dtPage);
+                loadStratsAndYears(dtPage);
                 StratYearsLinksMaps.Visible = false;
                 btnDownloadChart.Visible = true;
+                if (!onCountyMapPage)
+                    divMapMenu.Visible = false;
             }
             else
             {
@@ -321,7 +486,7 @@ namespace CKDSurveillance_RD.MasterPages
             
 
             //These are the years and strats, but viewable only by smaller screens
-            StratYearsRD1.loadStratsAndYears(dtPage);
+            //StratYearsRD1.loadStratsAndYears(dtPage);
 
 
 
@@ -371,8 +536,8 @@ namespace CKDSurveillance_RD.MasterPages
             //*Manage the TMI breadcrumbs*
             //****************************
             string ec = buildTMICrumbs(dtPage);
-            CKDSurveillance_RD.MasterPages.ResponsiveContentLeftNav mp = (ResponsiveContentLeftNav)Page.Master;
-            mp.ExtraCrumbs = ec;
+            CKDSurveillance_RD.MasterPages.ResponsiveContentLeftNavNew mp = (ResponsiveContentLeftNavNew)Page.Master;
+            //mp.ExtraCrumbs = ec;
 
 
 
@@ -428,7 +593,7 @@ namespace CKDSurveillance_RD.MasterPages
             //************
             //*Foot Notes*
             //************
-            populateFootNotes();
+            //populateFootNotes();
 
             //************
             //*Finding the current year and setting it*
@@ -439,36 +604,36 @@ namespace CKDSurveillance_RD.MasterPages
             //********************
             //*Related Indicators*
             //********************            
-            DataSet dsRI = DAL.getRelatedIndicators(QNum); //Todo: SQL cleanup/caching
-            DataTable dtRI = dsRI.Tables[0];
-            if (dtRI.Rows.Count > 0)
-            {
-                rptrRelated.DataSource = dtRI;
-                rptrRelated.DataBind();
-                pnlRelated.Visible = true;
-            }
-            else
-            {
-                pnlRelated.Visible = false;
-            }
+            //DataSet dsRI = DAL.getRelatedIndicators(QNum); //Todo: SQL cleanup/caching
+            //DataTable dtRI = dsRI.Tables[0];
+            //if (dtRI.Rows.Count > 0)
+            //{
+            //    rptrRelated.DataSource = dtRI;
+            //    rptrRelated.DataBind();
+            //    pnlRelated.Visible = false;
+            //}
+            //else
+            //{
+            //    pnlRelated.Visible = false;
+            //}
 
             //************
             //*Related AYA
             //************
-            if (dsRI.Tables.Count > 1)
-            {
-                DataTable dtRAYA = dsRI.Tables[1];
-                if (dtRAYA.Rows.Count > 0)
-                {
-                    rptrAYA.DataSource = dtRAYA;
-                    rptrAYA.DataBind();
-                    pnlAYA.Visible = true;
-                }
-                else
-                {
-                    pnlAYA.Visible = false;
-                }
-            }
+            //if (dsRI.Tables.Count > 1)
+            //{
+            //    DataTable dtRAYA = dsRI.Tables[1];
+            //    if (dtRAYA.Rows.Count > 0)
+            //    {
+            //        rptrAYA.DataSource = dtRAYA;
+            //        rptrAYA.DataBind();
+            //        pnlAYA.Visible = false;
+            //    }
+            //    else
+            //    {
+            //        pnlAYA.Visible = false;
+            //    }
+            //}
 
 
 
@@ -498,7 +663,7 @@ namespace CKDSurveillance_RD.MasterPages
             //***********************
             //*Most Recently Visited*
             //***********************
-            getMostRecentlyVisited();
+//            getMostRecentlyVisited();
 
 
             //************************************
@@ -657,23 +822,23 @@ namespace CKDSurveillance_RD.MasterPages
             }
 
 
-            bool colIsYear = false;
-            string colName = dtTable.Columns[0].ColumnName;
+            //bool colIsYear = false;
+            //string colName = dtTable.Columns[0].ColumnName;
 
-            if (colName.Length >= 4)
-            {
-                if (Utilities.CheckForNumeric(colName.Substring(0, 4)))
-                {
-                    colIsYear = true;
-                }
-            }
+            //if (colName.Length >= 4)
+            //{
+            //    if (Utilities.CheckForNumeric(colName.Substring(0, 4)))
+            //    {
+            //        colIsYear = true;
+            //    }
+            //}
 
             //*Only mark the row as a header if the first column Name is NOT a year*
-            if (colIsYear == false)
-            {
-                string rowcolname = colName;
-                gvData.RowHeaderColumn = rowcolname;
-            }
+            //if (colIsYear == false)
+            //{
+            //    string rowcolname = colName;
+            //    gvData.RowHeaderColumn = rowcolname;
+            //}
 
             gvData.DataSource = dtTable;
             gvData.DataBind();
@@ -840,15 +1005,15 @@ namespace CKDSurveillance_RD.MasterPages
                 }
 
 
-                if (kpCount > 0)
-                {
-                    litKPText.Text = kp;
-                }
-                else
-                {
-                    litKPText.Text = "";
-                    //"No Key Point data to view."
-                }
+                //if (kpCount > 0)
+                //{
+                //    litKPText.Text = kp;
+                //}
+                //else
+                //{
+                //    litKPText.Text = "";
+                //    //"No Key Point data to view."
+                //}
             }
             catch (SqlException sqlEx)
             {
@@ -944,6 +1109,74 @@ namespace CKDSurveillance_RD.MasterPages
 
             return answer;
         }
+
+        private string createDataSourceLinksDropDown(DataTable dtSources, string qnum)
+        {
+            string answer = "";
+            string eString = "";
+            StringBuilder sb = new StringBuilder();
+            datasourceCount = 0; //reset the count
+            
+            sb.Append("<div class=\"chartMenuLabel\">Data Sources</div>");
+            sb.Append("<select class=\"form-control\" onchange=\"openDataSource(this.value);\">");
+            foreach (DataRow dr in dtSources.Rows)
+            {
+                string curQnum = dr["QNum"].ToString().Trim();
+
+                //sb.Append("<option>");
+                if (curQnum == qnum)
+                {
+                    sb.Append("<option selected>" + dr["DataSourceShortName"].ToString().Trim() + "</option>");
+                    litDataSource.Text =  dr["DataSourceShortName"].ToString().Trim();
+                    datasourceCount = datasourceCount + 1;
+                }
+                else
+                {
+                    sb.Append("<option value='"+curQnum+"'>");
+                    sb.Append(dr["DataSourceShortName"].ToString().Trim());
+                    sb.Append("</option>");
+                }
+
+            }
+            sb.Append("</select>");
+
+            sb.Append("<br />");
+
+            eString = sb.ToString();
+
+            if (eString.Length > 0)
+            {
+                answer = eString;
+            }
+
+            return answer;
+        }
+
+        private string createSDOHSourceLinks()
+        {
+            string answer = "";
+            string eString = "";
+            StringBuilder sb = new StringBuilder();
+
+
+            sb.Append("<div class='dataSourceRBTitle'>&nbsp;&nbsp;Related to SDOH</div>");
+            sb.Append("<ul class='ulNoIndent'><li>");
+            sb.Append("<a href='detail.aspx?QNum=Q705'>Prevalence of CKD by U.S. State and County</a>");
+            sb.Append("</li>");
+            sb.Append("</ul>");
+
+            sb.Append("<br />");
+
+            eString = sb.ToString();
+
+            if (eString.Length > 0)
+            {
+                answer = eString;
+            }
+
+            return answer;
+        }
+
         protected void loadMethodsAndSpecSheet(ArborDataAccessV2 DAL, string qnum, byte showSpecSheet)
         {
             DataSet ds = DAL.getMethodText(qnum, showSpecSheet); //1 means include the spec sheet                
@@ -955,21 +1188,27 @@ namespace CKDSurveillance_RD.MasterPages
             //***************************
             //*Populate the Methods Text*
             //***************************
-            for (int i = 0; i <= dtMethodText.Rows.Count - 1; i++)
+            //for (int i = 0; i <= dtMethodText.Rows.Count - 1; i++)
+            //{
+            //    if (!string.IsNullOrEmpty(dtMethodText.Rows[i]["MethodText"].ToString()))
+            //    {
+            //        //*Add the text*
+            //        litMethodsDesc.Text += dtMethodText.Rows[i]["MethodText"].ToString();
+
+            //        //*Add some space*
+            //        if (i != dtMethodText.Rows.Count - 1)
+            //        {
+            //            litMethodsDesc.Text += "<br /><br />";
+            //        }
+            //    }
+            //}
+
+            if (qnum == "Q760" || qnum == "Q761") //SDOH
             {
-                if (!string.IsNullOrEmpty(dtMethodText.Rows[i]["MethodText"].ToString()))
-                {
-                    //*Add the text*
-                    litMethodsDesc.Text += dtMethodText.Rows[i]["MethodText"].ToString();
-
-                    //*Add some space*
-                    if (i != dtMethodText.Rows.Count - 1)
-                    {
-                        litMethodsDesc.Text += "<br /><br />";
-                    }
-                }
+                ds = DAL.getMethodText("Q705", showSpecSheet); //1 means include the spec sheet                
+                dtMethodText = ds.Tables[0];
+                dtSpecSheet = ds.Tables[1];
             }
-
 
             //**************
             //*Header Label*
@@ -1002,12 +1241,16 @@ namespace CKDSurveillance_RD.MasterPages
             DataColumn dc5 = new DataColumn("Year", typeof(string));
             DataColumn dc6 = new DataColumn("Title", typeof(string));
             DataColumn dc7 = new DataColumn("Data Source", typeof(string));
-            DataColumn[] cols = { dc1, dc2, dc3, dc4, dc5, dc6, dc7 };
+            DataColumn dc8 = new DataColumn("Indicator", typeof(string));
+            DataColumn[] cols = { dc1, dc2, dc3, dc4, dc5, dc6, dc7, dc8 };
             dt.Columns.AddRange(cols);
 
 
 
-            string title = Session["TitleNoFN"].ToString();
+            string title = "";
+            if (Session["TitleNoFN"] != null)
+                title = Session["TitleNoFN"].ToString();
+
             // Placed in Session in buildchart()
             string chartTitle = title;
 
@@ -1016,6 +1259,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             string topic = dtDetails.Rows[0]["TopicText"].ToString();
             string measure = dtDetails.Rows[0]["MeasureText"].ToString();
+            string indicator = dtDetails.Rows[0]["IndicatorText"].ToString();
             string url = Request.Url.AbsoluteUri;
             string strat = StratYear1.CurrentStrat;
             string year = StratYear1.CurrentYear;
@@ -1024,6 +1268,7 @@ namespace CKDSurveillance_RD.MasterPages
             dr["URL"] = url;
             dr["Topic"] = topic;
             dr["Measure"] = measure;
+            dr["Indicator"] = indicator;
             dr["Stratification"] = strat;
             if (!string.IsNullOrEmpty(year))
             {
@@ -1579,8 +1824,10 @@ namespace CKDSurveillance_RD.MasterPages
             string tableSubtitleText = dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString();
             //added 1/22/2019 BS
             string chartShorttitleText = dsChart.Tables["Chart"].Rows[0]["IndicatorShortTitle"].ToString();
-            litChartTitleText.Text = chartShorttitleText;
-
+            //if (datasourceCount > 1) //if more then 1 datasource is listed then display the chart title 
+            //{
+                litChartTitleText.Text = chartShorttitleText;
+            //}
             if ((bool)dtChartHeader.Rows[0]["HP2020Logo"] == true)
             {
                 imgHP2020.Visible = true;
@@ -1594,16 +1841,104 @@ namespace CKDSurveillance_RD.MasterPages
             if (tableByPopulation != "")
             {
                 tableByPopulation = "<br>" + tableByPopulation;
+                viewdatabyCount = viewdatabyCount + 1;
             }
             else
             {
                 tableByPopulation = "";
             }
 
+            litChartTitleText.Text = tableByPopulation.Replace("Year and ", "") ;
+            litChartTitleText.Text = litChartTitleText.Text.Replace("<br>", "");
+            litChartTitleText.Text = litChartTitleText.Text.Replace("/Ethnicity", "");
+            litChartTitleText.Text = litChartTitleText.Text.Replace("For 2019", "");
+
+            if ((QNum == "Q9") || (QNum == "Q756"))
+            {
+                if (litChartTitleText.Text == "by Year")
+                {
+                    litChartTitleText.Text = "CKD (%)";  //Overall
+                }
+                else if (litChartTitleText.Text == "by Age")
+                {
+                    litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text + " Category";
+                }
+                else
+                {
+                    litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text;
+                }
+            }
+            else if ((QNum == "Q98") || (QNum == "Q759"))
+            {
+                if (litChartTitleText.Text == "by Year")
+                {
+                    litChartTitleText.Text = "Aware of CKD (%)";  //Overall
+                }
+                else if (litChartTitleText.Text == "by Age")
+                {
+                    litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text + " Category";
+                }
+                else
+                {
+                    litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text;
+                }
+            }
+            else if (QNum == "Q605")
+            {
+                if (litChartTitleText.Text == "by Year")
+                {
+                    litChartTitleText.Text = "ACEi/ARB Use (%)";  //Overall
+                }
+                else if (litChartTitleText.Text == "by Age")
+                {
+                    litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text + " Category";
+                }
+                else
+                {
+                    litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text;
+                }
+            }
+            else if (QNum == "Q640")
+            {
+                if (litChartTitleText.Text == "by Year")
+                {
+                    litChartTitleText.Text = "Albuminuria Testing (%)";  //Overall
+                }
+                else if (litChartTitleText.Text == "by Age")
+                {
+                    litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text + " Category";
+                }
+                else
+                {
+                    litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text;
+                }
+            }
+            else if ((QNum == "Q364") || (QNum == "Q700") || (QNum == "Q703"))  //subtitle is not needed since it's only one view
+            {
+                litChartTitleText.Text = "";
+            }
+
+            //if ((datasourceCount > 1) && (viewdatabyCount > 1)) //if more then 1 datasource is listed then display the chart title 
+            //{
+            //if (!string.IsNullOrEmpty(tableByPopulation))
+            //{
+            //    if ((litChartTitleText.Text).Length > 0)
+            //    {
+            //        litChartTitleText.Text = litChartTitleText.Text + " - " + tableByPopulation;
+            //    }
+            //    else
+            //    {
+            //        litChartTitleText.Text = tableByPopulation.Replace("by ", "By ");
+            //    }
+            //}
+            //}
+
+
             //*Store the Header Text and Title for the Gridview*
             Session["TableHeader"] = "<div class=\"addedTableHeader\">" + dsChart.Tables["Chart"].Rows[0]["ChartHeaderWithSuperscripts"].ToString() + tableByPopulation + "</div> <div class=\"addedTableHeaderDataSource\">" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString() + "</div>";
 
-            litTopic.Text = litTopic.Text + ": " + dtChartHeader.Rows[0]["PageTitleWithSuperscripts"].ToString();// 7/7/2017 - temporary fix until the title is able to be broken out into 3 lines
+            litTopic.Text = litTopic.Text + dtChartHeader.Rows[0]["PageTitleWithSuperscripts"].ToString();// 7/7/2017 - temporary fix until the title is able to be broken out into 3 lines
+            litTopicMobile.Text = litTopic.Text;
 
             //change in what is to be displayed 3/19/2020
             this.Title = "CDC Surveillance System: " + chartShorttitleText;// +" - QNum:" + Session["qnum"].ToString();//updating the page title dynamically to optimize SEO //removed QNUM 11/20
@@ -1620,7 +1955,8 @@ namespace CKDSurveillance_RD.MasterPages
             //**************************
             string exp = dtChartHeader.Rows[0]["Explanation"].ToString();
             lblExplanationBody.Text += "<strong>Chart Explanation:&nbsp;</strong>" + exp;//dtChartHeader.Rows[0]["Explanation"].ToString();
-
+            litTopicDesc.Text = exp;
+            
 
             if (isMap || istriplestrat || onCountyMapPage)
             {
@@ -1732,8 +2068,8 @@ namespace CKDSurveillance_RD.MasterPages
                     chartFormatOptions.Visible = true;
                     RB_ChartType.Visible = true;
                     CB_ChartCI.Visible = true;
-                    chartColorOptions.Visible = true;
-                    RB_ChartColor.Visible = true;
+                    chartColorOptions.Visible = false;
+                    RB_ChartColor.Visible = false;
 
                     pnlMap.Visible = false;
                     btnDownloadChart.Enabled = false;
@@ -1862,7 +2198,6 @@ namespace CKDSurveillance_RD.MasterPages
                 plotlyStr.Append(" var data" + cleanString(serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col);
 
                 plotlyStr.Append(",  name: '" + serieslabel + "',  orientation:'h', type: eval($('#hfChartType').val()), marker: {color: '" + colorval + "', line: { color: 'rgb(90,90,90)', width: .5} }};"); //appending the 'row' to the data name and adding the array data
-
                 //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                 plotlyGroups = plotlyGroups + "data" + cleanString(serieslabel) + i.ToString() + ","; //adding the above data variable to the group variable
 
@@ -1908,7 +2243,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             DataTable dtChartHeader = dsChart.Tables[0];
             string chartFormatType = dtChartHeader.Rows[0]["DotNetChartStyleID"].ToString();
-            if (chartFormatType == "3") //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
+            if (chartFormatType == "3" || QNum == "Q756") //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
             {
                 RB_ChartType.SelectedValue = "'line'";
                 hfChartType.Value = "'line'";
@@ -1920,7 +2255,8 @@ namespace CKDSurveillance_RD.MasterPages
                 hfChartType.Value = "'bar'";
                 hfChartMode.Value = "'stack'";
             }
-
+            double max_width = 0.4;
+            
             //4/21/20 - the hidden field is filled with the initial radio button selections
             hfChartColor.Value = RB_ChartColor.SelectedValue;
 
@@ -1992,9 +2328,11 @@ namespace CKDSurveillance_RD.MasterPages
             }
 
             if (max_xaxis_cnt == 0) max_xaxis_cnt = xaxis_cnt; //if there is only one series, then set the max count to the xaxis count
+            if (max_xaxis_cnt <= 7) max_width = (max_xaxis_cnt * 0.1) / 2;
 
             string hfval_x = "x:[ "; //starting the arrays and adding spaces to so that the last character parse below doesn't fail
             string hfval_y = "y:[ ";
+            string hfval_w = "width:[ ";
             //string hfval_x_basedata = "x:[ "; //starting the basedata arrays and adding spaces to so that the last character parse below doesn't fail
             string hfval_y_basedata = "y:[ ";
             //string xaxisdatacount = "";
@@ -2096,7 +2434,7 @@ namespace CKDSurveillance_RD.MasterPages
                 {
                     hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
                     hfval_y = hfval_y + "'" + datapoint + "',"; //finding the actual data value                  
-
+                    hfval_w = hfval_w + max_width + ",";
                     hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value        
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
@@ -2109,6 +2447,7 @@ namespace CKDSurveillance_RD.MasterPages
                 {
                     string xData_col = hfval_x.Substring(0, hfval_x.Length - 1) + "]";//removing the last comma
                     string yData_col = hfval_y.Substring(0, hfval_y.Length - 1) + "]";//removing the last comma                    
+                    string wData_col = hfval_w.Substring(0, hfval_w.Length - 1) + "]";//removing the last comma
                     string yData_col_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma                    
 
                     string hiConData_col = "";
@@ -2131,17 +2470,23 @@ namespace CKDSurveillance_RD.MasterPages
 
                     //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                     plotlyStr.Append(" var data" + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col);
-                    
+
                     if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
                         plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData);
 
                     //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
-                    plotlyStr.Append(",  name: '" + current_serieslabel + "', type: eval($('#hfChartType').val()), connectgaps: true, line: { simplify: false }, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
+                    if(current_serieslabel == "Total")
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", connectgaps: true, line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000'}};"); //appending the 'row' to the data name and adding the array data
+                    else
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", connectgaps: true, line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
                     //1/12/2021 - BS - added the basedata necessary for animation
                     plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col_basedata);
                     //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
-                    plotlyStr.Append(",  name: '" + current_serieslabel + "', type: eval($('#hfChartType').val()),connectgaps: true, line: { simplify: false }, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
+                    if(current_serieslabel == "Total")
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: "+ hfChartType.Value +",connectgaps: true, line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000' }};"); //appending the 'row' to the data name and adding the array data
+                    else
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: "+ hfChartType.Value +",connectgaps: true, line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
                     //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                     plotlyGroups = plotlyGroups + "data" + cleanString(current_serieslabel) + i.ToString() + ","; //adding the above data variable to the group variable
@@ -2150,6 +2495,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                     hfval_x = "x:[ ";//resetting the arrays and adding spaces to so that the last character parse below doesn't fail
                     hfval_y = "y:[ ";
+                    hfval_w = "width:[ ";
                     hfval_y_basedata = "y:[ ";
                     high_confidence = "";
                     low_confidence = "";
@@ -2158,7 +2504,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                     hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
                     hfval_y = hfval_y + "'" + datapoint + "',"; //finding the actual data value
-
+                    hfval_w = hfval_w + max_width + ",";
                     hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value        
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
@@ -2189,30 +2535,37 @@ namespace CKDSurveillance_RD.MasterPages
 
             string xData_col_final = hfval_x.Substring(0, hfval_x.Length - 1) + "]";//removing the last comma
             string yData_col_final = hfval_y.Substring(0, hfval_y.Length - 1) + "]";//removing the last comma
+            string wData_col_final = hfval_w.Substring(0, hfval_w.Length - 1) + "]";//removing the last comma
             string yData_col_final_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
 
             //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-            plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final);
+            plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
 
             if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]" && hovertextData_final != "text:[ ]") //if there are empty values, then don't display the hover text for the errors
                 plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final);
 
             //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
-            plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: eval($('#hfChartType').val()), line: { simplify: false }, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
+            if (current_serieslabel == "Total")
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000' }};"); //appending the 'row' to the data name and adding the array data
+            else
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
             //1/12/2021 - BS - added the basedata necessary for animation
-            plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata);
-            //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
-            plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: eval($('#hfChartType').val()), line: { simplify: false }, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
+            plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + ", " + wData_col_final);
+            if (current_serieslabel == "Total")
+                //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000' }};"); //appending the 'row' to the data name and adding the array data
+            else
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
             /*** 10/7/2022 Add reference line ***/
             var refVal = RefValue(QNum);
             if (refVal > 0)
             {
                 if(QNum != "Q754") 
-                    plotlyStr.Append(" var refLine = {x: ['"+ refXPos + "'],  y:[" + (refVal * 1.04) + "], textfont:{color: '#333333', size:'12px'}, mode: 'text', text:['<b>HP 2030 Target=" + refVal + "%</b>'],showlegend: false};");
+                    plotlyStr.Append(" var refLine = {x: ['"+ refXPos + "'],  y:[" + (refVal * 1.04) + "], textfont:{color: '#000000', size:'12px'}, mode: 'text', text:['<b>HP 2030 Target=" + refVal + "%</b>'],showlegend: false};");
                 else
-                    plotlyStr.Append(" var refLine = {x: ['" + refXPos + "'],  y:[" + (refVal * 1.04) + "], textfont:{color: '#333333', size:'12px'}, mode: 'text', text:['<b>HP 2030 Target=" + refVal + "</b>'],showlegend: false};");
+                    plotlyStr.Append(" var refLine = {x: ['" + refXPos + "'],  y:[" + (refVal * 1.04) + "], textfont:{color: '#000000', size:'12px'}, mode: 'text', text:['<b>HP 2030 Target=" + refVal + "</b>'],showlegend: false};");
             }
             //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique                                                                                                                                                                                 
             plotlyGroups = plotlyGroups + "data" + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
@@ -2264,6 +2617,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             createPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, isMapPage);
         }
+
         private void buildPlotlyTripleStratChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
         {            
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
@@ -2348,10 +2702,16 @@ namespace CKDSurveillance_RD.MasterPages
 
             int totalxaxiscnt = distinctTertiary.Rows.Count * distinctSecondary.Rows.Count;
             string tickangle = "0";
-           // if (totalxaxiscnt > 12) tickangle = "20";
-            tickangle = "25";
 
-            
+            if (QNum == "Q700")
+            {
+                tickangle = "10";
+            }
+
+            // if (totalxaxiscnt > 12) tickangle = "20";
+            //tickangle = "25";
+
+
 
             string plotlyGroups = "";
             string plotlyBaseGroups = ""; //this will consist of all '0' values for the baseline aspect of the animated portion
@@ -2359,6 +2719,7 @@ namespace CKDSurveillance_RD.MasterPages
             StringBuilder plotlyStr = new StringBuilder();
             int max_xaxis_cnt = 0;
             int tert_cnt = 0;
+            double max_width = 0.4;
             string subplots = "";
             string subplots_xaxis = "";
             string legendbool = "true";
@@ -2402,6 +2763,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                 string hfval_x = "x:[ "; //starting the arrays and adding spaces to so that the last character parse below doesn't fail
                 string hfval_y = "y:[ ";
+                string hfval_w = "width:[ ";
                 string hfval_y_basedata = "y:[ ";
                 string high_confidence = "";
                 string low_confidence = "";
@@ -2421,6 +2783,8 @@ namespace CKDSurveillance_RD.MasterPages
                 //Regex regex = new Regex(@"^\d+");//if there are digits anywhere in the data, then display the CI
                 Regex regex = new Regex(@"[\d]");
                 if (max_xaxis_cnt > 7) max_xaxis_cnt = 7;
+                else max_width = (max_xaxis_cnt * 0.1)/2;
+
                 int wrapsize = 100 / max_xaxis_cnt;//finding the number of data points and wrapping the x-axis labels accordingly
 
                 int colorarray_inc = 0;
@@ -2489,7 +2853,7 @@ namespace CKDSurveillance_RD.MasterPages
                     {
                         hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
                         hfval_y = hfval_y + "'" + datapoint + "',"; //finding the actual data value                  
-
+                        hfval_w = hfval_w + max_width + ",";
                         hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value  
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
@@ -2502,6 +2866,7 @@ namespace CKDSurveillance_RD.MasterPages
                     {
                         string xData_col = hfval_x.Substring(0, hfval_x.Length - 1) + "]";//removing the last comma
                         string yData_col = hfval_y.Substring(0, hfval_y.Length - 1) + "]";//removing the last comma
+                        string wData_col = hfval_w.Substring(0, hfval_w.Length - 1) + "]";//removing the last comma
                         string yData_col_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma                    
 
                         string hiConData_col = "";
@@ -2522,18 +2887,17 @@ namespace CKDSurveillance_RD.MasterPages
                         }
 
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-                        plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col);
+                        plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col + "," + wData_col);
                         if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
                             plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData);
 
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + i.ToString() + "', showlegend: " + legendbool + ", type: eval($('#hfChartType').val()) , connectgaps: true,line: { simplify: false }, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + i.ToString() + "', showlegend: " + legendbool + ", type: "+ hfChartType.Value +", connectgaps: true,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
                         //1/12/2021 - BS - added the basedata necessary for animation
-                        plotlyStr.Append(" var basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col_basedata);
+                        plotlyStr.Append(" var basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col_basedata + ", " + wData_col);
                         //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
-                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + i.ToString() + "', showlegend: " + legendbool + ", type: eval($('#hfChartType').val()),connectgaps: true, line: { simplify: false }, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
-                        
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + i.ToString() + "', showlegend: " + legendbool + ", type: "+ hfChartType.Value +",connectgaps: true, line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                         plotlyGroups = plotlyGroups + "data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ","; //adding the above data variable to the group variable
@@ -2544,6 +2908,7 @@ namespace CKDSurveillance_RD.MasterPages
                         xaxisArray.Add(hfval_x);
                         hfval_x = "x:[ ";//resetting the arrays and adding spaces to so that the last character parse below doesn't fail
                         hfval_y = "y:[ ";
+                        hfval_w = "width:[ ";
                         hfval_y_basedata = "y:[ ";
                         high_confidence = "";
                         low_confidence = "";
@@ -2552,6 +2917,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
                         hfval_y = hfval_y + "'" + datapoint + "',"; //finding the actual data value
+                        hfval_w = hfval_w  + max_width + ",";
 
                         hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value   
 
@@ -2668,8 +3034,13 @@ namespace CKDSurveillance_RD.MasterPages
                         break;
                 }
 
-                string triplestratfontsize = "14";// 06/17/2021 REMOVE THIS LINE
-                tickangle = "45";
+                string triplestratfontsize = "17";// 06/17/2021 REMOVE THIS LINE
+                tickangle = "0";
+                if (QNum == "Q700")
+                {
+                    tickangle = "10";
+                }
+
                 titleannontations = titleannontations + " {text: '" + tertiary_var + "',font: {size: " + triplestratfontsize + "},showarrow: false,align: 'center',x: " + xtextloc_float.ToString() + ",y: 1.0,xref: 'paper',yref: 'paper'},";
 
 
@@ -2718,25 +3089,26 @@ namespace CKDSurveillance_RD.MasterPages
 
 
                 subplots = subplots + "'x" + tert_cnt + "',";
-                subplots_xaxis = subplots_xaxis + "xaxis" + tert_cnt + ": { dtick:1, showgrid: false, type: 'category', tickmode:'array', tickangle:" + tickangle + ", tickfont: {size: " + triplestratfontsize + " }, tickvals:[" + hfval_x_ticks.Substring(3, hfval_x_ticks.Length - 4) + "], ticktext:[" + hfval_x_ticks.Substring(3, hfval_x_ticks.Length - 4) + "]}, "; //removing the x:[ from the front of the string
+                subplots_xaxis = subplots_xaxis + "xaxis" + tert_cnt + ": { dtick:1, linewidth: 0, showgrid: false, type: 'category', tickmode:'array', tickangle:" + tickangle + ", tickfont: {size: " + triplestratfontsize + " }, tickvals:[" + hfval_x_ticks.Substring(3, hfval_x_ticks.Length - 4) + "], ticktext:[" + hfval_x_ticks.Substring(3, hfval_x_ticks.Length - 4) + "]}, "; //removing the x:[ from the front of the string
 
                 string xData_col_final = hfval_x.Substring(0, hfval_x.Length - 1) + "]";//removing the last comma
                 string yData_col_final = hfval_y.Substring(0, hfval_y.Length - 1) + "]";//removing the last comma
+                string wData_col_final = hfval_w.Substring(0, hfval_w.Length - 1) + "]";//removing the last comma
                 string yData_col_final_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
 
                 
 
                 //9/28/2020 - BS - added the increment value of 'final' to the data variable string so that it is unique
-                plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final);
+                plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + "," + wData_col_final);
                 if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]" && hovertextData_final != "text:[ ]") //if there are empty values, then don't display the hover text for the errors
                     plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final);
 
                 //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + "final', showlegend: " + legendbool + ", type: eval($('#hfChartType').val()), connectgaps: true,line: { simplify: false }, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + "final', showlegend: " + legendbool + ", type: "+ hfChartType.Value +", connectgaps: true,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
                 //1/12/2021 - BS - added the basedata necessary for animation
-                plotlyStr.Append(" var basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata);
-                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + "final', showlegend: " + legendbool + ", type: eval($('#hfChartType').val()), connectgaps: true,line: { simplify: false }, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+                plotlyStr.Append(" var basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + "," + wData_col_final);
+                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + "final', showlegend: " + legendbool + ", type: "+ hfChartType.Value +", connectgaps: true,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
                 //9/28/2020 - BS - added the increment value of 'final' to the data variable string so that it is unique
                 plotlyGroups = plotlyGroups + "data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
@@ -2776,16 +3148,16 @@ namespace CKDSurveillance_RD.MasterPages
         }
         private void createTripleStratPlotlyScript(StringBuilder dataSb, string title, string xaxistitle, string yaxistitle, int xaxiscnt, int tert_cnt, string subplots, string subplots_xaxis, string titleannontations)
         {
-            string xtickfontsize = "10";
+            string xtickfontsize = "17";
             string tickangle = "0";
 
-            if (xaxiscnt >= 7)
+            if (xaxiscnt >= 7 || QNum == "Q700")
             {
-                xtickfontsize = "9";
+                xtickfontsize = "16";
                 tickangle = "10";
             }
 
-            string yaxisfontsize = "14";
+            string yaxisfontsize = "17";
 
             StringBuilder sb = new StringBuilder();
             sb.Append("<script>");
@@ -2799,14 +3171,15 @@ namespace CKDSurveillance_RD.MasterPages
 
             sb.Append(" var layout = {autosize:true, width:1000, height: 750");
             sb.Append(" ,grid: { rows: 1, columns: " + tert_cnt + ", subplots: [" + subplots + "], pattern: 'coupled' }");
-            sb.Append(" ,plot_bgcolor: '#eeeeee' ");
+            sb.Append(" ,plot_bgcolor: '#FFFFFF' ");
             ////comment out the three lines below to hide the graphic identifier
             sb.Append(" ,images: [{ x: 0.20, y: 1.18, sizex: 0.3, sizey: 0.3, 'opacity': 0.6");
-            sb.Append(" ,source: 'images/graphic_identifier.png' ");
+            //sb.Append(" ,source: 'images/graphic_identifier.png' ");
             sb.Append(" ,xanchor: 'right', xref: '0', yanchor: 'bottom', yref: '0'}] ");
 
-            sb.Append(" ,annotations: [" + titleannontations + " { x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://nccd.cdc.gov/ckd ', showarrow: false, font: { size: 9 } },{ x: 0, y: 1.2, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "',showarrow: false }, {text: '<b>" + xaxistitle + "</b>',font: {size: " + yaxisfontsize + "},showarrow: false,align: 'center',x: 0.6, y: 0.0, xref: 'paper',yref: 'paper',xshift: -70,yshift: -60}],"); //, font: { size: 20 }
-            sb.Append(" legend: {orientation: 'h',  y: 1.1, font:{size: " + yaxisfontsize + "}, traceorder:'normal'}," + subplots_xaxis + " barmode: eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', yaxis: {showgrid: false, range: [0, eval($('#hfChartYValToUse').val())], xshift: -70, linecolor:'#bdbdbd', tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size:  " + yaxisfontsize + " } }, margin: {t: 150}};");
+            //sb.Append(" ,annotations: [" + titleannontations + " { x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://nccd.cdc.gov/ckd ', showarrow: false, font: { size: 9 } },{ x: 0, y: 1.2, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "',showarrow: false }, {text: '<b>" + xaxistitle + "</b>',font: {size: " + yaxisfontsize + "},showarrow: false,align: 'center',x: 0.6, y: 0.0, xref: 'paper',yref: 'paper',xshift: -70,yshift: -60}],"); //, font: { size: 20 }
+            sb.Append(" ,annotations: [" + titleannontations + " { x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: '', showarrow: false, font: { size: 9 } },{ x: 0, y: 1.2, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '',showarrow: false }, {text: '<b></b>',font: {size: " + yaxisfontsize + "},showarrow: false,align: 'center',x: 0.6, y: 0.0, xref: 'paper',yref: 'paper',xshift: -70,yshift: -60}],"); //, font: { size: 20 }
+            sb.Append(" legend: {orientation: 'h',  y: -0.1, font:{size: " + yaxisfontsize + "}, traceorder:'normal'}," + subplots_xaxis + " barmode: eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', yaxis: {showgrid: true, zeroline:false, range: [0, eval($('#hfChartYValToUse').val())], xshift: -70, linecolor:'#bdbdbd', tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size:  " + yaxisfontsize + " } }, margin: {t: 50}};");
 
             sb.Append(" var gd4 = d3.select('#svgchart');");
             sb.Append("var graphdiv = gd4.node();");
@@ -2819,11 +3192,11 @@ namespace CKDSurveillance_RD.MasterPages
 
             if (isIEorEdge)
             {
-                sb.Append("Plotly.newPlot(graphdiv, basedata, layout,{responsive:true, displayModeBar: true, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as SVG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'svg',height:700,width:920, filename: '" + titleNoFN + "'}) }}]");//sb.Append("Plotly.newPlot(graphdiv, data, layout,{displayModeBar: true, modeBarButtonsToRemove: ['sendDataToCloud']");
+                sb.Append("Plotly.newPlot(graphdiv, basedata, layout,{responsive:true, displayModeBar: false, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as SVG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'svg',height:700,width:920, filename: '" + titleNoFN + "'}) }}]");//sb.Append("Plotly.newPlot(graphdiv, data, layout,{displayModeBar: true, modeBarButtonsToRemove: ['sendDataToCloud']");
             }
             else
             {
-                sb.Append("Plotly.newPlot(graphdiv, basedata, layout,{responsive:true, displayModeBar: true, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as PNG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'png',height:700,width:920, filename: '" + titleNoFN + "'}) }}]");
+                sb.Append("Plotly.newPlot(graphdiv, basedata, layout,{responsive:true, displayModeBar: false, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as PNG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'png',height:700,width:920, filename: '" + titleNoFN + "'}) }}]");
             }
 
             //sb.Append(" });");//}]
@@ -2845,17 +3218,18 @@ namespace CKDSurveillance_RD.MasterPages
         }
         private void createPlotlyScript(StringBuilder dataSb, string title, string xaxistitle, string yaxistitle, int xaxiscnt, bool isMapPage)
         {
-            string xtickfontsize = "10";
+            string xtickfontsize = "17";
             string tickangle = "0";
+            string yaxisfontsize = "17";
 
             if (xaxiscnt >= 7)
             {
-                xtickfontsize = "9";
+                xtickfontsize = "16";
                 tickangle = "10";
             }
-            string yaxisfontsize = "14";
-            xtickfontsize = "16"; /*** 9/30/2022 Change font sizes in data visualizations ***/ // 06/17/2021 REMOVE THIS LINE 
-            tickangle = "15"; // 06/17/2021 REMOVE THIS LINE
+            
+            //xtickfontsize = "17"; /*** 9/30/2022 Change font sizes in data visualizations ***/ // 06/17/2021 REMOVE THIS LINE 
+            //tickangle = "15"; // 06/17/2021 REMOVE THIS LINE
 
             if (QNum.ToLower() == "q632" || QNum.ToLower() == "q631")//hardcoding due to last minute request
             {
@@ -2882,15 +3256,15 @@ namespace CKDSurveillance_RD.MasterPages
             //sb.Append(" var baselayout =  {yaxis: { range: [0, 45]}}; ");//need values to be passed into this function and used here
 
             if(QNum == "Q729" || QNum == "Q731" || QNum == "Q751")
-                sb.Append(" var layout = {autosize:true, showlegend: false, height: 700, margin: {  t: 120}"); //setting margins so that the graphic identifier and title can fit correctly
+                sb.Append(" var layout = {autosize:true, showlegend: false, height: 700, margin: {  t: 50}"); //setting margins so that the graphic identifier and title can fit correctly
             else
-                sb.Append(" var layout = {autosize:true, height: 700, margin: {  t: 120}"); //setting margins so that the graphic identifier and title can fit correctly
+                sb.Append(" var layout = {autosize:true, height: 700, margin: {  t: 50}"); //setting margins so that the graphic identifier and title can fit correctly
             //look at automargin parameter on yaxis/xaxis so label isn't overwritten by ticks
 
 
             ////comment out the three lines below to hide the graphic identifier (used to pull images for the AYA)
             sb.Append(" ,images: [{  x: 0.20, y: 1.1, sizex: 0.3, sizey: 0.3, 'opacity': 0.6,");
-            sb.Append(" source: 'images/graphic_identifier.png', ");
+            //sb.Append(" source: 'images/graphic_identifier.png', ");
             sb.Append(" xanchor: 'right', xref: '0', yanchor: 'bottom', yref: '0' }] ");
 
             //}
@@ -2899,21 +3273,23 @@ namespace CKDSurveillance_RD.MasterPages
             var refVal = RefValue(QNum);
             if (refVal > 0)
             {
-                sb.Append(" ,shapes: [ { type:'line', xref: 'paper', x0:0, y0:" + refVal + ", x1:1, y1:" + refVal + ", line:{ color: 'rgb(0, 128, 0 )',  width: 4, dash: 'dot' }}]");
+                sb.Append(" ,shapes: [ { type:'line', xref: 'paper', x0:0, y0:" + refVal + ", x1:1, y1:" + refVal + ", line:{ color: 'rgb(0, 128, 0 )',  width: 5, dash: 'dot' }}]");
             }
-                
-            sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://nccd.cdc.gov/ckd ', showarrow: false, font: { size: 12 } },{ x: 0, y: 1.12, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "', font: { size: 14 } ,showarrow: false }],"); //, font: { size: 20 }
+
+            //sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://nccd.cdc.gov/ckd ', showarrow: false, font: { size: 12 } },{ x: 0, y: 1.12, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "', font: { size: 14 } ,showarrow: false }],"); //, font: { size: 20 }
+            //sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: '', showarrow: false, font: { size: 12 } },{ x: 0, y: 1.12, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "', font: { size: 14 } ,showarrow: false }],"); //, font: { size: 20 }
+            sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: '', showarrow: false, font: { size: 12 } },{ x: 0, y: 1.12, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '', font: { size: 14 } ,showarrow: false }],"); //, font: { size: 20 }
 
             ////The Y axis label if being moved to the far left of the chart within the client side  $(function () 
             if (isMapPage == true)
             {
                 //modify the x axis ticks/values for maps, dtick=1 shows all labels, automargin: true displays all labels and doesn't cut off text
-                sb.Append("showlegend:false, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, tickangle:" + tickangle + ", showgrid: false, tickfont: { size: " + xtickfontsize + " }, linewidth: 2, title:'<b>" + xaxistitle + "</b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: false,automargin: true, dtick: 1, xshift: -200, linewidth: 2, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxisfontsize + " } }};");
+                sb.Append("showlegend:false, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, tickangle:" + tickangle + ", showgrid: false, tickfont: { size: " + xtickfontsize + " }, linewidth: 0, titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true,automargin: true, dtick: 1, xshift: -200, linewidth: 0, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxisfontsize + " } }};");
             }
             else
             {
                 //type = category so all values are displayed, not just a group
-                sb.Append(" legend: {'orientation': 'v', font: { size: " + yaxisfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + " }, linewidth: 2, title:'<b>" + xaxistitle + "</b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: false, xshift: -70, linewidth: 2, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxisfontsize + " } }};");
+                sb.Append(" legend: {'orientation': 'h', font: { size: " + yaxisfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + " }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxisfontsize + " } }};");
             }
 
             sb.Append(" var gd4 = d3.select('#svgchart');");
@@ -2927,11 +3303,11 @@ namespace CKDSurveillance_RD.MasterPages
 
             if (isMapPage) //4/8/2021, if it is a map, then we don't need to animate the bar chart below the map, just show the data
             {
-                sb.Append("Plotly.newPlot(graphdiv, data, layout,{responsive:true, displayModeBar: true, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as SVG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'svg',height:700,width:920, filename: '" + titleNoFN + "'}) }}]");//sb.Append("Plotly.newPlot(graphdiv, data, layout,{displayModeBar: true, modeBarButtonsToRemove: ['sendDataToCloud']");
+                sb.Append("Plotly.newPlot(graphdiv, data, layout,{responsive:true, displayModeBar: false, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as SVG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'svg',height:700,width:920, filename: '" + titleNoFN + "'}) }}]");//sb.Append("Plotly.newPlot(graphdiv, data, layout,{displayModeBar: true, modeBarButtonsToRemove: ['sendDataToCloud']");
             }
             else
             {
-                sb.Append("Plotly.newPlot(graphdiv, basedata, layout,{responsive:true, displayModeBar: true, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as PNG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'png',height:700,width:920, filename: '" + titleNoFN + "'}) }}]");
+                sb.Append("Plotly.newPlot(graphdiv, basedata, layout,{responsive:true, displayModeBar: false, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as PNG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'png',height:700,width:920, filename: '" + titleNoFN + "'}) }}]");
             }
             //sb.Append(" });"); //uncomment this to remove the animation
 
@@ -3388,10 +3764,10 @@ namespace CKDSurveillance_RD.MasterPages
 
             if (lcTopic.Contains("prevalence")) { answer = "<a href='./TopicHome/PrevalenceIncidence.aspx'>" + topic + "</a>"; }
             if (lcTopic.Contains("awareness")) { answer = "<a href='./TopicHome/Awareness.aspx'>" + topic + "</a>"; }
-            if (lcTopic.Contains("burden of risk factor")) { answer = "<a href='./TopicHome/BurdenOfRiskFactors.aspx'>" + topic + "</a>"; }
-            if (lcTopic.Contains("health consequences")) { answer = "<a href='./TopicHome/HealthConsequences.aspx'>" + topic + "</a>"; }
+            if (lcTopic.Contains("risk factor")) { answer = "<a href='./TopicHome/BurdenOfRiskFactors.aspx'>" + topic + "</a>"; }
+            if (lcTopic.Contains("outcomes")) { answer = "<a href='./TopicHome/HealthConsequences.aspx'>" + topic + "</a>"; }
             if (lcTopic.Contains("quality of care")) { answer = "<a href='./TopicHome/QualityOfCare.aspx'>" + topic + "</a>"; }
-            if (lcTopic.Contains("capacity")) { answer = "<a href='./TopicHome/HealthCareSystemCapacity.aspx'>" + topic + "</a>"; }
+            if (lcTopic.Contains("social")) { answer = "<a href='./TopicHome/HealthCareSystemCapacity.aspx'>" + topic + "</a>"; }
 
             if (lcTopic.Contains("children and adolescents")) { answer = "<a href='./Data.aspx?CategoryID=8#8'>" + topic + "</a>"; }
             if (lcTopic.Contains("solid organ transplant")) { answer = "<a href='./Data.aspx?CategoryID=9#9'>" + topic + "</a>"; }
@@ -3847,6 +4223,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             return answer;
         }
+
         private double RefValue(string QNum) {
             var refVal = 0.0;
             switch (QNum.ToLower())
@@ -3867,5 +4244,306 @@ namespace CKDSurveillance_RD.MasterPages
             return refVal;
         }
 
+        private void populateYearsDropDown(DataTable yearTable)
+        {
+
+            if (yearTable.Rows.Count == 1)
+            {
+                return;
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("<div class=\"chartMapMenuLabel\">Select Data Year</div>");
+            sb.Append("<select class=\"form-control\"  onchange=\"openViewDataBy(this.value);\">");
+
+            foreach (DataRow dr in yearTable.Rows)
+            {
+                if (Convert.ToInt32(dr["selected"]) != 1)
+                {
+                    sb.Append("<option value='" + dr["link"].ToString().Replace("~/", "").Trim() + "'>");
+                    sb.Append(dr["Year"].ToString().Trim());
+                    sb.Append("</option>");
+
+                }
+                else if (Convert.ToInt32(dr["selected"]) == 1)
+                {
+                    sb.Append("<option selected>" + dr["Year"].ToString().Trim() + "</option>");
+                }
+
+            }
+            sb.Append("</select>");
+
+            litYearText.Text = sb.ToString().Trim();
+            parentpnlYears.Visible = true;
+        }
+
+        public void loadStratsAndYears(DataTable dt)
+        {
+            _dtStratyears = dt;
+
+
+            //------------------
+            //--==* STRATS *==--
+            //------------------
+            string qNum = Request.QueryString["QNum"].Trim();
+
+
+
+            //*Populate the strats*
+            DataView dvStrat = new DataView(_dtStratyears);
+            DataTable stratTable = dvStrat.ToTable(true, "ViewBy");
+
+
+
+            //*Find the Selected Strat*
+            string selectedStrat = Request.QueryString["Strat"];
+            if (string.IsNullOrEmpty(selectedStrat))
+            {
+                selectedStrat = stratTable.Rows[0]["ViewBy"].ToString().Trim();
+            }
+
+
+            //*Add two columns [link + selected]*
+            stratTable = AddLinkSelectedColumns(stratTable);
+            updateStratRows(stratTable);
+
+            //-----------------
+            //--==* YEARS *==--
+            //-----------------
+
+
+            //*Populate the appropriate Years*
+            DataView dvYear = new DataView(_dtStratyears);
+            DataTable yrTable = dvYear.ToTable();
+
+
+
+
+            //*Add needed columns & filter rows based on chosen strat*
+            yrTable = AddLinkSelectedColumns(yrTable);
+            DataView yrDV = yrTable.DefaultView;
+
+            if (stratTable.Rows.Count > 0)
+            {
+                yrDV.RowFilter = "viewby in ('" + selectedStrat + "')";
+                yrDV.Sort = "StratificationDisplayOrder DESC";
+            }
+
+
+            //*Populate Years table info*
+            DataTable yrTableFiltered = yrDV.ToTable();
+            updateYearRows(yrTableFiltered, selectedStrat);
+            populateYearsDropDown(yrTableFiltered);
+
+
+            //*populate hiddenfield of years for the jQuery slider to reference*
+            string yrsCSV = "";
+            yrDV.Sort = "StratificationDisplayOrder DESC";
+            DataTable tempYrDT = yrDV.ToTable();
+            foreach (DataRow dr in tempYrDT.Rows)
+            {
+                yrsCSV += dr["Year"].ToString() + ",";
+            }
+            yrsCSV = yrsCSV.TrimEnd(',', ' ');
+            //hfCSVYears.Value = yrsCSV;
+
+
+            //Store the number of years for this strat
+            Session["YearCount"] = yrTableFiltered.Rows.Count.ToString();
+
+
+            //*Handle illogical URL years*
+            if ((Request.QueryString["Year"] != null))
+            {
+                string yrParam = Request.QueryString["Year"].Trim();
+
+                DataView dvYearCheck = yrTableFiltered.DefaultView;
+
+                dvYearCheck.RowFilter = "year in('" + yrParam + "')";
+
+                if (dvYearCheck.Count == 0)
+                {
+                    manageIllogicalURLYearParams();
+                }
+            }
+
+
+
+            //*Set default properties first time*
+            if (Session["CurrentStrat"] == null | Session["CurrentYear"] == null)
+            {
+                Session["CurrentStrat"] = stratTable.Rows[0]["ViewBy"].ToString().Trim();
+                Session["CurrentYear"] = yrTableFiltered.Rows[0]["Year"].ToString().Trim();
+            }
+
+            if (Session["currentQuintileSettings"] == null)
+            {
+                Session["currentQuintileSettings"] = "A";
+            }
+        }
+
+
+        private DataTable AddLinkSelectedColumns(DataTable dt)
+        {
+
+            DataTable dtAnswer = dt;
+
+            DataColumn dcLink = new DataColumn("link", typeof(string));
+            DataColumn dcSelected = new DataColumn("selected", typeof(int));
+            DataColumn dcButtonLink = new DataColumn("buttonLink", typeof(string));
+
+            dtAnswer.Columns.Add(dcLink);
+            dtAnswer.Columns.Add(dcSelected);
+            dtAnswer.Columns.Add(dcButtonLink);
+
+            return dtAnswer;
+        }
+
+        private void updateStratRows(DataTable dt)
+        {
+            string qNum = Request.QueryString["QNum"].Trim();
+            string url = Request.RawUrl;
+
+            //(Example) -->  /ckd/detailButtons.aspx?Qnum=Q380
+            string chosenStrat = "";
+            string chosenYear = "";
+            string topic = "";
+
+            if (url.Contains("&Strat"))
+            {
+                chosenStrat = Request.QueryString["Strat"].Trim().Replace("%20", " ").Trim();
+                //CurrentStrat = chosenStrat;
+            }
+
+            if (url.Contains("&Year"))
+            {
+                chosenYear = Request.QueryString["Year"].Trim().Replace("%20", " ").Trim();
+                //chosenYear = chosenYear;
+            }
+
+            if (url.Contains("&topic"))
+            {
+                topic = Request.QueryString["topic"].Trim().Replace("%20", " ").Trim();
+                //chosenYear = chosenYear;
+            }
+
+            //*Populate Table values and set 'selected' value*
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr["ViewBy"].ToString() == chosenStrat)
+                {
+                    dr["selected"] = 1;
+                    dr["Link"] = "";
+                    dr["buttonLink"] = "~/images/GO_clicked.png";
+                }
+                else
+                {
+                    dr["selected"] = 0;
+                    dr["buttonLink"] = "~/images/GO.png";
+                    var qNumTopic = qNum;
+                    if (!string.IsNullOrEmpty(topic))
+                    {
+                        qNumTopic = qNum + "&topic=" + topic;
+                    }
+
+                    if (string.IsNullOrEmpty(chosenYear))
+                    {
+                        dr["Link"] = "~/detail.aspx?Qnum=" + qNumTopic + "&Strat=" + HttpUtility.UrlEncode(dr["ViewBy"].ToString().Trim()) + "#refreshPosition";
+                    }
+                    else
+                    {
+                        dr["Link"] = "~/detail.aspx?Qnum=" + qNumTopic + "&Strat=" + HttpUtility.UrlEncode(dr["ViewBy"].ToString().Trim()) + "&Year=" + HttpUtility.UrlEncode(chosenYear.Trim()) + "#refreshPosition";
+                    }
+
+                }
+            }
+
+            //*Choose Defaults if necessary*
+            if (string.IsNullOrEmpty(chosenStrat))
+            {
+                dt.Rows[0]["selected"] = 1;
+                dt.Rows[0]["buttonLink"] = "~/images/GO_clicked.png";
+                dt.Rows[0]["Link"] = "";
+
+                //CurrentStrat = dt.Rows[0]["ViewBy"].ToString().Trim();
+            }
+
+        }
+
+        private void updateYearRows(DataTable dt, string selStrat)
+        {
+            string qNum = Request.QueryString["QNum"].Trim();
+            string url = Request.RawUrl;
+            //(Example) -->  /ckd/detailButtons.aspx?Qnum=Q380
+            string chosenStrat = "";
+            string chosenYear = "";
+            string topic = "";
+
+            //*Read URL for Params*
+            if (url.Contains("&Strat"))
+            {
+                chosenStrat = Request.QueryString["Strat"].Trim().Replace("%20", " ").Trim();
+                //CurrentStrat = chosenStrat;
+            }
+            if (url.Contains("&Year"))
+            {
+                chosenYear = Request.QueryString["Year"].Trim().Replace("%20", " ").Trim();
+                //CurrentYear = chosenYear;
+            }
+            if (url.Contains("&topic"))
+            {
+                topic = Request.QueryString["topic"].Trim().Replace("%20", " ").Trim();
+            }
+
+            //*Populate Table values and set 'selected' value*
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr["Year"].ToString() == chosenYear)
+                {
+                    dr["selected"] = 1;
+                    dr["Link"] = "";
+                    dr["buttonLink"] = "~/images/GO_clicked.png";
+                }
+                else
+                {
+                    var qNumTopic = qNum;
+                    if (!string.IsNullOrEmpty(topic))
+                    {
+                        qNumTopic = qNum + "&topic=" + topic;
+                    }
+
+                    dr["selected"] = 0;
+                    dr["buttonLink"] = "~/images/GO.png";
+                    dr["Link"] = "~/detail.aspx?Qnum=" + qNumTopic + "&Strat=" + HttpUtility.UrlEncode(dr["ViewBy"].ToString().Trim()) + "&Year=" + HttpUtility.UrlEncode(dr["Year"].ToString().Trim()) + "#refreshPosition";
+                }
+            }
+
+
+            //*Choose Defaults if necessary*
+            if (string.IsNullOrEmpty(chosenYear))
+            {
+                dt.Rows[0]["selected"] = 1;
+                dt.Rows[0]["buttonLink"] = "~/images/GO_clicked.png";
+                dt.Rows[0]["Link"] = "";
+
+                CurrentYear = dt.Rows[0]["Year"].ToString().Trim();
+            }
+
+        }
+        private void manageIllogicalURLYearParams()
+        {
+            //***************************************
+            //*Strip url year params and reload page*
+            //***************************************                        
+            string completeURL = Request.RawUrl;
+            int yrLocation = completeURL.ToLower().LastIndexOf("&year");
+            string completeYearParam = completeURL.Substring(yrLocation, 10);
+
+            string newURL = "~/" + completeURL.Replace(completeYearParam, "").Trim(); //added ~/ 5/5/2020 - BS
+            string url = Uri.EscapeUriString(newURL); //Fortify fix
+            Response.Redirect(url);
+
+        }
     }
 }

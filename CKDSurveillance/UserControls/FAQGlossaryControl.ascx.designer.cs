@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD.UserControls {
-    
-    
-    public partial class FAQGlossaryControl {
-        
+namespace CKDSurveillance_RD.UserControls
+{
+
+
+    public partial class FAQGlossaryControl
+    {
+
         /// <summary>
         /// lnkAboutProject control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CKDSurveillance_RD.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkAboutProject;
-        
+
         /// <summary>
         /// lnkFaq control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CKDSurveillance_RD.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkFaq;
-        
+
         /// <summary>
         /// lnkGlossary control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CKDSurveillance_RD.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkGlossary;
-        
+
         /// <summary>
         /// lnkDS control.
         /// </summary>
@@ -47,16 +49,7 @@ namespace CKDSurveillance_RD.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkDS;
-        
-        /// <summary>
-        /// lnkBib control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkBib;
-        
+
         /// <summary>
         /// lnkCompleteList control.
         /// </summary>

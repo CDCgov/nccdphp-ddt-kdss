@@ -369,7 +369,7 @@ namespace CKDSurveillance_RD.UserControls
                     if (img != null)
                     {
                         rptYearButtons.Visible = false;
-                        pnlYears.Visible = false;
+                        pnlYears.Visible = false;                        
                     }
                 }
             }

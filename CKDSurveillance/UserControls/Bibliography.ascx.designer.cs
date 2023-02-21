@@ -7,11 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD.UserControls {
-    
-    
-    public partial class Bibliography {
-        
+namespace CKDSurveillance_RD.UserControls
+{
+
+
+    public partial class Bibliography
+    {
         /// <summary>
         /// rptBib control.
         /// </summary>
@@ -19,6 +20,6 @@ namespace CKDSurveillance_RD.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptBib;
+        //protected global::System.Web.UI.WebControls.Repeater rptBib;
     }
 }

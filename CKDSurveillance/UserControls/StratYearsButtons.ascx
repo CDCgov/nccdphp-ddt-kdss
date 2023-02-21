@@ -70,7 +70,7 @@
 
 
 
-<asp:Panel ID="pnlQuintileRanges" ClientIDMode="Static" runat="server">
+<asp:Panel ID="pnlQuintileRanges" CssClass="ccolstyle" ClientIDMode="Static" runat="server">
     <%--************************--%>
     <%--*Quintile Color Choices*--%>
     <%--************************--%>
@@ -107,7 +107,7 @@
 </asp:Panel>
 
 
-<div id="divStratButtonOuter" class="stratButtonsContainingDiv roundMe widgetBorder">
+<%--<div id="divStratButtonOuter" class="stratButtonsContainingDiv roundMe widgetBorder">--%>
 
     <%--********--%>
     <%--*Strats*--%>
@@ -140,11 +140,11 @@
             <%--</fieldset>--%>
         </FooterTemplate>
     </asp:Repeater>
-</div>
+<%--</div>--%>
 
 
 
-<asp:Panel ID="pnlYears" runat="server">
+<asp:Panel ID="pnlYears" CssClass="ccolstyle" runat="server">
     <div id="divYearButtonOuter" class="YearButtonsContainingDiv roundMe widgetBorder" style="margin-top: 0em;">
 
         <%--*******--%>

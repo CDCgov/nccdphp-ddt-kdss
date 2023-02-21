@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HealthConsequences.aspx.cs" Inherits="CKDSurveillance_RD.TopicHome.HealthConsequences" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HealthConsequences.aspx.cs" Inherits="CKDSurveillance_RD.TopicHome.HealthConsequences" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" %>
 
 <%@ Register Src="~/UserControls/RDVersions/TopicHomeContent.ascx" TagPrefix="uc1" TagName="TopicHomeContent" %>
 

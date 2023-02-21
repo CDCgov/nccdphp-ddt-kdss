@@ -16,12 +16,12 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
         {
             if (showNavButtons)
             {
-                subPageDiv.Visible = false;
+                //subPageDiv.Visible = false;
                 homePageDiv.Visible = true;
             }
             else
             {
-                subPageDiv.Visible = true;
+                //subPageDiv.Visible = true;
                 homePageDiv.Visible = false;
             }
         }

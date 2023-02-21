@@ -1,7 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TopicHomeContent.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.RDVersions.TopicHomeContent" %>
+<%@ Register Src="~/UserControls/Navigation/SideNav.ascx" TagPrefix="uc1" TagName="SideNav" %>
 
- <%--*Plotly Charting Tool*--%>
+
+<%--*Plotly Charting Tool*--%>
     <script src="../scripts/plotly-latest.min.js"></script>
+
 <style>
     #hovertooltip {
             display:none;
@@ -52,55 +55,204 @@
             border-top-right-radius: 5px;*/
         }
 
+
+		.PIbodyTitle{
+			/*font: normal normal 600 38px/42px Open Sans;*/
+			text-align: left;
+			font-family: Open Sans;
+			font-size:38px;
+			letter-spacing: -0.38px;
+			color: #29434E;
+			opacity: 1;
+		}
+		.PIbody{
+			/*font: normal normal normal 17px/24px Open Sans;*/
+			text-align: left;
+			font-family: Open Sans;
+			font-size:17px;
+			letter-spacing: 0px;
+			color: #000000;
+			opacity: 1;
+		}
+		.PIhomebreadcrumb{
+			/*font: normal normal normal 14px/24px Open Sans;*/
+			text-align: left;
+			text-decoration: underline;			
+			letter-spacing: 0px;
+			color: #005EAA;
+			font-family: Open Sans;
+			font-size:14px;
+		}
+		.PIbodybreadcrumb{
+			/*font: normal normal normal 14px/24px Open Sans;*/
+			text-align: left;			
+			font-family: Open Sans;
+			font-size:14px;
+			letter-spacing: 0px;
+			color: #000000;
+		}		
+		.PInavHeader{   /*Prevalence & Incidence*/
+			/*font: normal normal 600 17px/48px Open Sans;*/
+			letter-spacing: 0px;			
+			text-align:left;
+			font-family: Open Sans, Semibold;
+			font-weight:bold;
+			font-size:17px;
+			color: #007C91;
+			opacity: 1;	
+			background: #F5F5F5 0% 0% no-repeat padding-box;
+			border-left: 4px solid;
+			border-color:#006778; /*0% 0% no-repeat padding-box;*/
+			border-bottom: 1px dashed #e0e0e0;
+		}
+		.PInavSectionLinks{
+			/*font: normal normal normal 17px/20px Open Sans;*/
+			text-align: left;			
+			font-family: Open Sans;
+			font-size:17px;
+			letter-spacing: 0px;
+			color: #000000;
+			opacity: 1;
+			/*background: #006778 0% 0% no-repeat padding-box;*/
+			/*border-left: 4px solid;
+			border-color:#006778; */
+		}
+		.PInavSectionLinkSelected{
+			/*font: normal normal normal 17px/20px Open Sans;*/
+			text-align: left;			
+			font-family: Open Sans Semibold;
+			font-size:17px;
+			letter-spacing: 0px;
+			color: #000000;
+			opacity: 1;
+			border-left: 4px solid;
+			border-color:#006778; /*0% 0% no-repeat padding-box;*/
+		}
+		.PInavSectionSublinks{
+			/*font: normal normal 600 15px/18px Open Sans;*/
+			text-align: left;			
+			font-family: Open Sans;
+			font-size:15px;
+			letter-spacing: 0px;
+			color: #007C91;
+			opacity: 1;
+			text-decoration:none;
+			list-style-type:none;
+			border-left: 4px solid;
+			border-color:#65B0BD; /*0% 0% no-repeat padding-box;*/
+			border-bottom: 1px dashed #e0e0e0;
+			margin-bottom: 0px !important;
+		}
+
+		/*Additional Resources and General Information*/
+		.PInavSectionHeading{
+			text-align: left;
+			/*font: normal normal 600 21px/34px Open Sans;*/
+			font-family: Open Sans;
+			font-size:21px;
+			letter-spacing: -0.21px;
+			color: #242424;
+			text-transform: capitalize;
+			opacity: 1;			
+		}
+
+		.PInavARandGIlinks{
+			text-align: left;
+			/*font: normal normal normal 17px/23px Open Sans;*/
+			font-family: Open Sans;
+			font-size:17px;
+			letter-spacing: 0px;
+			color: #00778C !important;
+			opacity: 1;
+			text-decoration: none;
+			padding-left:10px;
+	 
+		}
+		.PInavARbottomline{
+			padding: 10px 8px;
+			border-left: 4px solid #fff;
+			border-bottom: 1px dashed #e0e0e0;
+		}
+		.PInavARtopline{
+			border-top: 1px dashed #e0e0e0;
+		}
+		.downloadImg{
+			/*background: transparent url('img/Group 1776.png') 0% 0% no-repeat padding-box;*/
+			opacity: 1;
+			height: 25px; /*29.25px;*/
+			width: 25px; /*29.25px;*/
+		}
+		.HealthyPeopleImg{
+			/*background: transparent url('img/Group 151.png') 0% 0% no-repeat padding-box;*/
+			opacity: 1;
+			height:19.54px;
+			width:19.51px;
+		}
+		.navlist li{
+			text-decoration: none !important;
+			list-style-type:none !important;
+			list-style: none;			
+		}
+		.logoImg{
+			background: transparent url('/images/CKDLeftNavLogo.png') 0% 0% no-repeat padding-box;
+			opacity: 1;
+			width: 100%; /*330px;*/
+			height: 100%; /*128px;*/
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		
 </style>
 
-<div class="container">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="THPTitle">
-                <asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal>
-            </div>
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="row">
-                <div class="col-xl-2 d-none d-xl-block"></div>
-                <div class="col-xl-8 col-lg-12">
-                    <div class="THPSubDesc">                    
-                        <asp:Literal ID="Lit_Desc" runat="server"></asp:Literal>
-                    </div>
-                </div>
-                <div class="col-xl-2 d-none d-xl-block"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xl-1 d-none d-xl-block"></div>
-        <div class="col-xl-4 col-md-6 col-sm-12">
-            <div id="divPlotly_small1" class="ChartArea_small1">
-                    <asp:Literal ID="Lit_Plotly_small1" runat="server" ></asp:Literal>                               
-                    <div id="svgchart_small1" ></div>                                
-            </div>
-        </div>
-        <div class="col-xl-2 d-none d-xl-block"></div>
-        <div class="col-xl-4 col-md-6 col-sm-12">
-                <div id="divPlotly_small2" class="ChartArea_small2">
-                    <asp:Literal ID="Lit_Plotly_small2" runat="server" ></asp:Literal>                               
-                    <div id="svgchart_small2" ></div>
-            </div>
-        </div>
-        <div class="col-xl-1 d-none d-xl-block"></div>
-    </div>
-    <div class="row">
-        <div class="col-xl-3 d-none d-xl-block"></div>
-        <div class="col-xl-6 col-lg-12">
-            <asp:Literal ID="Lit_IndicatorText" runat="server"></asp:Literal>
-        </div>
-        <div class="col-xl-3 d-none d-xl-block"></div>
-        
-    </div>
+
+<!-- Page Content Wrap -->
+	<div class="container d-flex flex-wrap body-wrapper bg-white">
+
+			<!-- Content -->
+			<main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area">
+					<div id="PIdivbody" class="row">
+						<div  class="col content">										
+							<div class="cdc-2020-bar container">
+								<div class="row no-gutters">
+									<div class="bar-item">
+											<a href="/default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
+											<span class="PIhomebreadcrumb"><u>Home</u></span> </a> 
+										    <span id="bcTopic" class="PIbodybreadcrumb">  </span>  <%--selected topic from top nav --%>
+											<span id="bcSelListItem" class="PIbodybreadcrumb">  </span>  <%--selected list item from left nav --%>
+											<%--<span id="bcPIlinks" class="PIbodybreadcrumb">  > </span>--%>
+									</div>
+								</div>
+							</div>
+							<div>
+								<h1 id="content" class="PIbodyTitle "><span id="topicTitle"><asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal></span> </h1>								
+							</div>
+							<p>                   
+								<span class="PIbody"><asp:Literal ID="Lit_Desc" runat="server"></asp:Literal></span>
+							</p>
+						</div>	
+					</div>
+			</main>
+
+			<!-- Left / Bottom Nav -->
+			<div class="col-xl-3 order-xl-1 leftnav-wrapper">
+				<nav role="navigation" aria-label="Left Navigation Menu" style="border-bottom-color:white">
+					<div id="cdc-left-nav-menu" >
+						<br />	
+						<uc1:sidenav runat="server" id="SideNav" />
+					</div>	
+				</nav>
+			</div>
+	</div>
+
+<br /><br />
+
+
+	<%--*****************--%>
+
+	<asp:Literal ID="Lit_IndicatorText" runat="server" visible="false"></asp:Literal>
+   <%-- <asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal>  --%>
+
     <div id="hovertooltip"><span class="hovertoolspan"></span></div>
       <asp:HiddenField ID="HF_SmallChart1Hover" runat="server" />
     <asp:HiddenField ID="HF_SmallChart2Hover" runat="server" />
@@ -109,9 +261,7 @@
 
     <asp:HiddenField ID="HF_TopicText" runat="server" />
     <asp:HiddenField ID="hfShowCI" runat="server" Value="false" />
-    
-</div>
-<br /><br /><br />
+
  <script>
 
             $(document).ready(function () {
@@ -127,10 +277,24 @@
                 //$("#skippagedetailslink").attr("style", "");
 
                
+				var topicBC = document.getElementById("topicTitle").innerText;
+               
+                var topicTag = document.getElementById("bcTopic");
+                topicTag.innerHTML = " > " + topicBC;
 
-             });
+			});
 
-
+     function navClick() {
+        
+         $(document).on('click', 'a', function () {
+             var aID = this.id
+             var aTitle = this.title
+    
+             var PItag = document.getElementById("bcSelListItem");
+             PItag.innerHTML = " > " + aTitle;
+            
+         });
+     };
 
 
             var document_href = document.location.href.toLowerCase();
@@ -164,7 +328,8 @@
             $("#svgchart_small2").click(function () { window.location.href = document_href + $("[id$=HF_SmallChart2URL]").val() });
 
            
-        </script>
+ </script>
+
     <style>
         #svgchart {
             cursor:pointer;

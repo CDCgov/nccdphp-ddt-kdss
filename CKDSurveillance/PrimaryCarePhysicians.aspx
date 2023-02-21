@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PrimaryCarePhysicians.aspx.cs" Inherits="CKDSurveillance_RD.PrimaryCarePhysicians" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PrimaryCarePhysicians.aspx.cs" Inherits="CKDSurveillance_RD.PrimaryCarePhysicians" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
 

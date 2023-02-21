@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CKDSurveillance_RD.Default" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CKDSurveillance_RD.Default" %>
 
 <%@ Register Src="~/UserControls/FAQGlossaryControl.ascx" TagPrefix="uc1" TagName="FAQGlossaryControl" %>
 <%@ Register Src="~/UserControls/Navigation/MainNav.ascx" TagPrefix="uc1" TagName="MainNav" %>
@@ -7,11 +7,18 @@
 <%@ Register Src="~/UserControls/FPWidgets/SuggestedCitationAndVersioning.ascx" TagPrefix="uc1" TagName="SuggestedCitationAndVersioning" %>
 <%@ Register Src="~/UserControls/FPWidgets/SpotlightOnIndicators.ascx" TagPrefix="uc1" TagName="SpotlightOnIndicators" %>
 <%@ Register Src="~/UserControls/FPWidgets/SpecialDay.ascx" TagPrefix="uc1" TagName="SpecialDay" %>
-<%@ Register Src="~/UserControls/FPWidgets/Calculators.ascx" TagPrefix="uc1" TagName="Calculators" %>
 <%@ Register Src="~/UserControls/FPWidgets/Combined_Initiative_FactSheet.ascx" TagPrefix="uc1" TagName="Combined_Initiative_FactSheet" %>
 <%@ Register Src="~/UserControls/SurveyModal.ascx" TagPrefix="uc1" TagName="SurveyModal" %>
 <%@ Register Src="~/UserControls/FPWidgets/CurrentTopics.ascx" TagPrefix="uc1" TagName="CurrentTopics" %>
-
+<%@ Register Src="~/UserControls/FPWidgets/AboutKDS.ascx" TagPrefix="uc1" TagName="AboutKDS" %>
+<%@ Register Src="~/UserControls/FPWidgets/Prevalence.ascx" TagPrefix="uc1" TagName="Prevalence" %>
+<%@ Register Src="~/UserControls/FPWidgets/RiskCalculator.ascx" TagPrefix="uc1" TagName="RiskCalculator" %>
+<%@ Register Src="~/UserControls/FPWidgets/AYA.ascx" TagPrefix="uc1" TagName="AYA" %>
+<%@ Register Src="~/UserControls/FPWidgets/DataBiteHighlights.ascx" TagPrefix="uc1" TagName="DataBiteHighlights" %>
+<%@ Register Src="~/UserControls/FPWidgets/GeneralInformation.ascx" TagPrefix="uc1" TagName="GeneralInformation" %>
+<%@ Register Src="~/UserControls/FPWidgets/MainImage.ascx" TagPrefix="uc1" TagName="MainImage" %>
+<%@ Register Src="~/UserControls/FPWidgets/OutcomesQofCare.ascx" TagPrefix="uc1" TagName="OutcomesQofCare" %>
+<%@ Register Src="~/UserControls/FPWidgets/RiskFactorsForKD.ascx" TagPrefix="uc1" TagName="RiskFactorsForKD" %>
 
 <%--******--%>
 <%--*Head*--%>
@@ -125,13 +132,44 @@
             transform: translateY(1rem) !important;
         }
 
-            .tab-pane.fade.show {
-                transform: translateY(0rem) !important;
-            }
+        .tab-pane.fade.show {
+            transform: translateY(0rem) !important;
+        }
+        .rf-margins
+        {
+            /*background: transparent linear-gradient(290deg, #007C91 0%, #00695C 100%) 0% 0% no-repeat padding-box;*/ 
+            background: transparent linear-gradient(290deg, #218B9C 0%, #217B70 100%) 0% 0% no-repeat padding-box; 
+            opacity:0.9;
+        }
 
-        .nav-item {
-            border: solid 1px #e6e6e6;
-            background-color: #f5f5f5;
+        #ckd-nav-home{
+            background-color: #FFFFFF;
+        }
+        #ckd-nav-home-link:hover {
+            color: #FFFFFF!important;
+        }
+        #ckd-nav-home-link {
+            color: #007C91 !important;
+        }
+        .main-image-banner {
+            background: transparent url('/images/CKD_Main.png') 0% 0% no-repeat padding-box;
+        }
+        .outcomecontainer {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        @media (max-width: 767px) {
+            .main-image-banner {
+                background: transparent url('/images/CKD_Main_Mobile.png') 0% 0% no-repeat padding-box;
+                margin-top: -24px;
+            }
+            .outcomecontainer {
+                padding-left:0px;
+                padding-right:0px;
+            }
         }
     </style>
 
@@ -139,184 +177,118 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-
-
     <%--*********************--%>
     <%--*One Question Survey* (handles cookie, code, everything - just include it.)--%>
     <%--*********************--%>
     <uc1:SurveyModal runat="server" ID="SurveyModal" />
 
-
-
-
-    <%--*********--%>
-    <%--*Widgets*--%>
-    <%--*********--%>
-
-    <div class="row">
-
-        <%--LEFT Column--%>
-        <div class="col-lg-4 order-sm-1 order-lg-1">
-
-            <%--**************--%>
-            <%--*Special Pops*--%>
-            <%--**************--%>
-            <uc1:SpecialPopulations runat="server" ID="SpecialPopulations" />
-
-
-            <%--****************--%>
-            <%--*Current Topics*--%>
-            <%--****************--%>
-            <uc1:CurrentTopics runat="server" ID="CurrentTopics" />
-
-            <br />
-            <br />
-
-        </div>
-
-
-        <%--*MIDDLE column*--%>
-        <div class="col-lg-4 order-sm-3 order-lg-2">
-
-            <%--*************************--%>
-            <%--*SpotLight On Indicators*--%>
-            <%--*************************--%>
-            <uc1:SpotlightOnIndicators runat="server" ID="SpotlightOnIndicators" />
-
-
-        </div>
-
-
-
-        <%--*Right third*--%>
-        <div class="col-lg-4 order-sm-2 order-lg-3">
-
-            <%--*********************--%>
-            <%--*Special Day Widget*--%>
-            <%--*********************--%>
-            <uc1:SpecialDay runat="server" ID="SpecialDay" />
-
-
-            <%--*************--%>
-            <%--*Calculators*--%>
-            <%--*************--%>
-            <uc1:Calculators runat="server" ID="Calculators" />
-
-        </div>
-    </div>
-
-    <%--*******************--%>
-    <%--*Six brief Widgets*--%>
-    <%--*******************--%>
-    <div class="row">
-
-        <%--*Info for Patients / Healthy People*--%>
-        <div class="col-lg-4 order-sm-1 order-lg-1 splash-col">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <%--*Information For Patients--%>
-                    <a href="https://www.niddk.nih.gov/health-information/kidney-disease" class="bg-white bl-3 bl-primary ds-8 mb-3 nav-btn nav-btn-horizontal noLinking noDecoration card" style="height: 66px;" target="_blank">
-                        <div class="card-body bg-white" style="height: 64px;">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <div class="card-title h4 mb text-left">Information For Patients</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <%--*Healthy People*--%>
-                    <%--<a href="https://health.gov/healthypeople/objectives-and-data/browse-objectives/chronic-kidney-disease" class="bg-white bl-3 bl-primary ds-8 mb-3 nav-btn nav-btn-horizontal noLinking noDecoration card" style="height: 66px;" target="_blank">--%>
-                    <a href="data.aspx?categoryID=67" class="bg-white bl-3 bl-primary ds-8 mb-3 nav-btn nav-btn-horizontal noLinking noDecoration card" style="height: 66px;" target="_blank">
-                        <div class="card-body bg-white" style="height: 64px;">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <div class="card-title h4 mb text-left">Healthy People</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <%--*Research and Publications / CKD Initiative*--%>
-        <div class="col-lg-4 order-sm-1 order-lg-1 splash-col">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <%--*Research and Publications--%>
-                    <a href="https://www.cdc.gov/kidneydisease/publications-resources/publications.html" class="bg-white bl-3 bl-primary ds-8 mb-3 nav-btn nav-btn-horizontal noLinking noDecoration card" style="height: 66px;" target="_blank">
-                        <div class="card-body bg-white" style="height: 64px;">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <div class="card-title h4 mb text-left">Research And Publications</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <%--*CKD Initiative*--%>
-                    <a href="https://www.cdc.gov/kidneydisease/about-the-ckd-initiative.html" class="bg-white bl-3 bl-primary ds-8 mb-3 nav-btn nav-btn-horizontal noLinking noDecoration card" style="height: 66px;" target="_blank">
-                        <div class="card-body bg-white" style="height: 64px;">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <div class="card-title h4 mb text-left">CKD Initiative</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <%--*Email Updates*--%>
-        <div class="col-lg-4 order-sm-1 order-lg-1 splash-col">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <%--*Top text - Get Email Updates*--%>
-                    <div class="bg-white bl-3 bl-primary ds-8 mb-3 nav-btn nav-btn-horizontal noLinking noDecoration card" style="height: 148px;">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <div class="card-title h4 mb text-left" style="padding-top: 16px; padding-left: 16px;">Get Email Updates:</div>
-                            </div>
-                        </div>
-                        <br />
-
-                        <%--*Textbox / button*--%>
-                        <div class="row align-items-center">
-                            <div class="col" style="padding-left: 40px; padding-right: 40px;">
-                                <div class="input-group mb-3" style="cursor: pointer;">
-                                    <input id="gov-d-email" name="email" type="email" class="form-control" placeholder="Email Address" />
-                                    <div class="input-group-append">
-                                        <span class="input-group-text btn-primary" id="basic-addon2" tabindex="0" onkeypress="checkTXTForSubmit(event,'submitArea');" onclick="triggerSearch();">
-                                            <asp:LinkButton ID="btnSubmitEmailSubscription" runat="server" ClientIDMode="Static" CssClass="btn btn-link" ForeColor="White" ToolTip="Submit email address for subscription to CDC CKD email newsletter communication" AlternateText="Submit email address for subscription to CDC CKD email newsletter communication" Text="Submit" />
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+    <%--************--%>
+    <%--*Main Image*--%>
+    <%--************--%>
+    <div class="row d-lg-block main-image-banner">
+        <div class="container">
+            <uc1:MainImage runat="server" ID="MainImage1" />
         </div>
     </div>
 
 
-    <%--***********************************--%>
-    <%--*Suggested Citation and Versioning*--%>
-    <%--***********************************--%>
-    <div class="row">
-        <div class="col-lg-4 order-sm-1 order-lg-1 splash-col">
-            <uc1:SuggestedCitationAndVersioning runat="server" ID="SuggestedCitationAndVersioning" />
+    <%--************************************--%>
+    <%--*Kidney Disease Surveillance System*--%>
+    <%--************************************--%>
+
+    <div class="row pt-0 pb-1 county-check" style="background-color:rgba(78,186,170,0.07); background-color:rgba(78,186,170,0.07);
+border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom: solid;border-bottom-width: thin;border-bottom-color: #93a0a6;">
+        <div class="container">
+            <uc1:AboutKDS runat="server" ID="AboutKDS1" />
         </div>
-        <div class="col-lg-4 order-sm-1 order-lg-1 splash-col">
-        </div>
-        <div class="col-lg-4 order-sm-1 order-lg-1 splash-col">
+    </div>
+    
+    
+    <%--******************************--%>
+    <%--*Prevalence of Kidney Disease*--%>
+    <%--******************************--%>
+
+    <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box;box-shadow: 0px 5px 9px #00000029;opacity: 1; ">
+        <div class="container">
+            <uc1:Prevalence runat="server" ID="Prevalence1" />
         </div>
     </div>
 
+
+    <%--*****************--%>
+    <%--*Risk Calculator*--%>
+    <%--*****************--%>
+
+    <div class="row pt-0 pb-1 county-check" style="background: #005EAA 0% 0% no-repeat padding-box !important; box-shadow: 0px 3px 6px #0000006B;">
+        <div class="container">
+            <uc1:RiskCalculator runat="server" ID="RiskCalculator1" />
+        </div>
+    </div>
+
+    <%--*****--%>
+    <%--*AYA*--%>
+    <%--*****--%>
+
+    <div class="row pt-0 pb-1 county-check" style="background: #F5F5F5 0% 0% no-repeat padding-box; opacity: 1;margin-top: 6px;">
+        <div class="container">
+            <uc1:AYA runat="server" ID="AYA1" />
+        </div>
+    </div>
+
+
+    <%--*********************************--%>
+    <%--*Risk Factors for kidney Disease*--%>
+    <%--*********************************--%>
+
+    <div class="row pt-0 pb-1 county-check rf-margins"> 
+        <div class="container">
+             <uc1:RiskFactorsForKD runat="server" ID="RiskFactorsForKD1" />
+        </div>
+    </div>
+
+    <%--**********************--%>
+    <%--*Data Bite highlights*--%>
+    <%--**********************--%>
+    <div class="row pt-0 pb-1 county-check" style="background: #F5F5F5 0% 0% no-repeat padding-box; opacity: 1;">
+        <div class="container">
+            <uc1:DataBiteHighlights runat="server" ID="DataBiteHighlights" />
+        </div>
+    </div>
+  
+
+    <%--******************************--%>
+    <%--*Outcomes and Quality of Care*--%>
+    <%--******************************--%>
+
+    <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box;box-shadow: 0px -5px 9px #00000029;opacity: 1;">
+        <div class="outcomecontainer showPhoneOnly">
+            <uc1:OutcomesQofCare runat="server" ID="OutcomesQofCare1" />
+        </div>
+        <div class="container phoneNoShow">
+            <uc1:OutcomesQofCare runat="server" ID="OutcomesQofCare2" />
+        </div>
+    </div>
+
+    <%--**********************************************--%>
+    <%--*Additional Resources and General Information*--%>
+    <%--**********************************************--%>
+
+    <div class="row pt-0 pb-1 county-check" style="background:#EBF5F6 0% 0% no-repeat padding-box;opacity: 1;">
+        <div class="container">
+            <uc1:GeneralInformation runat="server" ID="GeneralInformation1" />
+        </div>
+    </div>
+
+
+    <%--*****************--%>
+    <%--*Email Subscribe*--%>
+    <%--*****************--%>
+
+    <%--<div class="row pt-0 pb-1 county-check" style="background: #29434E 0% 0% no-repeat padding-box;box-shadow: 0px -8px 6px #0000002E; opacity: 1;     display:block;">
+        <div class="container">
+            <uc1:EmailSubscribeMain runat="server" ID="EmailSubscribeMain1" />
+        </div>
+    </div>--%>
 
 </asp:Content>
 
@@ -336,6 +308,15 @@
 
             window.open(fullUrl, '_blank');
         };
+        $(document).ready(function(){
+            var listItems = $(".nav-link");
+
+            // Remove 'active' tag for all list items
+            for (let i = 0; i < listItems.length; i++) {
+                listItems[i].classList.remove("active");
+            }
+            $("#home").addClass("active");
+        });
     </script>
 
 </asp:Content>

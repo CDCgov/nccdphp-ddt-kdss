@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" AutoEventWireup="true" CodeBehind="Logout.aspx.cs" Inherits="CKDSurveillance_RD.Logout" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" AutoEventWireup="true" CodeBehind="Logout.aspx.cs" Inherits="CKDSurveillance_RD.Logout" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

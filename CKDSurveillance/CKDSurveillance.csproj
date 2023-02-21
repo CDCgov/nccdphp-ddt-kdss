@@ -19,7 +19,7 @@
     <OldToolsVersion>4.0</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <TargetFrameworkProfile />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -75,8 +75,8 @@
       <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\DecryptAesSymmetric.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DocumentFormat.OpenXml, Version=2.18.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocumentFormat.OpenXml.2.18.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.13.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.13.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
     <Reference Include="EncryptAesByPassPhrase, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\EncryptAesByPassPhrase.dll</HintPath>
@@ -115,36 +115,26 @@
       <HintPath>..\packages\CDC.NCCDPHP.SSLUtility.4.5.2\lib\SSLUtility.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data.SqlClient, Version=4.6.1.4, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SqlClient.4.8.4\lib\net461\System.Data.SqlClient.dll</HintPath>
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="System.IO.Packaging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.dll</HintPath>
+    <Reference Include="System.IO.Packaging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.5.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
     </Reference>
-    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
-    <Reference Include="System.Text.Encoding.CodePages, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DataVisualization" />
@@ -278,10 +268,12 @@
     <Content Include="AYA\September_2022.html" />
     <Content Include="Blocked.aspx" />
     <Content Include="Calculators.aspx" />
+    <Content Include="css\Fonts.css" />
     <Content Include="css\SocialMedia.css" />
     <Content Include="Default.aspx" />
     <Content Include="Default\Default.aspx" />
     <Content Include="Default\Logout.aspx" />
+    <Content Include="Detail.aspx" />
     <Content Include="DisparityExplorerV2.aspx" />
     <Content Include="FactorsofInterest.aspx" />
     <Content Include="images\032019_infocard.jpg" />
@@ -301,21 +293,52 @@
     <Content Include="images\Burden.png" />
     <Content Include="images\Burden_answer4.png" />
     <Content Include="images\Burden_r2_re2.jpg" />
+    <Content Include="images\calculator-icon.png" />
     <Content Include="images\CDC_LOGO_narrow.png" />
     <Content Include="images\CKD1.2.jpg" />
     <Content Include="images\CKD2.2.jpg" />
     <Content Include="images\CKD3.2.jpg" />
     <Content Include="images\CKD4.2.jpg" />
     <Content Include="images\CKD5.6.jpg" />
+    <Content Include="images\CKDLeftNavLogo.png" />
     <Content Include="images\CKD_GI_Larger.png" />
+    <Content Include="images\CKD_Main.png" />
+    <Content Include="images\CKD_Main_Mobile.png" />
     <Content Include="images\close.gif" />
     <Content Include="images\collapse.gif" />
     <Content Include="images\comment-warning_Green.png" />
+    <Content Include="images\CommonControls\download_csv_lg.png" />
+    <Content Include="images\CommonControls\download_csv_sm.png" />
+    <Content Include="images\DataCharts\Age_RiskFactorsOfKD.jpg" />
+    <Content Include="images\DataCharts\Average_daily_PM2.5_and_CKD.jpg" />
+    <Content Include="images\DataCharts\c.PNG" />
+    <Content Include="images\DataCharts\Close_window.JPG" />
+    <Content Include="images\DataCharts\DataBites_Stages1to4.jpg" />
+    <Content Include="images\DataCharts\DataBites_Stages3or4.jpg" />
+    <Content Include="images\DataCharts\Diabetes_RiskFactorsOfKD.jpg" />
+    <Content Include="images\DataCharts\disclaimer-info-small.jpg" />
+    <Content Include="images\DataCharts\DownloadCyan.jpg" />
+    <Content Include="images\DataCharts\DownloadIcon.jpg" />
+    <Content Include="images\DataCharts\HPArrow.jpg" />
+    <Content Include="images\DataCharts\Hypertension_RiskFactorsOfKD.jpg" />
+    <Content Include="images\DataCharts\map1.PNG" />
+    <Content Include="images\DataCharts\map2.PNG" />
+    <Content Include="images\DataCharts\PM2.5_mean.jpg" />
+    <Content Include="images\DataCharts\Poverty.jpg" />
+    <Content Include="images\DataCharts\Poverty_and_CKD.jpg" />
+    <Content Include="images\DataCharts\Prevalent_CKD.jpg" />
+    <Content Include="images\DataCharts\RightArrowIcon.jpg" />
     <Content Include="images\Disparities_Green.png" />
+    <Content Include="images\DownloadGreen.png" />
     <Content Include="images\DrOffice_answer1.png" />
     <Content Include="images\Email1_Green.png" />
     <Content Include="images\Email_blue.png" />
     <Content Include="images\EmergingTopics_Green.png" />
+    <Content Include="images\info_black_24dp.png" />
+    <Content Include="images\KDLeftNavlogo.jpg" />
+    <Content Include="images\main_icon1.png" />
+    <Content Include="images\main_icon1_mobile.png" />
+    <Content Include="images\main_icon2.png" />
     <Content Include="images\Health System_r2_rs2.jpg" />
     <Content Include="images\HealthConsequences_answer3.png" />
     <Content Include="images\HealthSystem_answer4.png" />
@@ -364,7 +387,10 @@
     <Content Include="images\KDSMad.jpg" />
     <Content Include="images\LoadSwirl.gif" />
     <Content Include="images\LocalSearchSmall.png" />
+    <Content Include="images\main_icon2_mobile.png" />
     <Content Include="images\MaskOnSleevesUp2.png" />
+    <Content Include="images\Mask_Group_33.png" />
+    <Content Include="images\Mask_Group_33_mobile.png" />
     <Content Include="images\methods.jpg" />
     <Content Include="images\methods.png" />
     <Content Include="images\Newspaper.png" />
@@ -377,6 +403,9 @@
     <Content Include="images\Patients_Green.png" />
     <Content Include="images\Play.png" />
     <Content Include="images\Prev. and Inc_r2_rs2.jpg" />
+    <Content Include="images\Prev1.png" />
+    <Content Include="images\Prev2.png" />
+    <Content Include="images\Prev3.png" />
     <Content Include="images\Prevalence.png" />
     <Content Include="images\P_and_I_answer4.png" />
     <Content Include="images\Qual of Care_r2_rs2.jpg" />
@@ -415,7 +444,6 @@
     <Content Include="Help.aspx" />
     <Content Include="contactus.aspx" />
     <Content Include="data.aspx" />
-    <Content Include="detail.aspx" />
     <Content Include="MasterPages\ResponsiveContent_popupThinNew.Master" />
     <Content Include="menus\CKDMenu.html" />
     <Content Include="menus\helpMenu.html" />
@@ -462,6 +490,14 @@
     <Content Include="packages.config" />
     <Content Include="Handlers\DisparityExplorer_Handler.ashx" />
     <Content Include="Handlers\MapData_Handler.ashx" />
+    <Content Include="Documents\Chronic-Kidney-Disease-in-the-US-2021-h.pdf" />
+    <Content Include="MasterPages\ResponsiveContentLeftNavNew.Master" />
+    <Content Include="Documents\CKD_Stages_1-4_Age.xlsx" />
+    <Content Include="Documents\CKD_Stages_1-4_Diabetes.xlsx" />
+    <Content Include="Documents\CKD_Stages_1-4_Hypertension.xlsx" />
+    <Content Include="Documents\Q705_Table.xlsx" />
+    <Content Include="Documents\Q760.xlsx" />
+    <Content Include="Documents\Q761.xlsx" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="scripts\local.js" />
     <Content Include="scripts\templateContentEmpty.js" />
@@ -535,6 +571,7 @@
     <Content Include="TopicHome\BurdenOfRiskFactors.aspx" />
     <Content Include="TopicHome\HealthCareSystemCapacity.aspx" />
     <Content Include="TopicHome\HealthConsequences.aspx" />
+    <Content Include="TopicHome\SocialDeterminantsOfHealth.aspx" />
     <Content Include="TopicHome\PrevalenceIncidence.aspx" />
     <Content Include="TopicHome\QualityOfCare.aspx" />
     <Content Include="UserControls\AccordionIndicatorControl.ascx" />
@@ -550,10 +587,19 @@
     <Content Include="UserControls\FAQ.ascx" />
     <Content Include="UserControls\FAQGlossaryControl.ascx" />
     <Content Include="UserControls\FPWidgets\AAKH.ascx" />
+    <Content Include="UserControls\FPWidgets\Prevalence.ascx" />
+    <Content Include="UserControls\FPWidgets\OutcomesQofCare.ascx" />
+    <Content Include="UserControls\FPWidgets\AYA.ascx" />
+    <Content Include="UserControls\FPWidgets\EmailSubscribeMain.ascx" />
+    <Content Include="UserControls\FPWidgets\MainImage.ascx" />
+    <Content Include="UserControls\FPWidgets\RiskCalculator.ascx" />
+    <Content Include="UserControls\FPWidgets\GeneralInformation.ascx" />
     <Content Include="UserControls\FPWidgets\AYA_Disparities_Tools.ascx" />
     <Content Include="UserControls\FPWidgets\Calculators.ascx" />
     <Content Include="UserControls\FPWidgets\Combined_Initiative_FactSheet.ascx" />
     <Content Include="UserControls\FPWidgets\CurrentTopics.ascx" />
+    <Content Include="UserControls\FPWidgets\AboutKDS.ascx" />
+    <Content Include="UserControls\FPWidgets\DataBiteHighlights.ascx" />
     <Content Include="UserControls\FPWidgets\Disparities.ascx" />
     <Content Include="UserControls\FPWidgets\Disparitiesrrr.ascx" />
     <Content Include="UserControls\FPWidgets\EmailSubscribe.ascx" />
@@ -564,6 +610,7 @@
     <Content Include="UserControls\FPWidgets\NewIndicators.ascx" />
     <Content Include="UserControls\FPWidgets\PatientFocusedInformation.ascx" />
     <Content Include="UserControls\FPWidgets\ResearchAndPublications.ascx" />
+    <Content Include="UserControls\FPWidgets\RiskFactorsForKD.ascx" />
     <Content Include="UserControls\FPWidgets\SpecialDay.ascx" />
     <Content Include="UserControls\FPWidgets\SpecialPopulations.ascx" />
     <Content Include="UserControls\FPWidgets\SpotlightOnIndicators.ascx" />
@@ -573,7 +620,11 @@
     <Content Include="UserControls\Glossary.ascx" />
     <Content Include="UserControls\HealthyPeopleControlLong.ascx" />
     <Content Include="UserControls\LearnMoreControl2.ascx" />
+    <Content Include="UserControls\Navigation\SideNav.ascx" />
+    <Content Include="UserControls\Navigation\MainNavNew.ascx" />
     <Content Include="UserControls\Navigation\MainNav.ascx" />
+    <Content Include="UserControls\Navigation\SideNavAYA.ascx" />
+    <Content Include="UserControls\Navigation\SideNavHP.ascx" />
     <Content Include="UserControls\Patients.ascx" />
     <Content Include="UserControls\ProjectIntroVideo.ascx" />
     <Content Include="UserControls\RDVersions\AreYouAwareWidget.ascx" />
@@ -639,6 +690,7 @@
     </Content>
     <None Include="Properties\PublishProfiles\Dev Internet.pubxml" />
     <None Include="Properties\PublishProfiles\QA Internet.pubxml" />
+    <Content Include="fonts\OpenSans-Bold.ttf" />
     <None Include="Web.config.prod.Debug.TED">
       <DependentUpon>Web.config.prod.TED</DependentUpon>
     </None>
@@ -866,6 +918,13 @@
     <Compile Include="Default\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DisparityExplorerV2.aspx.cs">
       <DependentUpon>DisparityExplorerV2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -903,6 +962,13 @@
     <Compile Include="MasterPages\Blank.Master.designer.cs">
       <DependentUpon>Blank.Master</DependentUpon>
     </Compile>
+    <Compile Include="MasterPages\ResponsiveContentLeftNavNew.Master.cs">
+      <DependentUpon>ResponsiveContentLeftNavNew.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\ResponsiveContentLeftNavNew.Master.designer.cs">
+      <DependentUpon>ResponsiveContentLeftNavNew.Master</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\ResponsiveContent_popupThin.Master.cs">
       <DependentUpon>ResponsiveContent_popupThin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -937,13 +1003,6 @@
     </Compile>
     <Compile Include="data.aspx.designer.cs">
       <DependentUpon>data.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="detail.aspx.cs">
-      <DependentUpon>detail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="detail.aspx.designer.cs">
-      <DependentUpon>detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\ResponsiveContentLeftNav.Master.cs">
       <DependentUpon>ResponsiveContentLeftNav.Master</DependentUpon>
@@ -1032,6 +1091,13 @@
     </Compile>
     <Compile Include="TopicHome\HealthConsequences.aspx.designer.cs">
       <DependentUpon>HealthConsequences.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TopicHome\SocialDeterminantsOfHealth.aspx.cs">
+      <DependentUpon>SocialDeterminantsOfHealth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopicHome\SocialDeterminantsOfHealth.aspx.designer.cs">
+      <DependentUpon>SocialDeterminantsOfHealth.aspx</DependentUpon>
     </Compile>
     <Compile Include="TopicHome\PrevalenceIncidence.aspx.cs">
       <DependentUpon>PrevalenceIncidence.aspx</DependentUpon>
@@ -1138,6 +1204,55 @@
     <Compile Include="UserControls\FPWidgets\AAKH.ascx.designer.cs">
       <DependentUpon>AAKH.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FPWidgets\Prevalence.ascx.cs">
+      <DependentUpon>Prevalence.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\Prevalence.ascx.designer.cs">
+      <DependentUpon>Prevalence.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\OutcomesQofCare.ascx.cs">
+      <DependentUpon>OutcomesQofCare.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\OutcomesQofCare.ascx.designer.cs">
+      <DependentUpon>OutcomesQofCare.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\AYA.ascx.cs">
+      <DependentUpon>AYA.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\AYA.ascx.designer.cs">
+      <DependentUpon>AYA.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\EmailSubscribeMain.ascx.cs">
+      <DependentUpon>EmailSubscribeMain.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\EmailSubscribeMain.ascx.designer.cs">
+      <DependentUpon>EmailSubscribeMain.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\MainImage.ascx.cs">
+      <DependentUpon>MainImage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\MainImage.ascx.designer.cs">
+      <DependentUpon>MainImage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\RiskCalculator.ascx.cs">
+      <DependentUpon>RiskCalculator.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\RiskCalculator.ascx.designer.cs">
+      <DependentUpon>RiskCalculator.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\GeneralInformation.ascx.cs">
+      <DependentUpon>GeneralInformation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\GeneralInformation.ascx.designer.cs">
+      <DependentUpon>GeneralInformation.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FPWidgets\AYA_Disparities_Tools.ascx.cs">
       <DependentUpon>AYA_Disparities_Tools.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1165,6 +1280,20 @@
     </Compile>
     <Compile Include="UserControls\FPWidgets\CurrentTopics.ascx.designer.cs">
       <DependentUpon>CurrentTopics.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\AboutKDS.ascx.cs">
+      <DependentUpon>AboutKDS.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\AboutKDS.ascx.designer.cs">
+      <DependentUpon>AboutKDS.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\DataBiteHighlights.ascx.cs">
+      <DependentUpon>DataBiteHighlights.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\DataBiteHighlights.ascx.designer.cs">
+      <DependentUpon>DataBiteHighlights.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FPWidgets\Disparities.ascx.cs">
       <DependentUpon>Disparities.ascx</DependentUpon>
@@ -1236,6 +1365,13 @@
     <Compile Include="UserControls\FPWidgets\ResearchAndPublications.ascx.designer.cs">
       <DependentUpon>ResearchAndPublications.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FPWidgets\RiskFactorsForKD.ascx.cs">
+      <DependentUpon>RiskFactorsForKD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FPWidgets\RiskFactorsForKD.ascx.designer.cs">
+      <DependentUpon>RiskFactorsForKD.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FPWidgets\SpecialDay.ascx.cs">
       <DependentUpon>SpecialDay.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1299,12 +1435,40 @@
     <Compile Include="UserControls\LearnMoreControl2.ascx.designer.cs">
       <DependentUpon>LearnMoreControl2.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Navigation\SideNav.ascx.cs">
+      <DependentUpon>SideNav.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Navigation\SideNav.ascx.designer.cs">
+      <DependentUpon>SideNav.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Navigation\MainNavNew.ascx.cs">
+      <DependentUpon>MainNavNew.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Navigation\MainNavNew.ascx.designer.cs">
+      <DependentUpon>MainNavNew.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Navigation\MainNav.ascx.cs">
       <DependentUpon>MainNav.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\Navigation\MainNav.ascx.designer.cs">
       <DependentUpon>MainNav.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Navigation\SideNavAYA.ascx.cs">
+      <DependentUpon>SideNavAYA.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Navigation\SideNavAYA.ascx.designer.cs">
+      <DependentUpon>SideNavAYA.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Navigation\SideNavHP.ascx.cs">
+      <DependentUpon>SideNavHP.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Navigation\SideNavHP.ascx.designer.cs">
+      <DependentUpon>SideNavHP.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Patients.ascx.cs">
       <DependentUpon>Patients.ascx</DependentUpon>
@@ -1729,6 +1893,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Themes\Default\" />
+    <Folder Include="Indicators\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\Entypo\entypo-webfont.eot">
@@ -1808,7 +1973,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52871</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/CKDSurveillance</IISUrl>
+          <IISUrl>http://localhost:52871/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

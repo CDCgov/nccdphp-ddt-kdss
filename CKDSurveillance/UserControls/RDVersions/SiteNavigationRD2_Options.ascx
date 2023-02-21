@@ -423,7 +423,7 @@
                          </div>
                      </div>
                 </div>
-                <div class="btn_group dropdown">
+               <div class="btn_group dropdown" style="display:none">
                   <button class="btn btn-primary dropdown-toggle btn-megamenu" data-flip="false" type="button" id="dropdownMenuButton_HealthSystem" data-toggle="dropdown" data-topicid="7" data-topicpage="HealthCareSystemCapacity" aria-haspopup="true" aria-expanded="false">
                     <span class="buttontext" style="font-weight:bold">Health Care <br /> System Capacity</span>
                   </button>
@@ -431,6 +431,17 @@
                         <div class="row TopicHomeDiv" ><div class="TopicHomeTextTD" data-topicid="7" data-topicpage="HealthCareSystemCapacity">View Health Care System Capacity Summary</div></div>
                          <div class="row dropdownrow" style="align-items: stretch;">
                              <asp:Literal ID="litHealthSystemIndicators" runat="server"></asp:Literal>
+                         </div>
+                     </div>
+                </div>
+                <div class="btn_group dropdown">
+                  <button class="btn btn-primary dropdown-toggle btn-megamenu" data-flip="false" type="button" id="dropdownMenuButton_SocialDeterminants" data-toggle="dropdown" data-topicid="24" data-topicpage="SocialDeterminantsOfHealth" aria-haspopup="true" aria-expanded="false">
+                    <span class="buttontext" style="font-weight:bold">Social Determinants</span>
+                  </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_SocialDeterminants">
+                        <div class="row TopicHomeDiv" ><div class="TopicHomeTextTD" data-topicid="24" data-topicpage="SocialDeterminantsOfHealth">View Social Determinants Summary</div></div>
+                         <div class="row dropdownrow" style="align-items: stretch;">
+                             <asp:Literal ID="litSocialDeterminants" runat="server"></asp:Literal>
                          </div>
                      </div>
                 </div>

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD.UserControls.RDVersions {
-    
-    
-    public partial class TopicHomeContent {
-        
+namespace CKDSurveillance_RD.UserControls.RDVersions
+{
+
+
+    public partial class TopicHomeContent
+    {
+
         /// <summary>
         /// Lit_TopicTitle control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Lit_TopicTitle;
-        
+
         /// <summary>
         /// Lit_Desc control.
         /// </summary>
@@ -29,25 +31,16 @@ namespace CKDSurveillance_RD.UserControls.RDVersions {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Lit_Desc;
-        
+
         /// <summary>
-        /// Lit_Plotly_small1 control.
+        /// SideNav control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Lit_Plotly_small1;
-        
-        /// <summary>
-        /// Lit_Plotly_small2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Lit_Plotly_small2;
-        
+        protected global::CKDSurveillance_RD.SideNav SideNav;
+
         /// <summary>
         /// Lit_IndicatorText control.
         /// </summary>
@@ -56,7 +49,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Lit_IndicatorText;
-        
+
         /// <summary>
         /// HF_SmallChart1Hover control.
         /// </summary>
@@ -65,7 +58,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HF_SmallChart1Hover;
-        
+
         /// <summary>
         /// HF_SmallChart2Hover control.
         /// </summary>
@@ -74,7 +67,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HF_SmallChart2Hover;
-        
+
         /// <summary>
         /// HF_SmallChart1URL control.
         /// </summary>
@@ -83,7 +76,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HF_SmallChart1URL;
-        
+
         /// <summary>
         /// HF_SmallChart2URL control.
         /// </summary>
@@ -92,7 +85,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HF_SmallChart2URL;
-        
+
         /// <summary>
         /// HF_TopicText control.
         /// </summary>
@@ -101,7 +94,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HF_TopicText;
-        
+
         /// <summary>
         /// hfShowCI control.
         /// </summary>

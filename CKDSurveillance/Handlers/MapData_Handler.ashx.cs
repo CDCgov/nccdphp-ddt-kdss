@@ -288,7 +288,7 @@ namespace CKDRD4.Handlers
             String titleNoFN = "chartimage";
 
 
-            sb.Append("Plotly.newPlot(graphdiv, data, layout,{responsive:true, displayModeBar: true, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as PNG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'png',height:700,width:900, filename: '" + titleNoFN + "'}) }}]");
+            sb.Append("Plotly.newPlot(graphdiv, data, layout,{responsive:true, displayModeBar: false, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as PNG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'png',height:700,width:900, filename: '" + titleNoFN + "'}) }}]");
 
             sb.Append(" });");//}]
 

@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MainNav.ascx.cs" Inherits="CKDSurveillance_RD.MainNav" %>
 <%--<%@ OutputCache Duration="86400" VaryByParam="none"%>--%>
 
+
 <style type="text/css">
     .dropdown-menu { /*IE fix*/
         width: 100%;
@@ -161,6 +162,7 @@
 
     .MMButton {
         background-color: #1a7aa2 !important;
+        color: #FFFFFF !important;
         height: 60px;
         padding-left: 5px;
         padding-right: 5px;
@@ -171,6 +173,8 @@
                 
         font-size: 17px !important;
         font-family: Verdana !important;        
+
+        text-transform:none;
     }
 
     .tpcBtn {
@@ -228,7 +232,7 @@
         <%--***********--%>
         <%--*Awareness*--%>
         <%--***********--%>
-        <div class="col-md-2 tpcBtn">
+       <%-- <div class="col-md-2 tpcBtn">
             <div id="divBtnAW" class="dropdown" onkeydown="checkTabKeyPresses(event,'aw');" onfocus="showHideMenu('s','aw');" tabindex="0" onclick="handleTopicLandingPageSelectionNavigation('aw');" onmouseenter="showHideMenu('s','aw');" onmouseleave="showHideMenu('h','aw');">
                 <div class="btn-megamenu card ds-5 ds-8 mb-3 noLinking noDecoration" data-flip="false" type="button" id="dropdownMenuButton_Awareness" data-toggle="dropdown" data-topicid="3" data-topicpage="Awareness" aria-haspopup="true" aria-expanded="false">
                     <div class="MMButton">
@@ -238,34 +242,34 @@
 
                 </div>
             </div>
-        </div>
+        </div>--%>
 
 
-        <%--************************--%>
-        <%--*Burden of Risk factors*--%>
-        <%--************************--%>
-        <div class="col-md-2 tpcBtn">
+        <%--**************--%>
+        <%--*Risk factors*--%>
+        <%--**************--%>
+        <div class="col tpcBtn">
             <div id="divBtnRF" class="dropdown" tabindex="0" onkeydown="checkTabKeyPresses(event,'rf');"  onfocus="showHideMenu('s','rf');" onclick="handleTopicLandingPageSelectionNavigation('rf');" onmouseenter="showHideMenu('s','rf');" onmouseleave="showHideMenu('h','rf');">
                 <div class="btn-megamenu card ds-5 ds-8 mb-3 noLinking noDecoration" data-flip="false" type="button" id="dropdownMenuButton_Burden" data-toggle="dropdown" data-topicid="3" data-topicpage="Awareness" aria-haspopup="true" aria-expanded="false">
                     <div class="MMButton">
-                        <div class="card-title h6 text-center MMButton">Burden of Risk Factors</div>
+                        <div class="card-title h6 text-center MMButton">Risk Factors</div>
                     </div>
-                    <img id="imgBORF" src="./images/Burden_r2_re2.jpg" alt="Image button to show burden of risk factors indicators and questions" class="img-fluid" />
+                    <img id="imgBORF" src="./images/Burden_r2_re2.jpg" alt="Image button to show risk factors indicators and questions" class="img-fluid" />
                 </div>
             </div>
         </div>
 
 
-        <%--*********************--%>
-        <%--*Health Consequences*--%>
-        <%--*********************--%>
-        <div class="col-md-2 tpcBtn">
+        <%--**********--%>
+        <%--*Outcomes*--%>
+        <%--**********--%>
+        <div class="col tpcBtn">
             <div id="divBtnHC" class="dropdown" tabindex="0" onkeydown="checkTabKeyPresses(event,'hc');" onfocus="showHideMenu('s','hc');" onclick="handleTopicLandingPageSelectionNavigation('hc');" onmouseenter="showHideMenu('s','hc');" onmouseleave="showHideMenu('h','hc');">
                 <div class="btn-megamenu card ds-5 ds-8 mb-3 noLinking noDecoration" data-flip="false" type="button" id="dropdownMenuButton_HealthConsequences" data-toggle="dropdown" data-topicid="3" data-topicpage="Awareness" aria-haspopup="true" aria-expanded="false">
                     <div class="MMButton">
-                        <div class="card-title h6 text-center MMButton">Health Consequences</div>
+                        <div class="card-title h6 text-center MMButton">Outcomes</div>
                     </div>
-                    <img id="imgHC" src="./images/Health_Cons_r2_rs2.jpg" alt="Image button to show health consequences indicators and questions" class="img-fluid" />
+                    <img id="imgHC" src="./images/Health_Cons_r2_rs2.jpg" alt="Image button to show outcomes indicators and questions" class="img-fluid" />
                 </div>
             </div>
         </div>
@@ -274,7 +278,7 @@
         <%--*****************--%>
         <%--*Quality of Care*--%>
         <%--*****************--%>
-        <div class="col-md-2 tpcBtn">
+        <div class="col tpcBtn">
             <div id="divBtnQC" class="dropdown" tabindex="0" onkeydown="checkTabKeyPresses(event,'qc');" onfocus="showHideMenu('s','qc');" onclick="handleTopicLandingPageSelectionNavigation('qc');" onmouseenter="showHideMenu('s','qc');" onmouseleave="showHideMenu('h','qc');">
                 <div class="btn-megamenu card ds-5 ds-8 mb-3 noLinking noDecoration" data-flip="false" type="button" id="dropdownMenuButton_Quality" data-toggle="dropdown" data-topicid="3" data-topicpage="Awareness" aria-haspopup="true" aria-expanded="false">
                     <div class="MMButton">
@@ -287,23 +291,23 @@
 
 
 
-        <%--************************--%>
-        <%--*Health System Capacity*--%>
-        <%--************************--%>
-        <div class="col-md-2 tpcBtn">
-            <div id="divBtnHSC" class="dropdown" tabindex="0" onkeydown="checkTabKeyPresses(event,'hsc');" onfocus="showHideMenu('s','hsc');" onclick="handleTopicLandingPageSelectionNavigation('hsc');" onmouseenter="showHideMenu('s','hsc');" onmouseleave="showHideMenu('h','hsc');">
-                <div class="btn-megamenu card ds-5 ds-8 mb-3 noLinking noDecoration" data-flip="false" type="button" id="dropdownMenuButton_HealthSystem" data-toggle="dropdown" data-topicid="3" data-topicpage="Awareness" aria-haspopup="true" aria-expanded="false">
+        <%--*********************--%>
+        <%--*Social Determinants*--%>
+        <%--*********************--%>
+        <div class="col tpcBtn">
+            <div id="divBtnSD" class="dropdown" tabindex="0" onkeydown="checkTabKeyPresses(event,'sd');" onfocus="showHideMenu('s','sd');" onclick="handleTopicLandingPageSelectionNavigation('sd');" onmouseenter="showHideMenu('s','sd');" onmouseleave="showHideMenu('h','sd');">
+                <div class="btn-megamenu card ds-5 ds-8 mb-3 noLinking noDecoration" data-flip="false" type="button" id="dropdownMenuButton_SocialDeterminants" data-toggle="dropdown" data-topicid="3" data-topicpage="Awareness" aria-haspopup="true" aria-expanded="false">
                     <div class="MMButton">
-                        <div class="card-title h6 text-center MMButton">Health System Capacity</div>
+                        <div class="card-title h6 text-center MMButton">Social Determinants</div>
                     </div>
-                    <img id="imgHSC" src="./images/Health System_r2_rs2.jpg" alt="Image button to show health system capacity indicators and questions" class="img-fluid" />
+                    <img id="imgSD" src="./images/Health System_r2_rs2.jpg" alt="Image button to show social determinants indicators and questions" class="img-fluid" />
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="row" style="margin-left: 0px; margin-top: -15px; text-align: center; position: absolute;" id="divMMIndicatorsList">
+    <div class="row" style="margin-left: 0px; margin-top: -15px; text-align: center;position: absolute; width:100%" id="divMMIndicatorsList">
         <%--*************************--%>
         <%--*Measures and Indicators*--%>
         <%--*************************--%>
@@ -323,7 +327,7 @@
 
 
             <%--*Awareness*--%>
-            <div id="ddmAwareness" class="dropdown-menu" aria-labelledby="dropdownMenuButton_Awareness" onmouseenter="$(this).show();" onmouseleave="$(this).hide();">
+            <div id="ddmAwareness" class="dropdown-menu" style="display:none" aria-labelledby="dropdownMenuButton_Awareness" onmouseenter="$(this).show();" onmouseleave="$(this).hide();">
                 <a name="anchor_aw"></a>
                 <div class="row TopicHomeDiv">
                     <div class="TopicHomeTextTD" data-topicid="3"  tabindex="0" data-topicpage="Awareness">View Awareness Summary</div>
@@ -339,7 +343,7 @@
             <div id="ddmBurden" class="dropdown-menu" aria-labelledby="dropdownMenuButton_Burden" onmouseenter="$(this).show();" onmouseleave="$(this).hide();">
                 <a name="anchor_rf"></a>
                 <div class="row TopicHomeDiv">
-                    <div class="TopicHomeTextTD" tabindex="0" data-topicid="4" data-topicpage="BurdenOfRiskFactors">View Burden of Risk Factors Summary</div>
+                    <div class="TopicHomeTextTD" tabindex="0" data-topicid="4" data-topicpage="BurdenOfRiskFactors">View Risk Factors Summary</div>
                 </div>
                 <div class="row dropdownrow" style="align-items: stretch;">
                     <asp:Literal ID="litBurdenIndicators" runat="server"></asp:Literal>
@@ -352,7 +356,7 @@
             <div id="ddmConsequences" class="dropdown-menu" aria-labelledby="dropdownMenuButton_HealthConsequences" onmouseenter="$(this).show();" onmouseleave="$(this).hide();">
                 <a name="anchor_hc"></a>
                 <div class="row TopicHomeDiv">
-                    <div class="TopicHomeTextTD" tabindex="0" data-topicid="5" data-topicpage="HealthConsequences">View Health Consequences Summary</div>
+                    <div class="TopicHomeTextTD" tabindex="0" data-topicid="5" data-topicpage="HealthConsequences">View Outcomes Summary</div>
                 </div>
                 <div class="row dropdownrow" style="align-items: stretch;">
                     <asp:Literal ID="litHealthConsequencesIndicators" runat="server"></asp:Literal>
@@ -374,16 +378,16 @@
             </div>
             
 
-            <%--*Health care System Capacity*--%>
-            <div id="ddmCapacity" class="dropdown-menu" aria-labelledby="dropdownMenuButton_HealthSystem" onmouseenter="$(this).show();" onmouseleave="$(this).hide();">
-                <a name="anchor_hsc"></a>
+            <%--*Social Determinants*--%>
+            <div id="ddmSocialDeterminants" class="dropdown-menu" aria-labelledby="dropdownMenuButton_SocialDeterminants" onmouseenter="$(this).show();" onmouseleave="$(this).hide();">
+                <a name="anchor_sd"></a>
                 <div class="row TopicHomeDiv">
-                    <div class="TopicHomeTextTD" tabindex="0" data-topicid="7" data-topicpage="HealthCareSystemCapacity">View Health Care System Capacity Summary</div>
+                    <div class="TopicHomeTextTD" tabindex="0" data-topicid="24" data-topicpage="SocialDeterminantsOfHealth">View Social Determinants Summary</div>
                 </div>
                 <div class="row dropdownrow" style="align-items: stretch;">
-                    <asp:Literal ID="litHealthSystemIndicators" runat="server"></asp:Literal>
+                    <asp:Literal ID="litSocialDeterminants" runat="server"></asp:Literal>
                 </div>
-                 <a name="anchor_HSC_end" onfocus="$('.dropdown-menu').hide();" tabindex="0"></a> <%--onblur="$('.dropdown-menu').hide(); jump('escape');"--%>
+                 <a name="anchor_SD_end" onfocus="$('.dropdown-menu').hide();" tabindex="0"></a> <%--onblur="$('.dropdown-menu').hide(); jump('escape');"--%>
             </div>
         </div>
     </div>
@@ -401,8 +405,6 @@
     </div>     
 
 </div>
-
-
 
 
 <asp:HiddenField ID="HF_TopicText" runat="server" />
@@ -483,6 +485,9 @@
             case 'hsc':
                 answer += 'HealthCareSystemCapacity.aspx';
                 break;
+            case 'sd':
+                answer += 'SocialDeterminantsOfHealth.aspx';
+                break;
         }
 
         //Navigate
@@ -525,7 +530,7 @@
             if (document.URL.toLowerCase().indexOf('aspx') <= 0) {
                 $('.btn-megamenu').find('img').show();
             }
-        } 
+        }
     }
     function selectTopicButton() {
 
@@ -554,6 +559,9 @@
                     break;
                 case 'ddmCapacity':
                     $('#dropdownMenuButton_HealthSystem').addClass('selectedTopic');
+                    break; 
+                case 'ddmSocialDeterminants':
+                    $('#dropdownMenuButton_SocialDeterminants').addClass('selectedTopic');
                     break;
             }
         }
@@ -565,11 +573,11 @@
         $('#imgAW').height($('#imgHC').height()).width($('#imgHC').width());
     }
 
-    function showHideMenu(showHide,topic) {
+    function showHideMenu(showHide, topic) {
 
         //TODO - Put back in the fades and handle timing problem of vigorous mouse activity
-        if(topic == 'pi'){
-            if (showHide === 's') {                
+        if (topic == 'pi') {
+            if (showHide === 's') {
                 $('#ddmPrevalenceAndIncidence').show();//.fadeIn(300);
             } else {
                 $('#ddmPrevalenceAndIncidence').hide();
@@ -579,63 +587,73 @@
         }
 
 
-        if(topic === 'aw'){
-            if (showHide === 's') {  
+        if (topic === 'aw') {
+            if (showHide === 's') {
                 $('#ddmAwareness').show();//.fadeIn(300);
-            } else{
+            } else {
                 $('#ddmAwareness').hide();
             }
-        } else{
+        } else {
             $('#ddmAwareness').hide();
         }
 
 
-        if(topic === 'rf'){
-            if (showHide === 's') {  
+        if (topic === 'rf') {
+            if (showHide === 's') {
                 $('#ddmBurden').show();//.fadeIn(300);
-            } else{
+            } else {
                 $('#ddmBurden').hide();
             }
-        } else{
+        } else {
             $('#ddmBurden').hide();
         }
 
 
-        if(topic === 'hc'){
-            if (showHide === 's') {  
+        if (topic === 'hc') {
+            if (showHide === 's') {
                 $('#ddmConsequences').show();//.fadeIn(300);
-            } else{
+            } else {
                 $('#ddmConsequences').hide();
             }
-        } else{
+        } else {
             $('#ddmConsequences').hide();
         }
 
 
-        if(topic === 'qc'){
-            if (showHide === 's') {  
+        if (topic === 'qc') {
+            if (showHide === 's') {
                 $('#ddmQuality').show();//.fadeIn(300);
-            } else{
+            } else {
                 $('#ddmQuality').hide();
             }
-        } else{
+        } else {
             $('#ddmQuality').hide();
         }
 
 
-        if(topic === 'hsc'){
-            if (showHide === 's') {  
+        if (topic === 'hsc') {
+            if (showHide === 's') {
                 $('#ddmCapacity').show();//.fadeIn(300);
-            } else{
+            } else {
                 $('#ddmCapacity').hide();
             }
-        } else{
+        } else {
             $('#ddmCapacity').hide();
-        }                  
+        }
+
+        if (topic === 'sd') {
+            if (showHide === 's') {
+                $('#ddmSocialDeterminants').show();//.fadeIn(300);
+            } else {
+                $('#ddmSocialDeterminants').hide();
+            }
+        } else {
+            $('#ddmSocialDeterminants').hide();
+        }
     }
-   
-    function checkTabKeyPresses(e, topic) {        
-        
+
+    function checkTabKeyPresses(e, topic) {
+
         /* check if enter key was pressed on the focussed tab*/
         console.log('Button pressed: ' + e.keyCode);
 
@@ -652,7 +670,7 @@
                 //<Enter>                
                 handleTopicLandingPageSelectionNavigation(topic);
                 break;
-        }       
+        }
     }
 
     function jump(topic) {
@@ -663,6 +681,6 @@
         var url = location.href;               //Save down the URL without hash.
         location.href = "#" + h;                 //Go to the target element.
         history.replaceState(null, null, url);   //Don't like hashes. Changing it back.
-    }   
+    }
 
 </script>

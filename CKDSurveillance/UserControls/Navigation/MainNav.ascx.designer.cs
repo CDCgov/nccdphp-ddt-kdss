@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD {
-    
-    
-    public partial class MainNav {
-        
+namespace CKDSurveillance_RD
+{
+
+
+    public partial class MainNav
+    {
+
         /// <summary>
         /// litPrevalenceIndicators control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litPrevalenceIndicators;
-        
+
         /// <summary>
         /// litAwarenessIndicators control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litAwarenessIndicators;
-        
+
         /// <summary>
         /// litBurdenIndicators control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litBurdenIndicators;
-        
+
         /// <summary>
         /// litHealthConsequencesIndicators control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litHealthConsequencesIndicators;
-        
+
         /// <summary>
         /// litQualityIndicators control.
         /// </summary>
@@ -56,16 +58,16 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litQualityIndicators;
-        
+
         /// <summary>
-        /// litHealthSystemIndicators control.
+        /// litSocialDeterminants control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litHealthSystemIndicators;
-        
+        protected global::System.Web.UI.WebControls.Literal litSocialDeterminants;
+
         /// <summary>
         /// litMobileIndicators control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litMobileIndicators;
-        
+
         /// <summary>
         /// HF_TopicText control.
         /// </summary>

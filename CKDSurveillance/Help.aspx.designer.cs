@@ -42,15 +42,6 @@ namespace CKDSurveillance_RD
         protected global::CKDSurveillance_RD.UserControls.FAQ FAQ;
 
         /// <summary>
-        /// Bibliography control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.Bibliography Bibliography;
-
-        /// <summary>
         /// DataSources control.
         /// </summary>
         /// <remarks>

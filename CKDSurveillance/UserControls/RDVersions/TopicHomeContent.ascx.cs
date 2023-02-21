@@ -46,9 +46,27 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             ChartType_2 = dt.Rows[0]["TopicHomeChartType_2"].ToString();
             Year_2 = dt.Rows[0]["TopicHomeChartYear_2"].ToString();
 
-            createPageContent();
+            if (TopicID != 24)
+            {
+                //sdohimg1.Visible = false;
+                //sdohimg2.Visible = false;
+                createPageContent();
+            }
+            else
+            {
+                //sdohimg1.Visible = true;
+                //sdohimg2.Visible = true;
+                createStaticPageContent();
+            }
         }
 
+        private void createStaticPageContent() 
+        {
+            string tbl = MethodsIndicatorsTableCreation(TopicID, indicatorName);
+            Lit_IndicatorText.Text = tbl;
+            Lit_TopicTitle.Text = indicatorName;
+            Lit_Desc.Text = subDesc;
+        }
         private void createPageContent()
         {
 
@@ -555,7 +573,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             //if (isIEorEdge)
             //    sb.Append("Plotly.newPlot(graphdiv_small" + smallpnl + ", data, layout,{staticPlot:true, responsive:true, displayModeBar: true, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as SVG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'svg',height:700,width:900, filename: '" + titleNoFN + "'}) }}]");//sb.Append("Plotly.newPlot(graphdiv, data, layout,{displayModeBar: true, modeBarButtonsToRemove: ['sendDataToCloud']");
             //else
-                sb.Append("Plotly.newPlot(graphdiv_small" + smallpnl + ", data, layout,{staticPlot:true, responsive:true, displayModeBar: true, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as PNG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'png',height:700,width:900, filename: '" + titleNoFN + "'}) }}]");
+                sb.Append("Plotly.newPlot(graphdiv_small" + smallpnl + ", data, layout,{staticPlot:true, responsive:true, displayModeBar: false, modeBarButtonsToRemove: ['toImage','sendDataToCloud', 'lasso2d', 'select2d', 'toggleSpikelines'] , modeBarButtonsToAdd: [{ name: 'Download Chart as PNG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'png',height:700,width:900, filename: '" + titleNoFN + "'}) }}]");
             //sb.Append("Plotly.newPlot(graphdiv, data, layout,{displayModeBar: true, modeBarButtonsToRemove: ['toImage','sendDataToCloud'] , modeBarButtonsToAdd: [{ name: 'Download Chart as PNG', icon: Plotly.Icons.camera, click: function(gd) { Plotly.downloadImage(gd,{format:'png',height:650,width:800, filename: '" + titleNoFN + "'}) }}]");
             //sb.Append("Plotly.newPlot(graphdiv, data, layout,{displayModeBar: true, modeBarButtonsToRemove: ['toImage','sendDataToCloud'] , modeBarButtonsToAdd: [{ name: 'Download Chart as PNG', icon: Plotly.Icons.camera, click: function(gd) {  Plotly.toImage(gd,{height:700,width:900}).then(function(url) { img_png.attr('src', url); return Plotly.toImage(gd,{format:'png',height:650,width:800}); }) }}]");
 
@@ -582,12 +600,12 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
 
             if (smallpnl == "1")
             {
-                this.Lit_Plotly_small1.Text = sb.ToString();
+                //this.Lit_Plotly_small1.Text = sb.ToString();
                 HF_SmallChart1Hover.Value = title;
             }
             else if (smallpnl == "2")
             {
-                this.Lit_Plotly_small2.Text = sb.ToString();
+                //this.Lit_Plotly_small2.Text = sb.ToString();
                 HF_SmallChart2Hover.Value = title;
             }
         }
@@ -650,16 +668,19 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 string measureText = dr["MeasureText"].ToString().Trim();
                 int measureID = ((int)(dr["MeasureID"]));
 
-                sbTable.Append("<div class=\"card bar\">"); //begin card bar
+                //sbTable.Append("<div class=\"card bar\">"); //begin card bar
 
-                sbTable.Append("<div class=\"card-header collapsed\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
-                sbTable.Append("<a class=\"card-title\"  tabindex=\"0\"  data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\">" + measureText + "</a>");
+                //sbTable.Append("<div class=\"nav-section-home PInavSectionLinks navlist collapsed\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
+                //sbTable.Append("<a tabindex=\"0\"  data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\">" + measureText + "<i class=\"fi cdc-icon-plus nav-plus nav-expandcollapse\"  style = \"float: right;\"  >" + " </i>" + "</a>");    
+
+                sbTable.Append("<div  onclick =\"navClick()\" class=\"nav-section-home PInavSectionLinks navlist collapsed\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
+                sbTable.Append("<a tabindex=\"0\"  id=\"accordion-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\" >" + measureText + "<i class=\"fi cdc-icon-plus nav-plus nav-expandcollapse\"  style = \"float: right;\" id=\"navplusicon\"  > " + " </i>" + "</a>");
                 sbTable.Append("</div>");
 
                 sbTable.Append("<div aria-labelledby=\"accordion-4-card-" + loopcnt.ToString() + "\" class=\"collapse\" id=\"accordion-4-collapse-" + loopcnt.ToString() + "\" role=\"tabpanel\">"); //begin content panel
-                sbTable.Append("<div class=\"card body\">"); //begin card body
-                //*Get Measure values*
-                
+                sbTable.Append("<div >"); //begin card body    // class=\"card body
+                                          //*Get Measure values*
+
                 //adding the measure string below, moved 3/3/2017, BS
 
                 //*Add Bulleted list of Indicator Links for this Measure*
@@ -674,7 +695,8 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 foreach (DataRow drInd in dtIndicators.Rows)
                 {
                     // Build link
-                    string linkStart = ("<a href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "#refreshPosition\">"));
+                    //string linkStart = ("<a href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "#refreshPosition\">"));
+                    string linkStart = ("<a href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "#refreshPosition\" + \"#PIdivbody\" >"));
                     string text = drInd["IndicatorText"].ToString().Trim();
                     string linkEnd = "</a>";
 
@@ -688,15 +710,18 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
 
                         if (IndicatorText == linkIndicatorTextCompare)//if the text matches, then add the appropriate highlight class
                         {
-                            sb_indTable.Append("<li style='margin-left:25px;'>");
+                            //sb_indTable.Append("<li class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
+                            sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
                             HF_TopicText.Value = TopicText;
                             containsIndi = true;
                         }
                         else
-                            sb_indTable.Append("<li style='margin-left:25px;'>");
+                            //sb_indTable.Append("<li class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
+                            sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
                     }
                     else
-                        sb_indTable.Append("<li style='margin-left:25px;'>");
+                        //sb_indTable.Append("<li class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
+                        sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
 
                     sb_indTable.Append(linkStart + text + linkEnd);
 
@@ -734,7 +759,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
 
                 sbTable.Append("</div>"); //end card body
                 sbTable.Append("</div>"); //end content panel
-                sbTable.Append("</div>"); //end card bar
+                //sbTable.Append("</div>"); //end card bar
 
             }
 

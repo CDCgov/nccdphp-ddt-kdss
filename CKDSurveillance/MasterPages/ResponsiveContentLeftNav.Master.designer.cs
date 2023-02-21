@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD.MasterPages {
-    
-    
-    public partial class ResponsiveContentLeftNav {
-        
+namespace CKDSurveillance_RD.MasterPages
+{
+
+
+    public partial class ResponsiveContentLeftNav
+    {
+
         /// <summary>
         /// litMetaTagsDescription control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litMetaTagsDescription;
-        
+
         /// <summary>
         /// litMetaTagsLastUpdated control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litMetaTagsLastUpdated;
-        
+
         /// <summary>
         /// head control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-        
+
         /// <summary>
         /// ucSkipNav control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CKDSurveillance_RD.UserControls.TemplateLocal.ucSkipNav ucSkipNav;
-        
+
         /// <summary>
         /// ucBreadcrumbs control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CKDSurveillance_RD.UserControls.TemplateLocal.ucBreadcrumbs ucBreadcrumbs;
-        
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// hlLogo control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlLogo;
-        
+
         /// <summary>
         /// imgLogo control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgLogo;
-        
+
         /// <summary>
         /// FAQGlossaryControl control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CKDSurveillance_RD.UserControls.FAQGlossaryControl FAQGlossaryControl;
-        
+
         /// <summary>
         /// MainNav control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CKDSurveillance_RD.MainNav MainNav;
-        
+
         /// <summary>
         /// MainContentPlaceHolder control.
         /// </summary>
@@ -110,7 +112,16 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContentPlaceHolder;
-        
+
+        /// <summary>
+        /// ContentArea2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentArea2;
+
         /// <summary>
         /// CustomJavaScript control.
         /// </summary>

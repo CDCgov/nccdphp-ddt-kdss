@@ -63,7 +63,10 @@ namespace CKDSurveillance_RD
             StringBuilder sbTable = new StringBuilder();
 
             //Start table HTML
-            sbTable.Append("<div class=\"col-4 menucolumn\" style=' margin-left:25px;' >");
+            if(TopicID == 24)
+                sbTable.Append("<div class=\"col-12 menucolumn\" style=' margin-left:25px;' >");
+            else
+                sbTable.Append("<div class=\"col-4 menucolumn\" style=' margin-left:25px;' >");
             //DataTable dtMeasures = DAL.getMeasuresByTopicID(TopicID);
             DataTable dtMeasures = getCachedMeasuresByTopicID(TopicID);
 
@@ -356,9 +359,9 @@ namespace CKDSurveillance_RD
                         //litDesc = litProcessDescription;
                         litIndicators = litQualityIndicators;
                         break;
-                    case 7:
+                    case 24:
                         //litDesc = litHealthSystemDescription;
-                        litIndicators = litHealthSystemIndicators;
+                        litIndicators = litSocialDeterminants;
                         break;
                 }
 
@@ -433,7 +436,7 @@ namespace CKDSurveillance_RD
 
                                 dtMBT.Dispose();
                                 dtMBT = null;
-                            }                            
+                            }
                         }
                     }
                 }
@@ -456,8 +459,8 @@ namespace CKDSurveillance_RD
             if (topicID < 9999) //9999 means provide the entire table (supports cachedindicator retrieval)
             {
                 dv.RowFilter = "TopicID=" + topicID;
-            }            
-            answer = dv.ToTable();           
+            }
+            answer = dv.ToTable();
 
 
             //Clean up            
@@ -468,7 +471,7 @@ namespace CKDSurveillance_RD
         }
         private DataTable getCachedIndicatorsByMeasureID(int measureID)
         {
-            DataTable answer = null;            
+            DataTable answer = null;
 
             if (Cache["indicators"] == null)
             {
@@ -490,7 +493,7 @@ namespace CKDSurveillance_RD
                     foreach (int i in lstMeasureIDs)
                     {
                         DataTable dt = DAL.getIndicatorsByMeasureID(i);
-                       
+
                         if (dt != null)
                         {
                             DataColumn dcMeasure = new DataColumn("MeasureID", typeof(Int32));

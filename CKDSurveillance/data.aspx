@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Data.aspx.cs" Inherits="CKDSurveillance_RD.Data" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Data.aspx.cs" Inherits="CKDSurveillance_RD.Data" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" %>
+
+<%@ Register Src="~/UserControls/Navigation/SideNavHP.ascx" TagPrefix="uc1" TagName="SideNavHP" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <style>
@@ -34,76 +36,144 @@
         .dsSearch {
             cursor: pointer;
         }
+
+        .subTitleHPlink {
+            text-align: left;
+            /*font: normal normal 600 17px/52px Open Sans;*/
+            font-family:Open Sans;
+            font-size: 17px !important;
+            font-weight:600 !important;
+            letter-spacing: 0px;
+            text-decoration: none !important; /*remove underline*/
+            color: #007C91 !important;
+            opacity: 1;
+            padding-left:0px !important;
+        }
+
+        .subTitleHPbg {
+            /*background: #00695C 0% 0% no-repeat padding-box;             
+            opacity: 0.05;   */         
+        }
+        .subTitleHPleftmargin{
+            background: #00695C 0% 0% no-repeat padding-box;
+            opacity: 0.15;
+        }
+        .HPIDheader{
+            text-align: left !important;
+            /*font: normal normal 600 22px/42px Open Sans;*/
+            font-family:Open Sans !important;
+            font-size: 22px !important;
+            font-weight:600 !important;
+            letter-spacing: -0.22px;
+            color: #222222;
+            opacity: 1;
+        }
+        .HPIDtext{
+            text-align: left !important;
+            /*font: normal normal normal 17px/24px Open Sans;*/
+            font-family:Open Sans !important;
+            font-size: 17px !important;
+            letter-spacing: 0px;
+            color: #000000;
+            opacity: 1;
+        }
+        .bodyColHeaderBg{
+            background: #29434EBF 0% 0% no-repeat padding-box;
+            opacity: 1;
+            padding-top:10px;
+            padding-bottom:10px;
+        }
+        .bodyColHeaderText{
+            text-align: left;
+            /*font: normal normal 600 18px/24px Open Sans;*/
+            font-family:Open Sans !important;
+            font-size: 18px !important;
+            font-weight:600 !important;            
+            letter-spacing: 0px;
+            color: #FFFFFF;
+            opacity: 1;
+        }
+
     </style>
+
+
+    <br />
+    
+<!-- Page Content Wrap -->
+	<div class="container d-flex flex-wrap body-wrapper bg-white">
+
+			<!-- Content -->
+			<main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area">
+					<div id="PIdivbody" class="row">
+						<div  class="col content">										
+							<div class="cdc-2020-bar container">
+								<div class="row no-gutters">
+									<div class="bar-item">
+											<a href="/default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
+											<span class="PIhomebreadcrumb"><u>Home</u></span> </a> 
+										    <span id="bcTopic" class="PIbodybreadcrumb"> > Healthy People 2030 </span>  <%--selected topic from top nav --%>
+											<span id="bcSelListItem" class="PIbodybreadcrumb">  </span>  <%--selected list item from left nav --%>
+											<%--<span id="bcPIlinks" class="PIbodybreadcrumb">  > </span>--%>
+									</div>
+								</div>
+							</div>
+							<div>
+								<h1 id="content" class="PIbodyTitle "><span id="topicTitle">
+                                    <%--<asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal>--%>
+                                    Healthy People 2030
+                                    </span> </h1>								
+							</div>
+							<p>                   
+								<span class="PIbody"><%--<asp:Literal ID="Lit_Desc" runat="server"></asp:Literal>--%>
+                                    The Healthy People 2030 (HP2030) program sets data-driven national objectives to improve the health and well-being of 
+                                    americans over the next decade. There are 14 goals related to kidney disease, 10 of which are about chronic kidney disease. 
+                                    Shown below are 4 HP2030 goals releated to chronic kidney disease (CKD-01, CKD-02, CKD-05 and CKD-D01) and 1 goal (D-05)
+                                    related to diabetes and urinary albumin testing. Goals are tracked using several data sources. See <a href="health.gov/healthypeople">health.gov/healthypeople</a>
+                                    for the HP2030 website. 
+								</span>
+							</p>
+                                                       
+                      
+                       <%-- <div class="row">
+                            <div class="accordion indicator-plus accordion-white" aria-multiselectable="true" role="tabpanel">
+                                <asp:Literal ID="litHp2020_new" runat="server"></asp:Literal>
+                            </div>
+                        </div>--%>
+
+
+
     <asp:Panel ID="pnlIndicators" runat="server">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-1"></div>
-                <div class="col-xl-10">
+            <div class="row">              
                     <div class="Pagetitle" runat="server" id="_dvPageTitle">
                         <asp:Literal ID="litBrowseLabel" runat="server" Text="Browse Data by Topic"></asp:Literal>
-                    </div>
-                </div>
-                <div class="col-xl-1"></div>
+                    </div>               
             </div>
         </div>
         <div class="container">
-            <div class="row" style="padding-bottom: 10px;">
+    <%--        <div class="row" style="padding-bottom: 10px;">
                 <div class="col-md-8"></div>
                 <div class="col-md-3 col-sm-12 text-right">
                     <button class="openall btn btn-primary">&nbsp;Expand All&nbsp;</button>
                     <button class="closeall btn btn-primary">&nbsp;Collapse All&nbsp;</button>
                 </div>
+            </div>--%>
+            <div class="row">                
+                    <%--***********************************--%>
+                    <%--*List of Data Sources (short name)*--%>
+                    <%--***********************************--%>
+                    <asp:Literal ID="litDataSources" runat="server" Text="" ClientIDMode="Static" />                
             </div>
-            <div class="row">
-                <div class="col-xl-1"></div>
-                <div class="col-xl-10">
-                    <div class="row ckd-accordion-table-header-row">
-                        <div class="col-7 accordion-table-header">Indicators</div>
-                        <div class="col-2 accordion-table-header">Most Recent Year</div>
-                        <div class="col-3 accordion-table-header">
-                            Data Source<a id="btnOpenDS" tabindex="0" class="glyphicon glyphicon-search dsSearch" onclick="toggleDSList(this);">&nbsp;<img id="imgFunnel" src="./images/funnel2.png" style="width: 14px; height: 14px;" alt="filter by data sources" title="Filter By Data Source" /></a>
-
-                            <%--***********************************--%>
-                            <%--*List of Data Sources (short name)*--%>
-                            <%--***********************************--%>
-                            <asp:Literal ID="litDataSources" runat="server" Text="" ClientIDMode="Static" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-1"></div>
-            </div>
-            <div class="row">
-                <div class="col-xl-1"></div>
-                <div class="col-xl-10">
+            <div class="row">               
                     <div class="accordion indicator-plus accordion-white" aria-multiselectable="true" role="tabpanel">
-
                         <asp:Literal ID="litIndicators" runat="server"></asp:Literal>
-                    </div>
-                </div>
-                <div class="col-xl-1"></div>
+                    </div>               
             </div>
 
-            <div class="row" style="padding-top: 10px">
-                <div class="col-xl-1"></div>
-                <div class="col-xl-10">
-                    <div class="row ckd-accordion-table-header-row">
-                        <div class="col-7 accordion-table-header">Focus on Populations</div>
-                        <div class="col-2 accordion-table-header">Most Recent Year</div>
-                        <div class="col-3 accordion-table-header">Data Source</div>
-                    </div>
-                </div>
-                <div class="col-xl-1"></div>
-            </div>
-            <div class="row">
-                <div class="col-xl-1"></div>
-                <div class="col-xl-10">
+            <div class="row">                
                     <div class="accordion indicator-plus accordion-white" aria-multiselectable="true" role="tabpanel">
-
                         <asp:Literal ID="litSpecialPops" runat="server"></asp:Literal>
-                    </div>
-                </div>
-                <div class="col-xl-1"></div>
+                    </div>                
             </div>
         </div>
     </asp:Panel>
@@ -112,70 +182,54 @@
     <!--*Show Healthy People 2020 text*-->
     <%--*******************************--%>
     <asp:Panel ID="pnlHP2020" runat="server">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-1"></div>
-                <div class="col-xl-10">
-                    <div id="_dvHP2020Description" runat="server" style="clear: both; margin-top: 10px" class="module roundem faqs padcontents10">
-
-                        <div>
-                            <%--ML added per Diane's e-mail request 8/27/2013--%>
-                            <%--ML Updated per Nilka's request 11/2020--%>
-                            <em>Healthy People</em> provides a comprehensive set of 10-year, national goals and objectives for improving the health of all Americans. 
-                            For <em>Healthy People 2020</em>, 10 of the 14 objectives that relate to chronic kidney disease are described below with corresponding links to Surveillance System indicators.
-                            Click an indicator name to view its charts and tables. 
-                                                                                          
-                            <div class="" style="margin-top: 10px">
-                                <div class="row">
-                                    <%--*2020*--%>
-                                    <div class="col-lg-6">
-                                        <asp:HyperLink
-                                            ID="lnkHealthy2020WebSite" runat="server" NavigateUrl="https://www.healthypeople.gov/2020/topics-objectives/topic/chronic-kidney-disease/objectives"
-                                            Text="View the CKD objectives for Healthy People 2020" Target="_blank">
-                                        </asp:HyperLink>
-                                    </div>
-                                    <%--*2030*--%>
-                                    <div class="col-lg-6">
-                                        <asp:HyperLink
+        <div class="container">           
+                    <div id="_dvHP2020Description" runat="server" style="clear: both; margin-top: 10px" >  <%--class="module roundem faqs padcontents10"--%>
+                            <div  style="margin-top: 10px">                               
+                                       <%--*2030*--%>
+                                    <div class="row col-lg-12" >   <%--style="background: #00695C 0% 0% no-repeat padding-box; opacity: 0.05; padding-right:0px;margin-right:0px;"--%>
+                                        <a class="subTitleHPlink" href="https://health.gov/healthypeople/objectives-and-data/browse-objectives/chronic-kidney-disease" ID="lnkHealthy2030Objectives">View the CKD objectives for Healthy People 2030 &nbsp; </a>
+                                     <%--   <asp:HyperLink CssClass ="subTitleHPlink"
                                             ID="lnkHealthy2030Objectives" runat="server" NavigateUrl="https://health.gov/healthypeople/objectives-and-data/browse-objectives/chronic-kidney-disease"
-                                            Text="View the CKD objectives for Healthy People 2030" Target="_blank">
-                                        </asp:HyperLink>
+                                            Text="View the CKD objectives for Healthy People 2030" Target="_blank">                                            
+                                        </asp:HyperLink>--%>
+                                        <span class="fi cdc-icon-external x16">&nbsp;&nbsp;</span>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-1"></div>
-            </div>
+                                </div>                                             
+                    </div>              
+            
 
-            <div class="row" style="padding-bottom: 10px; margin-top: 10px;">
+<%--            <div class="row" style="padding-bottom: 10px; margin-top: 10px;">
                 <div class="col-md-8"></div>
                 <div class="col-md-4 col-sm-12">
                     <button class="openall btn btn-primary b-primary">&nbsp;Expand All&nbsp;</button>
                     <button class="closeall btn btn-primary b-primary">&nbsp;Collapse All&nbsp;</button>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-1"></div>
-                <div class="col-xl-10">
-                    <div class="row ckd-accordion-table-header-row">
-                        <div class="col-7 accordion-table-header">Indicators Related To <em>Healthy People 2020</em> Objectives</div>
-                        <div class="col-2 accordion-table-header">Most Recent Year</div>
-                        <div class="col-3 accordion-table-header">Data Source</div>
-                    </div>
+            </div>--%>
+            <br />
+            
+                <div class="row HPIDheader">                 
+                    Healthy People 2020
                 </div>
-                <div class="col-xl-1"></div>
-            </div>
+                <div class="row HPIDtext">
+                    Healthy People 2020 provides science-based national objectives for improving the health of all Americans
+                </div>
+            <br />
+                <div class="row ckd-accordion-table-header-row bodyColHeaderBg" >
+                    <div class="col-6 accordion-table-header bodyColHeaderText">Indicators Related To HP 2030 Objectives</div>
+                    <div class="col-3 accordion-table-header bodyColHeaderText">Data Source</div>
+                    <div class="col-3 accordion-table-header bodyColHeaderText">Most Recent Year</div>
+                </div>
+                
+            
             <div class="row">
-                <div class="col-xl-1"></div>
-                <div class="col-xl-10">
+                <%--<div class="col-xl-1"></div>
+                <div class="col-xl-10">--%>
                     <div class="accordion indicator-plus accordion-white" aria-multiselectable="true" role="tabpanel">
 
-                        <asp:Literal ID="litHp2020" runat="server"></asp:Literal>
+                        <asp:Literal ID="litHp2020" runat="server" Visible="true"></asp:Literal>
                     </div>
-                </div>
-                <div class="col-xl-1"></div>
+                <%--</div>
+                <div class="col-xl-1"></div>--%>
             </div>
 
         </div>
@@ -184,6 +238,27 @@
     <br />
     <br />
     <br />
+
+
+</div>	
+					</div>
+			</main>
+
+			<!-- Left / Bottom Nav -->
+			<div class="col-xl-3 order-xl-1 leftnav-wrapper">
+				<nav role="navigation" aria-label="Left Navigation Menu" style="border-bottom-color:white">
+					<div id="cdc-left-nav-menu" >
+						<br />	
+                        <uc1:SideNavHP runat="server" id="SideNavHP" />
+					</div>	
+				</nav>
+			</div>
+	</div>
+
+<br /><br />
+
+
+
 
     <!-- 10/30/2019 From Thach @ CDC -->
     <script type="text/javascript">

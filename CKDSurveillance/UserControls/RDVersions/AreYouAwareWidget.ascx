@@ -1,4 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AreYouAwareWidget.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.RDVersions.AreYouAwareWidget" %>
+<%@ Register Src="~/UserControls/Navigation/SideNavAYA.ascx" TagPrefix="uc1" TagName="SideNavAYA" %>
+
 
 <style type="text/css">
     .tickerDate
@@ -67,8 +69,25 @@
         padding-right:10px;
     }
 
-
-    
+        .homebreadcrumb{
+			/*font: normal normal normal 14px/24px Open Sans;*/
+			text-align: left;
+			text-decoration: underline;			
+			letter-spacing: 0px;
+			color: #005EAA;
+			font-family: Open Sans;
+			font-size:14px;
+            /*padding-top: 10px;*/
+		}
+		.bodybreadcrumb{
+			/*font: normal normal normal 14px/24px Open Sans;*/
+			text-align: left;			
+			font-family: Open Sans;
+			font-size:14px;
+			letter-spacing: 0px;
+			color: #000000;
+		}		
+	
     
 </style>
 
@@ -89,10 +108,7 @@
             <li><a href="AreYouAware.aspx?emailDate=September_2020" class="articleLink"><span class="tickerDate">September 2020</span> - Chronic Kidney Disease Prevalence Is Higher in Older Adults </a></li>
             <li><a href="AreYouAware.aspx?emailDate=August_2020" class="articleLink"><span class="tickerDate">August 2020</span> - Sleep Problems Are More Common in Adults With Chronic Kidney Disease</a></li>
             
-            
-          
-            
-                              
+                     
             <br />
             <a href="AreYouAware.aspx?emailDate=November_2020" class="articleLink">View All</a>
             <%--<li><a href="AreYouAware.aspx?emailDate=3_23_2016" class="articleLink"><span class="tickerDate">March 23, 2016</span> - Reported Causes of Kidney Failure in Children, Adolescents, and Adults</a></li>
@@ -106,7 +122,7 @@
 </div>
 
 
-<div class="nccd-modA CornerMe" id="subPageDiv" runat="server">
+<%--<div class="nccd-modA CornerMe" id="subPageDiv" runat="server">--%>
 
     <script>
         $(document).ready(function () {
@@ -141,13 +157,69 @@
     <%--**************--%>
     <%--*Widget Title*--%>
     <%--**************--%>
-    <h3>
+
+
+<!-- Page Content Wrap -->
+	<div class="container d-flex flex-wrap body-wrapper bg-white">
+        
+			<!-- Content -->
+			<main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area">
+					<div id="PIdivbody" class="row">
+						<div  class="col content">										
+							<div class="cdc-2020-bar container">
+								<div class="row no-gutters">
+									<div class="bar-item">
+											<a href="/default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
+											<span class="homebreadcrumb"><u>Home</u></span> </a> 
+										    <span id="bcTopic" class="bodybreadcrumb"> &nbsp;> Are you Aware  </span>  <%--selected topic from top nav --%>
+											<span id="bcSelListItem" class="bodybreadcrumb"> &nbsp;> Risk Factor-Diabetes </span>  <%--selected list item from left nav --%>
+											<%--<span id="bcPIlinks" class="bodybreadcrumb">  > </span>--%>
+									</div>
+								</div>
+							</div>
+							<div>
+								<h1 id="content" class="PIbodyTitle "><span id="topicTitle"><asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal></span> </h1>								
+							</div>
+							<p>                   
+								<span class="PIbody"><asp:Literal ID="Lit_Desc" runat="server"></asp:Literal></span>
+							</p>
+
+                            <%--*iFrame*--%>
+                            <div ><%--class="col-lg-9"--%>
+                                 <a id="refreshPosition" name="refreshPosition"></a>
+                                <div id="contentdiv"></div>
+                            </div>
+
+						</div>	
+					</div>
+			</main>
+
+			<!-- Left / Bottom Nav -->
+			<div class="col-xl-3 order-xl-1 leftnav-wrapper">
+				<nav role="navigation" aria-label="Left Navigation Menu" style="border-bottom-color:white">
+					<div id="cdc-left-nav-menu" >
+						<br />	
+                        <uc1:SideNavAYA runat="server" ID="SideNavAYA" />
+					</div>	
+				</nav>
+			</div>
+	</div>
+
+<br /><br />
+
+
+
+<%--    <h3>
         Topics
     </h3>
     <div style="padding-left:1px;padding-right:1px;">
-        <div class="accordion indicator-plus accordion-white" aria-multiselectable="true" role="tabpanel">
+        <div class="accordion indicator-plus accordion-white" aria-multiselectable="true" role="tabpanel">--%>
 
-            <div class="card bar " style="padding-left:0px;">
+
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Awareness--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+           <%-- <div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-10" data-target="#accordion-4i-collapse-10" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-10">Awareness</a>
                 </div>
@@ -183,8 +255,12 @@
                         
                     </div>
                 </div>
-            </div>
-            <div class="card bar " style="padding-left:0px;">
+            </div>--%>
+
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Children and Adolescents--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+           <%-- <div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-11" data-target="#accordion-4i-collapse-11" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-11">Children and Adolescents</a>
                 </div>
@@ -210,8 +286,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-             <div class="card bar " style="padding-left:0px;">
+            </div>--%>
+
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Health care system capacity--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%-- <div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-12" data-target="#accordion-4i-collapse-12" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-12">Health care system capacity</a>
                 </div>
@@ -241,8 +321,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card bar " style="padding-left:0px;">
+            </div>--%>
+
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Health consequences--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+           <%-- <div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-13" data-target="#accordion-4i-collapse-13" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-13">Health consequences</a>
                 </div>
@@ -308,8 +392,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card bar " style="padding-left:0px;">
+            </div>--%>
+
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Prevalence--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+           <%-- <div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-14" data-target="#accordion-4i-collapse-14" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-14">Prevalence</a>
                 </div>
@@ -350,10 +438,12 @@
                         </div>
                     </div>
                 </div>
-                
-            
-            </div>
-            <div class="card bar " style="padding-left:0px;">
+            </div>--%>
+
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Quality of Care--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+           <%-- <div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-15" data-target="#accordion-4i-collapse-15" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-15">Quality of Care</a>
                 </div>
@@ -398,12 +488,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            
-           
-            
-            </div>
-            <div class="card bar " style="padding-left:0px;">
+                </div>          
+            </div>--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Risk Factors – Cardiovascular Disease--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+           <%-- <div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-16" data-target="#accordion-4i-collapse-16" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-16">Risk Factors – Cardiovascular Disease</a>
                 </div>
@@ -422,13 +512,20 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--%>
+
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Risk Factors – Diabetes--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+           
+         <%--   
             <div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-17" data-target="#accordion-4i-collapse-17" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-17">Risk Factors – Diabetes</a>
                 </div>
                 <div aria-labelledby="accordion-4i-card-17" class="collapse" id="accordion-4i-collapse-17" role="tabpanel">
                     <div class="card body">
+
                         <div class="row" style="padding-bottom:2px">
                             <div class="col-12" style="padding-left:20px;">
                                 <div id="link_October_2022" class="row articlelinkdiv"  data-parentid="17" >
@@ -439,8 +536,11 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row" style="padding-bottom:2px">
+                        </div>--%>
+
+
+
+                      <%--  <div class="row" style="padding-bottom:2px">
                             <div class="col-12" style="padding-left:20px;">
                                 <div id="link_September_2021" class="row articlelinkdiv"  data-parentid="17" >
                                     <ul>
@@ -494,11 +594,16 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>--%>
+
+<%--                    </div>
                 </div>
-            </div>
-            <div class="card bar " style="padding-left:0px;">
+            </div>--%>
+
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Risk Factors – Food Insecurity--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+           <%-- <div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-21" data-target="#accordion-4i-collapse-21" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-21">Risk Factors – Food Insecurity</a>
                 </div>
@@ -517,8 +622,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card bar " style="padding-left:0px;">
+            </div>--%>
+
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Risk Factors – Hypertension--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+           <%-- <div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-18" data-target="#accordion-4i-collapse-18" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-18">Risk Factors – Hypertension</a>
                 </div>
@@ -593,8 +702,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card bar " style="padding-left:0px;">
+            </div>--%>
+
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Risk Factors – Obesity--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+          <%--  <div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-19" data-target="#accordion-4i-collapse-19" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-19">Risk Factors – Obesity</a>
                 </div>
@@ -613,8 +726,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card bar " style="padding-left:0px;">
+            </div>--%>
+
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--Risk Factors – Smoking--%>
+            <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+            <%--<div class="card bar " style="padding-left:0px;">
                 <div class="card-header collapsed" id="accordion-4i-card-20" data-target="#accordion-4i-collapse-20" data-toggle="collapse" role="tab" aria-expanded="false">
                     <a class="card-title" tabindex="0" data-controls="accordion-4i-collapse-20">Risk Factors – Smoking</a>
                 </div>
@@ -633,12 +750,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--%>
 
-
+<%--
         </div>
     </div>
-   
+   --%>
 
     
 </div>

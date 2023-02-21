@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AreYouAware.aspx.cs" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" Inherits="CKDSurveillance_RD.AreYouAware" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AreYouAware.aspx.cs" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" Inherits="CKDSurveillance_RD.AreYouAware" %>
 <%@ Register Src="~/UserControls/RDVersions/EmailSubscribeRD.ascx" TagPrefix="uc1" TagName="EmailSubscribeRD" %>
 <%@ Register Src="~/UserControls/RDVersions/AreYouAwareWidget.ascx" TagPrefix="uc1" TagName="AreYouAwareWidget" %>
 
@@ -68,36 +68,35 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
 
-    <div class="row">
+<%--    <div class="row">
 
         <div class="col-lg-12 Pagetitle"style="margin-bottom:5px;">
             Are You Aware Email Archive
         </div>
-    </div>
+    </div>--%>
 
-    <br />   
-    <br />
 
-    <div class="row">
-        <div class="col-lg-3">
 
-            <uc1:AreYouAwareWidget runat="server" ID="AreYouAwareWidget" showNavButtons="false" />
+   <%-- <div class="row">
+        <div class="col-lg-3"> --%>
+
+          <uc1:AreYouAwareWidget runat="server" ID="AreYouAwareWidget" showNavButtons="false" />
                                             
-                Each "Are You Aware" email is sent to tens of thousands of subscribers. They contain relevant, timely, and pertinent information on the topic of chronic kidney disease (CKD).
+<%--                  Each "Are You Aware" email is sent to tens of thousands of subscribers. They contain relevant, timely, and pertinent information on the topic of chronic kidney disease (CKD).
                 If you'd like to subscribe to future messages, use the <a href="#getemailupdates">Get Email  Updates</a> widget below.            
             <br />
             <br />
             <a name="getemailupdates"></a>
 
-            <uc1:EmailSubscribeRD runat="server" ID="EmailSubscribeRD" />
-        </div>
+            <uc1:EmailSubscribeRD runat="server" ID="EmailSubscribeRD" />--%>
+       <%-- </div>--%>
         
 
         <%--*iFrame*--%>
-        <div class="col-lg-9">
+<%--        <div class="col-lg-9">
              <a id="refreshPosition" name="refreshPosition"></a>
             <div id="contentdiv"></div>
-        </div>
+        </div>--%>
         
         <script>
            
@@ -115,8 +114,8 @@
                 });
 
                 //changing the border color to orange and rounding the corners for the selected link
-                $("#link_" + datestr).css("border", "2px solid gold");
-                $("#link_" + datestr).css("border-radius", "5px");
+                //$("#link_" + datestr).css("border", "2px solid gold");
+                //$("#link_" + datestr).css("border-radius", "5px");
 
                 //Reload the page so the URL parameter is correct
                 location.href = "AreYouAware.aspx?emailDate=" + datestr + "#refreshPosition";
@@ -129,7 +128,7 @@
                 */
             }
     </script> 
-    </div>
+<%--    </div>--%>
 
 
     <asp:HiddenField ID="HF_initialdate" runat="server" />
@@ -144,8 +143,8 @@
 
              var datestr = $('#HF_initialdate').val();
              $('#contentdiv').load("AYA/" + datestr + ".html");            
-             $("#link_" + datestr).css("border", "2px solid gold");
-             $("#link_" + datestr).css("border-radius", "5px");
+             //$("#link_" + datestr).css("border", "2px solid gold");
+             //$("#link_" + datestr).css("border-radius", "5px");
 
              var parentid = $("#link_" + datestr).data("parentid");
              $("#accordion-4i-card-" + parentid).removeClass("collapsed");

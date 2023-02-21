@@ -189,16 +189,16 @@ namespace CKDSurveillance_RD
 
                 sbTable.Append("<div class=\"card bar\" style=\"padding-top:10px;\">"); //begin card bar
 
-                sbTable.Append("<div class=\"card-header " + cardState + "\" style=\"background-color:#C8D5E4 !important;\" id=\"accordion-4m-card-" + qid.ToString() + "\" data-target=\"#accordion-4m-collapse-" + qid.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
-                sbTable.Append("<a class=\"card-title\" tabindex=\"0\"  data-controls=\"accordion-4m-collapse-" + qid.ToString() + "\">" + qtext + "</a>");
-                sbTable.Append("</div>");
+                //sbTable.Append("<div class=\"card-header " + cardState + "\" style=\"background-color:#C8D5E4 !important;\" id=\"accordion-4m-card-" + qid.ToString() + "\" data-target=\"#accordion-4m-collapse-" + qid.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
+                //sbTable.Append("<a class=\"card-title\" tabindex=\"0\"  data-controls=\"accordion-4m-collapse-" + qid.ToString() + "\">" + qtext + "</a>");
+                //sbTable.Append("</div>");
 
                 sbTable.Append("<div aria-labelledby=\"accordion-4m-card-" + qid.ToString() + "\" class=\"collapse " + divState + "\" id=\"accordion-4m-collapse-" + qid.ToString() + "\" role=\"tabpanel\">"); //begin content panel
                 sbTable.Append("<div class=\"card body\">"); //begin card body
 
                 sbTable.Append("<div class=\"row\">"); //begin content row                
-                sbTable.Append("<div class=\"col-12\" style=\"padding-left:20px;\">"); //begin content col 12 center
-                sbTable.Append("<div>" + desc + "</div><br/>");
+                sbTable.Append("<div class=\"col-12\" >"); //begin content col 12 center    ---style=\"padding-left:20px;\"
+                //sbTable.Append("<div>" + desc + "</div><br/>");
                 sbTable.Append(MethodsIndicatorsTableCreation(qid, qtext, desc, healthypeople, cardState, divState));
 
                 sbTable.Append("</div>"); //end content col 11 center
@@ -230,10 +230,10 @@ namespace CKDSurveillance_RD
                 string measureText = dr["MeasureText"].ToString().Trim();
                 int measureID = ((int)(dr["MeasureID"]));
 
-                sbTable.Append("<div class=\"card bar \" style=\"padding-left:20px;\">"); //begin card bar
+                sbTable.Append("<div class=\"card bar \" >"); //begin card bar   ---style=\"padding-left:20px;\"
 
                 sbTable.Append("<div class=\"card-header ckd-accordion-subcat-header " + cardState + "\"  id=\"accordion-4i-card-" + measureID.ToString() + "\" data-target=\"#accordion-4i-collapse-" + measureID.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
-                sbTable.Append("<a class=\"card-title\"  tabindex=\"0\"  data-controls=\"accordion-4i-collapse-" + measureID.ToString() + "\">" + measureText + "</a>");
+                sbTable.Append("<a class=\"card-title\" tabindex=\"0\"  data-controls=\"accordion-4i-collapse-" + measureID.ToString() + "\">" + measureText + "</a>");
                 sbTable.Append("</div>");
 
                 sbTable.Append("<div aria-labelledby=\"accordion-4i-card-" + measureID.ToString() + "\" class=\"collapse " + divState + "\" id=\"accordion-4i-collapse-" + measureID.ToString() + "\" role=\"tabpanel\">"); //begin content panel
@@ -256,7 +256,7 @@ namespace CKDSurveillance_RD
                 foreach (DataRow drInd in dtIndicators.Rows)
                 {
                     sbTable.Append("<div class=\"row\" style=\"padding-bottom:2px\">"); //begin row
-                    sbTable.Append("<div class=\"col-7\" style=\"padding-left:20px;\">"); //begin link col, no size definition because we want the layout to remain the same regardless of size
+                    sbTable.Append("<div class=\"col-7\" style=\"padding-left:30px;\">"); //begin link col, no size definition because we want the layout to remain the same regardless of size
                     // Build link
                     string url = drInd["URL"].ToString().Trim();
                     url = url.Substring(2);
@@ -266,9 +266,10 @@ namespace CKDSurveillance_RD
                     sbTable.Append(linkStart + text + linkEnd);
 
                     sbTable.Append("</div>"); //end begin link col
-                    sbTable.Append("<div class=\"col-2\" style=\"text-align:center\">" + drInd["Most Recent Year"].ToString() + "</div>");
-                    sbTable.Append("<div class=\"col-3\" style=\"text-align:center\">" + drInd["DataSources"].ToString() + "</div>");
-
+                    sbTable.Append("<div class=\"col-2\" style=\"text-align:center\">" + drInd["DataSources"].ToString() + "</div>");
+                    sbTable.Append("<div class=\"col-3\" style=\"text-align:center\">" + drInd["Most Recent Year"].ToString() + "</div>");
+                    //sbTable.Append("<div class=\"col-2\" style=\"text-align:center\">" + drInd["Most Recent Year"].ToString() + "</div>");
+                    //sbTable.Append("<div class=\"col-3\" style=\"text-align:center\">" + drInd["DataSources"].ToString() + "</div>");
                     sbTable.Append("</div>"); //end row                   
                 }
 

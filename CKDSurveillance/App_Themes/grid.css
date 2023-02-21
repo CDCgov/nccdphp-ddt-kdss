@@ -13,7 +13,7 @@
 body {
 	border:none;
 	background:#bec3cc fixed url('/ckd/TemplatePackage/images/bgMainDropShadowGradient.png') 0 0 repeat-x;
-	font:75% Verdana, Arial, Helvetica, sans-serif;
+	font:75% sans-serif, Verdana, Arial, Helvetica ;
 	text-align:left;
 }
 

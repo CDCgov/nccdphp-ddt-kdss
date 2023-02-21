@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD.UserControls {
-    
-    
-    public partial class StratYearsLinks {
-        
+namespace CKDSurveillance_RD.UserControls
+{
+
+
+    public partial class StratYearsLinks
+    {
+
         /// <summary>
         /// pnlQuintileRanges control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CKDSurveillance_RD.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlQuintileRanges;
-        
+
         /// <summary>
         /// btnOneYear control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CKDSurveillance_RD.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnOneYear;
-        
+
         /// <summary>
         /// litOneYear control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CKDSurveillance_RD.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litOneYear;
-        
+
         /// <summary>
         /// btnAll control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace CKDSurveillance_RD.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnAll;
-        
+
         /// <summary>
         /// litAll control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace CKDSurveillance_RD.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litAll;
-        
+
         /// <summary>
         /// cbMultimaps control.
         /// </summary>
@@ -65,7 +67,16 @@ namespace CKDSurveillance_RD.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cbMultimaps;
-        
+
+        /// <summary>
+        /// divViewDataBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divViewDataBy;
+
         /// <summary>
         /// litStratText control.
         /// </summary>
@@ -74,25 +85,7 @@ namespace CKDSurveillance_RD.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litStratText;
-        
-        /// <summary>
-        /// pnlYears control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlYears;
-        
-        /// <summary>
-        /// litYearText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litYearText;
-        
+
         /// <summary>
         /// hfCSVYears control.
         /// </summary>

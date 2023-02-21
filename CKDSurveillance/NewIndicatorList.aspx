@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" CodeBehind="NewIndicatorList.aspx.cs" Inherits="CKDSurveillance_RD.NewIndicatorList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" CodeBehind="NewIndicatorList.aspx.cs" Inherits="CKDSurveillance_RD.NewIndicatorList" %>
 
 <%--<%@ register assembly="CommonControls" namespace="NG.NCCDPHP.CommonControls" tagprefix="cdc" %>--%>
 <%@ Register Src="~/UserControls/SuggestedCitationControl.ascx" TagPrefix="uc1" TagName="SuggestedCitationControl" %>

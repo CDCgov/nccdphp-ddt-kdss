@@ -156,32 +156,18 @@
 </asp:Panel>
 
 
+<div class="viewDataBy" runat="server" id="divViewDataBy" >
+<%--<div id="divStratButtonOuter" class="">--%>
 
+<%--********--%>
+<%--*Strats*--%>
+<%--********--%>
 
-<div id="divStratButtonOuter" class="">
-
-    <%--********--%>
-    <%--*Strats*--%>
-    <%--********--%>
-
-    <%--<div class='dataSourceRBTitle'>View Data By:</div>--%>
+<%--<div class='dataSourceRBTitle'>View Data By:</div>--%>
     <asp:Literal ID="litStratText" runat="server" Text='<%# Eval("ViewBy") %>'></asp:Literal>
 
+<%--</div>--%>
+
 </div>
-
-
-
-<asp:Panel ID="pnlYears" runat="server">
-    <div id="divYearButtonOuter" class="">
-
-    <%--*******--%>
-    <%--*Years*--%>
-    <%--*******--%>
-    <asp:Literal ID="litYearText" runat="server" Text='<%# Eval("Year") %>'></asp:Literal>
-
-
-    </div>
-</asp:Panel>
-
 
 <asp:HiddenField ID="hfCSVYears" runat="server" ClientIDMode="Static" Value="" />

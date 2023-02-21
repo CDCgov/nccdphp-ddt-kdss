@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" CodeBehind="FactorsofInterest.aspx.cs" Inherits="CKDSurveillance_RD.FactorsofInterest" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" CodeBehind="FactorsofInterest.aspx.cs" Inherits="CKDSurveillance_RD.FactorsofInterest" %>
 
 <%@ Register Src="~/UserControls/SuggestedCitationControl.ascx" TagPrefix="uc1" TagName="SuggestedCitationControl" %>
 <%@ Register Src="~/UserControls/RDVersions/FactorsOfInterestContent.ascx" TagPrefix="uc1" TagName="FactorsOfInterestContent" %>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CKDSurveillance_RD.ErrorDefault.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CKDSurveillance_RD.ErrorDefault.Default" %>
 
 <%@ Register Src="~/UserControls/TemplateLocal/ucBreadcrumbs.ascx" TagPrefix="uc1" TagName="ucBreadcrumbs" %>
 

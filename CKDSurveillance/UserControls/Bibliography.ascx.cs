@@ -29,7 +29,7 @@ namespace CKDSurveillance_RD.UserControls
         //*******************
         //*Populate Repeater*
         //*******************
-        populateRepeater("", rptBib, dt);
+        //populateRepeater("", rptBib, dt);
 
 
 

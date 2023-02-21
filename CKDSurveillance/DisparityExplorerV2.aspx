@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" AutoEventWireup="true" CodeBehind="DisparityExplorerV2.aspx.cs" Inherits="CKDSurveillance_RD.DisparityExplorerV2" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" AutoEventWireup="true" CodeBehind="DisparityExplorerV2.aspx.cs" Inherits="CKDSurveillance_RD.DisparityExplorerV2" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -742,7 +742,7 @@
             });
             var graphdiv = gd4.node();
 
-            Plotly.newPlot(graphdiv, dataitems, layout, { displayModeBar: true, displaylogo: false, modeBarButtonsToRemove: ['sendDataToCloud', 'lasso2d', 'toggleSpikelines', 'select2d'] }); //{ modeBarButtonsToRemove: ['sendDataToCloud', 'lasso2d', 'toggleSpikelines'] }
+            Plotly.newPlot(graphdiv, dataitems, layout, { displayModeBar: false, displaylogo: false, modeBarButtonsToRemove: ['sendDataToCloud', 'lasso2d', 'toggleSpikelines', 'select2d'] }); //{ modeBarButtonsToRemove: ['sendDataToCloud', 'lasso2d', 'toggleSpikelines'] }
             
             window.onresize = function () { Plotly.Plots.resize(graphdiv); };
         }

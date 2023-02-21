@@ -12,10 +12,10 @@
 
 
 
-<!--[if lt IE 8]>      <html class="no-js nav theme-teal lt-ie10 lt-ie9 lt-ie8" lang="en-us"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js nav theme-teal lt-ie10 lt-ie9" lang="en-us"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js nav theme-teal lt-ie10" lang="en-us"> <![endif]-->
-<!--[if !IE]><!-->     <html class="no-js nav theme-teal esp" lang="en-us"> <!--<![endif]-->
+<!--[if lt IE 8]>      <html class="no-js nav theme-cyan lt-ie10 lt-ie9 lt-ie8" lang="en-us"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js nav theme-cyan lt-ie10 lt-ie9" lang="en-us"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js nav theme-cyan lt-ie10" lang="en-us"> <![endif]-->
+<!--[if !IE]><!-->     <html class="no-js nav theme-cyan esp" lang="en-us"> <!--<![endif]-->
 
 <head runat="server" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -56,7 +56,7 @@
     <link href="/TemplatePackage/3.0/css/lib/bootstrap24.css" rel="stylesheet" />
     <link href="../App_Themes/custom.css" rel="stylesheet" />
     <link href="../App_Themes/local.css" rel="stylesheet" />
-    <link href="../App_Themes/theme-teal.css" rel="stylesheet" />
+    <link href="../App_Themes/theme-cyan.css" rel="stylesheet" />
     
 
     <%--*CSS*--%>

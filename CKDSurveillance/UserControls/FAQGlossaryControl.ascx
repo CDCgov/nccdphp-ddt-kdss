@@ -9,7 +9,7 @@
     <asp:hyperlink id="lnkFaq" cssclass="ckd-faq-link" runat="server" text="FAQs" tooltip="FAQs" navigateurl="Help.aspx?section=F" />&nbsp;|&nbsp; 
     <asp:hyperlink id="lnkGlossary" cssclass="ckd-glossary-link" runat="server" text="Glossary" tooltip="Glossary" navigateurl="Help.aspx?section=G" />&nbsp;|&nbsp; 
     <asp:hyperlink id="lnkDS" cssclass="ckd-glossary-link" runat="server" text="Data Sources" tooltip="Data Sources" navigateurl="Help.aspx?section=D" />&nbsp;|&nbsp; 
-    <asp:hyperlink id="lnkBib" cssclass="ckd-glossary-link" runat="server" text="Bibliography" tooltip="Bibliography" navigateurl="Help.aspx?section=B"  />&nbsp;|&nbsp; 
+    <%--<asp:hyperlink id="lnkBib" cssclass="ckd-glossary-link" runat="server" text="Bibliography" tooltip="Bibliography" navigateurl="Help.aspx?section=B"  />&nbsp;|&nbsp; --%>
     <asp:HyperLink ID="lnkCompleteList" cssclass="ckd-glossary-link" runat="server" text="Complete Indicator List" tooltip="Complete Indicator List" navigateurl="~/data.aspx" />
     
     

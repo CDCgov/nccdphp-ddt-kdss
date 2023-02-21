@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD {
-    
-    
-    public partial class Data {
-        
+namespace CKDSurveillance_RD
+{
+
+
+    public partial class Data
+    {
+
         /// <summary>
         /// pnlIndicators control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlIndicators;
-        
+
         /// <summary>
         /// _dvPageTitle control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl _dvPageTitle;
-        
+
         /// <summary>
         /// litBrowseLabel control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litBrowseLabel;
-        
+
         /// <summary>
         /// litDataSources control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litDataSources;
-        
+
         /// <summary>
         /// litIndicators control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litIndicators;
-        
+
         /// <summary>
         /// litSpecialPops control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litSpecialPops;
-        
+
         /// <summary>
         /// pnlHP2020 control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlHP2020;
-        
+
         /// <summary>
         /// _dvHP2020Description control.
         /// </summary>
@@ -83,25 +85,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl _dvHP2020Description;
-        
-        /// <summary>
-        /// lnkHealthy2020WebSite control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkHealthy2020WebSite;
-        
-        /// <summary>
-        /// lnkHealthy2030Objectives control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkHealthy2030Objectives;
-        
+
         /// <summary>
         /// litHp2020 control.
         /// </summary>
@@ -110,5 +94,14 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litHp2020;
+
+        /// <summary>
+        /// SideNavHP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKDSurveillance_RD.SideNavHP SideNavHP;
     }
 }

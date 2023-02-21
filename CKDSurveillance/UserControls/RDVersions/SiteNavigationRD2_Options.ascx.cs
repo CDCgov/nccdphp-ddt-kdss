@@ -370,6 +370,9 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                         //litDesc = litHealthSystemDescription;
                         litIndicators = litHealthSystemIndicators;
                         break;
+                    case 24:
+                        litIndicators = litSocialDeterminants;
+                        break;
                 }
 
 

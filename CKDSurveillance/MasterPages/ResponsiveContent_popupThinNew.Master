@@ -10,10 +10,10 @@
 
 
 
-<!--[if lt IE 8]>      <html class="no-js nav theme-teal lt-ie10 lt-ie9 lt-ie8" lang="en-us"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js nav theme-teal lt-ie10 lt-ie9" lang="en-us"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js nav theme-teal lt-ie10" lang="en-us"> <![endif]-->
-<!--[if !IE]><!-->     <html class="no-js nav theme-teal" lang="en-us"> <!--<![endif]-->
+<!--[if lt IE 8]>      <html class="no-js nav theme-cyan lt-ie10 lt-ie9 lt-ie8" lang="en-us"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js nav theme-cyan lt-ie10 lt-ie9" lang="en-us"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js nav theme-cyan lt-ie10" lang="en-us"> <![endif]-->
+<!--[if !IE]><!-->     <html class="no-js nav theme-cyan" lang="en-us"> <!--<![endif]-->
 
 <head id="Head1" runat="server" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -65,7 +65,7 @@
     <%--<link href="../App_Themes/base-float.css" rel="stylesheet" />--%> <%--imports many other css files--%>
     <link href="../App_Themes/custom.css" rel="stylesheet" />
     <link href="../App_Themes/local.css" rel="stylesheet" />
-    <link href="../App_Themes/theme-teal.css" rel="stylesheet" />
+    <link href="../App_Themes/theme-cyan.css" rel="stylesheet" />
     
 
     <%--*CSS*--%>    

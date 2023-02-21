@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD {
-    
-    
-    public partial class Default {
-        
+namespace CKDSurveillance_RD
+{
+
+
+    public partial class Default
+    {
+
         /// <summary>
         /// SurveyModal control.
         /// </summary>
@@ -20,68 +22,95 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CKDSurveillance_RD.UserControls.RDVersions.SurveyModal SurveyModal;
-        
+
         /// <summary>
-        /// SpecialPopulations control.
+        /// MainImage1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.FPWidgets.SpecialPopulations SpecialPopulations;
-        
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.MainImage MainImage1;
+
         /// <summary>
-        /// CurrentTopics control.
+        /// AboutKDS1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.FPWidgets.CurrentTopics CurrentTopics;
-        
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.AboutKDS AboutKDS1;
+
         /// <summary>
-        /// SpotlightOnIndicators control.
+        /// Prevalence1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.FPWidgets.SpotlightOnIndicators SpotlightOnIndicators;
-        
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.Prevalence Prevalence1;
+
         /// <summary>
-        /// SpecialDay control.
+        /// RiskCalculator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.FPWidgets.SpecialDay SpecialDay;
-        
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.RiskCalculator RiskCalculator1;
+
         /// <summary>
-        /// Calculators control.
+        /// AYA1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.FPWidgets.Calculators Calculators;
-        
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.AYA AYA1;
+
         /// <summary>
-        /// btnSubmitEmailSubscription control.
+        /// RiskFactorsForKD1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnSubmitEmailSubscription;
-        
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.RiskFactorsForKD RiskFactorsForKD1;
+
         /// <summary>
-        /// SuggestedCitationAndVersioning control.
+        /// DataBiteHighlights control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.FPWidgets.SuggestedCitationAndVersioning SuggestedCitationAndVersioning;
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.DataBiteHighlights DataBiteHighlights;
+
+        /// <summary>
+        /// OutcomesQofCare1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.OutcomesQofCare OutcomesQofCare1;
+
+        /// <summary>
+        /// OutcomesQofCare2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.OutcomesQofCare OutcomesQofCare2;
+
+        /// <summary>
+        /// GeneralInformation1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.GeneralInformation GeneralInformation1;
     }
 }

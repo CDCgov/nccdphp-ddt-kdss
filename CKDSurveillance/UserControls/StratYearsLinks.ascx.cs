@@ -182,7 +182,7 @@ namespace CKDSurveillance_RD.UserControls
             //*Add two columns [link + selected]*
             stratTable = AddLinkSelectedColumns(stratTable);
             updateStratRows(stratTable);
-
+            divViewDataBy.Visible = true;
 
             //Do not show strat name on map pages
             if (qNum.ToLower() != "q69" && qNum.ToLower() != "q96" && qNum.ToLower() != "q235" && qNum.ToLower() != "q600")
@@ -191,12 +191,16 @@ namespace CKDSurveillance_RD.UserControls
                 {
                     if (stratTable.Rows.Count > 2)
                     {
-                        populateStrats(stratTable);
+                        // populateStrats(stratTable);
+                        if(!populateStratsDropDown(stratTable))
+                            divViewDataBy.Visible = false;
                     }                    
                 }
                 else
                 {
-                    populateStrats(stratTable);
+                    //populateStrats(stratTable);
+                    if(!populateStratsDropDown(stratTable))
+                        divViewDataBy.Visible= false;
                 }
             }
 
@@ -242,7 +246,7 @@ namespace CKDSurveillance_RD.UserControls
             //*Populate Years table info*
             DataTable yrTableFiltered = yrDV.ToTable();
             updateYearRows(yrTableFiltered, selectedStrat);
-            populateYears(yrTableFiltered);
+            //populateYearsDropDown(yrTableFiltered);
 
 
             //*populate hiddenfield of years for the jQuery slider to reference*
@@ -318,37 +322,34 @@ namespace CKDSurveillance_RD.UserControls
             litStratText.Text = sb.ToString().Trim();
 
         }
-        private void populateYears(DataTable yearTable)
+
+        private bool populateStratsDropDown(DataTable stratTable)
         {
-
-            if (yearTable.Rows.Count == 1)
-            {
-                return;
-            }
-
             StringBuilder sb = new StringBuilder();
-            sb.Append("<div class='dataSourceRBTitle'>&nbsp;&nbsp;View Data For:</div>");
-            sb.Append("<ul class='yearLinks'>");
 
-            foreach (DataRow dr in yearTable.Rows)
+            sb.Append("<div class=\"viewDataByLabel\">Select Risk Category</div>");
+            sb.Append("<select class=\"form-control\"  onchange=\"openViewDataBy(this.value);\">");
+
+            foreach (DataRow dr in stratTable.Rows)
             {
-                sb.Append("<li>");
                 if (Convert.ToInt32(dr["selected"]) != 1)
                 {
-                    sb.Append("<a href='" + dr["link"].ToString().Replace("~/","").Trim() + "'>");
-                    sb.Append(dr["Year"].ToString().Trim());
-                    sb.Append("</a>");
+                    sb.Append("<option value='" + dr["link"].ToString().Replace("~/", "").Trim() + "'>");
+                    sb.Append(dr["ViewBy"].ToString().Trim());
+                    sb.Append("</option>");
+
                 }
                 else if (Convert.ToInt32(dr["selected"]) == 1)
                 {
-                    sb.Append("<strong>" + dr["Year"].ToString().Trim()+ "</strong>");
+                    sb.Append("<option selected>" + dr["ViewBy"].ToString().Trim() + "</option>");
                 }
 
-                sb.Append("</li>");
             }
-            sb.Append("</ul>");
+            sb.Append("</select>");
 
-            litYearText.Text = sb.ToString().Trim();
+            litStratText.Text = sb.ToString().Trim();
+
+            return (stratTable.Rows.Count > 1);
         }
 
         private void manageIllogicalURLParams()
@@ -403,6 +404,7 @@ namespace CKDSurveillance_RD.UserControls
             //(Example) -->  /ckd/detailButtons.aspx?Qnum=Q380
             string chosenStrat = "";
             string chosenYear = "";
+            string topic = "";
 
             if (url.Contains("&Strat"))
             {
@@ -416,6 +418,11 @@ namespace CKDSurveillance_RD.UserControls
                 //chosenYear = chosenYear;
             }
 
+            if (url.Contains("&topic"))
+            {
+                topic = Request.QueryString["topic"].Trim().Replace("%20", " ").Trim();
+                //chosenYear = chosenYear;
+            }
 
             //*Populate Table values and set 'selected' value*
             foreach (DataRow dr in dt.Rows)
@@ -430,13 +437,19 @@ namespace CKDSurveillance_RD.UserControls
                 {
                     dr["selected"] = 0;
                     dr["buttonLink"] = "~/images/GO.png";
+                    var qNumTopic = qNum;
+                    if (!string.IsNullOrEmpty(topic))
+                    {
+                        qNumTopic = qNum + "&topic=" + topic;
+                    }
+
                     if (string.IsNullOrEmpty(chosenYear))
                     {
-                        dr["Link"] = "~/detail.aspx?Qnum=" + qNum + "&Strat=" + HttpUtility.UrlEncode(dr["ViewBy"].ToString().Trim()) + "#refreshPosition";
+                        dr["Link"] = "~/detail.aspx?Qnum=" + qNumTopic + "&Strat=" + HttpUtility.UrlEncode(dr["ViewBy"].ToString().Trim()) + "#refreshPosition";
                     }
                     else
                     {
-                        dr["Link"] = "~/detail.aspx?Qnum=" + qNum + "&Strat=" + HttpUtility.UrlEncode(dr["ViewBy"].ToString().Trim()) + "&Year=" + HttpUtility.UrlEncode(chosenYear.Trim()) + "#refreshPosition";
+                        dr["Link"] = "~/detail.aspx?Qnum=" + qNumTopic + "&Strat=" + HttpUtility.UrlEncode(dr["ViewBy"].ToString().Trim()) + "&Year=" + HttpUtility.UrlEncode(chosenYear.Trim()) + "#refreshPosition";
                     }
 
                 }

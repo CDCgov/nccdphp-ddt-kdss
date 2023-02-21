@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD {
-    
-    
-    public partial class AreYouAware {
-        
+namespace CKDSurveillance_RD
+{
+
+
+    public partial class AreYouAware
+    {
+
         /// <summary>
         /// AreYouAwareWidget control.
         /// </summary>
@@ -20,16 +22,7 @@ namespace CKDSurveillance_RD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CKDSurveillance_RD.UserControls.RDVersions.AreYouAwareWidget AreYouAwareWidget;
-        
-        /// <summary>
-        /// EmailSubscribeRD control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.RDVersions.EmailSubscribeRD EmailSubscribeRD;
-        
+
         /// <summary>
         /// HF_initialdate control.
         /// </summary>

@@ -1557,16 +1557,17 @@ table.ckd-details-dynamic-table td
     padding:20px;
     border:1px solid #BFBFBF;
     text-align:center;
-    font-size:11px;
+    font: normal normal normal 17px/36px Open Sans;
 }
 
 table.ckd-details-dynamic-table th
 {
     padding:3px;
     border:1px solid #BFBFBF;
-    color:#1a7aa2;
-    background-color:#C1DED5;
+    color:#FFFFFF;
+    background-color:#007C91;
     text-align:center;
+    font: normal normal 600 17px/24px Open Sans;
 }
 
 table.labelHeader th

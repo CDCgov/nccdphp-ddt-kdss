@@ -34,9 +34,9 @@ namespace CKDSurveillance_RD
 
                 switch (urlParam.ToUpper())
                 {
-                    case "B":
-                        btnBibliography_Click();
-                        break;
+                    //case "B":
+                    //    btnBibliography_Click();
+                    //    break;
                     case "D":
                         btnDataSources_Click();
                         break;
@@ -59,15 +59,15 @@ namespace CKDSurveillance_RD
             FAQ.Visible = false;
             Glossary.Visible = false;
             DataSources.Visible = false;
-            Bibliography.Visible = false;
+            //Bibliography.Visible = false;
             AboutTheProject.Visible = false;
         }
 
-        private void btnBibliography_Click()
-        {
-            Page.Title = "CDC - Chronic Kidney Disease - Bibliography";
-            Bibliography.Visible = true;
-        }
+        //private void btnBibliography_Click()
+        //{
+        //    Page.Title = "CDC - Chronic Kidney Disease - Bibliography";
+        //    Bibliography.Visible = true;
+        //}
 
         private void btnDataSources_Click()
         {

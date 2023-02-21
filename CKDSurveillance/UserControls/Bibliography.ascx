@@ -28,13 +28,13 @@
     
 </script>
 
-        <h2>Bibliography</h2>
-        <br />                
+        <%--<h2>Bibliography</h2>
+        <br />  --%>              
             
             <%--*******************--%>
             <%--*Bibliography Data*--%>
             <%--*******************--%>            
-            <asp:Repeater ID="rptBib" runat="server">
+           <%-- <asp:Repeater ID="rptBib" runat="server">
                      <headertemplate>
                         <ul>
                     </headertemplate>
@@ -52,4 +52,4 @@
                     <footertemplate>
                         </ul>
                     </footertemplate>
-            </asp:Repeater>   
+            </asp:Repeater>   --%>

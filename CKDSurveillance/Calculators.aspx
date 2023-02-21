@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNav.Master" AutoEventWireup="true" CodeBehind="Calculators.aspx.cs" Inherits="CKDSurveillance_RD.Calculators" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" AutoEventWireup="true" CodeBehind="Calculators.aspx.cs" Inherits="CKDSurveillance_RD.Calculators" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 

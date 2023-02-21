@@ -4,7 +4,7 @@
 
 <%@ Register Src="~/UserControls/Glossary.ascx" TagPrefix="uc1" TagName="Glossary" %>
 <%@ Register Src="~/UserControls/FAQ.ascx" TagPrefix="uc1" TagName="FAQ" %>
-<%@ Register Src="~/UserControls/Bibliography.ascx" TagPrefix="uc1" TagName="Bibliography" %>
+<%--<%@ Register Src="~/UserControls/Bibliography.ascx" TagPrefix="uc1" TagName="Bibliography" %>--%>
 <%@ Register Src="~/UserControls/DataSources.ascx" TagPrefix="uc1" TagName="DataSources" %>
 <%@ Register Src="~/UserControls/AboutTheProject.ascx" TagPrefix="uc1" TagName="AboutTheProject" %>
 
@@ -56,9 +56,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="Help.aspx?section=D" title="View Data Sources">Data Sources</a>
             </li>
-            <li class="nav-item">
+            <%--<li class="nav-item">
                 <a class="nav-link" href="Help.aspx?section=B" title="View the Bibliography">Bibliography</a>
-            </li>
+            </li>--%>
             <li class="nav-item">
                 <a class="nav-link" href="Help.aspx?section=H" title="View Information About the CKD Surveillance Project">About The Project</a>
             </li>
@@ -92,7 +92,7 @@
             <uc1:AboutTheProject runat="server" ID="AboutTheProject" />
             <uc1:Glossary runat="server" ID="Glossary" />
             <uc1:FAQ runat="server" ID="FAQ" />
-            <uc1:Bibliography runat="server" ID="Bibliography" />
+            <%--<uc1:Bibliography runat="server" ID="Bibliography" />--%>
             <uc1:DataSources runat="server" ID="DataSources" />
             <br />
 
@@ -100,4 +100,11 @@
     </div>
     <div class="col-lg-1"></div>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(this).find('.btn-cdc-mobileview').hide();
+            $(this).find('.btn-cdc-contacts').hide();
+        });
+    </script>
 </asp:Content>
+  

@@ -19,7 +19,7 @@ namespace CKDSurveillance_RD.UserControls
                 lnkFaq.Attributes.Add("onclick", "return popupWindow('../help.aspx?section=F', " + ApplicationConstants.SECONDARY_WINDOW_WIDTH + ", " + ApplicationConstants.SECONDARY_WINDOW_HEIGHT + ");");
                 lnkGlossary.Attributes.Add("onclick", "return popupWindow('../help.aspx?section=G', " + ApplicationConstants.SECONDARY_WINDOW_WIDTH + ", " + ApplicationConstants.SECONDARY_WINDOW_HEIGHT + ");");
                 lnkDS.Attributes.Add("onclick", "return popupWindow('../help.aspx?section=D', " + ApplicationConstants.SECONDARY_WINDOW_WIDTH + ", " + ApplicationConstants.SECONDARY_WINDOW_HEIGHT + ");");
-                lnkBib.Attributes.Add("onclick", "return popupWindow('../help.aspx?section=B', " + ApplicationConstants.SECONDARY_WINDOW_WIDTH + ", " + ApplicationConstants.SECONDARY_WINDOW_HEIGHT + ");");
+                //lnkBib.Attributes.Add("onclick", "return popupWindow('../help.aspx?section=B', " + ApplicationConstants.SECONDARY_WINDOW_WIDTH + ", " + ApplicationConstants.SECONDARY_WINDOW_HEIGHT + ");");
             }
             else
             {
@@ -27,9 +27,8 @@ namespace CKDSurveillance_RD.UserControls
                 lnkFaq.Attributes.Add("onclick", "return popupWindow('help.aspx?section=F', " + ApplicationConstants.SECONDARY_WINDOW_WIDTH + ", " + ApplicationConstants.SECONDARY_WINDOW_HEIGHT + ");");
                 lnkGlossary.Attributes.Add("onclick", "return popupWindow('help.aspx?section=G', " + ApplicationConstants.SECONDARY_WINDOW_WIDTH + ", " + ApplicationConstants.SECONDARY_WINDOW_HEIGHT + ");");
                 lnkDS.Attributes.Add("onclick", "return popupWindow('help.aspx?section=D', " + ApplicationConstants.SECONDARY_WINDOW_WIDTH + ", " + ApplicationConstants.SECONDARY_WINDOW_HEIGHT + ");");
-                lnkBib.Attributes.Add("onclick", "return popupWindow('help.aspx?section=B', " + ApplicationConstants.SECONDARY_WINDOW_WIDTH + ", " + ApplicationConstants.SECONDARY_WINDOW_HEIGHT + ");");
-            }
-            
+                //lnkBib.Attributes.Add("onclick", "return popupWindow('help.aspx?section=B', " + ApplicationConstants.SECONDARY_WINDOW_WIDTH + ", " + ApplicationConstants.SECONDARY_WINDOW_HEIGHT + ");");
+            }            
         }
     }
 }

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD.MasterPages {
-    
-    
-    public partial class detail {
-        
+namespace CKDSurveillance_RD.MasterPages
+{
+
+
+    public partial class detail
+    {
+
         /// <summary>
         /// litCSS control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litCSS;
-        
+
         /// <summary>
         /// hfTMITopicname control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfTMITopicname;
-        
+
         /// <summary>
         /// hfCategoryID control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfCategoryID;
-        
+
         /// <summary>
         /// hfTMIMeasurename control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfTMIMeasurename;
-        
+
         /// <summary>
         /// hfTMIIndicatorname control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfTMIIndicatorname;
-        
+
         /// <summary>
         /// hfChartOrTable control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfChartOrTable;
-        
+
         /// <summary>
         /// hfChartType control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfChartType;
-        
+
         /// <summary>
         /// hfChartMode control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfChartMode;
-        
+
         /// <summary>
         /// hfChartColor control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfChartColor;
-        
+
         /// <summary>
         /// hfShowCI control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfShowCI;
-        
+
         /// <summary>
         /// hfMapType control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfMapType;
-        
+
         /// <summary>
         /// hfCurrentYear control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfCurrentYear;
-        
+
         /// <summary>
         /// hfChartID control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfChartID;
-        
+
         /// <summary>
         /// hfMaxYVal control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfMaxYVal;
-        
+
         /// <summary>
         /// hfMaxStackedYVal control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfMaxStackedYVal;
-        
+
         /// <summary>
         /// hfMaxConfidence control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfMaxConfidence;
-        
+
         /// <summary>
         /// hfChartYValToUse control.
         /// </summary>
@@ -164,25 +166,16 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfChartYValToUse;
-        
+
         /// <summary>
-        /// litTopic control.
+        /// HF_TopicText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litTopic;
-        
-        /// <summary>
-        /// DataSourceDDLsRD1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.RDVersions.DataSourceDDLsRD DataSourceDDLsRD1;
-        
+        protected global::System.Web.UI.WebControls.HiddenField HF_TopicText;
+
         /// <summary>
         /// StratYearsRD1 control.
         /// </summary>
@@ -191,25 +184,43 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CKDSurveillance_RD.UserControls.RDVersions.StratYearsRD StratYearsRD1;
-        
+
         /// <summary>
-        /// litSourceTabs control.
+        /// divLEFT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litSourceTabs;
-        
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLEFT;
+
         /// <summary>
-        /// StratYear1 control.
+        /// div1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.StratYearsLinks StratYear1;
-        
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
+
+        /// <summary>
+        /// SideNav1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKDSurveillance_RD.SideNav SideNav1;
+
+        /// <summary>
+        /// divLeftContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLeftContainer;
+
         /// <summary>
         /// StratYearsLinksMaps control.
         /// </summary>
@@ -218,7 +229,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CKDSurveillance_RD.UserControls.StratYearsLinksMaps StratYearsLinksMaps;
-        
+
         /// <summary>
         /// chartFormatOptions control.
         /// </summary>
@@ -227,7 +238,16 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartFormatOptions;
-        
+
+        /// <summary>
+        /// chartFormatControls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartFormatControls;
+
         /// <summary>
         /// RB_ChartType control.
         /// </summary>
@@ -236,16 +256,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList RB_ChartType;
-        
-        /// <summary>
-        /// CB_ChartCI control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CB_ChartCI;
-        
+
         /// <summary>
         /// chartColorOptions control.
         /// </summary>
@@ -254,7 +265,16 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartColorOptions;
-        
+
+        /// <summary>
+        /// chartColorControls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartColorControls;
+
         /// <summary>
         /// RB_ChartColor control.
         /// </summary>
@@ -263,43 +283,16 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList RB_ChartColor;
-        
+
         /// <summary>
-        /// pnlAYA control.
+        /// divRightContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlAYA;
-        
-        /// <summary>
-        /// rptrAYA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrAYA;
-        
-        /// <summary>
-        /// pnlRelated control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlRelated;
-        
-        /// <summary>
-        /// rptrRelated control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrRelated;
-        
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRightContainer;
+
         /// <summary>
         /// phMRV control.
         /// </summary>
@@ -308,7 +301,70 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder phMRV;
-        
+
+        /// <summary>
+        /// bcTopicLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor bcTopicLink;
+
+        /// <summary>
+        /// bcMeasure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bcMeasure;
+
+        /// <summary>
+        /// bcIndicator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bcIndicator;
+
+        /// <summary>
+        /// litTopic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litTopic;
+
+        /// <summary>
+        /// litTopicMobile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litTopicMobile;
+
+        /// <summary>
+        /// litTopicDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litTopicDesc;
+
+        /// <summary>
+        /// litDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litDataSource;
+
         /// <summary>
         /// litChartTitleText control.
         /// </summary>
@@ -317,7 +373,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litChartTitleText;
-        
+
         /// <summary>
         /// litDDLMeasInd control.
         /// </summary>
@@ -326,7 +382,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litDDLMeasInd;
-        
+
         /// <summary>
         /// litChartSubTitleText control.
         /// </summary>
@@ -335,7 +391,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litChartSubTitleText;
-        
+
         /// <summary>
         /// sliderWrapper control.
         /// </summary>
@@ -344,115 +400,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel sliderWrapper;
-        
-        /// <summary>
-        /// pnlData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlData;
-        
-        /// <summary>
-        /// litNoChart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litNoChart;
-        
-        /// <summary>
-        /// pnlMap control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlMap;
-        
-        /// <summary>
-        /// lblMap control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMap;
-        
-        /// <summary>
-        /// phDivs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phDivs;
-        
-        /// <summary>
-        /// hfShowMapSlider control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfShowMapSlider;
-        
-        /// <summary>
-        /// hfSliderVal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfSliderVal;
-        
-        /// <summary>
-        /// hfAnimateState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfAnimateState;
-        
-        /// <summary>
-        /// hfYearList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfYearList;
-        
-        /// <summary>
-        /// pnlChart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlChart;
-        
-        /// <summary>
-        /// imgHP2020 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgHP2020;
-        
-        /// <summary>
-        /// litPageTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litPageTitle;
-        
+
         /// <summary>
         /// pnlPlotly control.
         /// </summary>
@@ -461,7 +409,70 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlPlotly;
-        
+
+        /// <summary>
+        /// StratYear1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKDSurveillance_RD.UserControls.StratYearsLinks StratYear1;
+
+        /// <summary>
+        /// CB_ChartCI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CB_ChartCI;
+
+        /// <summary>
+        /// csvDownload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button csvDownload;
+
+        /// <summary>
+        /// divMapMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMapMenu;
+
+        /// <summary>
+        /// parentpnlYears control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl parentpnlYears;
+
+        /// <summary>
+        /// pnlYears control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlYears;
+
+        /// <summary>
+        /// litYearText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litYearText;
+
         /// <summary>
         /// Lit_Plotly control.
         /// </summary>
@@ -470,7 +481,151 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Lit_Plotly;
-        
+
+        /// <summary>
+        /// pnlData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlData;
+
+        /// <summary>
+        /// litNoChart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litNoChart;
+
+        /// <summary>
+        /// pnlMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMap;
+
+        /// <summary>
+        /// lblMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMap;
+
+        /// <summary>
+        /// exportButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton exportButton;
+
+        /// <summary>
+        /// divStaticLeft control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divStaticLeft;
+
+        /// <summary>
+        /// map1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl map1;
+
+        /// <summary>
+        /// map2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl map2;
+
+        /// <summary>
+        /// phDivs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phDivs;
+
+        /// <summary>
+        /// hfShowMapSlider control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfShowMapSlider;
+
+        /// <summary>
+        /// hfSliderVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfSliderVal;
+
+        /// <summary>
+        /// hfAnimateState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfAnimateState;
+
+        /// <summary>
+        /// hfYearList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfYearList;
+
+        /// <summary>
+        /// pnlChart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlChart;
+
+        /// <summary>
+        /// imgHP2020 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgHP2020;
+
+        /// <summary>
+        /// litPageTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPageTitle;
+
         /// <summary>
         /// pnlD3MapsTabs control.
         /// </summary>
@@ -479,7 +634,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlD3MapsTabs;
-        
+
         /// <summary>
         /// LiteratureIndicatorFootnote control.
         /// </summary>
@@ -488,7 +643,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal LiteratureIndicatorFootnote;
-        
+
         /// <summary>
         /// tableHeaderBar control.
         /// </summary>
@@ -497,7 +652,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tableHeaderBar;
-        
+
         /// <summary>
         /// lnkDownload control.
         /// </summary>
@@ -506,7 +661,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button lnkDownload;
-        
+
         /// <summary>
         /// btnDownloadChart control.
         /// </summary>
@@ -515,7 +670,16 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDownloadChart;
-        
+
+        /// <summary>
+        /// staticDownloadButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor staticDownloadButton;
+
         /// <summary>
         /// gvData control.
         /// </summary>
@@ -524,43 +688,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvData;
-        
-        /// <summary>
-        /// pnlFootnotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFootnotes;
-        
-        /// <summary>
-        /// lblFootNotesHeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFootNotesHeader;
-        
-        /// <summary>
-        /// litFootNotesText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litFootNotesText;
-        
-        /// <summary>
-        /// litKPText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litKPText;
-        
+
         /// <summary>
         /// lblExplanationHeader control.
         /// </summary>
@@ -569,7 +697,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblExplanationHeader;
-        
+
         /// <summary>
         /// lblExplanationBody control.
         /// </summary>
@@ -578,16 +706,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblExplanationBody;
-        
-        /// <summary>
-        /// litMethodsDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litMethodsDesc;
-        
+
         /// <summary>
         /// litSpecSheetGrid control.
         /// </summary>
@@ -596,7 +715,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litSpecSheetGrid;
-        
+
         /// <summary>
         /// pnlReferences control.
         /// </summary>
@@ -605,7 +724,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlReferences;
-        
+
         /// <summary>
         /// rptrReferences control.
         /// </summary>
@@ -614,7 +733,34 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptrReferences;
-        
+
+        /// <summary>
+        /// pnlFootnotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFootnotes;
+
+        /// <summary>
+        /// lblFootNotesHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFootNotesHeader;
+
+        /// <summary>
+        /// litFootNotesText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litFootNotesText;
+
         /// <summary>
         /// litfunctions control.
         /// </summary>
@@ -623,7 +769,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litfunctions;
-        
+
         /// <summary>
         /// litJS control.
         /// </summary>
@@ -632,7 +778,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litJS;
-        
+
         /// <summary>
         /// litD3Map control.
         /// </summary>
@@ -641,7 +787,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litD3Map;
-        
+
         /// <summary>
         /// phMaps control.
         /// </summary>
@@ -650,7 +796,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder phMaps;
-        
+
         /// <summary>
         /// litD3MapTabs control.
         /// </summary>
