@@ -38,7 +38,11 @@ Public Class ArborDataAccessV2
 
         ''**NG/CDC**''
         ''answer = GetSqlDBConnectionByPlainConnectionString().ConnectionString
-        answer = DBUtil.GetSqlDBConnection().ConnectionString()
+        If (ConfigurationManager.AppSettings("Environment") = "MPR") Then
+            answer = ConfigurationManager.ConnectionStrings("CKD_NEW").ConnectionString.ToString()
+        Else
+            answer = DBUtil.GetSqlDBConnection().ConnectionString()
+        End If
         ''**NG/CDC**''
 
         Return answer
