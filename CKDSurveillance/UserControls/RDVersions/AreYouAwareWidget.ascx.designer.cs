@@ -24,6 +24,24 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl homePageDiv;
 
         /// <summary>
+        /// bcTopic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bcTopic;
+
+        /// <summary>
+        /// bcSelListItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bcSelListItem;
+
+        /// <summary>
         /// Lit_TopicTitle control.
         /// </summary>
         /// <remarks>

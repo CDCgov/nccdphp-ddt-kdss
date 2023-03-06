@@ -64,7 +64,7 @@
         text-decoration: none;
     }
     .rfkd-image {
-        background: transparent url('/images/DataCharts/Diabetes_RiskFactorsOfKD.jpg') 0% 0% no-repeat padding-box;
+        background: transparent url('./images/DataCharts/Diabetes_RiskFactorsOfKD.jpg') 0% 0% no-repeat padding-box;
         opacity: 1;        
         background-size:auto;
         width: 100%;
@@ -248,7 +248,7 @@
                          <div class="rfkd-botton-box ">
                             <asp:Literal ID="litBtnViewPage" runat="server" ClientIDMode="Static" />
                             <div style="padding-top: 15px">
-                                <a href="/detail.aspx?Qnum=Q9&Strat=Year%2c+Diabetes#refreshPosition" class="a-formatView"> <%--target="_blank"--%>
+                                <a href="detail.aspx?Qnum=Q763&topic=4#refreshPosition" class="a-formatView"> <%--target="_blank"--%>
                                     <span class="rfkd-link-text rfkd-bottonbox-padding" style="padding-left:15px">View Page</span>
                                     <img class="rfkd-img-rightarrow" src="./images/DataCharts/RightArrowIcon.jpg" alt="View Diabetes Details Page" />
                                 </a>                                  
@@ -267,7 +267,7 @@
                          <div class="rfkd-botton-box">
                             <asp:Literal ID="Literal1" runat="server" ClientIDMode="Static" />
                             <div style="padding-top: 15px">
-                                <a href="/detail.aspx?Qnum=Q9&Strat=Year%2c+Hypertension#refreshPosition" class="a-formatView"> <%--target="_blank"--%>
+                                <a href="detail.aspx?Qnum=Q764&topic=4#refreshPosition" class="a-formatView"> <%--target="_blank"--%>
                                     <span class="rfkd-link-text rfkd-bottonbox-padding" style="padding-left:15px">View Page</span>
                                     <img class="rfkd-img-rightarrow" src="./images/DataCharts/RightArrowIcon.jpg" alt="View Hypertension Details Page" />
                                 </a>
@@ -286,7 +286,7 @@
                          <div class="rfkd-botton-box">
                             <asp:Literal ID="Literal2" runat="server" ClientIDMode="Static" />
                             <div style="padding-top: 15px">
-                                <a href="/detail.aspx?Qnum=Q9&Strat=Year%2c+Age#refreshPosition" class="a-formatView"> <%--target="_blank"--%>
+                                <a href="detail.aspx?Qnum=Q762&topic=4#refreshPosition" class="a-formatView"> <%--target="_blank"--%>
                                     <span class="rfkd-link-text rfkd-bottonbox-padding" style="padding-left:15px">View Page</span>
                                     <img class="rfkd-img-rightarrow" src="./images/DataCharts/RightArrowIcon.jpg" alt="View Age Details Page" />
                                 </a>

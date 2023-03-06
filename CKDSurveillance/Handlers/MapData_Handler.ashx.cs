@@ -174,7 +174,7 @@ namespace CKDRD4.Handlers
             int wrapsize = 100 / max_xaxis_cnt;//finding the number of data points and wrapping the x-axis labels accordingly
 
             int colorarray_inc = 0;
-            string[] colorarray = { "#D6EAF8", "#AED6F1", "#85C1E9", "#3498DB", "#2E86C1" };
+            string[] colorarray = { "#D6EAF8", "#AED6F1", "#85C1E9", "#59B1EC", "#2E86C1" };
             double minmaxDiff = valMax - valMin;
             for (int i = 0; i <= dtChart.Rows.Count - 1; i++)
             {

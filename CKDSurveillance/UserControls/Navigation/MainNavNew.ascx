@@ -6,33 +6,33 @@
 		<nav class="navbar navbar-expand-xl yamm tmp-meganav-bar">
 			<ul class="nav navbar-nav nav-justified w-100">
 				<li class="nav-item nav-home" id="ckd-nav-home">
-					<a href="/default.aspx" class="nav-link" style="border-top:#2B8277" id="ckd-nav-home-link">
+					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link" style="border-top:#2B8277" id="ckd-nav-home-link">
 						<span class="x24 cdc-icon-home-lg-alt-light"></span>
 						Home
 					</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link" data-menu-id="2091" href="/TopicHome/PrevalenceIncidence.aspx?topic=1" style="border-top:#2B8277">
-							Prevalence & Incidence</a>
+						<a class="nav-link" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/PrevalenceIncidence.aspx?topic=1" style="border-top:#2B8277">
+							Prevalence</a>
 				</li>
                 <li class="nav-item dropdown">
-						<a class="nav-link" data-menu-id="2091" href="/TopicHome/Awareness.aspx?topic=3" style="border-top:#2B8277">
+						<a class="nav-link" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/Awareness.aspx?topic=3" style="border-top:#2B8277">
 							Awareness</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link" data-menu-id="4591" href="/TopicHome/BurdenOfRiskFactors.aspx?topic=4" style="border-top:#2B8277">
+						<a class="nav-link" data-menu-id="4591" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/BurdenOfRiskFactors.aspx?topic=4" style="border-top:#2B8277">
 						Risk Factors</a>
 				</li>
 				<li class="nav-item dropdown" id="meganav-col-cases-data">
-						<a class="nav-link" data-menu-id="2797" href="/TopicHome/HealthConsequences.aspx?topic=5" style="border-top:#2B8277">
+						<a class="nav-link" data-menu-id="2797" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/HealthConsequences.aspx?topic=5" style="border-top:#2B8277">
 							Outcomes</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link" data-menu-id="2093" href="/TopicHome/QualityOfCare.aspx?topic=6" style="border-top:#2B8277" >
+						<a class="nav-link" data-menu-id="2093" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/QualityOfCare.aspx?topic=6" style="border-top:#2B8277" >
 							Quality of Care</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link" data-menu-id="2095" href="/TopicHome/SocialDeterminantsOfHealth.aspx?topic=24" style="border-top:#2B8277">
+						<a class="nav-link" data-menu-id="2095" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/SocialDeterminantsOfHealth.aspx?topic=24" style="border-top:#2B8277">
 							Social Determinants</a>
 				</li>
 			</ul>
@@ -45,33 +45,33 @@
 		<nav class="navbar navbar-expand-xl yamm tmp-meganav-bar">
 			<ul class="nav navbar-nav nav-justified w-100">
 				<li class="nav-item nav-home" id="ckd-nav-home">
-					<a href="/default.aspx" class="nav-link" style="border-top:#2B8277" id="ckd-nav-home-link">
+					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link" style="border-top:#2B8277" id="ckd-nav-home-link">
 						<span class="x24 cdc-icon-home-lg-alt-light"></span>
 						Home
 					</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link" data-menu-id="2091" href="/TopicHome/PrevalenceIncidence.aspx?topic=1" style="border-top:#2B8277"  id="nav-PI">
-							Prevalence & Incidence</a>
+						<a class="nav-link" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/PrevalenceIncidence.aspx?topic=1" style="border-top:#2B8277"  id="nav-PI">
+							Prevalence</a>
 				</li>
                 <li class="nav-item dropdown">
-						<a class="nav-link" data-menu-id="2091" href="/TopicHome/Awareness.aspx?topic=3" style="border-top:#2B8277"  id="nav-AR">
+						<a class="nav-link" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/Awareness.aspx?topic=3" style="border-top:#2B8277"  id="nav-AR">
 							Awareness</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link" data-menu-id="4591" href="/TopicHome/BurdenOfRiskFactors.aspx?topic=4" style="border-top:#2B8277" id="nav-RF">
+						<a class="nav-link" data-menu-id="4591" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/BurdenOfRiskFactors.aspx?topic=4" style="border-top:#2B8277" id="nav-RF">
 						Risk Factors</a>
 				</li>
 				<li class="nav-item dropdown" id="meganav-col-cases-data">
-						<a class="nav-link" data-menu-id="2797" href="/TopicHome/HealthConsequences.aspx?topic=5" style="border-top:#2B8277" id="nav-HC">
+						<a class="nav-link" data-menu-id="2797" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/HealthConsequences.aspx?topic=5" style="border-top:#2B8277" id="nav-HC">
 							Outcomes</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link" data-menu-id="2093" href="/TopicHome/QualityOfCare.aspx?topic=6" style="border-top:#2B8277" id="nav-QC">
+						<a class="nav-link" data-menu-id="2093" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/QualityOfCare.aspx?topic=6" style="border-top:#2B8277" id="nav-QC">
 							Quality of Care</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link" data-menu-id="2095" href="/TopicHome/SocialDeterminantsOfHealth.aspx?topic=24" style="border-top:#2B8277" id="nav-SDOH">
+						<a class="nav-link" data-menu-id="2095" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/SocialDeterminantsOfHealth.aspx?topic=24" style="border-top:#2B8277" id="nav-SDOH">
 							Social Determinants</a>
 				</li>
 			</ul>
@@ -83,22 +83,31 @@
 <script>
 	$(document).ready(function () {
 		var topic = getParameterByName('topic'); 
-		if (topic == 1) {
+		var qnum = getParameterByName('Qnum');
+
+		if (topic == 1 || qnum == "Q372"
+			|| qnum == "Q9"
+			|| qnum == "Q702"
+			|| qnum == "Q756"
+			|| qnum == "Q705") {
             var a = document.getElementById("nav-PI");
 			a.classList.add("active");
-        } else if (topic == 3) {
+        } else if (topic == 3 || qnum == "Q98" || qnum == "Q759") {
 			var a = document.getElementById("nav-AR");
             a.classList.add("active");
-        } else if (topic == 4) {
+        } else if (topic == 4 || qnum == "Q762" || qnum == "Q763" || qnum == "Q764") {
             var a = document.getElementById("nav-RF");
             a.classList.add("active");
-        }else if (topic == 5) {
+        } else if (topic == 5 || qnum == "Q185" || qnum == "Q364" || qnum == "Q703") {
             var a = document.getElementById("nav-HC");
             a.classList.add("active");
-        } else if (topic == 6) {
+        } else if (topic == 6 || qnum == "Q640"
+            || qnum == "Q700"
+            || qnum == "Q605"
+            || qnum == "Q719") {
             var a = document.getElementById("nav-QC");
             a.classList.add("active");
-        } else if (topic == 24) {
+        } else if (topic == 24 || qnum == "Q760" || qnum == "Q761") {
             var a = document.getElementById("nav-SDOH");
             a.classList.add("active");
         }

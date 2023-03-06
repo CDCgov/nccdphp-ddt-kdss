@@ -121,24 +121,25 @@
         <div class="col-md-3">
                 <div class="row additionalresources">ADDITIONAL RESOURCES</div>
                 <ul class="generalinformation-link">
-                    <li class="generalinformation-link-li">
+                  <%--  <li class="generalinformation-link-li">
                         <a href="/help.aspx?section=F" class="generalinformation-link" target="popup"
                             onclick="return popupWindow('help.aspx?section=G', 800, 600);">Frequently Asked Questions</a>
+                    </li>--%>
+                    <li class="generalinformation-link-li">
+                        <a href="data.aspx?categoryID=67" class="generalinformation-link" <%--target="new"--%> >Healthy People  <%--<span class="fi cdc-icon-external x16"></span>--%></a>
                     </li>
                     <li class="generalinformation-link-li">
-                        <a href="/help.aspx?section=G" class="generalinformation-link" target="popup" 
+                        <a href="help.aspx?section=G" class="generalinformation-link" target="popup" 
                             onclick="return popupWindow('help.aspx?section=G', 800, 600);">Glossary</a>
                     </li>
                     <li class="generalinformation-link-li">
-                        <a href="/help.aspx?section=D" class="generalinformation-link" target="popup" 
+                        <a href="help.aspx?section=D" class="generalinformation-link" target="popup" 
                             onclick="return popupWindow('help.aspx?section=D', 800, 600);">Data Sources</a>
                     </li>
-                    <li class="generalinformation-link-li">
+                   <%-- <li class="generalinformation-link-li">
                         <a href="/data.aspx"  class="generalinformation-link">Complete Indicators List</a>
-                    </li>
-                    <li class="generalinformation-link-li">
-                        <a href="/data.aspx?categoryID=67" class="generalinformation-link"  target="new">Healthy People<span class="fi cdc-icon-external x16"></span></a>
-                    </li>
+                    </li>--%>
+
                 </ul>
              </div>
         <div class="col-md-9">
@@ -146,7 +147,7 @@
             <div class="row generalinformation-subtitle">CKD Fact Sheet: Chronic Kidney Disease in the United States, 2021</div>
             <div class="row generalinformation-text">When people develop <span style="font-weight:bold">chronic kidney disease (CKD)</span>, their kidneys become damaged and over time may not clean the blood as well as healthy kidneys. If kidneys do not work well, toxic waste and extra fluid accumulate in the body and may lead to high blood pressure, heart disease, stroke, and early death. However, people with CKD and people at risk for CKD can take steps to protect their kidneys with the help of their health care providers.</div>
             <div class="row">
-                <a href="/Documents/Chronic-Kidney-Disease-in-the-US-2021-h.pdf" class="generalinformation-link-padding"  alt="Download CKD Fact Sheet" download>
+                <a href="Documents/Chronic-Kidney-Disease-in-the-US-2021-h.pdf" class="generalinformation-link-padding"  alt="Download CKD Fact Sheet" download>
                     <span class="generalinformation-download"></span>&nbsp;<span style="vertical-align:super">Download CKD Fact Sheet</span></a>
             </div>
             <br />

@@ -44,14 +44,14 @@
             <%--*Graphic Identifier*--%>
             <asp:HyperLink ID="hlLogo" runat="server" NavigateUrl="~/Default.aspx">
                 <%--<asp:Image ImageUrl="~/images/graphic_identifier.png" runat="server" AlternateText="Graphic Identifier for CKD Project" CssClass="img-fluid img-responsive" style="width:640px; height: 100%;" />--%>
-                <img id="KDS" src="../images/CKD_GI_Larger.png" alt="Graphic Identifier for CKD Project" Class="img-fluid img-responsive kdsimage" />
+                <img id="KDS" src="/ckd/images/CKD_GI_Larger.png" alt="Graphic Identifier for CKD Project" Class="img-fluid img-responsive kdsimage" />
             </asp:HyperLink>
-        </div>
+        </div> 
         <div class="col-sm-7 aboutsurveillance-text">
             <div style="margin-bottom:25px;">
                 Kidney Disease Surveillance is a comprehensive information system for kidney disease to inform and stimulate public health action. The purpose of the system is reducing the burden and impact of kidney disease on the U.S. population.
             </div>
-            <a id="lnkAboutProject" title="Information about the CKD Surveillance Project" class="ckd-glossary-link aboutsurveillance-link" onclick="return popupWindow('/Help.aspx?section=H', 800, 600);" href="/Help.aspx?section=H"><span>About Surveillance</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+            <a id="lnkAboutProject" title="Information about the CKD Surveillance Project" class="ckd-glossary-link aboutsurveillance-link" onclick="return popupWindow('Help.aspx?section=H', 800, 600);" href="Help.aspx?section=H"><span>About Surveillance</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
         </div>
     </div>
 </div>

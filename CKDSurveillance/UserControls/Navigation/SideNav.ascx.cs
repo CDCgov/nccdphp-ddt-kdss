@@ -82,7 +82,7 @@ namespace CKDSurveillance_RD
             {
                 TopicID = ViewState["TopicID"].ToString();
             }
-            else if(Request.QueryString["topic"] != null)
+            else if (Request.QueryString["topic"] != null)
             {
                 TopicID = Request.QueryString["topic"].ToString().Trim();
             }
@@ -98,7 +98,7 @@ namespace CKDSurveillance_RD
             }
             //Set this in session for access by Methods page
             Session["qnum"] = QNum;
-            
+
 
             if (Request.RawUrl.IndexOf("AreYouAware.aspx") >= 0)
             {
@@ -107,12 +107,21 @@ namespace CKDSurveillance_RD
                 divAYARF.Visible = true;
                 return;
             }
+            else if (Request.RawUrl.IndexOf("data.aspx?categoryID=67") >= 0)  
+            {
+                divARandGI.Visible = true;
+                Lit_IndicatorText.Visible = false;
+                divAYA.Visible = false;
+                divAYARF.Visible = false;
+                return;
+            }
             else {
                 Lit_IndicatorText.Visible = true;
                 divAYA.Visible = false;
                 divAYARF.Visible = false;
             }
-            
+
+
             if (string.IsNullOrEmpty(TopicID) && string.IsNullOrEmpty(QNum))
                 return;
 
@@ -140,6 +149,12 @@ namespace CKDSurveillance_RD
 
                         string topicText = dt.Rows[0]["TopicText"].ToString();
                         Lit_IndicatorText.Text = MethodsIndicatorsTableCreation(topicID, topicText);
+
+                        if (string.IsNullOrEmpty(TopicID))
+                        {
+                            TopicID = topicID.ToString();
+                            Session["TopicID"] = topicID;
+                        }
                         break;
                     }
                 }
@@ -157,29 +172,29 @@ namespace CKDSurveillance_RD
             //Start table HTML
             var href = "";
             switch (TopicText) {
-                case "Prevalence and Incidence":
-                    href = "/TopicHome/PrevalenceIncidence.aspx?topic=1";
+                case "Prevalence":
+                    href = directoryPath + "TopicHome/PrevalenceIncidence.aspx?topic=1";
                     break;
                 case "Awareness":
-                    href = "/TopicHome/Awareness.aspx?topic=3";
+                    href = directoryPath + "TopicHome/Awareness.aspx?topic=3";
                     break;
                 case "Risk Factors":
-                    href = "/TopicHome/BurdenOfRiskFactors.aspx?topic=4";
+                    href = directoryPath + "TopicHome/BurdenOfRiskFactors.aspx?topic=4";
                     break;
-                case "Health Consequences":
-                    href = "/TopicHome/HealthConsequences.aspx?topic=5";
+                case "Outcomes":
+                    href = directoryPath + "TopicHome/HealthConsequences.aspx?topic=5";
                     break;
                 case "Quality of Care":
-                    href = "/TopicHome/QualityOfCare.aspx?topic=6";
+                    href = directoryPath + "TopicHome/QualityOfCare.aspx?topic=6";
                     break;
                 case "Social Determinants of Health and Kidney Disease":
-                    href = "/TopicHome/SocialDeterminantsOfHealth.aspx?topic=24";
+                    href = directoryPath + "TopicHome/SocialDeterminantsOfHealth.aspx?topic=24";
                     break;
                 default:
-                    href = "/default.aspx";
+                    href = directoryPath + "default.aspx";
                     break;
             }
-            sbTable.Append("<div class=\"navBoldHeader nav-section-home d-sm-block\" aria-multiselectable=\"true\" role=\"tabpanel\" ><span><a style=\"color:#007C91;\" href='" + href +"'/>" + TopicText +"</a></span></div>");
+            sbTable.Append("<div class=\"navBoldHeader nav-section-home d-sm-block\" aria-multiselectable=\"true\" role=\"tabpanel\" ><span><a style=\"color:#00768A;\" href='" + href +"'/>" + TopicText +"</a></span></div>");
             sbTable.Append("<div class=\"accordion indicator-plus accordion-white \" aria-multiselectable=\"true\" role=\"tabpanel\" >");
 
             DataTable dtMeasures = DAL.getMeasuresByTopicID(TopicID);
@@ -232,7 +247,7 @@ namespace CKDSurveillance_RD
                 foreach (DataRow drInd in dtIndicators.Rows)
                 {
                     // Build link
-                    string linkStart = ("<a href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "&topic="+ TopicID + "#refreshPosition\" style=\"color:#000000\">"));
+                    string linkStart = ("<a href=\""+ directoryPath +"detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "&topic="+ TopicID + "#refreshPosition\" style=\"color:#000000\">"));
                     //string linkStart = ("<a href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "#refreshPosition\" + \"#PIdivbody\" >"));
                     string text = drInd["IndicatorText"].ToString().Trim();
                     string linkEnd = "</a>";
@@ -274,7 +289,7 @@ namespace CKDSurveillance_RD
                         if (drInd["QNUM"].ToString().Trim() == QNum) { 
                             sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist selectedLink\" style='margin-left:25px;'>");
                             sbTable.Replace("navBoldHeader", "navNormalHeader");
-                            linkStart = ("<a href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "&topic=" + TopicID + "#refreshPosition\" class=\"selectedLink\">"));
+                            linkStart = ("<a href=\""+directoryPath +"detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "&topic=" + TopicID + "#refreshPosition\" class=\"selectedLink\">"));
                         }
                         else
                             sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist\" style='margin-left:25px;'>");
@@ -284,7 +299,7 @@ namespace CKDSurveillance_RD
 
                     if (drInd["LiteratureInd"].ToString() == "1")
                     {
-                        sb_indTable.Append("&nbsp;<img src='../images/bookicon.PNG' alt='Published literature or one-time analysis, ongoing surveillance not available' />");
+                        sb_indTable.Append("&nbsp;<img src='/ckd/images/bookicon.PNG' alt='Published literature or one-time analysis, ongoing surveillance not available' />");
                         containsLitInd = true;
                     }
 

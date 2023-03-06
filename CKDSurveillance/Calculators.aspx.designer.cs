@@ -7,9 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD {
-    
-    
-    public partial class Calculators {
+namespace CKDSurveillance_RD
+{
+
+
+    public partial class Calculators
+    {
+
+        /// <summary>
+        /// Lit_TopicTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Lit_TopicTitle;
+
+        /// <summary>
+        /// Lit_Desc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Lit_Desc;
+
+        /// <summary>
+        /// _dvHP2020Description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _dvHP2020Description;
+
+        /// <summary>
+        /// SideNav control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKDSurveillance_RD.SideNav SideNav;
     }
 }

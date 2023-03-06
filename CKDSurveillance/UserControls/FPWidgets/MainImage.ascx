@@ -90,22 +90,22 @@
         <h1 class="col-md-6 main-text phoneNoShow"><span>Tracking</span> <span class="main-symbol">&</span> <span>Preventing <br />Kidney Disease in America</span></h1>
         <h3 class="col-md-6 main-text showPhoneOnly"><span style="font-weight:bold">Tracking</span> <span class="main-symbol">&</span> Preventing Kidney Disease in America</h3>
         <div class="col-sx-1 main-icon">
-            <img src="/images/main_icon2.png" Class="img-fluid img-responsive" alt=""/>
+            <img src="images/main_icon2.png" Class="img-fluid img-responsive" alt=""/>
         </div>
         <div class="col-sx-1 main-icon" style="padding-left:1em;">
-            <img src="/images/main_icon1.png" Class="img-fluid img-responsive" alt=""/>
+            <img src="images/main_icon1.png" Class="img-fluid img-responsive" alt=""/>
         </div>
         <div class="col-sx-1 main-icon-mobile">
-            <img src="/images/main_icon2_mobile.png" Class="img-fluid img-responsive" alt=""/>
+            <img src="images/main_icon2_mobile.png" Class="img-fluid img-responsive" alt=""/>
         </div>
         <div class="col-sx-1 main-icon-mobile">
-            <img src="/images/main_icon1_mobile.png" Class="img-fluid img-responsive" alt=""/>
+            <img src="images/main_icon1_mobile.png" Class="img-fluid img-responsive" alt=""/>
         </div>
         <div class="col-md-4 main-info showPhoneOnly">
-            <img src="/images/info_black_24dp.png" Class="img-fluid img-responsive" alt=""/>Blood & Urine Tests Measure Kidney Function, Damage & Other Abnormalities
+            <img src="images/info_black_24dp.png" Class="img-fluid img-responsive" alt=""/>Blood & Urine Tests Measure Kidney Function, Damage & Other Abnormalities
         </div>
         <div class="col-md-4 main-info phoneNoShow">
-            <img src="/images/info_black_24dp.png" Class="img-fluid img-responsive" alt=""/>Blood & Urine Tests Measure<br /> Kidney Function, Damage & <br />Other Abnormalities
+            <img src="images/info_black_24dp.png" Class="img-fluid img-responsive" alt=""/>Blood & Urine Tests Measure<br /> Kidney Function, Damage & <br />Other Abnormalities
         </div>
     </div>
 </div>

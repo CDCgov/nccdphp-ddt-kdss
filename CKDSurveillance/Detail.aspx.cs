@@ -31,7 +31,7 @@ namespace CKDSurveillance_RD.MasterPages
         bool istriplestrat = false;
         bool isIEorEdge = false;
         ArborDataAccessV2 DAL = new ArborDataAccessV2();
-        public string directoryPath;
+        //public string directoryPath;
         public bool isDetailpage = true;
         private int datasourceCount = 0;
         private int viewdatabyCount = 0;
@@ -183,7 +183,7 @@ namespace CKDSurveillance_RD.MasterPages
         protected void Page_Load(object sender, EventArgs e)
         {
             //buildPageScripts();
-
+            
             string browser = "";
             if (Request.Browser != null) browser = Request.Browser.Browser.ToString().ToLower();
             if (browser == "internetexplorer")
@@ -254,36 +254,38 @@ namespace CKDSurveillance_RD.MasterPages
                 //*Header Info*            
                 DataTable dtHeader = getHeaderInfo();
 
-                if (dtHeader != null && dtHeader.Rows.Count > 0 && Request.QueryString["topic"] != null)
+                if (dtHeader != null && dtHeader.Rows.Count > 0)
                 {
                     string href = "";
                     string topicText = dtHeader.Rows[0]["Topic"].ToString();
                     string measureText = dtHeader.Rows[0]["Measure"].ToString();
                     string indicatorText = dtHeader.Rows[0]["Indicator"].ToString();
-                    string topicID = Request.QueryString["topic"].ToString();
+                    string topicID = dtHeader.Rows[0]["TopicID"].ToString();
+
+                    Session["TopicID"] = topicID;
 
                     switch (topicID)
                     {
                         case "1":
-                            href = "/TopicHome/PrevalenceIncidence.aspx?topic=1";
+                            href = "TopicHome/PrevalenceIncidence.aspx?topic=1";
                             break;
                         case "3":
-                            href = "/TopicHome/Awareness.aspx?topic=3";
+                            href = "TopicHome/Awareness.aspx?topic=3";
                             break;
                         case "4":
-                            href = "/TopicHome/BurdenOfRiskFactors.aspx?topic=4";
+                            href = "TopicHome/BurdenOfRiskFactors.aspx?topic=4";
                             break;
                         case "5":
-                            href = "/TopicHome/HealthConsequences.aspx?topic=5";
+                            href = "TopicHome/HealthConsequences.aspx?topic=5";
                             break;
                         case "6":
-                            href = "/TopicHome/QualityOfCare.aspx?topic=6";
+                            href = "TopicHome/QualityOfCare.aspx?topic=6";
                             break;
                         case "24":
-                            href = "/TopicHome/SocialDeterminantsOfHealth.aspx?topic=24";
+                            href = "TopicHome/SocialDeterminantsOfHealth.aspx?topic=24";
                             break;
                         default:
-                            href = "/default.aspx";
+                            href = "default.aspx";
                             break;
                     }
 
@@ -297,6 +299,8 @@ namespace CKDSurveillance_RD.MasterPages
                 if (QNum != "Q760" && QNum != "Q761")
                 {
                     StratYear1.Visible = true;
+                    litChartInstruction.Visible = true;
+                    divChartInstruction.Visible = true;
                     StratYearsLinksMaps.Visible = true;
                     chartFormatOptions.Visible = true;
                     chartColorOptions.Visible = false;
@@ -304,8 +308,11 @@ namespace CKDSurveillance_RD.MasterPages
                     chartColorControls.Visible = false;
                     divRightContainer.Visible = true;
                     //litSourceTabs.Visible = true;
-                    StratYear1.Visible = true;
-                    CB_ChartCI.Visible = true;
+                    //StratYear1.Visible = true;
+                    if (QNum == "Q705")
+                        CB_ChartCI.Visible = false;
+                    else
+                        CB_ChartCI.Visible = true;
 
                     divStaticLeft.Visible = false;
                     pnlMap.Style.Remove("overflow-x");
@@ -321,6 +328,8 @@ namespace CKDSurveillance_RD.MasterPages
                 else
                 {
                     StratYear1.Visible = false;
+                    litChartInstruction.Visible = false;
+                    divChartInstruction.Visible = false;
                     StratYearsLinksMaps.Visible = false;
                     chartFormatOptions.Visible = false;
                     chartColorOptions.Visible = false;
@@ -328,7 +337,7 @@ namespace CKDSurveillance_RD.MasterPages
                     chartColorControls.Visible = false;
                     divRightContainer.Visible = false;
                     //litSourceTabs.Visible = false;
-                    StratYear1.Visible = false;
+                    //StratYear1.Visible = false;
                     CB_ChartCI.Visible = false;
                     divMapMenu.Visible = false;
 
@@ -359,20 +368,20 @@ namespace CKDSurveillance_RD.MasterPages
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
 
             if (QNum == "Q761") { 
-                litTopic.Text = litTopic.Text + "Poverty level and CKD in the US Medicare Population at County-level";
-                litTopicMobile.Text = litTopic.Text;
-                lblExplanationBody.Text += "<strong>Chart Explanation:&nbsp;</strong><br/>The average of percentage prevalence rate of CKD is 22.3 (SD=7.7, n=3,195). Prevalence counts are based on 5% Medicare data from 2005–2016. CKD status identified using a CKD code (ICD-9-CM or ICD-10-CM diagnosis code, excluding ESRD). Prevalent CKD rate within state/county is calculated by the total number of patients identified with CKD using CKD code divided by total number of Medicare eligible patients in the state/county. The average of the Social Vulnerability Index is 0.5(SD = 0.3, n = 3, 142).The social vulnerability index is high in counties in the Southwestern and the Southern States. The social vulnerability index and the prevalence of CKD are both high in counties in the Southern region.";
+                litTopic.Text = litTopic.Text + "Geographic Distribution of Population below Poverty Threshold Level and CKD in the US Medicare Population, by County";
+                litTopicMobile.Text = litTopic.Text;                
+                litTopicDesc.Text += "The bivariate map shows the combination of the percentage of the population below the poverty threshold and the percentage of diagnosed CKD patients among the Medicare population across counties in the United States. Geographic variation was observed in the percentage of the population below the poverty threshold (mean=15.4, SD=6.9, n=3,095) and the percentage of diagnosed CKD patients among the Medicare population (mean=22.1, SD=6.5, n=3,097). The percentage of the population under the poverty level and the prevalence of CKD are high in counties in the Southern region. Further investigation into poverty and CKD prevalence in some of these hotspot areas is crucial.";
             }
             else if (QNum == "Q760") {
-                litTopic.Text = litTopic.Text + "Average daily PM2.5 and CKD in the US Medicare Population at County-level";
+                litTopic.Text = litTopic.Text + "Geographic Distribution of Average Daily PM2.5 Air Pollution and CKD in the US Medicare Population, by County";
                 litTopicMobile.Text = litTopic.Text;
-                lblExplanationBody.Text += "<strong>Chart Explanation:&nbsp;</strong><br/>The average of percentage prevalence rate of CKD is 22.3 (SD=7.7, n=3,195). Prevalence counts are based on 5% Medicare data from 2005–2016. CKD status identified using a CKD code (ICD-9-CM or ICD-10-CM diagnosis code, excluding ESRD). Prevalent CKD rate within state/county is calculated by the total number of patients identified with CKD using CKD code divided by total number of Medicare eligible patients in the state/county. The average daily PM2.5 is varied across the United States(mean = 8.7 μg / m3, SD = 0.3 μg / m3, n = 3, 108).The average daily PM2.5 and the prevalence of CKD are both high in counties in California, the rust-belt area, and the Southern region.";
+                litTopicDesc.Text += "The bivariate map shows the combination of the average daily PM2.5 and the percentage of diagnosed CKD patients among the Medicare population across counties in the United States. The average daily PM2.5 and the percentage of diagnosed CKD patients varied across counties (PM2.5 mean=8.7 μg/m3, SD=1.9 μg/m3, n=3,043; CKD mean=22.1, SD=6.5, n=3,097). The average daily PM2.5 and the prevalence of CKD are high in counties in California, the rust-belt area, and the Southern region. Further investigation into air pollution and CKD prevalence in some of these hotspot areas is crucial.";
             }
 
             //************
             //*Foot Notes*
             //************
-            //populateFootNotes();
+            populateFootNotes();
 
             //************
             //*Key points*
@@ -395,6 +404,18 @@ namespace CKDSurveillance_RD.MasterPages
             }
 
             //litSourceTabs.Text = createSDOHSourceLinks();
+
+            //*******************************
+            //*TODO: Populate table for SDOH*
+            //*******************************
+            /*var chartID = 4019;
+            var addedHeader = "<div class=\"addedTableHeader\">Prevalence of CKD by State and County<sup><strong>a</strong></sup><br>, For 2019</div> <div class=\"addedTableHeaderDataSource\">Centers for Medicare & Medicaid Services - Medicare</div>";
+            var titleNoFN = "Prevalence of CKD by State and County";
+            
+            populateTable(chartID, addedHeader, titleNoFN, true);
+            */
+
+            divDataSource.Visible = false;
 
             //**********************
             //*Methods & Spec Sheet*
@@ -422,7 +443,9 @@ namespace CKDSurveillance_RD.MasterPages
             DataTable dtDataSources = getCachedDataSourcesFromIndicatorCode(QNum);
             createDataSourceLinksDropDown(dtDataSources, QNum);
 
-
+            //if (dtDataSources != null && dtDataSources.Rows.Count > 0 && dtDataSources.Rows[0]["DataSourceDescription"] != null)
+            //    lblExplanationBody.Text = dtDataSources.Rows[0]["DataSourceDescription"].ToString();
+            
             //Now the phone only DDL version of the Data Source Tab
 
 
@@ -470,6 +493,7 @@ namespace CKDSurveillance_RD.MasterPages
             if (onStateMapPage == false)
             {
                 StratYear1.loadStratsAndYears(dtPage);
+                divChartInstruction.Visible = StratYear1.IsViewDataByVisible;
                 loadStratsAndYears(dtPage);
                 StratYearsLinksMaps.Visible = false;
                 btnDownloadChart.Visible = true;
@@ -480,6 +504,8 @@ namespace CKDSurveillance_RD.MasterPages
             {
                 StratYearsLinksMaps.loadYears(dtPage, QNum);
                 StratYear1.Visible = false;
+                litChartInstruction.Visible = false;
+                divChartInstruction.Visible = false;
                 btnDownloadChart.Visible = false;
             }
 
@@ -593,7 +619,7 @@ namespace CKDSurveillance_RD.MasterPages
             //************
             //*Foot Notes*
             //************
-            //populateFootNotes();
+            populateFootNotes();
 
             //************
             //*Finding the current year and setting it*
@@ -944,14 +970,14 @@ namespace CKDSurveillance_RD.MasterPages
                     //Remove the last set of <br />s
                 }
 
-                pnlFootnotes.Visible = true;
+                //pnlFootnotes.Visible = true;
 
                 litFootNotesText.Text = fnString;
             }
-            else if (dtFootnotes.Rows.Count == 0)
-            {
-                pnlFootnotes.Visible = false;
-            }
+            //else if (dtFootnotes.Rows.Count == 0)
+            //{
+            //    pnlFootnotes.Visible = false;
+            //}
         }
         private void populateKeyPointsMethods()
         {
@@ -1005,15 +1031,15 @@ namespace CKDSurveillance_RD.MasterPages
                 }
 
 
-                //if (kpCount > 0)
-                //{
-                //    litKPText.Text = kp;
-                //}
-                //else
-                //{
-                //    litKPText.Text = "";
-                //    //"No Key Point data to view."
-                //}
+                if (kpCount > 0)
+                {
+                    litTopicDesc.Text = kp;
+                }
+                else
+                {
+                    litTopicDesc.Text = "";
+                    //"No Key Point data to view."
+                }
             }
             catch (SqlException sqlEx)
             {
@@ -1138,6 +1164,10 @@ namespace CKDSurveillance_RD.MasterPages
                 }
 
             }
+
+            if (string.IsNullOrEmpty(litDataSource.Text))
+                divDataSource.Visible = false;
+
             sb.Append("</select>");
 
             sb.Append("<br />");
@@ -1188,20 +1218,20 @@ namespace CKDSurveillance_RD.MasterPages
             //***************************
             //*Populate the Methods Text*
             //***************************
-            //for (int i = 0; i <= dtMethodText.Rows.Count - 1; i++)
-            //{
-            //    if (!string.IsNullOrEmpty(dtMethodText.Rows[i]["MethodText"].ToString()))
-            //    {
-            //        //*Add the text*
-            //        litMethodsDesc.Text += dtMethodText.Rows[i]["MethodText"].ToString();
+            for (int i = 0; i <= dtMethodText.Rows.Count - 1; i++)
+            {
+                if (!string.IsNullOrEmpty(dtMethodText.Rows[i]["MethodText"].ToString()))
+                {
+                    //*Add the text*
+                    litMethodsDesc.Text += dtMethodText.Rows[i]["MethodText"].ToString();
 
-            //        //*Add some space*
-            //        if (i != dtMethodText.Rows.Count - 1)
-            //        {
-            //            litMethodsDesc.Text += "<br /><br />";
-            //        }
-            //    }
-            //}
+                    //*Add some space*
+                    if (i != dtMethodText.Rows.Count - 1)
+                    {
+                        litMethodsDesc.Text += "<br /><br />";
+                    }
+                }
+            }
 
             if (qnum == "Q760" || qnum == "Q761") //SDOH
             {
@@ -1234,7 +1264,7 @@ namespace CKDSurveillance_RD.MasterPages
             DataTable answer = new DataTable("Data Source");
 
             DataTable dt = new DataTable("TitleInfo");
-            DataColumn dc1 = new DataColumn("URL", typeof(string));
+            DataColumn dc1 = new DataColumn("URL", typeof(string));            
             DataColumn dc2 = new DataColumn("Topic", typeof(string));
             DataColumn dc3 = new DataColumn("Measure", typeof(string));
             DataColumn dc4 = new DataColumn("Stratification", typeof(string));
@@ -1242,7 +1272,8 @@ namespace CKDSurveillance_RD.MasterPages
             DataColumn dc6 = new DataColumn("Title", typeof(string));
             DataColumn dc7 = new DataColumn("Data Source", typeof(string));
             DataColumn dc8 = new DataColumn("Indicator", typeof(string));
-            DataColumn[] cols = { dc1, dc2, dc3, dc4, dc5, dc6, dc7, dc8 };
+            DataColumn dc9 = new DataColumn("TopicID", typeof(int));
+            DataColumn[] cols = { dc1, dc2, dc3, dc4, dc5, dc6, dc7, dc8 , dc9};
             dt.Columns.AddRange(cols);
 
 
@@ -1257,6 +1288,7 @@ namespace CKDSurveillance_RD.MasterPages
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
             DataTable dtDetails = DAL.getQuestionDetails(QNum);
 
+            int topicID = int.Parse(dtDetails.Rows[0]["TopicID"].ToString());
             string topic = dtDetails.Rows[0]["TopicText"].ToString();
             string measure = dtDetails.Rows[0]["MeasureText"].ToString();
             string indicator = dtDetails.Rows[0]["IndicatorText"].ToString();
@@ -1266,6 +1298,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             DataRow dr = dt.NewRow();
             dr["URL"] = url;
+            dr["TopicID"] = topicID;
             dr["Topic"] = topic;
             dr["Measure"] = measure;
             dr["Indicator"] = indicator;
@@ -1352,6 +1385,9 @@ namespace CKDSurveillance_RD.MasterPages
         }
         protected DataSet getChartDataForExcel(string maptype)
         {
+            if (QNum == "Q761" || QNum == "Q760")
+                QNum = "Q705";
+
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
             DataTable dtPage = DAL.getPage(QNum).Tables[0];
             int chartID = determineChartID(dtPage);
@@ -1429,7 +1465,11 @@ namespace CKDSurveillance_RD.MasterPages
             DataTable dtHeader = getHeaderInfo();
 
             //*Get Excel tables*
-            DataSet dsExcels = getChartDataForExcel(hfMapType.Value);
+            DataSet dsExcels;
+            if(QNum == "Q761" || QNum == "Q760")
+                dsExcels = getChartDataForExcel("6");
+            else
+                dsExcels = getChartDataForExcel(hfMapType.Value);
 
             //*Specific Data*
             DataTable dtData = dsExcels.Tables[0];
@@ -1848,75 +1888,139 @@ namespace CKDSurveillance_RD.MasterPages
                 tableByPopulation = "";
             }
 
-            litChartTitleText.Text = tableByPopulation.Replace("Year and ", "") ;
-            litChartTitleText.Text = litChartTitleText.Text.Replace("<br>", "");
-            litChartTitleText.Text = litChartTitleText.Text.Replace("/Ethnicity", "");
-            litChartTitleText.Text = litChartTitleText.Text.Replace("For 2019", "");
+            if (QNum == "Q372" ||
+                QNum == "Q702" ||
+                QNum == "Q762" ||
+                QNum == "Q763" ||
+                QNum == "Q764" ||
+                QNum == "Q185" ||
+                QNum == "Q364" ||
+                QNum == "Q703" ||
+                QNum == "Q700" ||
+                QNum == "Q719" )
+                litChartTitleText.Visible = false;
+            else
+            {
+                litChartTitleText.Visible = true;
 
-            if ((QNum == "Q9") || (QNum == "Q756"))
-            {
-                if (litChartTitleText.Text == "by Year")
+                var subTitlePrefix = "";
+
+                if (QNum == "Q9" || QNum == "Q756")
                 {
-                    litChartTitleText.Text = "CKD (%)";  //Overall
+                    subTitlePrefix = "CKD (%), ";
                 }
-                else if (litChartTitleText.Text == "by Age")
+                else if (QNum == "Q98" || QNum == "Q759")
                 {
-                    litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text + " Category";
+                    subTitlePrefix = "Aware of CKD (%), ";
                 }
+                else if (QNum == "Q605")
+                {
+                    if (Request.QueryString["Strat"] == null || Request.QueryString["Strat"] == "Overall")
+                        subTitlePrefix = "Overall = ACEi/ARB Use (%), ";
+                    else
+                        subTitlePrefix = Request.QueryString["Strat"].ToString() + " = ACEi/ARB Use (%), ";
+                }
+                else if (QNum == "Q640")
+                {
+                    if (Request.QueryString["Strat"] == null || Request.QueryString["Strat"] == "Overall")
+                        subTitlePrefix = "Overall = Albuminuria Testing (%), ";
+                    else
+                        subTitlePrefix = Request.QueryString["Strat"].ToString() + " = Albuminuria Testing (%), ";
+                }
+                else if (QNum == "Q705")
+                {
+                    if (Request.QueryString["Strat"] == null || Request.QueryString["Strat"] == "County")
+                        subTitlePrefix = "Overall";
+                    else if (Request.QueryString["Strat"] != null && Request.QueryString["Strat"].ToString().IndexOf("Diabetes") >= 0)
+                        subTitlePrefix = "Diabetes";
+                    else if (Request.QueryString["Strat"] != null && Request.QueryString["Strat"].ToString().IndexOf("Hypertension") >= 0)
+                        subTitlePrefix = "Hypertension";
+                }
+
+                if (QNum == "Q705")
+                    litChartTitleText.Text = subTitlePrefix;
                 else
                 {
-                    litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text;
+                    if (Request.QueryString["Strat"] == null || Request.QueryString["Strat"] == "Overall")
+                    {
+                        litChartTitleText.Text = subTitlePrefix + "Overall";
+                    }
+                    else if (Request.QueryString["Strat"] != null)
+                    {
+                        litChartTitleText.Text = subTitlePrefix + "by " + Request.QueryString["Strat"].ToString();
+                    }
                 }
             }
-            else if ((QNum == "Q98") || (QNum == "Q759"))
-            {
-                if (litChartTitleText.Text == "by Year")
-                {
-                    litChartTitleText.Text = "Aware of CKD (%)";  //Overall
-                }
-                else if (litChartTitleText.Text == "by Age")
-                {
-                    litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text + " Category";
-                }
-                else
-                {
-                    litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text;
-                }
-            }
-            else if (QNum == "Q605")
-            {
-                if (litChartTitleText.Text == "by Year")
-                {
-                    litChartTitleText.Text = "ACEi/ARB Use (%)";  //Overall
-                }
-                else if (litChartTitleText.Text == "by Age")
-                {
-                    litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text + " Category";
-                }
-                else
-                {
-                    litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text;
-                }
-            }
-            else if (QNum == "Q640")
-            {
-                if (litChartTitleText.Text == "by Year")
-                {
-                    litChartTitleText.Text = "Albuminuria Testing (%)";  //Overall
-                }
-                else if (litChartTitleText.Text == "by Age")
-                {
-                    litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text + " Category";
-                }
-                else
-                {
-                    litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text;
-                }
-            }
-            else if ((QNum == "Q364") || (QNum == "Q700") || (QNum == "Q703"))  //subtitle is not needed since it's only one view
-            {
-                litChartTitleText.Text = "";
-            }
+
+            //litChartTitleText.Text = tableByPopulation.Replace("Year and ", "") ;
+            //litChartTitleText.Text = litChartTitleText.Text.Replace("<br>", "");
+            //litChartTitleText.Text = litChartTitleText.Text.Replace("/Ethnicity", "");
+            //litChartTitleText.Text = litChartTitleText.Text.Replace("For 2019", "");
+
+            //if ((QNum == "Q9") || (QNum == "Q756"))
+            //{
+            //    if (litChartTitleText.Text == "by Year")
+            //    {
+            //        litChartTitleText.Text = "CKD (%)";  //Overall
+            //    }
+            //    else if (litChartTitleText.Text == "by Age")
+            //    {
+            //        litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text + " Category";
+            //    }
+            //    else
+            //    {
+            //        litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text;
+            //    }
+            //}
+            //else if ((QNum == "Q98") || (QNum == "Q759"))
+            //{
+            //    if (litChartTitleText.Text == "by Year")
+            //    {
+            //        litChartTitleText.Text = "Aware of CKD (%)";  //Overall
+            //    }
+            //    else if (litChartTitleText.Text == "by Age")
+            //    {
+            //        litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text + " Category";
+            //    }
+            //    else
+            //    {
+            //        litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text;
+            //    }
+            //}
+            //else if (QNum == "Q605")
+            //{
+            //    if (litChartTitleText.Text == "by Year")
+            //    {
+            //        litChartTitleText.Text = "ACEi/ARB Use (%)";  //Overall
+            //    }
+            //    else if (litChartTitleText.Text == "by Age")
+            //    {
+            //        litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text + " Category";
+            //    }
+            //    else
+            //    {
+            //        litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text;
+            //    }
+            //}
+            //else if (QNum == "Q640")
+            //{
+            //    if (litChartTitleText.Text == "by Year")
+            //    {
+            //        litChartTitleText.Text = "Albuminuria Testing (%)";  //Overall
+            //    }
+            //    else if (litChartTitleText.Text == "by Age")
+            //    {
+            //        litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text + " Category";
+            //    }
+            //    else
+            //    {
+            //        litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text;
+            //    }
+            //}
+            //else if ((QNum == "Q364") || (QNum == "Q700") || (QNum == "Q703"))  //subtitle is not needed since it's only one view
+            //{
+            //    litChartTitleText.Text = "";
+            //}
 
             //if ((datasourceCount > 1) && (viewdatabyCount > 1)) //if more then 1 datasource is listed then display the chart title 
             //{
@@ -1954,9 +2058,9 @@ namespace CKDSurveillance_RD.MasterPages
             //*Populate the Explanation*
             //**************************
             string exp = dtChartHeader.Rows[0]["Explanation"].ToString();
-            lblExplanationBody.Text += "<strong>Chart Explanation:&nbsp;</strong>" + exp;//dtChartHeader.Rows[0]["Explanation"].ToString();
-            litTopicDesc.Text = exp;
-            
+            //lblExplanationBody.Text +=  exp;//dtChartHeader.Rows[0]["Explanation"].ToString();
+            //litTopicDesc.Text = exp;
+            litChartInstruction.Text = exp;
 
             if (isMap || istriplestrat || onCountyMapPage)
             {
@@ -3476,7 +3580,7 @@ namespace CKDSurveillance_RD.MasterPages
             retstr += "{";
             retstr += "console.log('inside drawtiny');";
             retstr += "var stateData = [];";
-            retstr += "const colorarrayv2 = ['#D6EAF8', '#AED6F1', '#85C1E9', '#3498DB', '#2E86C1'];";
+            retstr += "const colorarrayv2 = ['#D6EAF8', '#AED6F1', '#85C1E9', '#59B1EC', '#2E86C1'];";
             retstr += "const statearray = ['Alabama', 'Alaska', 'Arkansas', 'Arizona', 'California', 'Colorado', 'Connecticut', 'District of Columbia', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Iowa', 'Idaho', 'Illinois', 'Indiana', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',";
             retstr += "'Massachusetts', 'Michigan', 'Minnesota', 'Missouri', 'Mississippi', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',";
             retstr += "'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'Wisconsin', 'West Virginia', 'Wyoming'];";
@@ -3495,11 +3599,20 @@ namespace CKDSurveillance_RD.MasterPages
             //reducing the width and height
             retstr += "var width = 190;";
             retstr += "var height = 190;";
+            
+            retstr += "var zoom = d3.zoom().on('zoom', zoomed);"; //zoom
+
             retstr += "d3.select('#tinystatemap').selectAll('svg').remove();";//remove the existing state
             retstr += "var svg = d3.select('#tinystatemap').append('svg')";//add a new svg and draw a new state
             retstr += ".attr('width', width)";
             retstr += ".attr('height', height)";
-            retstr += ".attr('class', 'countymapsvgtiny');";
+            retstr += ".attr('class', 'countymapsvgtiny')";
+
+            retstr += ".call(zoom);"; //zoom
+
+            retstr += "d3.select('#zoom_in').on('click', function() { zoom.scaleBy(svg.transition().duration(750), 1.2);});d3.select('#zoom_out').on('click', function() { zoom.scaleBy(svg.transition().duration(750), 0.8);});"; //zoom
+            //retstr += "function zoomed() { g.attr('transform', d3.event.transform);}";//zoom
+
             retstr += "var path = d3.geoPath();";
 
             retstr += "d3.queue()";//starting the queue
@@ -4255,7 +4368,7 @@ namespace CKDSurveillance_RD.MasterPages
             StringBuilder sb = new StringBuilder();
 
             sb.Append("<div class=\"chartMapMenuLabel\">Select Data Year</div>");
-            sb.Append("<select class=\"form-control\"  onchange=\"openViewDataBy(this.value);\">");
+            sb.Append("<select class=\"form-control\"  onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Data Year\">");
 
             foreach (DataRow dr in yearTable.Rows)
             {

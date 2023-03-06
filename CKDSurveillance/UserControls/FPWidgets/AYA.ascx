@@ -116,14 +116,14 @@
             <div class="row aya-botton-box">
                 <%--<div class="col-sm-3 aya-button">View Spotlight</div>--%>
                 <asp:Literal ID="litBtnMore" runat="server" ClientIDMode="Static" />
-                <div class="aya-link-div"><a href="/AreYouAware.aspx" class="aya-link"><span style="color: contrast(4.5);">Awareness Archive</span><i class="fa fa-angle-right right-angle-arrow"></i></a></div>
+                <div class="aya-link-div"><a href="AreYouAware.aspx" class="aya-link"><span style="color: contrast(4.5);">Awareness Archive</span><i class="fa fa-angle-right right-angle-arrow"></i></a></div>
             </div>
         </div>
         <div class="col-md-6 aya-image">
-            <img src="../../images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>
+            <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>
         </div>
         <div class="col-md-6 aya-image-mobile">
-            <img src="../../images/Mask_Group_33_mobile.png"  style="width:100%;margin-top:15px" alt=""/>
+            <img src="/ckd/images/Mask_Group_33_mobile.png"  style="width:100%;margin-top:15px" alt=""/>
         </div>
     </div>
 </div>

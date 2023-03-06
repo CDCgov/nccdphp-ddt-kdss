@@ -152,7 +152,7 @@
             color: #007C91 !important;
         }
         .main-image-banner {
-            background: transparent url('/images/CKD_Main.png') 0% 0% no-repeat padding-box;
+            background: transparent url('/ckd/images/CKD_Main.png') 0% 0% no-repeat padding-box;
         }
         .outcomecontainer {
             width: 100%;
@@ -163,7 +163,7 @@
         }
         @media (max-width: 767px) {
             .main-image-banner {
-                background: transparent url('/images/CKD_Main_Mobile.png') 0% 0% no-repeat padding-box;
+                background: transparent url('/ckd/images/CKD_Main_Mobile.png') 0% 0% no-repeat padding-box;
                 margin-top: -24px;
             }
             .outcomecontainer {

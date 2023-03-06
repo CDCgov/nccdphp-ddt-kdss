@@ -13,13 +13,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CKDSurveillance_RD</RootNamespace>
     <AssemblyName>CKDSurveillance_RD</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <TargetFrameworkProfile />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -75,8 +75,8 @@
       <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\DecryptAesSymmetric.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DocumentFormat.OpenXml, Version=2.19.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocumentFormat.OpenXml.2.19.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.13.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.13.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
     <Reference Include="EncryptAesByPassPhrase, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\EncryptAesByPassPhrase.dll</HintPath>
@@ -118,25 +118,23 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data.SqlClient">
-      <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Packaging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Packaging.7.0.0\lib\net462\System.IO.Packaging.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\System.IO.Packaging.5.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
-    <Reference Include="System.Text.Encoding.CodePages, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DataVisualization" />
@@ -198,6 +196,7 @@
     <Content Include="AYA\AYA_template.html" />
     <Content Include="AYA\February_2016.html" />
     <Content Include="AYA\February_2019.html" />
+    <Content Include="AYA\Images\April_2023.png" />
     <Content Include="AYA\Images\May_2021.png" />
     <Content Include="AYA\Images\July_2021.png" />
     <Content Include="AYA\Images\October_2022.png" />
@@ -261,6 +260,7 @@
     <Content Include="AYA\November_2017.html" />
     <Content Include="AYA\November_2020.html" />
     <Content Include="AYA\October_2018.html" />
+    <Content Include="AYA\April_2023.html" />
     <Content Include="AYA\October_2022.html" />
     <Content Include="AYA\September_2016.html" />
     <Content Include="AYA\September_2017.html" />
@@ -326,7 +326,11 @@
     <Content Include="images\DataCharts\map1.PNG" />
     <Content Include="images\DataCharts\map2.PNG" />
     <Content Include="images\DataCharts\PM2.5_mean.jpg" />
+    <Content Include="images\DataCharts\PM2.5_mean.png" />
+    <Content Include="images\DataCharts\PM2.5_mean2x.png" />
     <Content Include="images\DataCharts\Poverty.jpg" />
+    <Content Include="images\DataCharts\Poverty.png" />
+    <Content Include="images\DataCharts\Poverty2x.png" />
     <Content Include="images\DataCharts\Poverty_and_CKD.jpg" />
     <Content Include="images\DataCharts\Prevalent_CKD.jpg" />
     <Content Include="images\DataCharts\RightArrowIcon.jpg" />
@@ -336,6 +340,7 @@
     <Content Include="images\Email1_Green.png" />
     <Content Include="images\Email_blue.png" />
     <Content Include="images\EmergingTopics_Green.png" />
+    <Content Include="images\HP2030-blackarrow.png" />
     <Content Include="images\info_black_24dp.png" />
     <Content Include="images\KDLeftNavlogo.jpg" />
     <Content Include="images\main_icon1.png" />
@@ -625,7 +630,6 @@
     <Content Include="UserControls\Navigation\SideNav.ascx" />
     <Content Include="UserControls\Navigation\MainNavNew.ascx" />
     <Content Include="UserControls\Navigation\MainNav.ascx" />
-    <Content Include="UserControls\Navigation\SideNavHP.ascx" />
     <Content Include="UserControls\Patients.ascx" />
     <Content Include="UserControls\ProjectIntroVideo.ascx" />
     <Content Include="UserControls\RDVersions\AreYouAwareWidget.ascx" />
@@ -1457,13 +1461,6 @@
     <Compile Include="UserControls\Navigation\MainNav.ascx.designer.cs">
       <DependentUpon>MainNav.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Navigation\SideNavHP.ascx.cs">
-      <DependentUpon>SideNavHP.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\Navigation\SideNavHP.ascx.designer.cs">
-      <DependentUpon>SideNavHP.ascx</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Patients.ascx.cs">
       <DependentUpon>Patients.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1967,7 +1964,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52871</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/CKDSurveillance</IISUrl>
+          <IISUrl>http://localhost:52871/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

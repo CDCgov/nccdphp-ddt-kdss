@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" AutoEventWireup="true" CodeBehind="Calculators.aspx.cs" Inherits="CKDSurveillance_RD.Calculators" %>
 
+<%@ Register Src="~/UserControls/Navigation/SideNav.ascx" TagPrefix="uc1" TagName="SideNav" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <%--*CSS*--%>
@@ -54,679 +56,961 @@
             font-style: italic;
             font-size: 14px;
         }
+
+        .ckdPagetitle{
+            text-align: left;
+            font-family: Open Sans !important;
+            font-size: 38px !important;
+            letter-spacing: 0px;
+            color: #29434E;
+            opacity: 1;
+        }
+
+        .ckdIntroduction{            
+            padding:25px !important;            
+		    color: #00768A;
+            background: #F2F7F7 0% 0% no-repeat padding-box;
+            opacity: 1;
+		    border-left: 4px solid;
+		    border-top:0px;
+		    border-color:#006778; /*0% 0% no-repeat padding-box;*/
+
+/*		    letter-spacing: 0px;			
+		    text-align:left;
+		    font-family: Open Sans, Semibold;
+		    font-weight:bold;
+		    font-size:17px;*/
+        }
+
+        .introTitles{
+            text-align: left;
+            /*font: normal normal bold 17px/24px Open Sans;*/
+            font-family: Open Sans;
+            font-size: 17px !important;
+            font-weight: bold !important;
+            letter-spacing: 0px;
+            color: #000000 !important;            
+        }
+
+        .introContent{
+            text-align: left;
+            letter-spacing: 0px;
+            font-family: Open Sans;
+            font-size: 17px !important;
+            letter-spacing: 0px;
+            color: #000000 !important;;
+            opacity: 1;
+        }
+            
+        .tabHeader{
+            text-align: center;
+            font-family: Open Sans !important;
+            font-size: 17px !important;
+            letter-spacing: 0px;
+            color: #000000;
+            opacity: 1;
+            /*border-bottom: 2px solid #ddd;  */
+            /*border-right: 2px solid #ddd;*/
+           /* background: #F5F5F5 0% 0% no-repeat padding-box;*/
+        }
+
+        .calcdescription{
+            text-align: left;
+            font-family: Open Sans; 
+            font-size: 17px; 
+            letter-spacing: 0px;
+            color: #000000;
+        }
+        .calcdescriptionLink{
+            text-align: left;
+            text-decoration: underline;
+            font-family: Open Sans; 
+            font-size: 17px;             
+            letter-spacing: 0px;
+            color: #007C91;
+        }
+        .charTableHeaderBg{
+            background: #29434EBF 0% 0% no-repeat padding-box;
+            opacity: 1;
+        }
+        .charTableHeader{  /*Characteristic, This Person, US National Average*/
+            text-align: left;
+            font-family: Open Sans; 
+            font-size: 18px; 
+            font-weight: 600;
+            letter-spacing: 0px;
+            color: #FFFFFF;
+            opacity: 1;
+            vertical-align:middle !important;
+        }
+        .charTableText {    /*Age Range*/
+            text-align: left;
+            font-family: Open Sans;
+            font-size: 17px;
+            letter-spacing: 0px;
+            color: #29434E;
+            opacity: 1;
+        }
+        .charTableTextHeader{   /*Enter Age and Gender*/
+            text-align: left;
+            font-family: Open Sans; 
+            font-size: 17px; 
+            letter-spacing: 0px;
+            color: #2D2D2D;
+            opacity: 1;
+        }
+
+        .charTableTextHeaderBg {
+            background: #F5F5F5 0% 0% no-repeat padding-box;
+            opacity: 1;
+        }
+
+        .yesnotext{
+            text-align: left;
+            font-family: Open Sans; 
+            font-size: 15px; 
+            letter-spacing: 0px;
+            color: #5E5E5E;
+            opacity: 1;
+        }
+
+        .footNotesTitle{
+            text-align: left; 
+            font-family:Open Sans; 
+            font-size:22px; 
+            font-weight:600 !important; 
+            letter-spacing: -0.22px; 
+            color: #222222; 
+            opacity: 1;
+        }
+
+        .footnotetext{
+            text-align: left;
+            font-family:Open Sans;
+            font-size: 15px;
+            letter-spacing: 0px;
+            color: #000000;
+            opacity: 1;            
+        }
+
+        .footerRefTitle{
+            text-align: left;
+            font-family:Open Sans;
+            font-size: 17px;
+            font-weight:bold;
+            letter-spacing: 0px;
+            color: #000000;
+            opacity: 1;
+        }
+
+        .footerRefText{
+            text-align: left;
+            font-family:Open Sans;
+            font-size: 15px;
+            letter-spacing: 0px;
+            color: #000000;
+        }
+
+        .footerRefLink{
+            text-align: left;
+            text-decoration: underline;
+            font-family:Open Sans;
+            font-size: 15px;
+            letter-spacing: 0px;
+            color: #007C91;
+        }
+
+        .footerRefBg{
+            color: #00768A;
+            background: #F2F7F7 0% 0% no-repeat padding-box;
+            opacity: 1;
+            padding:20px;
+            /*background: #8B8B8B 0% 0% no-repeat padding-box;
+            opacity: 0.11;*/
+        }
+
+        .chartBg{
+            background: #F2F7F7 0% 0% no-repeat padding-box;
+            opacity: 1;
+            padding: 15px;
+            height: 92% !important;
+            /*background: #00695C 0% 0% no-repeat padding-box;
+            opacity: 0.05;*/
+        }
+        .chartTitle1{   /*Probability of having Stage 3-5...*/
+            text-align: left;
+            font-family: Open Sans;
+            font-weight: 600; 
+            font-size: 18px; 
+            letter-spacing: 0px;
+            color: #29434E;
+            opacity: 1;
+        }
+
+        .chartTitle2 {  /*expressed as a percentage....*/
+            text-align: left;
+            font-family: Open Sans;
+            font-size: 17px; 
+            letter-spacing: 0px;
+            color: #484848;
+        }
+        .chartTitle3 {   /*Probability(%) - sideways*/
+            text-align: left;
+            font-family: Open Sans;
+            font-weight: bold; 
+            font-size: 17px;
+            letter-spacing: 0px;
+            color: #000000;
+            opacity: 1;
+
+        }
+
+        .resetChoicesBtnText{
+            text-align: left;
+            font-family: Open Sans;
+            font-weight: 600; 
+            font-size: 17px;
+            letter-spacing: 0px;
+            color: #29434E;
+            opacity: 1;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border: 1px solid #29434E;
+            padding:10px;
+        }
+
+        .resetChoicesButtonBg {
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border: 1px solid white; /*#29434E;*/
+            border-radius: 5px;
+            opacity: 1;
+            width: 160px; 
+            height: 48px;
+            text-align: right;
+        }
+
+        .percentText {
+            text-align: left;
+            font-family: Open Sans;
+            font-size: 17px;
+            letter-spacing: 0px;
+            color: #00695C;
+            opacity: 1;
+        }
+
     </style>
 </asp:Content>
 
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
 
-    <div class="row">
-        <div class="col-xl-12">
 
-            <div class="Pagetitle">CKD Risk Calculators</div>
+<!-- Page Content Wrap -->
+	<div class="container d-flex flex-wrap body-wrapper bg-white">
 
-            <br />
-            <br />
-
-            <div class="introduction">
-
-                <div><strong>Below are two tools:</strong></div>
-                <br />
-                <div>
-                    <strong><em>Calculator 1:</em> Risk of Chronic Kidney Disease (CKD) in adults</strong>
-                    <br />
-                    For adults who don’t know if they have chronic kidney disease (CKD), Calculator 1 estimates the probability of having CKD (Bang et al., 2007)
-                    <ul>
-                        <li>The calculation is based on individual characteristics: age, sex, and 7 comorbidities including hypertension, diabetes and cardiovascular disease.</li>
-                    </ul>
-                    <br />
-                    <strong><em>Calculator 2:</em> Risk of progression of CKD to kidney failure among those who already have CKD </strong>
-                    <br />
-                    For adults who know they have CKD (estimated glomerular filtration rate [eGFR] <60 mL/min/1.73m<sup>2</sup>), Calculator 2 estimates the probability of progression of CKD to kidney failure in the next two or five years using a 4- or 8-variable equation (Tangri et al., 2011)  
-                    <ul>
-                        <li>The 4-variable equation is based on individual characteristics: age, sex, eGFR and Urine Albumin to Creatinine Ratio (UACR)
-                        </li>
-                        <li>The 8-variable equation also includes four laboratory tests (serum calcium, phosphate, bicarbonate, and albumin).
-                        </li>
-                    </ul>
-                </div>
-                <p>
-                    The intended audience is medical researchers and clinicians; the calculators should only be used by laypersons to begin dialog with their care provider. 
-                    These equations should not be used for self-diagnosis or self-management.
-                </p>
-
-            </div>
-
-            <br />
-            <br />
-
-            <div class="phoneWarning">
-                <p style="font-weight: bold; color: red">The CKD Risk Calculators are designed for use on devices with larger displays. Please visit this page on a tablet, laptop, or desktop device.</p>
-            </div>
-
-            <div id="divContentTabs" class="tabs-module">
-                <ul class="nav nav-tabs no-syndicate" id="tabs-3" role="tablist">
-                    <li class="nav-item" style="border-top: 2px solid #ddd; border-left: 2px solid #ddd; border-right: 2px solid #ddd;"><a class="nav-link active" data-toggle="tab" role="tab" href="#tab-Bang">Calculator 1: Probability of CKD</a></li>
-                    <li class="nav-item" style="border-top: 2px solid #ddd; border-right: 2px solid #ddd;"><a class="nav-link" data-toggle="tab" role="tab" href="#tab-Tangri">Calculator 2: Progression of CKD</a></li>
-                </ul>
+			<!-- Content -->
+			<main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area">
+					<div id="PIdivbody" class="row">
+						<div  class="col content">										
+							<div class="cdc-2020-bar container">
+								<div class="row no-gutters">
+									<div class="bar-item">
+											<a href="/default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
+											<span class="PIhomebreadcrumb"><u>Home</u></span> </a> 
+										    <span id="bcTopic" class="PIbodybreadcrumb"> > Chronic Kidney Disease Risk Calculators </span>  <%--selected topic from top nav --%>
+											<span id="bcSelListItem" class="PIbodybreadcrumb">  </span>  <%--selected list item from left nav --%>
+											<%--<span id="bcPIlinks" class="PIbodybreadcrumb">  > </span>--%>
+									</div>
+								</div>
+							</div>
+							<div>
+								<h1 id="content" class="PIbodyTitle "><span id="topicTitle"><asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal></span> </h1>								
+							</div>
+							<p>                   
+								<span class="PIbody"><asp:Literal ID="Lit_Desc" runat="server"></asp:Literal></span>
+							</p>
 
 
-                <div class="tab-content">
-                    <div class="tab-pane active" role="tabpanel" id="tab-Bang">
+							<div>
+                                <div class="col-xl-12">
 
-                        <div class="ct-row">
+                                    <div class="ckdPagetitle">Chronic Kidney Disease Risk Calculators</div>
 
-                            <%--*BANG CKD RISK Calculator *--%>
-                            <div class="kptext">
-
-                                <div class="Pagetitle">
-                                    Probability of CKD
-                                </div>
-
-                                <br />
-
-                                <div class="description">
-                                    <p>
-                                        This calculator returns the probability (expressed as a percentage from 0 to 100%) of having Stage 3-5 CKD, defined as an estimated glomerular filtration rate (eGFR) less than 60 mL/min/1.73m<sup>2</sup>, based on nine input variables<sup>1</sup>. 
-                                        If one or more of the values is unknown, trying different combinations of the presence or absence of the unknown characteristics will give a range of possible estimates.  
-                                        An elevated probability of CKD should prompt individuals to seek more comprehensive medical advice, possibly leading to further medical evaluation, earlier diagnosis and interventions to both manage the condition and slow its progression.
-                                    </p>
-                                    <p>
-                                        Details of the risk equation development (Bang et al, 2007) are available here: <a href='https://www.ncbi.nlm.nih.gov/pubmed/17325299' target='_blank'>https://www.ncbi.nlm.nih.gov/pubmed/17325299</a>. 
-                                    </p>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-6 bangControls">
-                                        <table class="table table-bordered BangTable">
-
-                                            <thead>
-                                                <tr>
-                                                    <th id="colChar" scope="col">Characteristic</th>
-                                                    <th id="colTP" scope="col">This Person</th>
-                                                    <th id="colNA" scope="col">U.S. National<br />
-                                                        Average</th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-
-                                                <%--***************************--%>
-                                                <%--*Age and Sex Choice Header*--%>
-                                                <%--***************************--%>
-                                                <tr>
-                                                    <th id="EAAS" scope="row" colspan="3" class="instructionLine"><em>Enter Age and Sex:</em></th>
-                                                </tr>
-
-
-                                                <tr>
-                                                    <th id="rowAge" scope="row" headers="EAAS colChar" class="QLabelLeft"><span>Age (required):</span></th>
-                                                    <td class="QLabelRight" headers="EAAS colTP rowAge">
-                                                        <label for="selBang2" style="color: #FFF; height: 0px;">Age Choices (required)</label>
-                                                        <select id="selBang2" class="form-control" onchange="removeRequirement('bage'); submitData('bang');">
-                                                            <option value="0">(Please Select)</option>
-                                                            <option value="1">20 - 49</option>
-                                                            <option value="2">50 - 59</option>
-                                                            <%--<option value="2">50 - 59</option>--%>
-                                                            <option value="3">60 - 69</option>
-                                                            <%--<option value="3">60 - 69</option>--%>
-                                                            <option value="4">≥ 70</option>
-                                                            <%--<option value="4">≥ 70</option>--%>
-                                                        </select>
-                                                    </td>
-                                                    <td headers="EAAS colNA rowAge"></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th id="rowSex" scope="row" headers="EAAS colChar" class="QLabelLeft"><span>Sex (required):</span></th>
-                                                    <td class="QLabelRight" headers="EAAS colTP rowSex">
-                                                        <fieldset>
-                                                            <legend>Sex</legend>
-                                                            <input id="rbSexFemale" type="radio" name="rbSex" value="0" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
-                                                            <label for="rbSexFemale" class="float-left">Female</label>
-                                                            &nbsp;                                                                                             
-                                                            <input id="rbSexMale" type="radio" name="rbSex" value="1" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
-                                                            <label for="rbSexMale" class="float-left">Male</label>
-                                                        </fieldset>
-                                                    </td>
-                                                    <td headers="EAAS colNA rowSex"></td>
-                                                </tr>
-
-
-                                                <%--****************************--%>
-                                                <%--*Radio Button Choice Header*--%>
-                                                <%--****************************--%>
-                                                <tr>
-                                                    <th id="CKDprob" scope="row" colspan="3" class="instructionLine">
-                                                        <em>Enter any of the following characteristics that may increase the probability of CKD:</em>
-                                                    </th>
-                                                </tr>
-
-                                                <tr>
-                                                    <th id="rowAnemia" scope="row" class="QLabelLeft" headers="CKDprob colChar">Anemia:</th>
-                                                    <td class="QLabelRight" headers="CKDprob colTP rowAnemia">
-                                                        <fieldset>
-                                                            <legend>Anemia</legend>
-                                                            <input id="rbAnemiaNo" type="radio" name="rbAnemia" value="0" class="float-left" onchange="submitData('bang');" checked />
-                                                            <label for="rbAnemiaNo" class="float-left">No</label>
-                                                            &nbsp;
-                                                            <input id="rbAnemiaYes" type="radio" name="rbAnemia" value="1" class="float-left" onchange="submitData('bang');" />
-                                                            <label for="rbAnemiaYes" class="float-left">Yes</label>
-                                                        </fieldset>
-                                                    </td>
-                                                    <td headers="CKDprob colNA rowAnemia"></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th id="rowHypertension" scope="row" class="QLabelLeft" headers="CKDprob colChar">Hypertension:</th>
-                                                    <td class="QLabelRight" headers="CKDprob colTP rowHypertension">
-                                                        <fieldset>
-                                                            <legend>Hypertension</legend>
-                                                            <input id="rbHypertensionNo" type="radio" name="rbHypertension" value="0" class="float-left" onchange="submitData('bang');" checked />
-                                                            <label for="rbHypertensionNo" class="float-left">No</label>
-                                                            &nbsp;                                               
-                                                            <input id="rbHypertensionYes" type="radio" name="rbHypertension" value="1" class="float-left" onchange="submitData('bang');" />
-                                                            <label for="rbHypertensionYes" class="float-left">Yes</label>
-                                                        </fieldset>
-                                                    </td>
-                                                    <td headers="CKDprob colNA rowHypertension">(<a target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q652'>41%</a><%--<sup>2</sup>--%>)</td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th id="rowDiabetes" scope="row" class="QLabelLeft" headers="CKDprob colChar">Diabetes:</th>
-                                                    <td class="QLabelRight" headers="CKDprob colTP rowDiabetes">
-                                                        <fieldset>
-                                                            <legend>Diabetes</legend>
-                                                            <input id="rbDiabetesNo" type="radio" name="rbDiabetes" value="0" class="float-left" onchange="submitData('bang');" checked />
-                                                            <label for="rbDiabetesNo" class="float-left">No</label>
-                                                            &nbsp;
-                                                            <input id="rbDiabetesYes" type="radio" name="rbDiabetes" value="1" class="float-left" onchange="submitData('bang');" />
-                                                            <label for="rbDiabetesYes" class="float-left">Yes</label>
-                                                        </fieldset>
-                                                        <div id="diabetesHint" class="float-right">
-                                                            <img id="imgDiabetesHint" alt="Dabetes Description Help" title="click for Diabetes Information" src="images/help.jpg" onclick="$('#divDiabetesPopover').fadeIn(500);" />
-                                                        </div>
-                                                        <div id="divDiabetesPopover" style="display: none; width: 325px;">
-                                                            <span class="float-right closeX" onclick="$('#divDiabetesPopover').hide();">X</span>
-                                                            <br />
-                                                            <p>Having diabetes increases the probability of CKD by about 50%.</p>
-                                                            <p>About <a href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q653' target="_blank">10%</a> of the US population has diabetes.</p>
-                                                        </div>
-                                                    </td>
-                                                    <td headers="CKDprob colNA rowDiabetes">(<a target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q653'>10%</a><%--<sup>3</sup>--%>)</td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th id="rowCVD" scope="row" class="QLabelLeft" headers="CKDprob colChar">Cardiovascular Disease (CVD):</th>
-                                                    <td class="QLabelRight" headers="CKDprob colTP rowCVD">
-                                                        <fieldset>
-                                                            <legend>CVD</legend>
-                                                            <input id="rbCVDNo" type="radio" name="rbCVD" value="0" class="float-left" onchange="submitData('bang');" checked />
-                                                            <label for="rbCVDNo" class="float-left">No</label>
-                                                            &nbsp;
-                                                        <input id="rbCVDYes" type="radio" name="rbCVD" value="1" class="float-left" onchange="submitData('bang');" />
-                                                            <label for="rbCVDYes" class="float-left">Yes</label>
-                                                        </fieldset>
-                                                    </td>
-                                                    <td headers="CKDprob colNA rowCVD">(<a target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q151'>8%</a><%--<sup>4</sup>--%>)</td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th id="rowCHF" scope="row" class="QLabelLeft" headers="CKDprob colChar">Congestive Heart Failure (CHF):</th>
-                                                    <td class="QLabelRight" headers="CKDprob colTP rowCHF">
-                                                        <fieldset>
-                                                            <legend>CHF</legend>
-                                                            <input id="rbCHFNo" type="radio" name="rbCHF" value="0" class="float-left" onchange="submitData('bang');" checked />
-                                                            <label for="rbCHFNo" class="float-left">No</label>
-                                                            &nbsp;
-                                                            <input id="rbCHF" type="radio" name="rbCHF" value="1" class="float-left" onchange="submitData('bang');" />
-                                                            <label for="rbCHF" class="float-left">Yes</label>
-                                                        </fieldset>
-                                                    </td>
-                                                    <td headers="CKDprob colNA rowCHF"></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th id="rowPVD" scope="row" class="QLabelLeft" headers="CKDprob colChar">Peripheral Vascular Disease (PVD):</th>
-                                                    <td class="QLabelRight" headers="CKDprob colTP rowPVD">
-                                                        <fieldset>
-                                                            <legend>PVD</legend>
-                                                            <input id="rbPVDNo" type="radio" name="rbPVD" value="0" class="float-left" onchange="submitData('bang');" checked />
-                                                            <label for="rbPVDNo" class="float-left">No</label>
-                                                            &nbsp;
-                                                            <input id="rbPVDYes" type="radio" name="rbPVD" value="1" class="float-left" onchange="submitData('bang');" />
-                                                            <label for="rbPVDYes" class="float-left">Yes</label>
-                                                        </fieldset>
-                                                    </td>
-                                                    <td headers="CKDprob colNA rowPVD"></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th id="rowProteinUria" scope="row" class="QLabelLeft" headers="CKDprob colChar">Proteinuria:<sup>2</sup></th>
-                                                    <td class="QLabelRight" headers="CKDprob colTP rowProteinUria">
-                                                        <fieldset>
-                                                            <legend>Proteinuria</legend>
-                                                            <input id="rbProteinuriaNo" type="radio" name="rbProteinuria" value="0" class="float-left" onchange="submitData('bang');" checked />
-                                                            <label for="rbProteinuriaNo" class="float-left">No</label>
-                                                            &nbsp;
-                                                            <input id="rbProteinuriaYes" type="radio" name="rbProteinuria" value="1" class="float-left" onchange="submitData('bang');" />
-                                                            <label for="rbProteinuriaYes" class="float-left">Yes</label>
-                                                        </fieldset>
-                                                    </td>
-                                                    <td headers="CKDprob colNA rowProteinUria">(<a target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q11'>10%</a>)</td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-
-                                        <div class="float-left">
-                                            <button id="btnBangReset" class="btn btnSubtle" onclick="return resetChoices('bang');">Reset Choices</button>
-                                        </div>
-
-                                        <br />
-                                        <br />
-
-
-                                        <br />
-                                        <br />
-                                    </div>
-
-                                    <div class="col-lg-6">
-
-                                        <div class="score">
-                                            <p>
-                                                <strong>Probability of having Stage 3-5 Chronic Kidney Disease (CKD) (expressed as a percentage between 0% and 100%):</strong>
-                                            </p>
-                                            <%--  <br />--%>
-
-                                            <%--*Required messages*--%> <%--commented out - UM request 11/2019--%>
-                                            <div class="bang_required_messages">
-                                                In order to show a chart of the calculations, the following are required:
-                                        
-                                            <ul class="bang_req_list">
-                                                <li id="LiBangAge" class="bang_age">Age</li>
-                                                <li id="LiBangSex" class="bang_sex">Sex</li>
+                    <div id="_dvHP2020Description" runat="server" style="clear: both; margin-top: 10px; margin-left:20px;" >  
+                            <div  style="margin-top: 10px">                              
+                                    <div class="row ckdIntroduction" >  <%-- navBoldHeader d-sm-block subTitleHPbg   subTitleHPlink--%>
+                                  
+                                        <div>
+                                            <span class="introTitles" style="color:black">Calculator 1: Risk of Chronic Kidney Disease (CKD) in adults</span>
+                                            <br />
+                                            <span class="introContent">For adults who don’t know if they have chronic kidney disease (CKD), Calculator 1 estimates the probability of having CKD (Bang et al., 2007)</span>
+                                            <ul>  <%--style="list-style: none;"--%>
+                                                <li class="introContent" style="margin-left:30px;">The calculation is based on individual characteristics: age, sex, and 7 comorbidities including hypertension, diabetes and cardiovascular disease.</li>
                                             </ul>
-                                            </div>
-
-                                            <%--*Graph BANG Results*--%>
-                                            <div id="divBangGraph" class="bangGraph" style="width: 513px;"></div>
-
-                                            <%-- <br />
-                                            <br />--%>
-
-                                            <span id="spnBangAnswer"></span>
-
+                                            <br />
+                                            <span class="introTitles">Calculator 2: Risk of progression of CKD to kidney failure among those who already have CKD </span>
+                                            <br />
+                                            <span class="introContent">For adults who know they have CKD (estimated glomerular filtration rate [eGFR] <60 mL/min/1.73m<sup>2</sup>), Calculator 2 estimates the probability of progression of CKD to kidney failure in the next two or five years using a 4- or 8-variable equation (Tangri et al., 2011)  </span>
+                                            <ul>
+                                                <li class="introContent" style="margin-left:30px;">The 4-variable equation is based on individual characteristics: age, sex, eGFR and Urine Albumin to Creatinine Ratio (UACR)
+                                                </li>
+                                                <li class="introContent" style="margin-left:30px;">The 8-variable equation also includes four laboratory tests (serum calcium, phosphate, bicarbonate, and albumin).
+                                                </li>
+                                            </ul>
                                         </div>
+                                        <p class="introContent">
+                                            The intended audience is medical researchers and clinicians; the calculators should only be used by laypersons to begin dialog with their care provider. 
+                                            These equations should not be used for self-diagnosis or self-management.
+                                        </p>
+                                                                           
+                                    </div>
+                                </div>                                             
+                    </div>   
+
+                                    <br />
+                                    <br />
+
+                                    <div class="phoneWarning">
+                                        <p style="font-weight: bold; color: red">The CKD Risk Calculators are designed for use on devices with larger displays. Please visit this page on a tablet, laptop, or desktop device.</p>
                                     </div>
 
-                                </div>
+                                    
 
-                                <div class="footnote">
-                                    <a name="BangFootnote"></a>
-                                    <strong><sup>1</sup></strong> Probability (CKD) = 1/[1 + exp(-β’ x X)], where β’ x X = -5.4 + 1.55 x (age of 50-59 years) + 2.31 x (age of 60-69 years) + 3.23 x (age ≥ 70 years) + 0.29 x (female) + 0.93 x (anemia) + 0.45 x (hypertension) + 0.44 x (DM) + 0.59 x (history of CVD) + 0.45 x (history of CHF) + 0.74 x (PVD) + 0.83 x (proteinuria), where (a) is an indicator taking 1 for event a and 0 otherwise. 
-                                            In this equation, β and X denote vectors of β-coefficients and risk factors used in this equation, respectively.
-                                   <%-- <br />
-                                    <br />
-                                    <strong><sup>2</sup></strong>Mauris porta est ac eros porttitor aliquam. Mauris rutrum, mi in fringilla eleifend, arcu nisl scelerisque dolor, vel sagittis nulla lorem ac lorem. Phasellus odio orci, faucibus ut porta interdum, aliquet et erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et diam quis massa tempor facilisis euismod aliquam augue. Vivamus orci mauris, bibendum vel neque nec, molestie fringilla velit. Nullam aliquam massa in lorem gravida, et pellentesque purus faucibus.                                    
-                                      <br />                                    
-                                      <br />                                                                       
-                                    <strong><sup>3</sup></strong>Nunc gravida at tellus nec tristique. 
-                                      <br />
-                                    <br />
-                                    <strong><sup>4</sup></strong>Ut rutrum consequat dolor congue tempus.--%>
-                                    <br />
-                                    <br />
-                                    <strong><sup>2</sup></strong> Proteinuria is a broad term for leakage of protein in the kidney. Although the Bang et al. paper uses the term proteinuria, the actual measurement was of albuminuria. Albumin is a protein found in the blood. A healthy kidney does not let albumin pass from the blood into the urine. Too much albumin in your urine is called albuminuria. 
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <br />
-                        <br />
-
-                        <div class="references">
-                            <p><strong>References and Sources:</strong></p>
-
-                            Bang H, Vupputuri S, Shoham DA, Klemmer PJ, Falk RJ, Mazumdar M, Gipson D, Colindres RE, Kshirsagar AV. SCreening for Occult REnal Disease (SCORED): A simple prediction model for chronic kidney disease. 
-                                <em>Arch Intern Med.</em> 2007 Feb 26;167(4):374-81.                
-                                <br />
-                            <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17325299">www.ncbi.nlm.nih.gov/pubmed/17325299</a>
-
-                        </div>
-                    </div>
-                    <div class="tab-pane" role="tabpanel" id="tab-Tangri">
-                        <div class="ct-row">
-                            <%--*TANGRI CKD RISK Calculator *--%>
-                            <div class="kptext">
-
-                                <div class="Pagetitle">
-                                    Progression of CKD
-                                </div>
-
-                                <br />
-
-                                <div class="description">
-                                    <p>
-                                        For patients with chronic kidney disease (i.e., those with estimated glomerular filtration rate (eGFR) less than 60 mL/min/1.73m<sup>2</sup>), this calculator returns an estimated probability of developing kidney failure in the next two or five years (expressed as a percentage, or a range of percentages, from 0% to 100%). 
-                                            These probabilities could be used to facilitate patient and provider communication, to heighten awareness and guide optimal disease management for best outcomes. 
-                                    </p>
-                                    <p>
-                                        Two versions of this calculator are provided, one with four input variables, and one with eight input variables. 
-                                            Using more variables, when available, will yield a more precise estimate. 
-                                            The ‘sliders’ for each laboratory variable in the data entry table below allow a range of values to be selected in case of uncertainty in a single value. 
-                                            Details of risk equation development (Tangri et al., 2011) are available here:  <a href='https://www.ncbi.nlm.nih.gov/pubmed/21482743' target='_blank'>https://www.ncbi.nlm.nih.gov/pubmed/21482743</a>.
-                                    </p>
-                                </div>
-
-                                <br />
-
-                                <div class="row">
-                                    <div class="col-lg-6 tangriControls">
-                                        <table class="table table-bordered TangriTable">
-                                            <tr>
-                                                <%--************--%>
-                                                <%--*TANGRI AGE*--%>
-                                                <%--************--%>
-                                                <td class="QLabelLeft">
-                                                    <label for="txtAge" title="Required for calculation">Age in years (required):</label>
-                                                </td>
-                                                <td class="QLabelRight">
-                                                    <input id="txtAge" type="number" max="90" min="18" class="form-control" onchange="" onkeyup="removeRequirement('tage'); showTangriGraphOnSliderChange(); limitAgeEntry(); return isNumberKey(event); " style="width: 100px;" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="QLabelLeft" title="Required for calculation">Sex (required):
-                                                </td>
-                                                <td class="QLabelRight">
-                                                    <%--************--%>
-                                                    <%--*TANGRI SEX*--%>
-                                                    <%--************--%>
-                                                    <p class="rbStacker">
-                                                        <input id="rbTangriSexFemale" type="radio" name="rbSexTangri" value="0" class="float-left" onclick="removeRequirement('tsex'); showTangriGraphOnSliderChange();" />
-                                                        <label for="rbTangriSexFemale" class="float-left">Female</label>
-                                                    </p>
-                                                    <br />
-                                                    <p class="rbStacker">
-                                                        <input id="rbTangriSexMale" type="radio" name="rbSexTangri" value="1" class="float-left" onclick="removeRequirement('tsex'); showTangriGraphOnSliderChange();" />
-                                                        <label for="rbTangriSexMale" class="float-left">Male</label>
-                                                    </p>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="QLabelLeft">
-                                                    <label for="txtEGFR">eGFR:</label>
-                                                </td>
-                                                <%--*************--%>
-                                                <%--*TANGRI EGFR*--%>
-                                                <%--*************--%>
-                                                <td class="QLabelRight">
-                                                    <input id="txtEGFR" type="number" min="10" max="60" class="form-control" onkeyup="updateSlider('egfr', $(this).val());" onchange="updateSlider('egfr', $(this).val());" onkeypress="return isNumberKey(event);" style="width: 100px;" />
-                                                    <div class="float-right">
-                                                        <img id="imgrRefreshEGFR" alt="Reset eGFR slider values to original" title="Reset eGFR slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('egfr');" />
-                                                    </div>
-                                                    <br />
-
-                                                    <%--*Range Label*--%>
-                                                    <span class="valueRange">(Range: 10-60)</span>
-                                                    <br />
-
-                                                    <input type="text" id="eGFRSlider" name="eGFRSliderControl" value="" style="max-width: 250px;" title="Click and drag the left and right sliders to the desired interval.  Entering a value in the box above the sliders will automatically move both sliders to that value." />
-                                                    <br />
-                                                    <div>
-                                                        <label for="eGFRSlider">(<strong>mL/min/1.73m<sup>2</sup></strong>)</label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="QLabelLeft">
-                                                    <label for="txtACRatio">Urine Albumin to Creatinine Ratio:</label><label for="selACRatio" style="color: #FFF">_</label><label for="ureaAlbuminSlider" style="color: #FFF">_</label>
-                                                </td>
-
-                                                <td class="QLabelRight">
-                                                    <%--*****************--%>
-                                                    <%--*TANGRI AC Ratio*--%>
-                                                    <%--*****************--%>
-                                                    <input id="txtACRatio" type="number" min="10" max="3000" class="form-control" onkeyup="updateSlider('acratio', $(this).val());" onchange="updateSlider('acratio', $(this).val());" onkeypress="return isNumberKey(event);" style="width: 100px;" />
-
-                                                    <div class="float-right">
-                                                        <img id="imgACRatio" alt="Reset Albumin/Creatinine slider values to original" title="Reset Albumin/Creatinine slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('acratio');" />
-                                                    </div>
-                                                    <br />
-
-                                                    <%--*Range Label*--%>
-                                                    <span id="ACRationRange" class="valueRange"></span>
-                                                    <br />
-
-                                                    <input type="text" id="ureaAlbuminSlider" name="UASliderControl" value="" style="max-width: 250px;" />
-                                                    <br />
-
-                                                    <select id="selACRatio" class="form-control" onchange="unitChange('acratio',$('#selACRatio option:selected').text, $('#txtACRatio').val());" style="width: 135px;">
-                                                        <%--<option value="0">(Please Select)</option>--%>
-                                                        <option value="1" title="mg/g" selected>mg/g</option>
-                                                        <option value="2" title="mg/mmol">mg/mmol</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </table>
-
-                                        <%--<span class='req'>*</span><span class='inPageNote'>Field is required for a result</span>--%> <%--Commented out in response to comments from UM 11/2019--%>
-
-                                        <%--****************************************--%>
-                                        <%--*Divider between short and long version*--%>
-                                        <%--****************************************--%>
-                                        <button id="btnShowLongerVersion" class="btn float-right" onclick=" $('.TangriAddedFields').fadeIn(300); $('#btnHideLongerVersion').show(); $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">8 Variable Equation</button>
-                                        <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
-                                        <button id="btnHideLongerVersion" class="btn float-right" style="display: none;" onclick=" $('.TangriAddedFields').fadeOut(300); $('#btnShowLongerVersion').show();  $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">4 Variable Equation</button>
-                                        <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
+                                    <div id="divContentTabs" class="tabs-module">
+                                        <ul class="nav nav-tabs no-syndicate" id="tabs-3" role="tablist">  <%-- nav-item--%>
+                                            <li class="tabHeader" style="border-left: 2px solid #ddd; background: #F5F5F5 !important;"><a class="nav-link <%--active--%>"  style="background: #F5F5F5 !important; /*font-weight:bold;*/" data-toggle="tab" role="tab" href="#tab-Bang">Calculator 1: Probability of CKD</a></li>
+                                            <li class="tabHeader" ><a class="nav-link" data-toggle="tab" role="tab" href="#tab-Tangri">Calculator 2: Progression of CKD</a></li>
+                                        </ul>
 
 
-                                        <br />
-                                        <br />
-                                        <table class="table table-bordered TangriTable TangriAddedFields" style="display: none;">
-                                            <tr>
-                                                <td class="QLabelLeft">
-                                                    <label for="txtSCalcium">Serum Calcium:</label><label for="selSCalcium" style="color: #FFF">_</label><label for="calciumSlider" style="color: #FFF">_</label>
-                                                </td>
-                                                <%--**********************--%>
-                                                <%--*TANGRI SERUM CALCIUM*--%>
-                                                <%--**********************--%>
-                                                <td class="QLabelRight">
-                                                    <input id="txtSCalcium" type="number" min="7.5" max="10.5" onkeypress="return isNumberKey(event);" class="form-control" onchange="updateSlider('calcium', $(this).val());" onkeyup="updateSlider('calcium', $(this).val());" style="width: 100px;" />
-                                                    <div class="float-right">
-                                                        <img id="imgSCalciumRefresh" alt="Reset serum Calcium slider values to original" title="Reset Serum Calcium slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('calcium');" />
-                                                    </div>
-                                                    <br />
+                                        <div class="tab-content">
+                                            
+                                            <%--"Calculator 1: Progression of CKD" TAB--%>
+                                            <div class="tab-pane active" role="tabpanel" id="tab-Bang">
 
-                                                    <%--*Range Label*--%>
-                                                    <span id="spnSCal" class="valueRange"></span>
-                                                    <br />
+                                                <div class="ct-row">
 
-                                                    <input type="text" id="calciumSlider" name="calciumSliderControl" value="" style="max-width: 250px;" />
-                                                    <br />
+                                                    <%--*BANG CKD RISK Calculator *--%>
+                                                    <div class="kptext">
+                                                        
+                                                        <div class="calcdescription">
+                                                            <p>
+                                                                This calculator returns the probability (expressed as a percentage from 0 to 100%) of having Stage 3-5 CKD, defined as an estimated glomerular filtration rate (eGFR) less than 60 mL/min/1.73m<sup>2</sup>, based on nine input variables<sup>1</sup>. 
+                                                                If one or more of the values is unknown, trying different combinations of the presence or absence of the unknown characteristics will give a range of possible estimates.  
+                                                                An elevated probability of CKD should prompt individuals to seek more comprehensive medical advice, possibly leading to further medical evaluation, earlier diagnosis and interventions to both manage the condition and slow its progression.
+                                                            </p>
+                                                            <p>
+                                                                Details of the risk equation development (Bang et al, 2007) are available here: <a class="calcdescriptionLink" href='https://www.ncbi.nlm.nih.gov/pubmed/17325299' target='_blank'>https://www.ncbi.nlm.nih.gov/pubmed/17325299</a>. 
+                                                            </p>
+                                                        </div>
+                                                        <br />
+                                                        <div class="row">
+                                                            <div class="col-lg-7 bangControls">
+                                                                <table class="table  BangTable">  <%--table-bordered--%>
 
-                                                    <select id="selSCalcium" class="form-control" onchange="unitChange('calcium',$('#selSCalcium option:selected').text, $('#txtSCalcium').val());">
-                                                        <%--<option value="0">(Please Select)</option>--%>
-                                                        <option value="1" title="mg/dL" selected>mg/dL</option>
-                                                        <option value="2" title="mmol/L">mmol/L</option>
-                                                    </select>
+                                                                    <thead>
+                                                                        <tr class="charTableHeaderBg">
+                                                                            <td id="colChar" scope="col" class="charTableHeader" style="width:50%">Characteristic</td>
+                                                                            <td id="colTP" scope="col" class="charTableHeader" style="width:30%">This Person</td>
+                                                                            <td id="colNA" scope="col" class="charTableHeader" style="width:20%">US National<br /> Average</td>
+                                                                        </tr>
+                                                                    </thead>
 
-                                                </td>
-                                            </tr>
+                                                                    <tbody>
+                                                                                                                                   
+                                                                        <tr class="charTableTextHeaderBg">
+                                                                            <td id="EAAS" scope="row" colspan="3" class="charTableTextHeader <%--instructionLine--%>">Enter Age and Gender:</td>
+                                                                        </tr>
 
-                                            <tr>
-                                                <td class="QLabelLeft">
-                                                    <label for="txtSPhosphate">Serum Phosphate:</label><label for="selSPhosphate" style="color: #FFF">_</label><label for="phosSlider" style="color: #FFF">_</label>
-                                                </td>
-                                                <%--************************--%>
-                                                <%--*TANGRI SERUM PHOSPHATE*--%>
-                                                <%--************************--%>
-                                                <td class="QLabelRight">
-                                                    <input id="txtSPhosphate" type="number" min="3" max="6.5" onkeypress="return isNumberKey(event);" class="form-control" onchange="updateSlider('phosphate', $(this).val());" onkeyup="updateSlider('phosphate', $(this).val());" style="width: 100px;" />
-                                                    <div class="float-right">
-                                                        <img id="imgResetPhosphate" alt="Reset serum phosphate slider values to original" title="Reset Serum phosphate slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('phosphate');" />
-                                                    </div>
-                                                    <br />
+                                                                        <tr>
+                                                                            <td id="rowAge" scope="row" headers="EAAS colChar" style="width:50%"  class="charTableText" <%--QLabelLeft--%>><span class="charTableText">Age Range * </span></td>
+                                                                            <td  headers="EAAS colTP rowAge" style="width:33%">  <%--class="QLabelRight"--%>
+                                                                                <%--<label for="selBang2" style="color: #FFF; height: 0px;"><span class="charTableText">Gender *</span> </label>--%>
+                                                                                <select id="selBang2" class="form-control" onchange="removeRequirement('bage'); submitData('bang');">
+                                                                                    <option value="0">Select Age</option>
+                                                                                    <option value="1">20 - 49</option>
+                                                                                    <option value="2">50 - 59</option>
+                                                                                    <%--<option value="2">50 - 59</option>--%>
+                                                                                    <option value="3">60 - 69</option>
+                                                                                    <%--<option value="3">60 - 69</option>--%>
+                                                                                    <option value="4">≥ 70</option>
+                                                                                    <%--<option value="4">≥ 70</option>--%>
+                                                                                </select>
+                                                                            </td>
+                                                                            <td headers="EAAS colNA rowAge"></td>
+                                                                        </tr>
 
-                                                    <%--*Range Label*--%>
-                                                    <span id="spnPhosphate" class="valueRange"></span>
-                                                    <br />
-
-                                                    <input type="text" id="phosSlider" name="phostphateSliderControl" value="" style="max-width: 250px;" />
-                                                    <br />
-                                                    <select id="selSPhosphate" class="form-control" onchange="unitChange('phosphate',$('#selSPhosphate option:selected').text, $('#txtSPhosphate').val());">
-                                                        <%--<option value="0">(Please Select)</option>--%>
-                                                        <option value="1" title="mg/dL" selected>mg/dL</option>
-                                                        <option value="2" title="mmol/L">mmol/L</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="QLabelLeft">
-                                                    <label for="txtSBicarbinate">Serum Bicarbonate:</label><label for="selSBicarbinate" style="color: #FFF">_</label><label for="biCarbSlider" style="color: #FFF">_</label>
-                                                </td>
-                                                <%--**************************--%>
-                                                <%--*TANGRI SERUM BICARBONATE*--%>
-                                                <%--**************************--%>
-                                                <td class="QLabelRight">
-                                                    <input id="txtSBicarbinate" type="number" min="15" max="28" onkeypress=" return isNumberKey(event);" class="form-control" onchange="updateSlider('bicarb', $(this).val());" onkeyup="updateSlider('bicarb', $(this).val());" style="width: 100px;" />
-                                                    <div class="float-right">
-                                                        <img id="imgBiCarb" alt="Reset serum bicarbonate slider values to original" title="Reset Serum bicarbonate slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('bicarb');" />
-                                                    </div>
-                                                    <br />
+                                                                        <tr>
+                                                                            <td id="rowSex" scope="row" headers="EAAS colChar" style="width:50%"  class="charTableText" <%--QLabelLeft--%>><span>Gender *</span></td>
+                                                                            <td  headers="EAAS colTP rowSex">  <%--class="QLabelRight"--%>
+                                                                                <fieldset style="border:none;">
+                                                                                    <legend>Sex</legend> <%--update it to Gender--%>
+                                                                                    <input id="rbSexFemale" type="radio" name="rbSex" value="0" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
+                                                                                    <label for="rbSexFemale" class="yesnotext float-left">Yes<%--Female--%></label>
+                                                                                    &nbsp;                                                                                             
+                                                                                    <input id="rbSexMale" type="radio" name="rbSex" value="1" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
+                                                                                    <label for="rbSexMale" class="yesnotext float-left">No<%--Male--%></label>
+                                                                                </fieldset>
+                                                                            </td>
+                                                                            <td headers="EAAS colNA rowSex"></td>
+                                                                        </tr>
 
 
-                                                    <%--*Range Label*--%>
-                                                    <span id="spnBiCarb" class="valueRange"></span>
-                                                    <br />
+                                                                        <%--****************************--%>
+                                                                        <%--*Radio Button Choice Header*--%>
+                                                                        <%--****************************--%>
+                                                                        <tr  class="charTableTextHeaderBg">
+                                                                            <td id="CKDprob" scope="row" colspan="3" class="charTableTextHeader<%--instructionLine--%>">
+                                                                                Enter any of the following characteristics that may increase the probability of CKD:
+                                                                            </td>
+                                                                        </tr>
 
+                                                                        <tr>
+                                                                            <td id="rowAnemia" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Anemia</td>
+                                                                            <td  headers="CKDprob colTP rowAnemia"> <%--class="QLabelRight"--%>
+                                                                                <fieldset style="border:none;">
+                                                                                    <legend>Anemia</legend>
+                                                                                    <input id="rbAnemiaYes" type="radio" name="rbAnemia" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <label for="rbAnemiaYes" class="yesnotext float-left">Yes</label>
+                                                                                    &nbsp;
+                                                                                    <input id="rbAnemiaNo" type="radio" name="rbAnemia" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <label for="rbAnemiaNo" class="yesnotext float-left">No</label>
+                                                                                </fieldset>
+                                                                            </td>
+                                                                            <td headers="CKDprob colNA rowAnemia"></td>
+                                                                        </tr>
 
-                                                    <input type="text" id="biCarbSlider" name="biCarbonateSliderControl" value="" style="max-width: 250px;" />
-                                                    <br />
-                                                    <select id="selSBicarbinate" class="form-control" onchange="unitChange('bicarbonate');">
-                                                        <%--<option value="0">(Please Select)</option>--%>
-                                                        <option value="1" title="mEq/dL" selected>mEq/L</option>
-                                                        <option value="2" title="mmol/L">mmol/L</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
+                                                                        <tr>
+                                                                            <td id="rowHypertension" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Hypertension</td>
+                                                                            <td  headers="CKDprob colTP rowHypertension"> <%--class="QLabelRight"--%>
+                                                                                <fieldset style="border:none;">
+                                                                                    <legend>Hypertension</legend>
+                                                                                    <input id="rbHypertensionYes" type="radio" name="rbHypertension" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <label for="rbHypertensionYes" class="yesnotext float-left">Yes</label>
+                                                                                    &nbsp;  
+                                                                                    <input id="rbHypertensionNo" type="radio" name="rbHypertension" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <label for="rbHypertensionNo" class="yesnotext float-left">No</label>
+                                                                                </fieldset>
+                                                                            </td>
+                                                                            <td headers="CKDprob colNA rowHypertension" class="percentText"><%--(--%><a style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q652'>41%</a><%--<sup>2</sup>)--%></td>
+                                                                        </tr>
 
-                                            <tr>
-                                                <td class="QLabelLeft">
-                                                    <label for="txtSAlbumin">Serum Albumin:</label><label for="selSAlbumin" style="color: #FFF">_</label><label for="albSlider" style="color: #FFF">_</label>
-                                                </td>
-                                                <%--**********************--%>
-                                                <%--*TANGRI SERUM ALBUMIN*--%>
-                                                <%--**********************--%>
-                                                <td class="QLabelRight">
-                                                    <input id="txtSAlbumin" type="number" min="1" max="4" onkeypress=" return isNumberKey(event);" class="form-control" onchange="updateSlider('albumin', $(this).val());" onkeyup="updateSlider('albumin', $(this).val());" style="width: 100px;" />
-                                                    <div class="float-right">
-                                                        <img id="imgSAlbumin" alt="Reset Serum Albumin slider values to original" title="Reset Serum Albumin slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('albumin');" />
-                                                    </div>
-                                                    <br />
+                                                                        <tr>
+                                                                            <td id="rowDiabetes" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Diabetes</td>
+                                                                            <td  headers="CKDprob colTP rowDiabetes"> <%--class="QLabelRight"--%>
+                                                                                <fieldset style="border:none;">
+                                                                                    <legend>Diabetes
+                                                                                        <img id="imgDiabetesHint" alt="Dabetes Description Help" title="click for Diabetes Information" src="images/help.jpg" onclick="$('#divDiabetesPopover').fadeIn(500);" />
+                                                                                    </legend>                                                                                   
+                                                                                    <input id="rbDiabetesYes" type="radio" name="rbDiabetes" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <label for="rbDiabetesYes" class="yesnotext float-left">Yes</label>
+                                                                                    &nbsp;
+                                                                                    <input id="rbDiabetesNo" type="radio" name="rbDiabetes" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <label for="rbDiabetesNo" class="yesnotext float-left">No</label>
+                                                                                </fieldset>
+                                                                                <%--<div id="diabetesHint" class="float-right">
+                                                                                    <img id="imgDiabetesHint" alt="Dabetes Description Help" title="click for Diabetes Information" src="images/help.jpg" onclick="$('#divDiabetesPopover').fadeIn(500);" />
+                                                                                </div>--%>
+                                                                                <div id="divDiabetesPopover" style="display: none; /*width: 325px;*/">
+                                                                                    <span class="float-right closeX" onclick="$('#divDiabetesPopover').hide();">X</span>
+                                                                                    <br />
+                                                                                    <p>Having diabetes increases the probability of CKD by about 50%.</p>
+                                                                                    <p>About <a href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q653' target="_blank">10%</a> of the US population has diabetes.</p>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td headers="CKDprob colNA rowDiabetes" class="percentText"><%--(--%><a style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q653'>10%</a><%--<sup>3</sup>)--%></td>
+                                                                        </tr>
 
-                                                    <%--*Range Label*--%>
-                                                    <span id="spnSAlbumin" class="valueRange"></span>
-                                                    <br />
+                                                                        <tr>
+                                                                            <td id="rowCVD" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Cardiovascular Disease (CVD)</td>
+                                                                            <td  headers="CKDprob colTP rowCVD"> <%--class="QLabelRight"--%>
+                                                                                <fieldset style="border:none;">
+                                                                                    <legend>CVD</legend>
+                                                                                    <input id="rbCVDYes" type="radio" name="rbCVD" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <label for="rbCVDYes" class="yesnotext float-left">Yes</label>
+                                                                                    &nbsp;
+                                                                                    <input id="rbCVDNo" type="radio" name="rbCVD" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <label for="rbCVDNo" class="yesnotext float-left">No</label>
 
-                                                    <input type="text" id="albSlider" name="AluminSliderControl" value="" style="max-width: 250px;" />
-                                                    <br />
-                                                    <select id="selSAlbumin" class="form-control" onchange="unitChange('albumin',$('#selSAlbumin option:selected').text, $('#txtSAlbumin').val()); ">
-                                                        <%--<option value="0">(Please Select)</option>--%>
-                                                        <option value="1" title="g/dL" selected>g/dL</option>
-                                                        <option value="2" title="g/L">g/L</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
+                                                                                </fieldset>
+                                                                            </td>
+                                                                            <td headers="CKDprob colNA rowCVD" class="percentText"><%--(--%><a style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q151'>8%</a><%--<sup>4</sup>)--%></td>
+                                                                        </tr>
 
-                                        </table>
-                                        <%-- <div class="pull-right">
-                                                <button id="btnTangriGo" class="btn btnSubtle" onclick="showTangriGraphOnSliderChange(); return false;">Update Graph</button>
-                                            </div>--%>
-                                        <div class="float-left">
-                                            <%--<button id="btnTangriClear" class="btn btnSubtle" onclick="return resetChoices('tangri');resetSliders();">Reset Choices</button>--%>
-                                            <button id="Button1" class="btn btnSubtle" onclick=" return resetChoices('tangri'); return false;">Reset Choices</button>
-                                        </div>
+                                                                        <tr>
+                                                                            <td id="rowCHF" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Congestive Heart Failure (CHF)</td>
+                                                                            <td  headers="CKDprob colTP rowCHF"> <%--class="QLabelRight"--%>
+                                                                                <fieldset style="border:none;">
+                                                                                    <legend>CHF</legend>                                                                                   
+                                                                                    <input id="rbCHF" type="radio" name="rbCHF" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <label for="rbCHF" class="yesnotext float-left">Yes</label>
+                                                                                     &nbsp;
+                                                                                    <input id="rbCHFNo" type="radio" name="rbCHF" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <label for="rbCHFNo" class="yesnotext float-left">No</label>
 
-                                        <br />
-                                        <br />
-                                        <br />
-                                        <br />
+                                                                                </fieldset>
+                                                                            </td>
+                                                                            <td headers="CKDprob colNA rowCHF"></td>
+                                                                        </tr>
 
-                                    </div>
+                                                                        <tr>
+                                                                            <td id="rowPVD" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Peripheral Vascular Disease (PVD)</td>
+                                                                            <td  headers="CKDprob colTP rowPVD"> <%--class="QLabelRight"--%>
+                                                                                <fieldset style="border:none;">
+                                                                                    <legend>PVD</legend>
+                                                                                    <input id="rbPVDYes" type="radio" name="rbPVD" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <label for="rbPVDYes" class="yesnotext float-left">Yes</label>
+                                                                                    &nbsp;
+                                                                                    <input id="rbPVDNo" type="radio" name="rbPVD" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <label for="rbPVDNo" class="yesnotext float-left">No</label>
+                                                                                    
+                                                                                </fieldset>
+                                                                            </td>
+                                                                            <td headers="CKDprob colNA rowPVD"></td>
+                                                                        </tr>
 
-                                    <div class="col-lg-6">
+                                                                        <tr>
+                                                                            <td id="rowProteinUria" scope="row"  style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Proteinuria<sup>2</sup></td>
+                                                                            <td style="width:25%"  headers="CKDprob colTP rowProteinUria"> <%--class="QLabelRight"--%>
+                                                                                <fieldset style="border:none;">
+                                                                                    <legend>Proteinuria</legend>
+                                                                                    <input id="rbProteinuriaYes" type="radio" name="rbProteinuria" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <label for="rbProteinuriaYes" class="float-left">Yes</label>
+                                                                                    &nbsp;
+                                                                                    <input id="rbProteinuriaNo" type="radio" name="rbProteinuria" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <label for="rbProteinuriaNo" class="float-left">No</label>
+                                                                                </fieldset>
+                                                                            </td>
+                                                                            <td headers="CKDprob colNA rowProteinUria" class="percentText"><%--(--%><a style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q11'>10%</a><%--)--%></td>
+                                                                        </tr>
 
-                                        <div class="score">
-                                            <strong>Estimated probability of progression to end-stage renal disease (ESRD) in CKD patients at 2 and 5 years (expressed as a percentage between 0% and 100%):</strong>
+                                                                        <tr>
+                                                                            <td scope="row" style="width:50%"  class="charTableText" >
+                                                                                <span style="text-align: left; font-family:Open Sans; font-size: 14px; letter-spacing: 0px; color: #000000; opacity: 1;">* Required Fields </span>
+                                                                            </td>
+                                                                            <td colspan="2" class="resetChoicesButtonBg">
+                                                                               <button id="btnBangReset" class="resetChoicesBtnText" <%--btn btnSubtle--%> onclick="return resetChoices('bang');">Reset Choices</button>
+                                                                            </td>
+                                                                        </tr>
+                                                                                                                                               
 
-                                            <br />
-                                            <br />
+                                                                    </tbody>
+                                                                </table>
 
-                                            <%--*Required messages*--%><%--Commented out due to edits  from UM 11/2019--%>
-                                            <div class="tangri_required_messages">
-                                                In order to show a chart of the calculations, the following are required:
+                                                                <%--<div class="float-left">
+                                                                    <button id="btnBangReset" class="btn btnSubtle" onclick="return resetChoices('bang');">Reset Choices</button>
+                                                                </div>--%>
+                                                                                                                              
+                                                                <br />
+                                                                <br />
+                                                            </div>
+
+                                                            <div class="col-lg-5">
+
+                                                                <div class="chartBg <%--score--%>">
+                                                                    <p >
+                                                                       <span class="chartTitle1">Probability of having Stage 3-5 Chronic Kidney Disease (CKD) </span> 
+                                                                        <br />
+                                                                       <span class="chartTitle2"> (expressed as a percentage between 0% and 100%):</span>
+                                                                    </p>
+                                                                    <%--  <br />--%>
+
+                                                                    <%--*Required messages*--%> <%--commented out - UM request 11/2019--%>
+                                                                   <%-- <div class="bang_required_messages">
+                                                                        In order to show a chart of the calculations, the following are required:
                                         
-                                                <ul class="tangri_req_list">
-                                                    <li id="tage" class="tangri_age">Age</li>
-                                                    <li id="tsex" class="tangri_sex">Sex</li>
-                                                </ul>
+                                                                    <ul class="bang_req_list">
+                                                                        <li id="LiBangAge" class="bang_age">Age</li>
+                                                                        <li id="LiBangSex" class="bang_sex">Sex</li>
+                                                                    </ul>
+                                                                    </div>--%>
+
+                                                                    <%--*Graph BANG Results*--%>
+                                                                    <div id="divBangGraph" class="bangGraph" <%--style="width: 513px;"--%>></div>
+
+                                                                    <%-- <br />
+                                                                    <br />--%>
+
+                                                                    <span id="spnBangAnswer"></span>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <hr />
+                                                        <span class="footNotesTitle">Notes</span>
+                                                        <br /><br />
+                                                        <div class="footnotetext">
+                                                            <a name="BangFootnote"></a>
+                                                            <strong><sup>1</sup></strong> Probability (CKD) = 1/[1 + exp(-β’ x X)], where β’ x X = -5.4 + 1.55 x (age of 50-59 years) + 2.31 x (age of 60-69 years) + 3.23 x (age ≥ 70 years) + 0.29 x (female) + 0.93 x (anemia) + 0.45 x (hypertension) + 0.44 x (DM) + 0.59 x (history of CVD) + 0.45 x (history of CHF) + 0.74 x (PVD) + 0.83 x (proteinuria), where (a) is an indicator taking 1 for event a and 0 otherwise. 
+                                                                    In this equation, β and X denote vectors of β-coefficients and risk factors used in this equation, respectively.
+                                                           <%-- <br />
+                                                            <br />
+                                                            <strong><sup>2</sup></strong>Mauris porta est ac eros porttitor aliquam. Mauris rutrum, mi in fringilla eleifend, arcu nisl scelerisque dolor, vel sagittis nulla lorem ac lorem. Phasellus odio orci, faucibus ut porta interdum, aliquet et erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et diam quis massa tempor facilisis euismod aliquam augue. Vivamus orci mauris, bibendum vel neque nec, molestie fringilla velit. Nullam aliquam massa in lorem gravida, et pellentesque purus faucibus.                                    
+                                                              <br />                                    
+                                                              <br />                                                                       
+                                                            <strong><sup>3</sup></strong>Nunc gravida at tellus nec tristique. 
+                                                              <br />
+                                                            <br />
+                                                            <strong><sup>4</sup></strong>Ut rutrum consequat dolor congue tempus.--%>
+                                                            <br />
+                                                            <br />
+                                                            <strong><sup>2</sup></strong> Proteinuria is a broad term for leakage of protein in the kidney. Although the Bang et al. paper uses the term proteinuria, the actual measurement was of albuminuria. Albumin is a protein found in the blood. A healthy kidney does not let albumin pass from the blood into the urine. Too much albumin in your urine is called albuminuria. 
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <br />
+                                                <br />
+
+                                                <div class="footerRefBg">
+                                                    <p class="footerRefTitle"><strong>References and Sources:</strong></p>
+                                                    <span class="footerRefText">
+                                                    Bang H, Vupputuri S, Shoham DA, Klemmer PJ, Falk RJ, Mazumdar M, Gipson D, Colindres RE, Kshirsagar AV. SCreening for Occult REnal Disease (SCORED): A simple prediction model for chronic kidney disease. 
+                                                        <em>Arch Intern Med.</em> 2007 Feb 26;167(4):374-81.  </span>              
+                                                        <br />
+                                                    <a class="footerRefLink" target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17325299">www.ncbi.nlm.nih.gov/pubmed/17325299</a>
+
+                                                </div>
                                             </div>
 
-                                            <%--*Graph TANGRI Results*--%>
-                                            <div id='divTangriGraph' style="width: 513px;"></div>
+                                            <%--"Calculator 2:Progression of CKD" TAB--%>
+                                            <div class="tab-pane" role="tabpanel" id="tab-Tangri">
+                                                <div class="ct-row">
+                                                    <%--*TANGRI CKD RISK Calculator *--%>
+                                                    <div class="kptext">
+
+                                                        <div class="Pagetitle">
+                                                            Progression of CKD
+                                                        </div>
+
+                                                        <br />
+
+                                                        <div class="description">
+                                                            <p>
+                                                                For patients with chronic kidney disease (i.e., those with estimated glomerular filtration rate (eGFR) less than 60 mL/min/1.73m<sup>2</sup>), this calculator returns an estimated probability of developing kidney failure in the next two or five years (expressed as a percentage, or a range of percentages, from 0% to 100%). 
+                                                                    These probabilities could be used to facilitate patient and provider communication, to heighten awareness and guide optimal disease management for best outcomes. 
+                                                            </p>
+                                                            <p>
+                                                                Two versions of this calculator are provided, one with four input variables, and one with eight input variables. 
+                                                                    Using more variables, when available, will yield a more precise estimate. 
+                                                                    The ‘sliders’ for each laboratory variable in the data entry table below allow a range of values to be selected in case of uncertainty in a single value. 
+                                                                    Details of risk equation development (Tangri et al., 2011) are available here:  <a href='https://www.ncbi.nlm.nih.gov/pubmed/21482743' target='_blank'>https://www.ncbi.nlm.nih.gov/pubmed/21482743</a>.
+                                                            </p>
+                                                        </div>
+
+                                                        <br />
+
+                                                        <div class="row">
+                                                            <div class="col-lg-6 tangriControls">
+                                                                <table class="table TangriTable"> <%--table-bordered--%>
+                                                                    <tr>
+                                                                        <%--************--%>
+                                                                        <%--*TANGRI AGE*--%>
+                                                                        <%--************--%>
+                                                                        <td style="width:50%">  <%--class="QLabelLeft"--%>
+                                                                            <label for="txtAge" title="Required for calculation">Age in years (required):</label>
+                                                                        </td>
+                                                                        <td class="QLabelRight">
+                                                                            <input id="txtAge" type="number" max="90" min="18" class="form-control" onchange="" onkeyup="removeRequirement('tage'); showTangriGraphOnSliderChange(); limitAgeEntry(); return isNumberKey(event); " <%--style="width: 100px;"--%> />
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="QLabelLeft" title="Required for calculation">Sex (required):
+                                                                        </td>
+                                                                        <td class="QLabelRight">
+                                                                            <%--************--%>
+                                                                            <%--*TANGRI SEX*--%>
+                                                                            <%--************--%>
+                                                                            <p class="rbStacker">
+                                                                                <input id="rbTangriSexFemale" type="radio" name="rbSexTangri" value="0" class="float-left" onclick="removeRequirement('tsex'); showTangriGraphOnSliderChange();" />
+                                                                                <label for="rbTangriSexFemale" class="float-left">Female</label>
+                                                                            </p>
+                                                                            <br />
+                                                                            <p class="rbStacker">
+                                                                                <input id="rbTangriSexMale" type="radio" name="rbSexTangri" value="1" class="float-left" onclick="removeRequirement('tsex'); showTangriGraphOnSliderChange();" />
+                                                                                <label for="rbTangriSexMale" class="float-left">Male</label>
+                                                                            </p>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="QLabelLeft">
+                                                                            <label for="txtEGFR">eGFR:</label>
+                                                                        </td>
+                                                                        <%--*************--%>
+                                                                        <%--*TANGRI EGFR*--%>
+                                                                        <%--*************--%>
+                                                                        <td class="QLabelRight">
+                                                                            <input id="txtEGFR" type="number" min="10" max="60" class="form-control" onkeyup="updateSlider('egfr', $(this).val());" onchange="updateSlider('egfr', $(this).val());" onkeypress="return isNumberKey(event);" style="width: 100px;" />
+                                                                            <div class="float-right">
+                                                                                <img id="imgrRefreshEGFR" alt="Reset eGFR slider values to original" title="Reset eGFR slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('egfr');" />
+                                                                            </div>
+                                                                            <br />
+
+                                                                            <%--*Range Label*--%>
+                                                                            <span class="valueRange">(Range: 10-60)</span>
+                                                                            <br />
+
+                                                                            <input type="text" id="eGFRSlider" name="eGFRSliderControl" value="" style="max-width: 250px;" title="Click and drag the left and right sliders to the desired interval.  Entering a value in the box above the sliders will automatically move both sliders to that value." />
+                                                                            <br />
+                                                                            <div>
+                                                                                <label for="eGFRSlider">(<strong>mL/min/1.73m<sup>2</sup></strong>)</label>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="QLabelLeft">
+                                                                            <label for="txtACRatio">Urine Albumin to Creatinine Ratio:</label><label for="selACRatio" style="color: #FFF">_</label><label for="ureaAlbuminSlider" style="color: #FFF">_</label>
+                                                                        </td>
+
+                                                                        <td class="QLabelRight">
+                                                                            <%--*****************--%>
+                                                                            <%--*TANGRI AC Ratio*--%>
+                                                                            <%--*****************--%>
+                                                                            <input id="txtACRatio" type="number" min="10" max="3000" class="form-control" onkeyup="updateSlider('acratio', $(this).val());" onchange="updateSlider('acratio', $(this).val());" onkeypress="return isNumberKey(event);" style="width: 100px;" />
+
+                                                                            <div class="float-right">
+                                                                                <img id="imgACRatio" alt="Reset Albumin/Creatinine slider values to original" title="Reset Albumin/Creatinine slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('acratio');" />
+                                                                            </div>
+                                                                            <br />
+
+                                                                            <%--*Range Label*--%>
+                                                                            <span id="ACRationRange" class="valueRange"></span>
+                                                                            <br />
+
+                                                                            <input type="text" id="ureaAlbuminSlider" name="UASliderControl" value="" style="max-width: 250px;" />
+                                                                            <br />
+
+                                                                            <select id="selACRatio" class="form-control" onchange="unitChange('acratio',$('#selACRatio option:selected').text, $('#txtACRatio').val());" style="width: 135px;">
+                                                                                <%--<option value="0">(Please Select)</option>--%>
+                                                                                <option value="1" title="mg/g" selected>mg/g</option>
+                                                                                <option value="2" title="mg/mmol">mg/mmol</option>
+                                                                            </select>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+
+                                                                <%--<span class='req'>*</span><span class='inPageNote'>Field is required for a result</span>--%> <%--Commented out in response to comments from UM 11/2019--%>
+
+                                                                <%--****************************************--%>
+                                                                <%--*Divider between short and long version*--%>
+                                                                <%--****************************************--%>
+                                                                <button id="btnShowLongerVersion" class="btn float-right" onclick=" $('.TangriAddedFields').fadeIn(300); $('#btnHideLongerVersion').show(); $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">8 Variable Equation</button>
+                                                                <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
+                                                                <button id="btnHideLongerVersion" class="btn float-right" style="display: none;" onclick=" $('.TangriAddedFields').fadeOut(300); $('#btnShowLongerVersion').show();  $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">4 Variable Equation</button>
+                                                                <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
 
 
-                                            <span id="spnTangriAnswer"></span>
+                                                                <br />
+                                                                <br />
+                                                                <table class="table TangriTable TangriAddedFields" style="display: none;"> <%--table-bordered--%>
+                                                                    <tr>
+                                                                        <td class="QLabelLeft">
+                                                                            <label for="txtSCalcium">Serum Calcium:</label><label for="selSCalcium" style="color: #FFF">_</label><label for="calciumSlider" style="color: #FFF">_</label>
+                                                                        </td>
+                                                                        <%--**********************--%>
+                                                                        <%--*TANGRI SERUM CALCIUM*--%>
+                                                                        <%--**********************--%>
+                                                                        <td class="QLabelRight">
+                                                                            <input id="txtSCalcium" type="number" min="7.5" max="10.5" onkeypress="return isNumberKey(event);" class="form-control" onchange="updateSlider('calcium', $(this).val());" onkeyup="updateSlider('calcium', $(this).val());" style="width: 100px;" />
+                                                                            <div class="float-right">
+                                                                                <img id="imgSCalciumRefresh" alt="Reset serum Calcium slider values to original" title="Reset Serum Calcium slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('calcium');" />
+                                                                            </div>
+                                                                            <br />
 
+                                                                            <%--*Range Label*--%>
+                                                                            <span id="spnSCal" class="valueRange"></span>
+                                                                            <br />
+
+                                                                            <input type="text" id="calciumSlider" name="calciumSliderControl" value="" style="max-width: 250px;" />
+                                                                            <br />
+
+                                                                            <select id="selSCalcium" class="form-control" onchange="unitChange('calcium',$('#selSCalcium option:selected').text, $('#txtSCalcium').val());">
+                                                                                <%--<option value="0">(Please Select)</option>--%>
+                                                                                <option value="1" title="mg/dL" selected>mg/dL</option>
+                                                                                <option value="2" title="mmol/L">mmol/L</option>
+                                                                            </select>
+
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="QLabelLeft">
+                                                                            <label for="txtSPhosphate">Serum Phosphate:</label><label for="selSPhosphate" style="color: #FFF">_</label><label for="phosSlider" style="color: #FFF">_</label>
+                                                                        </td>
+                                                                        <%--************************--%>
+                                                                        <%--*TANGRI SERUM PHOSPHATE*--%>
+                                                                        <%--************************--%>
+                                                                        <td class="QLabelRight">
+                                                                            <input id="txtSPhosphate" type="number" min="3" max="6.5" onkeypress="return isNumberKey(event);" class="form-control" onchange="updateSlider('phosphate', $(this).val());" onkeyup="updateSlider('phosphate', $(this).val());" style="width: 100px;" />
+                                                                            <div class="float-right">
+                                                                                <img id="imgResetPhosphate" alt="Reset serum phosphate slider values to original" title="Reset Serum phosphate slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('phosphate');" />
+                                                                            </div>
+                                                                            <br />
+
+                                                                            <%--*Range Label*--%>
+                                                                            <span id="spnPhosphate" class="valueRange"></span>
+                                                                            <br />
+
+                                                                            <input type="text" id="phosSlider" name="phostphateSliderControl" value="" style="max-width: 250px;" />
+                                                                            <br />
+                                                                            <select id="selSPhosphate" class="form-control" onchange="unitChange('phosphate',$('#selSPhosphate option:selected').text, $('#txtSPhosphate').val());">
+                                                                                <%--<option value="0">(Please Select)</option>--%>
+                                                                                <option value="1" title="mg/dL" selected>mg/dL</option>
+                                                                                <option value="2" title="mmol/L">mmol/L</option>
+                                                                            </select>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="QLabelLeft">
+                                                                            <label for="txtSBicarbinate">Serum Bicarbonate:</label><label for="selSBicarbinate" style="color: #FFF">_</label><label for="biCarbSlider" style="color: #FFF">_</label>
+                                                                        </td>
+                                                                        <%--**************************--%>
+                                                                        <%--*TANGRI SERUM BICARBONATE*--%>
+                                                                        <%--**************************--%>
+                                                                        <td class="QLabelRight">
+                                                                            <input id="txtSBicarbinate" type="number" min="15" max="28" onkeypress=" return isNumberKey(event);" class="form-control" onchange="updateSlider('bicarb', $(this).val());" onkeyup="updateSlider('bicarb', $(this).val());" style="width: 100px;" />
+                                                                            <div class="float-right">
+                                                                                <img id="imgBiCarb" alt="Reset serum bicarbonate slider values to original" title="Reset Serum bicarbonate slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('bicarb');" />
+                                                                            </div>
+                                                                            <br />
+
+
+                                                                            <%--*Range Label*--%>
+                                                                            <span id="spnBiCarb" class="valueRange"></span>
+                                                                            <br />
+
+
+                                                                            <input type="text" id="biCarbSlider" name="biCarbonateSliderControl" value="" style="max-width: 250px;" />
+                                                                            <br />
+                                                                            <select id="selSBicarbinate" class="form-control" onchange="unitChange('bicarbonate');">
+                                                                                <%--<option value="0">(Please Select)</option>--%>
+                                                                                <option value="1" title="mEq/dL" selected>mEq/L</option>
+                                                                                <option value="2" title="mmol/L">mmol/L</option>
+                                                                            </select>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="QLabelLeft">
+                                                                            <label for="txtSAlbumin">Serum Albumin:</label><label for="selSAlbumin" style="color: #FFF">_</label><label for="albSlider" style="color: #FFF">_</label>
+                                                                        </td>
+                                                                        <%--**********************--%>
+                                                                        <%--*TANGRI SERUM ALBUMIN*--%>
+                                                                        <%--**********************--%>
+                                                                        <td class="QLabelRight">
+                                                                            <input id="txtSAlbumin" type="number" min="1" max="4" onkeypress=" return isNumberKey(event);" class="form-control" onchange="updateSlider('albumin', $(this).val());" onkeyup="updateSlider('albumin', $(this).val());" style="width: 100px;" />
+                                                                            <div class="float-right">
+                                                                                <img id="imgSAlbumin" alt="Reset Serum Albumin slider values to original" title="Reset Serum Albumin slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('albumin');" />
+                                                                            </div>
+                                                                            <br />
+
+                                                                            <%--*Range Label*--%>
+                                                                            <span id="spnSAlbumin" class="valueRange"></span>
+                                                                            <br />
+
+                                                                            <input type="text" id="albSlider" name="AluminSliderControl" value="" style="max-width: 250px;" />
+                                                                            <br />
+                                                                            <select id="selSAlbumin" class="form-control" onchange="unitChange('albumin',$('#selSAlbumin option:selected').text, $('#txtSAlbumin').val()); ">
+                                                                                <%--<option value="0">(Please Select)</option>--%>
+                                                                                <option value="1" title="g/dL" selected>g/dL</option>
+                                                                                <option value="2" title="g/L">g/L</option>
+                                                                            </select>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </table>
+                                                                <%-- <div class="pull-right">
+                                                                        <button id="btnTangriGo" class="btn btnSubtle" onclick="showTangriGraphOnSliderChange(); return false;">Update Graph</button>
+                                                                    </div>--%>
+                                                                <div style="float:right;"class="resetChoicesButtonBg" <%--float-left--%> >
+                                                                    <%--<button id="btnTangriClear" class="btn btnSubtle" onclick="return resetChoices('tangri');resetSliders();">Reset Choices</button>--%>
+                                                                    <button id="Button1" class="btn btnSubtle" onclick=" return resetChoices('tangri'); return false;">Reset Choices</button>
+                                                                </div>
+
+                                                                <br />
+                                                                <br />
+                                                                <br />
+                                                                <br />
+
+                                                            </div>
+
+                                                            <div class="col-lg-6">
+
+                                                                <div class="score">
+                                                                    <strong>Estimated probability of progression to end-stage renal disease (ESRD) in CKD patients at 2 and 5 years (expressed as a percentage between 0% and 100%):</strong>
+
+                                                                    <br />
+                                                                    <br />
+
+                                                                    <%--*Required messages*--%><%--Commented out due to edits  from UM 11/2019--%>
+                                                                    <div class="tangri_required_messages">
+                                                                        In order to show a chart of the calculations, the following are required:
+                                        
+                                                                        <ul class="tangri_req_list">
+                                                                            <li id="tage" class="tangri_age">Age</li>
+                                                                            <li id="tsex" class="tangri_sex">Sex</li>
+                                                                        </ul>
+                                                                    </div>
+
+                                                                    <%--*Graph TANGRI Results*--%>
+                                                                    <div id='divTangriGraph' style="width: 513px;"></div>
+
+
+                                                                    <span id="spnTangriAnswer"></span>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                                
+                                              
+
+                                                <div <%--class="references"--%>>
+                                                    <span class="footerRefTitle">References and Sources:</span>
+                                                    <p class="footerRefText">
+                                                    Tangri, Navdeep, et al. Multinational assessment of accuracy of equations for predicting risk of kidney failure: a meta-analysis <em>JAMA</em> 315.2(2016):164-174. supplement
+
+                                                        <br />
+                                                    <br />
+                                                    Tangri N, Stevens LA, Griffith J, Tighiouart H, Djurdjev O, Naimark D, Levin A, Levey AS. A predictive model for progression of chronic kidney disease to kidney failure. 
+                                                        <em>JAMA.</em> 2011 Apr 20;305(15):1553-9. doi: 10.1001/jama.2011.451. Epub 2011 Apr 11. </p>
+                                                        <br />
+                                                    <a class="footerRefLink" href="http://www.ncbi.nlm.nih.gov/pubmed/21482743" target="_blank">www.ncbi.nlm.nih.gov/pubmed/21482743</a>
+
+                                                </div>
+                                            </div>
                                         </div>
+
                                     </div>
                                 </div>
+                                
+							</div>
+						</div>	
+					</div>
+			</main>
 
-                            </div>
+			<!-- Left / Bottom Nav -->
+			<div class="col-xl-3 order-xl-1 leftnav-wrapper">
+				<nav role="navigation" aria-label="Left Navigation Menu" style="border-bottom-color:white">
+					<div id="cdc-left-nav-menu" >
+						<br />	
+						<uc1:sidenav runat="server" id="SideNav" />
+					</div>	
+				</nav>
+			</div>
+	</div>
 
-
-                        </div>
-
-                        <br />
-                        <br />
-
-                        <div class="references">
-                            <p><strong>References and Sources:</strong></p>
-
-                            Tangri, Navdeep, et al. Multinational assessment of accuracy of equations for predicting risk of kidney failure: a meta-analysis <em>JAMA</em> 315.2(2016):164-174. supplement
-
-                                <br />
-                            <br />
-                            Tangri N, Stevens LA, Griffith J, Tighiouart H, Djurdjev O, Naimark D, Levin A, Levey AS. A predictive model for progression of chronic kidney disease to kidney failure. 
-                                <em>JAMA.</em> 2011 Apr 20;305(15):1553-9. doi: 10.1001/jama.2011.451. Epub 2011 Apr 11. 
-                                <br />
-                            <a href="http://www.ncbi.nlm.nih.gov/pubmed/21482743" target="_blank">www.ncbi.nlm.nih.gov/pubmed/21482743</a>
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
-        </div>
-
-        <br />
-        <br />
-
-
-    </div>
-
-    </div>
-
+<br />
 
 </asp:Content>
+
+
+
 
 <asp:Content ID="Content3" ContentPlaceHolderID="CustomJavaScript" runat="server">
     <script type="text/javascript">
@@ -1084,7 +1368,7 @@
             //***********************
             //*Show text probability*
             //***********************       
-            var txt = "<div>U.S. National Average: <a href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q372' target='_blank'>15.4%</a></div>";
+            var txt = "<div style='text-align: center; font-weight: 600; font-size: 15px; font-family: Open Sans; letter-spacing: 0px; color: #3D3D3D; opacity: 1; padding:10px;'>U.S. National Average: <a style='text-decoration:none' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q372' target='_blank'>15.4%</a></div>";
             $('#spnBangAnswer').html(txt).show();
 
 
@@ -1105,7 +1389,7 @@
 
             //*Build Chart
             //var xdata = ['Prevalence<br>of CKD, U.S.', 'CKD Probability<br>(This Person)%'];
-            var xdata = ['CKD Probability<br>(This Person)%'];
+            var xdata = ['CKD Probability']; /*<br>(This Person)%*/
 
             //No such thing as 0
             //if (general == 0) { general = 0.01; }
@@ -1143,23 +1427,24 @@
 
             var layout = {
                 yaxis: {
-                    title: 'Percent',
+                    title: 'Probability (%)', /*'Percent',*/  /*chartTitle3*/
+                    font: 'size: 17px',                     
                     fixedrange: true,
                     range: [0, 100],
-                    backgroundcolor: 'rgb(250,250,210)',
+                    backgroundcolor: 'rgb(243,247,248)', /*rgb(250,250,210)*/
                     linecolor: 'rgb(0,0,0,0)',
                     gridcolor: 'rgb(0,0,0,0)'
                 },
                 xaxis: {
                     fixedrange: true,
-                    backgroundcolor: 'rgb(250,250,210)',
+                    backgroundcolor: 'rgb(243,247,248)', /*rgb(250,250,210)*/
                     linecolor: 'rgb(0,0,0,0)'
                 },
                 plot_bgcolor: 'rgb(255,255,255)',
-                paper_bgcolor: 'rgb(250,250,210)',
+                paper_bgcolor: 'rgb(243,247,248)', /*rgb(250,250,210)*/
 
             };
-
+                       
             Plotly.newPlot('divBangGraph', data, layout);
         }
 
@@ -1569,7 +1854,7 @@
                     title: 'Percent',
                     fixedrange: true,
                     range: [0, 105],
-                    backgroundcolor: 'rgb(250,250,210)',
+                    backgroundcolor: 'rgb(243,247,248)', /*rgb(250,250,210)*/
                     linecolor: 'rgb(0,0,0,0)',
                     gridcolor: 'rgb(205,205,205,0)'
                 },

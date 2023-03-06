@@ -169,10 +169,10 @@
 							<div class="cdc-2020-bar container">
 								<div class="row no-gutters">
 									<div class="bar-item">
-											<a href="/default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
+											<a href="default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
 											<span class="homebreadcrumb"><u>Home</u></span> </a> 
-										    <span id="bcTopic" class="bodybreadcrumb"> &nbsp;> Are you Aware  </span>  <%--selected topic from top nav --%>
-											<span id="bcSelListItem" class="bodybreadcrumb"> &nbsp;> Risk Factor-Diabetes </span>  <%--selected list item from left nav --%>
+										    <span id="bcTopic" class="bodybreadcrumb" runat="server"> &nbsp;> Are You Aware Topics  </span>  <%--selected topic from top nav --%>
+											<span id="bcSelListItem" class="bodybreadcrumb" runat="server"> &nbsp;> Risk Factor-Diabetes </span>  <%--selected list item from left nav --%>
 											<%--<span id="bcPIlinks" class="bodybreadcrumb">  > </span>--%>
 									</div>
 								</div>

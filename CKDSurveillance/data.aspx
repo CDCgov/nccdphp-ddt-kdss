@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Data.aspx.cs" Inherits="CKDSurveillance_RD.Data" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" %>
 
-<%@ Register Src="~/UserControls/Navigation/SideNavHP.ascx" TagPrefix="uc1" TagName="SideNavHP" %>
+<%@ Register Src="~/UserControls/Navigation/SideNav.ascx" TagPrefix="uc1" TagName="SideNav" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <style>
@@ -47,12 +47,14 @@
             text-decoration: none !important; /*remove underline*/
             color: #007C91 !important;
             opacity: 1;
-            padding-left:0px !important;
+            padding-left:10px !important;            
         }
 
         .subTitleHPbg {
-            /*background: #00695C 0% 0% no-repeat padding-box;             
-            opacity: 0.05;   */         
+            background: #00695C 0% 0% no-repeat padding-box;             
+            opacity: 0.05;   
+            padding-top:10px !important;
+            padding-bottom:10px !important;
         }
         .subTitleHPleftmargin{
             background: #00695C 0% 0% no-repeat padding-box;
@@ -76,6 +78,8 @@
             letter-spacing: 0px;
             color: #000000;
             opacity: 1;
+            padding-top:5px;
+            /*padding-bottom:5px;*/
         }
         .bodyColHeaderBg{
             background: #29434EBF 0% 0% no-repeat padding-box;
@@ -84,11 +88,11 @@
             padding-bottom:10px;
         }
         .bodyColHeaderText{
-            text-align: left;
+            text-align: center;
             /*font: normal normal 600 18px/24px Open Sans;*/
             font-family:Open Sans !important;
-            font-size: 18px !important;
-            font-weight:600 !important;            
+            font-size: 19px !important;
+            font-weight:600 !important;      /*600	Semi Bold (Demi Bold)    */   
             letter-spacing: 0px;
             color: #FFFFFF;
             opacity: 1;
@@ -97,7 +101,7 @@
     </style>
 
 
-    <br />
+    <br /><br />
     
 <!-- Page Content Wrap -->
 	<div class="container d-flex flex-wrap body-wrapper bg-white">
@@ -105,11 +109,11 @@
 			<!-- Content -->
 			<main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area">
 					<div id="PIdivbody" class="row">
-						<div  class="col content">										
+						<div  class="col content" style="margin-top: 0px !important;">										
 							<div class="cdc-2020-bar container">
 								<div class="row no-gutters">
 									<div class="bar-item">
-											<a href="/default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
+											<a href="default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
 											<span class="PIhomebreadcrumb"><u>Home</u></span> </a> 
 										    <span id="bcTopic" class="PIbodybreadcrumb"> > Healthy People 2030 </span>  <%--selected topic from top nav --%>
 											<span id="bcSelListItem" class="PIbodybreadcrumb">  </span>  <%--selected list item from left nav --%>
@@ -126,8 +130,8 @@
 							<p>                   
 								<span class="PIbody"><%--<asp:Literal ID="Lit_Desc" runat="server"></asp:Literal>--%>
                                     The Healthy People 2030 (HP2030) program sets data-driven national objectives to improve the health and well-being of 
-                                    americans over the next decade. There are 14 goals related to kidney disease, 10 of which are about chronic kidney disease. 
-                                    Shown below are 4 HP2030 goals releated to chronic kidney disease (CKD-01, CKD-02, CKD-05 and CKD-D01) and 1 goal (D-05)
+                                    Americans over the next decade. There are 14 goals related to kidney disease, 10 of which are about chronic kidney disease. 
+                                    Shown below are 4 HP2030 goals related to chronic kidney disease (CKD-01, CKD-02, CKD-05 and CKD-D01) and 1 goal (D-05)
                                     related to diabetes and urinary albumin testing. Goals are tracked using several data sources. See <a href="health.gov/healthypeople">health.gov/healthypeople</a>
                                     for the HP2030 website. 
 								</span>
@@ -186,13 +190,15 @@
                     <div id="_dvHP2020Description" runat="server" style="clear: both; margin-top: 10px" >  <%--class="module roundem faqs padcontents10"--%>
                             <div  style="margin-top: 10px">                               
                                        <%--*2030*--%>
-                                    <div class="row col-lg-12" >   <%--style="background: #00695C 0% 0% no-repeat padding-box; opacity: 0.05; padding-right:0px;margin-right:0px;"--%>
-                                        <a class="subTitleHPlink" href="https://health.gov/healthypeople/objectives-and-data/browse-objectives/chronic-kidney-disease" ID="lnkHealthy2030Objectives">View the CKD objectives for Healthy People 2030 &nbsp; </a>
-                                     <%--   <asp:HyperLink CssClass ="subTitleHPlink"
+                                    <div class="row navBoldHeader d-sm-block subTitleHPbg" >   <%--style="background: #00695C 0% 0% no-repeat padding-box; opacity: 0.05; padding-right:0px;margin-right:0px;"--%>
+                                        <a class="subTitleHPlink" href="https://health.gov/healthypeople/objectives-and-data/browse-objectives/chronic-kidney-disease" ID="lnkHealthy2030Objectives" target="_blank">View the CKD objectives for Healthy People 2030 &nbsp; 
+                                            <img src="images/HP2030-blackarrow.png" /> </a>
+                                     
+                                        <%--   <asp:HyperLink CssClass ="subTitleHPlink"
                                             ID="lnkHealthy2030Objectives" runat="server" NavigateUrl="https://health.gov/healthypeople/objectives-and-data/browse-objectives/chronic-kidney-disease"
                                             Text="View the CKD objectives for Healthy People 2030" Target="_blank">                                            
-                                        </asp:HyperLink>--%>
-                                        <span class="fi cdc-icon-external x16">&nbsp;&nbsp;</span>
+                                        </asp:HyperLink>
+                                        <span class="fi cdc-icon-external x16">&nbsp;&nbsp;</span>--%>
                                     </div>
                                 </div>                                             
                     </div>              
@@ -208,14 +214,14 @@
             <br />
             
                 <div class="row HPIDheader">                 
-                    Healthy People 2020
+                    Healthy People 2030
                 </div>
                 <div class="row HPIDtext">
-                    Healthy People 2020 provides science-based national objectives for improving the health of all Americans
+                    Healthy People 2030 provides science-based national objectives for improving the health of all Americans.
                 </div>
             <br />
                 <div class="row ckd-accordion-table-header-row bodyColHeaderBg" >
-                    <div class="col-6 accordion-table-header bodyColHeaderText">Indicators Related To HP 2030 Objectives</div>
+                    <div class="col-6 accordion-table-header bodyColHeaderText" style="text-align: left !important;">Indicators Related To HP 2030 Objectives</div>
                     <div class="col-3 accordion-table-header bodyColHeaderText">Data Source</div>
                     <div class="col-3 accordion-table-header bodyColHeaderText">Most Recent Year</div>
                 </div>
@@ -235,30 +241,20 @@
         </div>
 
     </asp:Panel>
-    <br />
-    <br />
-    <br />
-
-
 </div>	
-					</div>
-			</main>
+</div>
+</main>
 
 			<!-- Left / Bottom Nav -->
 			<div class="col-xl-3 order-xl-1 leftnav-wrapper">
 				<nav role="navigation" aria-label="Left Navigation Menu" style="border-bottom-color:white">
 					<div id="cdc-left-nav-menu" >
-						<br />	
-                        <uc1:SideNavHP runat="server" id="SideNavHP" />
+					     <uc1:SideNav runat="server" id="SideNav" />
 					</div>	
 				</nav>
 			</div>
 	</div>
-
-<br /><br />
-
-
-
+    <br /><br />
 
     <!-- 10/30/2019 From Thach @ CDC -->
     <script type="text/javascript">

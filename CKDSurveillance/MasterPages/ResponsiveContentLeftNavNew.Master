@@ -279,7 +279,7 @@
             <div class="d-flex">
                 <div class="text-white fw-500 pt-1 pb-1 siteTitleBar">
                     <%--display-6 --%>
-                    <a href="/default.aspx">Kidney Disease Surveillance System</a>                    
+                    <a href="<%= ConfigurationManager.AppSettings["DirPath"]%>default.aspx">Kidney Disease Surveillance System</a>                    
                 </div>
                 <%--<div class="col-md-1 ckd-toggle-btn">--%>
                     <button id="ham" class="navbar-toggler navbar-light collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 

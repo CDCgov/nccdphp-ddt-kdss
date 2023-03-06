@@ -286,7 +286,7 @@
                         <br /><br />
                         <div> 
                             <span class="btn-HealthyPeople" >            
-                                <a href="https://nccd.cdc.gov/ckd/data.aspx?categoryID=67" alt="Healthy People 2030" style="background-color:#00778C; padding-right:20px; padding-left:20px;" class="btn btn-primary specialLinkIconLeft float-left" target="_blank">
+                                <a href="data.aspx?categoryID=67" alt="Healthy People 2030" style="background-color:#00778C; padding-right:20px; padding-left:20px;" class="btn btn-primary specialLinkIconLeft float-left" > <%--target="_blank"--%>
                                     Healthy People 2030
                                 </a>
                             </span>

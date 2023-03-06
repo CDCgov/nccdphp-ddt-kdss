@@ -139,7 +139,12 @@
 
          .btnzoomout
          {
-            width:186px;
+            width:120px;
+         }
+
+         .btnzoom
+         {
+            width:60px;
          }
 
         .stateddclass
@@ -186,8 +191,8 @@
              font-size:16px;
          }
          .imgsize-ab {
-            max-width:500px;
-            height:270px;
+             width:900px;
+             height:700px;
          }
          .imgsize-c {
              max-width:650px;
@@ -199,6 +204,7 @@
             letter-spacing: 0px;
             color: #000000;
             margin-top:20px;
+            margin-bottom: 20px;
          }
 
          .spnDataSource {
@@ -224,6 +230,26 @@
 			letter-spacing: 0px;
 			color: #000000;
 		}
+         .chartInstruction {
+            background: #F6F6F6 0% 0% no-repeat padding-box;
+            opacity: 1;
+            padding:5px;
+         }
+
+         .chartInstructionText {
+            font: normal normal normal 17px/24px Open Sans;
+            letter-spacing: 0px;
+            color: #000000;
+            opacity:1;
+            margin:15px;
+         }
+
+         .spnRiskCategory {
+            text-align: left;
+            font: normal normal 600 17px/24px Open Sans;
+            letter-spacing: 0px;
+            color: #00695C;
+         }
     </style>
 
     <%--*****************************--%>
@@ -489,7 +515,7 @@
                         <div class="cdc-2020-bar container">
 								<div class="row no-gutters">
 									<div class="bar-item">
-											<a href="/default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
+											<a href="default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
 											<span class="homebreadcrumb"><u>Home</u></span> </a> 
                                             >
 										    <a style="border-top:#2B8277" id="bcTopicLink" runat="server"></a>  <%--selected topic from top nav --%>
@@ -513,11 +539,17 @@
                             <asp:Literal ID="litTopicDesc" runat="server" Text="" />
                         </div>
 
-                        <div class="topicDescDiv">
+                        <div class="topicDescDiv" id="divDataSource" runat="server">
                             <span class="spnDataSource">Data Source: </span><asp:Literal ID="litDataSource" runat="server" Text="" />
                         </div>
 
-                        <hr style="border: 1px solid #C3C3C3; opacity: 0.42;" />
+                        <div class="chartInstruction" runat="server" id="divChartInstruction">
+                            <div class="chartInstructionText">
+                                <asp:Literal ID="litChartInstruction" runat="server" Text="" />
+                            </div>
+                        </div>
+
+                        <hr style="border: 1px solid #C3C3C3; opacity: 0.42;margin-top: 1px !important;" />
                         <%--*Chart Title*--%>
 
                         <div class="IndicatorSubPagetitle">
@@ -621,10 +653,10 @@
                                     
                                     .chartDownloadBtn {
                                         margin-bottom: 3px;
-                                        background-image: url("../images/CommonControls/download_csv_sm.png");
+                                        background-image: url("images/CommonControls/download_csv_sm.png");
                                         background-repeat: no-repeat;
-                                        background-position: 0 10px !important;
-                                        padding-left: 25px;
+                                        background-position: 6px 10px !important;
+                                        padding-left: 32px;
                                     }
 
                                     .chartDropDown {
@@ -637,6 +669,8 @@
                                         width: 362px;
                                         height: 96px;
                                         padding-top: 10px;
+                                        padding-left: 25px!important;
+                                        padding-right: 25px!important;
                                     }
 
                                     .viewDataByLabel {
@@ -646,6 +680,7 @@
                                         color: #FFFFFF;
                                         opacity: 1;
                                         margin-bottom: 5px;
+                                        margin-left:-15px !important;
                                     }
                                     
                                     .menu-content div{
@@ -658,7 +693,9 @@
                                         background: #00695C14 0% 0% no-repeat padding-box;
                                         opacity: 1;
                                         margin-left: 2px;
-                                        margin-right: 2px;                                        
+                                        margin-right: 2px;      
+                                        display: flex;
+                                        align-items: center;
                                     }
                                     .menu-content-menu {
                                         margin-left: 2px;
@@ -707,7 +744,7 @@
                                 <%--*View Data By*--%>
                                 <uc1:StratYearsButtons runat="server" ID="StratYear1" />                                
                                 <div class="menu-content-menu">
-                                    <asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList chartMenuLabel col" Text="95% Confidence Intervals" runat="server" />
+                                    <asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList chartMenuLabel col" Text="95% Confidence Intervals" runat="server" aria-label="95% Confidence Intervals"/>
                                 </div>
                                 <%-- View as table--%>
                                 <div class="menu-content-menu" id="divMenuData" style="margin-left:40%">
@@ -728,7 +765,7 @@
                             <div class="row" id="divMapMenu" runat="server">                                
                                 <div class="col-3 chartMapMenu">
                                     <div  for="ddstate" class="chartMapMenuLabel">Select by State</div>
-                                        <select id="ddstate" class="form-control">
+                                        <select id="ddstate" class="form-control" aria-label="Select by State">
                                             <option value="select">Select a state</option>
                                             <option value="01">Alabama</option>
                                             <option value="02">Alaska</option>
@@ -795,6 +832,9 @@
 
                                     <%--</div>--%>
                                     </asp:Panel>
+                                </div>
+                                <div style="padding-top: 3%;margin-left: 45%;">
+                                    <button  class="noPrint btn btn-light btnzoomout" type="button">Zoom out</button>
                                 </div>
                             </div>
 
@@ -909,7 +949,7 @@
                                         function () {
                                             zoomoutBtn = $('a[data-title="Zoom out"]')[0]
                                             zoomoutBtn.click();
-                                            console.log("clicked zoom out");
+                                            console.log("clicked zoom out");                                            
                                         }
                                     );
 
@@ -982,41 +1022,13 @@
                                 <div id="map" style="font-size: 8pt; font-family: verdana; width: 765px; height: 650px;" >    
                                     <div id="divStaticLeft" class="col-xl-2 col-lg-4" runat="server">
                                         <div id="map1" runat="server">
-                                            <div class="imgtablewrapper">
-                                              <div class="imgtable">
-                                                <div class="imgrow">
-                                                  <div class="imgcell"><span class="imgspan">A. Percentage of the population under the poverty level, by county (2018)<sup>1</sup></span>
-                                                    <img src="images/DataCharts/Poverty.jpg" runat="server" class="imgsize-ab" alt="Percentage of the population under the poverty level, by county (2018)"/>
-                                                  </div>
-                                                  <div class="rowspanned imgcell"><span class="imgspan">C. Poverty level and CKD, by county</span>
-                                                    <img src="images/DataCharts/Poverty_and_CKD.jpg" runat="server" class="imgsize-c" alt="Poverty level and CKD, by county"/>
-                                                  </div>
-                                                </div>
-                                                <div class="imgrow">
-                                                  <div class="imgcell"><span class="imgspan">B. Percent prevalence of diagnosed CKD patients, by county (2019)</span>
-                                                    <img src="images/DataCharts/Prevalent_CKD.jpg" runat="server" class="imgsize-ab" alt="Percent prevalence of diagnosed CKD patients, by county (2019)" />
-                                                  </div>
-                                                </div>
-                                              </div>
+                                            <div class="imgcell">
+                                                <img src="images/DataCharts/Poverty2x.png" runat="server" class="imgsize-ab" alt="Percentage of the population under the poverty level, by county (2018)"/>
                                             </div>
                                         </div>
                                         <div id="map2" runat="server">
-                                             <div class="imgtablewrapper">
-                                              <div class="imgtable">
-                                                <div class="imgrow">
-                                                  <div class="imgcell"><span class="imgspan">A. Average daily PM2.5, by county (2014)<sup>1</sup></span>
-                                                    <img src="images/DataCharts/PM2.5_mean.jpg" runat="server" class="imgsize-ab" alt="Average daily PM2.5, by county (2014)"/>
-                                                  </div>
-                                                  <div class="rowspanned imgcell"><span class="imgspan">C. Average daily PM2.5 and CKD, by county</span>
-                                                    <img src="images/DataCharts/Average_daily_PM2.5_and_CKD.jpg" class="imgsize-c" runat="server" alt="Average daily PM2.5 and CKD, by county" />
-                                                  </div>
-                                                </div>
-                                                <div class="imgrow">
-                                                  <div class="imgcell"><span class="imgspan">B. Percent prevalence of diagnosed CKD patients, by county (2019)</span>
-                                                    <img src="images/DataCharts/Prevalent_CKD.jpg" runat="server" class="imgsize-ab" alt="Percent prevalence of diagnosed CKD patients, by county (2019)" />
-                                                  </div>
-                                                </div>
-                                              </div>
+                                            <div class="imgcell">
+                                                <img src="images/DataCharts/PM2.5_mean2x.png" runat="server" class="imgsize-ab" alt="Average daily PM2.5, by county (2014)"/>
                                             </div>
                                         </div>
                                         <%--<img src="images/DataCharts/map1.PNG" id="map1" runat="server" style="height: 650px;"/>
@@ -1055,7 +1067,7 @@
                                     <%--*************--%>
                                     <%--*HP2020 Logo*--%>
                                     <%--*************--%>
-                                    <asp:Image ID="imgHP2020" runat="server" ImageUrl="~/images/healthyPeople.jpg" ToolTip="HP2020 Material" AlternateText="Healthy People 2020 Goals Logo" Visible="false" CssClass="HP2020LogoOverlay" />
+                                    <asp:Image ID="imgHP2020" runat="server" ImageUrl="images/healthyPeople.jpg" ToolTip="HP2020 Material" AlternateText="Healthy People 2020 Goals Logo" Visible="false" CssClass="HP2020LogoOverlay" />
 
 
                                     <%--*******--%>
@@ -1097,11 +1109,19 @@
                                   <li><a data-toggle="tab" href="#tab_heatmap" id="tabbtn_heatmap">Heatmap</a></li>
                                 </ul>--%>
 
-                                <div class="tab-content" style="width:80%;float:left;border:2px solid #ddd">
+                                <div class="tab-content" style="width:100%;float:left;border:2px solid #ddd">
                                   <div id="tab_maps" class="tab-pane in active">
+                                      
+                                    <div style="width:100%;text-align:right; padding-top:5px;">
+                                        <button class="noPrint btn btn-light btnzoom" type="button" id="zoom_in">+</button>
+                                        <button class="noPrint btn btn-light btnzoom" type="button" id="zoom_out">-</button>
+                                        <%--<button  class="noPrint btn btn-light btnzoomout" type="button">Zoom Out</button>--%>
+                                    </div>
+                                        <span class="msgzoomout" style="visibility:hidden">Select a state from the dropdown below</span>
+                                       
 
                                     <div  style="padding-left:0px; margin-left:-5px;" >
-                                        <svg class="countymapsvgwrapper"  width="790px" height="550px"><svg class="countymapsvg" width="790px" height="500px" ></svg></svg>
+                                        <svg class="countymapsvgwrapper"  width="1000px" height="660px"><svg class="countymapsvg" width="1000px" height="600px" ></svg></svg>
                                     </div>
 
                                   </div>
@@ -1117,84 +1137,21 @@
                                          <div id="heatmapchart" style="width:90%;"></div>
                                     </div>
                                   </div>
-                                </div>
-                                <div style="width:19%;float:right;vertical-align:top;text-align:left;font-family: Arial;">
-                                <div style="width:100%;text-align:right;">
+                                <%--</div>--%>
+                                <div style="width:70%;float:right;vertical-align:top;text-align:left;font-family: Arial;">
+                                <%--<div style="width:100%;text-align:right;">
                                     <button  id='exportCountyMapButton' class="noPrint btn btn-light" type="button" ><span class="cdc-icon-download_01"></span>&nbsp;Download County Map</button>
-                                </div>
+                                </div>--%>
 
-                                    <div style="width:100%;text-align:right; padding-top:5px;">
-                                        <button  class="noPrint btn btn-light btnzoomout" type="button">Zoom Out</button>
-                                    </div>
-                                        <span class="msgzoomout">Select a state from the dropdown below</span><br /><br />
-                                       
                                       <div style="display:none">
                                          <span>State:</span>&nbsp;<span class="datastatelabel"></span><br />
                                         <span>County:</span>&nbsp;<span class="datacountylabel"></span><br />
                                         <span>Data:</span>&nbsp;<span class="datavaluelabel"></span><br /><br />
                                     </div>
-                                    <svg class="legendsvg" width="200px" height="100px"></svg>
-                                    <br /><br />
+                                    <svg class="legendsvg" width="1000px" height="50px"></svg>
                                      <!--span >View all US counties</span-->
-                                    <label for="cballcounties_id" style="display:none" >View all US counties</label><input type="checkbox" class="cballcounties" id="cballcounties_id" style="display:none" /><br /><br />
-                                    <%--<span  for="ddstate">Filter By:</span>
-                                    <select id="ddstate" class="stateddclass form-control">
-                                        <option value="select">Select a state</option>
-                                        <option value="01">Alabama</option>
-                                        <option value="02">Alaska</option>
-                                        <option value="04">Arizona</option>
-                                        <option value="05">Arkansas</option>
-                                        <option value="06">California</option>
-                                        <option value="08">Colorado</option>
-                                        <option value="09">Connecticut</option>
-                                        <option value="10">Delaware</option>
-                                        <option value="11">District of Columbia</option>
-                                        <option value="12">Florida</option>
-                                        <option value="13">Georgia</option>
-                                        <option value="15">Hawaii</option>
-                                        <option value="16">Idaho</option>
-                                        <option value="17">Illinois</option>
-                                        <option value="18">Indiana</option>
-                                        <option value="19">Iowa</option>
-                                        <option value="20">Kansas</option>
-                                        <option value="21">Kentucky</option>
-                                        <option value="22">Louisiana</option>
-                                        <option value="23">Maine</option>
-                                        <option value="24">Maryland</option>
-                                        <option value="25">Massachusetts</option>
-                                        <option value="26">Michigan</option>
-                                        <option value="27">Minnesota</option>
-                                        <option value="28">Mississippi</option>
-                                        <option value="29">Missouri</option>
-                                        <option value="30">Montana</option>
-                                        <option value="31">Nebraska</option>
-                                        <option value="32">Nevada</option>
-                                        <option value="33">New Hampshire</option>
-                                        <option value="34">New Jersey</option>
-                                        <option value="35">New Mexico</option>
-                                        <option value="36">New York</option>
-                                        <option value="37">North Carolina</option>
-                                        <option value="38">North Dakota</option>
-                                        <option value="39">Ohio</option>
-                                        <option value="40">Oklahoma</option>
-                                        <option value="41">Oregon</option>
-                                        <option value="42">Pennsylvania</option>
-                                        <option value="44">Rhode Island</option>
-                                        <option value="45">South Carolina</option>
-                                        <option value="46">South Dakota</option>
-                                        <option value="47">Tennessee</option>
-                                        <option value="48">Texas</option>
-                                        <option value="49">Utah</option>
-                                        <option value="50">Vermont</option>
-                                        <option value="51">Virginia</option>
-                                        <option value="53">Washington</option>
-                                        <option value="54">West Virginia</option>
-                                        <option value="55">Wisconsin</option>
-                                        <option value="56">Wyoming</option>
-                                    </select>--%>
+                                    <label for="cballcounties_id" style="display:none" >View all US counties</label><input type="checkbox" class="cballcounties" id="cballcounties_id" style="display:none" />
 
-                                    <br />
-                                    <br />
                                     <span for="heatmapsort" class="heatmapsortlbl">Sort By:</span><br />
                                     <select id="heatmapsort">
                                         <option value="select"></option>
@@ -1203,12 +1160,12 @@
                                         <option value="CountyOrder ASC, year">Data value, asc</option>
                                         <option value="CountyOrder DESC, year">Data value, desc</option>
                                     </select>
-                                    <br /><br />
 
                                     <div id="tinystatemap" style="width:200px;height:200px;padding-bottom:10px;cursor: pointer" title="View map of this data"></div>            
-                                    <div id="tinyheatmap" style="width:200px;height:200px;cursor: pointer"  title="View heatmap of this data"></div>
-                                    <div id="tinybarchart" style="width:200px;height:200px;cursor: pointer"  title="View histogram of this data"></div>
+                                    <div id="tinyheatmap" style="width:200px;height:200px;cursor: pointer;display:none"  title="View heatmap of this data"></div>
+                                    <div id="tinybarchart" style="width:200px;height:200px;cursor: pointer;display:none"  title="View histogram of this data"></div>
 
+                                </div>
                                 </div>
                             </asp:Panel>
 
@@ -1267,6 +1224,7 @@
                                 <li>95% confidence intervals, when available, are shown in parentheses.</li>
                             </ul>                            --%>
 
+                            
                         </div>
 
                             
@@ -1291,10 +1249,11 @@
                                                 <%--*KP/Methods Content*--%>
                                                 <div class="kptext">
                                                     <%--<asp:Literal ID="litKPText" runat="server"></asp:Literal>--%>
-                                                    <ul>
+                                                    <%--<ul>
                                                         <li>* Indicates that the result for this cell was suppressed because of imprecision due to a sample size that was too small or the standard error of the result being too large (&gt;30% of the estimate).</li>
                                                         <li>95% confidence intervals, when available, are shown in parentheses.</li>
-                                                    </ul>   
+                                                    </ul>   --%>
+                                                    <asp:Literal ID="litFootNotesText" runat="server"></asp:Literal>
                                                 </div>
 
                                             </div>
@@ -1307,8 +1266,9 @@
                                                 <!--*Chart Explanation*-->
                                                 <%--Spacing is managed on the server-side--%>
                                                 <!--*******************-->
-                                                <asp:Label ID="lblExplanationHeader" runat="server" Text=""></asp:Label>
-                                                <asp:Label ID="lblExplanationBody" runat="server" />
+                                              <%--  <asp:Label ID="lblExplanationHeader" runat="server" Text=""></asp:Label>
+                                                <asp:Label ID="lblExplanationBody" runat="server" />--%>
+                                                <asp:Literal ID="litMethodsDesc" runat="server"></asp:Literal>
 
                                             </div>
                                         </div>
@@ -1365,16 +1325,16 @@
                         </div>
 
 
-                        <p>
+<%--                        <p>
                             <asp:Panel ID="pnlFootnotes" runat="server" CssClass="tabbyDiv" Visible="false">
-                                <%--CssClass="details-module scrunchLine span24 tabbyDiv"--%>
+                                
                                 <asp:Label ID="lblFootNotesHeader" runat="server" CssClass="detail-module-header" Text="Footnotes:" />
                                 <br />
                                 <asp:Literal ID="litFootNotesText" runat="server"></asp:Literal>
                                 <br />
                                 <br />
                             </asp:Panel>
-                        </p>
+                        </p>--%>
 
 
 
@@ -1531,11 +1491,21 @@
                 autoscaleBtn.click();
             }
 
-            $(document).ready(function () {
+            $(document).ready(function () {                
                 var divVD = document.getElementById("divViewDataBy");
                 if (typeof (divVD) != 'undefined' && divVD != null) {
                     $('#divMenuData').removeAttr("style");
                     $('#divMenuContent').removeAttr("style");
+                    var divCI = document.getElementById("CB_ChartCI");
+                    if (typeof (divCI) == 'undefined' || divCI == null) {
+                        $('#divMenuData').attr("style", "margin-left:28%");
+                    }
+                }else{
+                    var divCI = document.getElementById("CB_ChartCI");
+                    if (typeof (divCI) == 'undefined' || divCI == null) {
+                        $('#divMenuData').removeAttr("style");
+                        $('#divMenuData').attr("style", "margin-left:63%");
+                    }
                 }
                 
                 var sw = $(window).width();
@@ -1609,6 +1579,7 @@
 
                     redrawPlotlyChart();
                 })
+
             });
 
             function redrawPlotlyChart()
@@ -2160,12 +2131,12 @@
             d3.select('.countymapsvgwrapper').append("text")
                 .attr("class", "countymaptitletext")
                 .attr("x", 20)
-                .attr("y", 520)
+                .attr("y", 630)
                 .text(c_title + "-" + $("#ddstate option:selected").text());
             d3.select('.countymapsvgwrapper').append("text")
                 .attr("class", "countymaptitletext")
                 .attr("x", 20)
-                .attr("y", 540)
+                .attr("y", 650)
                 .text(c_footer);
         }
 
@@ -2491,10 +2462,10 @@
      <script>
 
          var stateData_tabs = [];
-         const colorarray_tabs = ["#D6EAF8", "#AED6F1", "#85C1E9", "#3498DB", "#2E86C1"];
+         //const colorarray_tabs = ["#D6EAF8", "#AED6F1", "#85C1E9", "#3498DB", "#2E86C1"];
 
          //***** Q705 change *******/
-         //const colorarray_tabs = ["#FFFFFF", "#AED6F1", "#85C1E9", "#3498DB", "#2E86C1"];
+         const colorarray_tabs = ["#FFFFFF", "#AED6F1", "#85C1E9", "#59B1EC", "#2E86C1"];
          //***** Q705 change *******/
 
          const statearray_tabs = ["Alabama", "Alaska", "Arkansas", "Arizona", "California", "Colorado", "Connecticut", "District of Columbia", "Delaware", "Florida", "Georgia", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
@@ -2532,7 +2503,7 @@
              .on("zoom", zoomed); //default values set for 'zooming', calling the 'zoomed' function below
 
          $(document).ready(function () {
-
+            
              $("#tinystatemap").hide();//hiding the state map on load
              $("#heatmapsort").hide(); //hide on load
              $(".heatmapsortlbl").hide();
@@ -2541,7 +2512,7 @@
                  mapheight_tabs = 500;
 
              if ($('#hfMapType').val() == "6") { //if this is a county map, then create it along with displaying the tabs
-
+                 
                  createUSMapChart(mapwidth_tabs, mapheight_tabs); //creating the map on page load
                  $("#pnlD3MapsTabs").show();//show the map tabs panel
                  $("#pnlMap").hide(); //hide the existing map panel
@@ -2552,7 +2523,7 @@
                  $("#chartColorControls").hide(); 
 
                  console.log("createUSMapChart");
-                
+              
              }
              else
                  $("#pnlD3MapsTabs").hide(); //otherwise hide the map tabs panel
@@ -2561,6 +2532,7 @@
              $("#ddstate").change(function () {
 
                  var statecode_tabs = $(this).val();
+
                  var featurestate_tabs = topojson.feature(global_us_tabs, global_us_tabs.objects.states)
                      .features
                      .filter(function (d) { return d.id == statecode_tabs; })[0]; // filtering out the state by FIPS code, which is passed in above. get a geojson object (not an array of objects)
@@ -2568,8 +2540,8 @@
 
                  callHandler(statecode_tabs);
 
-                 $("#tinybarchart").show();
-                 $("#tinyheatmap").show();
+                 //$("#tinybarchart").show();
+                 //$("#tinyheatmap").show();
 
                  //10/13/2020
                  if ($("#tabbtn_maps").parent().hasClass("active")) $("#tabbtn_maps").click();
@@ -2587,7 +2559,7 @@
 
              $("#tabbtn_heatmap").click(function () {
                  console.log("inside tabbtn_heatmap click");
-                 $(".legendsvg").hide();
+                 //$(".legendsvg").hide();
                  $("#heatmapsort").show();
                  $(".heatmapsortlbl").show();
                  var gd4 = d3.select('#heatmapchart');
@@ -2599,8 +2571,8 @@
                  Plotly.Plots.resize(graphdiv);
 
                  $("#tinystatemap").show();
-                 $("#tinybarchart").show();
-                 $("#tinyheatmap").hide();
+                 //$("#tinybarchart").show();
+                 //$("#tinyheatmap").hide();
 
                  $(".btnzoomout").hide();
                  $("#exportCountyMapButton").hide();
@@ -2612,12 +2584,12 @@
 
              });
              $("#tabbtn_maps").click(function () {
-                 $(".legendsvg").show();
+                 //$(".legendsvg").show();
                  $("#heatmapsort").hide();
                  $(".heatmapsortlbl").hide();
                  $("#tinystatemap").hide();
-                 $("#tinybarchart").show();
-                 $("#tinyheatmap").show();
+                 //$("#tinybarchart").show();
+                 //$("#tinyheatmap").show();
                  $(".btnzoomout").show();
                  $("#exportCountyMapButton").show();
                  $(this).parent().addClass("active");
@@ -2626,12 +2598,12 @@
              });
 
              $("#tabbtn_chart").click(function () {
-                 $(".legendsvg").show();
+                 //$(".legendsvg").show();
                  $("#heatmapsort").hide();
                  $(".heatmapsortlbl").hide();
                  $("#tinystatemap").show();
                  $("#tinybarchart").hide();
-                 $("#tinyheatmap").show();
+                 //$("#tinyheatmap").show();
                  $(".btnzoomout").hide();
                  $("#exportCountyMapButton").hide();
                  $(this).parent().addClass("active");
@@ -2652,19 +2624,19 @@
              });
 
 
-             $("#tinyheatmap").click(function () {
-                 $("#tabbtn_heatmap").click();
-                 console.log("inside tinyheatmap click");
-             });
+             //$("#tinyheatmap").click(function () {
+             //    $("#tabbtn_heatmap").click();
+             //    console.log("inside tinyheatmap click");
+             //});
              //end triggering
 
 
 
              $(".btnzoomout").click(function () {
                  //d3.select(null); 
-                 zoomOutToUS();
-                 $(this).hide();
-                 $(".msgzoomout").show();
+                 zoomOutToUS();                 
+                 //$(this).hide();
+                 //$(".msgzoomout").show();
                  showAllCounties();
                  $("#heatmapsort").hide();
                  $(".heatmapsortlbl").hide();
@@ -2732,6 +2704,7 @@
 
          function mapReady(error, usdata) { //the 'us' is the json data file from the the queue function, the 'csvdata' is from the csv file data
              //console.log("csvdata=" + JSON.stringify(csvdata));
+             
              if (error) throw error;
              global_us_tabs = usdata; //adding this passed int data to the global data
              global_csv_tabs = countyDataArray;//csvdata; //adding this passed int data to the global data
@@ -2804,13 +2777,20 @@
              }
 
              //starting off by showing GA first when the map page is loaded
-             $("#ddstate").val("13");
+             //$("#ddstate").val("13");
+             $(".btnzoomout").click();
+
              var statecode_tabs = $("#ddstate").val();
-             var featurestate_tabs = topojson.feature(global_us_tabs, global_us_tabs.objects.states)
+             if (statecode_tabs != "select") {
+                 var featurestate_tabs = topojson.feature(global_us_tabs, global_us_tabs.objects.states)
                  .features
                  .filter(function (d) { return d.id == statecode_tabs; })[0]; // filtering out the state by FIPS code, which is passed in above. get a geojson object (not an array of objects)
-             stateClicked_tabs(featurestate_tabs);
+             
+                 stateClicked_tabs(featurestate_tabs);
+             }
              callHandler($("#ddstate").val());
+
+             
          }
 
 
@@ -2895,13 +2875,16 @@
                                  //county_val = "MISSING DATA";
                                  //data_val = "";
                                  //countydatalabelval = "MISSING DATA";
-                                 countydatalabelval = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA per 100</div>";
+                                 countydatalabelval = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA per Max</div>";
+                             }
+                             else if (Number(filtercountyrow[0]["countydatavalue"]) <= 10) {
+                                 countydatalabelval = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA per Max</div>";
                              }
                              else {
                                  county_val = filtercountyrow[0]["county"];
                                  data_val = filtercountyrow[0]["countydatavalue"];
                                  var color = findColorVal(data_val);
-                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + " per 100</div>";
+                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + " per Max</div>";
                                  if (statecode == "22")
                                      htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>Parish: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
                                  else if (statecode == "02")
@@ -2954,11 +2937,11 @@
 
          //moved this outside of the createmap function so that it can be accessed by the dropdown state change
          function showAllCounties() { //passing in the json string of the state
-
+             
              svg_tabs.selectAll("g.counties").remove();
-
+             
              var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
-
+             
              var countyprojectiondata = topojson.feature(global_us_tabs, global_us_tabs.objects.counties);
              var countyprojection = d3.geoIdentity().fitSize([actualwidth_tabs, actualheight_tabs], countyprojectiondata);
              var path_tabs = d3.geoPath()
@@ -3011,11 +2994,16 @@
                                  data_val = "";
                                  countydatalabelval = "MISSING DATA";
                              }
+                             else if (Number(filtercountyrow[0]["countydatavalue"]) <= 10) {
+                                 county_val = "MISSING DATA";
+                                 data_val = "";
+                                 countydatalabelval = "MISSING DATA";
+                             }
                              else {
                                  county_val = filtercountyrow[0]["county"];
                                  data_val = filtercountyrow[0]["countydatavalue"];
                                  var color = findColorVal(data_val);
-                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + " per 100</div>";
+                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + " per Max</div>";
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
                                  countydatalabelval = htmlwrap;
@@ -3056,7 +3044,7 @@
              var boxmargin = 4,
                  lineheight = 14,
                  keyheight = 10,
-                 keywidth = 40,
+                 keywidth = 45,
                  boxwidth = 2 * keywidth;
 
              var titleheight = lineheight * 4;
@@ -3076,18 +3064,40 @@
              var legend = legendsvg.append("g")
                  .attr("transform", "translate (" + margin.left + "," + margin.top + ")");
 
+             //var lb = legend.append("rect")
+             //    .attr("transform", "translate (0,0)")
+             //    .attr("class", "legend-box")
+             //    .attr("fill", "#fff")
+             //    .attr("width", boxwidth)
+             //    .attr("height", ranges * lineheight + 2 * boxmargin + lineheight - keyheight);
+
              var lb = legend.append("rect")
                  .attr("transform", "translate (0,0)")
                  .attr("class", "legend-box")
                  .attr("fill", "#fff")
-                 .attr("width", boxwidth)
-                 .attr("height", ranges * lineheight + 2 * boxmargin + lineheight - keyheight);
+                 .attr("width", ranges * lineheight + 2 * boxmargin + lineheight - keyheight)
+                 .attr("height", lineheight);
 
 
              // make quantized key legend items
              var li = legend.append("g")
                  .attr("transform", "translate (8,0)")
                  .attr("class", "legend-items");
+
+             //li.selectAll("rect")
+             //    .data(quantize.range().map(function (color) {
+             //        var d = quantize.invertExtent(color);
+             //        if (d[0] == null) d[0] = x.domain()[0];
+             //        if (d[1] == null) d[1] = x.domain()[1];
+             //        return d;
+             //    }))
+             //    .enter().append("rect")
+             //    .attr("y", function (d, i) { return i * lineheight + lineheight - keyheight - 4; })
+             //    .attr("width", keywidth)
+             //    .attr("height", keyheight + 4)
+             //    .style("stroke", "#000")
+             //    .style("stroke-width", "1.5px")
+             //    .style("fill", function (d) { return quantize(d[0]); });
 
              li.selectAll("rect")
                  .data(quantize.range().map(function (color) {
@@ -3097,27 +3107,71 @@
                      return d;
                  }))
                  .enter().append("rect")
-                 .attr("y", function (d, i) { return i * lineheight + lineheight - keyheight - 4; })
-                 .attr("width", keywidth)
-                 .attr("height", keyheight + 4)
-                 .style("stroke", "#000")
-                 .style("stroke-width", "1.5px")
+                 .attr("x", function (d, i) { return (i - 1) * 2 * keywidth + (2 * keywidth); })
+                 .attr("width", keywidth * 2 )
+                 .attr("height", keyheight * 2)
+                 .style("stroke", "#29434E")
+                 .style("stroke-width", "0.5px")
                  .style("fill", function (d) { return quantize(d[0]); });
 
              d3.select('.upperlegend').remove();
              d3.select('.lowerlegend').remove();
 
-             li.append("text")
-                 .attr("class", "upperlegend")
-                 .attr("x", 48)
-                 .attr("y", 14)
-                 .text(valMin_tabs + " per 100");
+             var legendtext1 = "";
+             var legendtext2 = "";
+             var legendtext3 = "";
+             var legendtext4 = "";
+             var legendtext5 = "";
+
+             if ($("#hfChartID").val() == "4019") { //Overall
+                 legendtext1 = "NA";
+                 legendtext2 = "< 14%";
+                 legendtext3 = "14 - 16.9%";
+                 legendtext4 = "17 - 19.9%";
+                 legendtext5 = "≥ 20%";
+             } else if ($("#hfChartID").val() == "4039") { //Diabetes
+                 legendtext1 = "NA";
+                 legendtext2 = "< 22%";
+                 legendtext3 = "22 - 26.9%";
+                 legendtext4 = "27 - 31.9%";
+                 legendtext5 = "≥ 32%";
+             } else if ($("#hfChartID").val() == "4040") { //Hypertension
+                 legendtext1 = "NA";
+                 legendtext2 = "< 18%";
+                 legendtext3 = "18 - 20.9%";
+                 legendtext4 = "21 - 24.9%";
+                 legendtext5 = "≥ 25 %";
+             }
 
              li.append("text")
-                 .attr("class", "lowerlegend")
-                 .attr("x", 48)
-                 .attr("y", 70)
-                 .text(valMax_tabs + " per 100");
+                 .attr("class", "upperlegend")
+                 .attr("x", 31)
+                 .attr("y", 14)
+                 .text(legendtext1);
+
+             li.append("text")
+                 .attr("class", "upperlegend")
+                 .attr("x", 112)
+                 .attr("y", 14)
+                 .text(legendtext2);
+
+             li.append("text")
+                 .attr("class", "upperlegend")
+                 .attr("x", 192)
+                 .attr("y", 14)
+                 .text(legendtext3);
+
+             li.append("text")
+                 .attr("class", "upperlegend")
+                 .attr("x", 280)
+                 .attr("y", 14)
+                 .text(legendtext4);
+
+             li.append("text")
+                 .attr("class", "upperlegend")
+                 .attr("x", 386)
+                 .attr("y", 14)
+                 .text(legendtext5);
 
              //end legend code
 
@@ -3138,70 +3192,70 @@
          function findColorVal(dataval) {             
              var colorval;
              //***** Q705 change *******/
-             if ($("#hfChartID").val() == "4019") {
+             if ($("#hfChartID").val() == "4019") { //Overall
                  if (dataval === "NA")
                     colorval = "#ddd"; //was white at one point
                  else if (dataval === "MIA")
                      colorval = "#ddd"
-                 else if (dataval >= valMin_tabs + 20) // > 80th percentile
+                 else if (dataval >= valMin_tabs + 20) 
                      colorval = colorarray_tabs[4];
-                 else if (dataval >= (valMin_tabs + 18) && dataval < (valMin_tabs + 20)) //40th - 60th percentile
+                 else if (dataval >= (valMin_tabs + 17) && dataval < (valMin_tabs + 20))
                      colorval = colorarray_tabs[3];
-                 else if (dataval >= (valMin_tabs + 15) && dataval < (valMin_tabs + 18)) //20th - 40th percentile
+                 else if (dataval >= (valMin_tabs + 14) && dataval < (valMin_tabs + 17)) 
                      colorval = colorarray_tabs[2];
-                 else if (dataval >= (valMin_tabs + 10) && dataval < (valMin_tabs + 15)) // < 20th percentile
+                 else if (dataval >= (valMin_tabs + 10) && dataval < (valMin_tabs + 14)) 
                      colorval = colorarray_tabs[1];
-                 else if (dataval < (valMin_tabs + 10)) // < 20th percentile
+                 else if (dataval < (valMin_tabs + 10)) 
                      colorval = colorarray_tabs[0];
 
-             } else if ($("#hfChartID").val() == "4039") {
+             } else if ($("#hfChartID").val() == "4039") { //Diabetes
                  if (dataval === "NA")
                      colorval = "#ddd"; //was white at one point
                  else if (dataval === "MIA")
                      colorval = "#ddd"
-                 else if (dataval >= valMin_tabs + 25) // > 80th percentile
+                 else if (dataval >= valMin_tabs + 32) 
                      colorval = colorarray_tabs[4];
-                 else if (dataval >= (valMin_tabs + 22) && dataval < (valMin_tabs + 25)) //40th - 60th percentile
+                 else if (dataval >= (valMin_tabs + 27) && dataval < (valMin_tabs + 32))
                      colorval = colorarray_tabs[3];
-                 else if (dataval >= (valMin_tabs + 19) && dataval < (valMin_tabs + 22)) //20th - 40th percentile
+                 else if (dataval >= (valMin_tabs + 22) && dataval < (valMin_tabs + 27))
                      colorval = colorarray_tabs[2];
-                 else if (dataval >= (valMin_tabs + 10) && dataval < (valMin_tabs + 19)) // < 20th percentile
+                 else if (dataval >= (valMin_tabs + 10) && dataval < (valMin_tabs + 22))
                      colorval = colorarray_tabs[1];
-                 else if (dataval < (valMin_tabs + 10)) // < 20th percentile
+                 else if (dataval < (valMin_tabs + 10))
                      colorval = colorarray_tabs[0];
              }
-             else if ($("#hfChartID").val() == "4040") {
+             else if ($("#hfChartID").val() == "4040") { //Hypertension
                  if (dataval === "NA")
                      colorval = "#ddd"; //was white at one point
                  else if (dataval === "MIA")
                      colorval = "#ddd"
-                 else if (dataval >= valMin_tabs + 32) // > 80th percentile
+                 else if (dataval >= valMin_tabs + 25) 
                      colorval = colorarray_tabs[4];
-                 else if (dataval >= (valMin_tabs + 29) && dataval < (valMin_tabs + 32)) //40th - 60th percentile
+                 else if (dataval >= (valMin_tabs + 21) && dataval < (valMin_tabs + 25)) 
                      colorval = colorarray_tabs[3];
-                 else if (dataval >= (valMin_tabs + 25) && dataval < (valMin_tabs + 29)) //20th - 40th percentile
+                 else if (dataval >= (valMin_tabs + 18) && dataval < (valMin_tabs + 21)) 
                      colorval = colorarray_tabs[2];
-                 else if (dataval >= (valMin_tabs + 10) && dataval < (valMin_tabs + 25)) // < 20th percentile
+                 else if (dataval >= (valMin_tabs + 10) && dataval < (valMin_tabs + 18)) 
                      colorval = colorarray_tabs[1];
-                 else if (dataval < (valMin_tabs + 10)) // < 20th percentile
+                 else if (dataval < (valMin_tabs + 10)) 
                      colorval = colorarray_tabs[0];
              }
              //***** Q705 change *******/
 
-             if (dataval === "NA")
-                 colorval = "#ddd"; //was white at one point
-             else if (dataval === "MIA")
-                 colorval = "#ddd"
-             else if (dataval >= valMin_tabs + (minmaxDiff_tabs * .8)) // > 80th percentile
-                 colorval = colorarray_tabs[4];
-             else if (dataval >= (valMin_tabs + (minmaxDiff_tabs * .6)) && dataval < (valMin_tabs + (minmaxDiff_tabs * .8))) //60th - 80th percentile
-                 colorval = colorarray_tabs[3];
-             else if (dataval >= (valMin_tabs + (minmaxDiff_tabs * .4)) && dataval < (valMin_tabs + (minmaxDiff_tabs * .6))) //40th - 60th percentile
-                 colorval = colorarray_tabs[2];
-             else if (dataval >= (valMin_tabs + (minmaxDiff_tabs * .2)) && dataval < (valMin_tabs + (minmaxDiff_tabs * .4))) //20th - 40th percentile
-                 colorval = colorarray_tabs[1];
-             else if (dataval < (valMin_tabs + (minmaxDiff_tabs * .2))) // < 20th percentile
-                 colorval = colorarray_tabs[0];
+             //if (dataval === "NA")
+             //    colorval = "#ddd"; //was white at one point
+             //else if (dataval === "MIA")
+             //    colorval = "#ddd"
+             //else if (dataval >= valMin_tabs + (minmaxDiff_tabs * .8)) // > 80th percentile
+             //    colorval = colorarray_tabs[4];
+             //else if (dataval >= (valMin_tabs + (minmaxDiff_tabs * .6)) && dataval < (valMin_tabs + (minmaxDiff_tabs * .8))) //60th - 80th percentile
+             //    colorval = colorarray_tabs[3];
+             //else if (dataval >= (valMin_tabs + (minmaxDiff_tabs * .4)) && dataval < (valMin_tabs + (minmaxDiff_tabs * .6))) //40th - 60th percentile
+             //    colorval = colorarray_tabs[2];
+             //else if (dataval >= (valMin_tabs + (minmaxDiff_tabs * .2)) && dataval < (valMin_tabs + (minmaxDiff_tabs * .4))) //20th - 40th percentile
+             //    colorval = colorarray_tabs[1];
+             //else if (dataval < (valMin_tabs + (minmaxDiff_tabs * .2))) // < 20th percentile
+             //    colorval = colorarray_tabs[0];
              //console.log("dataval=" + dataval + " - valMin=" + valMin_tabs + " - minmaxDiff=" + minmaxDiff_tabs + " - colorval=" + colorval);
 
              return colorval;

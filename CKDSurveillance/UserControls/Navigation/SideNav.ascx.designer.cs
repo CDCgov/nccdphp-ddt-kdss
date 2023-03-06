@@ -51,6 +51,24 @@ namespace CKDSurveillance_RD
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAYARF;
 
         /// <summary>
+        /// div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
+
+        /// <summary>
+        /// divARandGI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divARandGI;
+
+        /// <summary>
         /// HF_TopicText control.
         /// </summary>
         /// <remarks>

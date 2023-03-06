@@ -16,17 +16,19 @@
         letter-spacing: -0.6px;
         color: #000000;
     }
-    .prev-img-box {
+/*    .prev-img-box {
         background: #FFFFFF 0% 0% no-repeat padding-box;
         box-shadow: 0px 3px 6px #00000029;
         border: 1px solid #CFCFCF;
         opacity: 1;
         padding-top:1px;
         cursor: pointer;
-    }
-    .prev-img-card {
+        height:20%;
+    }*/
+    .prevalence-img-card {
         box-shadow: inset 0px 3px 6px #00000029;
         opacity: 1;                
+        height: 73%;
     }
     .prev-img {
         width:100%;
@@ -95,33 +97,33 @@
     </div>
     <div class="row prev-row">
         <div class="col-md p-3 prev-img-box prev-img-box-margin" onclick="location.href='/detail.aspx?Qnum=Q372';">
-            <div class="prev-img-card">
-                <img src="../../images/Prev1.png" class="prev-img" alt="Prevalence of CKD Stages 1–4  during 2015-2016 in the U.S. was 14.2%."/>
+            <div class="prevalence-img-card">
+                <img src="./images/Prev1.png" class="prev-img" alt="Prevalence of CKD Stages 1–4  during 2015-2016 in the U.S. was 14.2%."/>
             </div>
             <div class="prev-subtitle">Prevalence of CKD Stages 1–4 by Year
-            </div><br />
+            </div>
             <%--<div class="prev-body">During 2015-2016, prevalence of CKD in the U.S. was 14.2%.
             </div>--%>
             <div class="prev-footer">Source of information: NHANES
             </div>
         </div>
         <div class="col-md p-3 prev-img-box prev-img-box-margin" onclick="location.href='/detail.aspx?Qnum=Q705';">
-            <div class="prev-img-card">
-                <img src="../../images/Prev3.png" class="prev-img" alt="Prevalence of CKD by the percentage of patients with a CKD code is distributed unevenly across states."/>
+            <div class="prevalence-img-card">
+                <img src="./images/Prev3.png" class="prev-img" alt="Prevalence of CKD by the percentage of patients with a CKD code is distributed unevenly across states."/>
             </div>
             <div class="prev-subtitle">Prevalence of CKD by U.S.<br /> State and County
-            </div><br />
+            </div>
             <%--<div class="prev-body">The percentage of patients with a CKD code is distributed unevenly across states.
             </div>--%>
             <div class="prev-footer">Source of information: CMS-Medicare
             </div>
         </div>
          <div class="col-md p-3 prev-img-box" onclick="location.href='/detail.aspx?Qnum=Q702';">
-            <div class="prev-img-card">
-                <img src="../../images/Prev2.png" class="prev-img" alt="CKD Prevalence in adults with diabetes remained the same (20%) in 1999–2004 & 2011–2018."/>
+            <div class="prevalence-img-card">
+                <img src="./images/Prev2.png" class="prev-img" alt="CKD Prevalence in adults with diabetes remained the same (20%) in 1999–2004 & 2011–2018."/>
             </div>
             <div class="prev-subtitle">CKD Prevalence by Diabetes<br /> Mellitus Status
-            </div><br />
+            </div>
             <%--<div class="prev-body">The prevalence of CKD in adults with diabetes remained the same (20%) in 1999–2004 & 2011–2018
             </div>--%>
             <div class="prev-footer">Source of information: NHANES

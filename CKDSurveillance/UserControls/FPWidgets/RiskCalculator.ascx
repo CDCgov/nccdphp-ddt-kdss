@@ -77,8 +77,8 @@
             The calculator estimates the probability of having Chronic Kidney Disease. The calculations is based on individual characteristics: age, sex, and 7 comorbidities.
         </div>
 
-        <div class="calculator-link"><img src="../../images/calculator-icon.png" alt="">
-            <a id="lbkCalculator" title="Risk Calculator" class="calculator-link" href="/Calculators.aspx">Access Calculator<i class="fa fa-angle-right right-angle-arrow-white"></i></a> 
+        <div class="calculator-link"><img src="images/calculator-icon.png" alt="">
+            <a id="lbkCalculator" title="Risk Calculator" class="calculator-link" href="Calculators.aspx">Access Calculator<i class="fa fa-angle-right right-angle-arrow-white"></i></a> 
 
         </div>
     </div>

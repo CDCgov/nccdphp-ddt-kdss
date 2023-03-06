@@ -91,13 +91,13 @@
             <div class="outcomes-title"><h2><span style="color:#712177;">Outcomes</span> Related to <br /><u style="text-decoration-color:#00695C;text-underline-offset: 15px;">Kidn</u>ey Disease</h2></div>
             <ul class="linked-list">
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="/detail.aspx?Qnum=Q185"><span>Mortality by Stages of Kidney Disease</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q185"><span>Mortality by Stages of Kidney Disease</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="/detail.aspx?Qnum=Q364"><span>Various Sleep Symptoms</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q364"><span>Various Sleep Symptoms</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="/detail.aspx?Qnum=Q703"><span>Population Reporting Disability</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q703"><span>Population Reporting Disability</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
             </ul>
         </div>
@@ -107,16 +107,16 @@
             <div class="qualityofcare-title showPhoneOnly"><h2>State of <span style="color:#712177;"><br />Quality of Care</span><br /><u style="text-decoration-color:#00695C">for K</u>idney Disease</h2></div>
             <ul class="linked-list">
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="/detail.aspx?Qnum=Q605"><span>ACEi/ARB use among CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q605"><span>ACEi/ARB use among CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="/detail.aspx?Qnum=Q640"><span>Albuminuria Testing among U.S. Veterans</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q640"><span>Albuminuria Testing among U.S. Veterans</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="/detail.aspx?Qnum=Q700"><span>Use of Prescribed NSAIDs in CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q700"><span>Use of Prescribed NSAIDs in CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="/detail.aspx?Qnum=Q719"><span>SGLT2 Inhibitor Use in CKD and Diabetes</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q719"><span>SGLT2 Inhibitor Use in CKD and Diabetes</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
             </ul>
         </div>

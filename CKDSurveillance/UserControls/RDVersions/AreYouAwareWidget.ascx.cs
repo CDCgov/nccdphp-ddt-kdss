@@ -24,6 +24,11 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 //subPageDiv.Visible = true;
                 homePageDiv.Visible = false;
             }
+
+            if (Request.QueryString["emailDate"] == "April_2023") {
+                bcTopic.InnerText = "> Are You Aware Topics ";
+                bcSelListItem.InnerText = "> Awareness";
+            }
         }
     }
 }
