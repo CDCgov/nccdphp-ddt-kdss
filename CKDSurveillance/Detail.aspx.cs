@@ -10,17 +10,10 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.DataVisualization.Charting;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-
-using DocumentFormat.OpenXml;
-using DocumentFormat.OpenXml.Packaging;
-using DocumentFormat.OpenXml.Wordprocessing;
 using ClosedXML.Excel;
 using ckdlibV2;
-using CKDSurveillance_RD.Classes;
 using CKDSurveillance_RD.UserControls;
-using DocumentFormat.OpenXml.Bibliography;
 
 namespace CKDSurveillance_RD.MasterPages
 {

@@ -122,9 +122,10 @@ input[type=radio] {
 
 .bangGraph, .tangriGraph {
     /*width:350px;*/
-    height: 500px;
-    width: 90%;
-    margin: 0 auto;
+    height: 720px; /*80% !important; 500px;*/
+    width: 302px; /*90%;*/
+    margin: 0px auto;
+    padding: 0px;
 }
 
 .svg.container {

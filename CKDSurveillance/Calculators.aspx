@@ -10,7 +10,6 @@
     <link href="App_Themes/normalize.css?val=202012301107" rel="stylesheet" />
     <link href="App_Themes/Calculators.css?val=22" rel="stylesheet" />
 
-
     <%--*JS*--%>
     <%--*Ion Range Slider JS*--%>
     <script src="scripts/ion.rangeSlider.js" type="text/javascript"></script>
@@ -106,12 +105,23 @@
             text-align: center;
             font-family: Open Sans !important;
             font-size: 17px !important;
+            font-weight: normal !important;
             letter-spacing: 0px;
-            color: #000000;
-            opacity: 1;
-            /*border-bottom: 2px solid #ddd;  */
-            /*border-right: 2px solid #ddd;*/
-           /* background: #F5F5F5 0% 0% no-repeat padding-box;*/
+            color: #6E6E6E; /*#000000;*/
+            opacity: 1;    
+        }
+
+        .tabHeader a:hover{
+            font-weight:normal;
+        }
+
+        .tabBorder{
+            border-bottom: 2px solid #ddd;  
+        }
+
+        .calc-tabs a.active {
+            background:#F5F5F5;
+            color:#000000 ;
         }
 
         .calcdescription{
@@ -276,12 +286,13 @@
             background: #FFFFFF 0% 0% no-repeat padding-box;
             border: 1px solid #29434E;
             padding:10px;
+            border-radius: 5px;
         }
 
         .resetChoicesButtonBg {
             background: #FFFFFF 0% 0% no-repeat padding-box;
             border: 1px solid white; /*#29434E;*/
-            border-radius: 5px;
+            border-radius: 5px !important;
             opacity: 1;
             width: 160px; 
             height: 48px;
@@ -291,11 +302,17 @@
         .percentText {
             text-align: left;
             font-family: Open Sans;
-            font-size: 17px;
+            font-size: 17px !important;
             letter-spacing: 0px;
-            color: #00695C;
+            color: #00695C !important;
             opacity: 1;
         }
+        
+        fieldset {
+            border: none;
+            margin: 0px;
+          /* padding:0px;*/
+        } 
 
     </style>
 </asp:Content>
@@ -328,7 +345,6 @@
 							<p>                   
 								<span class="PIbody"><asp:Literal ID="Lit_Desc" runat="server"></asp:Literal></span>
 							</p>
-
 
 							<div>
                                 <div class="col-xl-12">
@@ -364,23 +380,19 @@
                                                                            
                                     </div>
                                 </div>                                             
-                    </div>   
+                             </div>   
 
-                                    <br />
-                                    <br />
+                                    <br /><br />
 
                                     <div class="phoneWarning">
                                         <p style="font-weight: bold; color: red">The CKD Risk Calculators are designed for use on devices with larger displays. Please visit this page on a tablet, laptop, or desktop device.</p>
-                                    </div>
+                                    </div>                                                                       
 
-                                    
-
-                                    <div id="divContentTabs" class="tabs-module">
-                                        <ul class="nav nav-tabs no-syndicate" id="tabs-3" role="tablist">  <%-- nav-item--%>
-                                            <li class="tabHeader" style="border-left: 2px solid #ddd; background: #F5F5F5 !important;"><a class="nav-link <%--active--%>"  style="background: #F5F5F5 !important; /*font-weight:bold;*/" data-toggle="tab" role="tab" href="#tab-Bang">Calculator 1: Probability of CKD</a></li>
-                                            <li class="tabHeader" ><a class="nav-link" data-toggle="tab" role="tab" href="#tab-Tangri">Calculator 2: Progression of CKD</a></li>
-                                        </ul>
-
+                                    <div id="divContentTabs" class="calc-tabs">
+                                        <ul class="nav tabBorder <%--nav-tabs--%> no-syndicate" id="tabs-3" role="tablist">  <%-- nav-item--%>
+                                            <li id="calcTab1" class="" style="margin-bottom: 0em;"><a class="nav-link tabHeader active"  /*font-weight:bold;*/" data-toggle="tab" role="tab" href="#tab-Bang">Calculator 1: Probability of CKD</a></li>
+                                            <li id="calcTab2" class="" ><a style="margin-bottom: 0px;" class="nav-link tabHeader " data-toggle="tab" role="tab" href="#tab-Tangri">Calculator 2: Progression of CKD</a></li>
+                                        </ul>                                        
 
                                         <div class="tab-content">
                                             
@@ -442,18 +454,17 @@
                                                                         <tr>
                                                                             <td id="rowSex" scope="row" headers="EAAS colChar" style="width:50%"  class="charTableText" <%--QLabelLeft--%>><span>Gender *</span></td>
                                                                             <td  headers="EAAS colTP rowSex">  <%--class="QLabelRight"--%>
-                                                                                <fieldset style="border:none;">
+                                                                                <fieldset style="width:100% !important;">
                                                                                     <legend>Sex</legend> <%--update it to Gender--%>
                                                                                     <input id="rbSexFemale" type="radio" name="rbSex" value="0" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
-                                                                                    <label for="rbSexFemale" class="yesnotext float-left">Yes<%--Female--%></label>
+                                                                                    <label for="rbSexFemale" class="yesnotext float-left">Female</label>
                                                                                     &nbsp;                                                                                             
                                                                                     <input id="rbSexMale" type="radio" name="rbSex" value="1" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
-                                                                                    <label for="rbSexMale" class="yesnotext float-left">No<%--Male--%></label>
+                                                                                    <label for="rbSexMale" class="yesnotext float-left">Male</label>
                                                                                 </fieldset>
                                                                             </td>
                                                                             <td headers="EAAS colNA rowSex"></td>
                                                                         </tr>
-
 
                                                                         <%--****************************--%>
                                                                         <%--*Radio Button Choice Header*--%>
@@ -467,7 +478,7 @@
                                                                         <tr>
                                                                             <td id="rowAnemia" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Anemia</td>
                                                                             <td  headers="CKDprob colTP rowAnemia"> <%--class="QLabelRight"--%>
-                                                                                <fieldset style="border:none;">
+                                                                                <fieldset>
                                                                                     <legend>Anemia</legend>
                                                                                     <input id="rbAnemiaYes" type="radio" name="rbAnemia" value="1" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbAnemiaYes" class="yesnotext float-left">Yes</label>
@@ -482,7 +493,7 @@
                                                                         <tr>
                                                                             <td id="rowHypertension" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Hypertension</td>
                                                                             <td  headers="CKDprob colTP rowHypertension"> <%--class="QLabelRight"--%>
-                                                                                <fieldset style="border:none;">
+                                                                                <fieldset>
                                                                                     <legend>Hypertension</legend>
                                                                                     <input id="rbHypertensionYes" type="radio" name="rbHypertension" value="1" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbHypertensionYes" class="yesnotext float-left">Yes</label>
@@ -491,13 +502,13 @@
                                                                                     <label for="rbHypertensionNo" class="yesnotext float-left">No</label>
                                                                                 </fieldset>
                                                                             </td>
-                                                                            <td headers="CKDprob colNA rowHypertension" class="percentText"><%--(--%><a style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q652'>41%</a><%--<sup>2</sup>)--%></td>
+                                                                            <td headers="CKDprob colNA rowHypertension" ><%--(--%><a class="percentText" style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q652'>41%</a><%--<sup>2</sup>)--%></td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td id="rowDiabetes" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Diabetes</td>
                                                                             <td  headers="CKDprob colTP rowDiabetes"> <%--class="QLabelRight"--%>
-                                                                                <fieldset style="border:none;">
+                                                                                <fieldset>
                                                                                     <legend>Diabetes
                                                                                         <img id="imgDiabetesHint" alt="Dabetes Description Help" title="click for Diabetes Information" src="images/help.jpg" onclick="$('#divDiabetesPopover').fadeIn(500);" />
                                                                                     </legend>                                                                                   
@@ -517,13 +528,13 @@
                                                                                     <p>About <a href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q653' target="_blank">10%</a> of the US population has diabetes.</p>
                                                                                 </div>
                                                                             </td>
-                                                                            <td headers="CKDprob colNA rowDiabetes" class="percentText"><%--(--%><a style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q653'>10%</a><%--<sup>3</sup>)--%></td>
+                                                                            <td headers="CKDprob colNA rowDiabetes" ><%--(--%><a class="percentText" style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q653'>10%</a><%--<sup>3</sup>)--%></td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td id="rowCVD" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Cardiovascular Disease (CVD)</td>
                                                                             <td  headers="CKDprob colTP rowCVD"> <%--class="QLabelRight"--%>
-                                                                                <fieldset style="border:none;">
+                                                                                <fieldset>
                                                                                     <legend>CVD</legend>
                                                                                     <input id="rbCVDYes" type="radio" name="rbCVD" value="1" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbCVDYes" class="yesnotext float-left">Yes</label>
@@ -533,13 +544,13 @@
 
                                                                                 </fieldset>
                                                                             </td>
-                                                                            <td headers="CKDprob colNA rowCVD" class="percentText"><%--(--%><a style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q151'>8%</a><%--<sup>4</sup>)--%></td>
+                                                                            <td headers="CKDprob colNA rowCVD" ><%--(--%><a class="percentText" style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q151'>8%</a><%--<sup>4</sup>)--%></td>
                                                                         </tr>
 
                                                                         <tr>
                                                                             <td id="rowCHF" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Congestive Heart Failure (CHF)</td>
                                                                             <td  headers="CKDprob colTP rowCHF"> <%--class="QLabelRight"--%>
-                                                                                <fieldset style="border:none;">
+                                                                                <fieldset>
                                                                                     <legend>CHF</legend>                                                                                   
                                                                                     <input id="rbCHF" type="radio" name="rbCHF" value="1" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbCHF" class="yesnotext float-left">Yes</label>
@@ -555,7 +566,7 @@
                                                                         <tr>
                                                                             <td id="rowPVD" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Peripheral Vascular Disease (PVD)</td>
                                                                             <td  headers="CKDprob colTP rowPVD"> <%--class="QLabelRight"--%>
-                                                                                <fieldset style="border:none;">
+                                                                                <fieldset>
                                                                                     <legend>PVD</legend>
                                                                                     <input id="rbPVDYes" type="radio" name="rbPVD" value="1" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbPVDYes" class="yesnotext float-left">Yes</label>
@@ -571,7 +582,7 @@
                                                                         <tr>
                                                                             <td id="rowProteinUria" scope="row"  style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Proteinuria<sup>2</sup></td>
                                                                             <td style="width:25%"  headers="CKDprob colTP rowProteinUria"> <%--class="QLabelRight"--%>
-                                                                                <fieldset style="border:none;">
+                                                                                <fieldset>
                                                                                     <legend>Proteinuria</legend>
                                                                                     <input id="rbProteinuriaYes" type="radio" name="rbProteinuria" value="1" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbProteinuriaYes" class="float-left">Yes</label>
@@ -580,7 +591,7 @@
                                                                                     <label for="rbProteinuriaNo" class="float-left">No</label>
                                                                                 </fieldset>
                                                                             </td>
-                                                                            <td headers="CKDprob colNA rowProteinUria" class="percentText"><%--(--%><a style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q11'>10%</a><%--)--%></td>
+                                                                            <td headers="CKDprob colNA rowProteinUria" ><%--(--%><a class="percentText" style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q11'>10%</a><%--)--%></td>
                                                                         </tr>
 
                                                                         <tr>
@@ -590,8 +601,7 @@
                                                                             <td colspan="2" class="resetChoicesButtonBg">
                                                                                <button id="btnBangReset" class="resetChoicesBtnText" <%--btn btnSubtle--%> onclick="return resetChoices('bang');">Reset Choices</button>
                                                                             </td>
-                                                                        </tr>
-                                                                                                                                               
+                                                                        </tr>                                                                                                                                               
 
                                                                     </tbody>
                                                                 </table>
@@ -680,13 +690,13 @@
                                                     <%--*TANGRI CKD RISK Calculator *--%>
                                                     <div class="kptext">
 
-                                                        <div class="Pagetitle">
+                                                        <%--<div class="Pagetitle">
                                                             Progression of CKD
-                                                        </div>
+                                                        </div>--%>
 
                                                         <br />
 
-                                                        <div class="description">
+                                                        <div class="calcdescription" <%--class="description"--%>>
                                                             <p>
                                                                 For patients with chronic kidney disease (i.e., those with estimated glomerular filtration rate (eGFR) less than 60 mL/min/1.73m<sup>2</sup>), this calculator returns an estimated probability of developing kidney failure in the next two or five years (expressed as a percentage, or a range of percentages, from 0% to 100%). 
                                                                     These probabilities could be used to facilitate patient and provider communication, to heighten awareness and guide optimal disease management for best outcomes. 
@@ -695,7 +705,7 @@
                                                                 Two versions of this calculator are provided, one with four input variables, and one with eight input variables. 
                                                                     Using more variables, when available, will yield a more precise estimate. 
                                                                     The ‘sliders’ for each laboratory variable in the data entry table below allow a range of values to be selected in case of uncertainty in a single value. 
-                                                                    Details of risk equation development (Tangri et al., 2011) are available here:  <a href='https://www.ncbi.nlm.nih.gov/pubmed/21482743' target='_blank'>https://www.ncbi.nlm.nih.gov/pubmed/21482743</a>.
+                                                                    Details of risk equation development (Tangri et al., 2011) are available here:  <a class="calcdescriptionLink" href='https://www.ncbi.nlm.nih.gov/pubmed/21482743' target='_blank'>https://www.ncbi.nlm.nih.gov/pubmed/21482743</a>.
                                                             </p>
                                                         </div>
 
@@ -704,21 +714,29 @@
                                                         <div class="row">
                                                             <div class="col-lg-6 tangriControls">
                                                                 <table class="table TangriTable"> <%--table-bordered--%>
+                                                                    
+                                                                    <thead>
+                                                                        <tr class="charTableHeaderBg">
+                                                                            <td id="colCharT2" scope="col" class="charTableHeader" style="width:50%; height:76px;">Characteristic</td>
+                                                                            <td id="colTPT2" scope="col" class="charTableHeader" style="width:50%">This Person</td>
+                                                                        </tr>
+                                                                    </thead>                                                                    
+                                                                    
                                                                     <tr>
                                                                         <%--************--%>
                                                                         <%--*TANGRI AGE*--%>
                                                                         <%--************--%>
                                                                         <td style="width:50%">  <%--class="QLabelLeft"--%>
-                                                                            <label for="txtAge" title="Required for calculation">Age in years (required):</label>
+                                                                            <label for="txtAge" title="Required for calculation">Age * <%--in years (required)--%>:</label>
                                                                         </td>
-                                                                        <td class="QLabelRight">
+                                                                        <td <%--class="QLabelRight"--%>>
                                                                             <input id="txtAge" type="number" max="90" min="18" class="form-control" onchange="" onkeyup="removeRequirement('tage'); showTangriGraphOnSliderChange(); limitAgeEntry(); return isNumberKey(event); " <%--style="width: 100px;"--%> />
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="QLabelLeft" title="Required for calculation">Sex (required):
+                                                                        <td <%--class="QLabelLeft"--%> title="Required for calculation"> Gender * <%--Sex (required)--%>:
                                                                         </td>
-                                                                        <td class="QLabelRight">
+                                                                        <td <%--class="QLabelRight"--%>>
                                                                             <%--************--%>
                                                                             <%--*TANGRI SEX*--%>
                                                                             <%--************--%>
@@ -735,13 +753,13 @@
                                                                     </tr>
 
                                                                     <tr>
-                                                                        <td class="QLabelLeft">
+                                                                        <td <%--class="QLabelLeft"--%>>
                                                                             <label for="txtEGFR">eGFR:</label>
                                                                         </td>
                                                                         <%--*************--%>
                                                                         <%--*TANGRI EGFR*--%>
                                                                         <%--*************--%>
-                                                                        <td class="QLabelRight">
+                                                                        <td <%--class="QLabelRight"--%>>
                                                                             <input id="txtEGFR" type="number" min="10" max="60" class="form-control" onkeyup="updateSlider('egfr', $(this).val());" onchange="updateSlider('egfr', $(this).val());" onkeypress="return isNumberKey(event);" style="width: 100px;" />
                                                                             <div class="float-right">
                                                                                 <img id="imgrRefreshEGFR" alt="Reset eGFR slider values to original" title="Reset eGFR slider values to original" src="images/Refresh.png" style="width: 16px; height: 16px;" onclick="resetIndividualSlider('egfr');" />
@@ -761,11 +779,11 @@
                                                                     </tr>
 
                                                                     <tr>
-                                                                        <td class="QLabelLeft">
+                                                                        <td <%--class="QLabelLeft"--%>>
                                                                             <label for="txtACRatio">Urine Albumin to Creatinine Ratio:</label><label for="selACRatio" style="color: #FFF">_</label><label for="ureaAlbuminSlider" style="color: #FFF">_</label>
                                                                         </td>
 
-                                                                        <td class="QLabelRight">
+                                                                        <td <%--class="QLabelRight"--%>>
                                                                             <%--*****************--%>
                                                                             <%--*TANGRI AC Ratio*--%>
                                                                             <%--*****************--%>
@@ -790,24 +808,36 @@
                                                                             </select>
                                                                         </td>
                                                                     </tr>
+
+
+                                                                    <tr>
+                                                                        <td scope="row" style="width:50%; vertical-align:middle;"  class="charTableText" >
+                                                                            <span style="text-align: left; font-family:Open Sans; font-size: 14px; letter-spacing: 0px; color: #000000; opacity: 1;">* Required Fields </span>
+                                                                        </td>
+                                                                        <td >
+                                                                                <%--<span class='req'>*</span><span class='inPageNote'>Field is required for a result</span>--%> <%--Commented out in response to comments from UM 11/2019--%>
+
+                                                                                <%--****************************************--%>
+                                                                                <%--*Divider between short and long version*--%>
+                                                                                <%--****************************************--%>
+                                                                                <button id="btnShowLongerVersion" style="text-align: left; font-size:17px; font-weight:600; font-family:Open Sans; letter-spacing: 0px; color: #29434E; opacity: 1;" class="btn float-right" onclick=" $('.TangriAddedFields').fadeIn(300); $('#btnHideLongerVersion').show(); $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">8 Variable Equation</button>
+                                                                                <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
+                                                                                <button id="btnHideLongerVersion" class="btn float-right" style="display: none;" onclick=" $('.TangriAddedFields').fadeOut(300); $('#btnShowLongerVersion').show();  $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">4 Variable Equation</button>
+                                                                                <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>                                                                        
+                                                                        <td colspan="2" class="resetChoicesButtonBg">
+                                                                        <%--<button id="btnTangriClear" class="btn btnSubtle" onclick="return resetChoices('tangri');resetSliders();">Reset Choices</button>--%>
+                                                                            <button id="btnTangriClear" class="resetChoicesBtnText" <%--btn btnSubtle--%> onclick="return resetChoices('tangri'); return false;">Reset Choices</button>
+                                                                        </td>
+                                                                    </tr>
                                                                 </table>
 
-                                                                <%--<span class='req'>*</span><span class='inPageNote'>Field is required for a result</span>--%> <%--Commented out in response to comments from UM 11/2019--%>
-
-                                                                <%--****************************************--%>
-                                                                <%--*Divider between short and long version*--%>
-                                                                <%--****************************************--%>
-                                                                <button id="btnShowLongerVersion" class="btn float-right" onclick=" $('.TangriAddedFields').fadeIn(300); $('#btnHideLongerVersion').show(); $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">8 Variable Equation</button>
-                                                                <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
-                                                                <button id="btnHideLongerVersion" class="btn float-right" style="display: none;" onclick=" $('.TangriAddedFields').fadeOut(300); $('#btnShowLongerVersion').show();  $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">4 Variable Equation</button>
-                                                                <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
-
-
-                                                                <br />
-                                                                <br />
+                                                                
                                                                 <table class="table TangriTable TangriAddedFields" style="display: none;"> <%--table-bordered--%>
                                                                     <tr>
-                                                                        <td class="QLabelLeft">
+                                                                        <td <%--class="QLabelLeft"--%>>
                                                                             <label for="txtSCalcium">Serum Calcium:</label><label for="selSCalcium" style="color: #FFF">_</label><label for="calciumSlider" style="color: #FFF">_</label>
                                                                         </td>
                                                                         <%--**********************--%>
@@ -837,7 +867,7 @@
                                                                     </tr>
 
                                                                     <tr>
-                                                                        <td class="QLabelLeft">
+                                                                        <td <%--class="QLabelLeft"--%>>
                                                                             <label for="txtSPhosphate">Serum Phosphate:</label><label for="selSPhosphate" style="color: #FFF">_</label><label for="phosSlider" style="color: #FFF">_</label>
                                                                         </td>
                                                                         <%--************************--%>
@@ -865,7 +895,7 @@
                                                                     </tr>
 
                                                                     <tr>
-                                                                        <td class="QLabelLeft">
+                                                                        <td <%--class="QLabelLeft"--%>>
                                                                             <label for="txtSBicarbinate">Serum Bicarbonate:</label><label for="selSBicarbinate" style="color: #FFF">_</label><label for="biCarbSlider" style="color: #FFF">_</label>
                                                                         </td>
                                                                         <%--**************************--%>
@@ -895,7 +925,7 @@
                                                                     </tr>
 
                                                                     <tr>
-                                                                        <td class="QLabelLeft">
+                                                                        <td <%--class="QLabelLeft"--%>>
                                                                             <label for="txtSAlbumin">Serum Albumin:</label><label for="selSAlbumin" style="color: #FFF">_</label><label for="albSlider" style="color: #FFF">_</label>
                                                                         </td>
                                                                         <%--**********************--%>
@@ -926,35 +956,31 @@
                                                                 <%-- <div class="pull-right">
                                                                         <button id="btnTangriGo" class="btn btnSubtle" onclick="showTangriGraphOnSliderChange(); return false;">Update Graph</button>
                                                                     </div>--%>
-                                                                <div style="float:right;"class="resetChoicesButtonBg" <%--float-left--%> >
-                                                                    <%--<button id="btnTangriClear" class="btn btnSubtle" onclick="return resetChoices('tangri');resetSliders();">Reset Choices</button>--%>
-                                                                    <button id="Button1" class="btn btnSubtle" onclick=" return resetChoices('tangri'); return false;">Reset Choices</button>
-                                                                </div>
 
-                                                                <br />
-                                                                <br />
-                                                                <br />
-                                                                <br />
+                                                                <br /> <br />                                                               
 
                                                             </div>
 
                                                             <div class="col-lg-6">
+                                                                <div class="chartBg" <%--class="score"--%>>
+                                                                    <p >
+                                                                       <span class="chartTitle1">Estimated probability of progression to end-stage renal disease (ESRD) in CKD patients at 2 and 5 years </span> 
+                                                                        <br />
+                                                                       <span class="chartTitle2"> (expressed as a percentage between 0% and 100%):</span>
+                                                                    </p>
 
-                                                                <div class="score">
-                                                                    <strong>Estimated probability of progression to end-stage renal disease (ESRD) in CKD patients at 2 and 5 years (expressed as a percentage between 0% and 100%):</strong>
-
-                                                                    <br />
+                                                                   <%-- <br />--%>
                                                                     <br />
 
                                                                     <%--*Required messages*--%><%--Commented out due to edits  from UM 11/2019--%>
-                                                                    <div class="tangri_required_messages">
+                                                                    <%--<div class="tangri_required_messages">
                                                                         In order to show a chart of the calculations, the following are required:
                                         
                                                                         <ul class="tangri_req_list">
                                                                             <li id="tage" class="tangri_age">Age</li>
                                                                             <li id="tsex" class="tangri_sex">Sex</li>
                                                                         </ul>
-                                                                    </div>
+                                                                    </div>--%>
 
                                                                     <%--*Graph TANGRI Results*--%>
                                                                     <div id='divTangriGraph' style="width: 513px;"></div>
@@ -967,25 +993,21 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                                                                
-                                              
 
-                                                <div <%--class="references"--%>>
-                                                    <span class="footerRefTitle">References and Sources:</span>
-                                                    <p class="footerRefText">
+                                                <div class="footerRefBg" <%--class="references"--%>>
+                                                    <p class="footerRefTitle"><strong>References and Sources:</strong></p>                                                    
+                                                    <span class="footerRefText">
                                                     Tangri, Navdeep, et al. Multinational assessment of accuracy of equations for predicting risk of kidney failure: a meta-analysis <em>JAMA</em> 315.2(2016):164-174. supplement
 
-                                                        <br />
-                                                    <br />
+                                                    <br /><br />
+
                                                     Tangri N, Stevens LA, Griffith J, Tighiouart H, Djurdjev O, Naimark D, Levin A, Levey AS. A predictive model for progression of chronic kidney disease to kidney failure. 
-                                                        <em>JAMA.</em> 2011 Apr 20;305(15):1553-9. doi: 10.1001/jama.2011.451. Epub 2011 Apr 11. </p>
+                                                        <em>JAMA.</em> 2011 Apr 20;305(15):1553-9. doi: 10.1001/jama.2011.451. Epub 2011 Apr 11. </span>
                                                         <br />
                                                     <a class="footerRefLink" href="http://www.ncbi.nlm.nih.gov/pubmed/21482743" target="_blank">www.ncbi.nlm.nih.gov/pubmed/21482743</a>
-
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 
@@ -1004,11 +1026,9 @@
 				</nav>
 			</div>
 	</div>
-
 <br />
 
 </asp:Content>
-
 
 
 
@@ -1367,8 +1387,9 @@
 
             //***********************
             //*Show text probability*
-            //***********************       
-            var txt = "<div style='text-align: center; font-weight: 600; font-size: 15px; font-family: Open Sans; letter-spacing: 0px; color: #3D3D3D; opacity: 1; padding:10px;'>U.S. National Average: <a style='text-decoration:none' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q372' target='_blank'>15.4%</a></div>";
+            //***********************    
+            var legendline = "<div style='padding:5px;'><hr/></div>";
+            var txt = legendline + "<span style='margin-left:30px; text-align: center; font-weight: 600; font-size: 15px; font-family: Open Sans; letter-spacing: 0px; color: #3D3D3D; opacity: 1; padding:10px; text-align: center;'><hr style='width:20px; border: 2px solid #FBAB18; opacity: 1; display: inline-block; vertical-align: middle;' />  &nbsp; U.S. National Average: <a style='text-decoration:none' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q372' target='_blank'>15.4%</a></span>";
             $('#spnBangAnswer').html(txt).show();
 
 
@@ -1413,35 +1434,39 @@
                 //text: [generalText,ckdProbText],
                 text: [ckdProbText],
                 textposition: 'auto',
-                hoverinfo: 'none',
+                hoverinfo: 'none',                
                 marker: {
-                    color: 'rgb(158,202,225)',
-                    //opacity: 0.6,
+                    color: 'rgb(113, 33, 120)', /*purple*/ /*'rgb(158,202,225)',*/     //opacity: 0.6,
                     line: {
                         color: 'rbg(8,48,107)',
                         width: 1.5
-                    }
-                }
+                    },                    
+                },
+                width: 0.40  /*width of the purple bar*/
 
             }];
 
             var layout = {
                 yaxis: {
                     title: 'Probability (%)', /*'Percent',*/  /*chartTitle3*/
-                    font: 'size: 17px',                     
-                    fixedrange: true,
+                    font: 'size: 27px', /*weight: bold',*/
+                    fixedrange: true,                    
                     range: [0, 100],
+                    tickmode: "linier",
+                    dtick: 20,
                     backgroundcolor: 'rgb(243,247,248)', /*rgb(250,250,210)*/
-                    linecolor: 'rgb(0,0,0,0)',
-                    gridcolor: 'rgb(0,0,0,0)'
+                    linecolor: 'rgb(221,221,221)',   /*light grey */  /*rgb(0,0,0,0)',*/
+                    gridcolor: 'rgb(221,221,221)'    /*'rgb(0,0,0,0)'*/
                 },
                 xaxis: {
                     fixedrange: true,
                     backgroundcolor: 'rgb(243,247,248)', /*rgb(250,250,210)*/
-                    linecolor: 'rgb(0,0,0,0)'
+                    linecolor: 'rgb(0,0,0,0)',
+                    width:50,
                 },
-                plot_bgcolor: 'rgb(255,255,255)',
-                paper_bgcolor: 'rgb(243,247,248)', /*rgb(250,250,210)*/
+                plot_bgcolor: 'rgb(243,247,248)',  /*grey*/ /*'rgb(255,255,255)',*/
+                paper_bgcolor: 'rgb(243,247,248)',
+                shapes: [{ type: 'line', xref: 'paper', x0: 0, y0: '15.4', x1: 1, y1: '15.4', line: { color: 'rgb(251, 171, 24)', width: 2, dash: 'solid' }, showlegend: true }]  /*mustard yellow line*/
 
             };
                        
@@ -1689,7 +1714,8 @@
         function graphTangriResults(twoYrData, fiveYrData) {
             //console.log("graphTangriResults");
             //Using the Ben S model (s:\mlipham\Bens\plotlyML.html)
-            var xData = ['Two Year<br />Risk of Progression', 'Five Year<br />Risk of Progression'];
+            /*var xData = ['Two Year<br />Risk of Progression', 'Five Year<br />Risk of Progression'];*/
+            var xData = ['2 Year Risk of<br />Progression', '5 Year Risk of<br />Progression'];
 
             var twoYrZero = parseFloat(twoYrData[0]);
             var fiveYrZero = parseFloat(fiveYrData[0]);
@@ -1731,6 +1757,7 @@
                 },
                 type: 'bar',
                 hoverinfo: 'skip'
+                /*,width: 0.40 */ /*width of the grey bar*/
             };
 
 
@@ -1746,9 +1773,11 @@
                     line: {
                         color: 'rgba(0, 0, 0,1.0)',
                         width: 1
-                    }
+                    },
+                    width: 0.40  /*width of the line*/
                 },
                 name: ''
+                /*,width: 0.40 */ /*width of the grey bar*/
             };
 
             //*Highest Risk*
@@ -1763,9 +1792,11 @@
                     line: {
                         color: 'rgba(0, 0, 0, 1.0)',
                         width: 1
-                    }
+                    },
+                    width: 0.40  /*width of the line*/
                 },
                 name: ''
+                /*,width: 0.40  *//*width of the grey bar*/
             };
 
             var data = [trace1, trace2, trace3];
@@ -1843,8 +1874,8 @@
                 barmode: 'stack',
                 paper_bgcolor: 'rgba(245,246,249,1)', //Light gray
                 plot_bgcolor: 'rgba(245,246,249,1)', //Light gray
-                width: 500,
-                height: 500,
+                width: 430,
+                height: 650,
                 text: '',
                 showlegend: false,
                 hovermode: 'closest',
