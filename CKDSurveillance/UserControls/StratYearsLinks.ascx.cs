@@ -69,8 +69,18 @@ namespace CKDSurveillance_RD.UserControls
                 }                
             }
         }
-        
-        
+
+        bool boolViewDataByVisible = false;   
+        public bool IsViewDataByVisible
+        {
+            get {
+                return boolViewDataByVisible;
+            }
+            set {
+                boolViewDataByVisible = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Manage the button states of the Maps Quintile range Choices
@@ -204,6 +214,7 @@ namespace CKDSurveillance_RD.UserControls
                 }
             }
 
+            IsViewDataByVisible = divViewDataBy.Visible;
 
             //*Handle illogical URL strats*
             if ((Request.QueryString["Strat"] != null))
@@ -325,13 +336,16 @@ namespace CKDSurveillance_RD.UserControls
 
         private bool populateStratsDropDown(DataTable stratTable)
         {
+            StringBuilder sbInst = new StringBuilder();
             StringBuilder sb = new StringBuilder();
-
             sb.Append("<div class=\"viewDataByLabel\">Select Risk Category</div>");
-            sb.Append("<select class=\"form-control\"  onchange=\"openViewDataBy(this.value);\">");
+            sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\"  onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Risk Category\" >");
+
+            int i = 0;
 
             foreach (DataRow dr in stratTable.Rows)
             {
+                i++;
                 if (Convert.ToInt32(dr["selected"]) != 1)
                 {
                     sb.Append("<option value='" + dr["link"].ToString().Replace("~/", "").Trim() + "'>");
@@ -344,7 +358,12 @@ namespace CKDSurveillance_RD.UserControls
                     sb.Append("<option selected>" + dr["ViewBy"].ToString().Trim() + "</option>");
                 }
 
+                if(i< stratTable.Rows.Count)
+                    sbInst.Append("<span class=\"spnRiskCategory\">" + dr["ViewBy"].ToString().Trim() + "</span>, ");
+                else
+                    sbInst.Append("and <span class=\"spnRiskCategory\">" + dr["ViewBy"].ToString().Trim() + "</span>.");
             }
+
             sb.Append("</select>");
 
             litStratText.Text = sb.ToString().Trim();
