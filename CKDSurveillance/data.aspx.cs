@@ -228,17 +228,21 @@ namespace CKDSurveillance_RD
             foreach (DataRow dr in dtMeasures.Rows)
             {
                 string measureText = dr["MeasureText"].ToString().Trim();
+                //this line is for testing and needs to be removed after we receive 2030 data from Michigan
+                //measureText = measureText.Replace("HP2020", "CKD");  //Example --> HP2020 – 1: Reduce the Percentage of the U.S. Population with Chronic Kidney Disease
+                //measureText = measureText.Replace(":", "-");
+
                 int measureID = ((int)(dr["MeasureID"]));
 
                 sbTable.Append("<div class=\"card bar \" >"); //begin card bar   ---style=\"padding-left:20px;\"
 
-                sbTable.Append("<div class=\"card-header ckd-accordion-subcat-header " + cardState + "\"  id=\"accordion-4i-card-" + measureID.ToString() + "\" data-target=\"#accordion-4i-collapse-" + measureID.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
-                sbTable.Append("<a class=\"card-title\" tabindex=\"0\"  data-controls=\"accordion-4i-collapse-" + measureID.ToString() + "\">" + measureText + "</a>");
+                sbTable.Append("<div style=\"background: #F5F5F5 0% 0% no-repeat padding-box;\" class=\"card-header ckd-accordion-subcat-header " + cardState + "\"  id=\"accordion-4i-card-" + measureID.ToString() + "\" data-target=\"#accordion-4i-collapse-" + measureID.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
+                sbTable.Append("<a class=\"card-title\" style=\"text-align: left; font-family:Open Sans; font-weight: 17px; letter-spacing: 0px; color: #2D2D2D; padding-top:5px; padding-bottom:5px;\" tabindex=\"0\"  data-controls=\"accordion-4i-collapse-" + measureID.ToString() + "\">" + measureText + "</a>");
                 sbTable.Append("</div>");
 
                 sbTable.Append("<div aria-labelledby=\"accordion-4i-card-" + measureID.ToString() + "\" class=\"collapse " + divState + "\" id=\"accordion-4i-collapse-" + measureID.ToString() + "\" role=\"tabpanel\">"); //begin content panel
                 sbTable.Append("<div class=\"card body\">"); //begin card body
-                
+                                
                                 
                 //*Add Bulleted list of Indicator Links for this Measure*                
                 DataTable dtIndicators = DAL.getIndicators(measureID);
@@ -255,18 +259,18 @@ namespace CKDSurveillance_RD
                 //bool containsIndi = false;
                 foreach (DataRow drInd in dtIndicators.Rows)
                 {
-                    sbTable.Append("<div class=\"row\" style=\"padding-bottom:2px\">"); //begin row
-                    sbTable.Append("<div class=\"col-7\" style=\"padding-left:30px;\">"); //begin link col, no size definition because we want the layout to remain the same regardless of size
+                    sbTable.Append("<div class=\"row\" style=\"padding-top:5px; padding-bottom:5px\">"); //begin row
+                    sbTable.Append("<div class=\"col-6\" style=\"padding-left:30px; \">"); //begin link col, no size definition because we want the layout to remain the same regardless of size
                     // Build link
                     string url = drInd["URL"].ToString().Trim();
                     url = url.Substring(2);
-                    string linkStart = ("<a href=\"" + url + "#refreshPosition\">");
+                    string linkStart = ("<a href=\"" + url + "#refreshPosition\" style=\"text-align: left; text-decoration: underline; letter-spacing: 0px; color: #007C91; opacity: 1; \">");
                     string text = drInd["QuestionText"].ToString().Trim();
                     string linkEnd = "</a>";
                     sbTable.Append(linkStart + text + linkEnd);
 
                     sbTable.Append("</div>"); //end begin link col
-                    sbTable.Append("<div class=\"col-2\" style=\"text-align:center\">" + drInd["DataSources"].ToString() + "</div>");
+                    sbTable.Append("<div class=\"col-3\" style=\"text-align:center\">" + drInd["DataSources"].ToString() + "</div>");
                     sbTable.Append("<div class=\"col-3\" style=\"text-align:center\">" + drInd["Most Recent Year"].ToString() + "</div>");
                     //sbTable.Append("<div class=\"col-2\" style=\"text-align:center\">" + drInd["Most Recent Year"].ToString() + "</div>");
                     //sbTable.Append("<div class=\"col-3\" style=\"text-align:center\">" + drInd["DataSources"].ToString() + "</div>");

@@ -96,12 +96,12 @@ namespace CKDSurveillance_RD
         protected global::System.Web.UI.WebControls.Literal litHp2020;
 
         /// <summary>
-        /// SideNavHP control.
+        /// SideNav control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKDSurveillance_RD.SideNavHP SideNavHP;
+        protected global::CKDSurveillance_RD.SideNav SideNav;
     }
 }
