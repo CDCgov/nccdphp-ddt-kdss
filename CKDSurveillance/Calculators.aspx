@@ -455,12 +455,16 @@
                                                                             <td id="rowSex" scope="row" headers="EAAS colChar" style="width:50%"  class="charTableText" <%--QLabelLeft--%>><span>Gender *</span></td>
                                                                             <td  headers="EAAS colTP rowSex">  <%--class="QLabelRight"--%>
                                                                                 <fieldset style="width:100% !important;">
-                                                                                    <legend>Sex</legend> <%--update it to Gender--%>
-                                                                                    <input id="rbSexFemale" type="radio" name="rbSex" value="0" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
-                                                                                    <label for="rbSexFemale" class="yesnotext float-left">Female</label>
-                                                                                    &nbsp;                                                                                             
-                                                                                    <input id="rbSexMale" type="radio" name="rbSex" value="1" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
-                                                                                    <label for="rbSexMale" class="yesnotext float-left">Male</label>
+                                                                                    <%--<legend>Sex</legend>--%> <%--update it to Gender--%>
+                                                                                    <p class="rbStacker">
+                                                                                        <input id="rbSexFemale" type="radio" name="rbSex" value="0" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
+                                                                                        <label for="rbSexFemale" class="<%--yesnotext--%> float-left">Female</label>
+                                                                                    </p>
+                                                                                    <br /> 
+                                                                                    <p class="rbStacker">
+                                                                                        <input id="rbSexMale" type="radio" name="rbSex" value="1" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
+                                                                                        <label for="rbSexMale" class="<%--yesnotext--%> float-left">Male</label>
+                                                                                    </p>
                                                                                 </fieldset>
                                                                             </td>
                                                                             <td headers="EAAS colNA rowSex"></td>
