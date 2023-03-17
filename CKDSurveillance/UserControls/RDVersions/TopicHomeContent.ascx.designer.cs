@@ -33,6 +33,15 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
         protected global::System.Web.UI.WebControls.Literal Lit_Desc;
 
         /// <summary>
+        /// Lit_IndicatorBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Lit_IndicatorBody;
+
+        /// <summary>
         /// SideNav control.
         /// </summary>
         /// <remarks>
