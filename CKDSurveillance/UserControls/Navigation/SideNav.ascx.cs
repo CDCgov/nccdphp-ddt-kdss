@@ -190,8 +190,8 @@ namespace CKDSurveillance_RD
                     href = directoryPath + "default.aspx";
                     break;
             }
-            sbTable.Append("<div class=\"navBoldHeader nav-section-home d-sm-block\" aria-multiselectable=\"true\" role=\"tabpanel\" ><span><a style=\"color:#00768A;\" href='" + href +"'/>" + TopicText +"</a></span></div>");
-            sbTable.Append("<div class=\"accordion indicator-plus accordion-white \" aria-multiselectable=\"true\" role=\"tabpanel\" >");
+            sbTable.Append("<div class=\"navBoldHeader nav-section-home d-sm-block\" role=\"tabpanel\" ><span><a style=\"color:#00768A;\" href='" + href +"'/>" + TopicText +"</a></span></div>");
+            sbTable.Append("<div class=\"accordion indicator-plus accordion-white \" role=\"tabpanel\" >");
 
             DataTable dtMeasures = DAL.getMeasuresByTopicID(TopicID);
 
@@ -211,8 +211,8 @@ namespace CKDSurveillance_RD
                 //sbTable.Append("<div class=\"nav-section-home navSectionLinks navlist collapsed\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
                 //sbTable.Append("<a tabindex=\"0\"  data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\">" + measureText + "<i class=\"fi cdc-icon-plus nav-plus nav-expandcollapse\"  style = \"float: right;\"  >" + " </i>" + "</a>");
                 if (IsSelected(measureID)) {
-                    sbTable.Append("<div class=\"nav-section-home navSectionLinks navlist nav-selected-header\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"true\">"); //begin header measureText
-                    sbTable.Append("<a style=\"display: inline;color:#000000\" tabindex=\"0\"  id=\"accordion-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\" >" + measureText + "<i class=\"fi cdc-icon-minus nav-minus\"  style = \"float: right;\" id=\"navplusicon\"  ></i></a>");
+                    sbTable.Append("<div class=\"nav-section-home navSectionLinks navlist nav-selected-header\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tablist\" aria-expanded=\"true\">"); //begin header measureText
+                    sbTable.Append("<div role=\"tab\"><a style=\"display: inline;color:#000000\" tabindex=\"0\"  id=\"accordion-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\" >" + measureText + "<i class=\"fi cdc-icon-minus nav-minus\"  style = \"float: right;\" id=\"navplusicon\"  ></i></a></div>");
                     sbTable.Append("</div>");
 
                     sbTable.Append("<div aria-labelledby=\"accordion-4-card-" + loopcnt.ToString() + "\" class=\"collapse show\" id=\"accordion-4-collapse-" + loopcnt.ToString() + "\" role=\"tabpanel\">"); //begin content panel
@@ -220,8 +220,8 @@ namespace CKDSurveillance_RD
                                               //*Get Measure values*
                 }
                 else {
-                    sbTable.Append("<div class=\"card-header nav-section-home navSectionLinks navlist collapsed\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
-                    sbTable.Append("<a style=\"display: inline;color:#000000\" tabindex=\"0\"  id=\"accordion-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\" >" + measureText + "<i class=\"fi cdc-icon-plus nav-\"  style = \"float: right;\" id=\"navplusicon\"  ></i></a>");
+                    sbTable.Append("<div class=\"card-header nav-section-home navSectionLinks navlist collapsed\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tablist\" aria-expanded=\"false\">"); //begin header measureText
+                    sbTable.Append("<div role=\"tab\"><a style=\"display: inline;color:#000000\" tabindex=\"0\"  id=\"accordion-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\" >" + measureText + "<i class=\"fi cdc-icon-plus nav-\"  style = \"float: right;\" id=\"navplusicon\"  ></i></a></div>");
                     sbTable.Append("</div>");
 
                     sbTable.Append("<div aria-labelledby=\"accordion-4-card-" + loopcnt.ToString() + "\" class=\"collapse\" id=\"accordion-4-collapse-" + loopcnt.ToString() + "\" role=\"tabpanel\">"); //begin content panel

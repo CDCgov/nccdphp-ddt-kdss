@@ -151,6 +151,12 @@
         #ckd-nav-home-link {
             color: #007C91 !important;
         }
+        .ckd-nav-home-link:hover {
+            color: #FFFFFF!important;
+        }
+        .ckd-nav-home-link {
+            color: #007C91 !important;
+        }
         .main-image-banner {
             background: transparent url('/ckd/images/CKD_Main.png') 0% 0% no-repeat padding-box;
         }

@@ -41,7 +41,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
 
 
             //Start the Accordion
-            sb.Append("<div class=\"accordion indicator-plus accordion-white \" aria-multiselectable=\"true\" role=\"tabpanel\" >");
+            sb.Append("<div class=\"accordion indicator-plus accordion-white \" role=\"tabpanel\" >");
 
             int topicLoopcnt = 0;
             string topicLoopCountString = topicLoopcnt.ToString().Trim();

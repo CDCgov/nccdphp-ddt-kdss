@@ -964,7 +964,7 @@ namespace CKDSurveillance_RD.MasterPages
                 }
 
                 //pnlFootnotes.Visible = true;
-
+                fnString = fnString.Replace("<sup><strong>a</strong></sup>", "");
                 litFootNotesText.Text = fnString;
             }
             //else if (dtFootnotes.Rows.Count == 0)
@@ -1219,10 +1219,10 @@ namespace CKDSurveillance_RD.MasterPages
                     litMethodsDesc.Text += dtMethodText.Rows[i]["MethodText"].ToString();
 
                     //*Add some space*
-                    if (i != dtMethodText.Rows.Count - 1)
-                    {
-                        litMethodsDesc.Text += "<br /><br />";
-                    }
+                    //if (i != dtMethodText.Rows.Count - 1)
+                    //{
+                    //    litMethodsDesc.Text += "<br /><br />";
+                    //}
                 }
             }
 
@@ -2035,6 +2035,8 @@ namespace CKDSurveillance_RD.MasterPages
             Session["TableHeader"] = "<div class=\"addedTableHeader\">" + dsChart.Tables["Chart"].Rows[0]["ChartHeaderWithSuperscripts"].ToString() + tableByPopulation + "</div> <div class=\"addedTableHeaderDataSource\">" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString() + "</div>";
 
             litTopic.Text = litTopic.Text + dtChartHeader.Rows[0]["PageTitleWithSuperscripts"].ToString();// 7/7/2017 - temporary fix until the title is able to be broken out into 3 lines
+            litTopic.Text = litTopic.Text.Replace("<sup><strong>a</strong></sup>", "");  //remove the superscript
+            litTopic.Text = litTopic.Text.Replace("<sup><strong>a,b</strong></sup>", "");  
             litTopicMobile.Text = litTopic.Text;
 
             //change in what is to be displayed 3/19/2020

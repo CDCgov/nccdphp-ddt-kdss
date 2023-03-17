@@ -282,8 +282,8 @@
                     <a href="<%= ConfigurationManager.AppSettings["DirPath"]%>default.aspx">Kidney Disease Surveillance System</a>                    
                 </div>
                 <%--<div class="col-md-1 ckd-toggle-btn">--%>
-                    <button id="ham" class="navbar-toggler navbar-light collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
-	                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="padding-left:0px;padding-right:0px;">
+                    <button id="ham" class="navbar-toggler navbar-light collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedContentMobile" 
+	                    aria-controls="navbarSupportedContentMobile" aria-expanded="false" aria-label="Toggle navigation" style="padding-left:0px;padding-right:0px;">
 	                    <%--<i class="dropdown-menu-medium-search-icon" aria-hidden="true">--%>
                         <i class="fa fa-bars" aria-hidden="true" style="color:#FFFFFF;">
 		                    <%--<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;">

@@ -112,7 +112,7 @@
 			font-size:17px;
 			letter-spacing: 0px;
 			color: #000000;
-			opacity: 1;
+			opacity: 1;			
 			/*background: #006778 0% 0% no-repeat padding-box;*/
 			/*border-left: 4px solid;
 			border-color:#006778; */
@@ -194,7 +194,7 @@
 			list-style: none;			
 		}
 		.logoImg{
-			background: transparent url('/images/CKDLeftNavLogo.png') 0% 0% no-repeat padding-box;
+			background: transparent url('/ckd/images/CKDLeftNavLogo.png') 0% 0% no-repeat padding-box;
 			opacity: 1;
 			width: 100%; /*330px;*/
 			height: 100%; /*128px;*/
@@ -202,6 +202,38 @@
 			background-repeat: no-repeat;
 			background-position: center;
 		}
+
+		.div-table {
+		  display: table;         
+		  /*border-spacing: 5px;  black; */
+		}
+
+		.div-table-row {
+		  display: table-row;
+		  /*border: 1px solid red; */
+		  /*clear: both;*/		   
+		}
+
+		.div-table-col {
+		  float: left; 
+		  display: grid;   
+		  margin-right:5%;
+		  
+		   /*columns: 2; 
+		   -webkit-columns:2; 
+		   -moz-columns: 2;*/	
+		   /*column-gap:30px;*/
+		   /* border: 1px solid orange;   */
+		}
+		.div-table-col-width {
+			width:40%;
+		}
+				
+	/*	ul {
+			 columns: 2;
+			 -webkit-columns: 2;
+			 -moz-columns: 2;
+		   }*/
 		
 </style>
 
@@ -216,7 +248,7 @@
 							<div class="cdc-2020-bar container">
 								<div class="row no-gutters">
 									<div class="bar-item">
-											<a href="/default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
+											<a href="../default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link7" class="ckd-nav-home-link">										
 											<span class="PIhomebreadcrumb"><u>Home</u></span> </a> 
 										    <span id="bcTopic" class="PIbodybreadcrumb">  </span>  <%--selected topic from top nav --%>
 											<span id="bcSelListItem" class="PIbodybreadcrumb">  </span>  <%--selected list item from left nav --%>
@@ -230,6 +262,12 @@
 							<p>                   
 								<span class="PIbody"><asp:Literal ID="Lit_Desc" runat="server"></asp:Literal></span>
 							</p>
+
+                            <hr style="border: 1px solid #707070; opacity: 0.39;">
+
+							<div>
+								<asp:Literal ID="Lit_IndicatorBody" runat="server" visible="true"></asp:Literal>
+							</div>
 						</div>	
 					</div>
 			</main>
@@ -237,7 +275,7 @@
 			<!-- Left / Bottom Nav -->
 			<div class="col-xl-3 order-xl-1 leftnav-wrapper">
 				<nav role="navigation" aria-label="Left Navigation Menu" style="border-bottom-color:white">
-					<div id="cdc-left-nav-menu" >
+					<div id="cdc-left-nav-menu-topichome" >
 						<br />	
 						<uc1:sidenav runat="server" id="SideNav" />
 					</div>	
@@ -250,7 +288,7 @@
 
 	<%--*****************--%>
 
-	<asp:Literal ID="Lit_IndicatorText" runat="server" visible="false"></asp:Literal>
+   <asp:Literal ID="Lit_IndicatorText" runat="server" visible="false"></asp:Literal>
    <%-- <asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal>  --%>
 
     <div id="hovertooltip"><span class="hovertoolspan"></span></div>

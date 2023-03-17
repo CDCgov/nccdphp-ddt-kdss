@@ -113,7 +113,7 @@
 							<div class="cdc-2020-bar container">
 								<div class="row no-gutters">
 									<div class="bar-item">
-											<a href="default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
+											<a href="default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link2" class="ckd-nav-home-link">										
 											<span class="PIhomebreadcrumb"><u>Home</u></span> </a> 
 										    <span id="bcTopic" class="PIbodybreadcrumb"> > Healthy People 2030 </span>  <%--selected topic from top nav --%>
 											<span id="bcSelListItem" class="PIbodybreadcrumb">  </span>  <%--selected list item from left nav --%>
@@ -169,13 +169,13 @@
                     <asp:Literal ID="litDataSources" runat="server" Text="" ClientIDMode="Static" />                
             </div>
             <div class="row">               
-                    <div class="accordion indicator-plus accordion-white" aria-multiselectable="true" role="tabpanel">
+                    <div class="accordion indicator-plus accordion-white" role="tabpanel">
                         <asp:Literal ID="litIndicators" runat="server"></asp:Literal>
                     </div>               
             </div>
 
             <div class="row">                
-                    <div class="accordion indicator-plus accordion-white" aria-multiselectable="true" role="tabpanel">
+                    <div class="accordion indicator-plus accordion-white" role="tabpanel">
                         <asp:Literal ID="litSpecialPops" runat="server"></asp:Literal>
                     </div>                
             </div>
@@ -230,7 +230,7 @@
             <div class="row">
                 <%--<div class="col-xl-1"></div>
                 <div class="col-xl-10">--%>
-                    <div class="accordion indicator-plus accordion-white" aria-multiselectable="true" role="tabpanel">
+                    <div class="accordion indicator-plus accordion-white" role="tabpanel">
 
                         <asp:Literal ID="litHp2020" runat="server" Visible="true"></asp:Literal>
                     </div>

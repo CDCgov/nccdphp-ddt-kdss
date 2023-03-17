@@ -185,7 +185,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             StringBuilder sbTable = new StringBuilder();
             string cardState = "collapsed";
             string divState = "";
-            sbTable.Append("<div class=\"accordion indicator-plus accordion-white \" aria-multiselectable=\"true\" role=\"tabpanel\" >");
+            sbTable.Append("<div class=\"accordion indicator-plus accordion-white \" role=\"tabpanel\" >");
 
             sbTable.Append("<div class=\"card bar\" style=\"padding-top:10px;\">"); //begin card bar
 

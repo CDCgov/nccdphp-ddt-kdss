@@ -116,7 +116,7 @@
             <div class="row aya-botton-box">
                 <%--<div class="col-sm-3 aya-button">View Spotlight</div>--%>
                 <asp:Literal ID="litBtnMore" runat="server" ClientIDMode="Static" />
-                <div class="aya-link-div"><a href="AreYouAware.aspx" class="aya-link"><span style="color: contrast(4.5);">Awareness Archive</span><i class="fa fa-angle-right right-angle-arrow"></i></a></div>
+                <div class="aya-link-div"><a href="AreYouAware.aspx?emailDate=October_2022#refreshPosition" class="aya-link"><span style="color: contrast(4.5);">Awareness Archive</span><i class="fa fa-angle-right right-angle-arrow"></i></a></div>
             </div>
         </div>
         <div class="col-md-6 aya-image">

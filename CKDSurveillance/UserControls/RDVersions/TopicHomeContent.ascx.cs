@@ -66,6 +66,9 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             Lit_IndicatorText.Text = tbl;
             Lit_TopicTitle.Text = indicatorName;
             Lit_Desc.Text = subDesc;
+
+            string tblBody = MethodsIndicatorsBodyTableCreation(TopicID, indicatorName);
+            Lit_IndicatorBody.Text = tblBody;
         }
         private void createPageContent()
         {
@@ -148,6 +151,8 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             Lit_TopicTitle.Text = indicatorName;
             Lit_Desc.Text = subDesc;
 
+            string tblBody = MethodsIndicatorsBodyTableCreation(TopicID, indicatorName);
+            Lit_IndicatorBody.Text = tblBody;
         }
 
         private int determineChartID(DataTable dtPage, string yearparam, string stratparam)
@@ -653,7 +658,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             //      <div class="span8 col-xs-4 col-sm-4">Awareness 3, the final component of text that wraps around again with much hope!!!!!!!!</div>
 
             //Start table HTML
-            sbTable.Append("<div class=\"accordion indicator-plus accordion-white \" aria-multiselectable=\"true\" role=\"tabpanel\" >");
+            sbTable.Append("<div class=\"accordion indicator-plus accordion-white \" role=\"tabpanel\" >");
             
             DataTable dtMeasures = DAL.getMeasuresByTopicID(TopicID);
 
@@ -727,7 +732,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
 
                     if (drInd["LiteratureInd"].ToString() == "1")
                     {
-                        sb_indTable.Append("&nbsp;<img src='../images/bookicon.PNG' alt='Published literature or one-time analysis, ongoing surveillance not available' />");
+                        sb_indTable.Append("&nbsp;<img src='/ckd/images/bookicon.PNG' alt='Published literature or one-time analysis, ongoing surveillance not available' />");
                         containsLitInd = true;
                     }
 
@@ -775,6 +780,85 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
 
             return sbTable.ToString();
         }
+
+
+
+        private string MethodsIndicatorsBodyTableCreation(int TopicID, string TopicText)
+        {
+            StringBuilder sbBodyTable = new StringBuilder();
+            StringBuilder sbTables = new StringBuilder();
+
+            sbTables.Append("<div class=\"div-table\" >");
+            DataTable dtMeasures = DAL.getMeasuresByTopicID(TopicID);
+
+            int loopcnt = 0;
+            int rowcnt = dtMeasures.Rows.Count;
+            int totalloops = 1;
+            bool containsLitInd = false;
+
+            int colnum = 0;
+            // *Get all Measures for this Topic
+            foreach (DataRow dr in dtMeasures.Rows)
+            {
+
+                colnum = colnum + 1;
+                //Start table HTML
+                if (dtMeasures.Rows.Count > 1)
+                {
+                    sbBodyTable.Append("<div class=\"div-table-col div-table-col-width\" >");
+                }
+                else {
+                    sbBodyTable.Append("<div class=\"div-table-col\" >");
+                }
+                sbBodyTable.Append("<div class=\"div-table-row\">");
+
+                string measureText = dr["MeasureText"].ToString().Trim();
+                int measureID = ((int)(dr["MeasureID"]));
+
+                sbBodyTable.Append("<div  onclick =\"navClick()\" class=\"nav-section-home PInavSectionLinks navlist \" id=\"body-4-card-" + loopcnt.ToString() + "\" data-target=\"#body-4-collapse-" + loopcnt.ToString() + "\" role=\"tab\" aria-expanded=\"true\">"); //begin header measureText
+                sbBodyTable.Append("<a tabindex=\"0\"  id=\"body-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"body-4-collapse-" + loopcnt.ToString() + "\"  style=\"text-align: left; font-family: Open Sans; font-size: 22px; letter-spacing: -0.22px; color: #000000; opacity: 1;  \"  >" +  measureText + "</a>");
+                sbBodyTable.Append("</div>"); 
+                sbBodyTable.Append("</div>"); //col
+
+                //*Add Bulleted list of Indicator Links for this Measure*
+                DataTable dtIndicators = DAL.getIndicatorsByMeasureID(measureID);
+
+                //*Cycle through all indicators*
+                StringBuilder sb_indTable = new StringBuilder();
+                                
+                bool containsIndi = false;
+                foreach (DataRow drInd in dtIndicators.Rows)
+                {
+                    sbBodyTable.Append("<div class=\"div-table-row nav-section-home\">");
+                    // Build link
+                    string linkStart = ("<a style=\"text-align: left; font-family: Open Sans; font-size: 18px; letter-spacing: 0px; color: #007C91; opacity: 1; text-decoration:none; \"  href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "#refreshPosition\" + \"#PIdivbody\" >"));
+                    string text = drInd["IndicatorText"].ToString().Trim();
+                    string linkEnd = "</a>";
+
+                    sbBodyTable.Append(linkStart + text + linkEnd);
+                    sbBodyTable.Append("</div>"); //col
+                }
+
+                // *Clean-up*
+                dtIndicators.Dispose();
+                loopcnt++;
+
+                
+                sbBodyTable.Append("</div>"); //table
+                sbTables.Append(sbBodyTable.ToString());
+
+                sbBodyTable = new StringBuilder();
+            }
+
+            sbTables.Append("</div>");
+
+            //*Clean-up*
+            dtMeasures.Dispose();
+
+            return sbTables.ToString();
+        }
+
+
 
         private string getQuintileColorSetting()
         {

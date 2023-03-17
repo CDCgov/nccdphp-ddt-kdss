@@ -331,7 +331,7 @@
 							<div class="cdc-2020-bar container">
 								<div class="row no-gutters">
 									<div class="bar-item">
-											<a href="/default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
+											<a href="/default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link1" class="ckd-nav-home-link">										
 											<span class="PIhomebreadcrumb"><u>Home</u></span> </a> 
 										    <span id="bcTopic" class="PIbodybreadcrumb"> > Chronic Kidney Disease Risk Calculators </span>  <%--selected topic from top nav --%>
 											<span id="bcSelListItem" class="PIbodybreadcrumb">  </span>  <%--selected list item from left nav --%>
@@ -440,12 +440,9 @@
                                                                                 <select id="selBang2" class="form-control" onchange="removeRequirement('bage'); submitData('bang');">
                                                                                     <option value="0">Select Age</option>
                                                                                     <option value="1">20 - 49</option>
-                                                                                    <option value="2">50 - 59</option>
-                                                                                    <%--<option value="2">50 - 59</option>--%>
-                                                                                    <option value="3">60 - 69</option>
-                                                                                    <%--<option value="3">60 - 69</option>--%>
-                                                                                    <option value="4">≥ 70</option>
-                                                                                    <%--<option value="4">≥ 70</option>--%>
+                                                                                    <option value="2">50 - 59</option>  <%--<option value="2">50 - 59</option>--%>
+                                                                                    <option value="3">60 - 69</option>  <%--<option value="3">60 - 69</option>--%>
+                                                                                    <option value="4">≥ 70</option>     <%--<option value="4">≥ 70</option>--%>
                                                                                 </select>
                                                                             </td>
                                                                             <td headers="EAAS colNA rowAge"></td>
@@ -457,12 +454,12 @@
                                                                                 <fieldset style="width:100% !important;">
                                                                                     <%--<legend>Sex</legend>--%> <%--update it to Gender--%>
                                                                                     <p class="rbStacker">
-                                                                                        <input id="rbSexFemale" type="radio" name="rbSex" value="0" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
+                                                                                        <input id="rbSexFemale" type="radio" name="rbSex" value="0" style="margin-top: 6px" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
                                                                                         <label for="rbSexFemale" class="<%--yesnotext--%> float-left">Female</label>
                                                                                     </p>
                                                                                     <br /> 
                                                                                     <p class="rbStacker">
-                                                                                        <input id="rbSexMale" type="radio" name="rbSex" value="1" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
+                                                                                        <input id="rbSexMale" type="radio" name="rbSex" value="1" style="margin-top: 6px" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
                                                                                         <label for="rbSexMale" class="<%--yesnotext--%> float-left">Male</label>
                                                                                     </p>
                                                                                 </fieldset>
@@ -484,10 +481,10 @@
                                                                             <td  headers="CKDprob colTP rowAnemia"> <%--class="QLabelRight"--%>
                                                                                 <fieldset>
                                                                                     <legend>Anemia</legend>
-                                                                                    <input id="rbAnemiaYes" type="radio" name="rbAnemia" value="1" class="float-left" onchange="submitData('bang');" />
-                                                                                    <label for="rbAnemiaYes" class="yesnotext float-left">Yes</label>
+                                                                                    <input id="rbAnemiaYes" type="radio" name="rbAnemia" value="1" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" />
+                                                                                    <label for="rbAnemiaYes" class="yesnotext float-left">Yes </label>
                                                                                     &nbsp;
-                                                                                    <input id="rbAnemiaNo" type="radio" name="rbAnemia" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <input id="rbAnemiaNo" type="radio" name="rbAnemia" value="0" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" checked />
                                                                                     <label for="rbAnemiaNo" class="yesnotext float-left">No</label>
                                                                                 </fieldset>
                                                                             </td>
@@ -499,10 +496,10 @@
                                                                             <td  headers="CKDprob colTP rowHypertension"> <%--class="QLabelRight"--%>
                                                                                 <fieldset>
                                                                                     <legend>Hypertension</legend>
-                                                                                    <input id="rbHypertensionYes" type="radio" name="rbHypertension" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <input id="rbHypertensionYes" type="radio" name="rbHypertension" value="1" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbHypertensionYes" class="yesnotext float-left">Yes</label>
                                                                                     &nbsp;  
-                                                                                    <input id="rbHypertensionNo" type="radio" name="rbHypertension" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <input id="rbHypertensionNo" type="radio" name="rbHypertension" value="0" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" checked />
                                                                                     <label for="rbHypertensionNo" class="yesnotext float-left">No</label>
                                                                                 </fieldset>
                                                                             </td>
@@ -516,10 +513,10 @@
                                                                                     <legend>Diabetes
                                                                                         <img id="imgDiabetesHint" alt="Dabetes Description Help" title="click for Diabetes Information" src="images/help.jpg" onclick="$('#divDiabetesPopover').fadeIn(500);" />
                                                                                     </legend>                                                                                   
-                                                                                    <input id="rbDiabetesYes" type="radio" name="rbDiabetes" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <input id="rbDiabetesYes" type="radio" name="rbDiabetes" value="1" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbDiabetesYes" class="yesnotext float-left">Yes</label>
                                                                                     &nbsp;
-                                                                                    <input id="rbDiabetesNo" type="radio" name="rbDiabetes" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <input id="rbDiabetesNo" type="radio" name="rbDiabetes" value="0" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" checked />
                                                                                     <label for="rbDiabetesNo" class="yesnotext float-left">No</label>
                                                                                 </fieldset>
                                                                                 <%--<div id="diabetesHint" class="float-right">
@@ -540,10 +537,10 @@
                                                                             <td  headers="CKDprob colTP rowCVD"> <%--class="QLabelRight"--%>
                                                                                 <fieldset>
                                                                                     <legend>CVD</legend>
-                                                                                    <input id="rbCVDYes" type="radio" name="rbCVD" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <input id="rbCVDYes" type="radio" name="rbCVD" value="1" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbCVDYes" class="yesnotext float-left">Yes</label>
                                                                                     &nbsp;
-                                                                                    <input id="rbCVDNo" type="radio" name="rbCVD" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <input id="rbCVDNo" type="radio" name="rbCVD" value="0" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" checked />
                                                                                     <label for="rbCVDNo" class="yesnotext float-left">No</label>
 
                                                                                 </fieldset>
@@ -556,10 +553,10 @@
                                                                             <td  headers="CKDprob colTP rowCHF"> <%--class="QLabelRight"--%>
                                                                                 <fieldset>
                                                                                     <legend>CHF</legend>                                                                                   
-                                                                                    <input id="rbCHF" type="radio" name="rbCHF" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <input id="rbCHF" type="radio" name="rbCHF" value="1" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbCHF" class="yesnotext float-left">Yes</label>
                                                                                      &nbsp;
-                                                                                    <input id="rbCHFNo" type="radio" name="rbCHF" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <input id="rbCHFNo" type="radio" name="rbCHF" value="0" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" checked />
                                                                                     <label for="rbCHFNo" class="yesnotext float-left">No</label>
 
                                                                                 </fieldset>
@@ -572,10 +569,10 @@
                                                                             <td  headers="CKDprob colTP rowPVD"> <%--class="QLabelRight"--%>
                                                                                 <fieldset>
                                                                                     <legend>PVD</legend>
-                                                                                    <input id="rbPVDYes" type="radio" name="rbPVD" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <input id="rbPVDYes" type="radio" name="rbPVD" value="1" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbPVDYes" class="yesnotext float-left">Yes</label>
                                                                                     &nbsp;
-                                                                                    <input id="rbPVDNo" type="radio" name="rbPVD" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <input id="rbPVDNo" type="radio" name="rbPVD" value="0" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" checked />
                                                                                     <label for="rbPVDNo" class="yesnotext float-left">No</label>
                                                                                     
                                                                                 </fieldset>
@@ -588,10 +585,10 @@
                                                                             <td style="width:25%"  headers="CKDprob colTP rowProteinUria"> <%--class="QLabelRight"--%>
                                                                                 <fieldset>
                                                                                     <legend>Proteinuria</legend>
-                                                                                    <input id="rbProteinuriaYes" type="radio" name="rbProteinuria" value="1" class="float-left" onchange="submitData('bang');" />
+                                                                                    <input id="rbProteinuriaYes" type="radio" name="rbProteinuria" value="1" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" />
                                                                                     <label for="rbProteinuriaYes" class="float-left">Yes</label>
                                                                                     &nbsp;
-                                                                                    <input id="rbProteinuriaNo" type="radio" name="rbProteinuria" value="0" class="float-left" onchange="submitData('bang');" checked />
+                                                                                    <input id="rbProteinuriaNo" type="radio" name="rbProteinuria" value="0" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" checked />
                                                                                     <label for="rbProteinuriaNo" class="float-left">No</label>
                                                                                 </fieldset>
                                                                             </td>
@@ -731,26 +728,26 @@
                                                                         <%--*TANGRI AGE*--%>
                                                                         <%--************--%>
                                                                         <td style="width:50%">  <%--class="QLabelLeft"--%>
-                                                                            <label for="txtAge" title="Required for calculation">Age * <%--in years (required)--%>:</label>
+                                                                            <label for="txtAge" title="Required for calculation" class="charTableText">Age * <%--in years (required)--%>:</label>
                                                                         </td>
                                                                         <td <%--class="QLabelRight"--%>>
-                                                                            <input id="txtAge" type="number" max="90" min="18" class="form-control" onchange="" onkeyup="removeRequirement('tage'); showTangriGraphOnSliderChange(); limitAgeEntry(); return isNumberKey(event); " <%--style="width: 100px;"--%> />
+                                                                            <input id="txtAge" type="number" max="90" min="18" class="form-control" onchange="removeRequirement('tage'); showTangriGraphOnSliderChange();" onkeyup="<%--removeRequirement('tage'); showTangriGraphOnSliderChange();--%> limitAgeEntry(); return isNumberKey(event); " <%--style="width: 100px;"--%> />
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td <%--class="QLabelLeft"--%> title="Required for calculation"> Gender * <%--Sex (required)--%>:
+                                                                        <td <%--class="QLabelLeft"--%> title="Required for calculation" class="charTableText"> Gender * <%--Sex (required)--%>:
                                                                         </td>
                                                                         <td <%--class="QLabelRight"--%>>
                                                                             <%--************--%>
                                                                             <%--*TANGRI SEX*--%>
                                                                             <%--************--%>
                                                                             <p class="rbStacker">
-                                                                                <input id="rbTangriSexFemale" type="radio" name="rbSexTangri" value="0" class="float-left" onclick="removeRequirement('tsex'); showTangriGraphOnSliderChange();" />
+                                                                                <input id="rbTangriSexFemale" type="radio" name="rbSexTangri" value="0" style="margin-top: 6px" class="float-left" onclick="removeRequirement('tsex'); showTangriGraphOnSliderChange();" />
                                                                                 <label for="rbTangriSexFemale" class="float-left">Female</label>
                                                                             </p>
                                                                             <br />
                                                                             <p class="rbStacker">
-                                                                                <input id="rbTangriSexMale" type="radio" name="rbSexTangri" value="1" class="float-left" onclick="removeRequirement('tsex'); showTangriGraphOnSliderChange();" />
+                                                                                <input id="rbTangriSexMale" type="radio" name="rbSexTangri" value="1" style="margin-top: 6px" class="float-left" onclick="removeRequirement('tsex'); showTangriGraphOnSliderChange();" />
                                                                                 <label for="rbTangriSexMale" class="float-left">Male</label>
                                                                             </p>
                                                                         </td>
@@ -758,7 +755,7 @@
 
                                                                     <tr>
                                                                         <td <%--class="QLabelLeft"--%>>
-                                                                            <label for="txtEGFR">eGFR:</label>
+                                                                            <label for="txtEGFR" class="charTableText">eGFR:</label>
                                                                         </td>
                                                                         <%--*************--%>
                                                                         <%--*TANGRI EGFR*--%>
@@ -777,14 +774,14 @@
                                                                             <input type="text" id="eGFRSlider" name="eGFRSliderControl" value="" style="max-width: 250px;" title="Click and drag the left and right sliders to the desired interval.  Entering a value in the box above the sliders will automatically move both sliders to that value." />
                                                                             <br />
                                                                             <div>
-                                                                                <label for="eGFRSlider">(<strong>mL/min/1.73m<sup>2</sup></strong>)</label>
+                                                                                <label for="eGFRSlider">(mL/min/1.73m<sup>2</sup>)</label>
                                                                             </div>
                                                                         </td>
                                                                     </tr>
 
                                                                     <tr>
                                                                         <td <%--class="QLabelLeft"--%>>
-                                                                            <label for="txtACRatio">Urine Albumin to Creatinine Ratio:</label><label for="selACRatio" style="color: #FFF">_</label><label for="ureaAlbuminSlider" style="color: #FFF">_</label>
+                                                                            <label for="txtACRatio" class="charTableText">Urine Albumin to Creatinine Ratio:</label><label for="selACRatio" style="color: #FFF">_</label><label for="ureaAlbuminSlider" style="color: #FFF">_</label>
                                                                         </td>
 
                                                                         <td <%--class="QLabelRight"--%>>
@@ -824,10 +821,11 @@
                                                                                 <%--****************************************--%>
                                                                                 <%--*Divider between short and long version*--%>
                                                                                 <%--****************************************--%>
-                                                                                <button id="btnShowLongerVersion" style="text-align: left; font-size:17px; font-weight:600; font-family:Open Sans; letter-spacing: 0px; color: #29434E; opacity: 1;" class="btn float-right" onclick=" $('.TangriAddedFields').fadeIn(300); $('#btnHideLongerVersion').show(); $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">8 Variable Equation</button>
+                                                                                <button id="btnShowLongerVersion" style="text-align: left; font-size:17px; font-weight:600; font-family:Open Sans; letter-spacing: 0px; color: #29434E; opacity: 1; border:none; background:white;" <%--class="btn float-right"--%> onclick=" $('.TangriAddedFields').fadeIn(300); $('#btnHideLongerVersion').show(); $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">8 Variable Equation  <i class="fa fa-angle-down"></i></button>
                                                                                 <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
-                                                                                <button id="btnHideLongerVersion" class="btn float-right" style="display: none;" onclick=" $('.TangriAddedFields').fadeOut(300); $('#btnShowLongerVersion').show();  $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">4 Variable Equation</button>
+                                                                                <button id="btnHideLongerVersion" <%--class="btn float-right"--%> style="text-align: left; font-size:17px; font-weight:600; font-family:Open Sans; letter-spacing: 0px; color: #29434E; opacity: 1; border:none; background:white; display: none;" onclick=" $('.TangriAddedFields').fadeOut(300); $('#btnShowLongerVersion').show();  $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">4 Variable Equation  <i class="fa fa-angle-up"></i></button>
                                                                                 <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
+                                                                                
                                                                         </td>
                                                                     </tr>
                                                                     <tr>                                                                        
@@ -842,7 +840,7 @@
                                                                 <table class="table TangriTable TangriAddedFields" style="display: none;"> <%--table-bordered--%>
                                                                     <tr>
                                                                         <td <%--class="QLabelLeft"--%>>
-                                                                            <label for="txtSCalcium">Serum Calcium:</label><label for="selSCalcium" style="color: #FFF">_</label><label for="calciumSlider" style="color: #FFF">_</label>
+                                                                            <label for="txtSCalcium" class="charTableText">Serum Calcium:</label><label for="selSCalcium" style="color: #FFF">_</label><label for="calciumSlider" style="color: #FFF">_</label>
                                                                         </td>
                                                                         <%--**********************--%>
                                                                         <%--*TANGRI SERUM CALCIUM*--%>
@@ -872,7 +870,7 @@
 
                                                                     <tr>
                                                                         <td <%--class="QLabelLeft"--%>>
-                                                                            <label for="txtSPhosphate">Serum Phosphate:</label><label for="selSPhosphate" style="color: #FFF">_</label><label for="phosSlider" style="color: #FFF">_</label>
+                                                                            <label for="txtSPhosphate" class="charTableText">Serum Phosphate:</label><label for="selSPhosphate" style="color: #FFF">_</label><label for="phosSlider" style="color: #FFF">_</label>
                                                                         </td>
                                                                         <%--************************--%>
                                                                         <%--*TANGRI SERUM PHOSPHATE*--%>
@@ -900,7 +898,7 @@
 
                                                                     <tr>
                                                                         <td <%--class="QLabelLeft"--%>>
-                                                                            <label for="txtSBicarbinate">Serum Bicarbonate:</label><label for="selSBicarbinate" style="color: #FFF">_</label><label for="biCarbSlider" style="color: #FFF">_</label>
+                                                                            <label for="txtSBicarbinate" class="charTableText">Serum Bicarbonate:</label><label for="selSBicarbinate" style="color: #FFF">_</label><label for="biCarbSlider" style="color: #FFF">_</label>
                                                                         </td>
                                                                         <%--**************************--%>
                                                                         <%--*TANGRI SERUM BICARBONATE*--%>
@@ -930,7 +928,7 @@
 
                                                                     <tr>
                                                                         <td <%--class="QLabelLeft"--%>>
-                                                                            <label for="txtSAlbumin">Serum Albumin:</label><label for="selSAlbumin" style="color: #FFF">_</label><label for="albSlider" style="color: #FFF">_</label>
+                                                                            <label for="txtSAlbumin" class="charTableText">Serum Albumin:</label><label for="selSAlbumin" style="color: #FFF">_</label><label for="albSlider" style="color: #FFF">_</label>
                                                                         </td>
                                                                         <%--**********************--%>
                                                                         <%--*TANGRI SERUM ALBUMIN*--%>
@@ -1135,7 +1133,6 @@
             }
         }
         function removeRequirement(name) {
-
             console.log("inside removeRequirement");
             //Purpose: toggle validation messages on Tangri calculator
             //Location(s): Age and sex fields on Tangri Calculator
@@ -1452,14 +1449,14 @@
 
             var layout = {
                 yaxis: {
-                    title: 'Probability (%)', /*'Percent',*/  /*chartTitle3*/
+                    title: '<b>Probability (%)<b>', /*'Percent',*/  /*chartTitle3*/
                     font: 'size: 27px', /*weight: bold',*/
                     fixedrange: true,                    
-                    range: [0, 100],
+                    range: [0, 101],
                     tickmode: "linier",
                     dtick: 20,
                     backgroundcolor: 'rgb(243,247,248)', /*rgb(250,250,210)*/
-                    linecolor: 'rgb(221,221,221)',   /*light grey */  /*rgb(0,0,0,0)',*/
+                    linecolor: 'rgb(243,247,248)',   /*light grey */  /*rgb(0,0,0,0)',*/
                     gridcolor: 'rgb(221,221,221)'    /*'rgb(0,0,0,0)'*/
                 },
                 xaxis: {
@@ -1886,11 +1883,16 @@
                 displayModeBar: false,
                 annotations: [],
                 yaxis: {
-                    title: 'Percent',
+                    title: '<b>Percent</b>',
+                    font: {
+                        family: 'Open Sans',
+                        size: '17px',
+                        color: 'rgba(0,0,0,1)' //Black
+                    },                    
                     fixedrange: true,
                     range: [0, 105],
                     backgroundcolor: 'rgb(243,247,248)', /*rgb(250,250,210)*/
-                    linecolor: 'rgb(0,0,0,0)',
+                    linecolor: 'rgb(243,247,248)', /*'rgb(0,0,0,0)', --black*/
                     gridcolor: 'rgb(205,205,205,0)'
                 },
                 shapes: eval(shapesArray)

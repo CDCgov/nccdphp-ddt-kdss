@@ -397,7 +397,7 @@
     <div class="row" style="margin-left: 0px; text-align: center;" id="nav_mobile">
         <div class="col-xl-1"></div>
         <div class="col-xl-10">
-            <div class="accordion indicator-plus accordion-white" aria-multiselectable="true" role="tabpanel">
+            <div class="accordion indicator-plus accordion-white" role="tabpanel">
                 <asp:Literal ID="litMobileIndicators" runat="server"></asp:Literal>
             </div>
         </div>

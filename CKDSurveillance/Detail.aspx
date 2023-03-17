@@ -191,7 +191,7 @@
              font-size:16px;
          }
          .imgsize-ab {
-             width:900px;
+             /*width:900px;*/
              height:700px;
          }
          .imgsize-c {
@@ -515,7 +515,7 @@
                         <div class="cdc-2020-bar container">
 								<div class="row no-gutters">
 									<div class="bar-item">
-											<a href="default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link">										
+											<a href="default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link3" class="ckd-nav-home-link">										
 											<span class="homebreadcrumb"><u>Home</u></span> </a> 
                                             >
 										    <a style="border-top:#2B8277" id="bcTopicLink" runat="server"></a>  <%--selected topic from top nav --%>
@@ -1235,12 +1235,12 @@
                         <div class="row">
                                 <div id="divContentTabs" class="tabs-module">
                                     <a id="detailArea" name="detailArea"></a>
-                                    <ul class="nav nav-tabs no-syndicate" id="tabs-3" role="tablist" style="background-color:#ffffff">
-                                        <li class="nav-item"><a class="nav-tab-link nav-link active inactive-nav-link" data-toggle="tab" role="tab" href="#tab-KeyPoints">Notes</a></li>
-                                        <li class="nav-item"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="tab" href="#tab-ChartDescription">Data Source Description</a></li>
+                                    <ul class="nav nav-tabs no-syndicate" id="tabs-3" role="list" style="background-color:#ffffff" aria-label="tabparent" aria-busy="true">
+                                        <li class="nav-item" role="listitem"><a class="nav-tab-link nav-link active inactive-nav-link" data-toggle="tab" role="link" href="#tab-KeyPoints">Notes</a></li>
+                                        <li class="nav-item" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-ChartDescription">Data Source Description</a></li>
                                         <%--<li class="nav-item"><a class="nav-tab-link nav-link " data-toggle="tab" role="tab" href="#tab-Methods">Indicator Specifications</a></li>--%>
-                                        <li class="nav-item"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="tab" href="#tab-SpecSheet">Indicator Specifications</a></li>
-                                        <li class="nav-item"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="tab" href="#tab-RefDataSources">References</a></li>
+                                        <li class="nav-item" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-SpecSheet">Indicator Specifications</a></li>
+                                        <li class="nav-item" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-RefDataSources">References</a></li>
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" role="tabpanel" id="tab-KeyPoints">

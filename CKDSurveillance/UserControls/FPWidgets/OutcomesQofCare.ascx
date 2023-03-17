@@ -26,6 +26,14 @@
         opacity: 1;
         text-decoration: none;
     }
+    .qofcare-link {
+        text-align: left;
+        font: normal normal normal 18px/45px Open Sans !important;
+        letter-spacing: 0px;
+        color: #06778B;
+        opacity: 1;
+        text-decoration: none;
+    }
     .qualityofcare-box {
         background: #F5F5F5 0% 0% no-repeat padding-box;
         border: 1px solid #D9D9D9;
@@ -107,16 +115,16 @@
             <div class="qualityofcare-title showPhoneOnly"><h2>State of <span style="color:#712177;"><br />Quality of Care</span><br /><u style="text-decoration-color:#00695C">for K</u>idney Disease</h2></div>
             <ul class="linked-list">
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q605"><span>ACEi/ARB use among CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="qofcare-link" href="detail.aspx?Qnum=Q605"><span>ACEi/ARB use among CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q640"><span>Albuminuria Testing among U.S. Veterans</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="qofcare-link" href="detail.aspx?Qnum=Q640"><span>Albuminuria Testing among U.S. Veterans</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q700"><span>Use of Prescribed NSAIDs in CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="qofcare-link" href="detail.aspx?Qnum=Q700"><span>Use of Prescribed NSAIDs in CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q719"><span>SGLT2 Inhibitor Use in CKD and Diabetes</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="qofcare-link" href="detail.aspx?Qnum=Q719"><span>SGLT2 Inhibitor Use in CKD and Diabetes</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
             </ul>
         </div>

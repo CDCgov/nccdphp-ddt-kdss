@@ -1,12 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MainNavNew.ascx.cs" Inherits="CKDSurveillance_RD.MainNavNew" %>
 <%--<%@ OutputCache Duration="86400" VaryByParam="none"%>--%>
 
-<div id="navbarSupportedContent" style="background-color:#2B8277" class="showPhoneOnly navbar-collapse overlay collapse ">
+<div id="navbarSupportedContentMobile" style="background-color:#2B8277" class="showPhoneOnly navbar-collapse overlay collapse ">
 	<div class="container overlay-content" id="cdc-meganav-bar"  style="display:block !important;background-color:#2B8277" data-title="CKD Menu">
 		<nav class="navbar navbar-expand-xl yamm tmp-meganav-bar">
 			<ul class="nav navbar-nav nav-justified w-100">
 				<li class="nav-item nav-home" id="ckd-nav-home">
-					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link" style="border-top:#2B8277" id="ckd-nav-home-link">
+					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link ckd-nav-home-link" style="border-top:#2B8277" id="ckd-nav-home-link4">
 						<span class="x24 cdc-icon-home-lg-alt-light"></span>
 						Home
 					</a>
@@ -45,7 +45,7 @@
 		<nav class="navbar navbar-expand-xl yamm tmp-meganav-bar">
 			<ul class="nav navbar-nav nav-justified w-100">
 				<li class="nav-item nav-home" id="ckd-nav-home">
-					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link" style="border-top:#2B8277" id="ckd-nav-home-link">
+					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link ckd-nav-home-link" style="border-top:#2B8277" id="ckd-nav-home-link5">
 						<span class="x24 cdc-icon-home-lg-alt-light"></span>
 						Home
 					</a>

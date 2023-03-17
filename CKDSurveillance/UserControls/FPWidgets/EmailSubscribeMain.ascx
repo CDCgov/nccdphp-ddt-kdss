@@ -25,7 +25,7 @@
         text-align: left;
         font: normal normal 300 18px/24px Open Sans;
         letter-spacing: 0px;
-        color: #818181;
+        color: #727272;
         opacity: 1;
         padding-left: 0.5rem;
     }

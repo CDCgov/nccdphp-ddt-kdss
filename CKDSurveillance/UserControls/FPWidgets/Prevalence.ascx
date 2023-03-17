@@ -96,7 +96,7 @@
         <h2><span class="prev-prev"><u class="prev-underline">Prev</u>alence</span>of Chronic Kidney Disease (CKD)</h2>
     </div>
     <div class="row prev-row">
-        <div class="col-md p-3 prev-img-box prev-img-box-margin" onclick="location.href='/detail.aspx?Qnum=Q372';">
+        <div class="col-md p-3 prev-img-box prev-img-box-margin" onclick="location.href='./detail.aspx?Qnum=Q372';">
             <div class="prevalence-img-card">
                 <img src="./images/Prev1.png" class="prev-img" alt="Prevalence of CKD Stages 1–4  during 2015-2016 in the U.S. was 14.2%."/>
             </div>
@@ -107,7 +107,7 @@
             <div class="prev-footer">Source of information: NHANES
             </div>
         </div>
-        <div class="col-md p-3 prev-img-box prev-img-box-margin" onclick="location.href='/detail.aspx?Qnum=Q705';">
+        <div class="col-md p-3 prev-img-box prev-img-box-margin" onclick="location.href='./detail.aspx?Qnum=Q705';">
             <div class="prevalence-img-card">
                 <img src="./images/Prev3.png" class="prev-img" alt="Prevalence of CKD by the percentage of patients with a CKD code is distributed unevenly across states."/>
             </div>
@@ -118,7 +118,7 @@
             <div class="prev-footer">Source of information: CMS-Medicare
             </div>
         </div>
-         <div class="col-md p-3 prev-img-box" onclick="location.href='/detail.aspx?Qnum=Q702';">
+         <div class="col-md p-3 prev-img-box" onclick="location.href='./detail.aspx?Qnum=Q702';">
             <div class="prevalence-img-card">
                 <img src="./images/Prev2.png" class="prev-img" alt="CKD Prevalence in adults with diabetes remained the same (20%) in 1999–2004 & 2011–2018."/>
             </div>

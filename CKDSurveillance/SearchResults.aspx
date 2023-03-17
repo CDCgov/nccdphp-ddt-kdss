@@ -195,7 +195,7 @@
             <div class="row">
                 <div class="col-xl-1"></div>
                 <div class="col-xl-10">
-                    <div class="accordion indicator-plus accordion-white searchResultsPane" aria-multiselectable="true" role="tabpanel">
+                    <div class="accordion indicator-plus accordion-white searchResultsPane" role="tabpanel">
                         <asp:Literal ID="litIndicators" runat="server"></asp:Literal>
                     </div>
                 </div>
