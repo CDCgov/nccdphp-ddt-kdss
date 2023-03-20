@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeBehind="Blocked.aspx.cs" MasterPageFile="~/MasterPages/ResponsiveContentEmpty.Master" Inherits="CKDSurveillance_RD.Blocked" %>
+﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeBehind="Blocked.aspx.cs" MasterPageFile="~/MasterPages/Blank.Master" Inherits="CKDSurveillance_RD.Blocked" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

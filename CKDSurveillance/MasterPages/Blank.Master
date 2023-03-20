@@ -25,6 +25,10 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        
+    <asp:ContentPlaceHolder ID="ContentArea2" runat="server" ClientIDMode="Static">
+    </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="CustomJavaScript" runat="server"></asp:ContentPlaceHolder>
         <asp:ContentPlaceHolder ID="ContentMain" runat="server">
         
         </asp:ContentPlaceHolder>

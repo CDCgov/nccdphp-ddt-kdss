@@ -31,18 +31,19 @@ Public Class ArborDataAccessV2
 
         ''**ARBOR RESEARCH**''
         ''Get the connection string from the Web.config
-        'Dim encrypted_string As String = ConfigurationManager.ConnectionStrings("CKD_NEW").ConnectionString.ToString()
+        If (ConfigurationManager.AppSettings("Environment") = "MPR") Then
+            answer = ConfigurationManager.ConnectionStrings("CKD_NEW").ConnectionString.ToString()
+        Else
+            answer = DBUtil.GetSqlDBConnection().ConnectionString()
+        End If
+
         'answer = cryptor.DecryptString(encrypted_string)
         ''**ARBOR RESEARCH**''
 
 
         ''**NG/CDC**''
         ''answer = GetSqlDBConnectionByPlainConnectionString().ConnectionString
-        If (ConfigurationManager.AppSettings("Environment") = "MPR") Then
-            answer = ConfigurationManager.ConnectionStrings("CKD_NEW").ConnectionString.ToString()
-        Else
-            answer = DBUtil.GetSqlDBConnection().ConnectionString()
-        End If
+        'answer = DBUtil.GetSqlDBConnection().ConnectionString()
         ''**NG/CDC**''
 
         Return answer
@@ -355,6 +356,10 @@ Public Class ArborDataAccessV2
             Dim sqlparamsList As New List(Of SqlParameter)
             Dim sp1 As New SqlParameter("@ChartID", chartID)
             sqlparamsList.Add(sp1)
+
+            If (String.IsNullOrEmpty(yr)) Then
+                yr = "2019"
+            End If
 
             Dim sp2 As SqlParameter
             If Not String.IsNullOrEmpty(yr) Then

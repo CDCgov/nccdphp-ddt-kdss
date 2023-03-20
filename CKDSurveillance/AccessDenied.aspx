@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeBehind="AccessDenied.aspx.cs" MasterPageFile="~/MasterPages/ResponsiveContentEmpty.Master" Inherits="CKDSurveillance_RD.AccessDenied" %>
+﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeBehind="AccessDenied.aspx.cs" MasterPageFile="~/MasterPages/Blank.Master" Inherits="CKDSurveillance_RD.AccessDenied" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentArea2" runat="server">

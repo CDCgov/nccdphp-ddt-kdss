@@ -159,6 +159,10 @@
       <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\DecryptAesSymmetric.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.19.0\lib\net6.0\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="EncryptAesByPassPhrase, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\EncryptAesByPassPhrase.dll</HintPath>
       <Private>True</Private>
@@ -173,11 +177,6 @@
     <Reference Include="GetHash, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CDC.NCCDPHP.Crypto.GetHash.4.5\lib\net45\GetHash.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Interop.SecurityWeb, Version=5.0.0.0, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>Assemblies\Interop.SecurityWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NCCDAppUser, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -256,16 +255,6 @@
     </Compile>
     <Compile Include="Null.vb" />
     <Compile Include="Utilities.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="SecurityWeb">
-      <Guid>{A263E8B8-ABCC-11D2-9B3B-0008C705D60D}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

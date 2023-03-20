@@ -109,9 +109,12 @@
         <div class="col-md-6">
             <div class="aya-title">ARE YOU AWARE?</div>
 
-            <div><h2 class="aya-subtitle">Prediabetes — an increasingly recognized<br /><u class="aya-underline">risk</u> factor for chronic kidney disease</h2></div>
-            <div class="aya-text">Recent studies indicate that prediabetes is common and an important risk factor for CKD. Screening for prediabetes and diabetes is recommended
-                among adults aged 35–70 years, especially among those who are overweight or have obesity.</div>
+            <div><h2 class="aya-subtitle">Kidney Disease Awareness is Improving, but<br /><u class="aya-underline">Rem</u>ains Low in the US</h2></div>
+            <div class="aya-text">Awareness of chronic kidney disease (CKD) has been very low in the US, with only 1 out of 10 individuals with CKD
+                being aware of having it. Using nationally representative data, the overall awareness of CKD in the US has risen from 11.2% to 20% 
+                between 2001 and 2020. Awareness is higher among individuals with more advanced disease. Continued efforts to raise awareness in 
+                earlier stages of CKD is vital to stimulate efforts to prevent progression to later stages including end-stage kidney disease (ESKD), 
+                and to reduce premature morbidity and mortality associated with CKD.</div>
 
             <div class="row aya-botton-box">
                 <%--<div class="col-sm-3 aya-button">View Spotlight</div>--%>

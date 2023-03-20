@@ -75,6 +75,10 @@
       <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\DecryptAesSymmetric.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.19.0\lib\net6.0\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="EncryptAesByPassPhrase, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\EncryptAesByPassPhrase.dll</HintPath>
       <Private>True</Private>
@@ -1063,12 +1067,14 @@
     </Compile>
     <Compile Include="SearchResults.aspx.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SearchResults.aspx.designer.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
     </Compile>
     <Compile Include="Methods.aspx.cs">
       <DependentUpon>Methods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Methods.aspx.designer.cs">
       <DependentUpon>Methods.aspx</DependentUpon>
@@ -1907,6 +1913,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CKDLib\ckdlib_v2.vbproj">
+      <Project>{66a45849-6c2e-4528-ac2d-1b03e34abbe3}</Project>
+      <Name>ckdlib_v2</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

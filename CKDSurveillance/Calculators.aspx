@@ -507,17 +507,24 @@
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td id="rowDiabetes" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Diabetes</td>
+                                                                            <td id="rowDiabetes" scope="row" style="width:50%"  class="charTableText" <%--QLabelLeft--%> headers="CKDprob colChar">Diabetes
+                                                                                <sup>
+                                                                                    <img  id="imgDiabetesHint" style="height:15px; width:15px;" alt="Dabetes Description Help" title="click for Diabetes Information" src="images/DiabetesHint.jpg" onclick="$('#divDiabetesPopover').fadeIn(500);" />
+                                                                                </sup>
+                                                                            </td>
                                                                             <td  headers="CKDprob colTP rowDiabetes"> <%--class="QLabelRight"--%>
-                                                                                <fieldset>
-                                                                                    <legend>Diabetes
-                                                                                        <img id="imgDiabetesHint" alt="Dabetes Description Help" title="click for Diabetes Information" src="images/help.jpg" onclick="$('#divDiabetesPopover').fadeIn(500);" />
-                                                                                    </legend>                                                                                   
-                                                                                    <input id="rbDiabetesYes" type="radio" name="rbDiabetes" value="1" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" />
-                                                                                    <label for="rbDiabetesYes" class="yesnotext float-left">Yes</label>
-                                                                                    &nbsp;
-                                                                                    <input id="rbDiabetesNo" type="radio" name="rbDiabetes" value="0" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" checked />
-                                                                                    <label for="rbDiabetesNo" class="yesnotext float-left">No</label>
+                                                                                <fieldset>                                                                                    
+                                                                                    <%--<legend>Diabetes
+                                                                                        <img  id="imgDiabetesHint" alt="Dabetes Description Help" title="click for Diabetes Information" src="images/help.jpg" onclick="$('#divDiabetesPopover').fadeIn(500);" />  
+                                                                                        </legend>                                                                                  
+                                                                                    --%>
+                                                                                    <div>
+                                                                                        <input id="rbDiabetesYes" type="radio" name="rbDiabetes" value="1" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" />
+                                                                                        <label for="rbDiabetesYes" class="yesnotext float-left">Yes</label>
+                                                                                        &nbsp;
+                                                                                        <input id="rbDiabetesNo" type="radio" name="rbDiabetes" value="0" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" checked />
+                                                                                        <label for="rbDiabetesNo" class="yesnotext float-left">No</label>
+                                                                                    </div>
                                                                                 </fieldset>
                                                                                 <%--<div id="diabetesHint" class="float-right">
                                                                                     <img id="imgDiabetesHint" alt="Dabetes Description Help" title="click for Diabetes Information" src="images/help.jpg" onclick="$('#divDiabetesPopover').fadeIn(500);" />

@@ -371,6 +371,13 @@ namespace CKDSurveillance_RD.MasterPages
                 litTopicDesc.Text += "The bivariate map shows the combination of the average daily PM2.5 and the percentage of diagnosed CKD patients among the Medicare population across counties in the United States. The average daily PM2.5 and the percentage of diagnosed CKD patients varied across counties (PM2.5 mean=8.7 μg/m3, SD=1.9 μg/m3, n=3,043; CKD mean=22.1, SD=6.5, n=3,097). The average daily PM2.5 and the prevalence of CKD are high in counties in California, the rust-belt area, and the Southern region. Further investigation into air pollution and CKD prevalence in some of these hotspot areas is crucial.";
             }
 
+
+            //***************
+            //*Get Page Data*
+            //***************
+            //DataTable dtPage = DAL.getPage(QNum).Tables[0];
+            DataTable dtPage = getCachedPageData(QNum);
+
             //************
             //*Foot Notes*
             //************
@@ -398,15 +405,28 @@ namespace CKDSurveillance_RD.MasterPages
 
             //litSourceTabs.Text = createSDOHSourceLinks();
 
-            //*******************************
-            //*TODO: Populate table for SDOH*
-            //*******************************
-            /*var chartID = 4019;
-            var addedHeader = "<div class=\"addedTableHeader\">Prevalence of CKD by State and County<sup><strong>a</strong></sup><br>, For 2019</div> <div class=\"addedTableHeaderDataSource\">Centers for Medicare & Medicaid Services - Medicare</div>";
-            var titleNoFN = "Prevalence of CKD by State and County";
-            
-            populateTable(chartID, addedHeader, titleNoFN, true);
-            */
+            //*************
+            //*Build Table*
+            //*************
+            string addedHeader = "";
+            string titleNoFN = "";
+            if (QNum == "Q760")
+            {
+                addedHeader = "Geographic Distribution of Average Daily PM2.5 Air Pollution and CKD in the US Medicare Population, by County";
+                titleNoFN = addedHeader;
+            }
+            else if (QNum == "Q761")
+            {
+                addedHeader = "Geographic Distribution of Population below Poverty Threshold Level and CKD in the US Medicare Population, by County";
+                titleNoFN = addedHeader;
+            }
+
+            //*populate the table (and summary attribute)*
+            if (QNum == "Q760")
+                populateTable(-1, addedHeader, titleNoFN, true);
+            else if(QNum == "Q761")
+                populateTable(-2, addedHeader, titleNoFN, true);
+
 
             divDataSource.Visible = false;
 
@@ -760,6 +780,8 @@ namespace CKDSurveillance_RD.MasterPages
             DataTable dtTable = new DataTable("Table");
             string yr = getYear();
 
+            if (string.IsNullOrEmpty(yr))
+                yr = "2019";
 
             DataSet ds = null;
             Int32 sw = 1000; //Default to wide table
@@ -1378,17 +1400,19 @@ namespace CKDSurveillance_RD.MasterPages
         }
         protected DataSet getChartDataForExcel(string maptype)
         {
-            if (QNum == "Q761" || QNum == "Q760")
-                QNum = "Q705";
-
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
             DataTable dtPage = DAL.getPage(QNum).Tables[0];
             int chartID = determineChartID(dtPage);
 
+            if (QNum == "Q760")
+                chartID = -1;
+            else if (QNum == "Q761")
+                chartID = -2;
+
             string yr = getYear();
             DataSet ds;
 
-            if (maptype == "6")
+            if (maptype == "6" && chartID > 0)
             {
                 ds = DAL.getExcelDownloadForMaps(chartID, yr);
                 DataTable dsTableZero = ds.Tables[0];
@@ -1409,6 +1433,50 @@ namespace CKDSurveillance_RD.MasterPages
                 newRowOne[3] = "Year";
                 dsTableOne.Rows.InsertAt(newRowOne, 0);
 
+            }
+            else if (chartID == -1)
+            {
+                ds = DAL.getExcelDownloadForMaps(chartID, yr);
+                DataTable dsTableZero = ds.Tables[0];
+                //adding the header row for the data
+                DataRow newRowZero = dsTableZero.NewRow();
+
+                newRowZero[0] = "AnyCKD_rate";
+                newRowZero[1] = "STATE";
+                newRowZero[2] = "County";
+                newRowZero[3] = "cmean_PM_pred2";
+                dsTableZero.Rows.InsertAt(newRowZero, 0);
+
+                DataTable dsTableOne = ds.Tables[1];
+                //adding the header row for the data
+                DataRow newRowOne = dsTableOne.NewRow();
+                newRowOne[0] = "AnyCKD_rate";
+                newRowOne[1] = "STATE";
+                newRowOne[2] = "County";
+                newRowOne[3] = "cmean_PM_pred2";
+                dsTableOne.Rows.InsertAt(newRowOne, 0);
+            }
+            else if (chartID == -2)
+            {
+                ds = DAL.getExcelDownloadForMaps(chartID, yr);
+                DataTable dsTableZero = ds.Tables[0];
+                //adding the header row for the data
+                DataRow newRowZero = dsTableZero.NewRow();
+
+                newRowZero[0] = "AnyCKD_rate";
+                newRowZero[1] = "Below_poverty_threshold";
+                newRowZero[2] = "STATE";
+                newRowZero[3] = "COUNTY";
+                dsTableZero.Rows.InsertAt(newRowZero, 0);
+
+                DataTable dsTableOne = ds.Tables[1];
+                //adding the header row for the data
+                DataRow newRowOne = dsTableOne.NewRow();
+                newRowOne[0] = "AnyCKD_rate";
+                newRowOne[1] = "Below_poverty_threshold";
+                newRowOne[2] = "STATE";
+                newRowOne[3] = "COUNTY";
+                dsTableOne.Rows.InsertAt(newRowOne, 0);
             }
             else
             {
@@ -1445,7 +1513,10 @@ namespace CKDSurveillance_RD.MasterPages
             string strat = StratYear1.CurrentStrat.Trim().Replace(", ", "_").Trim().Replace(",", "_").Replace("/", "_").Trim();
             string year = StratYear1.CurrentYear.Trim().Replace(" - ", "_").Trim().Replace("-", "_").Trim();
             string title = titleRoot.Replace(" ", "_").Trim() + "_by_" + strat + "_" + year;
-
+            if (QNum == "Q760")
+                title = "CKD_PM25";
+            else if (QNum == "Q761")
+                title = "CKD_poverty";
 
             int loc = title.IndexOf("<sup>");
             if (loc > 0)
@@ -1459,7 +1530,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             //*Get Excel tables*
             DataSet dsExcels;
-            if(QNum == "Q761" || QNum == "Q760")
+            if (QNum == "Q761" || QNum == "Q760")
                 dsExcels = getChartDataForExcel("6");
             else
                 dsExcels = getChartDataForExcel(hfMapType.Value);
@@ -4206,15 +4277,21 @@ namespace CKDSurveillance_RD.MasterPages
 
 
                     //Reset the answer table and Cache
-                    answer = (DataTable)Cache["getPage"];
-                    if (answer != null)
-                    {
-                        answer.Merge(dtPage);
-                        Cache["getPage"] = answer;
-                    }
+                    //answer = (DataTable)Cache["getPage"];
+                    //if (answer != null)
+                    //{
+                    //    answer.Merge(dtPage);
+                    //    Cache["getPage"] = answer;
+                    //}
 
                     //Use what we just got
-                    answer = dtPage;
+                    //answer = dtPage;
+
+                    if (dtPage != null)
+                    {
+                        Cache.Insert("getPage", dtPage, null, DateTime.MaxValue, TimeSpan.FromDays(2));
+                        answer = dtPage;
+                    }
 
                     //clean-up
                     dtPage.Dispose();

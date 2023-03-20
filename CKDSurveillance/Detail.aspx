@@ -851,11 +851,13 @@
                                     if (checkBox.checked == true) {
                                         $('#divPlotly').hide();
                                         $('#pnlD3MapsTabs').hide();
+                                        $('#map').hide();
                                         toggleTable();
                                     } else {
                                         $('#divPlotly').show();
                                         if ($('#hfMapType').val() == "6")
                                             $('#pnlD3MapsTabs').show();
+                                        $('#map').show();
                                         toggleTable();
                                     }
                                 }
@@ -1175,7 +1177,6 @@
 
                         </asp:Panel>
 
-                        <br />
                         <br />
 
                         <asp:Literal ID="LiteratureIndicatorFootnote" runat="server" Visible="false"></asp:Literal>
