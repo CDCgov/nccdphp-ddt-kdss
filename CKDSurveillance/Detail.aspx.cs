@@ -780,9 +780,6 @@ namespace CKDSurveillance_RD.MasterPages
             DataTable dtTable = new DataTable("Table");
             string yr = getYear();
 
-            if (string.IsNullOrEmpty(yr))
-                yr = "2019";
-
             DataSet ds = null;
             Int32 sw = 1000; //Default to wide table
             if (Session["screenwidth"] != null) //Session["screenwidth"] is set in JSHandler.ashx || Responsive Left master page makes .js call to set the screen width
