@@ -345,6 +345,7 @@
     <Content Include="images\DataCharts\Poverty_and_CKD.jpg" />
     <Content Include="images\DataCharts\Prevalent_CKD.jpg" />
     <Content Include="images\DataCharts\RightArrowIcon.jpg" />
+    <Content Include="images\DiabetesHint.JPG" />
     <Content Include="images\Disparities_Green.png" />
     <Content Include="images\DownloadGreen.png" />
     <Content Include="images\DrOffice_answer1.png" />
