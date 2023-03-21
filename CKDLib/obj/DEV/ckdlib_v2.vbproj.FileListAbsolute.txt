@@ -18,7 +18,6 @@ C:\Projects\ddt-ckd\CKDLib\bin\DEV\NG.CodeSecure.Common.dll
 C:\Projects\ddt-ckd\CKDLib\bin\DEV\SSLUtility.dll
 C:\Projects\ddt-ckd\CKDLib\bin\DEV\System.Buffers.dll
 C:\Projects\ddt-ckd\CKDLib\bin\DEV\System.Data.SqlClient.dll
-C:\Projects\ddt-ckd\CKDLib\bin\DEV\System.IO.FileSystem.Primitives.dll
 C:\Projects\ddt-ckd\CKDLib\bin\DEV\System.IO.Packaging.dll
 C:\Projects\ddt-ckd\CKDLib\bin\DEV\System.Memory.dll
 C:\Projects\ddt-ckd\CKDLib\bin\DEV\System.Numerics.Vectors.dll
@@ -36,7 +35,6 @@ C:\Projects\ddt-ckd\CKDLib\bin\DEV\System.Numerics.Vectors.xml
 C:\Projects\ddt-ckd\CKDLib\bin\DEV\System.Runtime.CompilerServices.Unsafe.xml
 C:\Projects\ddt-ckd\CKDLib\bin\DEV\System.Text.Encoding.CodePages.xml
 C:\Projects\ddt-ckd\CKDLib\obj\DEV\ckdlib_v2.vbproj.AssemblyReference.cache
-C:\Projects\ddt-ckd\CKDLib\obj\DEV\ckdlib_v2.vbproj.ResolveComReference.cache
 C:\Projects\ddt-ckd\CKDLib\obj\DEV\ckdlib_v2.vbproj.CoreCompileInputs.cache
 C:\Projects\ddt-ckd\CKDLib\obj\DEV\ckdlib_v2.vbproj.CopyComplete
 C:\Projects\ddt-ckd\CKDLib\obj\DEV\ckdlibV2.dll
