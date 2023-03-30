@@ -479,7 +479,7 @@
     </div>
 </div>
 
-<asp:HiddenField ID="HF_TopicText" runat="server" />
+<asp:HiddenField ID="HF_SN2_TopicText" runat="server" />
 
 <script type="text/javascript">
 
@@ -547,7 +547,7 @@
             
             var btntext = $(this).text().trim();
             var btntext = btntext.replace(/ /g, ''); //replacing spaces that were created by br tags so the compare will work, this is using a global replace
-            var hftext = $("input[id*=HF_TopicText]").val().trim();
+            var hftext = $("input[id*=HF_SN2_TopicText]").val().trim();
             
             var hftext = hftext.replace(/ /g, ''); //replacing spaces so the compare will work
 

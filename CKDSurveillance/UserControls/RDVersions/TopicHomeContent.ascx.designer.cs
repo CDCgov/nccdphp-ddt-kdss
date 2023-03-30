@@ -96,13 +96,13 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
         protected global::System.Web.UI.WebControls.HiddenField HF_SmallChart2URL;
 
         /// <summary>
-        /// HF_TopicText control.
+        /// HF_HC_TopicText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HF_TopicText;
+        protected global::System.Web.UI.WebControls.HiddenField HF_HC_TopicText;
 
         /// <summary>
         /// hfShowCI control.

@@ -105,10 +105,11 @@
                     <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q364"><span>Various Sleep Symptoms</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
                 <li style="margin-bottom:-1rem;">
-                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q703"><span>Population Reporting Disability</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q703"><span>Population Reporting Serious Difficulties</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
             </ul>
         </div>
+
         <%--<div class="col-md-2 d-none d-lg-block"></div>--%>
         <div class="col-md-6 qualityofcare-box">
             <div class="qualityofcare-title phoneNoShow"><h2>State of <span style="color:#712177;">Quality of Care</span><br /><u style="text-decoration-color:#00695C;text-underline-offset: 15px;">for K</u>idney Disease</h2></div>

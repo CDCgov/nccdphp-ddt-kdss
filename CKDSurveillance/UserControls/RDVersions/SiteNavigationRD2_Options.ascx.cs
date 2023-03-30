@@ -124,7 +124,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                         if(menuSelectedIndicatorID == pageSelectedIndicator)
                         {
                             sb_indTable.Append("<li class='selectedIndicator'>");
-                            HF_TopicText.Value = TopicText;
+                            HF_SN2_TopicText.Value = TopicText;
                             containsIndi = true;
                         }
                         else
@@ -264,7 +264,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                         if (IndicatorText == linkIndicatorTextCompare)//if the text matches, then add the appropriate highlight class
                         {
                             sb_indTable.Append("<li style='margin-left:25px; text-align:left; padding-top:5px;'>");
-                            HF_TopicText.Value = TopicText;
+                            HF_SN2_TopicText.Value = TopicText;
                             containsIndi = true;
                         }
                         else

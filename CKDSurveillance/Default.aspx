@@ -151,6 +151,9 @@
         #ckd-nav-home-link {
             color: #007C91 !important;
         }
+        .ckd-nav-home{
+            background-color: #FFFFFF;
+        }
         .ckd-nav-home-link:hover {
             color: #FFFFFF!important;
         }

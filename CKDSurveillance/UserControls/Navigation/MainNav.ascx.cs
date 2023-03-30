@@ -135,7 +135,7 @@ namespace CKDSurveillance_RD
                             {
                                 sb_indTable.Append("<li>");
                             }
-                            HF_TopicText.Value = TopicText;
+                            HF_MN_TopicText.Value = TopicText;
                             containsIndi = true;
 
                         }
@@ -275,7 +275,7 @@ namespace CKDSurveillance_RD
                         if (IndicatorText == linkIndicatorTextCompare)//if the text matches, then add the appropriate highlight class
                         {
                             sb_indTable.Append("<li style='margin-left:25px; text-align:left; padding-top:5px;'>");
-                            HF_TopicText.Value = TopicText;
+                            HF_MN_TopicText.Value = TopicText;
                             containsIndi = true;
                         }
                         else

@@ -358,7 +358,7 @@ Public Class ArborDataAccessV2
             sqlparamsList.Add(sp1)
 
             Dim sp2 As SqlParameter
-            If Not String.IsNullOrEmpty(yr) Then
+            If Not String.IsNullOrEmpty(yr) Or chartID < 0 Then
                 sp2 = New SqlParameter("@Year", yr)
                 sqlparamsList.Add(sp2)
             End If

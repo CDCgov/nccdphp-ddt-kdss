@@ -331,9 +331,9 @@
                 <%--Second section (out of 3)--%>           
                 <div class="col-md" style="padding:10px !important">
                     <div class="col-md dbh-image"></div>
-                    <div class="prev-img-box mr-1 ml-1 p-3" onclick="location.href='./detail.aspx?Qnum=Q372';">
+                    <div class="prev-img-box mr-1 ml-1 p-3" onclick="location.href='./detail.aspx?Qnum=Q372';" tabindex="0" onkeydown="checkTabKeyPresses(event,'DBHcard1');" >
                         <div class="prev-img-card"> <img id="imgStages1to4" src="./images/DataCharts/DataBites_Stages1to4.jpg" class="prev-img" alt="Prevalence of CKD Stages 1-4 by Year"/> </div>
-                        <div class="prev-subtitle">Prevalence of CKD Stages 1–4 <br />by Year  </div>
+                        <div class="prev-subtitle">Prevalence of CKD Among U.S. <br />Adults, by Stage </div>
                         <%--<div class="prev-text">For 2015-2016, the unadjusted prevalence of CKD <br />stages 1-4 was approximately 14.2%.  </div>--%>
                         <div class="prev-footer">Source of information: NHANES  </div>
                     </div>
@@ -342,9 +342,9 @@
                 <%--Third section (out of 3)--%>
                 <div class="col-md" style="padding:10px !important; padding-right: 0px !important">
                     <div class="col-md dbh-image"></div>
-                    <div class="prev-img-box mr-1 ml-1 p-3" onclick="location.href='./detail.aspx?Qnum=Q98';">
+                    <div class="prev-img-box mr-1 ml-1 p-3" onclick="location.href='./detail.aspx?Qnum=Q98&Strat=CKD+Stage#refreshPosition';" tabindex="0" onkeydown="checkTabKeyPresses(event,'DBHcard2');" >
                         <div class="prev-img-card"> <img id="imgStages3or4" src="./images/DataCharts/DataBites_Stages3or4.jpg" class="prev-img" alt="% with CKD Stage 3 or 4 who were aware of their disease"/> </div>
-                        <div class="prev-subtitle">% with CKD stage 3 or 4 Who <br />Were Aware of Their Disease </div>
+                        <div class="prev-subtitle">Kidney Disease Awareness Among <br />U.S. Adults with CKD Stages 3-4 </div>
                         <%--<div class="prev-text">During 2015-2016, prevalence of CKD in the U.S. <br />was 14.2%. </div>--%>
                         <div class="prev-footer">Source of information: NHANES  </div>
                     </div>
@@ -361,7 +361,6 @@
 
     let popup = document.getElementById("popup")
 
-
     function openDisclaimerMessage() {
         popup.classList.add("open-popup-message")
     }
@@ -370,5 +369,18 @@
         popup.classList.remove("open-popup-message")
     }
 
+    function checkTabKeyPresses(e, DBHcard) {
+        let key = e.key;
+        if (key === "Enter") {
+            e.preventDefault();
+
+            if (DBHcard === 'DBHcard1') {
+                window.location.href = './detail.aspx?Qnum=Q372';
+            }
+            else if (DBHcard === 'DBHcard2') {
+                window.location.href='./detail.aspx?Qnum=Q98&Strat=CKD+Stage#refreshPosition';
+            }
+        }
+    }
 
 </script>

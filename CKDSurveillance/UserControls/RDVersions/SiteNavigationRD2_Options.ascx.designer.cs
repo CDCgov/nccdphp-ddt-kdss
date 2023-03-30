@@ -87,12 +87,12 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
         protected global::System.Web.UI.WebControls.Literal litMobileIndicators;
 
         /// <summary>
-        /// HF_TopicText control.
+        /// HF_SN2_TopicText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HF_TopicText;
+        protected global::System.Web.UI.WebControls.HiddenField HF_SN2_TopicText;
     }
 }

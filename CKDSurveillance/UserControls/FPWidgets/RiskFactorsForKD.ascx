@@ -307,36 +307,36 @@
               <%--<div class="accordion-body col-md-5 rfkd-center-content" >--%>
                   <div class="rfkd-center-content col-12 col-md-6">        
                             
-                            <div class="accordionItem" id="lnkDiabetes">
-                                <div  class="accordionTitle diabetes"><h3>Diabetes </h3>
-                                    <span><i class="fa fa-plus" ></i></span>
-                                </div>
-                            <div class="rfkd-text accordionContent"> 
+                         <div class="accordionItem" id="lnkDiabetes">
+                            <div id=titleDiabetes class="accordionTitle diabetes" tabindex="0" role="button" aria-pressed="false" ><h3>Diabetes </h3>
+                                 <span><i class="fa fa-plus" ></i></span>
+                            </div>
+                            <div id="rfkdDiabetes" class="rfkd-text accordionContent"> 
                                 Diabetes is a leading risk factor for chronic kidney disease (CKD). Persons with diabetes make up the fastest growing group of kidney dialysis and transplant recipients in the United States. The prevalence of CKD among adults with diabetes has decreased from 42.3% in the 2001-2004 National Health and Nutrition Examination Survey (NHANES) to 38.5% in the 2017-March 2020 survey.
                             </div>
                         </div>
                         <hr class="accordionHr">
 
-                        <div class="accordionItem" id="lnkHypertension">
-                              <div  class="accordionTitle hypertension"><h3>Hypertension</h3>
-                                  <span><i class="fa fa-plus"></i></span>
-                              </div>
-                            <div class="rfkd-text accordionContent">  
+                        <div class="accordionItem" id="lnkHypertension" >
+                            <div id=titleHypertension class="accordionTitle hypertension" tabindex="0" role="button" aria-pressed="false"><h3>Hypertension</h3>
+                                 <span><i class="fa fa-plus"></i></span>
+                            </div>
+                            <div id="rfkdHypertension" class="rfkd-text accordionContent">  
                                 Hypertension is the second leading risk factor for CKD. CKD can also lead to the development of hypertension through multiple mechanisms. The prevalence of CKD among adults with hypertension has remained stable, representing 26.6% in the 2001-2004 National Health and Nutrition Examination Survey (NHANES) to 26.3% in the 2017-March 2020 survey.
                             </div>
                         </div>
                         <hr class="accordionHr">
 
                         <div class="accordionItem" id="lnkAge">
-                              <div  class="accordionTitle age"><h3>Age</h3>
+                              <div id=titleAge class="accordionTitle age" tabindex="0" role="button" aria-pressed="false"><h3>Age</h3>
                                   <span><i class="fa fa-plus"></i></span>
                               </div>
-                            <div class="rfkd-text accordionContent">  
+                            <div id="rfkdAge" class="rfkd-text accordionContent">  
                               Although kidney disease can occur at any age, CKD is more frequently associated with older age. In the National Health and Nutrition Examination Survey (NHANES) of 2017-March 2020, the prevalence of CKD among those aged 18-39 years old was 6.0%; in those aged 40-59 years old, 11.2%; in those aged 60-69 years old, 20.1%; and in those 70 years of age and older, it was 42.6%.
                             </div>                
                         </div>
                         <hr  class="accordionHr">
-                    
+                      
                 </div>
        <%-- </div>--%>
 
@@ -345,7 +345,6 @@
 
     </div>
 </div>
-
 
 
   <script type="text/javascript">
@@ -359,26 +358,25 @@
           $(".accordionTitle:first").trigger("click");
       };
 
-      const accordianTitles = document.querySelectorAll(".accordionTitle");
-      const icon = document.querySelectorAll(".accordionTitle span i");
-      accordianTitles.forEach((accordionTitle) => {
-          accordionTitle.addEventListener("click", () => {
-              if (accordionTitle.classList.contains("is-open")) {
-                  accordionTitle.classList.remove("is-open");
-
-              } else {
-                  const accTitlesWithIsOpen = document.querySelectorAll(".is-open");
-
-                  accTitlesWithIsOpen.forEach((accordionTitleWithIsOpen) => {
-                      accordionTitleWithIsOpen.classList.remove("is-open");
-                  });
-
-                  console.log(accordionTitle);
-                  accordionTitle.classList.add("is-open");
-              }
+      function accordDescPerTitle() {
+          let accordianTitles = document.querySelectorAll(".accordionTitle");
+          let accTitlesWithIsOpen = document.querySelectorAll(".is-open");
+          let icon = document.querySelectorAll(".accordionTitle span i");
+          accordianTitles.forEach((accordionTitle) => {
+              accordionTitle.setAttribute('tabindex', '0');              
           });
-      });
 
+          $(".accordionTitle").on("click", function () {
+                if($(this).hasClass("is-open")) {
+                        $(this).removeClass("is-open")
+                } else {
+                    $(".is-open").removeClass("is-open");
+                    $(this).addClass("is-open")
+                }               
+          })         
+      };
+
+      accordDescPerTitle();
 
       $(".accordionTitle").on("click", function () {
 
@@ -386,23 +384,102 @@
           $(".accordionTitle").not($(this)).children("span").children("i").removeClass("fa-times");
           $(".accordionTitle").not($(this)).children("span").children("i").addClass("fa-plus");
 
-          $("#lnkDiabetes").click(function () {
+          $("#lnkDiabetes").on("click", function () {
               $("#divDiabetes").show();
               $("#divHypertension").hide();
               $("#divAge").hide();
           });
 
-          $("#lnkHypertension").click(function () {
+          $("#lnkHypertension").on("click", function () {
               $("#divDiabetes").hide();
               $("#divHypertension").show();
-              $("#divAge").hide();
+              $("#divAge").hide();              
           });
-
-          $("#lnkAge").click(function () {
+                  
+          $("#lnkAge").on("click", function () {  
               $("#divDiabetes").hide();
               $("#divHypertension").hide();
-              $("#divAge").show();
+              $("#divAge").show();              
+          });                    
+      });
+      
+      $(".accordionTitle").on("keydown", function (e) {
+            let key = e.key;
+            if(key === "Enter") { 
+                e.preventDefault();
+                $(this).toggleClass("is-open");
+          
+                $(this).children("span").children("i").toggleClass("fa-plus fa-times");
+                $(".accordionTitle").not($(this)).children("span").children("i").removeClass("fa-times");
+                $(".accordionTitle").not($(this)).children("span").children("i").addClass("fa-plus");
+            }
+
+          $("#lnkDiabetes").on("keydown", function (e) {
+                let key = e.key;
+             if(key === "Enter") {
+                  $("#divDiabetes").show();
+                  $("#divHypertension").hide();
+                  $("#divAge").hide();
+
+                    if($(this).find(".diabetes").hasClass("is-open")) {
+                        $(this).find(".diabetes").removeClass("is-open")
+                    } else {
+                        $(".is-open").removeClass("is-open");
+                        $(this).find(".diabetes").addClass("is-open")
+                    } 
+                    if($("#lnkDiabetes").find(".accordionTitle").hasClass("is-open")) {
+                        $("#lnkDiabetes").find(".accordionTitle").removeClass("is-open")
+                    } else {
+                        $(".is-open").removeClass("is-open");
+                        $("#lnkDiabetes").find(".accordionTitle").addClass("is-open")
+                    } 
+              }
           });
+
+          $("#lnkHypertension").on("keydown", function (e) {
+               let key = e.key;
+               if(key === "Enter") {
+                    $("#divDiabetes").hide();
+                    $("#divHypertension").show();
+                    $("#divAge").hide();
+
+                    if($(this).find(".hypertension").hasClass("is-open")) {
+                        $(this).find(".hypertension").removeClass("is-open")
+                    } else {
+                        $(".is-open").removeClass("is-open");
+                        $(this).find(".hypertension").addClass("is-open")
+                    }
+                    if($("#lnkHypertension").find(".accordionTitle").hasClass("is-open")) {
+                        $("#lnkHypertension").find(".accordionTitle").removeClass("is-open")
+                    } else {
+                        $(".is-open").removeClass("is-open");
+                        $("#lnkHypertension").find(".accordionTitle").addClass("is-open")
+                    }                    
+                }              
+          });
+
+          $("#lnkAge").on("keydown", function (e) { 
+              let key = e.key;
+              if(key === "Enter") {              
+                    $("#divDiabetes").hide();
+                    $("#divHypertension").hide();
+                    $("#divAge").show(); 
+
+                    if($(this).find(".age").hasClass("is-open")) {
+                        $(this).find(".age").removeClass("is-open")
+                    } else {
+                        $(".is-open").removeClass("is-open");
+                        $(this).find(".age").addClass("is-open")
+                    }
+                    if($("#lnkAge").find(".accordionTitle").hasClass("is-open")) {
+                        $("#lnkAge").find(".accordionTitle").removeClass("is-open")
+                    } else {
+                        $(".is-open").removeClass("is-open");
+                        $("#lnkAge").find(".accordionTitle").addClass("is-open")
+                    } 
+                }            
+          });     
+
       });
 
   </script>

@@ -24,6 +24,15 @@ namespace CKDSurveillance_RD
         protected global::System.Web.UI.WebControls.Literal Lit_TopicTitle;
 
         /// <summary>
+        /// hlLogo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlLogo;
+
+        /// <summary>
         /// Lit_IndicatorText control.
         /// </summary>
         /// <remarks>
@@ -69,12 +78,12 @@ namespace CKDSurveillance_RD
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divARandGI;
 
         /// <summary>
-        /// HF_TopicText control.
+        /// HF_SN_TopicText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HF_TopicText;
+        protected global::System.Web.UI.WebControls.HiddenField HF_SN_TopicText;
     }
 }

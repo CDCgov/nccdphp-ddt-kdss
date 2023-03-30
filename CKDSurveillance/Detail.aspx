@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" AutoEventWireup="true" CodeBehind="detail.aspx.cs" Inherits="CKDSurveillance_RD.MasterPages.detail" %>
+﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" AutoEventWireup="true" CodeBehind="Detail.aspx.cs" Inherits="CKDSurveillance_RD.MasterPages.Detail" %>
 
 <%@ Register Src="~/UserControls/StratYearsLinks.ascx" TagPrefix="uc1" TagName="StratYearsButtons" %>
 <%@ Register Src="~/UserControls/FAQGlossaryControl.ascx" TagPrefix="uc1" TagName="FAQGlossaryControl" %>
@@ -309,7 +309,7 @@
     <div id="top-container">
 
 
-        <a href="#View-Data" class="skippy" title="Skip to View Data" style="font-weight: bold; color: #fff;">Skip directly to View Data</a>
+        <%--<a href="#View-Data" class="skippy" title="Skip to View Data" style="font-weight: bold; color: #fff;">Skip directly to View Data</a>--%>
     </div>
 
     <br />
@@ -387,126 +387,6 @@
                     <%--**********************--%>
                     <%--*Left Column Material*--%>
                     <%--**********************--%>
-
-                    <div id="divLEFT" class="col-xl-3 order-xl-1 leftnav-wrapper" runat="server">
-                        
-                        <%--*************************************************************--%>
-                        <%-- TODO: (BEGIN) Replace left div with the new indicator links --%>
-                        <%--*************************************************************--%>
-                        <nav role="navigation" aria-label="Left Navigation Menu" style="border-bottom-color:white">
-                            <div id="div1" class="divLeftMenuContainer" runat="server">
-                               <uc1:SideNav runat="server" id="SideNav1" />
-                            </div>
-                        </nav>
-
-                        <div id="divLeftContainer" class="divLeftContainer" runat="server" Visible=false>
-
-                            <%--*Data Source*--%>
-                            <%--<asp:Literal ID="litSourceTabs" runat="server" ClientIDMode="Static" />--%>
-
-
-                           
-
-                            <%--*Go button Navs*--%>
-                            
-                            <%--<uc1:StratYearsButtons runat="server" ID="StratYear1" />--%>
-                            <uc1:StratYearsLinksMaps runat="server" id="StratYearsLinksMaps" />
-                           
-                            <div class="dataSourceRBTitle" id="chartFormatOptions" runat="server" style="margin-top:10px;">&nbsp;&nbsp;Chart Format</div>
-                                <div style="background-color: #F6F6F6; padding-left:5px; margin-top:-5px;" id="chartFormatControls" runat="server">
-                                    <asp:RadioButtonList ID="RB_ChartType" CssClass="radioButtonList" runat="server" RepeatLayout="Table" RepeatDirection="Vertical" >
-                                        <asp:ListItem Text="Bar" Value="'bar'"></asp:ListItem>
-                                        <asp:ListItem Text="Line" Value="'line'" ></asp:ListItem>
-                                        <asp:ListItem Text="Stacked Bar" Value="'stacked'" ></asp:ListItem>
-                                    </asp:RadioButtonList>
-                        
-                                    <%--<asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList" Text="Confidence Intervals" runat="server" />--%>
-                                </div>
-
-                            <div class="dataSourceRBTitle" id="chartColorOptions" runat="server" style="margin-top:10px;">&nbsp;&nbsp;Chart Colors</div>
-                                <div style="background-color: #F6F6F6; padding-left:5px; margin-top:-5px;" id="chartColorControls" runat="server">
-                                    <asp:RadioButtonList ID="RB_ChartColor" CssClass="radioButtonList" runat="server" RepeatLayout="Table" RepeatDirection="Vertical" >
-                                        <%--<asp:ListItem Text="Contrast" Value="'#189BDC', '#b0e57c', '#98abc5', '#1f77b4', '#ffb456', '#7f7f7f', '#e377c2', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88'"></asp:ListItem>--%>
-                                        <%--<asp:ListItem Text="Contrast" Value="'#6BAED6','#74C476','#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem>--%>
-                                        <asp:ListItem Text="Contrast" Value="'#712177','#007C91','#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem>
-                                        <asp:ListItem Text="Gradient" Value="'#949494','#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b'" ></asp:ListItem>                                       
-                                    </asp:RadioButtonList>
-                                </div>
-                        </div>
-
-                        <%--***********************************************************--%>
-                        <%-- TODO: (END) Replace left div with the new indicator links --%>
-                        <%--***********************************************************--%>
-
-
-                        <div id="divRightContainer" class="divRightContainer" runat="server">
-                            
-                            <%--**************************--%>
-                            <%-- No longer needed (BEGIN) --%>
-                            <%--**************************--%>
-
-                            <%--*AYA related*--%>
-                            <%--<asp:Panel ID="pnlAYA" runat="server" Visible="false">
-                                <div style="font-family: Verdana; font-size: .9em; font-weight: bold; margin-left: .5em; margin-top: .4em;">Related <em>Are You Aware (AYA)</em></div>
-                                <asp:Repeater ID="rptrAYA" runat="server">
-                                    <HeaderTemplate>
-                                        <ul>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <li>
-                                            <asp:HyperLink ID="lnkAYA" runat="server" Target="_blank" NavigateUrl='<%# Eval("AYALink") + "#refreshPosition" %>' Text='<%#Eval("AYAIndicatorText")%>' ToolTip='<%#Eval("AYAIndicatorText")%>'/>
-                                        </li>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </ul>
-                                    </FooterTemplate>
-                                </asp:Repeater>
-                            </asp:Panel>--%>
-                            
-                            <%--************************--%>
-                            <%-- No longer needed (END) --%>
-                            <%--************************--%>
-
-
-                            
-                            <%--**************************--%>
-                            <%-- No longer needed (BEGIN) --%>
-                            <%--**************************--%>
-                            <%--*Related Indicators*--%>
-                            <%--<asp:Panel ID="pnlRelated" runat="server" CssClass="relatedIndicatorPanel" Visible="false">--%>
-
-                                <%--*Title*--%> <%-- UNCOMMENT OUT THE LINE BELOW --%>
-                                <%--<div style="font-family: Verdana; font-size: .9em; font-weight: bold; margin-left: .5em; margin-top: .4em;">Related Indicators</div>--%>
-
-                               <%-- <asp:Repeater runat="server" ID="rptrRelated" Visible ="false">
-                                    <HeaderTemplate>
-                                        <ul>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <li>
-                                            <asp:HyperLink ID="lnkRelated" runat="server" Target="_self" NavigateUrl='<%# Eval("URL") + "#refreshPosition" %>' Text='<%#Eval("RelatedIndicatorText")%>' ToolTip='<%#Eval("RelatedIndicatorText")%>' />
-                                        </li>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </ul>
-                                    </FooterTemplate>
-                                </asp:Repeater>
-
-                            </asp:Panel>  --%>                     
-
-                            <%--************************--%>
-                            <%-- No longer needed (END) --%>
-                            <%--************************--%>
-
-
-                            <%--*Most Recently Visited*--%>
-                            <asp:PlaceHolder ID="phMRV" runat="server" ></asp:PlaceHolder>
-
-                         
-                        </div>
-
-
-                    </div>
 
                     <%--************************--%>
                     <%--*Center Column Material*--%>
@@ -951,7 +831,7 @@
                                         function () {
                                             zoomoutBtn = $('a[data-title="Zoom out"]')[0]
                                             zoomoutBtn.click();
-                                            console.log("clicked zoom out");                                            
+                                            console.log("clicked zoom out");
                                         }
                                     );
 
@@ -1307,7 +1187,7 @@
                                                                 <li style="margin-bottom: .9em;">
                                                                     <asp:Literal ID="lblRefences" runat="server" Text='<%# Eval("ReferenceText") %>' ClientIDMode="AutoID"></asp:Literal>
                                                                     <br />
-                                                                    <asp:HyperLink ID="lnkReferences" runat="server" Target="_self" NavigateUrl='<%# Eval("URL") %>' Text='<%#Eval("URL") %>' ToolTip='<%#Eval("URL")%>' />
+                                                                    <asp:HyperLink runat="server" Target="_self" NavigateUrl='<%# Eval("URL") %>' Text='<%#Eval("URL") %>' ToolTip='<%#Eval("URL")%>' />
                                                                 </li>
 
                                                             </ItemTemplate>
@@ -1344,6 +1224,126 @@
                     </div>
                     </main>
 
+                    
+                    <div id="divLEFT" class="col-xl-3 order-xl-1 leftnav-wrapper" runat="server">
+                        
+                        <%--*************************************************************--%>
+                        <%-- TODO: (BEGIN) Replace left div with the new indicator links --%>
+                        <%--*************************************************************--%>
+                        <nav role="navigation" aria-label="Left Navigation Menu" style="border-bottom-color:white">
+                            <div id="div1" class="divLeftMenuContainer" runat="server">
+                               <uc1:SideNav runat="server" id="SideNav1" />
+                            </div>
+                        </nav>
+
+                        <div id="divLeftContainer" class="divLeftContainer" runat="server" Visible=false>
+
+                            <%--*Data Source*--%>
+                            <%--<asp:Literal ID="litSourceTabs" runat="server" ClientIDMode="Static" />--%>
+
+
+                           
+
+                            <%--*Go button Navs*--%>
+                            
+                            <%--<uc1:StratYearsButtons runat="server" ID="StratYear1" />--%>
+                            <uc1:StratYearsLinksMaps runat="server" id="StratYearsLinksMaps" />
+                           
+                            <div class="dataSourceRBTitle" id="chartFormatOptions" runat="server" style="margin-top:10px;">&nbsp;&nbsp;Chart Format</div>
+                                <div style="background-color: #F6F6F6; padding-left:5px; margin-top:-5px;" id="chartFormatControls" runat="server">
+                                    <asp:RadioButtonList ID="RB_ChartType" CssClass="radioButtonList" runat="server" RepeatLayout="Table" RepeatDirection="Vertical" >
+                                        <asp:ListItem Text="Bar" Value="'bar'"></asp:ListItem>
+                                        <asp:ListItem Text="Line" Value="'line'" ></asp:ListItem>
+                                        <asp:ListItem Text="Stacked Bar" Value="'stacked'" ></asp:ListItem>
+                                    </asp:RadioButtonList>
+                        
+                                    <%--<asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList" Text="Confidence Intervals" runat="server" />--%>
+                                </div>
+
+                            <div class="dataSourceRBTitle" id="chartColorOptions" runat="server" style="margin-top:10px;">&nbsp;&nbsp;Chart Colors</div>
+                                <div style="background-color: #F6F6F6; padding-left:5px; margin-top:-5px;" id="chartColorControls" runat="server">
+                                    <asp:RadioButtonList ID="RB_ChartColor" CssClass="radioButtonList" runat="server" RepeatLayout="Table" RepeatDirection="Vertical" >
+                                        <%--<asp:ListItem Text="Contrast" Value="'#189BDC', '#b0e57c', '#98abc5', '#1f77b4', '#ffb456', '#7f7f7f', '#e377c2', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88'"></asp:ListItem>--%>
+                                        <%--<asp:ListItem Text="Contrast" Value="'#6BAED6','#74C476','#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem>--%>
+                                        <asp:ListItem Text="Contrast" Value="'#712177','#007C91','#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem>
+                                        <asp:ListItem Text="Gradient" Value="'#949494','#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b'" ></asp:ListItem>                                       
+                                    </asp:RadioButtonList>
+                                </div>
+                        </div>
+
+                        <%--***********************************************************--%>
+                        <%-- TODO: (END) Replace left div with the new indicator links --%>
+                        <%--***********************************************************--%>
+
+
+                        <div id="divRightContainer" class="divRightContainer" runat="server">
+                            
+                            <%--**************************--%>
+                            <%-- No longer needed (BEGIN) --%>
+                            <%--**************************--%>
+
+                            <%--*AYA related*--%>
+                            <%--<asp:Panel ID="pnlAYA" runat="server" Visible="false">
+                                <div style="font-family: Verdana; font-size: .9em; font-weight: bold; margin-left: .5em; margin-top: .4em;">Related <em>Are You Aware (AYA)</em></div>
+                                <asp:Repeater ID="rptrAYA" runat="server">
+                                    <HeaderTemplate>
+                                        <ul>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <li>
+                                            <asp:HyperLink ID="lnkAYA" runat="server" Target="_blank" NavigateUrl='<%# Eval("AYALink") + "#refreshPosition" %>' Text='<%#Eval("AYAIndicatorText")%>' ToolTip='<%#Eval("AYAIndicatorText")%>'/>
+                                        </li>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                        </ul>
+                                    </FooterTemplate>
+                                </asp:Repeater>
+                            </asp:Panel>--%>
+                            
+                            <%--************************--%>
+                            <%-- No longer needed (END) --%>
+                            <%--************************--%>
+
+
+                            
+                            <%--**************************--%>
+                            <%-- No longer needed (BEGIN) --%>
+                            <%--**************************--%>
+                            <%--*Related Indicators*--%>
+                            <%--<asp:Panel ID="pnlRelated" runat="server" CssClass="relatedIndicatorPanel" Visible="false">--%>
+
+                                <%--*Title*--%> <%-- UNCOMMENT OUT THE LINE BELOW --%>
+                                <%--<div style="font-family: Verdana; font-size: .9em; font-weight: bold; margin-left: .5em; margin-top: .4em;">Related Indicators</div>--%>
+
+                               <%-- <asp:Repeater runat="server" ID="rptrRelated" Visible ="false">
+                                    <HeaderTemplate>
+                                        <ul>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <li>
+                                            <asp:HyperLink ID="lnkRelated" runat="server" Target="_self" NavigateUrl='<%# Eval("URL") + "#refreshPosition" %>' Text='<%#Eval("RelatedIndicatorText")%>' ToolTip='<%#Eval("RelatedIndicatorText")%>' />
+                                        </li>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                        </ul>
+                                    </FooterTemplate>
+                                </asp:Repeater>
+
+                            </asp:Panel>  --%>                     
+
+                            <%--************************--%>
+                            <%-- No longer needed (END) --%>
+                            <%--************************--%>
+
+
+                            <%--*Most Recently Visited*--%>
+                            <asp:PlaceHolder ID="phMRV" runat="server" ></asp:PlaceHolder>
+
+                         
+                        </div>
+
+
+                    </div>
 
                     
                     <%--***********************--%>
@@ -1533,9 +1533,9 @@
                 //$("#skipdatatablelink").attr("style", "");
                 //$("#skippagedetailslink").attr("style", "");
 
-                $("#skipmenu").append("<a href='#chartArea' tabindex='0' class='skippy' id='skipchartlink'>Skip directly to chart</a>");
-                $("#skipmenu").append("<a href='#View-Data' tabindex='0' class='skippy' id='skipdatatablelink'>Skip directly to data table</a>");
-                $("#skipmenu").append("<a href='#detailArea' tabindex='0' class='skippy' id='skippagedetailslink'>Skip directly to Key Points, Description, Methods, Field/Data, References</a>");
+                //$("#skipmenu").append("<a href='#chartArea' tabindex='0' class='skippy' id='skipchartlink'>Skip directly to chart</a>");
+                //$("#skipmenu").append("<a href='#View-Data' tabindex='0' class='skippy' id='skipdatatablelink'>Skip directly to data table</a>");
+                //$("#skipmenu").append("<a href='#detailArea' tabindex='0' class='skippy' id='skippagedetailslink'>Skip directly to Key Points, Description, Methods, Field/Data, References</a>");
 
 
                 $("input[id*='CB_ChartCI']").click(function () {
@@ -2876,16 +2876,16 @@
                                  //county_val = "MISSING DATA";
                                  //data_val = "";
                                  //countydatalabelval = "MISSING DATA";
-                                 countydatalabelval = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA per Max</div>";
+                                 countydatalabelval = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA</div>";
                              }
                              else if (Number(filtercountyrow[0]["countydatavalue"]) <= 10) {
-                                 countydatalabelval = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA per Max</div>";
+                                 countydatalabelval = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA</div>";
                              }
                              else {
                                  county_val = filtercountyrow[0]["county"];
                                  data_val = filtercountyrow[0]["countydatavalue"];
                                  var color = findColorVal(data_val);
-                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + " per Max</div>";
+                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + "%</div>";
                                  if (statecode == "22")
                                      htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>Parish: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
                                  else if (statecode == "02")
@@ -3004,7 +3004,7 @@
                                  county_val = filtercountyrow[0]["county"];
                                  data_val = filtercountyrow[0]["countydatavalue"];
                                  var color = findColorVal(data_val);
-                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + " per Max</div>";
+                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + "%</div>";
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
                                  countydatalabelval = htmlwrap;
@@ -3275,149 +3275,149 @@
          d3.select('#exportCountyMapButton').on('click', function () { exportMap("county"); });
          d3.select('#exportButton').on('click', function () { exportMap("national"); });
 
-            // Set-up the export button
+         // Set-up the export button
          function exportMap(maptype) {
 
-                $("#canvascontainer").find("#canvas").remove(); //removing the canvas element
+             $("#canvascontainer").find("#canvas").remove(); //removing the canvas element
 
-                $("<canvas id='canvas'  width='960' height='650' ></canvas>").appendTo("#canvascontainer"); //adding a new canvas element
+             $("<canvas id='canvas'  width='960' height='650' ></canvas>").appendTo("#canvascontainer"); //adding a new canvas element
 
-                var svgString;
-                if (maptype == "county")
-                    svgString = new XMLSerializer().serializeToString(document.querySelector('.countymapsvgwrapper'));//svgString = new XMLSerializer().serializeToString(document.querySelector('.countymapsvg'));
-                else
-                    svgString = new XMLSerializer().serializeToString(document.querySelector('.usmapsvg'));
+             var svgString;
+             if (maptype == "county")
+                 svgString = new XMLSerializer().serializeToString(document.querySelector('.countymapsvgwrapper'));//svgString = new XMLSerializer().serializeToString(document.querySelector('.countymapsvg'));
+             else
+                 svgString = new XMLSerializer().serializeToString(document.querySelector('.usmapsvg'));
 
-                //var svgString = new XMLSerializer().serializeToString(document.querySelector('.countymapsvg'));
+             //var svgString = new XMLSerializer().serializeToString(document.querySelector('.countymapsvg'));
 
-                var canvas = document.getElementById("canvas");
-                var ctx = canvas.getContext("2d");
-                var DOMURL = self.URL || self.webkitURL || self;
-                var img = new Image();
-                var svg = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
-                var url = DOMURL.createObjectURL(svg);
-                img.onload = function () {
-                    ctx.drawImage(img, 0, 0);
-                    var png = canvas.toDataURL("image/png");
-                    //console.log("png=" + png);
-                    document.querySelector('#png-container').innerHTML = '<img src="' + png + '"/>';
-                    DOMURL.revokeObjectURL(png);
+             var canvas = document.getElementById("canvas");
+             var ctx = canvas.getContext("2d");
+             var DOMURL = self.URL || self.webkitURL || self;
+             var img = new Image();
+             var svg = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
+             var url = DOMURL.createObjectURL(svg);
+             img.onload = function () {
+                 ctx.drawImage(img, 0, 0);
+                 var png = canvas.toDataURL("image/png");
+                 //console.log("png=" + png);
+                 document.querySelector('#png-container').innerHTML = '<img src="' + png + '"/>';
+                 DOMURL.revokeObjectURL(png);
 
-                    var link = document.createElement('a');
-                    link.href = png;
-                    link.download = "Downloaded Charts.png";
-                    document.body.appendChild(link);
-                    link.click();
+                 var link = document.createElement('a');
+                 link.href = png;
+                 link.download = "Downloaded Charts.png";
+                 document.body.appendChild(link);
+                 link.click();
 
-                    //var newTab = window.open();
-                    //newTab.document.write('<img src="' + png + '" />');
-                };
-                img.src = url;
+                 //var newTab = window.open();
+                 //newTab.document.write('<img src="' + png + '" />');
+             };
+             img.src = url;
 
-                $("#canvas").prop("style", "display:none");
-            }
+             $("#canvas").prop("style", "display:none");
+         }
 
-            // Below are the functions that handle actual exporting:
-            // getSVGString ( svgNode ) and svgString2Image( svgString, width, height, format, callback )
-            function getSVGString(svgNode) {
-                svgNode.setAttribute('xlink', 'http://www.w3.org/1999/xlink');
-                var cssStyleText = getCSSStyles(svgNode);
-                appendCSS(cssStyleText, svgNode);
+         // Below are the functions that handle actual exporting:
+         // getSVGString ( svgNode ) and svgString2Image( svgString, width, height, format, callback )
+         function getSVGString(svgNode) {
+             svgNode.setAttribute('xlink', 'http://www.w3.org/1999/xlink');
+             var cssStyleText = getCSSStyles(svgNode);
+             appendCSS(cssStyleText, svgNode);
 
-                var serializer = new XMLSerializer();
-                var svgString = serializer.serializeToString(svgNode);
-                svgString = svgString.replace(/(\w+)?:?xlink=/g, 'xmlns:xlink='); // Fix root xlink without namespace
-                svgString = svgString.replace(/NS\d+:href/g, 'xlink:href'); // Safari NS namespace fix
+             var serializer = new XMLSerializer();
+             var svgString = serializer.serializeToString(svgNode);
+             svgString = svgString.replace(/(\w+)?:?xlink=/g, 'xmlns:xlink='); // Fix root xlink without namespace
+             svgString = svgString.replace(/NS\d+:href/g, 'xlink:href'); // Safari NS namespace fix
 
-                return svgString;
+             return svgString;
 
-                function getCSSStyles(parentElement) {
-                    var selectorTextArr = [];
+             function getCSSStyles(parentElement) {
+                 var selectorTextArr = [];
 
-                    // Add Parent element Id and Classes to the list
-                    selectorTextArr.push('#' + parentElement.id);
-                    for (var c = 0; c < parentElement.classList.length; c++)
-                        if (!contains('.' + parentElement.classList[c], selectorTextArr))
-                            selectorTextArr.push('.' + parentElement.classList[c]);
+                 // Add Parent element Id and Classes to the list
+                 selectorTextArr.push('#' + parentElement.id);
+                 for (var c = 0; c < parentElement.classList.length; c++)
+                     if (!contains('.' + parentElement.classList[c], selectorTextArr))
+                         selectorTextArr.push('.' + parentElement.classList[c]);
 
-                    // Add Children element Ids and Classes to the list
-                    var nodes = parentElement.getElementsByTagName("*");
-                    for (var i = 0; i < nodes.length; i++) {
-                        var id = nodes[i].id;
-                        if (!contains('#' + id, selectorTextArr))
-                            selectorTextArr.push('#' + id);
+                 // Add Children element Ids and Classes to the list
+                 var nodes = parentElement.getElementsByTagName("*");
+                 for (var i = 0; i < nodes.length; i++) {
+                     var id = nodes[i].id;
+                     if (!contains('#' + id, selectorTextArr))
+                         selectorTextArr.push('#' + id);
 
-                        var classes = nodes[i].classList;
-                        for (var c = 0; c < classes.length; c++)
-                            if (!contains('.' + classes[c], selectorTextArr))
-                                selectorTextArr.push('.' + classes[c]);
-                    }
+                     var classes = nodes[i].classList;
+                     for (var c = 0; c < classes.length; c++)
+                         if (!contains('.' + classes[c], selectorTextArr))
+                             selectorTextArr.push('.' + classes[c]);
+                 }
 
-                    // Extract CSS Rules
-                    var extractedCSSText = "";
-                    for (var i = 0; i < document.styleSheets.length; i++) {
-                        var s = document.styleSheets[i];
+                 // Extract CSS Rules
+                 var extractedCSSText = "";
+                 for (var i = 0; i < document.styleSheets.length; i++) {
+                     var s = document.styleSheets[i];
 
-                        try {
-                            if (!s.cssRules) continue;
-                        } catch (e) {
-                            if (e.name !== 'SecurityError') throw e; // for Firefox
-                            continue;
-                        }
+                     try {
+                         if (!s.cssRules) continue;
+                     } catch (e) {
+                         if (e.name !== 'SecurityError') throw e; // for Firefox
+                         continue;
+                     }
 
-                        var cssRules = s.cssRules;
-                        for (var r = 0; r < cssRules.length; r++) {
-                            if (contains(cssRules[r].selectorText, selectorTextArr))
-                                extractedCSSText += cssRules[r].cssText;
-                        }
-                    }
-
-
-                    return extractedCSSText;
-
-                    function contains(str, arr) {
-                        return arr.indexOf(str) === -1 ? false : true;
-                    }
-
-                }
-
-                function appendCSS(cssText, element) {
-                    var styleElement = document.createElement("style");
-                    styleElement.setAttribute("type", "text/css");
-                    styleElement.innerHTML = cssText;
-                    var refNode = element.hasChildNodes() ? element.children[0] : null;
-                    element.insertBefore(styleElement, refNode);
-                }
-            }
+                     var cssRules = s.cssRules;
+                     for (var r = 0; r < cssRules.length; r++) {
+                         if (contains(cssRules[r].selectorText, selectorTextArr))
+                             extractedCSSText += cssRules[r].cssText;
+                     }
+                 }
 
 
-            function svgString2Image(svgString, width, height, format, callback) {
-                var format = format ? format : 'png';
+                 return extractedCSSText;
 
-                var imgsrc = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgString))); // Convert SVG string to data URL
+                 function contains(str, arr) {
+                     return arr.indexOf(str) === -1 ? false : true;
+                 }
 
-                var canvas = document.createElement("canvas");
-                var context = canvas.getContext("2d");
+             }
 
-                canvas.width = width;
-                canvas.height = height;
-
-                var image = new Image();
-                image.onload = function () {
-                    context.clearRect(0, 0, width, height);
-                    context.drawImage(image, 0, 0, width, height);
-
-                    canvas.toBlob(function (blob) {
-                        var filesize = Math.round(blob.length / 1024) + ' KB';
-                        if (callback) callback(blob, filesize);
-                    });
+             function appendCSS(cssText, element) {
+                 var styleElement = document.createElement("style");
+                 styleElement.setAttribute("type", "text/css");
+                 styleElement.innerHTML = cssText;
+                 var refNode = element.hasChildNodes() ? element.children[0] : null;
+                 element.insertBefore(styleElement, refNode);
+             }
+         }
 
 
-                };
+         function svgString2Image(svgString, width, height, format, callback) {
+             var format = format ? format : 'png';
 
-                image.src = imgsrc;
-            }
-    </script>
+             var imgsrc = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgString))); // Convert SVG string to data URL
+
+             var canvas = document.createElement("canvas");
+             var context = canvas.getContext("2d");
+
+             canvas.width = width;
+             canvas.height = height;
+
+             var image = new Image();
+             image.onload = function () {
+                 context.clearRect(0, 0, width, height);
+                 context.drawImage(image, 0, 0, width, height);
+
+                 canvas.toBlob(function (blob) {
+                     var filesize = Math.round(blob.length / 1024) + ' KB';
+                     if (callback) callback(blob, filesize);
+                 });
+
+
+             };
+
+             image.src = imgsrc;
+         }
+     </script>
     <%--**********************--%>
     <%--*END save as png functionality*--%>
     <%--**********************--%>

@@ -5,7 +5,7 @@
 	<div class="container overlay-content" id="cdc-meganav-bar"  style="display:block !important;background-color:#2B8277" data-title="CKD Menu">
 		<nav class="navbar navbar-expand-xl yamm tmp-meganav-bar">
 			<ul class="nav navbar-nav nav-justified w-100">
-				<li class="nav-item nav-home" id="ckd-nav-home">
+				<li class="nav-item nav-home ckd-nav-home">
 					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link ckd-nav-home-link" style="border-top:#2B8277" id="ckd-nav-home-link4">
 						<span class="x24 cdc-icon-home-lg-alt-light"></span>
 						Home
@@ -23,7 +23,7 @@
 						<a class="nav-link" data-menu-id="4591" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/BurdenOfRiskFactors.aspx?topic=4" style="border-top:#2B8277">
 						Risk Factors</a>
 				</li>
-				<li class="nav-item dropdown" id="meganav-col-cases-data">
+				<li class="nav-item dropdown">
 						<a class="nav-link" data-menu-id="2797" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/HealthConsequences.aspx?topic=5" style="border-top:#2B8277">
 							Outcomes</a>
 				</li>
@@ -44,7 +44,7 @@
 	<div class="container" id="cdc-meganav-bar"  style="display:block !important;background-color:#2B8277" data-title="CKD Menu">
 		<nav class="navbar navbar-expand-xl yamm tmp-meganav-bar">
 			<ul class="nav navbar-nav nav-justified w-100">
-				<li class="nav-item nav-home" id="ckd-nav-home">
+				<li class="nav-item nav-home ckd-nav-home">
 					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link ckd-nav-home-link" style="border-top:#2B8277" id="ckd-nav-home-link5">
 						<span class="x24 cdc-icon-home-lg-alt-light"></span>
 						Home
@@ -62,7 +62,7 @@
 						<a class="nav-link" data-menu-id="4591" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/BurdenOfRiskFactors.aspx?topic=4" style="border-top:#2B8277" id="nav-RF">
 						Risk Factors</a>
 				</li>
-				<li class="nav-item dropdown" id="meganav-col-cases-data">
+				<li class="nav-item dropdown">
 						<a class="nav-link" data-menu-id="2797" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/HealthConsequences.aspx?topic=5" style="border-top:#2B8277" id="nav-HC">
 							Outcomes</a>
 				</li>

@@ -11,7 +11,7 @@ namespace CKDSurveillance_RD.MasterPages
 {
 
 
-    public partial class detail
+    public partial class Detail
     {
 
         /// <summary>
@@ -184,123 +184,6 @@ namespace CKDSurveillance_RD.MasterPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CKDSurveillance_RD.UserControls.RDVersions.StratYearsRD StratYearsRD1;
-
-        /// <summary>
-        /// divLEFT control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLEFT;
-
-        /// <summary>
-        /// div1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
-
-        /// <summary>
-        /// SideNav1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::CKDSurveillance_RD.SideNav SideNav1;
-
-        /// <summary>
-        /// divLeftContainer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLeftContainer;
-
-        /// <summary>
-        /// StratYearsLinksMaps control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.StratYearsLinksMaps StratYearsLinksMaps;
-
-        /// <summary>
-        /// chartFormatOptions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartFormatOptions;
-
-        /// <summary>
-        /// chartFormatControls control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartFormatControls;
-
-        /// <summary>
-        /// RB_ChartType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RB_ChartType;
-
-        /// <summary>
-        /// chartColorOptions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartColorOptions;
-
-        /// <summary>
-        /// chartColorControls control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartColorControls;
-
-        /// <summary>
-        /// RB_ChartColor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RB_ChartColor;
-
-        /// <summary>
-        /// divRightContainer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRightContainer;
-
-        /// <summary>
-        /// phMRV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phMRV;
 
         /// <summary>
         /// bcTopicLink control.
@@ -760,6 +643,123 @@ namespace CKDSurveillance_RD.MasterPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptrReferences;
+
+        /// <summary>
+        /// divLEFT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLEFT;
+
+        /// <summary>
+        /// div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
+
+        /// <summary>
+        /// SideNav1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKDSurveillance_RD.SideNav SideNav1;
+
+        /// <summary>
+        /// divLeftContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLeftContainer;
+
+        /// <summary>
+        /// StratYearsLinksMaps control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKDSurveillance_RD.UserControls.StratYearsLinksMaps StratYearsLinksMaps;
+
+        /// <summary>
+        /// chartFormatOptions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartFormatOptions;
+
+        /// <summary>
+        /// chartFormatControls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartFormatControls;
+
+        /// <summary>
+        /// RB_ChartType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList RB_ChartType;
+
+        /// <summary>
+        /// chartColorOptions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartColorOptions;
+
+        /// <summary>
+        /// chartColorControls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chartColorControls;
+
+        /// <summary>
+        /// RB_ChartColor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList RB_ChartColor;
+
+        /// <summary>
+        /// divRightContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRightContainer;
+
+        /// <summary>
+        /// phMRV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phMRV;
 
         /// <summary>
         /// litfunctions control.

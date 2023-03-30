@@ -196,7 +196,9 @@
 			<nav role="navigation" aria-label="Left Navigation Menu" style="border-bottom-color:white">
 				<div id="cdc-left-nav-menu" >
 					<div ><%--<img src="../../images/CKDLeftNavLogo.png" class="logoImg" />--%>
-                        <img src="/ckd/images/KDLeftNavlogo.jpg" class="logoImg" alt="Kidney Disease Surveillance System logo" />
+						<asp:HyperLink ID="hlLogo" runat="server" NavigateUrl="~/Default.aspx">
+							<img src="/ckd/images/KDLeftNavlogo.jpg" class="logoImg" alt="Kidney Disease Surveillance System logo" />
+						</asp:HyperLink>
 					</div>
 					<br />
 				
@@ -215,7 +217,7 @@
 								<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
 									<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-17" data-target="#accordion-4i-collapse-17" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
 										<a id="RiskFactorsDiabetes" title="Risk Factors – Diabetes" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-17"> <%--class="card-title"--%>
-										   <i class="fi cdc-icon-minus nav-minus"  style = "float: right; background-color: white !important;" id="navplusicon"></i>Risk Factors – Diabetes</a>
+										   <i class="fi cdc-icon-minus nav-minus"  style = "float: right; background-color: white !important;" id="navplusicon1"></i>Risk Factors – Diabetes</a>
 									</div>
 									<div aria-labelledby="accordion-4i-card-17" class="collapse" id="accordion-4i-collapse-17" role="tabpanel">
 										<div >  <%--class="card body"--%>
@@ -242,7 +244,7 @@
 								<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
 									<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-18" data-target="#accordion-4i-collapse-18" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
 										<a id="Awareness" title="Awareness" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-18"> <%--class="card-title"--%>
-										   <i class="fi cdc-icon-minus nav-minus"  style = "float: right; background-color: white !important;" id="navplusicon"></i>Awareness</a>
+										   <i class="fi cdc-icon-minus nav-minus"  style = "float: right; background-color: white !important;" id="navplusicon2"></i>Awareness</a>
 									</div>
 									<div aria-labelledby="accordion-4i-card-18" class="collapse" id="accordion-4i-collapse-18" role="tabpanel">
 										<div >  <%--class="card body"--%>
@@ -284,7 +286,7 @@
 						<span style="font-weight:600;line-height:normal!important" >General Information </span>
 						<div>
 							<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>Documents/Chronic-Kidney-Disease-in-the-US-2021-h.pdf" class="navARandGIlinks" style= "padding-left:1px !important" alt="Download CKD Fact Sheet" download>
-                                <img class="downloadImg" src="/ckd/images/DataCharts/DownloadCyan.jpg" alt="Download CKD Fact Sheet" />
+                                <img class="downloadImg" src="/ckd/images/DataCharts/DownloadCyan.jpg" alt="Download CKD Fact Sheet" role="presentation"/>
                                 <span class="navARandGIlinks">Download CKD Fact Sheet</span>
                             </a>
 						</div>
@@ -300,7 +302,7 @@
 <br /><br />      
 
 
-<asp:HiddenField ID="HF_TopicText" runat="server" />
+<asp:HiddenField ID="HF_SN_TopicText" runat="server" />
 
 <script type="text/javascript">
     $(document).ready(function () {

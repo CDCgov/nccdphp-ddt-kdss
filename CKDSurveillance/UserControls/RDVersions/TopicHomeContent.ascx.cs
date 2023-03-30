@@ -679,7 +679,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 //sbTable.Append("<a tabindex=\"0\"  data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\">" + measureText + "<i class=\"fi cdc-icon-plus nav-plus nav-expandcollapse\"  style = \"float: right;\"  >" + " </i>" + "</a>");    
 
                 sbTable.Append("<div  onclick =\"navClick()\" class=\"nav-section-home PInavSectionLinks navlist collapsed\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
-                sbTable.Append("<a tabindex=\"0\"  id=\"accordion-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\" >" + measureText + "<i class=\"fi cdc-icon-plus nav-plus nav-expandcollapse\"  style = \"float: right;\" id=\"navplusicon\"  > " + " </i>" + "</a>");
+                sbTable.Append("<a tabindex=\"0\"  id=\"accordion-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\" >" + measureText + "<i class=\"fi cdc-icon-plus nav-plus nav-expandcollapse\"  style = \"float: right;\" id=\"th-navplusicon\"  > " + " </i>" + "</a>");
                 sbTable.Append("</div>");
 
                 sbTable.Append("<div aria-labelledby=\"accordion-4-card-" + loopcnt.ToString() + "\" class=\"collapse\" id=\"accordion-4-collapse-" + loopcnt.ToString() + "\" role=\"tabpanel\">"); //begin content panel
@@ -717,7 +717,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                         {
                             //sb_indTable.Append("<li class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
                             sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
-                            HF_TopicText.Value = TopicText;
+                            HF_HC_TopicText.Value = TopicText;
                             containsIndi = true;
                         }
                         else
@@ -815,7 +815,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 string measureText = dr["MeasureText"].ToString().Trim();
                 int measureID = ((int)(dr["MeasureID"]));
 
-                sbBodyTable.Append("<div  onclick =\"navClick()\" class=\"nav-section-home PInavSectionLinks navlist \" id=\"body-4-card-" + loopcnt.ToString() + "\" data-target=\"#body-4-collapse-" + loopcnt.ToString() + "\" role=\"tab\" aria-expanded=\"true\">"); //begin header measureText
+                sbBodyTable.Append("<div  onclick =\"navClick()\" class=\"nav-section-home PInavSectionLinks navlist \" id=\"body-4-card-" + loopcnt.ToString() + "\" data-target=\"#body-4-collapse-" + loopcnt.ToString() + ">"); //begin header measureText
                 sbBodyTable.Append("<a tabindex=\"0\"  id=\"body-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"body-4-collapse-" + loopcnt.ToString() + "\"  style=\"text-align: left; font-family: Open Sans; font-size: 22px; letter-spacing: -0.22px; color: #000000; opacity: 1;  \"  >" +  measureText + "</a>");
                 sbBodyTable.Append("</div>"); 
                 sbBodyTable.Append("</div>"); //col

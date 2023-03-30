@@ -14,10 +14,11 @@ using System.Web.UI.WebControls;
 using ClosedXML.Excel;
 using ckdlibV2;
 using CKDSurveillance_RD.UserControls;
+using System.Web.Security.AntiXss;
 
 namespace CKDSurveillance_RD.MasterPages
 {
-    public partial class detail : Classes.NCCDPage// 9/24 updated per Alex System.Web.UI.Page
+    public partial class Detail : Classes.NCCDPage// 9/24 updated per Alex System.Web.UI.Page
     {
 
         MemoryStream ms = new MemoryStream();
@@ -339,7 +340,7 @@ namespace CKDSurveillance_RD.MasterPages
                     pnlMap.Style.Add("overflow-x", "hidden");
                     
                     staticDownloadButton.Visible = true;
-                    staticDownloadButton.HRef = "./Documents/" + QNum + ".xlsx";
+                    staticDownloadButton.HRef = AntiXssEncoder.HtmlEncode(SanitizeHtml("./Documents/" + QNum + ".xlsx"), false) ;
                     exportButton.Visible = false;
                     lnkDownload.Visible = false;
                     btnDownloadChart.Visible = false;
@@ -1438,19 +1439,19 @@ namespace CKDSurveillance_RD.MasterPages
                 //adding the header row for the data
                 DataRow newRowZero = dsTableZero.NewRow();
 
-                newRowZero[0] = "AnyCKD_rate";
+                newRowZero[0] = "Percentage of Diagnosed CKD Patients";
                 newRowZero[1] = "STATE";
                 newRowZero[2] = "County";
-                newRowZero[3] = "cmean_PM_pred2";
+                newRowZero[3] = "Average Daily PM2.5";
                 dsTableZero.Rows.InsertAt(newRowZero, 0);
 
                 DataTable dsTableOne = ds.Tables[1];
                 //adding the header row for the data
                 DataRow newRowOne = dsTableOne.NewRow();
-                newRowOne[0] = "AnyCKD_rate";
+                newRowOne[0] = "Percentage of Diagnosed CKD Patients";
                 newRowOne[1] = "STATE";
                 newRowOne[2] = "County";
-                newRowOne[3] = "cmean_PM_pred2";
+                newRowOne[3] = "Average Daily PM2.5";
                 dsTableOne.Rows.InsertAt(newRowOne, 0);
             }
             else if (chartID == -2)
@@ -1460,8 +1461,8 @@ namespace CKDSurveillance_RD.MasterPages
                 //adding the header row for the data
                 DataRow newRowZero = dsTableZero.NewRow();
 
-                newRowZero[0] = "AnyCKD_rate";
-                newRowZero[1] = "Below_poverty_threshold";
+                newRowZero[0] = "Percentage of Diagnosed CKD Patients";
+                newRowZero[1] = "Percentage of the Population Below the Poverty Threshold";
                 newRowZero[2] = "STATE";
                 newRowZero[3] = "COUNTY";
                 dsTableZero.Rows.InsertAt(newRowZero, 0);
@@ -1469,8 +1470,8 @@ namespace CKDSurveillance_RD.MasterPages
                 DataTable dsTableOne = ds.Tables[1];
                 //adding the header row for the data
                 DataRow newRowOne = dsTableOne.NewRow();
-                newRowOne[0] = "AnyCKD_rate";
-                newRowOne[1] = "Below_poverty_threshold";
+                newRowOne[0] = "Percentage of Diagnosed CKD Patients";
+                newRowOne[1] = "Percentage of the Population Below the Poverty Threshold";
                 newRowOne[2] = "STATE";
                 newRowOne[3] = "COUNTY";
                 dsTableOne.Rows.InsertAt(newRowOne, 0);
@@ -1958,7 +1959,8 @@ namespace CKDSurveillance_RD.MasterPages
                 QNum == "Q364" ||
                 QNum == "Q703" ||
                 QNum == "Q700" ||
-                QNum == "Q719" )
+                QNum == "Q719" ||
+                QNum == "Q730")
                 litChartTitleText.Visible = false;
             else
             {
@@ -1976,17 +1978,11 @@ namespace CKDSurveillance_RD.MasterPages
                 }
                 else if (QNum == "Q605")
                 {
-                    if (Request.QueryString["Strat"] == null || Request.QueryString["Strat"] == "Overall")
-                        subTitlePrefix = "Overall = ACEi/ARB Use (%), ";
-                    else
-                        subTitlePrefix = Request.QueryString["Strat"].ToString() + " = ACEi/ARB Use (%), ";
+                    subTitlePrefix = "ACEi/ARB Use (%), ";
                 }
                 else if (QNum == "Q640")
                 {
-                    if (Request.QueryString["Strat"] == null || Request.QueryString["Strat"] == "Overall")
-                        subTitlePrefix = "Overall = Albuminuria Testing (%), ";
-                    else
-                        subTitlePrefix = Request.QueryString["Strat"].ToString() + " = Albuminuria Testing (%), ";
+                    subTitlePrefix = "Albuminuria Testing (%), ";
                 }
                 else if (QNum == "Q705")
                 {
@@ -4726,6 +4722,39 @@ namespace CKDSurveillance_RD.MasterPages
             string url = Uri.EscapeUriString(newURL); //Fortify fix
             Response.Redirect(url);
 
+        }
+
+        protected string SanitizeHtml(string html)
+        {
+            html = System.Web.HttpUtility.HtmlDecode(html);
+
+            List<string> blackListedTags = new List<string>()
+            {
+                    "body", "script", "iframe", "form", "object", "embed", "link", "head", "meta"
+            };
+
+            foreach (string tag in blackListedTags)
+            {
+                html = Regex.Replace(html, "<" + tag, "<p", RegexOptions.IgnoreCase);
+                html = Regex.Replace(html, "</" + tag, "</p", RegexOptions.IgnoreCase);
+            }
+
+            //*Scrub for SQL*
+            List<string> blackListedSQL = new List<string>()
+            {
+                "insert", "select", "delete", "update", "drop", "truncate", "join", "backup", "dbreindex", "dbcc", "create", "alter", ";", "database", "table", "*", "from"
+            };
+
+            foreach (string word in blackListedSQL)
+            {
+                int index = html.IndexOf(word, StringComparison.OrdinalIgnoreCase);
+                if (index >= 0)
+                {
+                    html = html.Remove(index, word.Length);
+                }
+            }
+
+            return html;
         }
     }
 }

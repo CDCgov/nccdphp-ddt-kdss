@@ -121,7 +121,7 @@
     <asp:HiddenField ID="HF_SmallChart2Hover" runat="server" />
     <asp:HiddenField ID="HF_SmallChart1URL" runat="server" />
     <asp:HiddenField ID="HF_SmallChart2URL" runat="server" />
-    <asp:HiddenField ID="HF_TopicText" runat="server" />
+    <asp:HiddenField ID="HF_FI_TopicText" runat="server" />
     <asp:HiddenField ID="hfShowCI" runat="server" Value="false" />
 
 </div>
