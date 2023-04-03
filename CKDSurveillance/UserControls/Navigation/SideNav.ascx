@@ -216,8 +216,10 @@
 								<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
 								<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
 									<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-17" data-target="#accordion-4i-collapse-17" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
+										<div class="card-title">
 										<a id="RiskFactorsDiabetes" title="Risk Factors – Diabetes" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-17"> <%--class="card-title"--%>
-										   <i class="fi cdc-icon-minus nav-minus"  style = "float: right; background-color: white !important;" id="navplusicon1"></i>Risk Factors – Diabetes</a>
+										   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon1"></i>Risk Factors – Diabetes</a>
+										</div>
 									</div>
 									<div aria-labelledby="accordion-4i-card-17" class="collapse" id="accordion-4i-collapse-17" role="tabpanel">
 										<div >  <%--class="card body"--%>
@@ -243,8 +245,10 @@
 								<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
 								<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
 									<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-18" data-target="#accordion-4i-collapse-18" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
+										<div class="card-title">
 										<a id="Awareness" title="Awareness" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-18"> <%--class="card-title"--%>
 										   <i class="fi cdc-icon-minus nav-minus"  style = "float: right; background-color: white !important;" id="navplusicon2"></i>Awareness</a>
+										</div>
 									</div>
 									<div aria-labelledby="accordion-4i-card-18" class="collapse" id="accordion-4i-collapse-18" role="tabpanel">
 										<div >  <%--class="card body"--%>
@@ -305,7 +309,29 @@
 <asp:HiddenField ID="HF_SN_TopicText" runat="server" />
 
 <script type="text/javascript">
-    $(document).ready(function () {
+	$(document).ready(function () {
+        $('.card-title').bind('keypress', function (e) {
+			if (e.keyCode == 13) {
+				if ($(this).parent().hasClass("collapsed")) {
+					$(this).parent().removeClass("collapsed");
+					$(this).parent().attr("aria-expanded", "true");
+					$(this).parent().next().addClass("show");
+                    $(this).parent()
+                        .find(".fi")
+                        .addClass("cdc-icon-minus")
+                        .removeClass("cdc-icon-plus");
+				} else {
+                    $(this).parent().addClass("collapsed");
+                    $(this).parent().attr("aria-expanded", "false");
+					$(this).parent().next().removeClass("show");
+                    $(this).parent()
+                        .find(".fi")
+                        .addClass("cdc-icon-plus")
+                        .removeClass("cdc-icon-minus");
+				}
+            }
+		});
+
         // Add minus icon for collapse element which is open by default
         $(".collapse.show").each(function () {
             $(this)
@@ -332,4 +358,5 @@
                     .addClass("cdc-icon-plus");
             });
     });
+
 </script>

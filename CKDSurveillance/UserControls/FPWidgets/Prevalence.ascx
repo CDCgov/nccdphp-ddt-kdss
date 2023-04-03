@@ -83,16 +83,30 @@
             height: 15%;
         }
     }
-    @media (min-width: 1201px) {
+    @media (max-width: 1500px) {
+        .prevalence-subtitle {
+            margin-top:0px;
+            font:normal normal normal 18px Open Sans;
+        }
+        .prevalence-footer {
+            margin-top:0px;
+            margin-bottom:10px;
+        }
+    }
+    @media (min-width: 1500px) {
         .prevalence-img-card {
             height: 60%;
         }
+
         .prevalence-subtitle {
             height: 15%;
         }
+
         .prevalence-text {
             height: 10%;
         }
+    }
+
 </style>
 
 
