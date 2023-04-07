@@ -286,12 +286,9 @@
                         <span class="databites-msg-header">HEALTHY PEOPLE 2030</span>
                         <br /><br />
                         <span class="databites-msg-subheader">
-                            The Healthy People 2030 (HP2030) program sets data-driven national objectives to improve health and well-being over the next decade. 
-                            There are 14 goals related to kidney disease, 10 of which are about chronic kidney disease. Goals are tracked using several data sources. 
-                            See <a href="https://health.gov/healthypeople" style="height: 66px; color:#00778C" target="_blank" >health.gov/healthypeople</a> 
-                            for the HP2030 website.  
+                           <a href="https://health.gov/healthypeople" alt="Healthy People 2030" style="text-decoration:none">Healthy People 2030</a> (HP2030) sets data-driven national objectives to improve health and well-being over the next decade. There are 14 goals related to kidney disease, 10 of which are about chronic kidney disease. Goals are tracked using several data sources  
                             <br /> <br /> 
-                            In addition, the CDC-KD Surveillance System unofficially tracks these goals. Click on the Healthy People 2030 button below to see all the CKD-KD Surveillance System indicators related to HP2030.
+                            In addition, the Kidney Disease Surveillance System tracks these goals. Click on the Healthy People 2030 button below to see all the surveillance system indicators related to HP2030.
                         </span>
                         <br /><br />
                         <div> 
@@ -321,9 +318,7 @@
                                             </div>
                                             <div class="modal-body"> 
                                                     <hr /><%-- Draw Line--%> <%--<br />--%>                                            
-                                                    <p class="popup-msg-format">Statistics provided here are adapted from the Healthy People 2030 (HP2030) measures and created from a variety of data sources. 
-                                                        This Surveillance System is not the official HP2030 source but tracks indicators related to the HP2030 program. 
-                                                        See <a href="https://health.gov/healthypeople" style="height: 66px;" target="_blank">health.gov/healthypeople</a> for the official program’s website.</p>
+                                                    <p class="popup-msg-format">Statistics provided here are adapted from the <a href="https://health.gov/healthypeople" style="height: 66px;text-decoration:none" target="_blank">Healthy People 2030</a> (HP2030) measures and created from a variety of data sources. The Kidney Disease Surveillance System is not the official HP2030 source but tracks indicators related to HP2030.
                                             </div>
                                             <div class="modal-footer">
                                               <button type="button" class="btn-close" data-dismiss="modal">Close</button>  <%-- onclick="closeDisclaimerMessage()"--%>

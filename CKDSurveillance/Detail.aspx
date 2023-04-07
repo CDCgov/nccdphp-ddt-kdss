@@ -901,7 +901,7 @@
                                 <%-- <br />--%>
                                 <%--*Raphael Dynamic Maps (SVG)*--%>
                                 
-                                <div id="map" style="font-size: 8pt; font-family: verdana; width: 765px; height: 650px;" >    
+                                <div id="map" style="font-size: 8pt; font-family: verdana; height: 750px;" >    
                                     <div id="divStaticLeft" class="col-xl-2 col-lg-4" runat="server">
                                         <div id="map1" runat="server">
                                             <div class="imgcell">

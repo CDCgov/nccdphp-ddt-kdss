@@ -9,6 +9,7 @@
 <%@ Register Src="~/UserControls/RDVersions/SiteNavigationRD2_Options.ascx" TagPrefix="uc1" TagName="SiteNavigationRD2_Options" %>
 <%@ Register Src="~/UserControls/Navigation/MainNavNew.ascx" TagPrefix="uc1" TagName="MainNavNew" %>
 <%@ Register Src="~/UserControls/FPWidgets/EmailSubscribeMain.ascx" TagPrefix="uc1" TagName="EmailSubscribeMain" %>
+<%@ Register Src="~/UserControls/FPWidgets/Disclaimer.ascx" TagPrefix="uc1" TagName="Disclaimer" %>
 
 
 <!DOCTYPE html>
@@ -321,7 +322,7 @@
     <%--**************--%>
     <%--*page content*--%>
     <%--**************--%>
-    <div class="container-fluid d-flex flex-wrap body-wrapper bg-white" style="margin-bottom:-17px;">
+    <div class="container-fluid d-flex flex-wrap body-wrapper bg-white" style="margin-bottom:12px;">
         <main class="col-xl-12 order-lg-2" role="main" aria-label="Main Content Area">
             <div class="row visual-element">
                 <div class="col">
@@ -357,7 +358,6 @@
 
     <%--end page content--%>
     
-    <br />
     <%--*****************--%>
     <%--*Email Subscribe*--%>
     <%--*****************--%>
@@ -365,6 +365,16 @@
     <div class="row pt-0 pb-1 county-check" style="background: #29434E 0% 0% no-repeat padding-box;box-shadow: 0px -8px 6px #0000002E; opacity: 1;     display:block; margin-bottom:-20px;">
         <div class="container">
             <uc1:EmailSubscribeMain runat="server" ID="EmailSubscribeMain1" />
+        </div>
+    </div>
+    
+    <%--**************--%>
+    <%--* Disclaimer *--%>
+    <%--**************--%>
+
+    <div class="row county-check" style="background: #E9E9E9 0% 0% no-repeat padding-box; margin-bottom:-17px; padding-top:20px; padding-bottom:35px;">
+        <div class="container">
+            <uc1:Disclaimer runat="server" ID="Disclaimer1" />
         </div>
     </div>
 

@@ -110,11 +110,7 @@
             <div class="aya-title">ARE YOU AWARE?</div>
 
             <div><h2 class="aya-subtitle">Kidney Disease Awareness is Improving, but<br /><u class="aya-underline">Rem</u>ains Low in the US</h2></div>
-            <div class="aya-text">Awareness of chronic kidney disease (CKD) has been very low in the US, with only 1 out of 10 individuals with CKD
-                being aware of having it. Using nationally representative data, the overall awareness of CKD in the US has risen from 11.2% to 20% 
-                between 2001 and 2020. Awareness is higher among individuals with more advanced disease. Continued efforts to raise awareness in 
-                earlier stages of CKD is vital to stimulate efforts to prevent progression to later stages including end-stage kidney disease (ESKD), 
-                and to reduce premature morbidity and mortality associated with CKD.</div>
+            <div class="aya-text">Awareness of chronic kidney disease (CKD) has been very low in the US, with only 1 out of 10 individuals with CKD being aware of having it. Using nationally representative data, the overall awareness of CKD Stages 3-4 in the United States has risen overall from 11.2% to 20% between 2001 and 2020. Awareness is higher among individuals with more advanced CKD. Continued efforts to raise awareness in earlier stages of CKD can prevent progression to later stages, including end-stage kidney disease (ESKD), and can reduce related complications and early death associated with CKD.</div>
 
             <div class="row aya-botton-box">
                 <%--<div class="col-sm-3 aya-button">View Spotlight</div>--%>
