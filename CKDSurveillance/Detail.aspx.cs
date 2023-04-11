@@ -362,7 +362,7 @@ namespace CKDSurveillance_RD.MasterPages
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
 
             if (QNum == "Q761") { 
-                litTopic.Text = litTopic.Text + "U.S. Population Below the Poverty Threshold Level and CKD in the US Medicare Population, by County";
+                litTopic.Text = litTopic.Text + "U.S. Population Below the Poverty Threshold Level and CKD in the U.S. Medicare Population, by County";
                 litTopicMobile.Text = litTopic.Text;                
                 litTopicDesc.Text += "The bivariate map shows the combination of the percentage of the population below the poverty threshold and the percentage of diagnosed CKD patients among the Medicare population across counties in the United States. Geographic variation was observed in the percentage of the population below the poverty threshold (mean=15.4, SD=6.9, n=3,095) and the percentage of diagnosed CKD patients among the Medicare population (mean=22.1, SD=6.5, n=3,097). The percentage of the population under the poverty level and the prevalence of CKD are high in counties in the Southern region. Further investigation into poverty and CKD prevalence in some of these hotspot areas is crucial.";
             }

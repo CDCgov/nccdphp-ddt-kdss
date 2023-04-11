@@ -96,7 +96,7 @@
 <div class="outcomes-qofcare-box">
     <div class="row">
         <div class="col-md-6 outcome-box">
-            <div class="outcomes-title"><h2><span style="color:#712177;">Outcomes</span> Related to <br /><u style="text-decoration-color:#00695C;text-underline-offset: 15px;">Kidn</u>ey Disease</h2></div>
+            <div class="outcomes-title"><h2>Outcomes Related to <br /><u style="text-decoration-color:#00695C;text-underline-offset: 15px;">Kidn</u>ey Disease</h2></div>
             <ul class="linked-list">
                 <li style="margin-bottom:-1rem;">
                     <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q185"><span>Mortality by Stages of Kidney Disease</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
@@ -112,8 +112,8 @@
 
         <%--<div class="col-md-2 d-none d-lg-block"></div>--%>
         <div class="col-md-6 qualityofcare-box">
-            <div class="qualityofcare-title phoneNoShow"><h2>State of <span style="color:#712177;">Quality of Care</span><br /><u style="text-decoration-color:#00695C;text-underline-offset: 15px;">for K</u>idney Disease</h2></div>
-            <div class="qualityofcare-title showPhoneOnly"><h2>State of <span style="color:#712177;"><br />Quality of Care</span><br /><u style="text-decoration-color:#00695C">for K</u>idney Disease</h2></div>
+            <div class="qualityofcare-title phoneNoShow"><h2>State of Quality of Care<br /><u style="text-decoration-color:#00695C;text-underline-offset: 15px;">for K</u>idney Disease</h2></div>
+            <div class="qualityofcare-title showPhoneOnly"><h2>State of <br />Quality of Care<br /><u style="text-decoration-color:#00695C">for K</u>idney Disease</h2></div>
             <ul class="linked-list">
                 <li style="margin-bottom:-1rem;">
                     <a class="qofcare-link" href="detail.aspx?Qnum=Q605"><span>ACEi/ARB use among CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
