@@ -3,7 +3,7 @@
 
 <style type="text/css">
     .prevalence-prev {
-        color:#712177;
+        /*color:#712177;*/
         margin-right: 5px;
     }
     .prevalence-row {
@@ -116,7 +116,7 @@
 
 <div class="col-12">
     <div class="row prevalence-title">
-        <h2><span class="prevalence-prev"><u class="prev-underline">Prev</u>alence</span>of Chronic Kidney Disease (CKD)</h2>
+        <h2><span class="prevalence-prev"><u class="prevalence-underline">Prev</u>alence</span>of Chronic Kidney Disease (CKD)</h2>
     </div>
     <div class="row prevalence-row">
         <div class="col-md p-3 prevalence-img-box prevalence-img-box-margin" onclick="location.href='./detail.aspx?Qnum=Q372';">

@@ -46,7 +46,7 @@
             <a class="navbar-brand gi" href="#">
                 <img src="images/graphic_identifier.png" alt="CDC CKD project Logo" style="width: 150px; height: 35px;" />
             </a>
-
+            <%--
             <li class="nav-item">
                 <a class="nav-link" href="Help.aspx?section=F" title="View Frequently Asked questions">FAQs</a>
             </li>
@@ -56,12 +56,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="Help.aspx?section=D" title="View Data Sources">Data Sources</a>
             </li>
-            <%--<li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="Help.aspx?section=B" title="View the Bibliography">Bibliography</a>
-            </li>--%>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="Help.aspx?section=H" title="View Information About the CKD Surveillance Project">About The Project</a>
-            </li>
+            </li>--%>
 
             <%--*Close*--%>
             <li class="nav-item">

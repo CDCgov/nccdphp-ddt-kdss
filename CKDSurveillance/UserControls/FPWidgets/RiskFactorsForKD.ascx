@@ -32,7 +32,7 @@
         text-align: left;
         font: normal normal 600 30px/34px Open Sans;
         letter-spacing: -0.6px;
-        color: #FCCF7D;
+        /*color: #FCCF7D;*/
     }
     .rfkd-title2 { /*for Kidney Disease*/
         text-align: left;
@@ -174,6 +174,10 @@
         display:flex;
         flex-wrap: wrap;        
     }
+    .rfkd-underline {
+        text-decoration-color: #FFFFFF;
+        text-underline-offset: 15px;
+    }
     .img-size{
         width:100%;
         height:100%;
@@ -236,9 +240,9 @@
         <div  class="col-12 col-md-5 rfkd-center-content" style="padding-top:20px;" > 
            
                     <div id="hdrRF">   <h2>
-                        <span class="rfkd-title1">Risk Factors </span>        
+                        <span class="rfkd-title2"><u class="rfkd-underline">Risk</u> Factors </span>        
                         <span class="rfkd-title2">for Kidney Disease</span>   </h2> 
-                        <div><hr style="border: 2px solid #FFFFFF; background:#FFFFFF; width: 56px; opacity: 1; margin-bottom: 0em;" /></div>
+                        <%--<div><hr style="border: 2px solid #FFFFFF; background:#FFFFFF; width: 56px; opacity: 1; margin-bottom: 0em;" /></div>--%>
                     </div>                 
                                     
                     <div  id="divDiabetes" style="padding-top: 30px;">

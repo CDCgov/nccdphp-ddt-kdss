@@ -362,12 +362,12 @@ namespace CKDSurveillance_RD.MasterPages
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
 
             if (QNum == "Q761") { 
-                litTopic.Text = litTopic.Text + "Geographic Distribution of Population below Poverty Threshold Level and CKD in the US Medicare Population, by County";
+                litTopic.Text = litTopic.Text + "U.S. Population Below the Poverty Threshold Level and CKD in the US Medicare Population, by County";
                 litTopicMobile.Text = litTopic.Text;                
                 litTopicDesc.Text += "The bivariate map shows the combination of the percentage of the population below the poverty threshold and the percentage of diagnosed CKD patients among the Medicare population across counties in the United States. Geographic variation was observed in the percentage of the population below the poverty threshold (mean=15.4, SD=6.9, n=3,095) and the percentage of diagnosed CKD patients among the Medicare population (mean=22.1, SD=6.5, n=3,097). The percentage of the population under the poverty level and the prevalence of CKD are high in counties in the Southern region. Further investigation into poverty and CKD prevalence in some of these hotspot areas is crucial.";
             }
             else if (QNum == "Q760") {
-                litTopic.Text = litTopic.Text + "Geographic Distribution of Average Daily PM2.5 Air Pollution and CKD in the US Medicare Population, by County";
+                litTopic.Text = litTopic.Text + "Average Daily PM2.5 Air Pollution and CKD in the U.S. Medicare Population, by County";
                 litTopicMobile.Text = litTopic.Text;
                 litTopicDesc.Text += "The bivariate map shows the combination of the average daily PM2.5 and the percentage of diagnosed CKD patients among the Medicare population across counties in the United States. The average daily PM2.5 and the percentage of diagnosed CKD patients varied across counties (PM2.5 mean=8.7 μg/m3, SD=1.9 μg/m3, n=3,043; CKD mean=22.1, SD=6.5, n=3,097). The average daily PM2.5 and the prevalence of CKD are high in counties in California, the rust-belt area, and the Southern region. Further investigation into air pollution and CKD prevalence in some of these hotspot areas is crucial.";
             }
