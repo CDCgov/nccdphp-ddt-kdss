@@ -408,8 +408,8 @@
 
     <script type="text/javascript">
         
-        //s.pageName = document.title;
-        //s.channel = "<%= ConfigurationManager.AppSettings["OmnitureApp"] %>";
+        s.pageName = document.title;
+        s.channel = "<%= ConfigurationManager.AppSettings["OmnitureApp"] %>";
         window.shortTitle = "CKD";
 
         window.pageOptions = window.pageOptions || {};
