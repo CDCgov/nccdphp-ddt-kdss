@@ -250,21 +250,21 @@
                         <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/header-search.html"));%>
                     </div>
                     <button id="mag" class="btn btn-primary-d navbar-toggler collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedSearch" aria-haspopup="true" aria-expanded="false" aria-label="search" control-id="ControlID-1">
-							<i class="fi cdc-icon-search-light dropdown-menu-medium-search-icon x28" aria-hidden="true"></i>
-							<i class="fi cdc-icon-close dropdown-menu-medium-close-icon" aria-hidden="true"><span>CLOSE</span></i>
-					</button>
+                        <i class="fi cdc-icon-search-light dropdown-menu-medium-search-icon x28" aria-hidden="true"></i>
+                        <i class="fi cdc-icon-close dropdown-menu-medium-close-icon" aria-hidden="true"><span>CLOSE</span></i>
+                    </button>
                     <div class="navbar-collapse collapse" id="navbarSupportedSearch" style="">
-						<div class="input-group p-3 no-print covid-mobile-search bg-blue-d d-flex d-lg-none">
-							<input id="headerSearch-2" type="text" class="form-control" maxlength="300" placeholder="Search" aria-label="Search" name="query" control-id="ControlID-2">
-							<div class="input-group-append">
-								<button id="search-submit-2" class="btn search-submit bg-white ckd-serach-submit" type="button">
-								<span class="x16 fill-p dark cdc-icon-search-light"></span>
-								<span class="sr-only">Search</span>
-								</button>
-							</div>
-						</div>
-						<div id="mask-search" style="top: 68px;"></div>
-					</div>
+                        <div class="input-group p-3 no-print covid-mobile-search bg-blue-d d-flex d-lg-none">
+                            <input id="headerSearch-2" type="text" class="form-control" maxlength="300" placeholder="Search" aria-label="Search" name="query" control-id="ControlID-2">
+                            <div class="input-group-append">
+                                <button id="search-submit-2" class="btn search-submit bg-white ckd-serach-submit" type="button">
+                                    <span class="x16 fill-p dark cdc-icon-search-light"></span>
+                                    <span class="sr-only">Search</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="mask-search" style="top: 68px;"></div>
+                    </div>
                 </div>
             </header>
         </div>
@@ -275,27 +275,27 @@
     <%--************--%>
     <%--*Site title*--%>
     <%--************--%>
-    <div class="container-fluid site-title homepage-ckd-nav" style="background-color:#00695C">
+    <div class="container-fluid site-title homepage-ckd-nav" style="background-color: #00695C">
         <div class="container">
             <div class="d-flex">
                 <div class="text-white fw-500 pt-1 pb-1 siteTitleBar">
                     <%--display-6 --%>
-                    <a href="<%= ConfigurationManager.AppSettings["DirPath"]%>default.aspx">Kidney Disease Surveillance System</a>                    
+                    <a href="<%= ConfigurationManager.AppSettings["DirPath"]%>default.aspx">Kidney Disease Surveillance System</a>
                 </div>
                 <%--<div class="col-md-1 ckd-toggle-btn">--%>
-                    <button id="ham" class="navbar-toggler navbar-light collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedContentMobile" 
-	                    aria-controls="navbarSupportedContentMobile" aria-expanded="false" aria-label="Toggle navigation" style="padding-left:0px;padding-right:0px;">
-	                    <%--<i class="dropdown-menu-medium-search-icon" aria-hidden="true">--%>
-                        <i class="fa fa-bars" aria-hidden="true" style="color:#FFFFFF;">
-		                    <%--<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;">
+                <button id="ham" class="navbar-toggler navbar-light collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedContentMobile"
+                    aria-controls="navbarSupportedContentMobile" aria-expanded="false" aria-label="Toggle navigation" style="padding-left: 0px; padding-right: 0px;">
+                    <%--<i class="dropdown-menu-medium-search-icon" aria-hidden="true">--%>
+                    <i class="fa fa-bars" aria-hidden="true" style="color: #FFFFFF;">
+                        <%--<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;">
 			                    <g transform="matrix(2.24081,0,0,1.9375,-1.96324,2.4375)">
 				                    <path d="M4,7L26,7M4,15L26,15M4,23L26,23" style="fill:rgb(4,45,74);fill-rule:nonzero;stroke:rgb(255,255,255);stroke-width:1.25px;"></path>
 				                    </g>
 			                    </svg>--%>
-		                    </i>
-                        <span class="fi" style="color:#FFFFFF;font-size:smaller">Menu</span>
-	                    <i class="fi cdc-icon-close dropdown-menu-medium-close-icon" aria-hidden="true"><span>CLOSE</span></i>
-                    </button>
+                    </i>
+                    <span class="fi" style="color: #FFFFFF; font-size: smaller">Menu</span>
+                    <i class="fi cdc-icon-close dropdown-menu-medium-close-icon" aria-hidden="true"><span>CLOSE</span></i>
+                </button>
                 <%--</div>--%>
             </div>
         </div>
@@ -322,7 +322,7 @@
     <%--**************--%>
     <%--*page content*--%>
     <%--**************--%>
-    <div class="container-fluid d-flex flex-wrap body-wrapper bg-white" style="margin-bottom:12px;">
+    <div class="container-fluid d-flex flex-wrap body-wrapper bg-white" style="margin-bottom: 12px;">
         <main class="col-xl-12 order-lg-2" role="main" aria-label="Main Content Area">
             <div class="row visual-element">
                 <div class="col">
@@ -357,22 +357,22 @@
     </div>
 
     <%--end page content--%>
-    
+
     <%--*****************--%>
     <%--*Email Subscribe*--%>
     <%--*****************--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background: #29434E 0% 0% no-repeat padding-box;box-shadow: 0px -8px 6px #0000002E; opacity: 1;     display:block; margin-bottom:-20px;">
+    <div class="row pt-0 pb-1 county-check" style="background: #29434E 0% 0% no-repeat padding-box; box-shadow: 0px -8px 6px #0000002E; opacity: 1; display: block; margin-bottom: -20px;">
         <div class="container">
             <uc1:EmailSubscribeMain runat="server" ID="EmailSubscribeMain1" />
         </div>
     </div>
-    
+
     <%--**************--%>
     <%--* Disclaimer *--%>
     <%--**************--%>
 
-    <div class="row county-check" style="background: #E9E9E9 0% 0% no-repeat padding-box; margin-bottom:-17px; padding-top:20px; padding-bottom:35px;">
+    <div class="row county-check" style="background: #E9E9E9 0% 0% no-repeat padding-box; margin-bottom: -17px; padding-top: 20px; padding-bottom: 35px;">
         <div class="container">
             <uc1:Disclaimer runat="server" ID="Disclaimer1" />
         </div>
@@ -431,6 +431,17 @@
 
         window.CDC.tp4.public.appInit(window.pageOptions);
 
+        const initMetrics = (trackVars = 'prop41,prop40,prop49,prop46,prop2,prop31,channel') => {
+            setTimeout(function () {
+                const projectName = "CKD",
+                    _s = window.s;
+
+                _s.linkTrackVars = trackVars;
+                _s.channel = projectName;
+                _s.prop41 = projectName;
+                _s.tl(true, 'o', _s);
+            }, 200);
+        };
 
     </script>
     <%--<uc1:ucOmniture runat="server" ID="ucOmniture" />--%>
