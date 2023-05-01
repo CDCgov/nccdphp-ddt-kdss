@@ -272,3 +272,9 @@
     </script>
 
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="CustomJavaScript" runat="server">
+    <script>
+        initMetrics();
+    </script>
+</asp:Content>
+

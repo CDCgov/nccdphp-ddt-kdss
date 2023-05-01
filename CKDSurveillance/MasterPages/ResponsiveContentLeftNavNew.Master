@@ -431,7 +431,7 @@
 
         window.CDC.tp4.public.appInit(window.pageOptions);
 
-        const initMetrics = (trackVars = 'prop41,prop40,prop49,prop46,prop2,prop31,channel') => {
+        const initMetrics = (trackVars = 'prop36,prop41,prop40,prop49,prop46,eVar53,prop2,prop31,prop60,prop62,channel') => {
             setTimeout(function () {
                 const projectName = "CKD",
                     _s = window.s;
