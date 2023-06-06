@@ -472,10 +472,10 @@
                         counter = 9999;
                         executeMetrics();
                     }
-                }, 800)
+                }, 850)
 
 
-            }, 150);
+            }, 500);
         };
 
         //custom variable to track changes
