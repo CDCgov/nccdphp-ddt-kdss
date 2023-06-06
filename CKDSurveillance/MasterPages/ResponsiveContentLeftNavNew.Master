@@ -431,17 +431,64 @@
 
         window.CDC.tp4.public.appInit(window.pageOptions);
 
+         /*Custom Metrics Code To Resolve Inconsistent Adobe Image, Modify Carefully, Please reach out to production support team for questions*/
+        let counter = 0,
+            hasMetrics = false;
         const initMetrics = (trackVars = 'prop36,prop41,prop40,prop49,prop46,eVar53,prop2,prop31,prop60,prop62,channel') => {
+            console.log('Init Metrics')
+
             setTimeout(function () {
                 const projectName = "CKD",
                     _s = window.s;
 
-                _s.linkTrackVars = trackVars;
-                _s.channel = projectName;
-                _s.prop41 = projectName;
-                _s.tl(true, 'o', _s);
-            }, 200);
+                function executeMetrics() {
+                    _s.linkTrackVars = trackVars;
+                    _s.channel = projectName;
+                    _s.prop41 = projectName;
+                    _s.tl(true, 'o', _s);
+                    console.log('Metrics Image Sent')
+                }
+
+                _s.registerPreTrackCallback(function (response) {
+                    // Handle the tracking response here
+                    console.log('Metrics Pre Track');
+                });
+
+                _s.registerPostTrackCallback(function (response) {
+                    // Handle the tracking response here
+                    counter++;
+                    console.log('Metrics Post Success');
+                    variableWatcher.value = true; //this will handle setting hasMetrics variable so that we don't call it again in the setTimeout() funciton below
+                    if (counter == 2) {
+                        counter = 0; //do not remove this, it will cause an infinite loop
+                        executeMetrics();
+                    }
+                });
+
+                //resend metrics when the post doesn't return the adobe image
+                setTimeout(function () {
+                    if (!hasMetrics) {
+                        console.log('Metrics, reinit')
+                        counter = 9999;
+                        executeMetrics();
+                    }
+                }, 800)
+
+
+            }, 150);
         };
+
+        //custom variable to track changes
+        const variableWatcher = new Proxy({ value: hasMetrics }, {
+            set(target, key, value) {
+                //if true, set hasMetrics so it doesn't get called again
+                if (value == true) {
+                    hasMetrics = true;
+                }
+                return true;
+            }
+        });
+        /*End Custom Metrics Code To Resolve Inconsistent Adobe Image, Modify Carefully, Please reach out to production support team for questions*/
 
     </script>
     <%--<uc1:ucOmniture runat="server" ID="ucOmniture" />--%>

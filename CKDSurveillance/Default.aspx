@@ -23,10 +23,9 @@
 <%--******--%>
 <%--*Head*--%>
 <%--******--%>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">    
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <style type="text/css">
-        
         body {
             font-size: 16px !important;
         }
@@ -132,37 +131,44 @@
             transform: translateY(1rem) !important;
         }
 
-        .tab-pane.fade.show {
-            transform: translateY(0rem) !important;
-        }
-        .rf-margins
-        {
-            /*background: transparent linear-gradient(290deg, #007C91 0%, #00695C 100%) 0% 0% no-repeat padding-box;*/ 
-            background: transparent linear-gradient(290deg, #218B9C 0%, #217B70 100%) 0% 0% no-repeat padding-box; 
-            opacity:0.9;
+            .tab-pane.fade.show {
+                transform: translateY(0rem) !important;
+            }
+
+        .rf-margins {
+            /*background: transparent linear-gradient(290deg, #007C91 0%, #00695C 100%) 0% 0% no-repeat padding-box;*/
+            background: transparent linear-gradient(290deg, #218B9C 0%, #217B70 100%) 0% 0% no-repeat padding-box;
+            opacity: 0.9;
         }
 
-        #ckd-nav-home{
+        #ckd-nav-home {
             background-color: #FFFFFF;
         }
+
         #ckd-nav-home-link:hover {
-            color: #FFFFFF!important;
+            color: #FFFFFF !important;
         }
+
         #ckd-nav-home-link {
             color: #007C91 !important;
         }
-        .ckd-nav-home{
+
+        .ckd-nav-home {
             background-color: #FFFFFF;
         }
+
         .ckd-nav-home-link:hover {
-            color: #FFFFFF!important;
+            color: #FFFFFF !important;
         }
+
         .ckd-nav-home-link {
             color: #007C91 !important;
         }
+
         .main-image-banner {
             background: transparent url('/ckd/images/CKD_Main.png') 0% 0% no-repeat padding-box;
         }
+
         .outcomecontainer {
             width: 100%;
             padding-right: 15px;
@@ -170,14 +176,16 @@
             margin-right: auto;
             margin-left: auto;
         }
+
         @media (max-width: 767px) {
             .main-image-banner {
                 background: transparent url('/ckd/images/CKD_Main_Mobile.png') 0% 0% no-repeat padding-box;
                 margin-top: -24px;
             }
+
             .outcomecontainer {
-                padding-left:0px;
-                padding-right:0px;
+                padding-left: 0px;
+                padding-right: 0px;
             }
         }
     </style>
@@ -205,19 +213,18 @@
     <%--*Kidney Disease Surveillance System*--%>
     <%--************************************--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background-color:rgba(78,186,170,0.07); background-color:rgba(78,186,170,0.07);
-border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom: solid;border-bottom-width: thin;border-bottom-color: #93a0a6;">
+    <div class="row pt-0 pb-1 county-check" style="background-color: rgba(78,186,170,0.07); background-color: rgba(78,186,170,0.07); border-top: solid; border-top-width: thin; border-top-color: #93a0a6; border-bottom: solid; border-bottom-width: thin; border-bottom-color: #93a0a6;">
         <div class="container">
             <uc1:AboutKDS runat="server" ID="AboutKDS1" />
         </div>
     </div>
-    
-    
+
+
     <%--******************************--%>
     <%--*Prevalence of Kidney Disease*--%>
     <%--******************************--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box;box-shadow: 0px 5px 9px #00000029;opacity: 1; ">
+    <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box; box-shadow: 0px 5px 9px #00000029; opacity: 1;">
         <div class="container">
             <uc1:Prevalence runat="server" ID="Prevalence1" />
         </div>
@@ -238,7 +245,7 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
     <%--*AYA*--%>
     <%--*****--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background: #F5F5F5 0% 0% no-repeat padding-box; opacity: 1;margin-top: 6px;">
+    <div class="row pt-0 pb-1 county-check" style="background: #F5F5F5 0% 0% no-repeat padding-box; opacity: 1; margin-top: 6px;">
         <div class="container">
             <uc1:AYA runat="server" ID="AYA1" />
         </div>
@@ -249,9 +256,9 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
     <%--*Risk Factors for kidney Disease*--%>
     <%--*********************************--%>
 
-    <div class="row pt-0 pb-1 county-check rf-margins"> 
+    <div class="row pt-0 pb-1 county-check rf-margins">
         <div class="container">
-             <uc1:RiskFactorsForKD runat="server" ID="RiskFactorsForKD1" />
+            <uc1:RiskFactorsForKD runat="server" ID="RiskFactorsForKD1" />
         </div>
     </div>
 
@@ -263,13 +270,13 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
             <uc1:DataBiteHighlights runat="server" ID="DataBiteHighlights" />
         </div>
     </div>
-  
+
 
     <%--******************************--%>
     <%--*Outcomes and Quality of Care*--%>
     <%--******************************--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box;box-shadow: 0px -5px 9px #00000029;opacity: 1;">
+    <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box; box-shadow: 0px -5px 9px #00000029; opacity: 1;">
         <div class="outcomecontainer showPhoneOnly">
             <uc1:OutcomesQofCare runat="server" ID="OutcomesQofCare1" />
         </div>
@@ -282,7 +289,7 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
     <%--*Additional Resources and General Information*--%>
     <%--**********************************************--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background:#EBF5F6 0% 0% no-repeat padding-box;opacity: 1;">
+    <div class="row pt-0 pb-1 county-check" style="background: #EBF5F6 0% 0% no-repeat padding-box; opacity: 1;">
         <div class="container">
             <uc1:GeneralInformation runat="server" ID="GeneralInformation1" />
         </div>
@@ -298,7 +305,6 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
             <uc1:EmailSubscribeMain runat="server" ID="EmailSubscribeMain1" />
         </div>
     </div>--%>
-
 </asp:Content>
 
 
@@ -306,6 +312,7 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
 <asp:Content ID="Content3" ContentPlaceHolderID="CustomJavaScript" runat="server">
 
     <script type="text/javascript">
+        initMetrics();
         //subscription submit and redirect
         document.getElementById("btnSubmitEmailSubscription").onclick = function (e) {
             e.preventDefault();
@@ -317,7 +324,7 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
 
             window.open(fullUrl, '_blank');
         };
-        $(document).ready(function(){
+        $(document).ready(function () {
             var listItems = $(".nav-link");
 
             // Remove 'active' tag for all list items
