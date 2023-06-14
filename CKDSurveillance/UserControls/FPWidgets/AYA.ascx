@@ -109,13 +109,13 @@
         <div class="col-md-6">
             <div class="aya-title">ARE YOU AWARE?</div>
 
-            <div><h2 class="aya-subtitle">Kidney Disease Awareness is Improving, but<br /><u class="aya-underline">Rem</u>ains Low in the US</h2></div>
-            <div class="aya-text">Awareness of chronic kidney disease (CKD) has been very low in the US, with only 1 out of 10 individuals with CKD being aware of having it. Using nationally representative data, the overall awareness of CKD Stages 3-4 in the United States has risen overall from 11.2% to 20% between 2001 and 2020. Awareness is higher among individuals with more advanced CKD. Continued efforts to raise awareness in earlier stages of CKD can prevent progression to later stages, including end-stage kidney disease (ESKD), and can reduce related complications and early death associated with CKD.</div>
+            <div><h2 class="aya-subtitle"><u class="aya-underline">Map</u>ping Poverty and Chronic Kidney Disease</h2></div>
+            <div class="aya-text">Poverty is a significant social determinant of health that is closely linked to chronic kidney disease (CKD). Based on data from the American Community Survey (2015–2019) and the Medicare 5% random sample (2019), geographic variations exist in both poverty level and prevalence of diagnosed CKD. Many southern US counties show high levels of both poverty and diagnosed CKD; many counties in the Northeast and Midwest show high levels of diagnosed CKD but low poverty. There is opportunity for future research to develop targeted interventions and policies to alleviate poverty and to identify people at risk for CKD and improve their access to quality care.</div>
 
             <div class="row aya-botton-box">
                 <%--<div class="col-sm-3 aya-button">View Spotlight</div>--%>
                 <asp:Literal ID="litBtnMore" runat="server" ClientIDMode="Static" />
-                <div class="aya-link-div"><a href="AreYouAware.aspx?emailDate=October_2022#refreshPosition" class="aya-link"><span style="color: contrast(4.5);">Awareness Archive</span><i class="fa fa-angle-right right-angle-arrow"></i></a></div>
+                <div class="aya-link-div"><a href="AreYouAware.aspx?emailDate=April_2023#refreshPosition" class="aya-link"><span style="color: contrast(4.5);"><%--Awareness --%>Archive</span><i class="fa fa-angle-right right-angle-arrow"></i></a></div>
             </div>
         </div>
         <div class="col-md-6 aya-image">

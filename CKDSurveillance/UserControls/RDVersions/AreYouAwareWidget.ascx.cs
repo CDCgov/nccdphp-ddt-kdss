@@ -29,6 +29,11 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 bcTopic.InnerText = "> Are You Aware Topics ";
                 bcSelListItem.InnerText = "> Awareness";
             }
+            else if (Request.QueryString["emailDate"] == "June_2023")
+            {
+                bcTopic.InnerText = "> Are You Aware Topics ";
+                bcSelListItem.InnerText = "> Social Determinants";
+            }
         }
     }
 }

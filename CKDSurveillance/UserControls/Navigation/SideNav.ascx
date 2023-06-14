@@ -212,13 +212,41 @@
 						<div id="divAYARF" runat="server"><%--style="padding-left:1px;padding-right:1px;"--%>
 							<div class="accordion indicator-plus accordion-white" role="tabpanel">
 								<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
-								<%--Risk Factors – Diabetes--%>
+								<%--Social Determinants --%>
+								<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+								<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
+									<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-19" data-target="#accordion-4i-collapse-19" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
+										<div class="card-title">
+										<a id="SocialDeterminants" title="Social Determinants" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-19"> <%--class="card-title"--%>
+										   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon3"></i>Social Determinants</a>
+										</div>
+									</div>
+									<div aria-labelledby="accordion-4i-card-19" class="collapse" id="accordion-4i-collapse-19" role="tabpanel">
+										<div >  <%--class="card body"--%>
+											<div class="row" style="padding-bottom:2px">
+												<div class="col-12" style="padding-left:20px;">
+													<div id="link_June_2023" data-parentid="19" >  <%--class="row articlelinkdiv"--%>
+														<ul>                                                        
+															<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
+																<a href="javascript:changeContent('June_2023')" class="articleLink" style="color:#00768A !important">Revealing Geographic Patterns: Mapping Poverty and Chronic Kidney Disease in the United States - June 2023</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="accordion indicator-plus accordion-white" role="tabpanel">
+								<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+								<%--Risk Factors --%>
 								<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
 								<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
 									<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-17" data-target="#accordion-4i-collapse-17" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
 										<div class="card-title">
-										<a id="RiskFactorsDiabetes" title="Risk Factors – Diabetes" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-17"> <%--class="card-title"--%>
-										   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon1"></i>Risk Factors – Diabetes</a>
+										<a id="RiskFactorsDiabetes" title="Risk Factors" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-17"> <%--class="card-title"--%>
+										   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon1"></i>Risk Factors</a>
 										</div>
 									</div>
 									<div aria-labelledby="accordion-4i-card-17" class="collapse" id="accordion-4i-collapse-17" role="tabpanel">
@@ -247,7 +275,7 @@
 									<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-18" data-target="#accordion-4i-collapse-18" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
 										<div class="card-title">
 										<a id="Awareness" title="Awareness" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-18"> <%--class="card-title"--%>
-										   <i class="fi cdc-icon-minus nav-minus"  style = "float: right; background-color: white !important;" id="navplusicon2"></i>Awareness</a>
+										   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon2"></i>Awareness</a>
 										</div>
 									</div>
 									<div aria-labelledby="accordion-4i-card-18" class="collapse" id="accordion-4i-collapse-18" role="tabpanel">
