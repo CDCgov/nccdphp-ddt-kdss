@@ -4,5 +4,11 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-    <uc1:TopicHomeContent runat="server" id="TopicHomeContent" TopicID="1" />
+    <uc1:TopicHomeContent runat="server" ID="TopicHomeContent" TopicID="1" />
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="CustomJavaScript" runat="server">
+    <script>     
+        initMetrics();
+    </script>
 </asp:Content>
