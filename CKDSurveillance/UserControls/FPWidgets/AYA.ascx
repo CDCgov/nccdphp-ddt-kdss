@@ -109,8 +109,8 @@
         <div class="col-md-6">
             <div class="aya-title">ARE YOU AWARE?</div>
 
-            <div><h2 class="aya-subtitle"><u class="aya-underline">Map</u>ping Poverty and Chronic Kidney Disease</h2></div>
-            <div class="aya-text">Poverty is a significant social determinant of health that is closely linked to chronic kidney disease (CKD). Based on data from the American Community Survey (2015–2019) and the Medicare 5% random sample (2019), geographic variations exist in both poverty level and prevalence of diagnosed CKD. Many southern US counties show high levels of both poverty and diagnosed CKD; many counties in the Northeast and Midwest show high levels of diagnosed CKD but low poverty. There is opportunity for future research to develop targeted interventions and policies to alleviate poverty and to identify people at risk for CKD and improve their access to quality care.</div>
+            <div><h2 class="aya-subtitle"><u class="aya-underline"></u>Chronic Kidney Disease Among Older Adults Varies Across US Counties</h2></div>
+            <div class="aya-text">Mapping the geographic distribution of chronic kidney disease (CKD) in the United States is vital to identifying hot spots and guiding public health action. Data from the 2019 Medicare 5% random sample revealed large variation in diagnosed CKD among adults 65 or older across US counties, ranging from 0% to 57.1%. Regions like the Hawaiian Islands, Southeastern states, and Appalachia had higher prevalence. Areas with higher prevalence of CKD also had higher prevalence of diabetes or hypertension. These findings suggest a need for area-level policies and interventions to prevent CKD, particularly among populations at higher risk.</div>
 
             <div class="row aya-botton-box">
                 <%--<div class="col-sm-3 aya-button">View Spotlight</div>--%>

@@ -228,7 +228,7 @@
 													<div id="link_June_2023" data-parentid="19" >  <%--class="row articlelinkdiv"--%>
 														<ul>                                                        
 															<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
-																<a href="javascript:changeContent('June_2023')" class="articleLink" style="color:#00768A !important">Revealing Geographic Patterns: Mapping Poverty and Chronic Kidney Disease in the United States - June 2023</a>
+																<a href="javascript:changeContent('August_2023')" class="articleLink" style="color:#00768A !important">Chronic Kidney Disease Among Older Adults Varies Across US Counties - August 2023</a>
 															</li>
 														</ul>
 													</div>

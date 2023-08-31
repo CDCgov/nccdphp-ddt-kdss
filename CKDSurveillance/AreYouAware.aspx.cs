@@ -11,7 +11,7 @@ namespace CKDSurveillance_RD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string emailDate = "June_2023";
+            string emailDate = "August_2023";
             string monthname = "";
             string yearval = "";
 
