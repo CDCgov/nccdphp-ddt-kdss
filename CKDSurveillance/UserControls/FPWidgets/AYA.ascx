@@ -109,8 +109,9 @@
         <div class="col-md-6">
             <div class="aya-title">ARE YOU AWARE?</div>
 
-            <div><h2 class="aya-subtitle"><u class="aya-underline"></u>Chronic Kidney Disease Among Older Adults Varies Across US Counties</h2></div>
-            <div class="aya-text">Mapping the geographic distribution of chronic kidney disease (CKD) in the United States is vital to identifying hot spots and guiding public health action. Data from the 2019 Medicare 5% random sample revealed large variation in diagnosed CKD among adults 65 or older across US counties, ranging from 0% to 57.1%. Regions like the Hawaiian Islands, Southeastern states, and Appalachia had higher prevalence. Areas with higher prevalence of CKD also had higher prevalence of diabetes or hypertension. These findings suggest a need for area-level policies and interventions to prevent CKD, particularly among populations at higher risk.</div>
+            <div><h2 class="aya-subtitle"><u class="aya-underline"></u>Rising Household Food Insecurity Among US Adults With Chronic Kidney Disease</h2></div>
+
+            <div class="aya-text">Adults living in households experiencing limited or uncertain access to adequate food (i.e., food insecurity) are at higher risk of developing chronic diseases, such as CKD, heart disease, and diabetes. Data from the National Health and Nutrition Examination Survey (2001–March 2020) suggest rising prevalence of food insecurity in the United States during the past 2 decades. Adults with CKD had higher food insecurity than those without the condition. Studies to further understand the epidemic of household food insecurity in the United States and its association with CKD can help efforts to mitigate and eliminate this public health problem.</div>
 
             <div class="row aya-botton-box">
                 <%--<div class="col-sm-3 aya-button">View Spotlight</div>--%>

@@ -87,15 +87,6 @@ namespace CKDSurveillance_RD.MasterPages
         protected global::CKDSurveillance_RD.UserControls.FPWidgets.EmailSubscribeMain EmailSubscribeMain1;
 
         /// <summary>
-        /// Disclaimer1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.FPWidgets.Disclaimer Disclaimer1;
-
-        /// <summary>
         /// ContentArea2 control.
         /// </summary>
         /// <remarks>

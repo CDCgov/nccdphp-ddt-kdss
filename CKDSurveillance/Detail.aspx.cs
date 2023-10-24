@@ -290,7 +290,7 @@ namespace CKDSurveillance_RD.MasterPages
                 }
 
                 //*Load the page*
-                if (QNum != "Q760" && QNum != "Q761")
+                if (QNum != "Q760" && QNum != "Q761" && QNum != "Q783")
                 {
                     StratYear1.Visible = true;
                     litChartInstruction.Visible = true;
@@ -371,6 +371,12 @@ namespace CKDSurveillance_RD.MasterPages
                 litTopicMobile.Text = litTopic.Text;
                 litTopicDesc.Text += "The bivariate map shows the combination of the average daily PM2.5 and the percentage of diagnosed CKD patients among the Medicare population across counties in the United States. The average daily PM2.5 and the percentage of diagnosed CKD patients varied across counties (PM2.5 mean=8.7 μg/m3, SD=1.9 μg/m3, n=3,043; CKD mean=22.1, SD=6.5, n=3,097). The average daily PM2.5 and the prevalence of CKD are high in counties in California, the rust-belt area, and the Southern region. Further investigation into air pollution and CKD prevalence in some of these hotspot areas is crucial.";
             }
+            else if (QNum == "Q783")
+            {
+                litTopic.Text = litTopic.Text + "Racial residential segregation and CKD prevalence bivariate map";
+                litTopicMobile.Text = litTopic.Text;
+                litTopicDesc.Text += "The bivariate map shows the combination of the Racial residential segregation and CKD prevalence bivariate map.";
+            }
 
 
             //***************
@@ -421,12 +427,19 @@ namespace CKDSurveillance_RD.MasterPages
                 addedHeader = "Geographic Distribution of Population below Poverty Threshold Level and CKD in the US Medicare Population, by County";
                 titleNoFN = addedHeader;
             }
+            else if (QNum == "Q783")
+            {
+                addedHeader = "County-Level Residential Segregation (Black/White) and Prevalence of Diagnosed CKD, U.S. Medicare Population 2019";
+                titleNoFN = addedHeader;
+            }
 
             //*populate the table (and summary attribute)*
             if (QNum == "Q760")
                 populateTable(-1, addedHeader, titleNoFN, true);
             else if(QNum == "Q761")
                 populateTable(-2, addedHeader, titleNoFN, true);
+            else if (QNum == "Q783")
+                populateTable(-3, addedHeader, titleNoFN, true);
 
 
             divDataSource.Visible = false;
@@ -1246,7 +1259,7 @@ namespace CKDSurveillance_RD.MasterPages
                 }
             }
 
-            if (qnum == "Q760" || qnum == "Q761") //SDOH
+            if (qnum == "Q760" || qnum == "Q761" || QNum == "Q783") //SDOH
             {
                 ds = DAL.getMethodText("Q705", showSpecSheet); //1 means include the spec sheet                
                 dtMethodText = ds.Tables[0];
@@ -1406,6 +1419,8 @@ namespace CKDSurveillance_RD.MasterPages
                 chartID = -1;
             else if (QNum == "Q761")
                 chartID = -2;
+            else if (QNum == "Q783")
+                chartID = -3;
 
             string yr = getYear();
             DataSet ds;
@@ -1515,6 +1530,8 @@ namespace CKDSurveillance_RD.MasterPages
                 title = "CKD_PM25";
             else if (QNum == "Q761")
                 title = "CKD_poverty";
+            else if (QNum == "Q783")
+                title = "CKD_segregation";
 
             int loc = title.IndexOf("<sup>");
             if (loc > 0)
@@ -1528,7 +1545,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             //*Get Excel tables*
             DataSet dsExcels;
-            if (QNum == "Q761" || QNum == "Q760")
+            if (QNum == "Q761" || QNum == "Q760" || QNum == "Q783")
                 dsExcels = getChartDataForExcel("6");
             else
                 dsExcels = getChartDataForExcel(hfMapType.Value);
@@ -2602,7 +2619,8 @@ namespace CKDSurveillance_RD.MasterPages
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                    hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
+                    hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "," + ehigh + ")" + "',";
+                    //hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
 
                     current_serieslabel = serieslabel;
                 }
@@ -2672,7 +2690,8 @@ namespace CKDSurveillance_RD.MasterPages
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                    hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
+                    hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "," + ehigh + ")" + "',";
+                    //hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
 
                     current_serieslabel = serieslabel;
                 }
@@ -3021,7 +3040,8 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
+                        hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "," + ehigh + ")" + "',";
+                        //hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
 
                         current_serieslabel = serieslabel;
                     }
@@ -3086,7 +3106,8 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
+                        hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "," + ehigh + ")" + "',";
+                        //hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
 
                         current_serieslabel = serieslabel;
                     }
@@ -3311,16 +3332,18 @@ namespace CKDSurveillance_RD.MasterPages
         }
         private void createTripleStratPlotlyScript(StringBuilder dataSb, string title, string xaxistitle, string yaxistitle, int xaxiscnt, int tert_cnt, string subplots, string subplots_xaxis, string titleannontations)
         {
-            string xtickfontsize = "17";
+            string xtickfontsize = "19";  //"17";
             string tickangle = "0";
+            string yaxistitlefontsize = "21";
 
             if (xaxiscnt >= 7 || QNum == "Q700")
             {
-                xtickfontsize = "16";
+                xtickfontsize = "19";  //"16";
                 tickangle = "10";
             }
 
-            string yaxisfontsize = "17";
+            string yaxisfontsize = "19";  //"17";
+            string legendfontsize = "17"; 
 
             StringBuilder sb = new StringBuilder();
             sb.Append("<script>");
@@ -3342,7 +3365,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             //sb.Append(" ,annotations: [" + titleannontations + " { x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://nccd.cdc.gov/ckd ', showarrow: false, font: { size: 9 } },{ x: 0, y: 1.2, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "',showarrow: false }, {text: '<b>" + xaxistitle + "</b>',font: {size: " + yaxisfontsize + "},showarrow: false,align: 'center',x: 0.6, y: 0.0, xref: 'paper',yref: 'paper',xshift: -70,yshift: -60}],"); //, font: { size: 20 }
             sb.Append(" ,annotations: [" + titleannontations + " { x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: '', showarrow: false, font: { size: 9 } },{ x: 0, y: 1.2, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '',showarrow: false }, {text: '<b></b>',font: {size: " + yaxisfontsize + "},showarrow: false,align: 'center',x: 0.6, y: 0.0, xref: 'paper',yref: 'paper',xshift: -70,yshift: -60}],"); //, font: { size: 20 }
-            sb.Append(" legend: {orientation: 'h',  y: -0.1, font:{size: " + yaxisfontsize + "}, traceorder:'normal'}," + subplots_xaxis + " barmode: eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', yaxis: {showgrid: true, zeroline:false, range: [0, eval($('#hfChartYValToUse').val())], xshift: -70, linecolor:'#bdbdbd', tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size:  " + yaxisfontsize + " } }, margin: {t: 50}};");
+            sb.Append(" legend: {orientation: 'h',  y: -0.1, font:{size: " + legendfontsize + "}, traceorder:'normal'}," + subplots_xaxis + " barmode: eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', yaxis: {showgrid: true, zeroline:false, range: [0, eval($('#hfChartYValToUse').val())], xshift: -70, linecolor:'#bdbdbd', tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size:  " + yaxistitlefontsize + " } }, margin: {t: 50}};");
 
             sb.Append(" var gd4 = d3.select('#svgchart');");
             sb.Append("var graphdiv = gd4.node();");
@@ -3381,13 +3404,15 @@ namespace CKDSurveillance_RD.MasterPages
         }
         private void createPlotlyScript(StringBuilder dataSb, string title, string xaxistitle, string yaxistitle, int xaxiscnt, bool isMapPage)
         {
-            string xtickfontsize = "17";
+            string xtickfontsize = "19";  //"17";
             string tickangle = "0";
-            string yaxisfontsize = "17";
+            string yaxisfontsize = "19"; //"17";
+            string yaxistitlefontsize = "21";
+            string legendfontsize = "17";
 
             if (xaxiscnt >= 7)
             {
-                xtickfontsize = "16";
+                xtickfontsize = "19";  //"16";
                 tickangle = "10";
             }
             
@@ -3447,12 +3472,12 @@ namespace CKDSurveillance_RD.MasterPages
             if (isMapPage == true)
             {
                 //modify the x axis ticks/values for maps, dtick=1 shows all labels, automargin: true displays all labels and doesn't cut off text
-                sb.Append("showlegend:false, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, tickangle:" + tickangle + ", showgrid: false, tickfont: { size: " + xtickfontsize + " }, linewidth: 0, titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true,automargin: true, dtick: 1, xshift: -200, linewidth: 0, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxisfontsize + " } }};");
+                sb.Append("showlegend:false, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, tickangle:" + tickangle + ", showgrid: false, tickfont: { size: " + xtickfontsize + " }, linewidth: 0, titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true,automargin: true, dtick: 1, xshift: -200, linewidth: 0, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
             }
             else
             {
                 //type = category so all values are displayed, not just a group
-                sb.Append(" legend: {'orientation': 'h', font: { size: " + yaxisfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + " }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxisfontsize + " } }};");
+                sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + " }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
             }
 
             sb.Append(" var gd4 = d3.select('#svgchart');");

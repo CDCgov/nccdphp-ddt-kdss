@@ -13,7 +13,7 @@
 				</li>
 				<li class="nav-item dropdown">
 						<a class="nav-link" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/PrevalenceIncidence.aspx?topic=1" style="border-top:#2B8277">
-							Prevalence</a>
+							Prevalence & Incidence </a>
 				</li>
                 <li class="nav-item dropdown">
 						<a class="nav-link" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/Awareness.aspx?topic=3" style="border-top:#2B8277">
@@ -52,7 +52,7 @@
 				</li>
 				<li class="nav-item dropdown">
 						<a class="nav-link" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/PrevalenceIncidence.aspx?topic=1" style="border-top:#2B8277"  id="nav-PI">
-							Prevalence</a>
+							Prevalence & Incidence</a>
 				</li>
                 <li class="nav-item dropdown">
 						<a class="nav-link" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/Awareness.aspx?topic=3" style="border-top:#2B8277"  id="nav-AR">
@@ -107,7 +107,7 @@
             || qnum == "Q719") {
             var a = document.getElementById("nav-QC");
             a.classList.add("active");
-        } else if (topic == 24 || qnum == "Q760" || qnum == "Q761") {
+        } else if (topic == 24 || qnum == "Q760" || qnum == "Q761" || qnum == "Q783") {
             var a = document.getElementById("nav-SDOH");
             a.classList.add("active");
         }

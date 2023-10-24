@@ -141,11 +141,11 @@
             <div class="prevalence-footer">Source of information: CMS-Medicare
             </div>
         </div>
-         <div class="col-md p-3 prevalence-img-box" onclick="location.href='./detail.aspx?Qnum=Q702';">
-            <a class="prevalence-img-card" href="./detail.aspx?Qnum=Q702">
+         <div class="col-md p-3 prevalence-img-box" onclick="location.href='./detail.aspx?Qnum=Q756';">
+            <a class="prevalence-img-card" href="./detail.aspx?Qnum=Q756">
                 <img src="./images/Prev2.png" class="prevalence-img" alt="CKD Prevalence in adults with diabetes remained the same (20%) in 1999–2004 & 2011–2018."/>
             </a>
-            <div class="prevalence-subtitle">Prevalence of CKD Stages 3-4, <br />by Diabetes and Prediabetes
+            <div class="prevalence-subtitle">Prevalence of CKD Stages 3-5 <br />in the Military Health System
             </div>
             <%--<div class="prev-body">The prevalence of CKD in adults with diabetes remained the same (20%) in 1999–2004 & 2011–2018
             </div>--%>

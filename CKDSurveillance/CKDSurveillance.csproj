@@ -252,6 +252,7 @@
     <Content Include="AYA\August_2023.html" />
     <Content Include="AYA\Images\August_2023.png" />
     <Content Include="AYA\Images\June_2023.png" />
+    <Content Include="AYA\Images\October_2023.png" />
     <Content Include="AYA\June_2023.html" />
     <Content Include="AYA\August_2016.html" />
     <Content Include="AYA\August_2018.html" />
@@ -325,6 +326,7 @@
     <Content Include="AYA\October_2018.html" />
     <Content Include="AYA\April_2023.html" />
     <Content Include="AYA\October_2022.html" />
+    <Content Include="AYA\October_2023.html" />
     <Content Include="AYA\September_2016.html" />
     <Content Include="AYA\September_2017.html" />
     <Content Include="AYA\September_2019.html" />
@@ -368,12 +370,14 @@
     <Content Include="images\CKDLeftNavLogo.png" />
     <Content Include="images\CKD_GI_Larger.png" />
     <Content Include="images\CKD_Main.png" />
+    <Content Include="images\CKD_MainBanner.png" />
     <Content Include="images\CKD_Main_Mobile.png" />
     <Content Include="images\close.gif" />
     <Content Include="images\collapse.gif" />
     <Content Include="images\comment-warning_Green.png" />
     <Content Include="images\CommonControls\download_csv_lg.png" />
     <Content Include="images\CommonControls\download_csv_sm.png" />
+    <Content Include="images\CommonControls\power-point-icon.png" />
     <Content Include="images\DataCharts\Age_RiskFactorsOfKD.jpg" />
     <Content Include="images\DataCharts\Average_daily_PM2.5_and_CKD.jpg" />
     <Content Include="images\DataCharts\c.PNG" />
