@@ -25,12 +25,10 @@ C:\Projects\ddt-ckd\CKDSurveillance\bin\Common.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\DataAccess.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\DecryptAesByPassPhrase.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\DecryptAesSymmetric.dll
-C:\Projects\ddt-ckd\CKDSurveillance\bin\DocumentFormat.OpenXml.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\EncryptAesByPassPhrase.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\EncryptAesSymmetric.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\ExcelNumberFormat.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\GetHash.dll
-C:\Projects\ddt-ckd\CKDSurveillance\bin\Irony.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\NCCDAppUser.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\NCCDCryptography.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\NCCDPassword.dll
@@ -45,10 +43,8 @@ C:\Projects\ddt-ckd\CKDSurveillance\bin\System.Memory.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\System.Numerics.Vectors.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\System.Runtime.CompilerServices.Unsafe.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\System.Text.Encoding.CodePages.dll
-C:\Projects\ddt-ckd\CKDSurveillance\bin\XLParser.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\ckdlibV2.dll.config
 C:\Projects\ddt-ckd\CKDSurveillance\bin\ClosedXML.xml
-C:\Projects\ddt-ckd\CKDSurveillance\bin\DocumentFormat.OpenXml.xml
 C:\Projects\ddt-ckd\CKDSurveillance\bin\ExcelNumberFormat.xml
 C:\Projects\ddt-ckd\CKDSurveillance\bin\SixLabors.Fonts.xml
 C:\Projects\ddt-ckd\CKDSurveillance\bin\System.Buffers.xml
