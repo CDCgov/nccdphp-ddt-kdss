@@ -354,8 +354,20 @@ namespace CKDSurveillance_RD.MasterPages
                         map2.Visible = false;
                     }
                     //createStaticPageContent("Q705");
-                    createStaticPageContent(QNum);
+                    createStaticPageContent(QNum);                    
                 }
+                if (QNum != "Q9" && QNum != "Q11" && QNum != "Q89" && QNum != "Q98" && QNum != "Q185" &&
+                     QNum != "Q364" && QNum != "Q372" && QNum != "Q605" && QNum != "Q640" && QNum != "Q700" && QNum != "Q703" &&
+                      QNum != "Q712" && QNum != "Q719" && QNum != "Q730" && QNum != "Q756" && QNum != "Q759" && QNum != "Q762" && QNum != "Q763" &&
+                       QNum != "Q764" && QNum != "Q773" && QNum != "Q781" && QNum != "Q784" && QNum != "Q785" && QNum != "Q786" && QNum != "Q787" && QNum != "Q788" && QNum != "Q789")
+                {
+                    lnkPPT.Visible = false;
+                }
+                else {
+                    lnkPPT.Visible = true;
+                    lnkPPT.HRef = AntiXssEncoder.HtmlEncode(SanitizeHtml("./PPT/" + QNum + ".pptx"), false); 
+                }
+                
             }
         }
         private void createStaticPageContent(string _qNum) {
@@ -373,7 +385,7 @@ namespace CKDSurveillance_RD.MasterPages
             }
             else if (QNum == "Q783")
             {
-                litTopic.Text = litTopic.Text + "Racial residential segregation and CKD prevalence bivariate map";
+                litTopic.Text = litTopic.Text + "County-Level Residential Segregation (Black/White) and Prevalence of Diagnosed CKD, U.S. Medicare Population 2019";
                 litTopicMobile.Text = litTopic.Text;
                 litTopicDesc.Text += "The bivariate map shows the combination of the Racial residential segregation and CKD prevalence bivariate map.";
             }
@@ -433,16 +445,23 @@ namespace CKDSurveillance_RD.MasterPages
                 titleNoFN = addedHeader;
             }
 
+            divDataSource.Visible = false;
+
             //*populate the table (and summary attribute)*
             if (QNum == "Q760")
+            {
                 populateTable(-1, addedHeader, titleNoFN, true);
-            else if(QNum == "Q761")
+                divDataSource.Visible = true;
+                litDataSource.Text = "CMS & EPA";
+            }
+            else if (QNum == "Q761")
+            {
                 populateTable(-2, addedHeader, titleNoFN, true);
+                divDataSource.Visible = true;
+                litDataSource.Text = "CMS & ACS";
+            }
             else if (QNum == "Q783")
                 populateTable(-3, addedHeader, titleNoFN, true);
-
-
-            divDataSource.Visible = false;
 
             //**********************
             //*Methods & Spec Sheet*
@@ -1180,7 +1199,7 @@ namespace CKDSurveillance_RD.MasterPages
                 {
                     sb.Append("<option selected>" + dr["DataSourceShortName"].ToString().Trim() + "</option>");
                     litDataSource.Text =  dr["DataSourceShortName"].ToString().Trim();
-                    datasourceCount = datasourceCount + 1;
+                    datasourceCount = datasourceCount + 1;                    
                 }
                 else
                 {
@@ -1188,11 +1207,14 @@ namespace CKDSurveillance_RD.MasterPages
                     sb.Append(dr["DataSourceShortName"].ToString().Trim());
                     sb.Append("</option>");
                 }
-
             }
 
             if (string.IsNullOrEmpty(litDataSource.Text))
                 divDataSource.Visible = false;
+
+            if (qnum == "Q700") {
+                litDataSource.Text = "NHANES & Clinformatics Commercial";
+            }
 
             sb.Append("</select>");
 
@@ -2658,6 +2680,8 @@ namespace CKDSurveillance_RD.MasterPages
                     //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
                     if(current_serieslabel == "Total")
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", connectgaps: true, line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000'}};"); //appending the 'row' to the data name and adding the array data
+                    else if (current_serieslabel == "Overall")
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", connectgaps: true, line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000'}};"); //appending the 'row' to the data name and adding the array data
                     else
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", connectgaps: true, line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
@@ -2666,6 +2690,8 @@ namespace CKDSurveillance_RD.MasterPages
                     //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
                     if(current_serieslabel == "Total")
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', type: "+ hfChartType.Value +",connectgaps: true, line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000' }};"); //appending the 'row' to the data name and adding the array data
+                    else if (current_serieslabel == "Overall")
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ",connectgaps: true, line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000' }};"); //appending the 'row' to the data name and adding the array data
                     else
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', type: "+ hfChartType.Value +",connectgaps: true, line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
@@ -2729,6 +2755,8 @@ namespace CKDSurveillance_RD.MasterPages
             //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
             if (current_serieslabel == "Total")
                 plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000' }};"); //appending the 'row' to the data name and adding the array data
+            else if (current_serieslabel == "Overall")
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000' }};"); //appending the 'row' to the data name and adding the array data
             else
                 plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
@@ -2737,6 +2765,8 @@ namespace CKDSurveillance_RD.MasterPages
             if (current_serieslabel == "Total")
                 //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
                 plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000' }};"); //appending the 'row' to the data name and adding the array data
+            else if (current_serieslabel == "Overall")
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000' }};"); //appending the 'row' to the data name and adding the array data
             else
                 plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 

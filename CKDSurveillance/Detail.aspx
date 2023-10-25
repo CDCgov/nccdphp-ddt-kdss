@@ -660,8 +660,11 @@
                                         <label class="chartMenuLabel">Download:</label>
                                         <asp:Button ID="csvDownload" CssClass="noPrint btn cdc-icon-download_01 chartDownloadBtn" style="font-size:17px" runat ="server" Text="csv" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01 chartMenuLabel">
                                         </asp:Button>
-                                        <asp:Button ID="iconPPT" CssClass="noPrint btn ppt-icon iconPPTBtn" Text="  PPT" runat ="server"  Visible="true" class="iconPPTBtn chartMenuLabel">
-                                        </asp:Button>
+                                        <a href="." runat="server" id="lnkPPT" style="text-decoration:none!important">
+                                            <span class="noPrint btn ppt-icon iconPPTBtn chartMenuLabel">PPT</span>
+                                        </a>
+                                        <%--<asp:Button ID="iconPPT" CssClass="noPrint btn ppt-icon iconPPTBtn" Text="  PPT" runat ="server"  Visible="true" class="iconPPTBtn chartMenuLabel">
+                                        </asp:Button>--%>
                                     </div>
                                 </div>
                             </div>
@@ -930,7 +933,7 @@
                                     <div id="divStaticLeft" class="col-xl-2 col-lg-4" runat="server">
                                         <div id="map1" runat="server">
                                             <div class="imgcell">
-                                                <img src="images/DataCharts/Poverty2x.png" runat="server" class="imgsize-ab" alt="Percentage of the population under the poverty level, by county (2018)"/>
+                                                <img src="images/DataCharts/Residential_Segregation.png" runat="server" class="imgsize-ab" alt="Percentage of the population under the poverty level, by county (2018)"/>
                                             </div>
                                         </div>
                                         <div id="map2" runat="server">

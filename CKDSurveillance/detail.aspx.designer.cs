@@ -348,13 +348,13 @@ namespace CKDSurveillance_RD.MasterPages
         protected global::System.Web.UI.WebControls.Button csvDownload;
 
         /// <summary>
-        /// iconPPT control.
+        /// lnkPPT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button iconPPT;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkPPT;
 
         /// <summary>
         /// divMapMenu control.
