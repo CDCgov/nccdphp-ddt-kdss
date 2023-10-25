@@ -140,16 +140,16 @@
             </div>--%>
             <div class="prevalence-footer">Source of information: CMS-Medicare
             </div>
-        </div>
-         <div class="col-md p-3 prevalence-img-box" onclick="location.href='./detail.aspx?Qnum=Q756';">
-            <a class="prevalence-img-card" href="./detail.aspx?Qnum=Q756">
+        </div> 
+         <div class="col-md p-3 prevalence-img-box" onclick="location.href='./detail.aspx?Qnum=Q89';">
+            <a class="prevalence-img-card" href="./detail.aspx?Qnum=Q89">
                 <img src="./images/Prev2.png" class="prevalence-img" alt="CKD Prevalence in adults with diabetes remained the same (20%) in 1999–2004 & 2011–2018."/>
             </a>
-            <div class="prevalence-subtitle">Prevalence of CKD Stages 3-5 <br />in the Military Health System
+            <div class="prevalence-subtitle">Prevalence and Incidence of <br />Chronic Kidney Disease
             </div>
             <%--<div class="prev-body">The prevalence of CKD in adults with diabetes remained the same (20%) in 1999–2004 & 2011–2018
             </div>--%>
-            <div class="prevalence-footer">Source of information: NHANES
+            <div class="prevalence-footer">Source of information: NATIONAL VA
             </div>
         </div>
     </div>

@@ -336,10 +336,19 @@ namespace CKDSurveillance_RD.UserControls
 
         private bool populateStratsDropDown(DataTable stratTable)
         {
+            string qnum = Request.QueryString["QNum"].Trim();
+
             StringBuilder sbInst = new StringBuilder();
             StringBuilder sb = new StringBuilder();
-            sb.Append("<div class=\"viewDataByLabel\">Select Risk Category</div>");
-            sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\"  onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Risk Category\" >");
+            if (qnum == "Q700") {
+                sb.Append("<div class=\"viewDataByLabel\">Select Data Source</div>");
+                sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\"  onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Data Source\" >");
+            }
+            else
+            {
+                sb.Append("<div class=\"viewDataByLabel\">Select Risk Category</div>");
+                sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\"  onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Risk Category\" >");
+            }
 
             int i = 0;
 

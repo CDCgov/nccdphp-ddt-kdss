@@ -365,7 +365,7 @@
 					<div class="navSectionHeading ">						
 						<span style="font-weight:600;line-height:normal!important" >General Information </span>
 						<div>
-							<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>Documents/Chronic-Kidney-Disease-in-the-US-2021-h.pdf" class="navARandGIlinks" style= "padding-left:1px !important" alt="Download CKD Fact Sheet" download>
+							<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>Documents/CKD_FactSheet_2023.pdf" class="navARandGIlinks" style= "padding-left:1px !important" alt="Download CKD Fact Sheet" download>
                                 <img class="downloadImg" src="/ckd/images/DataCharts/DownloadCyan.jpg" alt="Download CKD Fact Sheet" role="presentation"/>
                                 <span class="navARandGIlinks">Download CKD Fact Sheet</span>
                             </a>
