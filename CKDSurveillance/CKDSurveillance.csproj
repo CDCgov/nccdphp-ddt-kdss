@@ -333,6 +333,8 @@
     <Content Include="AYA\September_2020.html" />
     <Content Include="AYA\September_2021.html" />
     <Content Include="AYA\September_2022.html" />
+    <Content Include="bin\DataAccess.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
     <Content Include="Blocked.aspx" />
     <Content Include="Calculators.aspx" />
     <Content Include="css\Fonts.css" />
@@ -575,7 +577,6 @@
     <Content Include="Documents\Q705_Table.xlsx" />
     <Content Include="Documents\Q760.xlsx" />
     <Content Include="Documents\Q761.xlsx" />
-
     <Content Include="PPT\Q11.pptx" />
     <Content Include="PPT\Q185.pptx" />
     <Content Include="PPT\Q364.pptx" />
@@ -603,9 +604,7 @@
     <Content Include="PPT\Q89.pptx" />
     <Content Include="PPT\Q9.pptx" />
     <Content Include="PPT\Q98.pptx" />
-
     <Content Include="Documents\CKD_FactSheet_2023.pdf" />
-
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="scripts\local.js" />
     <Content Include="scripts\templateContentEmpty.js" />
@@ -2080,7 +2079,7 @@
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
-	</FlavorProperties>
+      </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
