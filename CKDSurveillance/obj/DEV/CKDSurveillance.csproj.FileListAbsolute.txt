@@ -22,7 +22,6 @@ C:\Projects\ddt-ckd\CKDSurveillance\bin\CKDSurveillance_RD.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\ckdlibV2.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\ClosedXML.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\Common.dll
-C:\Projects\ddt-ckd\CKDSurveillance\bin\DataAccess.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\DecryptAesByPassPhrase.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\DecryptAesSymmetric.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\EncryptAesByPassPhrase.dll
@@ -58,3 +57,4 @@ C:\Projects\ddt-ckd\CKDSurveillance\obj\DEV\CKDSurveillance.csproj.AssemblyRefer
 C:\Projects\ddt-ckd\CKDSurveillance\obj\DEV\CKDSurveillance.csproj.CoreCompileInputs.cache
 C:\Projects\ddt-ckd\CKDSurveillance\obj\DEV\CKDSurveillance.csproj.CopyComplete
 C:\Projects\ddt-ckd\CKDSurveillance\obj\DEV\CKDSurveillance_RD.dll
+C:\Projects\ddt-ckd\CKDSurveillance\bin\Newtonsoft.Json.dll
