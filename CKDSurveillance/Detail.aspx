@@ -603,7 +603,7 @@
                                         margin-right: 0;
                                         padding-left: 1px;
                                         padding-right: 1px;
-                                        width: 40%;
+                                        width: 52%;
                                     }
 
                                     @media (max-width: 767px) {
@@ -646,7 +646,7 @@
 
                                 <%--*View Data By*--%>
                                  <uc1:StratYearsButtons runat="server" ID="StratYear1" />                                
-                                 <div class="menu-content-menu moveright" >
+                                 <div class="menu-content-menu" style="width:40%">
                                     <asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList chartMenuLabel col" Text="95% Confidence Intervals" runat="server" aria-label="95% Confidence Intervals"/>
                                 </div>
                                 <%-- View as table--%>
@@ -1783,7 +1783,7 @@
 
         //Format HTML data table with <br />
         $('.ckd-details-dynamic-table td').each(function () {
-            var val = $(this).html().replace('(CI', '<br />(CI');
+            var val = $(this).html().replace('(95% CI:', '<br />(95% CI:');
             $(this).html(val);
         });
 

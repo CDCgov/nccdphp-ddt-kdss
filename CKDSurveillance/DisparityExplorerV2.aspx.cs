@@ -170,7 +170,7 @@ namespace CKDSurveillance_RD
                         if (highCI != "" && lowCI != "" && highCI != "0" && lowCI != "0")
                         {
                             sb.Append("\r\n");
-                            sb.Append("(CI ");
+                            sb.Append("(95% CI: ");
                             sb.Append(highCI);
                             sb.Append("-");
                             sb.Append(lowCI);

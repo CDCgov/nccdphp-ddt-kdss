@@ -303,7 +303,7 @@ namespace CKDSurveillance_RD.MasterPages
                     divRightContainer.Visible = true;
                     //litSourceTabs.Visible = true;
                     //StratYear1.Visible = true;
-                    if (QNum == "Q705")
+                    if ((QNum == "Q705") || (QNum == "Q372"))
                         CB_ChartCI.Visible = false;
                     else
                         CB_ChartCI.Visible = true;
@@ -878,7 +878,7 @@ namespace CKDSurveillance_RD.MasterPages
                         if (highCI != "" && lowCI != "" && highCI != "0" && lowCI != "0")
                         {
                             sb.Append("\r\n");
-                            sb.Append("(CI ");
+                            sb.Append("(95% CI: ");
                             sb.Append(highCI);
                             sb.Append("-");
                             sb.Append(lowCI);
@@ -2035,6 +2035,10 @@ namespace CKDSurveillance_RD.MasterPages
 
                 if (QNum == "Q705")
                     litChartTitleText.Text = subTitlePrefix;
+                else if (QNum == "Q781")
+                {
+                    litChartTitleText.Text = "";
+                }
                 else
                 {
                     if (Request.QueryString["Strat"] == null || Request.QueryString["Strat"] == "Overall")
@@ -2135,7 +2139,14 @@ namespace CKDSurveillance_RD.MasterPages
 
 
             //*Store the Header Text and Title for the Gridview*
-            Session["TableHeader"] = "<div class=\"addedTableHeader\">" + dsChart.Tables["Chart"].Rows[0]["ChartHeaderWithSuperscripts"].ToString() + tableByPopulation + "</div> <div class=\"addedTableHeaderDataSource\">" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString() + "</div>";
+            if (QNum != "Q89" && QNum != "Q185" && QNum != "Q773")
+            {
+                Session["TableHeader"] = "<div class=\"addedTableHeader\">" + dsChart.Tables["Chart"].Rows[0]["ChartHeaderWithSuperscripts"].ToString() + tableByPopulation + " (%)</div> <div class=\"addedTableHeaderDataSource\">" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString() + "</div>";
+            }
+            else
+            {
+                Session["TableHeader"] = "<div class=\"addedTableHeader\">" + dsChart.Tables["Chart"].Rows[0]["ChartHeaderWithSuperscripts"].ToString() + tableByPopulation + "</div> <div class=\"addedTableHeaderDataSource\">" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString() + "</div>";
+            }
 
             litTopic.Text = litTopic.Text + dtChartHeader.Rows[0]["PageTitleWithSuperscripts"].ToString();// 7/7/2017 - temporary fix until the title is able to be broken out into 3 lines
             litTopic.Text = litTopic.Text.Replace("<sup><strong>a</strong></sup>", "");  //remove the superscript
@@ -2270,6 +2281,12 @@ namespace CKDSurveillance_RD.MasterPages
                     chartFormatOptions.Visible = true;
                     RB_ChartType.Visible = true;
                     CB_ChartCI.Visible = true;
+
+                    if (QNum == "Q372")
+                    {
+                        CB_ChartCI.Visible = false;
+                    }
+
                     chartColorOptions.Visible = false;
                     RB_ChartColor.Visible = false;
 
@@ -2287,6 +2304,11 @@ namespace CKDSurveillance_RD.MasterPages
                 chartFormatOptions.Visible = true;
                 RB_ChartType.Visible = true;
                 CB_ChartCI.Visible = true;
+
+                if (QNum == "Q372")
+                {
+                    CB_ChartCI.Visible = false;
+                }
 
                 pnlMap.Visible = false;
                 btnDownloadChart.Enabled = false;
@@ -2422,7 +2444,7 @@ namespace CKDSurveillance_RD.MasterPages
         }
         private void buildPlotlyChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, bool isMapPage)
         {
-
+            string hovertemplate = "hovertemplate: '%{text}'";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             if (QNum.ToLower() == "q712")//reset the charts for the March 2020 AYA
             {
@@ -2615,9 +2637,9 @@ namespace CKDSurveillance_RD.MasterPages
                 }
 
                 if (ehigh != "")
-                    ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 3);
+                    ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
                 if (elow != "")
-                    elow = elow.Substring(0, elow.IndexOf(".") + 3);//showing only the two characters after the decimal
+                    elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
 
                 string str_high_con_diff = ""; //setup the string variable to be displayed
                 string str_low_con_diff = "";
@@ -2641,7 +2663,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                    hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "," + ehigh + ")" + "',";
+                    hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "-" + ehigh + ")" + "',";
                     //hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
 
                     current_serieslabel = serieslabel;
@@ -2655,7 +2677,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                     string hiConData_col = "";
                     string loConData_col = "";
-                    string hovertextData = "";
+                    string hovertextData = "";                    
 
                     if (regex.IsMatch(high_confidence) && regex.IsMatch(low_confidence)) //both have numeric values
                     {
@@ -2675,7 +2697,7 @@ namespace CKDSurveillance_RD.MasterPages
                     plotlyStr.Append(" var data" + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col);
 
                     if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
-                        plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData);
+                        plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
 
                     //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
                     if(current_serieslabel == "Total")
@@ -2716,7 +2738,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                    hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "," + ehigh + ")" + "',";
+                    hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "-" + ehigh + ")" + "',";
                     //hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
 
                     current_serieslabel = serieslabel;
@@ -2726,7 +2748,6 @@ namespace CKDSurveillance_RD.MasterPages
             string hiConData_col_final = "";//high_confidence.Substring(0, high_confidence.Length - 1) + "]";//removing the last comma
             string loConData_col_final = "";//low_confidence.Substring(0, low_confidence.Length - 1) + "]";//removing the last comma
             string hovertextData_final = "";//hovertext.Substring(0, hovertext.Length - 1) + "]";//removing the last comma
-
 
             if (regex.IsMatch(high_confidence) && regex.IsMatch(low_confidence)) //if both are numeric, then add all of the values to the array. This accounts for missing CIs
             {
@@ -2747,11 +2768,14 @@ namespace CKDSurveillance_RD.MasterPages
             string yData_col_final_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
 
             //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-            plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
+            if (QNum == "Q372")
+                plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final);
+            else
+                plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
 
             if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]" && hovertextData_final != "text:[ ]") //if there are empty values, then don't display the hover text for the errors
-                plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final);
-
+                plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final +","+ hovertemplate);
+            
             //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
             if (current_serieslabel == "Total")
                 plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000' }};"); //appending the 'row' to the data name and adding the array data
@@ -2761,7 +2785,11 @@ namespace CKDSurveillance_RD.MasterPages
                 plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
             //1/12/2021 - BS - added the basedata necessary for animation
-            plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + ", " + wData_col_final);
+            if (QNum == "Q372")
+                plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata);
+            else
+                plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + ", " + wData_col_final);
+
             if (current_serieslabel == "Total")
                 //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
                 plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: "+ hfChartType.Value +", line: { simplify: false, width:3, dash:'dot'}, marker: {color: '#000000' }};"); //appending the 'row' to the data name and adding the array data
@@ -3044,9 +3072,9 @@ namespace CKDSurveillance_RD.MasterPages
                     }
 
                     if (ehigh != "")
-                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 3);
+                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
                     if (elow != "")
-                        elow = elow.Substring(0, elow.IndexOf(".") + 3);//showing only the two characters after the decimal
+                        elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
 
                     string str_high_con_diff = ""; //setup the string variable to be displayed
                     string str_low_con_diff = "";
@@ -3070,7 +3098,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "," + ehigh + ")" + "',";
+                        hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "-" + ehigh + ")" + "',";
                         //hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
 
                         current_serieslabel = serieslabel;
@@ -3136,7 +3164,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "," + ehigh + ")" + "',";
+                        hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "-" + ehigh + ")" + "',";
                         //hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
 
                         current_serieslabel = serieslabel;
@@ -3261,7 +3289,7 @@ namespace CKDSurveillance_RD.MasterPages
                 string hiConData_col_final = "";//high_confidence.Substring(0, high_confidence.Length - 1) + "]";//removing the last comma
                 string loConData_col_final = "";//low_confidence.Substring(0, low_confidence.Length - 1) + "]";//removing the last comma
                 string hovertextData_final = "";//hovertext.Substring(0, hovertext.Length - 1) + "]";//removing the last comma
-
+                string hovertemplate = "hovertemplate: '%{text}'";
 
                 if (regex.IsMatch(high_confidence) && regex.IsMatch(low_confidence)) //if both are numeric, then add all of the values to the array. This accounts for missing CIs
                 {
@@ -3315,7 +3343,7 @@ namespace CKDSurveillance_RD.MasterPages
                 //9/28/2020 - BS - added the increment value of 'final' to the data variable string so that it is unique
                 plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + "," + wData_col_final);
                 if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]" && hovertextData_final != "text:[ ]") //if there are empty values, then don't display the hover text for the errors
-                    plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final);
+                    plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + ","+ hovertemplate);
 
                 //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                 plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + "final', showlegend: " + legendbool + ", type: "+ hfChartType.Value +", connectgaps: true,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data

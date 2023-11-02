@@ -144,7 +144,7 @@
              </div>
         <div class="col-md-9">
             <div class="row generalinformation-title">GENERAL INFORMATION</div>
-            <div class="row generalinformation-subtitle">CKD Fact Sheet: Chronic Kidney Disease in the United States, 2021</div>
+            <div class="row generalinformation-subtitle">CKD Fact Sheet: Chronic Kidney Disease in the United States, 2023</div>
             <div class="row generalinformation-text">When people develop <span style="font-weight:bold">chronic kidney disease (CKD)</span>, their kidneys become damaged and over time may not clean the blood as well as healthy kidneys. If kidneys do not work well, toxic waste and extra fluid accumulate in the body and may lead to high blood pressure, heart disease, stroke, and early death. However, people with CKD and people at risk for CKD can take steps to protect their kidneys with the help of their health care providers.</div>
             <div class="row">
                 <a href="Documents/CKD_FactSheet_2023.pdf" class="generalinformation-link-padding"  alt="Download CKD Fact Sheet" download>
@@ -155,7 +155,7 @@
                 <div class="generalinformation-box-title">CHRONIC KIDNEY DISEASE (CKD) INITIATIVE</div>
                 <br />
                 <div class="generalinformation-box-text">In 2006, the CDC established the Chronic Kidney Disease (CKD) Initiative to provide public health strategies for promoting kidney health. Current activities of the CKD Initiative include surveillance, epidemiology, health outcomes, and economic studies in partnership with various offices at the CDC, other governmental agencies, universities, and national organizations.
-                <a href="https://www.cdc.gov/kidneydisease/about-the-ckd-initiative.html" style="color: #007C91; opacity: 1; text-decoration:none;" target="new">Visit CKD Initiative<span class="fi cdc-icon-external x16"></span></a></div>
+                <a href="https://www.cdc.gov/kidneydisease/index.html" style="color: #007C91; opacity: 1; text-decoration:none;" target="new">Visit CKD Initiative<span class="fi cdc-icon-external x16"></span></a></div>
             </div>
         </div>
     </div>

@@ -116,7 +116,7 @@
 
 <div class="col-12">
     <div class="row prevalence-title">
-        <h2><span class="prevalence-prev"><u class="prevalence-underline">Prev</u>alence</span>of Chronic Kidney Disease (CKD)</h2>
+        <h2><span class="prevalence-prev"><u class="prevalence-underline">Prev</u>alence</span> & Incidence of Chronic Kidney Disease (CKD)</h2>
     </div>
     <div class="row prevalence-row">
         <div class="col-md p-3 prevalence-img-box prevalence-img-box-margin" onclick="location.href='./detail.aspx?Qnum=Q372';">
@@ -145,7 +145,7 @@
             <a class="prevalence-img-card" href="./detail.aspx?Qnum=Q89">
                 <img src="./images/Prev2.png" class="prevalence-img" alt="CKD Prevalence in adults with diabetes remained the same (20%) in 1999–2004 & 2011–2018."/>
             </a>
-            <div class="prevalence-subtitle">Prevalence and Incidence of <br />Chronic Kidney Disease
+            <div class="prevalence-subtitle">Trends in Incidence Rate of CKD  <br />among U.S. Veterans
             </div>
             <%--<div class="prev-body">The prevalence of CKD in adults with diabetes remained the same (20%) in 1999–2004 & 2011–2018
             </div>--%>
