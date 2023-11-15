@@ -244,7 +244,27 @@
                         <span class="rfkd-title2">for Kidney Disease</span>   </h2> 
                         <%--<div><hr style="border: 2px solid #FFFFFF; background:#FFFFFF; width: 56px; opacity: 1; margin-bottom: 0em;" /></div>--%>
                     </div>                 
-                                    
+
+                    <div  id="divAge" style="padding-top: 30px;">
+                        <div class="rfkd-image ">                 
+                            <img id="imgAge" class="img-size" src="./images/DataCharts/Age_RiskFactorsOfKD.jpg" alt="Age - Risk Factors for KD" /> 
+                           
+                         <div class="rfkd-botton-box">
+                            <asp:Literal ID="Literal2" runat="server" ClientIDMode="Static" />
+                            <div style="padding-top: 15px">
+                                <a href="detail.aspx?Qnum=Q762&topic=4#refreshPosition" class="a-formatView"> <%--target="_blank"--%>
+                                    <span class="rfkd-link-text rfkd-bottonbox-padding" style="padding-left:15px">View Page</span>
+                                    <img class="rfkd-img-rightarrow" src="./images/DataCharts/RightArrowIcon.jpg" alt="View Age Details Page" />
+                                </a>
+                                <a href="./Documents/CKD_Stages_1-4_Age.xlsx" class="a-formatDownload">
+                                    <img class="rfkd-img-download" src="./images/DataCharts/DownloadIcon.jpg" alt="Download Data - Age" />
+                                    <span class="rfkd-link-text rfkd-bottonbox-padding">Download Data</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            
                     <div  id="divDiabetes" style="padding-top: 30px;">
                         <div class="rfkd-image">                        
                             <img id="imgDiabetes" class="img-size" src="./images/DataCharts/Diabetes_RiskFactorsOfKD.jpg" alt="Diabetes - Risk Factors for KD" /> 
@@ -283,25 +303,7 @@
                         </div>
                     </div></div>
             
-                    <div  id="divAge" style="padding-top: 30px;">
-                        <div class="rfkd-image ">                 
-                            <img id="imgAge" class="img-size" src="./images/DataCharts/Age_RiskFactorsOfKD.jpg" alt="Age - Risk Factors for KD" /> 
-                           
-                         <div class="rfkd-botton-box">
-                            <asp:Literal ID="Literal2" runat="server" ClientIDMode="Static" />
-                            <div style="padding-top: 15px">
-                                <a href="detail.aspx?Qnum=Q762&topic=4#refreshPosition" class="a-formatView"> <%--target="_blank"--%>
-                                    <span class="rfkd-link-text rfkd-bottonbox-padding" style="padding-left:15px">View Page</span>
-                                    <img class="rfkd-img-rightarrow" src="./images/DataCharts/RightArrowIcon.jpg" alt="View Age Details Page" />
-                                </a>
-                                <a href="./Documents/CKD_Stages_1-4_Age.xlsx" class="a-formatDownload">
-                                    <img class="rfkd-img-download" src="./images/DataCharts/DownloadIcon.jpg" alt="Download Data - Age" />
-                                    <span class="rfkd-link-text rfkd-bottonbox-padding">Download Data</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>                   
+                                   
             </div>
         
           <%-- <div class="col-md-1"></div> --%>
@@ -310,13 +312,22 @@
            
               <%--<div class="accordion-body col-md-5 rfkd-center-content" >--%>
                   <div class="rfkd-center-content col-12 col-md-6">        
-                            
+                        <div class="accordionItem" id="lnkAge">
+                            <div id=titleAge class="accordionTitle age" tabindex="0" role="button" aria-pressed="false"><h3>Age</h3>
+                                  <span><i class="fa fa-plus"></i></span>
+                              </div>
+                            <div id="rfkdAge" class="rfkd-text accordionContent">  
+                              Although kidney disease can occur at any age, CKD is more frequently associated with older age. In the National Health and Nutrition Examination Survey (NHANES) of 2017–March 2020, the prevalence of CKD among those aged 18–39 years old was 6.1%; in those aged 40–59 years old, 10.9%; in those aged 60–69 years old, 18.5%; and in those 70 years of age and older, it was 38.4%.
+                            </div>                
+                        </div>
+                        <hr  class="accordionHr">
+
                          <div class="accordionItem" id="lnkDiabetes">
                             <div id=titleDiabetes class="accordionTitle diabetes" tabindex="0" role="button" aria-pressed="false" ><h3>Diabetes </h3>
                                  <span><i class="fa fa-plus" ></i></span>
                             </div>
                             <div id="rfkdDiabetes" class="rfkd-text accordionContent"> 
-                                Diabetes is a leading risk factor for chronic kidney disease (CKD). Persons with diabetes make up the fastest growing group of kidney dialysis and transplant recipients in the United States. The prevalence of CKD among adults with diabetes has decreased from 42.3% in the 2001-2004 National Health and Nutrition Examination Survey (NHANES) to 38.5% in the 2017-March 2020 survey.
+                                Diabetes is a leading risk factor for chronic kidney disease (CKD). Persons with diabetes make up the fastest growing group of kidney dialysis and transplant recipients in the United States. The prevalence of CKD among adults with diabetes has decreased from 41.1% in the 2001–2004 National Health and Nutrition Examination Survey (NHANES) to 37.1% in the 2017–March 2020 survey.
                             </div>
                         </div>
                         <hr class="accordionHr">
@@ -326,20 +337,12 @@
                                  <span><i class="fa fa-plus"></i></span>
                             </div>
                             <div id="rfkdHypertension" class="rfkd-text accordionContent">  
-                                Hypertension is the second leading risk factor for CKD. CKD can also lead to the development of hypertension through multiple mechanisms. The prevalence of CKD among adults with hypertension has remained stable, representing 26.6% in the 2001-2004 National Health and Nutrition Examination Survey (NHANES) to 26.3% in the 2017-March 2020 survey.
+                                Hypertension is the second leading risk factor for CKD. CKD can also lead to the development of hypertension through multiple mechanisms. The prevalence of CKD among adults with hypertension has remained stable, representing 24.5% in the 2001–2004 National Health and Nutrition Examination Survey (NHANES) to 24.6% in the 2017–March 2020 survey.
                             </div>
                         </div>
                         <hr class="accordionHr">
 
-                        <div class="accordionItem" id="lnkAge">
-                              <div id=titleAge class="accordionTitle age" tabindex="0" role="button" aria-pressed="false"><h3>Age</h3>
-                                  <span><i class="fa fa-plus"></i></span>
-                              </div>
-                            <div id="rfkdAge" class="rfkd-text accordionContent">  
-                              Although kidney disease can occur at any age, CKD is more frequently associated with older age. In the National Health and Nutrition Examination Survey (NHANES) of 2017-March 2020, the prevalence of CKD among those aged 18-39 years old was 6.0%; in those aged 40-59 years old, 11.2%; in those aged 60-69 years old, 20.1%; and in those 70 years of age and older, it was 42.6%.
-                            </div>                
-                        </div>
-                        <hr  class="accordionHr">
+                        
                       
                 </div>
        <%-- </div>--%>
