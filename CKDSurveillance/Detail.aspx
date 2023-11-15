@@ -1204,7 +1204,7 @@
                                                 <asp:Panel ID="pnlReferences" runat="server" Style="" class="printReferences">
                                                     <div class="tabbyDiv">
 
-                                                        <div style="font-weight: bold; font-size: .9em; font-weight: bold; margin-left: .5em; margin-top: .4em; margin-bottom: .4em;">References and Sources:</div>
+                                                        <%--<div style="font-weight: bold; font-size: .9em; font-weight: bold; margin-left: .5em; margin-top: .4em; margin-bottom: .4em;">References and Sources:</div>--%>
 
                                                         <asp:Repeater runat="server" ID="rptrReferences">
                                                             <HeaderTemplate>

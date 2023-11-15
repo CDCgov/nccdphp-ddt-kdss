@@ -449,7 +449,7 @@
                             <asp:Panel ID="pnlReferences" runat="server" Style="" class="printReferences">
                                 <div class="tabbyDiv">
 
-                                    <div style="font-weight: bold; font-size: .9em; font-weight: bold; margin-left: .5em; margin-top: .4em; margin-bottom: .4em;">References and Sources:</div>
+                                    <%--<div style="font-weight: bold; font-size: .9em; font-weight: bold; margin-left: .5em; margin-top: .4em; margin-bottom: .4em;">References and Sources:</div>--%>
 
                                     <sup>1</sup> CDC health disparities and inequalities report—United States, 2011. MMWR Suppl 2011;60(Suppl; January 24, 2011).
 

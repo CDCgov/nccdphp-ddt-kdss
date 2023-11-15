@@ -4257,8 +4257,10 @@ namespace CKDSurveillance_RD.MasterPages
                 }
             }
 
-            answer = num.ToString(fmt);
+            if (num < 1)
+                fmt = fmt.Replace("#,###", "#,##0");
 
+            answer = num.ToString(fmt);
 
             return answer;
         }
