@@ -191,7 +191,7 @@
              font-size:16px;
          }
          .imgsize-ab {
-             /*width:900px;*/
+             width:900px;
              height:700px;
          }
          .imgsize-c {
@@ -933,12 +933,17 @@
                                     <div id="divStaticLeft" class="col-xl-2 col-lg-4" runat="server">
                                         <div id="map1" runat="server">
                                             <div class="imgcell">
-                                                <img src="images/DataCharts/Residential_Segregation.png" runat="server" class="imgsize-ab" alt="Percentage of the population under the poverty level, by county (2018)"/>
+                                                <img src="images/DataCharts/Poverty2x.png" runat="server" class="imgsize-ab" alt="Percentage of the population under the poverty level, by county (2018)"/>
                                             </div>
                                         </div>
                                         <div id="map2" runat="server">
                                             <div class="imgcell">
                                                 <img src="images/DataCharts/PM2.5_mean2x.png" runat="server" class="imgsize-ab" alt="Average daily PM2.5, by county (2014)"/>
+                                            </div>
+                                        </div>
+                                        <div id="map3" runat="server">
+                                            <div class="imgcell">
+                                                <img src="images/DataCharts/County-Level_Residential_Segregation_V2.png" runat="server" class="imgsize-ab" alt="Percentage of the population under the poverty level, by county (2018)"/>
                                             </div>
                                         </div>
                                         <%--<img src="images/DataCharts/map1.PNG" id="map1" runat="server" style="height: 650px;"/>

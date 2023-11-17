@@ -39,12 +39,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
 
 
-    <nav class="navbar navbar-expand-sm navbar-expand-lg navbar-expand-med navbar-expand-xs bg-light justify-content-center bg-primary fixed-top  navbar-custom">
+    <nav class="navbar navbar-expand-sm navbar-expand-lg navbar-expand-med navbar-expand-xs bg-light justify-content-center fixed-top  navbar-custom">
 
         <!-- Links -->
         <ul class="navbar-nav w-100">
             <a class="navbar-brand gi" href="#">
-                <img src="images/graphic_identifier.png" alt="CDC CKD project Logo" style="width: 150px; height: 35px;" />
+                <img src="images/graphic_identifier.png" alt="CDC CKD project Logo" style="width: 300px;" />
             </a>
             <%--
             <li class="nav-item">
@@ -64,9 +64,9 @@
             </li>--%>
 
             <%--*Close*--%>
-            <li class="nav-item">
-                <button type="button" class="close btn btn-primary" title="Close Window" aria-label="Close" onclick="javascript:window.close(); return false;">
-                    <span aria-hidden="true" class="readable">&times;</span>
+            <li class="nav-item" style="width:100%;">
+                <button type="button" class="close btn" title="Close Window" aria-label="Close" onclick="javascript:window.close(); return false;">
+                    <span aria-hidden="true" class="readable" style="color:black!important">&times;</span>
                 </button>
             </li>
         </ul>

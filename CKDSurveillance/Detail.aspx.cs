@@ -345,14 +345,24 @@ namespace CKDSurveillance_RD.MasterPages
                     lnkDownload.Visible = false;
                     btnDownloadChart.Visible = false;
 
-                    if (QNum == "Q760") {
+                    if (QNum == "Q760")
+                    {
                         map1.Visible = false;
                         map2.Visible = true;
+                        map3.Visible = false;
                     }
-                    else { 
+                    else if (QNum == "Q761")
+                    {
                         map1.Visible = true;
                         map2.Visible = false;
+                        map3.Visible = false;
                     }
+                    else if (QNum == "Q783") {
+                        map1.Visible = false;
+                        map2.Visible = false;
+                        map3.Visible = true;
+                    }
+
                     //createStaticPageContent("Q705");
                     createStaticPageContent(QNum);                    
                 }
@@ -461,8 +471,11 @@ namespace CKDSurveillance_RD.MasterPages
                 litDataSource.Text = "CMS & ACS";
             }
             else if (QNum == "Q783")
-                populateTable(-3, addedHeader, titleNoFN, true);
-
+            {
+                populateTable(-3, addedHeader, titleNoFN, true); 
+                divDataSource.Visible = true;
+                litDataSource.Text = "CMS & CHR";
+            }
             //**********************
             //*Methods & Spec Sheet*
             //**********************
@@ -1281,7 +1294,7 @@ namespace CKDSurveillance_RD.MasterPages
                 }
             }
 
-            if (qnum == "Q760" || qnum == "Q761" || QNum == "Q783") //SDOH
+            if (qnum == "Q760" || qnum == "Q761") //SDOH
             {
                 ds = DAL.getMethodText("Q705", showSpecSheet); //1 means include the spec sheet                
                 dtMethodText = ds.Tables[0];
@@ -3535,7 +3548,7 @@ namespace CKDSurveillance_RD.MasterPages
             else
             {
                 //type = category so all values are displayed, not just a group
-                sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + " }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+                sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
             }
 
             sb.Append(" var gd4 = d3.select('#svgchart');");

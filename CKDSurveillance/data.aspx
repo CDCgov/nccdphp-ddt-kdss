@@ -129,10 +129,7 @@
 							</div>
 							<p>                   
 								<span class="PIbody"><%--<asp:Literal ID="Lit_Desc" runat="server"></asp:Literal>--%>
-                                    The Healthy People 2030 (HP2030) program sets data-driven national objectives to improve the health and well-being of 
-                                    Americans over the next decade. There are 14 goals related to kidney disease, 10 of which are about chronic kidney disease. 
-                                    Shown below are 4 HP2030 goals related to chronic kidney disease (CKD-01, CKD-02, CKD-05 and CKD-D01) and 1 goal (D-05)
-                                    related to diabetes and urinary albumin testing. Goals are tracked using several data sources. See <a href="health.gov/healthypeople">health.gov/healthypeople</a>
+                                    The Healthy People 2030 (HP2030) program sets data-driven national objectives to improve the health and well-being of Americans over the next decade. There are 14 goals related to kidney disease, 10 of which are about chronic kidney disease. Shown below are six HP2030 goals related to chronic kidney disease (CKD-01, CKD-02, CKD-04, CKD-05 and CKD-D01) and one goal (D-05) related to diabetes and urinary albumin testing. Goals are tracked using several data sources. See <a href="health.gov/healthypeople">health.gov/healthypeople</a>
                                     for the HP2030 website. 
 								</span>
 							</p>
@@ -272,9 +269,3 @@
     </script>
 
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="CustomJavaScript" runat="server">
-    <script>
-        initMetrics();
-    </script>
-</asp:Content>
-

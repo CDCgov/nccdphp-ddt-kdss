@@ -33,6 +33,10 @@
         width:100%;
         height:80%;
     }
+    .prevalence-img-middle {
+        width:100%;
+        height:75%;
+    }
     .prevalence-subtitle {
         text-align: left;
         font: normal normal normal 24px/28px Open Sans;
@@ -57,6 +61,16 @@
         opacity: 1;
         margin-top:10px;
     }
+
+    .prevalence-footer-middle {
+        text-align: left;
+        font: italic normal normal 14px/21px Roboto;
+        letter-spacing: 0px;
+        color: #6D6D6D;
+        opacity: 1;
+        margin-top:30px;
+    }
+
     .prevalence-img-box-margin {
         margin-right: 20px!important;
     }
@@ -92,6 +106,10 @@
             margin-top:0px;
             margin-bottom:10px;
         }
+        .prevalence-footer-middle {
+            margin-top:0px;
+            margin-bottom:10px;
+        }
     }
     @media (min-width: 1500px) {
         .prevalence-img-card {
@@ -121,9 +139,9 @@
     <div class="row prevalence-row">
         <div class="col-md p-3 prevalence-img-box prevalence-img-box-margin" onclick="location.href='./detail.aspx?Qnum=Q372';">
             <a class="prevalence-img-card" href="./detail.aspx?Qnum=Q372">
-                <img src="./images/Prev1.png" class="prevalence-img" alt="Prevalence of CKD Stages 1–4  during 2015-2016 in the U.S. was 14.2%."/>
+                <img src="./images/Prev1.png" class="prevalence-img" alt="Trends in Prevalence of CKD Stages among U.S. Adults"/>
             </a>
-            <div class="prevalence-subtitle">Prevalence of CKD Among U.S. <br />Adults, by Stage
+            <div class="prevalence-subtitle">Trends in Prevalence of CKD  <br />Stages among U.S. Adults
             </div>
             <%--<div class="prev-body">During 2015-2016, prevalence of CKD in the U.S. was 14.2%.
             </div>--%>
@@ -132,13 +150,13 @@
         </div>
         <div class="col-md p-3 prevalence-img-box prevalence-img-box-margin" onclick="location.href='./detail.aspx?Qnum=Q705';">
             <a class="prevalence-img-card" href="./detail.aspx?Qnum=Q705">
-                <img src="./images/Prev3.png" class="prevalence-img" alt="Prevalence of CKD by the percentage of patients with a CKD code is distributed unevenly across states."/>
+                <img src="./images/Prev3.png" class="prevalence-img-middle" alt="Prevalence of CKD by the percentage of patients with a CKD code is distributed unevenly across states."/>
             </a>
-            <div class="prevalence-subtitle">Prevalence of CKD by U.S.<br /> State and County
+            <div class="prevalence-subtitle">Prevalence of Diagnosed CKD among Medicare Beneficiaries aged ≥ 65 Years, by U.S. State and County
             </div>
             <%--<div class="prev-body">The percentage of patients with a CKD code is distributed unevenly across states.
             </div>--%>
-            <div class="prevalence-footer">Source of information: CMS-Medicare
+            <div class="prevalence-footer-middle">Source of information: CMS-Medicare
             </div>
         </div> 
          <div class="col-md p-3 prevalence-img-box" onclick="location.href='./detail.aspx?Qnum=Q89';">

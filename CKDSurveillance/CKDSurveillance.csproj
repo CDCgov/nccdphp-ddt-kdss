@@ -19,7 +19,7 @@
     <OldToolsVersion>4.0</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <TargetFrameworkProfile />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -333,8 +333,6 @@
     <Content Include="AYA\September_2020.html" />
     <Content Include="AYA\September_2021.html" />
     <Content Include="AYA\September_2022.html" />
-    <Content Include="bin\DataAccess.dll" />
-    <Content Include="bin\Newtonsoft.Json.dll" />
     <Content Include="Blocked.aspx" />
     <Content Include="Calculators.aspx" />
     <Content Include="css\Fonts.css" />
@@ -385,6 +383,7 @@
     <Content Include="images\DataCharts\c.PNG" />
     <Content Include="images\DataCharts\Close_window.JPG" />
     <Content Include="images\DataCharts\County-Level Residential Segregation.png" />
+    <Content Include="images\DataCharts\County-Level_Residential_Segregation_V2.png" />
     <Content Include="images\DataCharts\DataBites_Stages1to4.jpg" />
     <Content Include="images\DataCharts\DataBites_Stages3or4.jpg" />
     <Content Include="images\DataCharts\Diabetes_RiskFactorsOfKD.jpg" />
@@ -2072,7 +2071,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52871</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/CKD</IISUrl>
+          <IISUrl>http://localhost:52871/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
