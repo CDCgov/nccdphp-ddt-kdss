@@ -19,7 +19,7 @@
     <OldToolsVersion>4.0</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <TargetFrameworkProfile />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -65,7 +65,7 @@
       <HintPath>..\packages\CDC.NCCDPHP.Commons.4.5.2\lib\Common.dll</HintPath>
     </Reference>
     <Reference Include="DataAccess, Version=4.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CDC.NCCDPHP.DataAccess.4.6.1\lib\DataAccess.dll</HintPath>
+      <HintPath>..\packages\CDC.NCCDPHP.DataAccess.5.0.0\lib\DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="DecryptAesByPassPhrase, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\DecryptAesByPassPhrase.dll</HintPath>
@@ -75,8 +75,11 @@
       <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\DecryptAesSymmetric.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DocumentFormat.OpenXml, Version=2.19.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocumentFormat.OpenXml.2.19.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.20.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.20.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.Framework.3.0.0\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
     </Reference>
     <Reference Include="EncryptAesByPassPhrase, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CDC.NCCDPHP.Cryptography.4.5.0.1\lib\net45\EncryptAesByPassPhrase.dll</HintPath>
@@ -110,6 +113,9 @@
     </Reference>
     <Reference Include="NCCDUtilities, Version=5.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CDC.NCCDPHP.NCCDUtilities.5.3.0\lib\NCCDUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NG.CodeSecure.Common, Version=1.2020.5.6, Culture=neutral, PublicKeyToken=61c49a1a9e79cc28, processorArchitecture=MSIL">
       <HintPath>..\packages\NG.CodeSecure.Common.7.0.0\lib\NG.CodeSecure.Common.dll</HintPath>
@@ -386,6 +392,9 @@
     <Content Include="images\DataCharts\County-Level_Residential_Segregation_V2.png" />
     <Content Include="images\DataCharts\DataBites_Stages1to4.jpg" />
     <Content Include="images\DataCharts\DataBites_Stages3or4.jpg" />
+    <Content Include="images\DataCharts\DataBites_Stages3to5.jpg" />
+    <Content Include="images\DataCharts\DataBites_StagesAmongAdults.jpg" />
+    <Content Include="images\DataCharts\DataBites_StagesAmongUSAdults.jpg" />
     <Content Include="images\DataCharts\Diabetes_RiskFactorsOfKD.jpg" />
     <Content Include="images\DataCharts\disclaimer-info-small.jpg" />
     <Content Include="images\DataCharts\DownloadCyan.jpg" />
@@ -2071,7 +2080,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52871</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52871/</IISUrl>
+          <IISUrl>http://localhost/CKD</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
