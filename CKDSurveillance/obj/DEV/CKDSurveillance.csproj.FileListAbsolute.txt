@@ -25,6 +25,7 @@ C:\Projects\ddt-ckd\CKDSurveillance\bin\Common.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\DataAccess.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\DecryptAesByPassPhrase.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\DecryptAesSymmetric.dll
+C:\Projects\ddt-ckd\CKDSurveillance\bin\DocumentFormat.OpenXml.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\DocumentFormat.OpenXml.Framework.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\EncryptAesByPassPhrase.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\EncryptAesSymmetric.dll
@@ -47,6 +48,7 @@ C:\Projects\ddt-ckd\CKDSurveillance\bin\System.Runtime.CompilerServices.Unsafe.d
 C:\Projects\ddt-ckd\CKDSurveillance\bin\System.Text.Encoding.CodePages.dll
 C:\Projects\ddt-ckd\CKDSurveillance\bin\ckdlibV2.dll.config
 C:\Projects\ddt-ckd\CKDSurveillance\bin\ClosedXML.xml
+C:\Projects\ddt-ckd\CKDSurveillance\bin\DocumentFormat.OpenXml.xml
 C:\Projects\ddt-ckd\CKDSurveillance\bin\DocumentFormat.OpenXml.Framework.xml
 C:\Projects\ddt-ckd\CKDSurveillance\bin\ExcelNumberFormat.xml
 C:\Projects\ddt-ckd\CKDSurveillance\bin\Newtonsoft.Json.xml
@@ -62,5 +64,3 @@ C:\Projects\ddt-ckd\CKDSurveillance\obj\DEV\CKDSurveillance.csproj.AssemblyRefer
 C:\Projects\ddt-ckd\CKDSurveillance\obj\DEV\CKDSurveillance.csproj.CoreCompileInputs.cache
 C:\Projects\ddt-ckd\CKDSurveillance\obj\DEV\CKDSurveillance.csproj.CopyComplete
 C:\Projects\ddt-ckd\CKDSurveillance\obj\DEV\CKDSurveillance_RD.dll
-C:\Projects\ddt-ckd\CKDSurveillance\bin\DocumentFormat.OpenXml.dll
-C:\Projects\ddt-ckd\CKDSurveillance\bin\DocumentFormat.OpenXml.xml

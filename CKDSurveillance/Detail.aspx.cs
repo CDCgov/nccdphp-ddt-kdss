@@ -2649,10 +2649,19 @@ namespace CKDSurveillance_RD.MasterPages
                         low_con_diff = Convert.ToDecimal(datapoint) - Convert.ToDecimal(elow);
                 }
 
-                if (ehigh != "")
-                    ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
-                if (elow != "")
-                    elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
+                if (QNum == "Q372")
+                {
+                    if (ehigh != "")
+                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 3);
+                    if (elow != "")
+                        elow = elow.Substring(0, elow.IndexOf(".") + 3);//showing only the two characters after the decimal
+                }
+                else {
+                    if (ehigh != "")
+                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
+                    if (elow != "")
+                        elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
+                }
 
                 string str_high_con_diff = ""; //setup the string variable to be displayed
                 string str_low_con_diff = "";
@@ -2872,7 +2881,8 @@ namespace CKDSurveillance_RD.MasterPages
         }
 
         private void buildPlotlyTripleStratChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
-        {            
+        {
+            string hovertemplate = "hovertemplate: '%{text}'";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             if (QNum.ToLower() == "q712")//reset the charts for the March 2020 AYA
                 RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
@@ -3111,7 +3121,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "-" + ehigh + ")" + "',";
+                        hovertext = hovertext + "'" + secondary + ": " + datapoint + " (95% CI: " + elow + "-" + ehigh + ")" + "',";
                         //hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
 
                         current_serieslabel = serieslabel;
@@ -3143,7 +3153,7 @@ namespace CKDSurveillance_RD.MasterPages
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                         plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col + "," + wData_col);
                         if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
-                            plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData);
+                            plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
 
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + i.ToString() + "', showlegend: " + legendbool + ", type: "+ hfChartType.Value +", connectgaps: true,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
@@ -3177,7 +3187,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'" + datapoint + " (95% CI: " + elow + "-" + ehigh + ")" + "',";
+                        hovertext = hovertext + "'" + secondary + ": "+ datapoint + " (95% CI: " + elow + "-" + ehigh + ")" + "',";
                         //hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
 
                         current_serieslabel = serieslabel;
@@ -3301,8 +3311,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                 string hiConData_col_final = "";//high_confidence.Substring(0, high_confidence.Length - 1) + "]";//removing the last comma
                 string loConData_col_final = "";//low_confidence.Substring(0, low_confidence.Length - 1) + "]";//removing the last comma
-                string hovertextData_final = "";//hovertext.Substring(0, hovertext.Length - 1) + "]";//removing the last comma
-                string hovertemplate = "hovertemplate: '%{text}'";
+                string hovertextData_final = "";//hovertext.Substring(0, hovertext.Length - 1) + "]";//removing the last comma                
 
                 if (regex.IsMatch(high_confidence) && regex.IsMatch(low_confidence)) //if both are numeric, then add all of the values to the array. This accounts for missing CIs
                 {
