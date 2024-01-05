@@ -109,9 +109,9 @@
         <div class="col-md-6">
             <div class="aya-title">ARE YOU AWARE?</div>
 
-            <div><h2 class="aya-subtitle"><u class="aya-underline"></u>Rising Household Food Insecurity Among US Adults With Chronic Kidney Disease</h2></div>
+            <div><h2 class="aya-subtitle"><u class="aya-underline"></u>Adults with chronic kidney disease are less likely to engage in physical activity</h2></div>
 
-            <div class="aya-text">Adults living in households experiencing limited or uncertain access to adequate food (i.e., food insecurity) are at higher risk of developing chronic diseases, such as CKD, heart disease, and diabetes. Data from the National Health and Nutrition Examination Survey (2001–March 2020) suggest rising prevalence of food insecurity in the United States during the past 2 decades. Adults with CKD had higher food insecurity than those without the condition. Studies to further understand the epidemic of household food insecurity in the United States and its association with CKD can help efforts to mitigate and eliminate this public health problem.</div>
+            <div class="aya-text">Maintaining moderate-intensity physical activities may provide many benefits in chronic kidney disease (CKD) patients, including slower decline in kidney function, better physical function, reduced cardiovascular risk, and improved quality of life. Data from the National Health and Nutrition Examination Survey (NHANES, 2001–March 2020) shows that prevalence of physical activity has been increasing in the US among those with and without CKD; however, adults with CKD still have a lower prevalence of physical activity compared to those without CKD. Efforts are needed to understand the impact of levels of physical activity on adults with different stages of CKD.</div>
 
             <div class="row aya-botton-box">
                 <%--<div class="col-sm-3 aya-button">View Spotlight</div>--%>

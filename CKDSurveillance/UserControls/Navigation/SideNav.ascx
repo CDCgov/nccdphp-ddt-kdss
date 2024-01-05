@@ -219,8 +219,8 @@
 									<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
 										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-20" data-target="#accordion-4i-collapse-20" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
 											<div class="card-title">
-											<a id="Prevalence" title="Prevalence" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-20"> <%--class="card-title"--%>
-											   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon4"></i>Prevalence</a>
+											<a id="Prevalence" title="Prevalence & Incidence" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-20"> <%--class="card-title"--%>
+											   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon4"></i>Prevalence & Incidence</a>
 											</div>
 										</div>
 										<div aria-labelledby="accordion-4i-card-20" class="collapse" id="accordion-4i-collapse-20" role="tabpanel">
@@ -288,6 +288,17 @@
 										<div aria-labelledby="accordion-4i-card-17" class="collapse" id="accordion-4i-collapse-17" role="tabpanel">
 											<div >  <%--class="card body"--%>
 												<div class="row" style="padding-bottom:2px">
+
+													<div class="col-12" style="padding-left:20px;">
+														<div id="link_December_2023" data-parentid="17" >  <%--class="row articlelinkdiv"--%>
+															<ul>                                                        
+																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
+																	<a href="javascript:changeContent('December_2023')" class="articleLink" style="color:#00768A !important">Self-Reported Physical Activity among US Adults with and without Chronic Kidney Disease - December 2023</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+
 													<div class="col-12" style="padding-left:20px;">
 														<div id="link_October_2022"   data-parentid="17" >  <%--class="row articlelinkdiv"--%>
 															<ul>                                                        
@@ -297,6 +308,7 @@
 															</ul>
 														</div>
 													</div>
+
 												</div>
 											</div>
 										</div>

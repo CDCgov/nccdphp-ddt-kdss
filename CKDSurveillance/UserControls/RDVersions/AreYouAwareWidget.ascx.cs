@@ -25,15 +25,27 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 homePageDiv.Visible = false;
             }
 
-            if (Request.QueryString["emailDate"] == "April_2023") {
-                bcTopic.InnerText = "> Are You Aware Topics ";
-                bcSelListItem.InnerText = "> Awareness";
+            bcTopic.InnerText = "> Are You Aware Topics ";
+
+            String emailDate = Request.QueryString["emailDate"];
+            switch (emailDate)
+            { 
+                case "April_2023":
+                    bcSelListItem.InnerText = "> Awareness";
+                    break;
+                case "December_2023":
+                case "October_2022":
+                    bcSelListItem.InnerText = "> Risk Factors";
+                    break;
+                case "August_2023":
+                    bcSelListItem.InnerText = "> Prevalence";
+                    break;
+                case "June_2023":
+                case "October_2023":
+                    bcSelListItem.InnerText = "> Social Determinants";
+                    break;
             }
-            else if (Request.QueryString["emailDate"] == "October_2023")
-            {
-                bcTopic.InnerText = "> Are You Aware Topics ";
-                bcSelListItem.InnerText = "> Social Determinants";
-            }
+
         }
     }
 }
