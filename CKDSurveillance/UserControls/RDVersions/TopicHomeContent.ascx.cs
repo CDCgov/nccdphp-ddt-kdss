@@ -8,8 +8,6 @@ using System.Data;
 using System.Text;
 using System.Text.RegularExpressions;
 using ckdlibV2;
-using DocumentFormat.OpenXml.Bibliography;
-using DocumentFormat.OpenXml.Office2019.Drawing.Model3D;
 
 namespace CKDSurveillance_RD.UserControls.RDVersions
 {
