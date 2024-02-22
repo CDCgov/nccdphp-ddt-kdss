@@ -26,7 +26,7 @@ namespace CKDSurveillance_RD.UserControls.FPWidgets
             //*Get Values*
             int rowToUse = 0;
             string link = dtAYA.Rows[rowToUse]["AYALink"].ToString().Trim();
-
+            link = link.Replace("../", "");
 
             //*Build button string*
             StringBuilder sb = new StringBuilder();
