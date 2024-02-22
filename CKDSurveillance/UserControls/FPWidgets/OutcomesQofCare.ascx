@@ -112,11 +112,11 @@
 
         <%--<div class="col-md-2 d-none d-lg-block"></div>--%>
         <div class="col-md-6 qualityofcare-box">
-            <div class="qualityofcare-title phoneNoShow"><h2>State of Quality of Care<br /><u style="text-decoration-color:#00695C;text-underline-offset: 15px;">for K</u>idney Disease</h2></div>
+            <div class="qualityofcare-title phoneNoShow"><h2>Quality of Care<br /><u style="text-decoration-color:#00695C;text-underline-offset: 15px;">for K</u>idney Disease</h2></div>
             <div class="qualityofcare-title showPhoneOnly"><h2>State of <br />Quality of Care<br /><u style="text-decoration-color:#00695C">for K</u>idney Disease</h2></div>
             <ul class="linked-list">
                 <li style="margin-bottom:-1rem;">
-                    <a class="qofcare-link" href="detail.aspx?Qnum=Q605"><span>ACEi/ARB use among CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
+                    <a class="qofcare-link" href="detail.aspx?Qnum=Q605"><span>ACEi/ARB use among people with CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
                 <li style="margin-bottom:-1rem;">
                     <a class="qofcare-link" href="detail.aspx?Qnum=Q640"><span>Albuminuria Testing among U.S. Veterans</span><i class="fa fa-angle-right right-angle-arrow"></i></a>

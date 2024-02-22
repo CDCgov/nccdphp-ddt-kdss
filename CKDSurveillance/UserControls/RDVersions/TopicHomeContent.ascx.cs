@@ -8,6 +8,8 @@ using System.Data;
 using System.Text;
 using System.Text.RegularExpressions;
 using ckdlibV2;
+using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Office2019.Drawing.Model3D;
 
 namespace CKDSurveillance_RD.UserControls.RDVersions
 {
@@ -46,18 +48,47 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             ChartType_2 = dt.Rows[0]["TopicHomeChartType_2"].ToString();
             Year_2 = dt.Rows[0]["TopicHomeChartYear_2"].ToString();
 
-            if (TopicID != 24)
+            if (TopicID == 25) {
+                createAYAPageContent();
+            }
+            else if (TopicID != 24)
             {
                 //sdohimg1.Visible = false;
                 //sdohimg2.Visible = false;
                 createPageContent();
-            }
+            }            
             else
             {
                 //sdohimg1.Visible = true;
                 //sdohimg2.Visible = true;
                 createStaticPageContent();
             }
+        }
+        private void createAYAPageContent()
+        {
+            ayatop.Visible = true;
+            hrline.Visible = false;
+
+            HF_SmallChart1URL.Value = "detail.aspx?Qnum=" + Qnum_1 + "&Strat=" + Strat_1 + "&Year=" + Year_1;
+
+            DataTable dtPage = DAL.getPage(Qnum_1).Tables[0];
+            int chartID = determineChartID(dtPage, Year_1, Strat_1);
+            buildChart(chartID.ToString(), dtPage, Year_1, Qnum_1, "1", ChartType_1); //Also retrieves titles
+
+            HF_SmallChart2URL.Value = "detail.aspx?Qnum=" + Qnum_2 + "&Strat=" + Strat_2 + "&Year=" + Year_2;
+
+            dtPage = DAL.getPage(Qnum_2).Tables[0];
+            chartID = determineChartID(dtPage, Year_2, Strat_2);
+            buildChart(chartID.ToString(), dtPage, Year_2, Qnum_2, "2", ChartType_2); //Also retrieves titles
+
+            string tbl = MethodsIndicatorsTableCreation(TopicID, indicatorName);
+            Lit_IndicatorText.Text = tbl;
+            //Lit_TopicTitle.Text = indicatorName;
+            HF_Topic.Value = indicatorName;
+            Lit_Desc.Text = subDesc;
+
+            string tblBody = AYAArchiveBodyTableCreation(TopicID, indicatorName);
+            Lit_IndicatorBody.Text = tblBody;
         }
 
         private void createStaticPageContent() 
@@ -781,7 +812,74 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             return sbTable.ToString();
         }
 
+        private string AYAArchiveBodyTableCreation(int TopicID, string TopicText)
+        {
+            StringBuilder sbBodyTable = new StringBuilder();
+            StringBuilder sbTables = new StringBuilder();
 
+            sbTables.Append("<div class=\"div-table\" >");
+            DataTable dtAYA = DAL.get_AYA_Entries_for_FP_Widget();
+
+            int rowNum = 1;
+            // *Get all active AYA archives
+           
+            StringBuilder sb_indTable = new StringBuilder();
+
+            foreach (DataRow drAYA in dtAYA.Rows)
+            {
+                string title = drAYA["Title"].ToString().Trim();
+                string date = drAYA["tickerDate"].ToString().Trim();
+                string desc = drAYA["ShortDescription"].ToString().Trim();
+                string topicText = drAYA["TopicText"].ToString().Trim();
+                string ayaLink = drAYA["AYALink"].ToString().Trim();
+                string topicHomePageURL = drAYA["TopicHomePageURL"].ToString().Trim();
+                string linkStart = ("<a style=\"text-align: left; font-family: Open Sans; font-size: 24px; letter-spacing: 0px; color: #007C91; opacity: 1; text-decoration:none; \" target=\"_blank\" href=" + ayaLink + ">");
+                string linkEnd = "</a>";
+                string topicURL = ("<a style=\"text-align: left; font-family: Open Sans; font-size: 16px; letter-spacing: 0px; opacity: 1; padding-left:5px;padding-right:5px;border-radius: 18px; border: 1px solid #D3D3D3 ; text-decoration:none; color: #000000 !important;background-color: #E5E4E2; \"  target=\"_blank\" href=" + topicHomePageURL + ">");
+
+                if (rowNum == 1)
+                {                    
+                    string ayaCurrentImg = drAYA["AYACurrentImg"].ToString().Trim();
+                    sbBodyTable.Append("<div class=\"div-table-row\" style=\"background-color: #EBF5F6;\">");
+                    sbBodyTable.Append("<div style=\"font-size: 26px;font-weight: 400; padding-left: 5%; padding-top:20px; \">Latest Spotlight</div>");
+                    sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; float: left;display: grid;\">");
+                    sbBodyTable.Append("<img src=\"../../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; margin-bottom:5% \"/>");
+                    sbBodyTable.Append("</div>");
+                    sbBodyTable.Append("<div style=\"padding-right: 3%; padding-bottom: 3%;\">");
+                    sbBodyTable.Append("<div class=\"div-table-row dateformat\">" + date + "</div>");
+                    sbBodyTable.Append("<div class=\"div-table-row ayaTitle\">" + linkStart + title + linkEnd + "</div>");
+                    sbBodyTable.Append("<div class=\"div-table-row\">" + linkStart + linkEnd + "</div>");
+                    sbBodyTable.Append("<div class=\"div-table-row\">" + desc + "</div>");
+                    sbBodyTable.Append("<div class=\"div-table-row\">" + topicURL + topicText + linkEnd + "</div>");
+                    sbBodyTable.Append("</div>");
+                    sbBodyTable.Append("</div>");
+                }
+                else
+                {
+                    if (rowNum == 2) {                        
+                        sbBodyTable.Append("<div class=\"div-table-row\">&nbsp;</div><div class=\"div-table-row\" style=\"font-size: 26px;font-weight: 400;\">Are You Aware Archive</div>");
+                    }
+                    sbBodyTable.Append("<div class=\"div-table-row dateformat\">" + date + "</div>");
+                    sbBodyTable.Append("<div class=\"div-table-row ayaTitle\">" + linkStart + title + linkEnd + "</div>");
+                    sbBodyTable.Append("<div class=\"div-table-row\">" + linkStart + linkEnd + "</div>");
+                    sbBodyTable.Append("<div class=\"div-table-row\">" + desc + "</div>");
+                    sbBodyTable.Append("<div class=\"div-table-row\">" + topicURL + topicText + linkEnd + "</div>");
+                    sbBodyTable.Append("<hr style=\"border: 1px solid #707070; opacity: 0.39;\" />");
+                }
+                rowNum++;
+            }
+
+            // *Clean-up*
+            dtAYA.Dispose();
+
+            sbTables.Append(sbBodyTable.ToString());
+            sbTables.Append("</div>");
+
+            //*Clean-up*
+            dtAYA.Dispose();
+
+            return sbTables.ToString();
+        }
 
         private string MethodsIndicatorsBodyTableCreation(int TopicID, string TopicText)
         {

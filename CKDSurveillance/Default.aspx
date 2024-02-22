@@ -11,9 +11,9 @@
 <%@ Register Src="~/UserControls/SurveyModal.ascx" TagPrefix="uc1" TagName="SurveyModal" %>
 <%@ Register Src="~/UserControls/FPWidgets/CurrentTopics.ascx" TagPrefix="uc1" TagName="CurrentTopics" %>
 <%@ Register Src="~/UserControls/FPWidgets/AboutKDS.ascx" TagPrefix="uc1" TagName="AboutKDS" %>
-<%@ Register Src="~/UserControls/FPWidgets/Prevalence.ascx" TagPrefix="uc1" TagName="Prevalence" %>
-<%@ Register Src="~/UserControls/FPWidgets/RiskCalculator.ascx" TagPrefix="uc1" TagName="RiskCalculator" %>
 <%@ Register Src="~/UserControls/FPWidgets/AYA.ascx" TagPrefix="uc1" TagName="AYA" %>
+<%@ Register Src="~/UserControls/FPWidgets/RiskCalculator.ascx" TagPrefix="uc1" TagName="RiskCalculator" %>
+<%@ Register Src="~/UserControls/FPWidgets/Prevalence.ascx" TagPrefix="uc1" TagName="Prevalence" %>
 <%@ Register Src="~/UserControls/FPWidgets/DataBiteHighlights.ascx" TagPrefix="uc1" TagName="DataBiteHighlights" %>
 <%@ Register Src="~/UserControls/FPWidgets/GeneralInformation.ascx" TagPrefix="uc1" TagName="GeneralInformation" %>
 <%@ Register Src="~/UserControls/FPWidgets/MainImage.ascx" TagPrefix="uc1" TagName="MainImage" %>
@@ -212,17 +212,15 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
         </div>
     </div>
     
-    
-    <%--******************************--%>
-    <%--*Prevalence of Kidney Disease*--%>
-    <%--******************************--%>
+    <%--*****--%>
+    <%--*AYA*--%>
+    <%--*****--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box;box-shadow: 0px 5px 9px #00000029;opacity: 1; ">
+    <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box; opacity: 1;margin-top: 6px;">
         <div class="container">
-            <uc1:Prevalence runat="server" ID="Prevalence1" />
+            <uc1:AYA runat="server" ID="AYA1" />
         </div>
     </div>
-
 
     <%--*****************--%>
     <%--*Risk Calculator*--%>
@@ -234,16 +232,15 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
         </div>
     </div>
 
-    <%--*****--%>
-    <%--*AYA*--%>
-    <%--*****--%>
+    <%--******************************--%>
+    <%--*Prevalence of Kidney Disease*--%>
+    <%--******************************--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background: #F5F5F5 0% 0% no-repeat padding-box; opacity: 1;margin-top: 6px;">
+    <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box;box-shadow: 0px 5px 9px #00000029;opacity: 1; ">
         <div class="container">
-            <uc1:AYA runat="server" ID="AYA1" />
+            <uc1:Prevalence runat="server" ID="Prevalence1" />
         </div>
     </div>
-
 
     <%--*********************************--%>
     <%--*Risk Factors for kidney Disease*--%>

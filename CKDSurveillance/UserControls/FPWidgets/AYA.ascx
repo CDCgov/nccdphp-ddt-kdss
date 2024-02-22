@@ -3,7 +3,7 @@
 
 <style type="text/css">
     .aya {
-        margin-top:75px;
+        margin-top:40px;
         margin-bottom:50px;
     }
     .aya-title {
@@ -76,7 +76,22 @@
     .aya-underline {
         text-decoration-color:#00695C;
         text-underline-offset: 15px;
+        text-decoration-thickness: 3px;
     }
+
+    .areYouAwareMsg {        
+        background-color: #EBF5F6;      
+        /*text-align: justify;*/
+        font: normal normal normal 18px/25px Open Sans;
+        opacity: 1;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 20px;
+        padding-right: 10px;
+        line-height: normal;
+        margin-left: 0px;
+    }
+
     @media (max-width: 767px) {
         .aya-underline {
             text-decoration-color:#00695C;
@@ -104,26 +119,47 @@
 <%--*AYA*--%>
 <%--*****--%> 
 
-<div>
-    <div class="row aya">
-        <div class="col-md-6">
-            <div class="aya-title">ARE YOU AWARE?</div>
+<div style="background-color:white">
+    <div class="row aya" >
 
-            <div><h2 class="aya-subtitle"><u class="aya-underline"></u>Adults with chronic kidney disease are less likely to engage in physical activity</h2></div>
+        <div class="col-md-4 aya-image">
+            <div style="height=50%; width:99%">
+                <%--<img src="/ckd/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
+                <img src="../../images/AYA_theme_version.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt=""/>
+            </div>
+            <div style="height=25%; width:98%"></div>
+            <div style="height=50%; width:98%; display:table-cell; padding-right: 18px; word-spacing: normal;" class ="areYouAwareMsg">
+                <b><i>Are You Aware? </i></b> is designed to raise  <%--<br /> --%>                                             
+                awareness about important topics relevant to <%-- <br />--%>
+                kidney disease surveillance and prevention.
+            </div>
+        </div>
+        <div class="col-md-6 aya-image-mobile">
+            <%--<img src="/ckd/images/Mask_Group_33_mobile.png"  style="width:100%;margin-top:15px" alt=""/>--%>
+            <img src="/ckd/images/AYA_theme_version.png" style="width:100%;margin-top:15px" alt=""/> 
+       </div>
 
-            <div class="aya-text">Maintaining moderate-intensity physical activities may provide many benefits in chronic kidney disease (CKD) patients, including slower decline in kidney function, better physical function, reduced cardiovascular risk, and improved quality of life. Data from the National Health and Nutrition Examination Survey (NHANES, 2001–March 2020) shows that prevalence of physical activity has been increasing in the US among those with and without CKD; however, adults with CKD still have a lower prevalence of physical activity compared to those without CKD. Efforts are needed to understand the impact of levels of physical activity on adults with different stages of CKD.</div>
+        <div class="col-md-7">
+            <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
+
+            <div>
+                <h2 class="aya-subtitle">Racial/Ethnic Differences in Nephrologist Visits among US Veterans with Advanced Kidney Disease</h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+            </div>
+
+            <div class="aya-text">Most patients in the early stages of chronic kidney disease (CKD) are cared for by primary care physicians. 
+                For those with stage 4 CKD, an advanced stage of the disease, current clinical practice guidelines recommend specialty care by 
+                nephrologists to optimize management of complex clinical conditions and prevent or delay progression to kidney failure. 
+                Data from the Veterans Health Administration show that the highest percent of US veterans with stage 4 CKD seeing a nephrologist 
+                was consistently among non-Hispanic Black veterans, while American Indian/Alaska Native and non-Hispanic White veterans were less 
+                likely to see a nephrologist. These findings may reflect the higher prevalence of advanced kidney disease in the Black population, 
+                which may be deserving of greater attention by health systems, policy makers, and the public health system. </div>
 
             <div class="row aya-botton-box">
                 <%--<div class="col-sm-3 aya-button">View Spotlight</div>--%>
                 <asp:Literal ID="litBtnMore" runat="server" ClientIDMode="Static" />
-                <%--<div class="aya-link-div"><a href="AreYouAware.aspx?emailDate=April_2023#refreshPosition" class="aya-link"><span style="color: contrast(4.5);">Archive</span><i class="fa fa-angle-right right-angle-arrow"></i></a></div>--%>
+                <div class="aya-link-div"><a href="TopicHome/AwarenessArchive.aspx?topic=25" class="aya-link"><span style="color: contrast(4.5);">Archive</span><i class="fa fa-angle-right right-angle-arrow"></i></a></div>
             </div>
         </div>
-        <div class="col-md-6 aya-image">
-            <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>
-        </div>
-        <div class="col-md-6 aya-image-mobile">
-            <img src="/ckd/images/Mask_Group_33_mobile.png"  style="width:100%;margin-top:15px" alt=""/>
-        </div>
+        
     </div>
 </div>

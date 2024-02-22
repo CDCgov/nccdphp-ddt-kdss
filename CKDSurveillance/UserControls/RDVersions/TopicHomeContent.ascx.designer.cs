@@ -15,6 +15,24 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
     {
 
         /// <summary>
+        /// bcTopic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bcTopic;
+
+        /// <summary>
+        /// ayatop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ayatop;
+
+        /// <summary>
         /// Lit_TopicTitle control.
         /// </summary>
         /// <remarks>
@@ -31,6 +49,15 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Lit_Desc;
+
+        /// <summary>
+        /// hrline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hrline;
 
         /// <summary>
         /// Lit_IndicatorBody control.
@@ -112,5 +139,14 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfShowCI;
+
+        /// <summary>
+        /// HF_Topic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HF_Topic;
     }
 }

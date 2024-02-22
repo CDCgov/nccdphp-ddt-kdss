@@ -172,7 +172,7 @@
 											<a href="default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link6" class="ckd-nav-home-link">										
 											<span class="homebreadcrumb"><u>Home</u></span> </a> 
 										    <span id="bcTopic" class="bodybreadcrumb" runat="server"> &nbsp;> Are You Aware Topics  </span>  <%--selected topic from top nav --%>
-											<span id="bcSelListItem" class="bodybreadcrumb" runat="server"> &nbsp;> Risk Factors </span>  <%--selected list item from left nav --%>
+											<span id="bcSelListItem" class="bodybreadcrumb" runat="server"> &nbsp;> Quality of Care </span>  <%--selected list item from left nav --%>
 											<%--<span id="bcPIlinks" class="bodybreadcrumb">  > </span>--%>
 									</div>
 								</div>

@@ -184,6 +184,35 @@
 		color: #000000;
 		opacity: 1;
 	}
+
+	.aya-emailmain {
+        display: block;        
+    }
+    .aya-emailmain-label {
+        text-align: left;
+        font: normal normal 500 20px/34px Open Sans;
+        letter-spacing: -0.4px;
+        opacity: 1;
+        margin-right: 1rem;
+		font-weight:600;
+    }
+    .aya-emailmain-desc {
+        text-align: left;
+        font: normal normal 500 16px/30px Open Sans;
+        letter-spacing: -0.4px;
+        opacity: 1;
+        margin-right: 1rem;
+    }
+    .aya-emailmain-btn {
+        width: 99px;
+        height: 48px;
+        background: #007C91 0% 0% no-repeat padding-box !important;
+        border-radius: 5px;
+        opacity: 1;
+        font: normal normal normal 17px/23px Open Sans;
+        letter-spacing: 0px;
+        color: #FFFFFF !important;
+    }
 </style>
 
 
@@ -315,6 +344,39 @@
 									</div>
 								</div>
 
+
+							<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+							<%--Quality Of Care--%>
+							<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+								<div id="div2" runat="server"><%--style="padding-left:1px;padding-right:1px;"--%>
+								<div class="accordion indicator-plus accordion-white" role="tabpanel">
+									<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
+										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-21" data-target="#accordion-4i-collapse-21" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
+											<div class="card-title">
+											<a id="QualityOfCare" title="Quality Of Care" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-21"> <%--class="card-title"--%>
+											   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon5"></i>Quality Of Care</a>
+											</div>
+										</div>
+										<div aria-labelledby="accordion-4i-card-21" class="collapse" id="accordion-4i-collapse-21" role="tabpanel">
+											<div >  <%--class="card body"--%>
+												<div class="row" style="padding-bottom:2px">
+													<div class="col-12" style="padding-left:20px;">
+														<div id="link_February_2024"   data-parentid="21" >  <%--class="row articlelinkdiv"--%>
+															<ul>                                                        
+																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
+																	<a href="javascript:changeContent('February_2024')" class="articleLink" style="color:#00768A !important">Racial/Ethnic Differences in Nephrologist Visits among US Veterans with Advanced Kidney Disease - February 2024</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							  </div>
+
+
 							<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
 							<%--Social Determinants --%>
 							<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
@@ -360,6 +422,17 @@
 						
                     </div>
 
+					 <div class="nccd-modb emailupdates" id="aya_signup" runat="server" style="margin-left: -15px;"> 
+						<form name="govdelivery" action="https://public.govdelivery.com/accounts/USCDC/subscribers/qualify">
+							<fieldset>
+								<div class="aya-emailmain">
+									<label for="gov-d-email" class="aya-emailmain-label">Signup For Latest</label>
+									<label class="aya-emailmain-desc">Description of what users will get in newsletter.</label>
+									<button id="btnSubmitEmailSubscription" class="btn aya-emailmain-btn">Signup</button>
+								</div>
+							</fieldset>
+						</form>
+					</div> 
 					<br />
                 
 					<div id="divARandGI" runat="server">

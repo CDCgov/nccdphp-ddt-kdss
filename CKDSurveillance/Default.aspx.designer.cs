@@ -42,13 +42,13 @@ namespace CKDSurveillance_RD
         protected global::CKDSurveillance_RD.UserControls.FPWidgets.AboutKDS AboutKDS1;
 
         /// <summary>
-        /// Prevalence1 control.
+        /// AYA1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.FPWidgets.Prevalence Prevalence1;
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.AYA AYA1;
 
         /// <summary>
         /// RiskCalculator1 control.
@@ -60,13 +60,13 @@ namespace CKDSurveillance_RD
         protected global::CKDSurveillance_RD.UserControls.FPWidgets.RiskCalculator RiskCalculator1;
 
         /// <summary>
-        /// AYA1 control.
+        /// Prevalence1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKDSurveillance_RD.UserControls.FPWidgets.AYA AYA1;
+        protected global::CKDSurveillance_RD.UserControls.FPWidgets.Prevalence Prevalence1;
 
         /// <summary>
         /// RiskFactorsForKD1 control.

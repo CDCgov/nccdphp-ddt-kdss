@@ -74,7 +74,7 @@
             <h2  class="calculator-title col-md-4">Kidney Disease Risk Calculator</h2>
 
         <div class="col-sm calculator-text">
-            The calculator estimates the probability of having Chronic Kidney Disease. The calculations is based on individual characteristics: age, sex, and 7 comorbidities.
+            This calculator estimates the probability of having CKD using calculations based on individual characteristics: age, sex, and 7 comorbidities.
         </div>
 
         <div class="calculator-link"><img src="images/calculator-icon.png" alt="">

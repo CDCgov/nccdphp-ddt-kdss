@@ -366,16 +366,27 @@ namespace CKDSurveillance_RD.MasterPages
                     //createStaticPageContent("Q705");
                     createStaticPageContent(QNum);                    
                 }
-                if (QNum != "Q9" && QNum != "Q11" && QNum != "Q89" && QNum != "Q98" && QNum != "Q185" &&
-                     QNum != "Q364" && QNum != "Q372" && QNum != "Q605" && QNum != "Q640" && QNum != "Q700" && QNum != "Q703" &&
-                      QNum != "Q712" && QNum != "Q719" && QNum != "Q730" && QNum != "Q756" && QNum != "Q759" && QNum != "Q762" && QNum != "Q763" &&
-                       QNum != "Q764" && QNum != "Q773" && QNum != "Q781" && QNum != "Q784" && QNum != "Q785" && QNum != "Q786" && QNum != "Q787" && QNum != "Q788" && QNum != "Q789")
+
+                ArborDataAccessV2 DAL = new ArborDataAccessV2();
+                DataTable dtAppsSettings = DAL.getApplicationSettings();
+                string PPTs = "";
+
+                foreach (DataRow row in dtAppsSettings.Rows) {
+                    if (row["NAme"].ToString() == "PPTQNums")
+                    {
+                        PPTs = row["Value"].ToString();
+                        break;
+                    }
+                }
+
+                if (PPTs.IndexOf(QNum) < 0)
                 {
                     lnkPPT.Visible = false;
                 }
-                else {
+                else
+                {
                     lnkPPT.Visible = true;
-                    lnkPPT.HRef = AntiXssEncoder.HtmlEncode(SanitizeHtml("./PPT/" + QNum + ".pptx"), false); 
+                    lnkPPT.HRef = AntiXssEncoder.HtmlEncode(SanitizeHtml("./PPT/" + QNum + ".pptx"), false);
                 }
                 
             }

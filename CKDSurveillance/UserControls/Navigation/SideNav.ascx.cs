@@ -94,7 +94,7 @@ namespace CKDSurveillance_RD
             }
             //Set this in session for access by Methods page
             Session["qnum"] = QNum;
-
+            aya_signup.Visible = false;
 
             if (Request.RawUrl.IndexOf("AreYouAware.aspx") >= 0)
             {
@@ -103,7 +103,7 @@ namespace CKDSurveillance_RD
                 divAYARF.Visible = true;
                 return;
             }
-            else if (Request.RawUrl.IndexOf("data.aspx?categoryID=67") >= 0)  
+            else if (Request.RawUrl.IndexOf("data.aspx?categoryID=67") >= 0)
             {
                 divARandGI.Visible = true;
                 Lit_IndicatorText.Visible = false;
@@ -111,7 +111,15 @@ namespace CKDSurveillance_RD
                 divAYARF.Visible = false;
                 return;
             }
-            else {
+            else if (TopicID == "25") { // Awareness Archive
+                Lit_IndicatorText.Visible = false;
+                divAYA.Visible = false;
+                divAYARF.Visible = false;
+                aya_signup.Visible = true;
+                return;
+            }
+            else
+            {
                 Lit_IndicatorText.Visible = true;
                 divAYA.Visible = false;
                 divAYARF.Visible = false;

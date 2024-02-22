@@ -327,7 +327,7 @@
                                  <span><i class="fa fa-plus" ></i></span>
                             </div>
                             <div id="rfkdDiabetes" class="rfkd-text accordionContent"> 
-                                Diabetes is a leading risk factor for chronic kidney disease (CKD). Persons with diabetes make up the fastest growing group of kidney dialysis and transplant recipients in the United States. The prevalence of CKD among adults with diabetes has decreased from 41.1% in the 2001–2004 National Health and Nutrition Examination Survey (NHANES) to 37.1% in the 2017–March 2020 survey.
+                                Diabetes is a leading risk factor for CKD. Persons with diabetes make up the fastest-growing group of kidney dialysis and transplant recipients in the United States. The prevalence of CKD among adults with diabetes has decreased from 42.3% in the 2001–2004 National Health and Nutrition Examination Survey (NHANES) to 38.5% in the 2017–March 2020 survey.
                             </div>
                         </div>
                         <hr class="accordionHr">

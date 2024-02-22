@@ -286,9 +286,9 @@
                         <span class="databites-msg-header">HEALTHY PEOPLE 2030</span>
                         <br /><br />
                         <span class="databites-msg-subheader">
-                           <a href="https://health.gov/healthypeople" alt="Healthy People 2030" style="text-decoration:none">Healthy People 2030</a> (HP2030) sets data-driven national objectives to improve health and well-being over the next decade. There are 14 goals related to kidney disease, 10 of which are about chronic kidney disease. Goals are tracked using several data sources  
+                           <a href="https://health.gov/healthypeople" alt="Healthy People 2030" style="text-decoration:none">Healthy People 2030</a> (HP2030) sets data-driven national objectives to improve health and well-being over the next decade. There are 14 goals related to kidney disease, including 10 for CKD. Goals are tracked using several data sources.  
                             <br /> <br /> 
-                            In addition, the Kidney Disease Surveillance System tracks these goals. Click on the Healthy People 2030 button below to see all the surveillance system indicators related to HP2030.
+                            The Kidney Disease Surveillance System also unofficially tracks these goals. Click on the Healthy People 2030 button below to see all the Kidney Disease Surveillance System indicators related to HP2030.
                         </span>
                         <br /><br />
                         <div> 
@@ -383,7 +383,7 @@
                 window.location.href = './detail.aspx?Qnum=Q372';
             }
             else if (DBHcard === 'DBHcard2') {
-                window.location.href = './detail.aspx?Qnum=Q98&Strat=CKD+Stage#refreshPosition';
+                window.location.href='./detail.aspx?Qnum=Q98&Strat=CKD+Stage#refreshPosition';
             }
         }
     }

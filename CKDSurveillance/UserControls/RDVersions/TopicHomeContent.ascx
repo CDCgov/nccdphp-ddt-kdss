@@ -205,7 +205,7 @@
 
 		.div-table {
 		  display: table;         
-		  /*border-spacing: 5px;  black; */
+		  border-spacing: 5px; 
 		}
 
 		.div-table-row {
@@ -228,7 +228,67 @@
 		.div-table-col-width {
 			width:40%;
 		}
-				
+	.dateformat {
+             text-align: left;
+             /*font: normal normal bold 17px/24px Open Sans;*/
+             text-align: left;
+             font-family: Open Sans !important;
+             font-size: 14px !important;
+             font-weight: bold;
+             letter-spacing: 0px;
+             color: #747474;
+             opacity: 1;
+    }
+
+	.ayaTitle {
+		text-align: left;
+		font-family: Open Sans;
+		letter-spacing: -0.22px;
+		color: #000000;
+		opacity: 1;
+	}
+    .areYouAwareMsg {        
+        font: normal normal normal 18px/25px Open Sans;
+        opacity: 1;
+        padding-top: 65px;
+        padding-bottom: 25px;
+        padding-left: 30px;
+        padding-right: 10px;
+        line-height: normal;
+        margin-left: 0px;
+		height:0%; width:40%
+    }
+	.ayatopimg {
+		width:40%;
+	}
+	.vl {
+	    border-left: 1px solid lightgray;
+		height: 140px;
+		margin-top: 30px;
+		margin-left: 40px;
+	    margin-right: 40px;
+	}
+	.ayatoprow {
+		display: flex;
+		flex-wrap: wrap;
+		margin-right: -15px;
+		margin-left: -15px;
+	}
+
+	@media screen and (max-width: 1200px) {
+        .ayatoprow {
+            display: block;
+        }
+		.vl {
+			display:none;
+		}
+		.ayatopimg {
+			width: 80%;
+		}
+		.areYouAwareMsg {
+			width: 80%;
+		}
+    }
 	/*	ul {
 			 columns: 2;
 			 -webkit-columns: 2;
@@ -250,10 +310,22 @@
 									<div class="bar-item">
 											<a href="../default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link7" class="ckd-nav-home-link">										
 											<span class="PIhomebreadcrumb"><u>Home</u></span> </a> 
-										    <span id="bcTopic" class="PIbodybreadcrumb">  </span>  <%--selected topic from top nav --%>
+										    <span id="bcTopic" class="PIbodybreadcrumb" runat="server">  </span>  <%--selected topic from top nav --%>
 											<span id="bcSelListItem" class="PIbodybreadcrumb">  </span>  <%--selected list item from left nav --%>
 											<%--<span id="bcPIlinks" class="PIbodybreadcrumb">  > </span>--%>
 									</div>
+								</div>
+							</div>
+							 <div id="ayatop" class="ayatoprow" runat="server" visible="false">
+								<div class="ayatopimg">
+									<%--<img src="/ckd/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
+									<img src="../../images/AYA_theme_version.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt=""/>
+								</div>
+								<div class="vl"></div>
+								<div class ="areYouAwareMsg">
+									<b><i>Are You Aware?&nbsp;</i></b> is designed to raise                                              
+									awareness about important topics relevant to
+									kidney disease surveillance and prevention.
 								</div>
 							</div>
 							<div>
@@ -263,7 +335,7 @@
 								<span class="PIbody"><asp:Literal ID="Lit_Desc" runat="server"></asp:Literal></span>
 							</p>
 
-                            <hr style="border: 1px solid #707070; opacity: 0.39;">
+                            <hr style="border: 1px solid #707070; opacity: 0.39;" runat="server" id="hrline"/>
 
 							<div>
 								<asp:Literal ID="Lit_IndicatorBody" runat="server" visible="true"></asp:Literal>
@@ -284,7 +356,7 @@
 	</div>
 
 <br /><br />
-
+   
 
 	<%--*****************--%>
 
@@ -299,7 +371,7 @@
 
     <asp:HiddenField ID="HF_HC_TopicText" runat="server" />
     <asp:HiddenField ID="hfShowCI" runat="server" Value="false" />
-
+	<asp:HiddenField ID="HF_Topic" runat="server" />
  <script>
 
             $(document).ready(function () {
@@ -316,10 +388,14 @@
 
                
 				var topicBC = document.getElementById("topicTitle").innerText;
-               
+
+				if (topicBC == "") {
+					topicBC =  document.getElementById("HF_Topic").value;
+				}
+
                 var topicTag = document.getElementById("bcTopic");
                 topicTag.innerHTML = " > " + topicBC;
-
+				
 			});
 
      function navClick() {
