@@ -841,7 +841,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     sbBodyTable.Append("<div class=\"div-table-row\" style=\"background-color: #EBF5F6;\">");
                     sbBodyTable.Append("<div style=\"font-size: 26px;font-weight: 400; padding-left: 5%; padding-top:20px; \">Latest Spotlight</div>");
                     sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; float: left;display: grid;\">");
-                    sbBodyTable.Append("<img src=\"../../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; margin-bottom:5% \"/>");
+                    sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; margin-bottom:5% \"/>");
                     sbBodyTable.Append("</div>");
                     sbBodyTable.Append("<div style=\"padding-right: 3%; padding-bottom: 3%;\">");
                     sbBodyTable.Append("<div class=\"div-table-row dateformat\">" + date + "</div>");
