@@ -125,7 +125,9 @@
         <div class="col-md-4 aya-image">
             <div style="height=50%; width:99%">
                 <%--<img src="/ckd/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
-                <img src="images/AYA_theme_version.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt=""/>
+                <a href="TopicHome/AwarenessArchive.aspx?topic=25">
+                    <img src="images/AYA_theme_version.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt=""/>
+                </a>
             </div>
             <div style="height=25%; width:98%"></div>
             <div style="height=50%; width:98%; display:table-cell; padding-right: 18px; word-spacing: normal;" class ="areYouAwareMsg">
@@ -136,23 +138,19 @@
         </div>
         <div class="col-md-6 aya-image-mobile">
             <%--<img src="/ckd/images/Mask_Group_33_mobile.png"  style="width:100%;margin-top:15px" alt=""/>--%>
-            <img src="/ckd/images/AYA_theme_version.png" style="width:100%;margin-top:15px" alt=""/> 
+            <a href="TopicHome/AwarenessArchive.aspx?topic=25">
+                <img src="/ckd/images/AYA_theme_version.png" style="width:100%;margin-top:15px" alt=""/> 
+            </a>
        </div>
 
         <div class="col-md-7">
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle">Racial/Ethnic Differences in Nephrologist Visits among US Veterans with Advanced Kidney Disease</h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle">Lack of Health Insurance Is Common Among US Adults with Chronic Kidney Disease</h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
-            <div class="aya-text">Most patients in the early stages of chronic kidney disease (CKD) are cared for by primary care physicians. 
-                For those with stage 4 CKD, an advanced stage of the disease, current clinical practice guidelines recommend specialty care by 
-                nephrologists to optimize management of complex clinical conditions and prevent or delay progression to kidney failure. 
-                Data from the Veterans Health Administration show that the highest percent of US veterans with stage 4 CKD seeing a nephrologist 
-                was consistently among non-Hispanic Black veterans, while American Indian/Alaska Native and non-Hispanic White veterans were less 
-                likely to see a nephrologist. These findings may reflect the higher prevalence of advanced kidney disease in the Black population, 
-                which may be deserving of greater attention by health systems, policy makers, and the public health system. </div>
+            <div class="aya-text">Adults with no health insurance are more likely to delay or forgo care due to costs, including preventive care and services for acute and chronic illnesses. Data from the National Health and Nutrition Examination Survey (2005–March 2020) shows that prevalence of lack of health insurance coverage declined after 2009−2012 among adults aged 18−64 years with or without CKD. Continued efforts to ensure adequate health insurance may be important toward improving access to optimal health care to facilitate earlier detection and better management of CKD to prevent its complications, premature morbidity, and mortality.</div>
 
             <div class="row aya-botton-box">
                 <%--<div class="col-sm-3 aya-button">View Spotlight</div>--%>

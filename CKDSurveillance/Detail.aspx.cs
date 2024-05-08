@@ -1041,6 +1041,10 @@ namespace CKDSurveillance_RD.MasterPages
 
                 //pnlFootnotes.Visible = true;
                 fnString = fnString.Replace("<sup><strong>a</strong></sup>", "");
+                
+                if (litChartTitleText.Text.IndexOf("CKD Stage") < 0)
+                    fnString = fnString.Replace("<p>*CKD stage 5 data from 2001&ndash;2004 was suppressed due to a large standard error.</p>", "");
+                
                 litFootNotesText.Text = fnString;
             }
             //else if (dtFootnotes.Rows.Count == 0)
@@ -2030,6 +2034,8 @@ namespace CKDSurveillance_RD.MasterPages
                 litChartTitleText.Visible = true;
 
                 var subTitlePrefix = "";
+
+                subTitlePrefix = dsChart.Tables["Chart"].Rows[0]["SubTitlePrefix"].ToString();
 
                 if (QNum == "Q9" || QNum == "Q756")
                 {
@@ -3568,7 +3574,10 @@ namespace CKDSurveillance_RD.MasterPages
             else
             {
                 //type = category so all values are displayed, not just a group
-                sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+                if(QNum == "Q372")
+                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }, traceorder:'normal'},  barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+                else
+                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
             }
 
             sb.Append(" var gd4 = d3.select('#svgchart');");

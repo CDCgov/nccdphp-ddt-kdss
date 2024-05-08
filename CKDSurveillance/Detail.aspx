@@ -1220,7 +1220,7 @@
                                                                 <li style="margin-bottom: .9em;">
                                                                     <asp:Literal ID="lblRefences" runat="server" Text='<%# Eval("ReferenceText") %>' ClientIDMode="AutoID"></asp:Literal>
                                                                     <br />
-                                                                    <asp:HyperLink runat="server" Target="_self" NavigateUrl='<%# Eval("URL") %>' Text='<%#Eval("URL") %>' ToolTip='<%#Eval("URL")%>' />
+                                                                    <asp:HyperLink runat="server" Target="_self" NavigateUrl='<%# Eval("URL") %>' Text='<%#Eval("URL").ToString().Replace("-", "&#8209;")%>' ToolTip='<%#Eval("URL")%>' />
                                                                 </li>
 
                                                             </ItemTemplate>

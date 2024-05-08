@@ -29,7 +29,10 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
 
             String emailDate = Request.QueryString["emailDate"];
             switch (emailDate)
-            { 
+            {
+                case "February_2024":
+                    bcSelListItem.InnerText = "> Quality of Care";
+                    break;
                 case "April_2023":
                     bcSelListItem.InnerText = "> Awareness";
                     break;
@@ -42,6 +45,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     break;
                 case "June_2023":
                 case "October_2023":
+                case "April_2024":
                     bcSelListItem.InnerText = "> Social Determinants";
                     break;
             }
