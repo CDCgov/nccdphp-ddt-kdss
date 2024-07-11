@@ -840,10 +840,27 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     string ayaCurrentImg = drAYA["AYACurrentImg"].ToString().Trim();
                     sbBodyTable.Append("<div class=\"div-table-row\" style=\"background-color: #EBF5F6;\">");
                     sbBodyTable.Append("<div style=\"font-size: 26px;font-weight: 400; padding-left: 5%; padding-top:20px; \">Latest Spotlight</div>");
-                    sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; float: left;display: grid;\">");
-                    sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; margin-bottom:5% \"/>");
+                    if (date.IndexOf("June 2024") >= 0)
+                    {
+                        sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; display: grid;\">");
+                        sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; \"/>");
+                    }
+                    else
+                    {
+                        sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; float: left;display: grid;\">");
+                        sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; margin-bottom:5% \"/>");
+                    }
+                    
                     sbBodyTable.Append("</div>");
-                    sbBodyTable.Append("<div style=\"padding-right: 3%; padding-bottom: 3%;\">");
+                    if (date.IndexOf("June 2024") >= 0)
+                    {
+                        sbBodyTable.Append("<div style=\"padding-right: 5%; padding-bottom: 3%; padding-left:5%\">");
+                    }
+                    else
+                    {
+                        sbBodyTable.Append("<div style=\"padding-right: 3%; padding-bottom: 3%;\">");
+                    }
+                    
                     sbBodyTable.Append("<div class=\"div-table-row dateformat\">" + date + "</div>");
                     sbBodyTable.Append("<div class=\"div-table-row ayaTitle\">" + linkStart + title + linkEnd + "</div>");
                     sbBodyTable.Append("<div class=\"div-table-row\">" + linkStart + linkEnd + "</div>");

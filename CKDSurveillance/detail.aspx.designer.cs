@@ -339,6 +339,15 @@ namespace CKDSurveillance_RD.MasterPages
         protected global::System.Web.UI.WebControls.CheckBox CB_ChartCI;
 
         /// <summary>
+        /// btnViewAsTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl btnViewAsTable;
+
+        /// <summary>
         /// csvDownload control.
         /// </summary>
         /// <remarks>
@@ -348,6 +357,15 @@ namespace CKDSurveillance_RD.MasterPages
         protected global::System.Web.UI.WebControls.Button csvDownload;
 
         /// <summary>
+        /// lnkCSV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkCSV;
+
+        /// <summary>
         /// lnkPPT control.
         /// </summary>
         /// <remarks>
@@ -355,6 +373,51 @@ namespace CKDSurveillance_RD.MasterPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkPPT;
+
+        /// <summary>
+        /// divRBSTD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRBSTD;
+
+        /// <summary>
+        /// rbstd1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbstd1;
+
+        /// <summary>
+        /// lblrbstd1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblrbstd1;
+
+        /// <summary>
+        /// rbstd2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbstd2;
+
+        /// <summary>
+        /// lblrbstd2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblrbstd2;
 
         /// <summary>
         /// divMapMenu control.
@@ -400,6 +463,15 @@ namespace CKDSurveillance_RD.MasterPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Lit_Plotly;
+
+        /// <summary>
+        /// Lit_PlotlyRel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Lit_PlotlyRel;
 
         /// <summary>
         /// pnlData control.
@@ -481,6 +553,15 @@ namespace CKDSurveillance_RD.MasterPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl map3;
+
+        /// <summary>
+        /// staticimg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl staticimg;
 
         /// <summary>
         /// phDivs control.
@@ -616,6 +697,15 @@ namespace CKDSurveillance_RD.MasterPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvData;
+
+        /// <summary>
+        /// gvDataRel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvDataRel;
 
         /// <summary>
         /// litFootNotesText control.

@@ -147,10 +147,14 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle">Lack of Health Insurance Is Common Among US Adults with Chronic Kidney Disease</h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle"><i>Awareness of Chronic Kidney Disease Remains Low Among U.S. Adults</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
-            <div class="aya-text">Adults with no health insurance are more likely to delay or forgo care due to costs, including preventive care and services for acute and chronic illnesses. Data from the National Health and Nutrition Examination Survey (2005–March 2020) shows that prevalence of lack of health insurance coverage declined after 2009−2012 among adults aged 18−64 years with or without CKD. Continued efforts to ensure adequate health insurance may be important toward improving access to optimal health care to facilitate earlier detection and better management of CKD to prevent its complications, premature morbidity, and mortality.</div>
+            <div class="aya-text">
+                Over 35 million adults—1 in 7—in the United States have chronic kidney disease (CKD). However, 9 in 10 adults with CKD do not know they have it. In the National Health and Nutrition Examination Survey (2017–March 2020), awareness was defined as a self-reported affirmative response from adults with measured CKD to the question “Have you ever been told by a doctor or other health professional that you had weak or failing kidneys?” 
+                <br /><br />
+                The data showed low awareness among those with moderately increased risk for CKD, representing 22 million U.S. adults who are unaware of their diagnosis. Although earlier-stage CKD is more prevalent than advanced stages, low screening rates, particularly for albuminuria, may contribute to the low awareness of disease. Addressing this gap would enable adults with earlier stages of CKD to be diagnosed earlier and receive timely treatment to prevent disease progression and its associated complications. 
+            </div>
 
             <div class="row aya-botton-box">
                 <%--<div class="col-sm-3 aya-button">View Spotlight</div>--%>

@@ -34,6 +34,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     bcSelListItem.InnerText = "> Quality of Care";
                     break;
                 case "April_2023":
+                case "June_2024":
                     bcSelListItem.InnerText = "> Awareness";
                     break;
                 case "December_2023":
@@ -41,7 +42,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     bcSelListItem.InnerText = "> Risk Factors";
                     break;
                 case "August_2023":
-                    bcSelListItem.InnerText = "> Prevalence";
+                    bcSelListItem.InnerText = "> Prevalence & Incidence";
                     break;
                 case "June_2023":
                 case "October_2023":

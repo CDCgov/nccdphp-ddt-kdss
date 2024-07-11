@@ -15,6 +15,7 @@ Imports NG.NCCDPHP.Common
 Imports NG.NCCDPHP.DataAccess
 Imports NG.NCCDPHP.Utilities
 Imports NG.NCCDPHP.DataAccess.Sql
+Imports DocumentFormat.OpenXml.Office2013.Excel
 ''**NG/CDC**''
 
 
@@ -1125,7 +1126,7 @@ Public Class ArborDataAccessV2
 
         Try
             Dim p1 As SqlParameter = New SqlParameter("@TopicID", topicID)
-            Dim p2 As SqlParameter = New SqlParameter("@SearchList", List)
+            Dim p2 As SqlParameter = New SqlParameter("@SearchList", list)
             Dim sqlparam As SqlParameter() = {p1, p2}
 
             '********************************
@@ -2329,6 +2330,44 @@ Public Class ArborDataAccessV2
 
     End Function
 
+    Public Function proc_IsRelatedToAgeSTD(ByVal Qnum As String) As Boolean
+        Try
+            Dim Sql As String = "proc_IsRelatedToAgeSTD"
+            Dim p1 As SqlParameter = New SqlParameter("@QNum", Qnum)
+            Dim sqlparam As SqlParameter() = {p1}
+
+            '*******************************
+            '*Execute SP and get the result*
+            '*******************************
+            Return returnDataSet(sqlparam, Sql, "IsRelatedToAgeSTD").Tables(0).Rows(0)("AgeSTD") > 0
+        Catch sqlEx As SqlException
+            Throw
+        Catch ex As Exception
+            Throw
+        End Try
+
+        Return False
+    End Function
+
+    Public Function proc_GetAgeSTDLabel() As DataTable
+        Dim ds As DataSet = New DataSet()
+
+        Try
+            Dim Sql As String = "proc_GetAgeSTDLabel"
+
+            '********************************
+            '*Execute SP and get the Dataset*
+            '********************************
+            ds = returnDataSet(Sql, "AgeSTDLabel")
+
+        Catch sqlEx As SqlException
+            Throw
+        Catch ex As Exception
+            Throw
+        End Try
+
+        Return ds.Tables(0)
+    End Function
 
 #End Region
 

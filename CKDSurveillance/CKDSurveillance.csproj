@@ -30,7 +30,8 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <UseGlobalApplicationHostFile />
-    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -208,7 +209,8 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
     <Reference Include="XLParser, Version=1.5.2.0, Culture=neutral, PublicKeyToken=63397e1e46bb91b4, processorArchitecture=MSIL">
-      <HintPath>..\packages\XLParser.1.5.2\lib\net461\XLParser.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\XLParser.1.7.2\lib\net462\XLParser.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +259,7 @@
     <Content Include="AYA\Images\CurrentAYA.png" />
     <Content Include="AYA\Images\December_2023.png" />
     <Content Include="AYA\Images\February_2024.png" />
+    <Content Include="AYA\Images\June_2024.png" />
     <Content Include="AYA\Images\June_2023.png" />
     <Content Include="AYA\Images\October_2023.png" />
     <Content Include="AYA\June_2023.html" />
@@ -271,6 +274,7 @@
     <Content Include="AYA\Images\July_2021.png" />
     <Content Include="AYA\Images\October_2022.png" />
     <Content Include="AYA\Images\September_2021.png" />
+    <Content Include="AYA\June_2024.html" />
     <Content Include="AYA\March_2021.html" />
     <Content Include="AYA\Images\012018.png" />
     <Content Include="AYA\Images\012019.png" />
@@ -402,6 +406,7 @@
     <Content Include="images\DataCharts\DownloadIcon.jpg" />
     <Content Include="images\DataCharts\HPArrow.jpg" />
     <Content Include="images\DataCharts\Hypertension_RiskFactorsOfKD.jpg" />
+    <Content Include="images\DataCharts\June_2024.PNG" />
     <Content Include="images\DataCharts\map1.PNG" />
     <Content Include="images\DataCharts\map2.PNG" />
     <Content Include="images\DataCharts\PM2.5_mean.jpg" />
@@ -616,6 +621,8 @@
     <Content Include="Documents\CKD_FactSheet_2023.pdf" />
     <Content Include="PPT\Q790.pptx" />
     <Content Include="PPT\Q791.pptx" />
+    <Content Include="PPT\Q802.pptx" />
+    <Content Include="Documents\Q802.xlsx" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="scripts\local.js" />
     <Content Include="scripts\templateContentEmpty.js" />

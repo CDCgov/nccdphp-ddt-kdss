@@ -86,7 +86,7 @@
 		var qnum = getParameterByName('Qnum');
 
 		if (topic == 1 || qnum == "Q372"
-			|| qnum == "Q9"
+			|| qnum.replace("Q", "").replace("S", "") == "9"
 			|| qnum == "Q702"
 			|| qnum == "Q756"
 			|| qnum == "Q705") {

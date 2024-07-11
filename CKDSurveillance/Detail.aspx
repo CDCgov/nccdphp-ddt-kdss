@@ -197,6 +197,9 @@
          .imgsize-c {
              max-width:650px;
          }
+         .imgsize-d {
+             max-width:900px;
+         }
 
          .topicDescDiv {
             text-align: left;
@@ -250,6 +253,17 @@
             letter-spacing: 0px;
             color: #00695C;
          }
+
+         #svgchart {
+            opacity: 1;
+            transition: opacity 3s linear 3s, opacity 3s;
+         }
+
+         #svgchartRel {
+            opacity: 0;
+            transition: opacity 3s linear 3s, opacity 3s;
+         }
+
     </style>
 
     <%--*****************************--%>
@@ -418,7 +432,7 @@
                         <div class="topicDescDiv">
                             <asp:Literal ID="litTopicDesc" runat="server" Text="" />
                         </div>
-
+                        
                         <div class="topicDescDiv" id="divDataSource" runat="server">
                             <span class="spnDataSource">Data Source: </span><asp:Literal ID="litDataSource" runat="server" Text="" />
                         </div>
@@ -651,7 +665,7 @@
                                 </div>
                                 <%-- View as table--%>
                                 <div class="menu-content-menu moveright" id="divMenuData" style="margin-left:5%">
-                                    <div class="custom-control custom-switch" >
+                                    <div class="custom-control custom-switch" id="btnViewAsTable" runat="server" >
                                         <input type="checkbox" class="custom-control-input" id="chViewTable"  onclick="toggleChartTable()">
                                         <label class="custom-control-label chartMenuLabel viewTableBtnLabel" for="chViewTable" >View as table</label>
                                     </div>
@@ -660,6 +674,9 @@
                                         <label class="chartMenuLabel">Download:</label>
                                         <asp:Button ID="csvDownload" CssClass="noPrint btn cdc-icon-download_01 chartDownloadBtn" style="font-size:17px" runat ="server" Text="csv" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01 chartMenuLabel">
                                         </asp:Button>
+                                        <a href="." runat="server" id="lnkCSV" style="text-decoration:none!important" visible="false">
+                                            <span class="noPrint btn chartDownloadBtn">csv</span>
+                                        </a>
                                         <a href="." runat="server" id="lnkPPT" style="text-decoration:none!important">
                                             <span class="noPrint btn ppt-icon iconPPTBtn chartMenuLabel">PPT</span>
                                         </a>
@@ -668,7 +685,16 @@
                                     </div>
                                 </div>
                             </div>
-
+                                <div style="width:50%;margin:auto;text-align: center!important;" runat="server" id="divRBSTD" class="chartMenuLabel">  
+                                    <fieldset><legend></legend>
+                                    <input type="radio" id="rbstd1" value="1" name="rbstd" runat="server" checked />
+                                    <label for="rbstd1" id="lblrbstd1" runat="server"></label>
+                                    <input type="radio" id="rbstd2" value="2" name="rbstd" runat="server"/>
+                                    <label for="rbstd2" id="lblrbstd2" runat="server"></label><br>
+                                    </fieldset>
+                                </div>
+                            <div>
+                            </div>
                             <%--<div class="row"><asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList chartMenuLabel col" Text="95% Confidence Intervals" runat="server" /></div>--%>
                             <div class="row" id="divMapMenu" runat="server">                                
                                 <div class="col-3 chartMapMenu">
@@ -748,11 +774,53 @@
 
                             <div id="divPlotly" class="ChartArea">
                                     <asp:Literal ID="Lit_Plotly" runat="server" ></asp:Literal>
-                              
-                                    <div id="svgchart" ></div>
+                                    <div id="svgchart" vis="1"></div>
+                                    <asp:Literal ID="Lit_PlotlyRel" runat="server" ></asp:Literal>
+                                    <div id="svgchartRel" vis="0" ></div>
                             </div>
 
+
                             <script>
+                                function initStdChartTable() {
+                                    $("#svgchart").show(); // Select the first radio button
+                                    $("#svgchartRel").hide();
+                                    $('#divData').show();
+                                    $('#divDataRel').hide();
+
+                                    const radioButtons = document.querySelectorAll('input[type="radio"][name*="rbstd"]');
+
+                                    radioButtons.forEach((radio) => {
+                                        radio.addEventListener('click', () => {
+                                            if (radio.value === "1") {
+                                                $("#svgchart").show(); // Select the first radio button
+                                                $("#svgchartRel").hide();
+                                                $('#divData').show();
+                                                $('#divDataRel').hide();
+
+                                                var svgchartRel = document.getElementById("svgchartRel");
+                                                svgchartRel.style.opacity = "0";
+                                                var svgchart = document.getElementById("svgchart");
+                                                svgchart.style.opacity = "1";
+
+                                                redrawPlotlyChart();
+
+                                            } else if (radio.value === "2") {
+                                                $("#svgchart").hide(); // Select the first radio button
+                                                $("#svgchartRel").show();
+                                                $('#divData').hide();
+                                                $('#divDataRel').show();
+
+                                                var svgchartRel = document.getElementById("svgchartRel");
+                                                svgchartRel.style.opacity = "1";
+                                                var svgchart = document.getElementById("svgchart");
+                                                svgchart.style.opacity = "0";
+
+                                                redrawPlotlyChart();
+                                            }
+                                        });
+                                    });
+                                }
+
                                 function toggleChartTable() {
                                     var checkBox = document.getElementById("chViewTable");
 
@@ -768,6 +836,8 @@
                                         $('#map').show();
                                         toggleTable();
                                     }
+
+                                    redrawPlotlyChart();
                                 }
                                 $(function () {
 
@@ -929,7 +999,7 @@
                                 <%-- <br />--%>
                                 <%--*Raphael Dynamic Maps (SVG)*--%>
                                 
-                                <div id="map" style="font-size: 8pt; font-family: verdana; height: 750px;" >    
+                                <div id="map" style="font-size: 8pt; font-family: verdana;" >    
                                     <div id="divStaticLeft" class="col-xl-2 col-lg-4" runat="server">
                                         <div id="map1" runat="server">
                                             <div class="imgcell">
@@ -944,6 +1014,11 @@
                                         <div id="map3" runat="server">
                                             <div class="imgcell">
                                                 <img src="images/DataCharts/County-Level_Residential_Segregation_V2.png" runat="server" class="imgsize-ab" alt="Percentage of the population under the poverty level, by county (2018)"/>
+                                            </div>
+                                        </div>
+                                        <div id="staticimg" runat="server">
+                                            <div class="imgcell"  style="position: relative;left:5%;">
+                                                <img src="images/DataCharts/June_2024.png" runat="server" class="imgsize-d" alt="Prevalence of Awareness of CKD among U.S. Adults by Albuminuria category and eGFR category (2017-2020), data can be reviewed in the CSV download"/>
                                             </div>
                                         </div>
                                         <%--<img src="images/DataCharts/map1.PNG" id="map1" runat="server" style="height: 650px;"/>
@@ -1124,11 +1199,14 @@
                         <div class="tableContainer" style="display: none; width:100%" vis="0">
 
                             <%--*Table*--%>
-                            <div style="overflow: auto; width:100%" class="printTable">
+                            <div style="overflow: auto; width:100%" class="printTable" id="divData">
                                 <asp:GridView ID="gvData" Width="100%" runat="server" CssClass="ckd-details-dynamic-table" UseAccessibleHeader="true" captionalign="Top"  DataRowBound="gvData_DataRowBound" ClientIDMode="Static">
                                 </asp:GridView>
                             </div>
-
+                             <div style="overflow: auto; width:100%" class="printTable" id="divDataRel">
+                                 <asp:GridView ID="gvDataRel" Width="100%" runat="server" CssClass="ckd-details-dynamic-table" UseAccessibleHeader="true" captionalign="Top"  DataRowBound="gvData_DataRowBound" ClientIDMode="Static">
+                                 </asp:GridView>
+                             </div>
                             <br />
 
                             <%--*Notes*--%>
@@ -1150,14 +1228,14 @@
                                 <div id="divContentTabs" class="tabs-module">
                                     <a id="detailArea" name="detailArea"></a>
                                     <ul class="nav nav-tabs no-syndicate" id="tabs-3" role="list" style="background-color:#ffffff" aria-label="tabparent" aria-busy="true">
-                                        <li class="nav-item" role="listitem"><a class="nav-tab-link nav-link active inactive-nav-link" data-toggle="tab" role="link" href="#tab-KeyPoints">Notes</a></li>
-                                        <li class="nav-item" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-ChartDescription">Data Source Description</a></li>
+                                        <li class="nav-item" id="tab-1" role="listitem"><a class="nav-tab-link nav-link active inactive-nav-link" data-toggle="tab" role="link" href="#tab-KeyPoints">Notes</a></li>
+                                        <li class="nav-item" id="tab-2" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-ChartDescription">Data Source Description</a></li>
                                         <%--<li class="nav-item"><a class="nav-tab-link nav-link " data-toggle="tab" role="tab" href="#tab-Methods">Indicator Specifications</a></li>--%>
-                                        <li class="nav-item" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-SpecSheet">Indicator Specifications</a></li>
-                                        <li class="nav-item" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-RefDataSources">References</a></li>
+                                        <li class="nav-item" id="tab-3" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-SpecSheet">Indicator Specifications</a></li>
+                                        <li class="nav-item" id="tab-4" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-RefDataSources">References</a></li>
                                     </ul>
                                     <div class="tab-content">
-                                        <div class="tab-pane active" role="tabpanel" id="tab-KeyPoints">
+                                        <div class="tab-pane active" role="tabpanel" tabindex="0" aria-labelledby="tab-1" id="tab-KeyPoints">
                                             <div class="ct-row">
 
                                                 <%--*KP/Methods Content*--%>
@@ -1173,7 +1251,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="tab-pane" role="tabpanel" id="tab-ChartDescription">
+                                        <div class="tab-pane" role="tabpanel" tabindex="0" aria-labelledby="tab-2" id="tab-ChartDescription">
                                             <div class="ct-row">
                                 
                                                 <!--*******************-->
@@ -1195,7 +1273,7 @@
                                                 </div>
                                         </div>--%>
 
-                                        <div class="tab-pane" role="tabpanel" id="tab-SpecSheet">
+                                        <div class="tab-pane" role="tabpanel" tabindex="0" aria-labelledby="tab-3" id="tab-SpecSheet">
                                             <div class="ct-row">
 
                                                 <%--*HTML Grid of Spec Sheet Data*--%>
@@ -1204,7 +1282,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="tab-pane" role="tabpanel" id="tab-RefDataSources">
+                                        <div class="tab-pane" role="tabpanel" tabindex="0" aria-labelledby="tab-4" id="tab-RefDataSources">
                                             <div class="ct-row">
                                                 <asp:Panel ID="pnlReferences" runat="server" Style="" class="printReferences">
                                                     <div class="tabbyDiv">
@@ -1512,6 +1590,7 @@
         function openViewDataBy(selVal) {
             window.location.href = "./" + selVal.replace("%3f", "?");
         }
+
     </script>
      <%--*Navigate to here after page refresh*--%>
     <input type="hidden" id="_ispostback" value="<%=Page.IsPostBack.ToString()%>" />
@@ -1527,7 +1606,8 @@
                 autoscaleBtn.click();
             }
 
-            $(document).ready(function () {                
+            $(document).ready(function () {    
+                initStdChartTable();
                 var divVD = document.getElementById("divViewDataBy");
                 if (typeof (divVD) != 'undefined' && divVD != null) {
                     $('#divMenuData').removeAttr("style");
@@ -1544,6 +1624,19 @@
                         //$('#divMenuData').attr("style", "margin-left:63%");
                     }
                 }
+
+                //$('#RBStd_0').on('change', function () {
+                //    if ($(this).is(':checked')) {
+                //        window.location.href = "./detail.aspx?Qnum=" + $(this).val() + "#refreshPosition";
+                //    }
+                //});
+
+                //$('#RBStd_1').on('change', function () {
+                //    if ($(this).is(':checked')) {
+                //        window.location.href = "./detail.aspx?Qnum=" + $(this).val() + "#refreshPosition";
+                //    }
+                //});
+                
                 
                 var sw = $(window).width();
                 $('#tableHeaderBar').hide();
@@ -1577,11 +1670,15 @@
                 $("input[id*='CB_ChartCI']").click(function () {
                     console.log("cbchart=" + $(this).prop('checked'));
                     if ($(this).prop('checked')) {
-                        $('#hfChartYValToUse').val($('#hfMaxConfidence').val()) // if the confidence intervals checkbox is checked then use the max confidence value to draw the chart
+                        if ($('#hfMaxConfidence').val() > $('#hfChartYValToUse').val()) {
+                            $('#hfChartYValToUse').val($('#hfMaxConfidence').val()); // if the confidence intervals checkbox is checked then use the max confidence value to draw the chart
+                        }
                         $('#hfShowCI').val("true");
                     }
                     else {
-                        $('#hfChartYValToUse').val($('#hfMaxYVal').val()) // if the confidence intervals checkbox is NOT checked then use the max y value to draw the chart
+                        if ($('#hfMaxYVal').val() > $('#hfChartYValToUse').val()) {
+                            $('#hfChartYValToUse').val($('#hfMaxYVal').val()); // if the confidence intervals checkbox is NOT checked then use the max y value to draw the chart
+                        }
                         $('#hfShowCI').val("false");
                     }
 
@@ -1625,7 +1722,9 @@
                 //not sure what these two lines do commented out for now
                 //$("#svgchart").removeProp("style");
                 //$("#svgchart").prop("style", "display:inline-block");
+
                 createPlotlyChart();
+                createPlotlyChartRel();
 
                 compliance508();
             }
@@ -2072,7 +2171,31 @@
                 $('#spnViewDataTable').text('+ View Data Table');
                 break;
         }
-    }
+        }
+
+        //function toggleStdChart() {
+
+        //    //Executes on click of span #spnViewDataTable to hide/show table contents
+        //    var showingDefault = $('#svgchart').attr('vis');
+        //    var showingStd = $('#svgchartRel').attr('vis');
+
+        //    switch (showingDefault) {
+        //        case '0':
+        //            $('#svgchartRel').slideUp(1000);
+        //            $('#svgchart').slideDown(1000);
+        //            $('#svgchart').attr('vis', '0');
+        //            $('#svgchartRel').attr('vis', '1');
+        //            //$('#spnViewDataTable').html('&mdash; Hide Data Table');
+        //            break;
+        //        case '1':
+        //            $('#svgchartRel').slideDown(1000);
+        //            $('#svgchart').slideUp(1000);
+        //            $('#svgchartRel').attr('vis', '0');
+        //            $('#svgchart').attr('vis', '1');
+        //            //$('#spnViewDataTable').text('+ View Data Table');
+        //            break;
+        //    }
+        //}
 
     function toggleTableKeyBoard(e) {
 
@@ -2708,6 +2831,25 @@
                  }
              });
          }
+
+         //function callOnSelectedIndexChanged() {
+         //    $.ajax({
+         //        type: "POST",
+         //        url: "Detail.aspx",
+         //        data: "selectedstate=" + stateval + "^valMin=" + valMin_tabs + "^valMax=" + valMax_tabs + "^sortvalue=" + $("#heatmapsort").val() + "^yr=" + $("#hfCurrentYear").val() + "^chartid=" + $("#hfChartID").val(),
+         //        success: function (response) {
+
+         //            console.log("response=" + response);
+         //            //createPlotlyBarChart(response)
+         //            eval(response);
+
+         //        },
+         //        error: function (jqXHR, textStatus, errorThrown) {
+         //            // console.log("ajax error");
+         //            alert("textStatus=" + textStatus + " -- AJAX callHandler Error:" + errorThrown);
+         //        }
+         //    });
+         //}
 
          //function createUSMapChart(width, height) //datavals, scopeval, xaxis_title, title_var //creating the chart with the data sent back from the proc
          //{
