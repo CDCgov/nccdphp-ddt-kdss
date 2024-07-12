@@ -198,7 +198,8 @@
              max-width:650px;
          }
          .imgsize-d {
-             max-width:900px;
+             max-width:850px;
+             height:auto;
          }
 
          .topicDescDiv {
@@ -1017,7 +1018,7 @@
                                             </div>
                                         </div>
                                         <div id="staticimg" runat="server">
-                                            <div class="imgcell"  style="position: relative;left:5%;">
+                                            <div class="imgcell"  style="left:5%;">
                                                 <img src="images/DataCharts/June_2024.png" runat="server" class="imgsize-d" alt="Prevalence of Awareness of CKD among U.S. Adults by Albuminuria category and eGFR category (2017-2020), data can be reviewed in the CSV download"/>
                                             </div>
                                         </div>
