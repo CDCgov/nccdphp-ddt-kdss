@@ -194,7 +194,7 @@
     <%--************--%>
     <%--*Main Image*--%>
     <%--************--%>
-    <div class="row d-lg-block main-image-banner">
+    <div class="row d-lg-block main-image-banner" style="background-position: center;">
         <div class="container">
             <uc1:MainImage runat="server" ID="MainImage1" />
         </div>

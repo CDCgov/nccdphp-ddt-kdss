@@ -2330,11 +2330,12 @@ Public Class ArborDataAccessV2
 
     End Function
 
-    Public Function proc_IsRelatedToAgeSTD(ByVal Qnum As String) As Boolean
+    Public Function proc_IsRelatedToAgeSTD(ByVal Qnum As String, Optional ByVal Strat As String = "") As Boolean
         Try
             Dim Sql As String = "proc_IsRelatedToAgeSTD"
             Dim p1 As SqlParameter = New SqlParameter("@QNum", Qnum)
-            Dim sqlparam As SqlParameter() = {p1}
+            Dim p2 As SqlParameter = New SqlParameter("@Strat", Strat)
+            Dim sqlparam As SqlParameter() = {p1, p2}
 
             '*******************************
             '*Execute SP and get the result*

@@ -85,29 +85,29 @@
 		var topic = getParameterByName('topic'); 
 		var qnum = getParameterByName('Qnum');
 
-		if (topic == 1 || qnum == "Q372"
-			|| qnum.replace("Q", "").replace("S", "") == "9"
-			|| qnum == "Q702"
-			|| qnum == "Q756"
-			|| qnum == "Q705") {
+        if (topic == 1 || qnum.toUpperCase() == "Q372"
+			|| qnum.toUpperCase().replace("Q", "").replace("S", "") == "9"
+            || qnum.toUpperCase() == "Q702"
+            || qnum.toUpperCase() == "Q756"
+            || qnum.toUpperCase() == "Q705") {
             var a = document.getElementById("nav-PI");
 			a.classList.add("active");
-        } else if (topic == 3 || qnum == "Q98" || qnum == "Q759") {
+        } else if (topic == 3 || qnum.toUpperCase() == "Q98" || qnum.toUpperCase() == "Q759") {
 			var a = document.getElementById("nav-AR");
             a.classList.add("active");
-        } else if (topic == 4 || qnum == "Q762" || qnum == "Q763" || qnum == "Q764") {
+        } else if (topic == 4 || qnum.toUpperCase() == "Q762" || qnum.toUpperCase() == "Q763" || qnum.toUpperCase() == "Q764") {
             var a = document.getElementById("nav-RF");
             a.classList.add("active");
-        } else if (topic == 5 || qnum == "Q185" || qnum == "Q364" || qnum == "Q703") {
+        } else if (topic == 5 || qnum.toUpperCase() == "Q185" || qnum.toUpperCase() == "Q364" || qnum.toUpperCase() == "Q703") {
             var a = document.getElementById("nav-HC");
             a.classList.add("active");
-        } else if (topic == 6 || qnum == "Q640"
-            || qnum == "Q700"
-            || qnum == "Q605"
-            || qnum == "Q719") {
+        } else if (topic == 6 || qnum.toUpperCase() == "Q640"
+            || qnum.toUpperCase() == "Q700"
+            || qnum.toUpperCase() == "Q605"
+            || qnum.toUpperCase() == "Q719") {
             var a = document.getElementById("nav-QC");
             a.classList.add("active");
-        } else if (topic == 24 || qnum == "Q760" || qnum == "Q761" || qnum == "Q783") {
+        } else if (topic == 24 || qnum.toUpperCase() == "Q760" || qnum.toUpperCase() == "Q761" || qnum.toUpperCase() == "Q783") {
             var a = document.getElementById("nav-SDOH");
             a.classList.add("active");
         }
