@@ -147,13 +147,11 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle"><i>Awareness of Chronic Kidney Disease Remains Low Among U.S. Adults</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle"><i>Awareness of Chronic Kidney Disease (CKD) is Lower among Adults with Early-Stage CKD According to the KDIGO CKD Risk Classification</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
-                Over 35 million adults—1 in 7—in the United States have chronic kidney disease (CKD). However, 9 in 10 adults with CKD do not know they have it. In the National Health and Nutrition Examination Survey (2017–March 2020), awareness was defined as a self-reported affirmative response from adults with measured CKD to the question “Have you ever been told by a doctor or other health professional that you had weak or failing kidneys?” 
-                <br /><br />
-                The data showed low awareness among those with moderately increased risk for CKD, representing 22 million U.S. adults who are unaware of their diagnosis. Although earlier-stage CKD is more prevalent than advanced stages, low screening rates, particularly for albuminuria, may contribute to the low awareness of disease. Addressing this gap would enable adults with earlier stages of CKD to be diagnosed earlier and receive timely treatment to prevent disease progression and its associated complications. 
+                Over 35 million adults, i.e., 1 in 7 adults, in the United States have chronic kidney disease (CKD). However, 9 in 10 adults with CKD do not know they have it. Data from the National Health and Nutrition Examination Survey (2017–March 2020) show a lower awareness among adults with earlier stages of CKD while the higher awareness was among those with later stages of CKD. Awareness was defined as a self-reported affirmative response to the question “Have you ever been told by a doctor or other health professional that you had weak or failing kidneys?” While earlier stage CKD is more prevalent than advanced stages, low screening rates particularly for albuminuria may contribute to the low awareness of disease. This gap may need to be addressed to ensure adults with earlier stages of CKD are diagnosed earlier and receive timely treatment to prevent disease progression and its associated complications. 
             </div>
 
             <div class="row aya-botton-box">

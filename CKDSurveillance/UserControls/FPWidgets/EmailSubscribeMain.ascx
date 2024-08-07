@@ -63,7 +63,7 @@
         <form name="govdelivery" action="https://public.govdelivery.com/accounts/USCDC/subscribers/qualify">
             <fieldset>
                 <div class="emailmain">
-                    <label for="gov-d-email" class="emailmain-label">SIGN UP FOR EMAIL UPDATES&nbsp;&nbsp;</label>
+                    <section for="gov-d-email" class="emailmain-label">SIGN UP FOR EMAIL UPDATES&nbsp;&nbsp;</section>
                     <input id="gov-d-email" name="email" type="email" class="emailmain-textbox" placeholder="Email Address" /><%-- required="required">--%>
                     <button id="btnSubmitEmailSubscription" class="btn emailmain-btn">Submit</button>
                 </div>

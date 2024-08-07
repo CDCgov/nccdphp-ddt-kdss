@@ -406,7 +406,7 @@
                     <%--************************--%>
                     <%--*Center Column Material*--%>
                     <%--************************--%>
-                    <main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area">
+                    <section id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area">
                         <div class="cdc-2020-bar container">
 								<div class="row no-gutters">
 									<div class="bar-item">
@@ -1334,7 +1334,7 @@
                         <br />
 
                     </div>
-                    </main>
+                    </section>
 
                     
                     <div id="divLEFT" class="col-xl-3 order-xl-1 leftnav-wrapper" runat="server">

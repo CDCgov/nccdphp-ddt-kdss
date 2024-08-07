@@ -278,10 +278,10 @@
     <div class="container-fluid site-title homepage-ckd-nav" style="background-color:#00695C">
         <div class="container">
             <div class="d-flex">
-                <div class="text-white fw-500 pt-1 pb-1 siteTitleBar">
+                <header class="text-white fw-500 pt-1 pb-1 siteTitleBar">
                     <%--display-6 --%>
                     <a href="<%= ConfigurationManager.AppSettings["DirPath"]%>default.aspx">Kidney Disease Surveillance System</a>                    
-                </div>
+                </header>
                 <%--<div class="col-md-1 ckd-toggle-btn">--%>
                     <button id="ham" class="navbar-toggler navbar-light collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedContentMobile" 
 	                    aria-controls="navbarSupportedContentMobile" aria-expanded="false" aria-label="Toggle navigation" style="padding-left:0px;padding-right:0px;">
