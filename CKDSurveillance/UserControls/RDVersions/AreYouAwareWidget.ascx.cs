@@ -39,6 +39,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     break;
                 case "December_2023":
                 case "October_2022":
+                case "August_2024":
                     bcSelListItem.InnerText = "> Risk Factors";
                     break;
                 case "August_2023":

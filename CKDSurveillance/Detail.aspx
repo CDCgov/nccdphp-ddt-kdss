@@ -2667,8 +2667,8 @@
             
              $("#tinystatemap").hide();//hiding the state map on load
              $("#heatmapsort").hide(); //hide on load
-             $(".heatmapsortlbl").hide();
-             
+             $(".heatmapsortlbl").hide();             
+
              var mapwidth_tabs = 790, //setting the height and width to mathc the values of the svg above
                  mapheight_tabs = 500;
 
@@ -2693,6 +2693,12 @@
              $("#ddstate").change(function () {
 
                  var statecode_tabs = $(this).val();
+
+                 if(statecode_tabs == "select")
+                 {
+                     $(".btnzoomout").click();
+                     return;
+                 }
 
                  var featurestate_tabs = topojson.feature(global_us_tabs, global_us_tabs.objects.states)
                      .features
@@ -2808,7 +2814,7 @@
 
              //Fix search box at top(2021-May Release)
              $('#headerSearch').attr('style','max-width:225px;'); //thin up the box a bit
-             $('.search-submit').attr('style', 'height:33px;'); //btn should match height of txt box
+             //$('.search-submit').attr('style', 'height:33px;'); //btn should match height of txt box
              $('.form-control-clear').remove(); //Remove 'X'
          });
 
@@ -3052,13 +3058,19 @@
                              var countydatalabelval;
 
                              if (filtercountyrow.length === 0) {
-                                 //county_val = "MISSING DATA";
-                                 //data_val = "";
-                                 //countydatalabelval = "MISSING DATA";
-                                 countydatalabelval = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA</div>";
+                                 county_val = "NA";
+                                 data_val = "";
+                                 countydatalabelval = "NA";
                              }
-                             else if (Number(filtercountyrow[0]["countydatavalue"]) <= 10) {
-                                 countydatalabelval = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA</div>";
+                             else if (filtercountyrow[0]["countydatavalue"] === "NA" || Number(filtercountyrow[0]["countydatavalue"]) <= 10) {
+                                 statename = filtercountyrow[0]["state"]
+                                 county_val = filtercountyrow[0]["county"];
+                                 data_val = filtercountyrow[0]["countydatavalue"];
+                                 var color = findColorVal(data_val);
+                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA</div>";
+                                 htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
+                                 htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
+                                 countydatalabelval = htmlwrap;
                              }
                              else {
                                  county_val = filtercountyrow[0]["county"];
@@ -3167,19 +3179,25 @@
                              var county_val;
                              var data_val;
                              var countydatalabelval;
-                             var statename = filtercountyrow[0]["state"];
+                             var statename;
 
                              if (filtercountyrow.length === 0) {
-                                 county_val = "MISSING DATA";
+                                 county_val = "NA";
                                  data_val = "";
-                                 countydatalabelval = "MISSING DATA";
+                                 countydatalabelval = "NA";
                              }
-                             else if (Number(filtercountyrow[0]["countydatavalue"]) <= 10) {
-                                 county_val = "MISSING DATA";
-                                 data_val = "";
-                                 countydatalabelval = "MISSING DATA";
+                             else if (filtercountyrow[0]["countydatavalue"] === "NA" || Number(filtercountyrow[0]["countydatavalue"]) <= 10) {
+                                 statename = filtercountyrow[0]["state"]
+                                 county_val = filtercountyrow[0]["county"];
+                                 data_val = filtercountyrow[0]["countydatavalue"];
+                                 var color = findColorVal(data_val);
+                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA</div>";
+                                 htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
+                                 htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
+                                 countydatalabelval = htmlwrap;
                              }
                              else {
+                                 statename = filtercountyrow[0]["state"]
                                  county_val = filtercountyrow[0]["county"];
                                  data_val = filtercountyrow[0]["countydatavalue"];
                                  var color = findColorVal(data_val);

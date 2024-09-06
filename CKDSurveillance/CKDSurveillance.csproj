@@ -30,8 +30,7 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <UseGlobalApplicationHostFile />
-    <Use64BitIISExpress>
-    </Use64BitIISExpress>
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -239,18 +238,6 @@
     <Content Include="App_Themes\type.css" />
     <Content Include="App_Themes\widgets-float.css" />
     <Content Include="AreYouAware.aspx" />
-    <Content Include="AYA\11_11_2016.html" />
-    <Content Include="AYA\11_24_2015.html" />
-    <Content Include="AYA\1_11_2016.html" />
-    <Content Include="AYA\1_25_2017.html" />
-    <Content Include="AYA\2_26_2016.html" />
-    <Content Include="AYA\3_1_2017.html" />
-    <Content Include="AYA\3_23_2016.html" />
-    <Content Include="AYA\3_3_2016.html" />
-    <Content Include="AYA\5_3_2016.html" />
-    <Content Include="AYA\5_9_2017.html" />
-    <Content Include="AYA\8_18_2016.html" />
-    <Content Include="AYA\9_6_2016.html" />
     <Content Include="AYA\August_2023.html" />
     <Content Include="AYA\December_2023.html" />
     <Content Include="AYA\February_2024.html" />
@@ -263,87 +250,14 @@
     <Content Include="AYA\Images\June_2023.png" />
     <Content Include="AYA\Images\October_2023.png" />
     <Content Include="AYA\June_2023.html" />
-    <Content Include="AYA\August_2016.html" />
-    <Content Include="AYA\August_2018.html" />
-    <Content Include="AYA\August_2020.html" />
     <Content Include="AYA\AYA_template.html" />
-    <Content Include="AYA\February_2016.html" />
-    <Content Include="AYA\February_2019.html" />
     <Content Include="AYA\Images\April_2023.png" />
-    <Content Include="AYA\Images\May_2021.png" />
-    <Content Include="AYA\Images\July_2021.png" />
     <Content Include="AYA\Images\October_2022.png" />
-    <Content Include="AYA\Images\September_2021.png" />
     <Content Include="AYA\June_2024.html" />
-    <Content Include="AYA\March_2021.html" />
-    <Content Include="AYA\Images\012018.png" />
-    <Content Include="AYA\Images\012019.png" />
-    <Content Include="AYA\Images\012020_1.png" />
-    <Content Include="AYA\Images\012020_2.png" />
-    <Content Include="AYA\Images\022019.png" />
-    <Content Include="AYA\Images\03012017.png" />
-    <Content Include="AYA\Images\032018.png" />
-    <Content Include="AYA\Images\032019.png" />
-    <Content Include="AYA\Images\032020.png" />
-    <Content Include="AYA\Images\052017.png" />
-    <Content Include="AYA\Images\052018.png" />
-    <Content Include="AYA\Images\052019.png" />
-    <Content Include="AYA\Images\052020.png" />
-    <Content Include="AYA\Images\072017.png" />
-    <Content Include="AYA\Images\072019.png" />
-    <Content Include="AYA\Images\082018.png" />
-    <Content Include="AYA\Images\082020.png" />
-    <Content Include="AYA\Images\092017.png" />
-    <Content Include="AYA\Images\092019.png" />
-    <Content Include="AYA\Images\092020.png" />
-    <Content Include="AYA\Images\102018.png" />
-    <Content Include="AYA\Images\112017.png" />
-    <Content Include="AYA\Images\112020.png" />
-    <Content Include="AYA\Images\11242015.PNG" />
-    <Content Include="AYA\Images\August_2016.jpg" />
-    <Content Include="AYA\Images\Feb_2016.png" />
-    <Content Include="AYA\Images\Jan_2016.png" />
-    <Content Include="AYA\Images\March2_2016.png" />
-    <Content Include="AYA\Images\March_2016.png" />
-    <Content Include="AYA\Images\March_2021.png" />
-    <Content Include="AYA\Images\May_2016.png" />
-    <Content Include="AYA\Images\November_2016.jpg" />
-    <Content Include="AYA\Images\September_2016.png" />
-    <Content Include="AYA\January_2016.html" />
-    <Content Include="AYA\January_2017.html" />
-    <Content Include="AYA\January_2018.html" />
-    <Content Include="AYA\January_2019.html" />
-    <Content Include="AYA\January_2020.html" />
-    <Content Include="AYA\July_2017.html" />
-    <Content Include="AYA\July_2019.html" />
-    <Content Include="AYA\July_2021.html" />
-    <Content Include="AYA\March_2016.html" />
-    <Content Include="AYA\March_2016_2.html" />
-    <Content Include="AYA\March_2017.html" />
-    <Content Include="AYA\March_2018.html" />
-    <Content Include="AYA\March_2019.html" />
-    <Content Include="AYA\March_2020.html" />
-    <Content Include="AYA\May_2016.html" />
-    <Content Include="AYA\May_2017.html" />
-    <Content Include="AYA\May_2018.html" />
-    <Content Include="AYA\May_2019.html" />
-    <Content Include="AYA\May_2020.html" />
-    <Content Include="AYA\May_2021.html" />
-    <Content Include="AYA\November_2015.html" />
-    <Content Include="AYA\November_2016.html" />
-    <Content Include="AYA\November_2017.html" />
-    <Content Include="AYA\November_2020.html" />
-    <Content Include="AYA\October_2018.html" />
     <Content Include="AYA\April_2023.html" />
     <Content Include="AYA\October_2022.html" />
     <Content Include="AYA\April_2024.html" />
     <Content Include="AYA\October_2023.html" />
-    <Content Include="AYA\September_2016.html" />
-    <Content Include="AYA\September_2017.html" />
-    <Content Include="AYA\September_2019.html" />
-    <Content Include="AYA\September_2020.html" />
-    <Content Include="AYA\September_2021.html" />
-    <Content Include="AYA\September_2022.html" />
     <Content Include="Blocked.aspx" />
     <Content Include="Calculators.aspx" />
     <Content Include="css\Fonts.css" />

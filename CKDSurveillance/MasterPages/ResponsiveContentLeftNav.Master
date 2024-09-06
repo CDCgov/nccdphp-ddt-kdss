@@ -228,12 +228,13 @@
     <%--********--%>
     <%--*Header*--%>
     <%--********--%>
-    <div class="container-fluid header-wrapper">
+    <div class="container-fluid header-wrapper  navbar-brand" style="background-color: #0057B7">
         <div class="container">
             <header role="banner" aria-label="Header" class="pt-2 pb-2">
-                <div class="row">
-                    <div class="col cdc-logo">
-                        <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/header-logo.html"));%>
+                <div class="row" >
+                    <div class="col-xl-8 cdc-logo navbar-brand">
+                        <%--<% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/header-logo.html"));%>--%>
+                        <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/img/logo/cdc-logo-tag-right.svg"));%>
                     </div>
                     <div class="col-2 col-md-3 col-xl-4 col-xxl-3 tp-search phoneNoShow">
                         <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/header-search.html"));%>

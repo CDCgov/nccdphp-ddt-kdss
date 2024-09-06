@@ -275,6 +275,8 @@ namespace CKDSurveillance_RD.UserControls
             //Store the number of years for this strat
             Session["YearCount"] = yrTableFiltered.Rows.Count.ToString();
 
+            //Store the strat
+            Session["Strat"] = selectedStrat.ToString();
 
             //*Handle illogical URL years*
             if ((Request.QueryString["Year"] != null))

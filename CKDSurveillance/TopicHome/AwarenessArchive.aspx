@@ -4,5 +4,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-    <uc1:TopicHomeContent runat="server" id="TopicHomeContent" TopicID="25" />
+    <div class="container">
+        <uc1:TopicHomeContent runat="server" id="TopicHomeContent" TopicID="25" />
+    </div>
 </asp:Content>

@@ -299,7 +299,7 @@ namespace CKDSurveillance_RD.MasterPages
                 lnkCSV.Visible = false;
 
                 //*Load the page*
-                if (QNum.ToUpper() != "Q760" && QNum.ToUpper() != "Q761" && QNum.ToUpper() != "Q783" && QNum.ToUpper() != "Q802")
+                if (QNum.Substring(1) != "760" && QNum.Substring(1) != "761" && QNum.Substring(1) != "783" && QNum.Substring(1) != "802")
                 {
                     StratYear1.Visible = true;
                     litChartInstruction.Visible = true;
@@ -312,7 +312,7 @@ namespace CKDSurveillance_RD.MasterPages
                     divRightContainer.Visible = true;
                     //litSourceTabs.Visible = true;
                     //StratYear1.Visible = true;
-                    if ((QNum.ToUpper() == "Q705") || (QNum.ToUpper() == "Q372"))
+                    if ((QNum.Substring(1) == "705") || (QNum.Substring(1) == "372"))
                         CB_ChartCI.Visible = false;
                     else
                         CB_ChartCI.Visible = true;
@@ -366,26 +366,26 @@ namespace CKDSurveillance_RD.MasterPages
                     
                     
 
-                    if (QNum.ToUpper() == "Q760")
+                    if (QNum.Substring(1) == "760")
                     {
                         map1.Visible = false;
                         map2.Visible = true;
                         map3.Visible = false;
                         
                     }
-                    else if (QNum.ToUpper() == "Q761")
+                    else if (QNum.Substring(1) == "761")
                     {
                         map1.Visible = true;
                         map2.Visible = false;
                         map3.Visible = false;
                     }
-                    else if (QNum.ToUpper() == "Q783")
+                    else if (QNum.Substring(1) == "783")
                     {
                         map1.Visible = false;
                         map2.Visible = false;
                         map3.Visible = true;
                     }
-                    else if (QNum.ToUpper() == "Q802")
+                    else if (QNum.Substring(1) == "802")
                     {
                         map1.Visible = false;
                         map2.Visible = false;
@@ -450,25 +450,25 @@ namespace CKDSurveillance_RD.MasterPages
         {
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
 
-            if (QNum.ToUpper() == "Q761")
+            if (QNum.Substring(1) == "761")
             {
                 litTopic.Text = litTopic.Text + "U.S. Population Below the Poverty Threshold Level and CKD in the U.S. Medicare Population, by County";
                 litTopicMobile.Text = litTopic.Text;
                 litTopicDesc.Text += "The bivariate map shows the combination of the percentage of the population below the poverty threshold and the percentage of diagnosed CKD patients among the Medicare population across counties in the United States. Geographic variation was observed in the percentage of the population below the poverty threshold (mean=15.4, SD=6.9, n=3,095) and the percentage of diagnosed CKD patients among the Medicare population (mean=22.1, SD=6.5, n=3,097). The percentage of the population under the poverty level and the prevalence of CKD are high in counties in the Southern region. Further investigation into poverty and CKD prevalence in some of these hotspot areas is crucial.";
             }
-            else if (QNum.ToUpper() == "Q760")
+            else if (QNum.Substring(1) == "760")
             {
                 litTopic.Text = litTopic.Text + "Average Daily PM2.5 Air Pollution and CKD in the U.S. Medicare Population, by County";
                 litTopicMobile.Text = litTopic.Text;
                 litTopicDesc.Text += "The bivariate map shows the combination of the average daily PM2.5 and the percentage of diagnosed CKD patients among the Medicare population across counties in the United States. The average daily PM2.5 and the percentage of diagnosed CKD patients varied across counties (PM2.5 mean=8.7 μg/m3, SD=1.9 μg/m3, n=3,043; CKD mean=22.1, SD=6.5, n=3,097). The average daily PM2.5 and the prevalence of CKD are high in counties in California, the rust-belt area, and the Southern region. Further investigation into air pollution and CKD prevalence in some of these hotspot areas is crucial.";
             }
-            else if (QNum.ToUpper() == "Q783")
+            else if (QNum.Substring(1) == "783")
             {
                 litTopic.Text = litTopic.Text + "County-Level Residential Segregation (Black/White) and Prevalence of Diagnosed CKD, U.S. Medicare Population 2019";
                 litTopicMobile.Text = litTopic.Text;
                 litTopicDesc.Text += "The bivariate map shows the combination of the Racial residential segregation and CKD prevalence bivariate map.";
             }
-            else if (QNum.ToUpper() == "Q802")
+            else if (QNum.Substring(1) == "802")
             {
                 litTopic.Text = litTopic.Text + "Awareness of CKD by KDIGO Risk Categories";
                 litTopicMobile.Text = litTopic.Text;
@@ -513,22 +513,22 @@ namespace CKDSurveillance_RD.MasterPages
             //*************
             string addedHeader = "";
             string titleNoFN = "";
-            if (QNum.ToUpper() == "Q760")
+            if (QNum.Substring(1) == "760")
             {
                 addedHeader = "Geographic Distribution of Average Daily PM2.5 Air Pollution and CKD in the US Medicare Population, by County";
                 titleNoFN = addedHeader;
             }
-            else if (QNum.ToUpper() == "Q761")
+            else if (QNum.Substring(1) == "761")
             {
                 addedHeader = "Geographic Distribution of Population below Poverty Threshold Level and CKD in the US Medicare Population, by County";
                 titleNoFN = addedHeader;
             }
-            else if (QNum.ToUpper() == "Q783")
+            else if (QNum.Substring(1) == "783")
             {
                 addedHeader = "County-Level Residential Segregation (Black/White) and Prevalence of Diagnosed CKD, U.S. Medicare Population 2019";
                 titleNoFN = addedHeader;
             }
-            else if (QNum.ToUpper() == "Q802")
+            else if (QNum.Substring(1) == "802")
             {
                 addedHeader = "Prevalence of Awareness of CKD among U.S. Adults by Kidney Disease Improving Global Outcome (KDIGO) CKD Risk Categories";
                 titleNoFN = addedHeader;
@@ -537,25 +537,25 @@ namespace CKDSurveillance_RD.MasterPages
             divDataSource.Visible = false;
 
             //*populate the table (and summary attribute)*
-            if (QNum.ToUpper() == "Q760")
+            if (QNum.Substring(1) == "760")
             {
                 populateTable(-1, addedHeader, titleNoFN, true);
                 divDataSource.Visible = true;
                 litDataSource.Text = "CMS & EPA";
             }
-            else if (QNum.ToUpper() == "Q761")
+            else if (QNum.Substring(1) == "761")
             {
                 populateTable(-2, addedHeader, titleNoFN, true);
                 divDataSource.Visible = true;
                 litDataSource.Text = "CMS & ACS";
             }
-            else if (QNum.ToUpper() == "Q783")
+            else if (QNum.Substring(1) == "783")
             {
                 populateTable(-3, addedHeader, titleNoFN, true);
                 divDataSource.Visible = true;
                 litDataSource.Text = "CMS & CHR";
             }
-            else if (QNum.ToUpper() == "Q802")
+            else if (QNum.Substring(1) == "802")
             {
                 populateTable(-4, addedHeader, titleNoFN, true);
                 divDataSource.Visible = true;
@@ -698,7 +698,7 @@ namespace CKDSurveillance_RD.MasterPages
             //*****************
             //*Build The Chart*
             //*****************
-            if (QNum.ToUpper() != "Q712" && QNum.ToUpper() != "Q675" && QNum.ToUpper() != "Q239" && QNum.ToUpper() != "Q242") RB_ChartType.Items[2].Enabled = false;
+            if (QNum.Substring(1) != "712" && QNum.Substring(1) != "675" && QNum.Substring(1) != "239" && QNum.Substring(1) != "242") RB_ChartType.Items[2].Enabled = false;
             buildChart(chartID.ToString(), dtPage, showSlider, onStateMapPage, onCountyMapPage); //Also retrieves titles            
 
             //************************
@@ -1336,7 +1336,7 @@ namespace CKDSurveillance_RD.MasterPages
             if (string.IsNullOrEmpty(litDataSource.Text))
                 divDataSource.Visible = false;
 
-            if (qnum.ToUpper() == "Q700")
+            if (qnum.Substring(1) == "700")
             {
                 litDataSource.Text = "NHANES & Clinformatics Commercial";
             }
@@ -1406,7 +1406,7 @@ namespace CKDSurveillance_RD.MasterPages
                 }
             }
 
-            if (qnum.ToUpper() == "Q760" || qnum.ToUpper() == "Q761") //SDOH
+            if (qnum.Substring(1) == "760" || qnum.Substring(1) == "761") //SDOH
             {
                 ds = DAL.getMethodText("Q705", showSpecSheet); //1 means include the spec sheet                
                 dtMethodText = ds.Tables[0];
@@ -1562,13 +1562,13 @@ namespace CKDSurveillance_RD.MasterPages
             DataTable dtPage = DAL.getPage(QNum).Tables[0];
             int chartID = determineChartID(dtPage);
 
-            if (QNum.ToUpper() == "Q760")
+            if (QNum.Substring(1) == "760")
                 chartID = -1;
-            else if (QNum.ToUpper() == "Q761")
+            else if (QNum.Substring(1) == "761")
                 chartID = -2;
-            else if (QNum.ToUpper() == "Q783")
+            else if (QNum.Substring(1) == "783")
                 chartID = -3;
-            else if (QNum.ToUpper() == "Q802")
+            else if (QNum.Substring(1) == "802")
                 chartID = -4;
 
             string yr = getYear();
@@ -1674,19 +1674,24 @@ namespace CKDSurveillance_RD.MasterPages
             string titleRoot = litChartTitleText.Text.Trim();
             string strat = StratYear1.CurrentStrat.Trim().Replace(", ", "_").Trim().Replace(",", "_").Replace("/", "_").Trim();
             string year = StratYear1.CurrentYear.Trim().Replace(" - ", "_").Trim().Replace("-", "_").Trim();
-            string title = titleRoot.Replace(" ", "_").Trim() + "_by_" + strat + "_" + year;
+            string title = titleRoot.Replace(" ", "_").Trim().Replace(",", "") + "_"; //+ "_by_" + strat + "_" + year; 
+            if (!string.IsNullOrEmpty(year))
+            {
+                title = titleRoot.Replace(" ", "_").Trim() + "by_" + year; 
+            }
+
             //if (DAL.proc_IsRelatedToAgeSTD(QNum, Request.QueryString["Strat"]) && rbstd2.Checked)
             //{
             //    QNum = QNum.Replace("Q", "S");
             //}
 
-            if (QNum.ToUpper() == "Q760")
+            if (QNum.Substring(1) == "760")
                 title = "CKD_PM25";
-            else if (QNum.ToUpper() == "Q761")
+            else if (QNum.Substring(1) == "761")
                 title = "CKD_poverty";
-            else if (QNum.ToUpper() == "Q783")
+            else if (QNum.Substring(1) == "783")
                 title = "CKD_segregation";
-            else if (QNum.ToUpper() == "Q802")
+            else if (QNum.Substring(1) == "802")
                 title = "CKD_aya";
 
             int loc = title.IndexOf("<sup>");
@@ -1704,7 +1709,7 @@ namespace CKDSurveillance_RD.MasterPages
             DataSet dsExcelsForS;
             Boolean isStatic = false;
 
-            if (QNum.ToUpper() == "Q761" || QNum.ToUpper() == "Q760" || QNum.ToUpper() == "Q783" || QNum.ToUpper() == "Q802")
+            if (QNum.Substring(1) == "761" || QNum.Substring(1) == "760" || QNum.Substring(1) == "783" || QNum.Substring(1) == "802")
             {
                 dsExcels = getChartDataForExcel("6");
                 isStatic = true;
@@ -2198,17 +2203,17 @@ namespace CKDSurveillance_RD.MasterPages
                 tableByPopulation = "";
             }
 
-            if (QNum.ToUpper() == "Q372" ||
-                QNum.ToUpper() == "Q702" ||
-                QNum.ToUpper() == "Q762" ||
-                QNum.ToUpper() == "Q763" ||
-                QNum.ToUpper() == "Q764" ||
-                QNum.ToUpper() == "Q185" ||
-                QNum.ToUpper() == "Q364" ||
-                QNum.ToUpper() == "Q703" ||
-                QNum.ToUpper() == "Q700" ||
-                QNum.ToUpper() == "Q719" ||
-                QNum.ToUpper() == "Q730")
+            if (QNum.Substring(1) == "372" ||
+                QNum.Substring(1) == "702" ||
+                QNum.Substring(1) == "762" ||
+                QNum.Substring(1) == "763" ||
+                QNum.Substring(1) == "764" ||
+                QNum.Substring(1) == "185" ||
+                QNum.Substring(1) == "364" ||
+                QNum.Substring(1) == "703" ||
+                QNum.Substring(1) == "700" ||
+                QNum.Substring(1) == "719" ||
+                QNum.Substring(1) == "730")
                 litChartTitleText.Visible = false;
             else
             {
@@ -2218,23 +2223,23 @@ namespace CKDSurveillance_RD.MasterPages
 
                 subTitlePrefix = dsChart.Tables["Chart"].Rows[0]["SubTitlePrefix"].ToString();
 
-                if (QNum.ToUpper().Replace("Q", "").Replace("S", "") == "9" || QNum.ToUpper() == "Q756")
+                if (QNum.ToUpper().Replace("Q", "").Replace("S", "") == "9" || QNum.Substring(1) == "756")
                 {
                     subTitlePrefix = "CKD (%), ";
                 }
-                else if (QNum.ToUpper() == "Q98" || QNum.ToUpper() == "Q759")
+                else if (QNum.Substring(1) == "98" || QNum.Substring(1) == "759")
                 {
                     subTitlePrefix = "Aware of CKD (%), ";
                 }
-                else if (QNum.ToUpper() == "Q605")
+                else if (QNum.Substring(1) == "605")
                 {
                     subTitlePrefix = "ACEi/ARB Use (%), ";
                 }
-                else if (QNum.ToUpper() == "Q640")
+                else if (QNum.Substring(1) == "640")
                 {
                     subTitlePrefix = "Albuminuria Testing (%), ";
                 }
-                else if (QNum.ToUpper() == "Q705")
+                else if (QNum.Substring(1) == "705")
                 {
                     if (Request.QueryString["Strat"] == null || Request.QueryString["Strat"] == "County")
                         subTitlePrefix = "Overall";
@@ -2243,22 +2248,38 @@ namespace CKDSurveillance_RD.MasterPages
                     else if (Request.QueryString["Strat"] != null && Request.QueryString["Strat"].ToString().IndexOf("Hypertension") >= 0)
                         subTitlePrefix = "Hypertension";
                 }
+                
+                litChartTitleText.Visible = true;
 
-                if (QNum.ToUpper() == "Q705")
+                if (QNum.Substring(1) == "705")
                     litChartTitleText.Text = subTitlePrefix;
-                else if (QNum.ToUpper() == "Q781")
+                else if (QNum.Substring(1) == "781")
                 {
-                    litChartTitleText.Text = "";
+                    litChartTitleText.Visible = false;
                 }
                 else
                 {
                     if (Request.QueryString["Strat"] == null || Request.QueryString["Strat"] == "Overall")
                     {
-                        litChartTitleText.Text = subTitlePrefix + "Overall";
+                        if ((Session["Strat"].ToString() == "CKD") || (QNum.Substring(1) == "801"))
+                        {
+                            litChartTitleText.Text = subTitlePrefix + "by " + Session["Strat"]; 
+                            if (QNum.Substring(1) == "801")
+                            {
+                                litChartTitleText.Text = litChartTitleText.Text.Replace(", CKD Stage", "");
+                            }
+                        } else { 
+                            litChartTitleText.Text = subTitlePrefix + Session["Strat"]; //"Overall";
+                        }
                     }
                     else if (Request.QueryString["Strat"] != null)
                     {
                         litChartTitleText.Text = subTitlePrefix + "by " + Request.QueryString["Strat"].ToString();
+                    }
+
+                    if (QNum.Substring(1) == "800")
+                    {
+                        litChartTitleText.Text = subTitlePrefix + "by CKD";
                     }
                 }
             }
@@ -2350,7 +2371,7 @@ namespace CKDSurveillance_RD.MasterPages
 
 
             //*Store the Header Text and Title for the Gridview*
-            if (QNum.ToUpper() != "Q89" && QNum.ToUpper() != "Q185" && QNum.ToUpper() != "Q773")
+            if (QNum.Substring(1) != "89" && QNum.Substring(1) != "185" && QNum.Substring(1) != "773")
             {
                 Session["TableHeader"] = "<div class=\"addedTableHeader\">" + dsChart.Tables["Chart"].Rows[0]["ChartHeaderWithSuperscripts"].ToString() + tableByPopulation + " (%)</div> <div class=\"addedTableHeaderDataSource\">" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString() + "</div>";
             }
@@ -2493,7 +2514,7 @@ namespace CKDSurveillance_RD.MasterPages
                     RB_ChartType.Visible = true;
                     CB_ChartCI.Visible = true;
 
-                    if (QNum.ToUpper() == "Q372")
+                    if (QNum.Substring(1) == "372")
                     {
                         CB_ChartCI.Visible = false;
                     }
@@ -2516,7 +2537,7 @@ namespace CKDSurveillance_RD.MasterPages
                 RB_ChartType.Visible = true;
                 CB_ChartCI.Visible = true;
 
-                if (QNum.ToUpper() == "Q372")
+                if (QNum.Substring(1) == "372")
                 {
                     CB_ChartCI.Visible = false;
                 }
@@ -2657,7 +2678,7 @@ namespace CKDSurveillance_RD.MasterPages
         {
             string hovertemplate = "hovertemplate: '%{text}'";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
-            if (QNum.ToUpper() == "Q712")//reset the charts for the March 2020 AYA
+            if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
             {
                 RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
             }
@@ -2678,7 +2699,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             DataTable dtChartHeader = dsChart.Tables[0];
             string chartFormatType = dtChartHeader.Rows[0]["DotNetChartStyleID"].ToString();
-            if (chartFormatType == "3" || QNum.ToUpper() == "Q756") //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
+            if (chartFormatType == "3" || QNum.Substring(1) == "756") //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
             {
                 RB_ChartType.SelectedValue = "'line'";
                 hfChartType.Value = "'line'";
@@ -2734,7 +2755,7 @@ namespace CKDSurveillance_RD.MasterPages
             //END the finding the max value for a stacked bar chart
 
             DataTable dtChart = new DataTable();
-            if (QNum.ToUpper() == "Q226")
+            if (QNum.Substring(1) == "226")
             {
                 dtChart = datableReSort(dtChart_preSort, "SeriesLabel", "DESC"); //hardcoded as of 11/2, 2006 data is missing for some strats, changed the order because the 'Other' strat has 2006 data which will resolve the display issue
             }
@@ -2808,7 +2829,7 @@ namespace CKDSurveillance_RD.MasterPages
                 string elow = dtChart.Rows[i]["LowConfidenceInterval"].ToString();
                 serieslabel = serieslabel.Replace("&", "and"); //overridding the & so that the chart doesn't fail
                 var refXPosNum = 0.0;
-                if (QNum.ToUpper() == "Q751" && Double.TryParse(secondary, out refXPosNum))
+                if (QNum.Substring(1) == "751" && Double.TryParse(secondary, out refXPosNum))
                     refXPos = (refXPosNum - 1).ToString();
                 else
                     refXPos = secondary;
@@ -2847,7 +2868,7 @@ namespace CKDSurveillance_RD.MasterPages
                         low_con_diff = Convert.ToDecimal(datapoint) - Convert.ToDecimal(elow);
                 }
 
-                if (QNum.ToUpper() == "Q372")
+                if (QNum.Substring(1) == "372")
                 {
                     if (ehigh != "")
                         ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 3);
@@ -2989,7 +3010,7 @@ namespace CKDSurveillance_RD.MasterPages
             string yData_col_final_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
 
             //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-            if (QNum.ToUpper() == "Q372")
+            if (QNum.Substring(1) == "372")
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final);
             else
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
@@ -3006,7 +3027,7 @@ namespace CKDSurveillance_RD.MasterPages
                 plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
             //1/12/2021 - BS - added the basedata necessary for animation
-            if (QNum.ToUpper() == "Q372")
+            if (QNum.Substring(1) == "372")
                 plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata);
             else
                 plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + ", " + wData_col_final);
@@ -3023,7 +3044,7 @@ namespace CKDSurveillance_RD.MasterPages
             var refVal = RefValue(QNum);
             if (refVal > 0)
             {
-                if (QNum.ToUpper() != "Q754")
+                if (QNum.Substring(1) != "754")
                     plotlyStr.Append(" var refLine = {x: ['" + refXPos + "'],  y:[" + (refVal * 1.04) + "], textfont:{color: '#000000', size:'12px'}, mode: 'text', text:['<b>HP 2030 Target=" + refVal + "%</b>'],showlegend: false};");
                 else
                     plotlyStr.Append(" var refLine = {x: ['" + refXPos + "'],  y:[" + (refVal * 1.04) + "], textfont:{color: '#000000', size:'12px'}, mode: 'text', text:['<b>HP 2030 Target=" + refVal + "</b>'],showlegend: false};");
@@ -3063,7 +3084,7 @@ namespace CKDSurveillance_RD.MasterPages
             //hfMaxYVal.Value = Math.Ceiling(max_yval).ToString();
             //hfMaxConfidence.Value = Math.Ceiling(max_confidence).ToString();
             //adding the max values to the hiddenfields to be referenced in the markup, adding a cushion to the top of the chart to account for the title that has been added for the triple strat
-            if (QNum.ToUpper() == "Q751") /*** 10/7/2022 Display y axis up to 71 to display target ***/
+            if (QNum.Substring(1) == "751") /*** 10/7/2022 Display y axis up to 71 to display target ***/
                 hfMaxYVal.Value = (Math.Ceiling((max_yval * Decimal.Parse("1.1"))) + 7).ToString();
             else
                 hfMaxYVal.Value = Math.Ceiling((max_yval * Decimal.Parse("1.1"))).ToString();
@@ -3119,7 +3140,7 @@ namespace CKDSurveillance_RD.MasterPages
         {
             string hovertemplate = "hovertemplate: '%{text}'";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
-            if (QNum.ToUpper() == "Q712")//reset the charts for the March 2020 AYA
+            if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
                 RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
 
             //*Get Page*
@@ -3201,7 +3222,7 @@ namespace CKDSurveillance_RD.MasterPages
             int totalxaxiscnt = distinctTertiary.Rows.Count * distinctSecondary.Rows.Count;
             string tickangle = "0";
 
-            if (QNum.ToUpper() == "Q700")
+            if (QNum.Substring(1) == "700")
             {
                 tickangle = "10";
             }
@@ -3307,7 +3328,23 @@ namespace CKDSurveillance_RD.MasterPages
                     {
                         Decimal minmaxchk_datapoint = Decimal.Parse(datapoint);
 
-                        if (max_yval == -1) max_yval = minmaxchk_datapoint;
+                        if (max_yval == -1) {
+                            if (QNum.Substring(1) == "801" && secondary == "70+ years")
+                            {
+                                max_yval = minmaxchk_datapoint;
+                            }
+                            else
+                            {
+                                max_yval = minmaxchk_datapoint;
+                            }
+                        }
+                        else if (QNum.Substring(1) == "801")
+                        {
+                            if (secondary == "70+ years")
+                            {
+                                max_yval += minmaxchk_datapoint;
+                            }
+                        }
                         else if (minmaxchk_datapoint > max_yval) max_yval = minmaxchk_datapoint;
                     }
 
@@ -3536,7 +3573,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                 string triplestratfontsize = "17";// 06/17/2021 REMOVE THIS LINE
                 tickangle = "0";
-                if (QNum.ToUpper() == "Q700")
+                if (QNum.Substring(1) == "700")
                 {
                     tickangle = "10";
                 }
@@ -3651,7 +3688,7 @@ namespace CKDSurveillance_RD.MasterPages
             string tickangle = "0";
             string yaxistitlefontsize = "21";
 
-            if (xaxiscnt >= 7 || QNum.ToUpper() == "Q700")
+            if (xaxiscnt >= 7 || QNum.Substring(1) == "700")
             {
                 xtickfontsize = "19";  //"16";
                 tickangle = "10";
@@ -3748,7 +3785,7 @@ namespace CKDSurveillance_RD.MasterPages
             //xtickfontsize = "17"; /*** 9/30/2022 Change font sizes in data visualizations ***/ // 06/17/2021 REMOVE THIS LINE 
             //tickangle = "15"; // 06/17/2021 REMOVE THIS LINE
 
-            if (QNum.ToUpper() == "Q632" || QNum.ToUpper() == "Q631")//hardcoding due to last minute request
+            if (QNum.Substring(1) == "632" || QNum.Substring(1) == "631")//hardcoding due to last minute request
             {
                 if (Request.QueryString["Strat"] != null)
                 {
@@ -3783,7 +3820,7 @@ namespace CKDSurveillance_RD.MasterPages
             sb.Append(" var img_png= d3.select('#png-export'); ");
             //sb.Append(" var baselayout =  {yaxis: { range: [0, 45]}}; ");//need values to be passed into this function and used here
 
-            if (QNum.ToUpper() == "Q729" || QNum.ToUpper() == "Q731" || QNum.ToUpper() == "Q751")
+            if (QNum.Substring(1) == "729" || QNum.Substring(1) == "731" || QNum.Substring(1) == "751")
                 sb.Append(" var layout = {autosize:true, showlegend: false, height: 700, margin: {  t: 50}"); //setting margins so that the graphic identifier and title can fit correctly
             else
                 sb.Append(" var layout = {autosize:true, height: 700, margin: {  t: 50}"); //setting margins so that the graphic identifier and title can fit correctly
@@ -3817,7 +3854,7 @@ namespace CKDSurveillance_RD.MasterPages
             else
             {
                 //type = category so all values are displayed, not just a group
-                if (QNum.ToUpper() == "Q372")
+                if (QNum.Substring(1) == "372")
                     sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }, traceorder:'normal'},  barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
                 else
                     sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
@@ -4782,18 +4819,18 @@ namespace CKDSurveillance_RD.MasterPages
         private double RefValue(string QNum)
         {
             var refVal = 0.0;
-            switch (QNum.ToLower())
+            switch (QNum.Substring(1))
             {
-                case "q729":
+                case "729":
                     refVal = 12.8;
                     break;
-                case "q731":
+                case "731":
                     refVal = 10.0;
                     break;
-                case "q751":
+                case "751":
                     refVal = 66.4;
                     break;
-                case "q754":
+                case "754":
                     refVal = 55.4;
                     break;
             }

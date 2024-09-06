@@ -1,12 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MainNavNew.ascx.cs" Inherits="CKDSurveillance_RD.MainNavNew" %>
 <%--<%@ OutputCache Duration="86400" VaryByParam="none"%>--%>
 
-<div id="navbarSupportedContentMobile" style="background-color:#2B8277" class="showPhoneOnly navbar-collapse overlay collapse ">
-	<div class="container overlay-content" id="cdc-meganav-bar"  style="display:block !important;background-color:#2B8277" data-title="CKD Menu">
+<div id="navbarSupportedContentMobile" style="background: linear-gradient(to right, #4c2b64, #0061a2, #0081a1);" class="showPhoneOnly navbar-collapse overlay collapse ">
+	<div class="container overlay-content" id="cdc-meganav-bar"  style="display:block !important;background:linear-gradient(to right, #4c2b64, #0061a2, #0081a1)" data-title="CKD Menu">
 		<nav class="navbar navbar-expand-xl yamm tmp-meganav-bar">
 			<ul class="nav navbar-nav nav-justified w-100">
 				<li class="nav-item nav-home ckd-nav-home">
-					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link ckd-nav-home-link" style="border-top:#2B8277" id="ckd-nav-home-link4">
+					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link ckd-nav-home-link" style="border-top:#00508a" id="ckd-nav-home-link4">
 						<span class="x24 cdc-icon-home-lg-alt-light"></span>
 						Home
 					</a>
@@ -40,12 +40,12 @@
 	</div>
 </div>
 
-<div id="navbarSupportedContent" style="background-color:#2B8277" class="phoneNoShow">
-	<div class="container" id="cdc-meganav-bar"  style="display:block !important;background-color:#2B8277" data-title="CKD Menu">
+<div id="navbarSupportedContent"  class="phoneNoShow" style="background:linear-gradient(to right, #4c2b64, #0061a2, #0081a1);">
+	<div class="container" id="cdc-meganav-bar"  style="display:block !important;background:none;padding-left:0; padding-right:0; margin-top:0%;" data-title="CKD Menu">
 		<nav class="navbar navbar-expand-xl yamm tmp-meganav-bar">
 			<ul class="nav navbar-nav nav-justified w-100">
 				<li class="nav-item nav-home ckd-nav-home">
-					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link ckd-nav-home-link" style="border-top:#2B8277" id="ckd-nav-home-link5">
+					<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>default.aspx" class="nav-link ckd-nav-home-link" style="border-top:#00508a" id="ckd-nav-home-link5">
 						<span class="x24 cdc-icon-home-lg-alt-light"></span>
 						Home
 					</a>
@@ -85,17 +85,19 @@
 		var topic = getParameterByName('topic'); 
 		var qnum = getParameterByName('Qnum');
 
-        if (topic == 1 || qnum.toUpperCase() == "Q372"
+		if (qnum == null) qnum = ""; 
+
+		if (topic == 1 || qnum.toUpperCase() == "Q372"
 			|| qnum.toUpperCase().replace("Q", "").replace("S", "") == "9"
             || qnum.toUpperCase() == "Q702"
             || qnum.toUpperCase() == "Q756"
             || qnum.toUpperCase() == "Q705") {
             var a = document.getElementById("nav-PI");
 			a.classList.add("active");
-        } else if (topic == 3 || qnum.toUpperCase() == "Q98" || qnum.toUpperCase() == "Q759") {
+		} else if (topic == 3 || qnum.toUpperCase() == "Q98" || qnum.toUpperCase() == "Q759") {
 			var a = document.getElementById("nav-AR");
             a.classList.add("active");
-        } else if (topic == 4 || qnum.toUpperCase() == "Q762" || qnum.toUpperCase() == "Q763" || qnum.toUpperCase() == "Q764") {
+		} else if (topic == 4 || qnum.toUpperCase() == "Q762" || qnum.toUpperCase() == "Q763" || qnum.toUpperCase() == "Q764") {
             var a = document.getElementById("nav-RF");
             a.classList.add("active");
         } else if (topic == 5 || qnum.toUpperCase() == "Q185" || qnum.toUpperCase() == "Q364" || qnum.toUpperCase() == "Q703") {

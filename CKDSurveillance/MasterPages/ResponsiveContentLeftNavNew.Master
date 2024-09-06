@@ -19,8 +19,8 @@
 
     <%--Header Files--%>
     <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/head-content.html"));%>
-    <%--End Header Files--%>
-
+    <%--End Header Files--%>    
+    <%--<link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />--%>
 
     <%--<meta name="description" content="Centers for Disease Control and Prevention (CDC) Division Name (DN)- CKD Surveillance System />--%>
     <asp:Literal ID="litMetaTagsDescription" runat="server" ClientIDMode="Static" Text="<meta name='description' content='Centers for Disease Control and Prevention (CDC) : CKD Surveillance' />" />
@@ -34,7 +34,6 @@
     <%--page styling--%>
     <%--<link href="../css/Site.css" rel="stylesheet" />--%>
     <%--end page styling--%>
-
 
     <%--NCCD TemplatePackage--%>
     <!-- remove the ~ for these three links when sending this to the CDC -->
@@ -52,6 +51,8 @@
     <%--Scripts--%>
     <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/scripts.html"));%>
     <%--End Scripts--%>
+    
+
     <style>
         .siteTitleBar {
             font-size: 34px;
@@ -239,15 +240,59 @@
     <%--********--%>
     <%--*Header*--%>
     <%--********--%>
-    <div class="container-fluid header-wrapper homepage-ckd-nav">
+    <div class="container-fluid header-wrapper homepage-ckd-nav  navbar-brand" style="background-color: #0057B7">
         <div class="container">
             <header role="banner" aria-label="Header" class="pt-2 pb-2">
                 <div class="row">
-                    <div class="col cdc-logo">
-                        <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/header-logo.html"));%>
+                    <div class="col-xl-3 cdc-logo navbar-brand">
+                        <%--<% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/header-logo.html"));%>--%>
+                        <a class="navbar-brand" href="https://www.cdc.gov/">
+                        <img style="width:100%;" src= "/TemplatePackage/5.0/img/logo/cdc-logo-tag-right.svg" alt="Centers for Disease Control and Prevention" />
+                        </a>
                     </div>
-                    <div class="col-2 col-md-3 col-xl-4 col-xxl-3 tp-search phoneNoShow">
-                        <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/header-search.html"));%>
+                    <div class="col-5"></div>
+                    <div class="col-2 col-md-5 col-xl-4 col-xxl-3 tp-search phoneNoShow">
+                       <%-- <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/header-search.html"));%>--%>
+                        <div class="headerSearch cdc-header-search">
+	                        <form accept-charset="UTF-8" action="https://search.cdc.gov/search/" method="get" autocomplete="off">
+
+		                        <!-- hide this button since we're not using it anymore -->
+		                        <button class="btn btn-primary dropdown-toggle no-toggle search-button ssi d-xl-none d-none"
+				                        type="button"
+				                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="search"><span>Search</span>
+			                        <i class="fi cdc-icon-magnify dropdown-menu-medium-search-icon x24" aria-hidden="true"></i>
+			                        <i class="fi cdc-icon-close dropdown-menu-medium-close-icon x24" aria-hidden="true"></i>
+		                        </button>
+
+			                        <div class="input-group">
+				                        <input id="headerSearch" type="text" class="form-control" maxlength="300" placeholder="Search" aria-label="Search" name="query">
+				                        <span class="form-control-clear cdc-icon-close"></span>
+				                        <div class="input-group-append">
+					                        <button class="btn search-submit"
+							                        type="button"><span
+							                        class="sr-only">Submit</span>
+						                        <i class="fi cdc-icon-magnify x24" aria-hidden="true"></i>
+					                        </button>
+				                        </div>
+			                        </div>
+			                        <div class="a-z-index fs0875">
+				                        <span class="d-xl-none">For a full list of topics: </span><a id="az-large" href="https://www.cdc.gov/az/">A-Z Index</a>
+			                        </div>
+			                        <div class="fs0875 d-md-none">
+				                        <a href="https://search.cdc.gov/search/#advanced">
+					                        Advanced Search
+				                        </a>
+			                        </div>
+		                        <div class="fs0875 d-none d-md-block tp-search-advanced">
+			                        <a href="https://search.cdc.gov/search/#advanced">
+				                        Advanced Search
+			                        </a>
+		                        </div>
+		                        <input type="hidden" name="sitelimit" value="">
+		                        <input type="hidden" name="utf8" value="✓">
+		                        <input type="hidden" name="affiliate" value="cdc-main">
+	                        </form>
+                        </div>
                     </div>
                     <button id="mag" class="btn btn-primary-d navbar-toggler collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedSearch" aria-haspopup="true" aria-expanded="false" aria-label="search" control-id="ControlID-1">
 							<i class="fi cdc-icon-search-light dropdown-menu-medium-search-icon x28" aria-hidden="true"></i>
@@ -275,7 +320,7 @@
     <%--************--%>
     <%--*Site title*--%>
     <%--************--%>
-    <div class="container-fluid site-title homepage-ckd-nav" style="background-color:#00695C">
+    <div class="container-fluid site-title homepage-ckd-nav" style="background:linear-gradient(to right, #0057B7, #006eab, #0081a1)">
         <div class="container">
             <div class="d-flex">
                 <header class="text-white fw-500 pt-1 pb-1 siteTitleBar">

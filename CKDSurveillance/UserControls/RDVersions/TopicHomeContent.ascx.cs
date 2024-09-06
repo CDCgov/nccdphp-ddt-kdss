@@ -845,6 +845,11 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                         sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; display: grid;\">");
                         sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; \"/>");
                     }
+                    else if (date.IndexOf("August 2024") >= 0)
+                    {
+                        sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; display: grid;\">");
+                        sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; margin-top:5%; \"/>");
+                    }
                     else
                     {
                         sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; float: left;display: grid;\">");
@@ -852,7 +857,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     }
                     
                     sbBodyTable.Append("</div>");
-                    if (date.IndexOf("June 2024") >= 0)
+                    if (date.IndexOf("June 2024") >= 0 || date.IndexOf("August 2024") >= 0)
                     {
                         sbBodyTable.Append("<div style=\"padding-right: 5%; padding-bottom: 3%; padding-left:5%\">");
                     }

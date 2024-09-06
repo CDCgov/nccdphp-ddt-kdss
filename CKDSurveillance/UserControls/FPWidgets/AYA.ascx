@@ -129,8 +129,8 @@
                     <img src="images/AYA_theme_version.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt=""/>
                 </a>
             </div>
-            <div style="height=25%; width:98%"></div>
-            <div style="height=50%; width:98%; display:table-cell; padding-right: 18px; word-spacing: normal;" class ="areYouAwareMsg">
+            <div style="height:25%; width:98%"></div>
+            <div style="height:50%; width:98%; display:table-cell; padding-right: 18px; word-spacing: normal;" class ="areYouAwareMsg">
                 <b><i>Are You Aware? </i></b> is designed to raise  <%--<br /> --%>                                             
                 awareness about important topics relevant to <%-- <br />--%>
                 kidney disease surveillance and prevention.
@@ -147,11 +147,15 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle"><i>Awareness of Chronic Kidney Disease (CKD) is Lower among Adults with Early-Stage CKD According to the KDIGO CKD Risk Classification</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle"><i>Trends in Daily Dietary Sodium and Potassium Intake Among Adults With Chronic Kidney Disease</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
-                Over 35 million adults, i.e., 1 in 7 adults, in the United States have chronic kidney disease (CKD). However, 9 in 10 adults with CKD do not know they have it. Data from the National Health and Nutrition Examination Survey (2017–March 2020) show a lower awareness among adults with earlier stages of CKD while the higher awareness was among those with later stages of CKD. Awareness was defined as a self-reported affirmative response to the question “Have you ever been told by a doctor or other health professional that you had weak or failing kidneys?” While earlier stage CKD is more prevalent than advanced stages, low screening rates particularly for albuminuria may contribute to the low awareness of disease. This gap may need to be addressed to ensure adults with earlier stages of CKD are diagnosed earlier and receive timely treatment to prevent disease progression and its associated complications. 
+                An appropriate intake of sodium and potassium is necessary for maintaining optimal health. Among people with chronic kidney disease (CKD), excess intake of sodium and low intake of potassium may worsen health outcomes. 
+                <br /><br />                
+                National survey data show that recommended sodium consumption (less than 2,300 mg/day) was more common among adults with CKD than adults without CKD. However, the percentage of adults with CKD meeting sodium intake recommendations declined from 2005–2008 (38.4%) to March of 2017 (32.8%). 
+                <br /><br />
+                The recommended minimum potassium intake for the general population is at least 3,400 mg/day for men and 2,600 mg/day for women. Fewer adults with CKD met the recommended potassium intake (29%) than adults without CKD (35%), without significant changes over time. These data suggest that about two-thirds of the U.S. adult population do not meet recommended daily sodium and potassium intake. Dietary monitoring and counseling are important aspects of CKD management to prevent complications (e.g., hypertension, hyper- or hypokalemia). 
             </div>
 
             <div class="row aya-botton-box">
