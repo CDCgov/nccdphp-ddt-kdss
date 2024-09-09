@@ -239,6 +239,7 @@
     <Content Include="App_Themes\widgets-float.css" />
     <Content Include="AreYouAware.aspx" />
     <Content Include="AYA\August_2023.html" />
+    <Content Include="AYA\August_2024.html" />
     <Content Include="AYA\December_2023.html" />
     <Content Include="AYA\February_2024.html" />
     <Content Include="AYA\Images\April_2024.PNG" />
