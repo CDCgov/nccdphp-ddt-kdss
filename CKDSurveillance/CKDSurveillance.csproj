@@ -244,6 +244,9 @@
     <Content Include="AYA\February_2024.html" />
     <Content Include="AYA\Images\April_2024.PNG" />
     <Content Include="AYA\Images\August_2023.png" />
+    <Content Include="AYA\Images\August_2024-a.png" />
+    <Content Include="AYA\Images\August_2024-b.png" />
+    <Content Include="AYA\Images\August_2024.PNG" />
     <Content Include="AYA\Images\CurrentAYA.png" />
     <Content Include="AYA\Images\December_2023.png" />
     <Content Include="AYA\Images\February_2024.png" />
@@ -538,6 +541,11 @@
     <Content Include="PPT\Q791.pptx" />
     <Content Include="PPT\Q802.pptx" />
     <Content Include="Documents\Q802.xlsx" />
+    <Content Include="PPT\Q794.pptx" />
+    <Content Include="PPT\Q795.pptx" />
+    <Content Include="PPT\Q796.pptx" />
+    <Content Include="PPT\Q800.pptx" />
+    <Content Include="PPT\Q801.pptx" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="scripts\local.js" />
     <Content Include="scripts\templateContentEmpty.js" />
