@@ -437,7 +437,7 @@
                                                                             <td id="rowAge" scope="row" headers="EAAS colChar" style="width:50%"  class="charTableText" <%--QLabelLeft--%>><span class="charTableText">Age Range * </span></td>
                                                                             <td  headers="EAAS colTP rowAge" style="width:33%">  <%--class="QLabelRight"--%>
                                                                                 <%--<label for="selBang2" style="color: #FFF; height: 0px;"><span class="charTableText">Gender *</span> </label>--%>
-                                                                                <select id="selBang2" class="form-control" onchange="removeRequirement('bage'); submitData('bang');">
+                                                                                <select id="selBang2" aria-label="Select Age Range" class="form-control" onchange="removeRequirement('bage'); submitData('bang');">
                                                                                     <option value="0">Select Age</option>
                                                                                     <option value="1">20 - 49</option>
                                                                                     <option value="2">50 - 59</option>  <%--<option value="2">50 - 59</option>--%>

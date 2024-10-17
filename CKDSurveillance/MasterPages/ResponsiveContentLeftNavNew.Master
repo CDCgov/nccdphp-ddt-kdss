@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 <html lang="en-us" class="cdc-2022 theme-cyan cdc-page-type-splash cdc-2020">
 <head runat="server">
+    <meta name="google-site-verification" content="vuSgbTP5gm9mu35qxMRQp6nC_uX_u82h2GSXTuzLOyc" />
     <title>Kidney Disease Surveillance System</title>
 
     <%--Header Files--%>
@@ -150,6 +151,7 @@
         /*Color scheme variables*/
         body {
             background-color: #fff;
+            border-top: 0px !important;
         }
 
         .breadcrumb {

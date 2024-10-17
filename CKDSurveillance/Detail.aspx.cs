@@ -299,7 +299,7 @@ namespace CKDSurveillance_RD.MasterPages
                 lnkCSV.Visible = false;
 
                 //*Load the page*
-                if (QNum.Substring(1) != "760" && QNum.Substring(1) != "761" && QNum.Substring(1) != "783" && QNum.Substring(1) != "802")
+                if (QNum.Substring(1) != "760" && QNum.Substring(1) != "783" && QNum.Substring(1) != "802")
                 {
                     StratYear1.Visible = true;
                     litChartInstruction.Visible = true;
@@ -312,7 +312,7 @@ namespace CKDSurveillance_RD.MasterPages
                     divRightContainer.Visible = true;
                     //litSourceTabs.Visible = true;
                     //StratYear1.Visible = true;
-                    if ((QNum.Substring(1) == "705") || (QNum.Substring(1) == "372"))
+                    if ((QNum.Substring(1) == "705") || (QNum.Substring(1) == "372") || (QNum.Substring(1) == "761"))
                         CB_ChartCI.Visible = false;
                     else
                         CB_ChartCI.Visible = true;
@@ -373,12 +373,12 @@ namespace CKDSurveillance_RD.MasterPages
                         map3.Visible = false;
                         
                     }
-                    else if (QNum.Substring(1) == "761")
-                    {
-                        map1.Visible = true;
-                        map2.Visible = false;
-                        map3.Visible = false;
-                    }
+                    //else if (QNum.Substring(1) == "761")
+                    //{
+                    //    map1.Visible = true;
+                    //    map2.Visible = false;
+                    //    map3.Visible = false;
+                    //}
                     else if (QNum.Substring(1) == "783")
                     {
                         map1.Visible = false;
@@ -2213,7 +2213,8 @@ namespace CKDSurveillance_RD.MasterPages
                 QNum.Substring(1) == "703" ||
                 QNum.Substring(1) == "700" ||
                 QNum.Substring(1) == "719" ||
-                QNum.Substring(1) == "730")
+                QNum.Substring(1) == "730" ||
+                QNum.Substring(1) == "761")
                 litChartTitleText.Visible = false;
             else
             {
@@ -2289,88 +2290,88 @@ namespace CKDSurveillance_RD.MasterPages
             //litChartTitleText.Text = litChartTitleText.Text.Replace("/Ethnicity", "");
             //litChartTitleText.Text = litChartTitleText.Text.Replace("For 2019", "");
 
-            //if ((QNum == "Q9") || (QNum == "Q756"))
-            //{
-            //    if (litChartTitleText.Text == "by Year")
-            //    {
-            //        litChartTitleText.Text = "CKD (%)";  //Overall
-            //    }
-            //    else if (litChartTitleText.Text == "by Age")
-            //    {
-            //        litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text + " Category";
-            //    }
-            //    else
-            //    {
-            //        litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text;
-            //    }
-            //}
-            //else if ((QNum == "Q98") || (QNum == "Q759"))
-            //{
-            //    if (litChartTitleText.Text == "by Year")
-            //    {
-            //        litChartTitleText.Text = "Aware of CKD (%)";  //Overall
-            //    }
-            //    else if (litChartTitleText.Text == "by Age")
-            //    {
-            //        litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text + " Category";
-            //    }
-            //    else
-            //    {
-            //        litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text;
-            //    }
-            //}
-            //else if (QNum == "Q605")
-            //{
-            //    if (litChartTitleText.Text == "by Year")
-            //    {
-            //        litChartTitleText.Text = "ACEi/ARB Use (%)";  //Overall
-            //    }
-            //    else if (litChartTitleText.Text == "by Age")
-            //    {
-            //        litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text + " Category";
-            //    }
-            //    else
-            //    {
-            //        litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text;
-            //    }
-            //}
-            //else if (QNum == "Q640")
-            //{
-            //    if (litChartTitleText.Text == "by Year")
-            //    {
-            //        litChartTitleText.Text = "Albuminuria Testing (%)";  //Overall
-            //    }
-            //    else if (litChartTitleText.Text == "by Age")
-            //    {
-            //        litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text + " Category";
-            //    }
-            //    else
-            //    {
-            //        litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text;
-            //    }
-            //}
-            //else if ((QNum == "Q364") || (QNum == "Q700") || (QNum == "Q703"))  //subtitle is not needed since it's only one view
-            //{
-            //    litChartTitleText.Text = "";
-            //}
+                //if ((QNum == "Q9") || (QNum == "Q756"))
+                //{
+                //    if (litChartTitleText.Text == "by Year")
+                //    {
+                //        litChartTitleText.Text = "CKD (%)";  //Overall
+                //    }
+                //    else if (litChartTitleText.Text == "by Age")
+                //    {
+                //        litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text + " Category";
+                //    }
+                //    else
+                //    {
+                //        litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text;
+                //    }
+                //}
+                //else if ((QNum == "Q98") || (QNum == "Q759"))
+                //{
+                //    if (litChartTitleText.Text == "by Year")
+                //    {
+                //        litChartTitleText.Text = "Aware of CKD (%)";  //Overall
+                //    }
+                //    else if (litChartTitleText.Text == "by Age")
+                //    {
+                //        litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text + " Category";
+                //    }
+                //    else
+                //    {
+                //        litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text;
+                //    }
+                //}
+                //else if (QNum == "Q605")
+                //{
+                //    if (litChartTitleText.Text == "by Year")
+                //    {
+                //        litChartTitleText.Text = "ACEi/ARB Use (%)";  //Overall
+                //    }
+                //    else if (litChartTitleText.Text == "by Age")
+                //    {
+                //        litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text + " Category";
+                //    }
+                //    else
+                //    {
+                //        litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text;
+                //    }
+                //}
+                //else if (QNum == "Q640")
+                //{
+                //    if (litChartTitleText.Text == "by Year")
+                //    {
+                //        litChartTitleText.Text = "Albuminuria Testing (%)";  //Overall
+                //    }
+                //    else if (litChartTitleText.Text == "by Age")
+                //    {
+                //        litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text + " Category";
+                //    }
+                //    else
+                //    {
+                //        litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text;
+                //    }
+                //}
+                //else if ((QNum == "Q364") || (QNum == "Q700") || (QNum == "Q703"))  //subtitle is not needed since it's only one view
+                //{
+                //    litChartTitleText.Text = "";
+                //}
 
-            //if ((datasourceCount > 1) && (viewdatabyCount > 1)) //if more then 1 datasource is listed then display the chart title 
-            //{
-            //if (!string.IsNullOrEmpty(tableByPopulation))
-            //{
-            //    if ((litChartTitleText.Text).Length > 0)
-            //    {
-            //        litChartTitleText.Text = litChartTitleText.Text + " - " + tableByPopulation;
-            //    }
-            //    else
-            //    {
-            //        litChartTitleText.Text = tableByPopulation.Replace("by ", "By ");
-            //    }
-            //}
-            //}
+                //if ((datasourceCount > 1) && (viewdatabyCount > 1)) //if more then 1 datasource is listed then display the chart title 
+                //{
+                //if (!string.IsNullOrEmpty(tableByPopulation))
+                //{
+                //    if ((litChartTitleText.Text).Length > 0)
+                //    {
+                //        litChartTitleText.Text = litChartTitleText.Text + " - " + tableByPopulation;
+                //    }
+                //    else
+                //    {
+                //        litChartTitleText.Text = tableByPopulation.Replace("by ", "By ");
+                //    }
+                //}
+                //}
 
 
-            //*Store the Header Text and Title for the Gridview*
+                //*Store the Header Text and Title for the Gridview*
             if (QNum.Substring(1) != "89" && QNum.Substring(1) != "185" && QNum.Substring(1) != "773")
             {
                 Session["TableHeader"] = "<div class=\"addedTableHeader\">" + dsChart.Tables["Chart"].Rows[0]["ChartHeaderWithSuperscripts"].ToString() + tableByPopulation + " (%)</div> <div class=\"addedTableHeaderDataSource\">" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString() + "</div>";
@@ -2494,7 +2495,15 @@ namespace CKDSurveillance_RD.MasterPages
                     //*Do not use superscripts, as this leaves extra HTML lying around when used in the alt tag.
                     string title = dsChart.Tables["Chart"].Rows[0]["ChartHeader"].ToString().Trim();
                     dsSVG.Tables.Add(dsChart.Tables[1].Copy()); //data
+
                     //still need to add the legend
+
+                    if (QNum.Substring(1) == "761")
+                    {
+                        dsSVG.Tables.Add(dsChart.Tables[2].Copy());
+                        zoom_in.Visible = false;
+                        zoom_out.Visible = false;
+                    }
 
                     string d3MapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr);
                     litD3MapTabs.Text = d3MapJsCode;
@@ -3845,6 +3854,28 @@ namespace CKDSurveillance_RD.MasterPages
             //sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: '', showarrow: false, font: { size: 12 } },{ x: 0, y: 1.12, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "', font: { size: 14 } ,showarrow: false }],"); //, font: { size: 20 }
             sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: '', showarrow: false, font: { size: 12 } },{ x: 0, y: 1.12, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '', font: { size: 14 } ,showarrow: false }],"); //, font: { size: 20 }
 
+            var dtictval = 1;
+            var linewidth = "0";
+            var showgridval = "false";
+
+            if (QNum.Substring(1) == "89" ||
+                QNum.Substring(1) == "185" ||
+                QNum.Substring(1) == "605" ||
+                QNum.Substring(1) == "640" ||
+                QNum.Substring(1) == "773" ||
+                QNum.Substring(1) == "784" ||
+                QNum.Substring(1) == "785" ||
+                QNum.Substring(1) == "786" ||
+                QNum.Substring(1) == "787" ||
+                QNum.Substring(1) == "788" ||
+                QNum.Substring(1) == "789")
+            {
+                dtictval = 2;
+                tickangle = "0";
+                linewidth = "1";
+                showgridval = "true";
+            }
+
             ////The Y axis label if being moved to the far left of the chart within the client side  $(function () 
             if (isMapPage == true)
             {
@@ -3857,7 +3888,7 @@ namespace CKDSurveillance_RD.MasterPages
                 if (QNum.Substring(1) == "372")
                     sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }, traceorder:'normal'},  barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
                 else
-                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:" + dtictval + ", type:'category', showgrid: " + showgridval + ", zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: " + linewidth + ", title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
             }
 
             if (isDefaultStd)
@@ -4033,9 +4064,16 @@ namespace CKDSurveillance_RD.MasterPages
                 string countyname = dr["CountyName"].ToString();
                 string statename = dr["StateName"].ToString();
                 string dataval = dr["DataPointDecimal"].ToString();
+
                 if (countyfips.Length == 4) countyfips = "0" + countyfips; //appending leading zeros for the states that are less than 9000
                 if (dataval.Length == 0) dataval = "NA";//if values are missing then add a NA which will make the background white
-                countydataarray += "{'fipscounty':'" + countyfips + "','fipsstate': '" + statefips + "','county': '" + countyname + "' ,'state': '" + statename + "' ,'countydatavalue': '" + dataval + "'},";
+                if (QNum.Substring(1) == "761")
+                {
+                    string datatype = dr["DataType"].ToString();
+                    countydataarray += "{'datatype':'" + datatype + "','fipscounty':'" + countyfips + "','fipsstate': '" + statefips + "','county': '" + countyname + "' ,'state': '" + statename + "' ,'countydatavalue': '" + dataval + "'},";
+                }
+                else
+                    countydataarray += "{'fipscounty':'" + countyfips + "','fipsstate': '" + statefips + "','county': '" + countyname + "' ,'state': '" + statename + "' ,'countydatavalue': '" + dataval + "'},";
             }
 
             countydataarray = countydataarray.Substring(0, countydataarray.Length - 1);//removing the last comma
@@ -4045,6 +4083,22 @@ namespace CKDSurveillance_RD.MasterPages
 
             retstr += "<script type='text/javascript'>";
             retstr += countydataarray;//adding the county level data
+            
+            if (QNum.Substring(1) == "761")
+            {
+                retstr += "$('.countymapsvg').attr('width', '500px');";
+                retstr += "$('.countymapsvg').attr('height', '325px');";
+                retstr += "$('.countymapsvgwrapper').attr('width', '500px');";
+                retstr += "$('.countymapsvgwrapper').attr('height', '345px');";
+                
+                retstr += "$('.main-svg').attr('width', '500px');";
+                retstr += "$('.main-svg').attr('height', '300px');";
+
+                //retstr += "makeplot();";
+                retstr += "fillColor();";
+
+                linkedmapfilter.Visible = true;
+            }
             //begin drawTinyStateLevelMap
             retstr += "function drawTinyStateLevelMap(statecode) ";
             retstr += "{";
@@ -4093,6 +4147,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             retstr += "function countyMapReady(error, us) ";
             retstr += "{ ";
+            
             retstr += "if (error) throw error; ";
             retstr += "var csvdata = countyDataArray; ";
             retstr += "var featurestate = topojson.feature(us, us.objects.states)";
@@ -4162,7 +4217,7 @@ namespace CKDSurveillance_RD.MasterPages
             retstr += "function createUSMapChart(width, height)"; //datavals, scopeval, xaxis_title, title_var //creating the chart with the data sent back from the proc
             retstr += "{";
             retstr += "$('.countymapsvg').removeProp('style');"; //removing the existing style of display none
-            retstr += "$('.countymapsvg').prop('style', 'display:inline-block');";// adding the style of inline-block
+            retstr += "$('.countymapsvg').prop('style', 'display:inline-block');";// adding the style of inline-block            
 
             //zoom and pan functionality, function for general zooming and panning
             retstr += "d3.drag().on('drag', function() { d3.event.stopPropagation(); });";
@@ -4183,6 +4238,20 @@ namespace CKDSurveillance_RD.MasterPages
             retstr += ".defer(d3.json, 'Scripts/D3MapFiles/Coordinates/us-10m.v1.json')"; //using this json file            
             retstr += ".await(mapReady);"; //calling the 'ready' function
             retstr += "}";
+
+            if (ds.Tables.Count > 1) //initialize dataset for scatter chart
+            {
+                DataTable dt = ds.Tables[1];
+                retstr += "var allData = [";
+                foreach (DataRow dr in dt.Rows)
+                {
+                    retstr += "{ 'AnyCKD_rate': '" + dr["AnyCKD_rate"] + "', 'Below_poverty_threshold': '" + dr["Below_poverty_threshold"] + "', 'STATE': '" + dr["STATE"] + "', 'COUNTY': '" + dr["COUNTY"] + "', 'fipscounty': '" + dr["fipscounty"] + "', 'FIPSState': '" + dr["FIPSState"] + "' },";
+                }
+                retstr = retstr.Substring(0, retstr.Length - 1);
+                retstr += "];";
+                retstr += "processData(allData);";
+            }
+            
             //end createUSMapChart
 
             retstr += "</script>";

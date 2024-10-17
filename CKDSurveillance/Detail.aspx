@@ -11,8 +11,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <link href="App_Themes/RSWidgets.css" rel="stylesheet" />
+    
 
-    <%--*Ion Range Slider CSS*--%>
+<%--*Ion Range Slider CSS*--%>
     <link href="App_Themes/ion.rangeSlider.css?val=1" rel="stylesheet" />
     <link href="App_Themes/ion.rangeSlider.skinHTML5.css?val=1" rel="stylesheet" />
 
@@ -28,8 +29,10 @@
 
     <%--*Plotly Charting Tool*--%>
     <script src="scripts/plotly-latest.min.js"></script>
+    <script src="scripts/LinkedMap.js"></script>
 
-    
+    <link href="css/LinkedMap.css" rel="stylesheet" />
+
    <%--<script src="Scripts/bootstrap.min.js"></script>--%>
     <%--<link href="App_Themes/bootstrap.min.css" rel="stylesheet" />--%>
 
@@ -139,7 +142,7 @@
 
          .btnzoomout
          {
-            width:120px;
+            width:130px;
          }
 
          .btnzoom
@@ -768,8 +771,8 @@
                                     <%--</div>--%>
                                     </asp:Panel>
                                 </div>
-                                <div style="padding-top: 3%;margin-left: 45%;">
-                                    <button  class="noPrint btn btn-light btnzoomout" type="button">Zoom out</button>
+                                <div id="divzoombtn" style="padding-top: 3%;margin-left: 45%;">
+                                    <button  class="noPrint btn btn-light btnzoomout" id="btnreset" type="button" runat="server">Zoom out</button>
                                 </div>
                             </div>
 
@@ -1093,6 +1096,87 @@
                             <%--* Begin D3 Maps Chart  *--%>
                             <%--************************--%>
                             <asp:Panel ID="pnlD3MapsTabs" runat="server" ClientIDMode="Static" Style="overflow-x: hidden; overflow-y: hidden;">
+                                <%-- Linked Map buttons and sliders --%>
+
+                                <div class="filterTable" id="linkedmapfilter" runat="server" visible="false">
+                                  <div class="divTableCell">
+                                    <div class="divTableRow">
+                                      <button onclick="Pov_Selected()" class="pov linkedmapbtn" type="button">
+                                        Poverty
+                                      </button>
+                                    </div>
+                                    <div class="divTableRow">
+                                      <button onclick="CKD_Selected()" class="ckd linkedmapbtn" type="button">
+                                        Chronic kidney disease
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="divSliderCell">
+                                    <label for="pov_slider-1" id="lbl_pov_slider-1" style="visibility:hidden;margin-bottom:0rem!important">POV Low</label>
+                                    <label for="pov_slider-2" id="lbl_pov_slider-2" style="visibility:hidden;margin-bottom:0rem!important">POV High</label>
+                                    <div class="linkedmapwrapper">
+                                      <div class="pov slider-header">
+                                        Population in Poverty by County
+                                      </div>
+                                      <div class="linkedmapvalues">
+                                        <span id="pov_range1" class="rangeMin"> 0 % </span>
+                                        <span id="pov_range2" class="rangeMax"> 100 %</span>
+                                      </div>
+                                      <div class="linkedmapcontainer pov-slider-body">
+                                        <div class="slider-track" id="pov_slider"></div>
+                                        <input
+                                          type="range"
+                                          min="0"
+                                          max="100"
+                                          value="0"
+                                          id="pov_slider-1"
+                                          oninput="pov_slideOne()"
+                                        />
+                                        <input
+                                          type="range"
+                                          min="0"
+                                          max="100"
+                                          value="100"
+                                          id="pov_slider-2"
+                                          oninput="pov_slideTwo()"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="divSliderCell">
+                                    <label for="ckd_slider-1" id="lbl_ckd_slider-1" style="visibility:hidden;margin-bottom:0rem!important">CKD Low</label>
+                                    <label for="ckd_slider-2" id="lbl_ckd_slider-2" style="visibility:hidden;margin-bottom:0rem!important">CKD High</label>
+                                    <div class="linkedmapwrapper">
+                                      <div class="ckd slider-header">
+                                        CKD in the U.S. Medicare Population
+                                      </div>
+                                      <div class="linkedmapvalues">
+                                        <span id="ckd_range1" class="rangeMin"> 0 %</span>
+                                        <span id="ckd_range2" class="rangeMax"> 100 %</span>
+                                      </div>
+                                      <div class="linkedmapcontainer ckd-slider-body">
+                                        <div class="slider-track" id="ckd_slider"></div>
+                                        <input
+                                          type="range"
+                                          min="0"
+                                          max="100"
+                                          value="0"
+                                          id="ckd_slider-1"
+                                          oninput="ckd_slideOne()"
+                                        />
+                                        <input
+                                          type="range"
+                                          min="0"
+                                          max="100"
+                                          value="100"
+                                          id="ckd_slider-2"
+                                          oninput="ckd_slideTwo()"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                 <%-- Linked Map buttons and sliders --%>
 
                               <%--  <ul class="nav nav-tabs">
                                   <li class="active"><a data-toggle="tab" href="#tab_maps" id="tabbtn_maps">Maps</a></li>
@@ -1100,21 +1184,22 @@
                                   <li><a data-toggle="tab" href="#tab_heatmap" id="tabbtn_heatmap">Heatmap</a></li>
                                 </ul>--%>
 
-                                <div class="tab-content" style="width:100%;float:left;border:2px solid #ddd">
+                                <div class="tab-content" id="main_map" style="width:100%;float:left;">
+                                  <span id="main_map_title" runat="server" class="chartheader">Population in poverty by county</span>
                                   <div id="tab_maps" class="tab-pane in active">
                                       
                                     <div style="width:100%;text-align:right; padding-top:5px;">
-                                        <button class="noPrint btn btn-light btnzoom" type="button" id="zoom_in">+</button>
-                                        <button class="noPrint btn btn-light btnzoom" type="button" id="zoom_out">-</button>
+                                        <button class="noPrint btn btn-light btnzoom" type="button" id="zoom_in" runat="server">+</button>
+                                        <button class="noPrint btn btn-light btnzoom" type="button" id="zoom_out" runat="server">-</button>
                                         <%--<button  class="noPrint btn btn-light btnzoomout" type="button">Zoom Out</button>--%>
                                     </div>
                                         <span class="msgzoomout" style="visibility:hidden">Select a state from the dropdown below</span>
                                        
-
-                                    <div  style="padding-left:0px; margin-left:-5px;" >
-                                        <svg class="countymapsvgwrapper"  width="1000px" height="660px"><svg class="countymapsvg" width="1000px" height="600px" ></svg></svg>
+                                    <div style="padding-left:0px; margin-left:-5px;" id="countymap" >
+                                        <svg class="countymapsvgwrapper" width="1000px" height="660px">
+                                            <svg class="countymapsvg" width="1000px" height="600px" ></svg>
+                                        </svg>
                                     </div>
-
                                   </div>
                                   <div id="tab_chart" class="tab-pane">
             
@@ -1129,7 +1214,7 @@
                                     </div>
                                   </div>
                                 <%--</div>--%>
-                                <div style="width:70%;float:right;vertical-align:top;text-align:left;font-family: Arial;">
+                                <div id="mapbar" style="width:70%;float:right;vertical-align:top;text-align:left;font-family: Arial;">
                                 <%--<div style="width:100%;text-align:right;">
                                     <button  id='exportCountyMapButton' class="noPrint btn btn-light" type="button" ><span class="cdc-icon-download_01"></span>&nbsp;Download County Map</button>
                                 </div>--%>
@@ -1157,6 +1242,10 @@
                                     <div id="tinybarchart" style="width:200px;height:200px;cursor: pointer;display:none"  title="View histogram of this data"></div>
 
                                 </div>
+                                </div>
+                                <div class="tab-content" id="linkedmap_scatter" style="width:50%;float:left;display:none;">
+                                    <span id="linkedmap_scatter_title" runat="server" class="chartheader">Population in poverty and CKD by county</span>
+                                    <div id="tab_linkedmapscatter"></div>
                                 </div>
                             </asp:Panel>
 
@@ -1667,6 +1756,14 @@
                 //$("#skipmenu").append("<a href='#View-Data' tabindex='0' class='skippy' id='skipdatatablelink'>Skip directly to data table</a>");
                 //$("#skipmenu").append("<a href='#detailArea' tabindex='0' class='skippy' id='skippagedetailslink'>Skip directly to Key Points, Description, Methods, Field/Data, References</a>");
 
+                if ($("#hfChartID").val() == "4319") {
+                    document.getElementById("btnreset").innerHTML = "Reset Filters";
+                    document.getElementById("divzoombtn").style.marginLeft = "60%";
+                }
+                else
+                {
+                    $(".chartheader").hide();
+                }
 
                 $("input[id*='CB_ChartCI']").click(function () {
                     console.log("cbchart=" + $(this).prop('checked'));
@@ -2244,12 +2341,10 @@
             //fillTheLegend();
         }
 
-        function zoomed() {
+        function zoomed() {           
             g_con.attr("transform", d3.event.transform); // updated for d3 v4
             g_text.attr("transform", d3.event.transform); // updated for d3 v4
-
-
-
+            
         }
         function fillTheTitleFooter(c_title, c_footer) {
             console.log("inside fillTheTitleFooter");
@@ -2639,7 +2734,7 @@
          const fipsarray_tabs = ["01", "02", "05", "04", "06", "08", "09", "11", "10", "12", "13", "15", "19", "16", "17", "18", "20", "21", "22", "23", "24",
              "25", "26", "27", "29", "28", "30", "31", "32", "33", "34", "35", "36", "37", "38",
              "39", "40", "41", "42", "44", "45", "46", "47", "48", "49", "50", "51", "53", "55", "54", "56"];
-
+        
          statearray_tabs.forEach(function (statename, index) {
              stateData_tabs.push({ "name": statename, "abbr": abbrarray_tabs[index], "fips": fipsarray_tabs[index] });
          });
@@ -2659,6 +2754,7 @@
 
          var path_tabs = d3.geoPath().projection(null);
          var global_us_tabs, global_csv_tabs; //created global variables so the json and csv data can be accessed throughout the code
+         var global_pov_data, global_ckd_data;
          var zoom_tabs = d3.zoom()
              .scaleExtent([1, 8])
              .on("zoom", zoomed); //default values set for 'zooming', calling the 'zoomed' function below
@@ -2697,8 +2793,11 @@
                  if(statecode_tabs == "select")
                  {
                      $(".btnzoomout").click();
+                     //processData(allData);
                      return;
                  }
+
+                 //console.log(statecode_tabs);
 
                  var featurestate_tabs = topojson.feature(global_us_tabs, global_us_tabs.objects.states)
                      .features
@@ -2713,8 +2812,11 @@
                  //10/13/2020
                  if ($("#tabbtn_maps").parent().hasClass("active")) $("#tabbtn_maps").click();
                  else if ($("#tabbtn_chart").parent().hasClass("active")) $("#tabbtn_chart").click();
-                 else if ($("#tabbtn_heatmap").parent().hasClass("active")) $("#tabbtn_heatmap").click();
-                 
+                 else if ($("#tabbtn_heatmap").parent().hasClass("active")) $("#tabbtn_heatmap").click(); 
+
+                 if ($("#hfChartID").val() == "4319") {
+                     processData(allData);
+                 }
              });
 
              $("#heatmapsort").change(function () {
@@ -2800,6 +2902,29 @@
 
 
              $(".btnzoomout").click(function () {
+                 if ($("#hfChartID").val() == "4319") {
+                     minX = 0;
+                     maxX = 100;
+                     minY = 0;
+                     maxY = 100;
+
+                     minVal = 0;
+                     maxVal = 100;
+
+                     selectedFips = '';
+
+                     document.getElementById("pov_slider-1").value = 0;
+                     document.getElementById("pov_slider-2").value = 100;
+                     document.getElementById("ckd_slider-1").value = 0;
+                     document.getElementById("ckd_slider-2").value = 100;
+
+                     pov_slideOne();
+                     pov_slideTwo();
+                     ckd_slideOne();
+                     ckd_slideTwo();
+
+                     fillColor();
+                 }
                  //d3.select(null); 
                  zoomOutToUS();                 
                  //$(this).hide();
@@ -2810,6 +2935,10 @@
                  $("#tinystatemap").hide();
                  $("#tinybarchart").hide();
                  $("#tinyheatmap").hide();
+
+                 if ($("#hfChartID").val() == "4319") {
+                     processData(allData);
+                 }
              });
 
              //Fix search box at top(2021-May Release)
@@ -2827,7 +2956,6 @@
                  data: "selectedstate=" + stateval + "^valMin=" + valMin_tabs + "^valMax=" + valMax_tabs + "^sortvalue=" + $("#heatmapsort").val() + "^yr=" + $("#hfCurrentYear").val() + "^chartid=" + $("#hfChartID").val() ,
                  success: function (response) {
 
-                     console.log("response=" + response);
                      //createPlotlyBarChart(response)
                      eval(response);
 
@@ -2893,7 +3021,14 @@
              
              if (error) throw error;
              global_us_tabs = usdata; //adding this passed int data to the global data
-             global_csv_tabs = countyDataArray;//csvdata; //adding this passed int data to the global data
+             if ($("#hfChartID").val() == "4319") {
+                 if(colorSelected == colorCKDDark)
+                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
+                 else
+                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
+             }
+             else
+                global_csv_tabs = countyDataArray;//csvdata; //adding this passed int data to the global data
 
              valMin_tabs = d3.min(global_csv_tabs, function (d) { return +d.countydatavalue; });//finding the minimum value in the csv data
              valMax_tabs = d3.max(global_csv_tabs, function (d) { return +d.countydatavalue; });//finding the maximum value in the csv data
@@ -2981,8 +3116,7 @@
 
 
          //moved this outside of the createmap function so that it can be accessed by the dropdown state change
-         function stateClicked_tabs(d) { //passing in the json string of the state
-
+         function stateClicked_tabs(d) { //passing in the json string of the state             
              hideAllCounties();
              //$(".cballcounties").prop("checked", false);
              $(".msgzoomout").hide();
@@ -2997,6 +3131,8 @@
                  if (S.fips == statecode)
                      statename = S.name;
              });
+
+             selectedstateid = statecode;
              //console.log("d state=" + JSON.stringify(d));
              var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
              var countiesarray = [];
@@ -3006,7 +3142,14 @@
                  var cid = c.id + "";
                  if (cid.slice(0, sid.length) === sid && cid.length - sid.length == 3) countiesarray.push(c);
              });
-             
+
+             if ($("#hfChartID").val() == "4319") {
+                 if (colorSelected == colorCKDDark)
+                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
+                 else
+                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
+             }
+
              //if ($(".cballcounties").prop("checked") == false) {
              //if we don't show all counties then remove the other counties being shown, otherwise keep them displayed
              svg_tabs.selectAll("g.counties").remove();//removing any existing counties that are being displayed
@@ -3027,7 +3170,6 @@
                          return d.fipscounty == cdata.id; //just match on the countyid from the countiesarray and match it with the fipscounty columns fro mthe excel file and then return the whole row of data
                      });
 
-                     //console.log("filtercountyrow=" + filtercountyrow.length);
                      if (filtercountyrow.length === 0)
                          dataval = "MIA";
                      else
@@ -3035,6 +3177,9 @@
                      
                      var colorval;
                      colorval = findColorVal(dataval);
+
+                     if (selectedFips != "" && cdata.id != selectedFips)
+                         colorval = "#ddd";
 
                      return colorval;
                  })
@@ -3062,7 +3207,7 @@
                                  data_val = "";
                                  countydatalabelval = "NA";
                              }
-                             else if (filtercountyrow[0]["countydatavalue"] === "NA" || Number(filtercountyrow[0]["countydatavalue"]) <= 10) {
+                             else if ((filtercountyrow[0]["countydatavalue"] === "NA" || Number(filtercountyrow[0]["countydatavalue"]) <= 10) && $("#hfChartID").val() != "4319") {
                                  statename = filtercountyrow[0]["state"]
                                  county_val = filtercountyrow[0]["county"];
                                  data_val = filtercountyrow[0]["countydatavalue"];
@@ -3075,8 +3220,15 @@
                              else {
                                  county_val = filtercountyrow[0]["county"];
                                  data_val = filtercountyrow[0]["countydatavalue"];
+                                 
                                  var color = findColorVal(data_val);
+                                 if (selectedFips != "" && D.id != selectedFips)
+                                     color = "#ddd";
                                  var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + "%</div>";
+
+                                 if ($("#hfChartID").val() === "4319" && data_val === "NA")
+                                     htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + "</div>";
+
                                  if (statecode == "22")
                                      htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>Parish: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
                                  else if (statecode == "02")
@@ -3101,6 +3253,13 @@
                              return countydatalabelval;
                          })
 
+                 })
+                 .on("click", function (data) {
+                     if ($("#hfChartID").val() == "4319") {
+                         selectedFips = data.id;
+                         stateClicked_tabs(d);
+                         processData(allData);
+                     }
                  });
              //}
 
@@ -3129,9 +3288,16 @@
 
          //moved this outside of the createmap function so that it can be accessed by the dropdown state change
          function showAllCounties() { //passing in the json string of the state
-             
+             selectedstateid = "";
+             if ($("#hfChartID").val() == "4319") {
+                 if (colorSelected == colorCKDDark)
+                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
+                 else
+                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
+             }
+
              svg_tabs.selectAll("g.counties").remove();
-             
+
              var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
              
              var countyprojectiondata = topojson.feature(global_us_tabs, global_us_tabs.objects.counties);
@@ -3149,15 +3315,15 @@
                          return d.fipscounty == cdata.id; //just match on the countyid from the countiesarray and match it with the fipscounty columns fro mthe excel file and then return the whole row of data
                      });
 
-                     //console.log("filtercountyrow=" + filtercountyrow.length);
                      if (filtercountyrow.length === 0)
                          dataval = "MIA";
                      else
                          dataval = filtercountyrow[0]["countydatavalue"];
 
                      var colorval;
-
                      colorval = findColorVal(dataval);
+                     if (selectedFips != "" && cdata.id != selectedFips)
+                         colorval = "#ddd";
 
                      return colorval;
                  })
@@ -3186,11 +3352,11 @@
                                  data_val = "";
                                  countydatalabelval = "NA";
                              }
-                             else if (filtercountyrow[0]["countydatavalue"] === "NA" || Number(filtercountyrow[0]["countydatavalue"]) <= 10) {
+                             else if ((filtercountyrow[0]["countydatavalue"] === "NA" || Number(filtercountyrow[0]["countydatavalue"]) <= 10) && $("#hfChartID").val() != "4319") {
                                  statename = filtercountyrow[0]["state"]
                                  county_val = filtercountyrow[0]["county"];
                                  data_val = filtercountyrow[0]["countydatavalue"];
-                                 var color = findColorVal(data_val);
+                                 var color = findColorVal(data_val);                                
                                  var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA</div>";
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
@@ -3201,7 +3367,14 @@
                                  county_val = filtercountyrow[0]["county"];
                                  data_val = filtercountyrow[0]["countydatavalue"];
                                  var color = findColorVal(data_val);
+                                 if (selectedFips != "" && D.id != selectedFips)
+                                     color = "#ddd";
+
                                  var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + "%</div>";
+
+                                 if ($("#hfChartID").val() === "4319" && data_val ==="NA")
+                                     htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + "</div>";
+                                
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
                                  countydatalabelval = htmlwrap;
@@ -3221,8 +3394,14 @@
                              return countydatalabelval;
                          })
 
+                 })
+                 .on("click", function (data) {
+                     if ($("#hfChartID").val() == "4319") {
+                         selectedFips = data.id;
+                         changeColor();
+                         processData(allData);
+                     }
                  });
-
          }
 
          function hideAllCounties() {
@@ -3319,7 +3498,7 @@
              var legendtext2 = "";
              var legendtext3 = "";
              var legendtext4 = "";
-             var legendtext5 = "";
+             var legendtext5 = "";            
 
              if ($("#hfChartID").val() == "4019") { //Overall
                  legendtext1 = "NA";
@@ -3378,7 +3557,6 @@
          function zoomed() {
              states_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'states' portion of the svg
              counties_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'counties' portion of the svg
-
          }
 
          // If the drag behavior prevents the default click,
@@ -3387,14 +3565,14 @@
              if (d3.event.defaultPrevented) d3.event.stopPropagation();
          }
 
-         function findColorVal(dataval) {             
+         function findColorVal(dataval) {    
              var colorval;
              //***** Q705 change *******/
              if ($("#hfChartID").val() == "4019") { //Overall
                  if (dataval === "NA")
                     colorval = "#ddd"; //was white at one point
                  else if (dataval === "MIA")
-                     colorval = "#ddd"
+                     colorval = "#ddd";
                  else if (dataval >= valMin_tabs + 20) 
                      colorval = colorarray_tabs[4];
                  else if (dataval >= (valMin_tabs + 17) && dataval < (valMin_tabs + 20))
@@ -3410,7 +3588,7 @@
                  if (dataval === "NA")
                      colorval = "#ddd"; //was white at one point
                  else if (dataval === "MIA")
-                     colorval = "#ddd"
+                     colorval = "#ddd";
                  else if (dataval >= valMin_tabs + 32) 
                      colorval = colorarray_tabs[4];
                  else if (dataval >= (valMin_tabs + 27) && dataval < (valMin_tabs + 32))
@@ -3426,7 +3604,7 @@
                  if (dataval === "NA")
                      colorval = "#ddd"; //was white at one point
                  else if (dataval === "MIA")
-                     colorval = "#ddd"
+                     colorval = "#ddd";
                  else if (dataval >= valMin_tabs + 25) 
                      colorval = colorarray_tabs[4];
                  else if (dataval >= (valMin_tabs + 21) && dataval < (valMin_tabs + 25)) 
@@ -3438,6 +3616,46 @@
                  else if (dataval < (valMin_tabs + 10)) 
                      colorval = colorarray_tabs[0];
              }
+                 /* Linked Map */
+             else if ($("#hfChartID").val() == "4319") { /* TODO: add logic for CKD and POV */
+                 var interval = 1.9;
+                 if (dataval === "NA")
+                     colorval = "#ddd"; //was white at one point
+                 else if (dataval === "MIA")
+                     colorval = "#ddd";
+                 else if (parseFloat(dataval) >= parseFloat(minVal) && parseInt(dataval) <= parseFloat(maxVal)) {
+                     for (var i = 1; i < 30; i++) {
+                         if (parseFloat(dataval) < valMin_tabs) {
+                             if (colorSelected == colorPovDark) {
+                                 colorval = pov_colorarray_tabs[0];
+                                 break;
+                             }
+                             else {
+                                 colorval = ckd_colorarray_tabs[0];
+                                 break;
+                             }
+                         }
+                         else if (parseFloat(dataval) >= (valMin_tabs + interval * (i - 1)) && parseFloat(dataval) < (valMin_tabs + interval * i)) {
+                             if (colorSelected == colorPovDark) {
+                                 colorval = pov_colorarray_tabs[i];
+                                 break;
+                             }
+                             else {
+                                 colorval = ckd_colorarray_tabs[i];
+                                 break;
+                             }
+                         }
+                     }
+                 }
+                 else 
+                    colorval = "#ddd";
+
+                 document.getElementById("main_map").style.width = "50%";
+                 document.getElementById("linkedmap_scatter").style.display = "initial";
+                 document.getElementById("mapbar").style.display = "none";
+                 
+             }
+
              //***** Q705 change *******/
 
              //if (dataval === "NA")
@@ -3496,7 +3714,7 @@
              img.onload = function () {
                  ctx.drawImage(img, 0, 0);
                  var png = canvas.toDataURL("image/png");
-                 //console.log("png=" + png);
+                 
                  document.querySelector('#png-container').innerHTML = '<img src="' + png + '"/>';
                  DOMURL.revokeObjectURL(png);
 

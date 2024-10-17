@@ -126,7 +126,7 @@
             <div style="height=50%; width:99%">
                 <%--<img src="/ckd/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
                 <a href="TopicHome/AwarenessArchive.aspx?topic=25">
-                    <img src="images/AYA_theme_version.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt=""/>
+                    <img src="images/AYA_theme_version.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt="Click to view awareness topic archive"/>
                 </a>
             </div>
             <div style="height:25%; width:98%"></div>
@@ -139,7 +139,7 @@
         <div class="col-md-6 aya-image-mobile">
             <%--<img src="/ckd/images/Mask_Group_33_mobile.png"  style="width:100%;margin-top:15px" alt=""/>--%>
             <a href="TopicHome/AwarenessArchive.aspx?topic=25">
-                <img src="/ckd/images/AYA_theme_version.png" style="width:100%;margin-top:15px" alt=""/> 
+                <img src="/ckd/images/AYA_theme_version.png" style="width:100%;margin-top:15px" alt="Click to view awareness topic archive"/> 
             </a>
        </div>
 
@@ -147,15 +147,12 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle"><i>Trends in Daily Dietary Sodium and Potassium Intake Among Adults With Chronic Kidney Disease</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle"><i>Prevalence of Polycystic Kidney Disease Among Medicare Beneficiaries</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
-                An appropriate intake of sodium and potassium is necessary for maintaining optimal health. Among people with chronic kidney disease (CKD), excess intake of sodium and low intake of potassium may worsen health outcomes. 
+                Polycystic kidney disease (PKD) is a genetic condition that causes fluid-filled cysts to grow in the kidneys. Typically, in autosomal dominant PKD (the most common form), these cysts progressively damage the kidneys and result in kidney failure. Although rare, PKD is still the fourth leading cause of end stage kidney disease (ESKD) behind diabetes, hypertension, and glomerulonephritis, and accounts for 5% of all ESKD in the United States. Although considered a disease of younger adults, it is not uncommon to encounter patients with a diagnosis of PKD among Medicare beneficiaries (<sup>~</sup>25,000 people in 2021). Whether these older adults represent survivors of autosomal dominant PKD or represent milder forms of PKD, or both, requires further investigation.
                 <br /><br />                
-                National survey data show that recommended sodium consumption (less than 2,300 mg/day) was more common among adults with CKD than adults without CKD. However, the percentage of adults with CKD meeting sodium intake recommendations declined from 2005–2008 (38.4%) to March of 2017 (32.8%). 
-                <br /><br />
-                The recommended minimum potassium intake for the general population is at least 3,400 mg/day for men and 2,600 mg/day for women. Fewer adults with CKD met the recommended potassium intake (29%) than adults without CKD (35%), without significant changes over time. These data suggest that about two-thirds of the U.S. adult population do not meet recommended daily sodium and potassium intake. Dietary monitoring and counseling are important aspects of CKD management to prevent complications (e.g., hypertension, hyper- or hypokalemia). 
             </div>
 
             <div class="row aya-botton-box">

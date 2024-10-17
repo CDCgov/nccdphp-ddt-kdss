@@ -456,6 +456,15 @@ namespace CKDSurveillance_RD.MasterPages
         protected global::System.Web.UI.WebControls.Literal litYearText;
 
         /// <summary>
+        /// btnreset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnreset;
+
+        /// <summary>
         /// Lit_Plotly control.
         /// </summary>
         /// <remarks>
@@ -643,6 +652,51 @@ namespace CKDSurveillance_RD.MasterPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlD3MapsTabs;
+
+        /// <summary>
+        /// linkedmapfilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linkedmapfilter;
+
+        /// <summary>
+        /// main_map_title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl main_map_title;
+
+        /// <summary>
+        /// zoom_in control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton zoom_in;
+
+        /// <summary>
+        /// zoom_out control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton zoom_out;
+
+        /// <summary>
+        /// linkedmap_scatter_title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linkedmap_scatter_title;
 
         /// <summary>
         /// LiteratureIndicatorFootnote control.

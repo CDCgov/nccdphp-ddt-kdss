@@ -247,12 +247,16 @@
     <Content Include="AYA\Images\August_2024-a.png" />
     <Content Include="AYA\Images\August_2024-b.png" />
     <Content Include="AYA\Images\August_2024.PNG" />
+    <Content Include="AYA\Images\CurrentAYA-a.png" />
+    <Content Include="AYA\Images\CurrentAYA-b.png" />
     <Content Include="AYA\Images\CurrentAYA.png" />
     <Content Include="AYA\Images\December_2023.png" />
     <Content Include="AYA\Images\February_2024.png" />
     <Content Include="AYA\Images\June_2024.png" />
     <Content Include="AYA\Images\June_2023.png" />
     <Content Include="AYA\Images\October_2023.png" />
+    <Content Include="AYA\Images\October_2024-a.png" />
+    <Content Include="AYA\Images\October_2024-b.png" />
     <Content Include="AYA\June_2023.html" />
     <Content Include="AYA\AYA_template.html" />
     <Content Include="AYA\Images\April_2023.png" />
@@ -262,9 +266,11 @@
     <Content Include="AYA\October_2022.html" />
     <Content Include="AYA\April_2024.html" />
     <Content Include="AYA\October_2023.html" />
+    <Content Include="AYA\October_2024.html" />
     <Content Include="Blocked.aspx" />
     <Content Include="Calculators.aspx" />
     <Content Include="css\Fonts.css" />
+    <Content Include="css\LinkedMap.css" />
     <Content Include="css\SocialMedia.css" />
     <Content Include="Default.aspx" />
     <Content Include="Default\Default.aspx" />
@@ -471,6 +477,7 @@
     <Content Include="scripts\d3.v4.min.js" />
     <Content Include="scripts\ion.rangeSlider.js" />
     <Content Include="scripts\jquery.range.js" />
+    <Content Include="scripts\LinkedMap.js" />
     <Content Include="scripts\plotly-latest.min.js" />
     <Content Include="scripts\SliderFunctions.js" />
     <Content Include="scripts\UtilityRD.js" />
@@ -546,6 +553,7 @@
     <Content Include="PPT\Q796.pptx" />
     <Content Include="PPT\Q800.pptx" />
     <Content Include="PPT\Q801.pptx" />
+    <Content Include="PPT\Q804.pptx" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="scripts\local.js" />
     <Content Include="scripts\templateContentEmpty.js" />

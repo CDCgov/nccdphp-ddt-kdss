@@ -29,6 +29,7 @@
         
         body {
             font-size: 16px !important;
+            border-top: 0px !important;
         }
 
         @media screen and (min-width: 1201px) {
@@ -194,7 +195,7 @@
     <%--************--%>
     <%--*Main Image*--%>
     <%--************--%>
-    <div class="row d-lg-block main-image-banner" style="background-position: center;">
+    <div class="row d-lg-block main-image-banner" style="background-position: center; background-size: cover;">
         <div class="container">
             <uc1:MainImage runat="server" ID="MainImage1" />
         </div>

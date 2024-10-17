@@ -831,13 +831,15 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 string topicText = drAYA["TopicText"].ToString().Trim();
                 string ayaLink = drAYA["AYALink"].ToString().Trim();
                 string topicHomePageURL = drAYA["TopicHomePageURL"].ToString().Trim();
-                string linkStart = ("<a style=\"text-align: left; font-family: Open Sans; font-size: 24px; letter-spacing: 0px; color: #007C91; opacity: 1; text-decoration:none; \" target=\"_blank\" href=" + ayaLink + ">");
+                string linkStart = ("<a style=\"text-align: left; font-family: Open Sans; font-size: 24px; letter-spacing: 0px; color: #007C91; opacity: 1; text-decoration:none; \" target=\"_blank\" aria-label=\"Go to " + date + " article: " + title + "\"  href=" + ayaLink + ">");
                 string linkEnd = "</a>";
                 string topicURL = ("<a style=\"text-align: left; font-family: Open Sans; font-size: 16px; letter-spacing: 0px; opacity: 1; padding-left:5px;padding-right:5px;border-radius: 18px; border: 1px solid #D3D3D3 ; text-decoration:none; color: #000000 !important;background-color: #E5E4E2; \"  target=\"_blank\" href=" + topicHomePageURL + ">");
 
                 if (rowNum == 1)
                 {                    
                     string ayaCurrentImg = drAYA["AYACurrentImg"].ToString().Trim();
+                    string ayaCurrentImg1 = "CurrentAYA-a.png";
+                    string ayaCurrentImg2 = "CurrentAYA-b.png";
                     sbBodyTable.Append("<div class=\"div-table-row\" style=\"background-color: #EBF5F6;\">");
                     sbBodyTable.Append("<div style=\"font-size: 26px;font-weight: 400; padding-left: 5%; padding-top:20px; \">Latest Spotlight</div>");
                     if (date.IndexOf("June 2024") >= 0)
@@ -847,8 +849,17 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     }
                     else if (date.IndexOf("August 2024") >= 0)
                     {
-                        sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; display: grid;\">");
-                        sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; margin-top:5%; \"/>");
+                        //sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; display: grid;\">");
+                        //sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; margin-top:5%; \" alt=\"Chart: Adults with Recommended Potassium Intake (%); \"/>");
+                        sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; \">");
+                        sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg1 + "\" style=\"margin-left:5%; margin-top:5%; \" alt=\"Chart: Adults with Recommended Sodium Intake (%); \" /> <img src =\"../AYA/images/" + ayaCurrentImg2 + "\" style=\"margin-left:1%; margin-top:5%; \" alt=\"Chart: Adults with Recommended Potassium Intake (%); \" />");
+                    }
+                    else if (date.IndexOf("October 2024") >= 0)
+                    {
+                        //sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; display: grid;\">");
+                        //sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; margin-top:5%; \" alt=\"Chart: Adults with Recommended Potassium Intake (%); \"/>");
+                        sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; \">");
+                        sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg1 + "\" style=\"margin-left:5%; margin-top:5%; \" alt=\"Chart: Trends in Prevalence of PKD Among Medicare Beneficiaries ≥65 Years, by Sex; \" /> <img src =\"../AYA/images/" + ayaCurrentImg2 + "\" style=\"margin-left:1%; margin-top:5%; \" alt=\"Chart: Trends in Prevalence of PKD Among Medicare Beneficiaries ≥65 Years, by Race and Ethnicity; \" />");
                     }
                     else
                     {

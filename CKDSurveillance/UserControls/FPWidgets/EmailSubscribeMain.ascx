@@ -64,6 +64,7 @@
             <fieldset>
                 <div class="emailmain">
                     <section for="gov-d-email" class="emailmain-label">SIGN UP FOR EMAIL UPDATES&nbsp;&nbsp;</section>
+                    <label for="gov-d-email" style="visibility:hidden">Email Address</label>
                     <input id="gov-d-email" name="email" type="email" class="emailmain-textbox" placeholder="Email Address" /><%-- required="required">--%>
                     <button id="btnSubmitEmailSubscription" class="btn emailmain-btn">Submit</button>
                 </div>
