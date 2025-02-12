@@ -3,7 +3,7 @@
   
 <div class="module widgetBorder CornerMe" >    
         
-    <h3 class="widgetTitleH3" style="font-size:1.2em;">
+    <h3 class="widgetTitleH3" style="font-size:1.2em; font-family: Poppins;">
         <em>Healthy People 2020</em>
     </h3>
 

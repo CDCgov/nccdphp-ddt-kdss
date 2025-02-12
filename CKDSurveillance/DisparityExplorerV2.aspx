@@ -18,7 +18,7 @@
             width: 140px;
             height: 55px;
             padding: 4px;
-            font: 12px sans-serif;
+            font: bold 12px Nunito !important; /*sans-serif*/
             background: #DDD;
             border: 0px;
             border-color: #888;
@@ -103,7 +103,7 @@
             }
 
         .ulNoIndent {
-            background-color: #F6F6F6;
+            background-color: #f6fbff;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
         }

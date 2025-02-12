@@ -57,7 +57,7 @@
             </div>--%>
 
             <div id="accordion-1" class="accordion indicator-plus accordion-white mb-3" role="tablist">
-                <div class="card bar">
+                <div class="card bar" >
                     <div class="card">
                         <div class="card-header collapsed" id="accordion-1-card-1" data-target="#accordion-1-collapse-1" data-toggle="collapse" role="tab" aria-expanded="false">
                             <button class="card-title btn btn-link" onclick="return false;" data-controls="accordion-1-collapse-1">

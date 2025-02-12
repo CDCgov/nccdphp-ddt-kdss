@@ -11,13 +11,15 @@
     <script src="/TemplatePackage/3.0/js/libs.min.js"></script>
     <%--<script src="../TemplatePackage/3.0/js/core.min.js"></script>--%>
     <%--<script src="../TemplatePackage/3.0/js/app.min.js"></script>--%>
+    <script src="../TemplatePackage/5.0/js/app.min.js"></script>
 
-    <link href="/TemplatePackage/3.0/css/themes/theme-cyan.css" rel="stylesheet" />
+    <%--<link href="/TemplatePackage/3.0/css/themes/theme-cyan.css" rel="stylesheet" />--%>
     <%--<link href="../App_Themes/bootstrap.min.css" rel="stylesheet" />--%>
     <link href="/TemplatePackage/3.0/css/lib/bootstrap24.css" rel="stylesheet" />
-    <%--<link href="../App_Themes/bootstrap.min.css" rel="stylesheet" />--%>
+    <link href="../App_Themes/bootstrap.min.css" rel="stylesheet" />
     <link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />
-
+    <link href="../TemplatePackage/5.0/css/app.min.css" rel="stylesheet" />
+ 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

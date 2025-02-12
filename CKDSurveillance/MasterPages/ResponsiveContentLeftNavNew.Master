@@ -13,15 +13,15 @@
 
 
 <!DOCTYPE html>
-<html lang="en-us" class="cdc-2022 theme-cyan cdc-page-type-splash cdc-2020">
+<html lang="en-us" <%--class="cdc-2022 theme-cyan cdc-page-type-splash cdc-2020"--%>>
 <head runat="server">
     <meta name="google-site-verification" content="vuSgbTP5gm9mu35qxMRQp6nC_uX_u82h2GSXTuzLOyc" />
     <title>Kidney Disease Surveillance System</title>
 
     <%--Header Files--%>
-    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/head-content.html"));%>
-    <%--End Header Files--%>    
-    <%--<link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />--%>
+    <%--<% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/head-content.html"));%>--%>
+    <%--End Header Files--%>
+    <link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />
 
     <%--<meta name="description" content="Centers for Disease Control and Prevention (CDC) Division Name (DN)- CKD Surveillance System />--%>
     <asp:Literal ID="litMetaTagsDescription" runat="server" ClientIDMode="Static" Text="<meta name='description' content='Centers for Disease Control and Prevention (CDC) : CKD Surveillance' />" />
@@ -40,21 +40,32 @@
     <!-- remove the ~ for these three links when sending this to the CDC -->
     <link rel="stylesheet" href="/NCCDTemplatePackage/css/base.css" />
     <link rel="stylesheet" href="/NCCDTemplatePackage/fonts/font-awesome-latest.css" />
-    <script src="/NCCDTemplatePackage/js/modernizr2.6.2.js"></script>
+    <script src="/NCCDTemplatePackage/js/modernizr2.6.2.js"></script>    
     <%--end NCCD TemplatePackage--%>
 
     <%-- CUSTOM THEMES--%>
     <%--<link href="../App_Themes/custom.css" rel="stylesheet" />--%>
     <%--<link href="../App_Themes/local.css?v=202012151234" rel="stylesheet" />--%>
     <link href="../App_Themes/theme-teal.css" rel="stylesheet" />
+
     <%--<link href="../App_Themes/graphic-identifier.css" rel="stylesheet" />--%>
 
     <%--Scripts--%>
-    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/scripts.html"));%>
+    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/scripts.html"));%>
+    <script src="../TemplatePackage/contrib/libs/bootstrap/latest/js/bootstrap.bundle.min.js"></script>
     <%--End Scripts--%>
-    
+
 
     <style>
+        .nav-link.active {
+            background-color: #FFFFFF!important;
+            color: #005fa3!important;
+        }
+        .nav-link.selected {
+            background-color: #FFFFFF!important;
+            color: #005fa3!important;
+        }
+
         .siteTitleBar {
             font-size: 34px;
         }
@@ -71,8 +82,9 @@
             .showPhoneOnly {
                 display: none;
             }
+
             .ckd-toggle-btn {
-               display:none;
+                display: none;
             }
         }
         /*@media (max-width: 498px)
@@ -82,7 +94,7 @@
             display:none !important;
         }
     }*/
-       
+
         @media (max-width: 767px) {
             .phoneNoShow {
                 display: none;
@@ -95,23 +107,24 @@
             .hide767 {
                 display: none;
             }
+
             .siteTitleBar {
                 text-align: left;
-                font: normal normal 600 26px/28px Open Sans;
+                font: normal normal 600 26px/28px Nunito;
                 letter-spacing: 0px;
                 color: #FFFFFF;
                 opacity: 1;
-                margin-left: -15px!important;
+                margin-left: -15px !important;
             }
             /*#mobile-menu
         {
             margin-left:-1.5em;
         }*/
             .ckd-toggle-btn {
-                display:block;
+                display: block;
                 border-style: solid;
                 border-color: white;
-                width:148px;
+                width: 148px;
             }
         }
 
@@ -172,59 +185,151 @@
         }
 
         .Pagetitle {
-            border-top: solid 4px white;            
+            border-top: solid 4px white;
             font-family: Trebuchet MS !important;
             font-size: 17pt !important;
             color: #1a7aa2 !important;
             font-weight: normal;
         }
+
         .ckd-serach-submit {
-                border-top-left-radius: 0px !important;
-                border-bottom-left-radius: 0px !important;
-                border-top-right-radius: 7px !important;
-                border-bottom-right-radius: 7px !important;
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+            border-top-right-radius: 7px !important;
+            border-bottom-right-radius: 7px !important;
         }
-        
-	/* search TP is over-riding this */
-	@media only screen and (max-width: 991px) {
-		#page_banner .header-wrapper > .container > .row.py-2 {
-		width: 290px;
-		}
-		.home-2022 .header-wrapper {
-			padding-bottom: 0 !important;
-			padding-top: 0 !important;
-		}
-		.homepage-ckd-nav button#mag[aria-expanded=true] {
-			border-radius: 0;
-		}
-		.homepage-ckd-nav button#mag[aria-expanded=true] {
-			background-color: #00345e !important;
-		}
-		.homepage-ckd-nav button#mag[aria-expanded=true] .cdc-icon-close {
-			display: block !important;
-			color: white;
-		}
-		.homepage-ckd-nav button#mag[aria-expanded=true] .dropdown-menu-medium-search-icon {
-			display: none;
-		}
-		.homepage-ckd-nav button#mag[aria-expanded=true] .dropdown-menu-medium-close-icon span {
-			margin-top: -3px;
-		}
-		.homepage-ckd-nav button#mag[aria-expanded=true] .dropdown-menu-medium-close-icon::before {
-			font-size: 32px;
-			margin-top: 8px;
-		}
-		.homepage-ckd-nav button#mag[aria-expanded=true] .cdc-icon-close span {
-			font-size: 12px !important;
-			font-style: normal;
-			display: block;
-		}
-		#navbarSupportedSearch, .homepage-ckd-nav .site-title .navbar-nav li.nav-item.bg-blue-d {
-			/*box-shadow: 0 7px 9px 0 rgba(51, 51, 51, 0.4);*/
-			box-shadow: 1px 7px 9px rgba(51, 51, 51, 0.5) !important;
-		}
-	}
+
+        .c-white, .text-white {
+            color: #fff !important;
+        }
+
+        pb-1, .py-1 {
+            padding-bottom: 0.25rem !important;
+        }
+
+        .pt-1, .py-1 {
+            padding-top: 0.25rem !important;
+        }
+
+        .theme-cyan .site-title {
+            background-color: #006778;
+            color: #fff;
+            border-bottom: 3px solid var(--colors-blue-cool-vivid-50); /*#65b0bd;*/
+        }
+
+        .site-title a, .site-title a:link, .site-title a:visited {
+            text-decoration: none !important;
+            color: #fff;
+            vertical-align: text-top;
+        }
+
+        .fw-500 {
+            font-weight: 500 !important;
+        }
+
+        article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+            display: block;
+        }
+
+        html.cdc-2020 .site-title.container-fluid {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            border-bottom: none;
+        }
+
+        .header-no-bg {
+            background: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        .cdc-footer__inner {
+            max-width: 1690px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            justify-content: center;
+        }
+
+        .cdc-footer__nav {
+            padding-left: 0px !important;
+        }
+
+        .cdc-footer__body-social {
+            width: 23% !important;
+            justify-items: right;
+        }
+        .cdc-footer__body-logo {
+            margin: 0px !important;
+            padding: 0px;
+        }
+        .cdc-footer__body-logo img{
+            width: 300px !important;
+            height:101.69px !important;
+        }
+        .cdc-footer__nav a {
+            padding-left:0px !important;
+            padding-right:70px !important;
+        }
+
+        .a {
+            color: #005fa3 !important;
+        }
+
+            .a:hover {
+                color: #0d2a7a !important;
+            }
+
+        /* search TP is over-riding this */
+        @media only screen and (max-width: 991px) {
+            #page_banner .header-wrapper > .container > .row.py-2 {
+                width: 290px;
+            }
+
+            .home-2022 .header-wrapper {
+                padding-bottom: 0 !important;
+                padding-top: 0 !important;
+            }
+
+            .homepage-ckd-nav button#mag[aria-expanded=true] {
+                border-radius: 0;
+            }
+
+            .homepage-ckd-nav button#mag[aria-expanded=true] {
+                background-color: #00345e !important;
+            }
+
+                .homepage-ckd-nav button#mag[aria-expanded=true] .cdc-icon-close {
+                    display: block !important;
+                    color: white;
+                }
+
+                .homepage-ckd-nav button#mag[aria-expanded=true] .dropdown-menu-medium-search-icon {
+                    display: none;
+                }
+
+                .homepage-ckd-nav button#mag[aria-expanded=true] .dropdown-menu-medium-close-icon span {
+                    margin-top: -3px;
+                }
+
+                .homepage-ckd-nav button#mag[aria-expanded=true] .dropdown-menu-medium-close-icon::before {
+                    font-size: 32px;
+                    margin-top: 8px;
+                }
+
+                .homepage-ckd-nav button#mag[aria-expanded=true] .cdc-icon-close span {
+                    font-size: 12px !important;
+                    font-style: normal;
+                    display: block;
+                }
+
+            #navbarSupportedSearch, .homepage-ckd-nav .site-title .navbar-nav li.nav-item.bg-blue-d {
+                /*box-shadow: 0 7px 9px 0 rgba(51, 51, 51, 0.4);*/
+                box-shadow: 1px 7px 9px rgba(51, 51, 51, 0.5) !important;
+            }
+        }
     </style>
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -236,83 +341,217 @@
     <uc1:ucSkipNav runat="server" ID="ucSkipNav" />
 
 
-    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/global-alert.html"));%>
+    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/site-alert.html"));%>
 
 
     <%--********--%>
     <%--*Header*--%>
     <%--********--%>
-    <div class="container-fluid header-wrapper homepage-ckd-nav  navbar-brand" style="background-color: #0057B7">
+    <div class="container-fluid header-wrapper homepage-ckd-nav  navbar-brand" style="background-color: #005ea2">
         <div class="container">
-            <header role="banner" aria-label="Header" class="pt-2 pb-2">
-                <div class="row">
-                    <div class="col-xl-3 cdc-logo navbar-brand">
-                        <%--<% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/header-logo.html"));%>--%>
+            <header role="banner" aria-label="Header" class="pt-2 header-no-bg menu-container">
+                <nav class="navbar navbar-expand-lg navbar-nav__hidden">
+                    <div class="container">
                         <a class="navbar-brand" href="https://www.cdc.gov/">
-                        <img style="width:100%;" src= "/TemplatePackage/5.0/img/logo/cdc-logo-tag-right.svg" alt="Centers for Disease Control and Prevention" />
+                            <img src="/TemplatePackage/5.0/img/logo/cdc-logo-tag-right.svg" alt="Centers for Disease Control and Prevention">
                         </a>
-                    </div>
-                    <div class="col-5"></div>
-                    <div class="col-2 col-md-5 col-xl-4 col-xxl-3 tp-search phoneNoShow">
-                       <%-- <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/header-search.html"));%>--%>
-                        <div class="headerSearch cdc-header-search">
-	                        <form accept-charset="UTF-8" action="https://search.cdc.gov/search/" method="get" autocomplete="off">
-
-		                        <!-- hide this button since we're not using it anymore -->
-		                        <button class="btn btn-primary dropdown-toggle no-toggle search-button ssi d-xl-none d-none"
-				                        type="button"
-				                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="search"><span>Search</span>
-			                        <i class="fi cdc-icon-magnify dropdown-menu-medium-search-icon x24" aria-hidden="true"></i>
-			                        <i class="fi cdc-icon-close dropdown-menu-medium-close-icon x24" aria-hidden="true"></i>
-		                        </button>
-
-			                        <div class="input-group">
-				                        <input id="headerSearch" type="text" class="form-control" maxlength="300" placeholder="Search" aria-label="Search" name="query">
-				                        <span class="form-control-clear cdc-icon-close"></span>
-				                        <div class="input-group-append">
-					                        <button class="btn search-submit"
-							                        type="button"><span
-							                        class="sr-only">Submit</span>
-						                        <i class="fi cdc-icon-magnify x24" aria-hidden="true"></i>
-					                        </button>
-				                        </div>
-			                        </div>
-			                        <div class="a-z-index fs0875">
-				                        <span class="d-xl-none">For a full list of topics: </span><a id="az-large" href="https://www.cdc.gov/az/">A-Z Index</a>
-			                        </div>
-			                        <div class="fs0875 d-md-none">
-				                        <a href="https://search.cdc.gov/search/#advanced">
-					                        Advanced Search
-				                        </a>
-			                        </div>
-		                        <div class="fs0875 d-none d-md-block tp-search-advanced">
-			                        <a href="https://search.cdc.gov/search/#advanced">
-				                        Advanced Search
-			                        </a>
-		                        </div>
-		                        <input type="hidden" name="sitelimit" value="">
-		                        <input type="hidden" name="utf8" value="✓">
-		                        <input type="hidden" name="affiliate" value="cdc-main">
-	                        </form>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="cdc-fa-regular cdc-fa-bars-sort fa-flip-horizontal"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 position-relative">
+                               <%-- <li class="nav-item dropdown healthtopics">
+                                    <a class="nav-link" href="#" id="healthTopicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Health Topics					</a>
+                                    <div class="dropdown-menu animate__animated animate__fadeIn animate__fast" aria-labelledby="healthTopicsDropdown">
+                                        <div class="dropdown-menu-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <div class="dropdown-menu-list-title">
+                                                            <a href="/health-topics.html">
+                                                                <span>Health Topics</span>
+                                                                <span class="cdc-fa-house">
+                                                                    <i class="cdc-fa-angle-right"></i>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <ul>
+                                                            <li><a href="/vaccines-adults/recommended-vaccines/index.html">Adult Vaccinations</a></li>
+                                                            <li><a href="/alzheimers-dementia/about/alzheimers.html">Alzheimer’s Disease</a></li>
+                                                            <li><a href="/youth-violence/about/about-bullying.html">Bullying</a></li>
+                                                            <li><a href="/covid/prevention/index.html">COVID-19</a></li>
+                                                            <li><a href="/diabetes/prevention-type-2/index.html">Diabetes</a></li>
+                                                            <li><a href="/fungal/about/index.html">Fungal Diseases</a></li>
+                                                            <li><a href="/hand-foot-mouth/about/index.html">Hand, Foot, and Mouth Disease (HFMD)</a></li>
+                                                            <li><a href="/clean-hands/data-research/facts-stats/">Handwashing</a></li>
+                                                            <li><a href="/healthy-weight-growth/about/tips-for-balancing-food-activity.html">Healthy Weight</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-3 offset-lg-1">
+                                                        <ul>
+                                                            <li><a href="/high-blood-pressure/about/index.html">High Blood Pressure</a></li>
+                                                            <li><a href="/hiv/testing/index.html">HIV Testing</a></li>
+                                                            <li><a href="/lyme/about/index.html">Lyme Disease</a></li>
+                                                            <li><a href="/overdose-prevention/prevention/index.html">Overdose Prevention</a></li>
+                                                            <li><a href="/dengue/prevention/">Preventing Dengue</a></li>
+                                                            <li><a href="/tobacco/tobacco-features/surgeon-generals-report.html">Quit Smoking</a></li>
+                                                            <li><a href="/rsv/about/index.html">Respiratory Syncytial Virus Infection (RSV)</a></li>
+                                                            <li><a href="/group-a-strep/about/strep-throat.html">Strep Throat</a></li>
+                                                            <li><a href="https://wwwnc.cdc.gov/travel">Travelers' Health</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <a href="/common-cold/about/" class="fancy-image">
+                                                            <img src="/homepage/images/common-cold.jpg" alt="Health Topics">
+                                                            <div class="fancy-image__overlay">
+                                                                Common Cold										
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-menu-footer">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <a href="https://www.cdc.gov/health-topics.html" class="btn btn-outline-primary">A-Z Index										</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown outbreaks">
+                                    <a class="nav-link" href="#" id="outbreaksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">outbreaks</a>
+                                    <div class="dropdown-menu animate__animated animate__fadeIn animate__fast" aria-labelledby="outbreaksDropdown">
+                                        <div class="dropdown-menu-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <div class="dropdown-menu-list-title">
+                                                            <a href="https://www.cdc.gov/outbreaks/index.html">
+                                                                <span>Outbreaks												</span>
+                                                                <span class="cdc-fa-house">
+                                                                    <i class="cdc-fa-angle-right"></i>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <ul>
+                                                            <li><a href="https://www.cdc.gov/salmonella/outbreaks/cucumbers-11-24/index.html">Cucumbers</a><span><em>Salmonella</em> Outbreak</span></li>
+                                                            <li><a href="https://www.cdc.gov/listeria/outbreaks/meat-and-poultry-products-11-24.html">Meat and Poultry Products</a><span><em>Listeria</em> Outbreak</span></li>
+                                                            <li><a href="https://www.cdc.gov/ecoli/outbreaks/e-coli-O121.html">Organic Carrots</a><span><em>E. coli&nbsp;</em>Outbreak</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-3 offset-lg-1">
+                                                        <ul>
+                                                            <li><a href="/marburg/situation-summary/index.html">Marburg Outbreak in Rwanda</a><span>Marburg Virus Disease</span></li>
+                                                            <li><a href="/measles/data-research/">Measles</a><span>2024 Outbreaks</span></li>
+                                                            <li><a href="/lead-prevention/news/outbreak-applesauce-pouches.html">Cinnamon Applesauce Pouches</a><span>Lead and Chromium Poisoning</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <a href="https://www.cdc.gov/outbreaks/index.html" class="fancy-image">
+                                                            <img src="/TemplatePackage/5.0/img/homepage/outbreak.svg" alt="Outbreak">
+                                                            <div class="fancy-image__overlay">Find the latest outbreak information from CDC</div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-menu-footer">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <a href="https://www.cdc.gov/outbreaks/index.html" class="btn btn-outline-primary">All Outbreaks										</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown aboutcdc">
+                                    <a class="nav-link" href="#" id="aboutCDCDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About CDC					</a>
+                                    <div class="dropdown-menu animate__animated animate__fadeIn animate__fast" aria-labelledby="aboutCDCDropdown">
+                                        <div class="dropdown-menu-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <div class="dropdown-menu-list-title">
+                                                            <a href="https://www.cdc.gov/about/">
+                                                                <span>About CDC												</span>
+                                                                <span class="cdc-fa-house">
+                                                                    <i class="cdc-fa-angle-right"></i>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <ul>
+                                                            <li><a href="/about/cdc/index.html">About CDC</a></li>
+                                                            <li><a href="/about/leadership/index.html">Leadership</a></li>
+                                                            <li><a href="/about/organization/index.html">Organization</a></li>
+                                                            <li><a href="/about/cdc-director/index.html">Check-in with Dr. Cohen</a></li>
+                                                            <li><a href="/about/advisory-committee-director/index.html">Advisory Committee to the Director</a></li>
+                                                            <li><a href="/about/speakers/index.html">Speakers Bureau</a></li>
+                                                            <li><a href="/museum/index.htm">CDC Museum</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-3 offset-lg-1">
+                                                        <ul>
+                                                            <li><a href="/about/priorities/index.html">Advancing Science and Health Equity</a></li>
+                                                            <li><a href="/about/cdc-moving-forward.html">Moving Forward</a></li>
+                                                            <li><a href="/about/cdc-foundation.html">CDC Foundation</a></li>
+                                                            <li><a href="/about/divisions-offices/index.html">Mission and Org Charts</a></li>
+                                                            <li><a href="/labs/strong-lab-safety/index.html">Lab Safety</a></li>
+                                                            <li><a href="/about/cdc-moving-forward/newcdc-info.html">New CDC.gov</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <a href="https://www.cdc.gov/about/" class="fancy-image">
+                                                            <img src="/TemplatePackage/5.0/img/homepage/aboutcdc.png" alt="About CDC">
+                                                            <div class="fancy-image__overlay">
+                                                                Learn more About CDC										
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-menu-footer">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <a href="https://www.cdc.gov/about/" class="btn btn-outline-primary">About CDC										</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>--%>
+                                <li class="nav-item dropdown" style="width:400px">
+                                    <form id="cdc-desktop-search-form" accept-charset="UTF-8" action="https://search.cdc.gov/search/" class="cdc-header-search-form" method="get" autocomplete="off" role="search" style="display: flex;">
+                                        <input class="form-control" type="search" name="query" data-search-input="" aria-label="Search" placeholder="Search" spellcheck="false" autocomplete="off"><div class="cdc-search-complete"></div>
+                                        <button type="submit"><span class="cdc-fa-magnifying-glass"></span><span class="visually-hidden">Search</span></button>
+                                        <button type="button" style=visibility:hidden;><span class="cdc-icon-close" ></span><span class="visually-hidden">Close</span></button>
+                                    </form>
+                                    <a class="nav-link" href="#"><i class="cdc-fa-magnifying-glass me-2"></i>
+                                        Search					</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <button id="mag" class="btn btn-primary-d navbar-toggler collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedSearch" aria-haspopup="true" aria-expanded="false" aria-label="search" control-id="ControlID-1">
-							<i class="fi cdc-icon-search-light dropdown-menu-medium-search-icon x28" aria-hidden="true"></i>
-							<i class="fi cdc-icon-close dropdown-menu-medium-close-icon" aria-hidden="true"><span>CLOSE</span></i>
-					</button>
-                    <div class="navbar-collapse collapse" id="navbarSupportedSearch" style="">
-						<div class="input-group p-3 no-print covid-mobile-search bg-blue-d d-flex d-lg-none">
-							<input id="headerSearch-2" type="text" class="form-control" maxlength="300" placeholder="Search" aria-label="Search" name="query" control-id="ControlID-2">
-							<div class="input-group-append">
-								<button id="search-submit-2" class="btn search-submit bg-white ckd-serach-submit" type="button">
-								<span class="x16 fill-p dark cdc-icon-search-light"></span>
-								<span class="sr-only">Search</span>
-								</button>
-							</div>
-						</div>
-						<div id="mask-search" style="top: 68px;"></div>
-					</div>
-                </div>
+                </nav>
             </header>
         </div>
     </div>
@@ -322,27 +561,27 @@
     <%--************--%>
     <%--*Site title*--%>
     <%--************--%>
-    <div class="container-fluid site-title homepage-ckd-nav" style="background:linear-gradient(to right, #0057B7, #006eab, #0081a1)">
+    <div class="container-fluid site-title homepage-ckd-nav" style="background: linear-gradient(to right, #0057B7, #006eab, #0081a1)">
         <div class="container">
             <div class="d-flex">
-                <header class="text-white fw-500 pt-1 pb-1 siteTitleBar">
+                <header class="text-white fw-500 pt-1 pb-1 siteTitleBar header-no-bg">
                     <%--display-6 --%>
-                    <a href="<%= ConfigurationManager.AppSettings["DirPath"]%>default.aspx">Kidney Disease Surveillance System</a>                    
+                    <a href="<%= ConfigurationManager.AppSettings["DirPath"]%>default.aspx">Kidney Disease Surveillance System</a>
                 </header>
                 <%--<div class="col-md-1 ckd-toggle-btn">--%>
-                    <button id="ham" class="navbar-toggler navbar-light collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedContentMobile" 
-	                    aria-controls="navbarSupportedContentMobile" aria-expanded="false" aria-label="Toggle navigation" style="padding-left:0px;padding-right:0px;">
-	                    <%--<i class="dropdown-menu-medium-search-icon" aria-hidden="true">--%>
-                        <i class="fa fa-bars" aria-hidden="true" style="color:#FFFFFF;">
-		                    <%--<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;">
+                <button id="ham" class="navbar-toggler navbar-light collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedContentMobile"
+                    aria-controls="navbarSupportedContentMobile" aria-expanded="false" aria-label="Toggle navigation" style="padding-left: 0px; padding-right: 0px;">
+                    <%--<i class="dropdown-menu-medium-search-icon" aria-hidden="true">--%>
+                    <i class="fa fa-bars" aria-hidden="true" style="color: #FFFFFF;">
+                        <%--<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;">
 			                    <g transform="matrix(2.24081,0,0,1.9375,-1.96324,2.4375)">
 				                    <path d="M4,7L26,7M4,15L26,15M4,23L26,23" style="fill:rgb(4,45,74);fill-rule:nonzero;stroke:rgb(255,255,255);stroke-width:1.25px;"></path>
 				                    </g>
 			                    </svg>--%>
-		                    </i>
-                        <span class="fi" style="color:#FFFFFF;font-size:smaller">Menu</span>
-	                    <i class="fi cdc-icon-close dropdown-menu-medium-close-icon" aria-hidden="true"><span>CLOSE</span></i>
-                    </button>
+                    </i>
+                    <span class="fi" style="color: #FFFFFF; font-size: smaller">Menu</span>
+                    <i class="fi cdc-icon-close dropdown-menu-medium-close-icon" aria-hidden="true"><span>CLOSE</span></i>
+                </button>
                 <%--</div>--%>
             </div>
         </div>
@@ -369,8 +608,8 @@
     <%--**************--%>
     <%--*page content*--%>
     <%--**************--%>
-    <div class="container-fluid d-flex flex-wrap body-wrapper bg-white" style="margin-bottom:12px;">
-        <main class="col-xl-12 order-lg-2" role="main" aria-label="Main Content Area">
+    <div class="container-fluid d-flex flex-wrap body-wrapper bg-white" style="margin-bottom: 12px;">
+        <main class="col-xl-12 order-lg-2" role="main" aria-label="Main Content Area" style="padding-top: 0px; border-left: none; border-right: none;">
             <div class="row visual-element">
                 <div class="col">
                     <!-- Optional visual element goes here -->
@@ -404,17 +643,17 @@
     </div>
 
     <%--end page content--%>
-    
+
     <%--*****************--%>
     <%--*Email Subscribe*--%>
     <%--*****************--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background: #29434E 0% 0% no-repeat padding-box;box-shadow: 0px -8px 6px #0000002E; opacity: 1;     display:block; margin-bottom:-20px;">
+    <div class="row pt-0 pb-1 county-check" style="background: #29434E 0% 0% no-repeat padding-box; box-shadow: 0px -8px 6px #0000002E; opacity: 1; display: block; margin-bottom: -20px;">
         <div class="container">
             <uc1:EmailSubscribeMain runat="server" ID="EmailSubscribeMain1" />
         </div>
     </div>
-    
+
     <%--**************--%>
     <%--* Disclaimer *--%>
     <%--**************--%>
@@ -426,18 +665,18 @@
     </div>--%>
 
     <%--footer--%>
-    <footer role="contentinfo" aria-label="footer">
-        <div class="container-fluid footer-wrapper">
-            <div class="container">
-                <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/footer-cdc.html"));%>
-            </div>
-        </div>
-        <div class="container-fluid agency-footer">
-            <div class="container">
-                <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/footer-agency.html"));%>
-            </div>
-        </div>
-    </footer>
+    <%-- <footer role="contentinfo" aria-label="footer" >--%>
+
+
+    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/site-footer.html"));%>
+    <!--4.0 - footer-cdc -->
+    <%--<div class="container-fluid agency-footer">
+            <div class="container">--%>
+    <% //Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/site-footer.html"));%>
+    <!--footer-agency -->
+    <%--</div>
+        </div>--%>
+    <%--</footer>--%>
     <%--end footer--%>
 
     <asp:ContentPlaceHolder ID="ContentArea2" runat="server" ClientIDMode="Static">
@@ -447,16 +686,18 @@
     <%--scripts and metrics--%>
     <script type="text/javascript" src='<%= HttpRuntime.AppDomainAppVirtualPath.TrimEnd( '/' ) + ("/scripts/jquery.cycle2.js") %>'></script>
     <script type="text/javascript" src='<%= HttpRuntime.AppDomainAppVirtualPath.TrimEnd( '/' ) + ("/scripts/jquery.cycle2.carousel.min.js") %>'></script>
-    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/metrics.html"));%>
-    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/svg-symbols.html"));%>
-    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/svg-round-social.html"));%>
-    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/svg-white-social.html"));%>
+    <%--<% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/includes_4/metrics.html"));%>--%>
+    <% //Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/includes_4/svg-symbols.html"));%>
+    <% //Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/includes_4/svg-round-social.html"));%>
+    <% //Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/includes_4/svg-white-social.html"));%>
     <%--<script src="/NCCDTemplatePackage/js/tableColumn.js"></script>--%>
 
     <script type="text/javascript">
+
         
-        s.pageName = document.title;
-        s.channel = "<%= ConfigurationManager.AppSettings["OmnitureApp"] %>";
+        <%--s.pageName = document.title;
+        s.channel = "<%= ConfigurationManager.AppSettings["OmnitureApp"] %>";--%>
+
         window.shortTitle = "CKD";
 
         window.pageOptions = window.pageOptions || {};
@@ -476,7 +717,7 @@
         window.pageOptions.navigation.pathToSelect = window.pageOptions.navigation.pathToSelect || window.location.pathname
 
 
-        window.CDC.tp4.public.appInit(window.pageOptions);
+        //window.CDC.tp4.public.appInit(window.pageOptions);
 
 
     </script>
@@ -494,7 +735,7 @@
 
             $(this).find('.btn-cdc-mobileview').hide();
             $(this).find('.btn-cdc-contacts').hide();
-            $('#headerSearch').attr('style', 'padding:5px !important;'); //thin up the box a bit
+            $('#headerSearch').attr('style', 'padding:5px !important; border:none !important;'); //thin up the box a bit
             //recordScreenWidth();
             resetClicks();
             buildMenus();

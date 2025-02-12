@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CKDSurveillance_RD.MasterPages {
-    
-    
-    public partial class PopupMaster {
-        
+namespace CKDSurveillance_RD.MasterPages
+{
+
+
+    public partial class PopupMaster
+    {
+
         /// <summary>
         /// head control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-        
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// MainContentPlaceHolder control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContentPlaceHolder;
-        
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace CKDSurveillance_RD.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// CustomJavaScript control.
         /// </summary>

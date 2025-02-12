@@ -27,7 +27,7 @@
         .colHeader
         {
             padding:.5em;
-            background-color:#c1ded5;
+            background-color: #E1F3F8CC; /*#c1ded5;*/
             border: solid .1em silver;
         }
         .basicCellStyle

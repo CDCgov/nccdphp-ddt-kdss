@@ -164,7 +164,7 @@ namespace CKDSurveillance_RD
                 string qtext = row["QuestionText"].ToString();
                 string desc = row["LongDesc"].ToString();
 
-                sbTable.Append("<div class=\"card bar\" style=\"padding-top:10px;\">"); //begin card bar
+                sbTable.Append("<div class=\"card bar\" style=\"padding-top:10px; border-width:0px;\">"); //begin card bar
 
                 sbTable.Append("<div class=\"card-header " + cardState + "\" style=\"background-color:#C8D5E4 !important;\" id=\"accordion-4m-card-" + qid.ToString() + "\" data-target=\"#accordion-4m-collapse-" + qid.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"true\">"); //begin header measureText
                 sbTable.Append("<a class=\"card-title\" tabindex=\"0\" data-controls=\"accordion-4m-collapse-" + qid.ToString() + "\">" + qtext + "</a>");

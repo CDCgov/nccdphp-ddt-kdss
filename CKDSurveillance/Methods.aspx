@@ -10,7 +10,7 @@
         }
         #divHeader
         {
-            background-color:#c1ded5;
+            background-color:/*#c1ded5*/ #E1F3F8CC;
             color:#1a7aa2; 
             border:solid .1em black; 
             padding:.5em .5em .5em .5em; 
@@ -43,7 +43,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">    
 
     <%--*Page Title*--%>
-    <h3>Methods:</h3>
+    <h3 style="font-family: Poppins;">Methods:</h3>
     
 
     <%--*Row*--%>

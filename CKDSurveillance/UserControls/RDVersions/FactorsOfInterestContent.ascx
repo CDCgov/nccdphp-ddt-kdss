@@ -43,7 +43,7 @@
     }
     .factorTableHeader {
         color:#1A7AA2;
-        background-color:#C1DED5;
+        background-color:/*#C1DED5*/ #E1F3F8CC;
         
         padding-top:8px;
         padding-bottom:8px;

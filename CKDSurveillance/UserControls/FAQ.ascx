@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="FAQ.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FAQ" %>
 
 
-            <h2 class="foc">FAQs</h2>
+            <h2 class="foc" style="font-family: Poppins;">FAQs</h2>
             <br />
 
             <%--***********--%>
@@ -10,7 +10,7 @@
             <a href="#answers" class="skippy" title="Skip to Answers">Skip to Answers</a>            
             <div class="module roundem faqs">
 	            <div class="inner">
-                <h4>On this page</h4>
+                <h4 style="font-family: Poppins;"> On this page</h4>
                 <asp:Repeater ID="rptQuestions" runat="server">
                      <headertemplate>
                         <table>

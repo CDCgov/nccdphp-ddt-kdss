@@ -12,7 +12,7 @@
      <%--**************--%>
      <%--*Widget Title*--%>
      <%--**************--%>
-    <h3>
+    <h3 style="font-family: Poppins;">
        New Tools!
     </h3>
 

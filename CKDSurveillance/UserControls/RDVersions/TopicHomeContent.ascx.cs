@@ -745,17 +745,17 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                         if (IndicatorText == linkIndicatorTextCompare)//if the text matches, then add the appropriate highlight class
                         {
                             //sb_indTable.Append("<li class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
-                            sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
+                            sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:1px; padding:10px;text-decoration:none;'>");
                             HF_HC_TopicText.Value = TopicText;
                             containsIndi = true;
                         }
                         else
                             //sb_indTable.Append("<li class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
-                            sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
+                            sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:1px; padding:10px;text-decoration:none;'>");
                     }
                     else
                         //sb_indTable.Append("<li class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
-                        sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:25px;'>");
+                        sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home PInavSectionSublinks navlist\" style='margin-left:1px; padding:10px;text-decoration:none;'>");
 
                     sb_indTable.Append(linkStart + text + linkEnd);
 
@@ -831,16 +831,16 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 string topicText = drAYA["TopicText"].ToString().Trim();
                 string ayaLink = drAYA["AYALink"].ToString().Trim();
                 string topicHomePageURL = drAYA["TopicHomePageURL"].ToString().Trim();
-                string linkStart = ("<a style=\"text-align: left; font-family: Open Sans; font-size: 24px; letter-spacing: 0px; color: #007C91; opacity: 1; text-decoration:none; \" target=\"_blank\" aria-label=\"Go to " + date + " article: " + title + "\"  href=" + ayaLink + ">");
+                string linkStart = ("<a style=\"text-align: left; font-family: Nunito; font-size: 24px; letter-spacing: 0px; color: #0b4778; opacity: 1; text-decoration:none; \" target=\"_blank\" aria-label=\"Go to " + date + " article: " + title + "\"  href=" + ayaLink + ">");  /*#007C91;*/
                 string linkEnd = "</a>";
-                string topicURL = ("<a style=\"text-align: left; font-family: Open Sans; font-size: 16px; letter-spacing: 0px; opacity: 1; padding-left:5px;padding-right:5px;border-radius: 18px; border: 1px solid #D3D3D3 ; text-decoration:none; color: #000000 !important;background-color: #E5E4E2; \"  target=\"_blank\" href=" + topicHomePageURL + ">");
+                string topicURL = ("<a style=\"text-align: left; font-family: Nunito; font-size: 16px; letter-spacing: 0px; opacity: 1; padding-left:5px;padding-right:5px;border-radius: 18px; border: 1px solid #D3D3D3 ; text-decoration:none; color: #000000 !important;background-color: #E5E4E2; \"  target=\"_blank\" href=" + topicHomePageURL + ">");
 
                 if (rowNum == 1)
                 {                    
                     string ayaCurrentImg = drAYA["AYACurrentImg"].ToString().Trim();
                     string ayaCurrentImg1 = "CurrentAYA-a.png";
                     string ayaCurrentImg2 = "CurrentAYA-b.png";
-                    sbBodyTable.Append("<div class=\"div-table-row\" style=\"background-color: #EBF5F6;\">");
+                    sbBodyTable.Append("<div class=\"div-table-row\" style=\"background-color: #F6FBFF;\">");
                     sbBodyTable.Append("<div style=\"font-size: 26px;font-weight: 400; padding-left: 5%; padding-top:20px; \">Latest Spotlight</div>");
                     if (date.IndexOf("June 2024") >= 0)
                     {
@@ -868,7 +868,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     }
                     
                     sbBodyTable.Append("</div>");
-                    if (date.IndexOf("June 2024") >= 0 || date.IndexOf("August 2024") >= 0)
+                    if (date.IndexOf("June 2024") >= 0 || date.IndexOf("August 2024") >= 0 || date.IndexOf("January 2025") >= 0)
                     {
                         sbBodyTable.Append("<div style=\"padding-right: 5%; padding-bottom: 3%; padding-left:5%\">");
                     }
@@ -939,13 +939,13 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 else {
                     sbBodyTable.Append("<div class=\"div-table-col\" >");
                 }
-                sbBodyTable.Append("<div class=\"div-table-row\">");
+                sbBodyTable.Append("<div class=\"div-table-row\" style=\"border-left: 4px; padding:10px; \" >");
 
                 string measureText = dr["MeasureText"].ToString().Trim();
                 int measureID = ((int)(dr["MeasureID"]));
 
-                sbBodyTable.Append("<div  onclick =\"navClick()\" class=\"nav-section-home PInavSectionLinks navlist \" id=\"body-4-card-" + loopcnt.ToString() + "\" data-target=\"#body-4-collapse-" + loopcnt.ToString() + ">"); //begin header measureText
-                sbBodyTable.Append("<a tabindex=\"0\"  id=\"body-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"body-4-collapse-" + loopcnt.ToString() + "\"  style=\"text-align: left; font-family: Open Sans; font-size: 22px; letter-spacing: -0.22px; color: #000000; opacity: 1;  \"  >" +  measureText + "</a>");
+                sbBodyTable.Append("<div  onclick =\"navClick()\" class=\"nav-section-home PInavSectionLinks navlist \" style=\"border-bottom: 1px dashed #e0e0e0; border-left: 4px solid #fff; padding-bottom: 10px; font-size: 22px;\" id=\"body-4-card-" + loopcnt.ToString() + "\" data-target=\"#body-4-collapse-" + loopcnt.ToString() + ">"); //begin header measureText
+                sbBodyTable.Append("<a tabindex=\"0\"  id=\"body-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"body-4-collapse-" + loopcnt.ToString() + "\"  style=\"text-align: left; font-family: Nunito; font-size: 22px; letter-spacing: -0.22px; color: #000000; opacity: 1;  \"  >" +  measureText + "</a>");
                 sbBodyTable.Append("</div>"); 
                 sbBodyTable.Append("</div>"); //col
 
@@ -958,9 +958,9 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 bool containsIndi = false;
                 foreach (DataRow drInd in dtIndicators.Rows)
                 {
-                    sbBodyTable.Append("<div class=\"div-table-row nav-section-home\">");
+                    sbBodyTable.Append("<div class=\"div-table-row nav-section-home\" style=\"border-left: 4px; padding:10px; border-bottom: 1px dashed #e0e0e0; \" >");
                     // Build link
-                    string linkStart = ("<a style=\"text-align: left; font-family: Open Sans; font-size: 18px; letter-spacing: 0px; color: #007C91; opacity: 1; text-decoration:none; \"  href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "#refreshPosition\" + \"#PIdivbody\" >"));
+                    string linkStart = ("<a style=\"text-align: left; font-family: Nunito; font-size: 18px; letter-spacing: 0px; color: #0b4778; opacity: 1; text-decoration:none; \"  href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "#refreshPosition\" + \"#PIdivbody\" >"));  /*#007C91*/
                     string text = drInd["IndicatorText"].ToString().Trim();
                     string linkEnd = "</a>";
 

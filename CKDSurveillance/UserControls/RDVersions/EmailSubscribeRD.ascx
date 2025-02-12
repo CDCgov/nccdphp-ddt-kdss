@@ -2,7 +2,7 @@
 
 <div class="nccd-modb emailupdates">
 
-<h4><span class="x32 fill-p cdc-icon-email_02"></span>&nbsp;&nbsp;Get Email Updates</h4>
+<h4 style="font-family: Poppins;"><span class="x32 fill-p cdc-icon-email_02"></span>&nbsp;&nbsp;Get Email Updates</h4>
 <p style="padding-bottom:2px !important; margin-bottom:0px !important">To receive email updates about this page, enter your email address:</p>
     <form name="govdelivery" action="https://public.govdelivery.com/accounts/USCDC/subscribers/qualify">
         <fieldset>

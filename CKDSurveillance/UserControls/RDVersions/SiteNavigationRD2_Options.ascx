@@ -21,7 +21,7 @@
         padding-top:.5em;
         padding-bottom:.5em;
         
-        background-color: #f5f5f5;
+        background-color: #f6fbff;
         
         border:solid .1em silver;
         border-radius:7px; 
@@ -40,7 +40,7 @@
          /*float:right;*/
 
         padding:.3em;
-        background-color: #f5f5f5;
+        background-color: #f6fbff;
 
         border-radius:7px;
         border:solid .1em silver;

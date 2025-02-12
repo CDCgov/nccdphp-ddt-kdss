@@ -11,7 +11,7 @@
     }
     .outcomes-title {
         text-align: left;
-        font: normal normal 600 30px/34px Open Sans;
+        font: normal normal 600 30px/34px Nunito;
         letter-spacing: -0.6px;
         opacity: 1;
         margin-bottom:15px;
@@ -20,31 +20,32 @@
     }
     .outcomes-qofcare-link {
         text-align: left;
-        font: normal normal normal 18px/45px Open Sans !important;
+        font: normal normal normal 18px/45px Nunito !important;
         letter-spacing: 0px;
-        color: #007C91;
+        color:#005fa3 !important; /*color: #0b4778;*/ /*#007C91;*/
         opacity: 1;
         text-decoration: none;
     }
     .qofcare-link {
         text-align: left;
-        font: normal normal normal 18px/45px Open Sans !important;
+        font: normal normal normal 18px/45px Nunito !important;
         letter-spacing: 0px;
-        color: #06778B;
+        color: #005fa3 !important; /*color: #06778B;*/
         opacity: 1;
         text-decoration: none;
     }
     .qualityofcare-box {
-        background: #F5F5F5 0% 0% no-repeat padding-box;
+        background: #f6fbff 0% 0% no-repeat padding-box;
         border: 1px solid #D9D9D9;
         opacity: 0.81;
+        padding-top:50px;
         padding-bottom:25px;
         padding-left:25px;
         padding-right:200px;
     }
     .qualityofcare-title {
         text-align: left;
-        font: normal normal 600 30px/34px Open Sans;
+        font: normal normal 600 30px/34px Nunito;
         letter-spacing: -0.6px;
         color: #000000;
         margin-top:-15px;
@@ -53,7 +54,7 @@
     }
     .right-angle-arrow {     
         font-size: 25px;
-        color: #007C91;
+        color: #005fa3 !important;/*#0b4778;*/ /*#007C91;*/
         vertical-align: sub;
         margin-left: 10px;
     }
@@ -96,15 +97,15 @@
 <div class="outcomes-qofcare-box">
     <div class="row">
         <div class="col-md-6 outcome-box">
-            <div class="outcomes-title"><h2>Outcomes Related to <br /><u style="text-decoration-color:#00695C;text-underline-offset: 15px;">Kidn</u>ey Disease</h2></div>
-            <ul class="linked-list">
-                <li style="margin-bottom:-1rem;">
+            <div class="outcomes-title"><h2 style="border:none;font-family: Poppins;">Outcomes Related to <br /><u style="text-decoration-color:#005fa3 !important;text-underline-offset: 15px;">Kidn</u>ey Disease</h2></div>
+            <ul class="linked-list" style="list-style-type: none; padding-left: 5px;">
+                <li style="margin-bottom:-1rem; padding-bottom:10px;">
                     <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q185"><span>Mortality by Stages of Kidney Disease</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
-                <li style="margin-bottom:-1rem;">
+                <li style="margin-bottom:-1rem; padding-bottom:10px;">
                     <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q364"><span>Various Sleep Symptoms</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
-                <li style="margin-bottom:-1rem;">
+                <li style="margin-bottom:-1rem; padding-bottom:10px;">
                     <a class="outcomes-qofcare-link" href="detail.aspx?Qnum=Q703"><span>Population Reporting Serious Difficulties</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
             </ul>
@@ -112,19 +113,19 @@
 
         <%--<div class="col-md-2 d-none d-lg-block"></div>--%>
         <div class="col-md-6 qualityofcare-box">
-            <div class="qualityofcare-title phoneNoShow"><h2>Quality of Care<br /><u style="text-decoration-color:#00695C;text-underline-offset: 15px;">for K</u>idney Disease</h2></div>
-            <div class="qualityofcare-title showPhoneOnly"><h2>State of <br />Quality of Care<br /><u style="text-decoration-color:#00695C">for K</u>idney Disease</h2></div>
-            <ul class="linked-list">
-                <li style="margin-bottom:-1rem;">
+            <div class="qualityofcare-title phoneNoShow"><h2 style="border:none; padding-left:5px; font-family: Poppins;">Quality of Care<br /><u style="text-decoration-color:#005fa3 !important;text-underline-offset: 15px;">for K</u>idney Disease</h2></div>
+            <div class="qualityofcare-title showPhoneOnly"><h2 style="padding-left:5px; font-family: Poppins;">State of <br />Quality of Care<br /><u style="text-decoration-color:#005fa3 !important">for K</u>idney Disease</h2></div>
+            <ul class="linked-list" style="list-style-type: none; padding-left: 10px;">
+                <li style="margin-bottom:-1rem; padding-bottom:10px;">
                     <a class="qofcare-link" href="detail.aspx?Qnum=Q605"><span>ACEi/ARB use among people with CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
-                <li style="margin-bottom:-1rem;">
+                <li style="margin-bottom:-1rem; padding-bottom:10px;">
                     <a class="qofcare-link" href="detail.aspx?Qnum=Q640"><span>Albuminuria Testing among U.S. Veterans</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
-                <li style="margin-bottom:-1rem;">
+                <li style="margin-bottom:-1rem; padding-bottom:10px;">
                     <a class="qofcare-link" href="detail.aspx?Qnum=Q700"><span>Use of Prescribed NSAIDs in CKD</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
-                <li style="margin-bottom:-1rem;">
+                <li style="margin-bottom:-1rem; padding-bottom:10px;">
                     <a class="qofcare-link" href="detail.aspx?Qnum=Q719"><span>SGLT2 Inhibitor Use in CKD and Diabetes</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
                 </li>
             </ul>

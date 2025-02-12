@@ -5,7 +5,7 @@
     <%--**************--%>
     <%--*Widget Title*--%>
     <%--**************--%>
-    <h3>
+    <h3 style="font-family: Poppins;">
         Primary Care and Prevention Indicators
     </h3>
 

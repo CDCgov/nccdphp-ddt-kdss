@@ -13,7 +13,7 @@
 body {
 	border:none;
 	background:#bec3cc fixed url('/ckd/TemplatePackage/images/bgMainDropShadowGradient.png') 0 0 repeat-x;
-	font:75% sans-serif, Verdana, Arial, Helvetica ;
+	font:75% Nunito, Open Sans, sans-serif, Verdana, Arial, Helvetica ;
 	text-align:left;
 }
 
@@ -117,7 +117,7 @@ a.skippy:active, a.skippy:focus, a.skippy:hover {
 		text-transform:uppercase;
 		color:#fc0;
 		clear:both;
-		font-family:Trebuchet MS, Arial, sans-serif;
+		font-family:Poppins, "Trebuchet MS", Arial, sans-serif;
 		font-size:2em;
 		font-weight:bold;
 	}

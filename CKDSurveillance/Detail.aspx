@@ -33,7 +33,7 @@
 
     <link href="css/LinkedMap.css" rel="stylesheet" />
 
-   <%--<script src="Scripts/bootstrap.min.js"></script>--%>
+   <script src="Scripts/bootstrap.min.js"></script>
     <%--<link href="App_Themes/bootstrap.min.css" rel="stylesheet" />--%>
 
     <%--*Temp CSS*--%>
@@ -85,7 +85,7 @@
             min-width: 100px;
             height: 55px;
             padding: 6px;
-            font: bold 12px sans-serif;
+            font: bold 12px Nunito !important; /*sans-serif*/
             background: #fefefe;
             border: 3px solid orange;
             border-radius: 8px;
@@ -143,6 +143,7 @@
          .btnzoomout
          {
             width:130px;
+            background-color: #f6fbff !important;
          }
 
          .btnzoom
@@ -207,7 +208,7 @@
 
          .topicDescDiv {
             text-align: left;
-            font: normal normal normal 17px/24px Open Sans;
+            font: normal normal normal 17px/24px Nunito;
             letter-spacing: 0px;
             color: #000000;
             margin-top:20px;
@@ -216,7 +217,7 @@
 
          .spnDataSource {
             text-align: left;
-            font: normal normal 600 17px/24px Open Sans;
+            font: normal normal 600 17px/24px Nunito;
             letter-spacing: 0px;
             color: #000000;
          }
@@ -226,25 +227,25 @@
 			text-decoration: underline;			
 			letter-spacing: 0px;
 			color: #005EAA;
-			font-family: Open Sans;
+			font-family: Nunito;
 			font-size:14px;
 		}
 		.bodybreadcrumb{
 			/*font: normal normal normal 14px/24px Open Sans;*/
 			text-align: left;			
-			font-family: Open Sans;
+			font-family: Nunito;
 			font-size:14px;
 			letter-spacing: 0px;
 			color: #000000;
 		}
          .chartInstruction {
-            background: #F6F6F6 0% 0% no-repeat padding-box;
+            background: #f6fbff 0% 0% no-repeat padding-box;
             opacity: 1;
             padding:5px;
          }
 
          .chartInstructionText {
-            font: normal normal normal 17px/24px Open Sans;
+            font: normal normal normal 17px/24px Nunito;
             letter-spacing: 0px;
             color: #000000;
             opacity:1;
@@ -253,9 +254,9 @@
 
          .spnRiskCategory {
             text-align: left;
-            font: normal normal 600 17px/24px Open Sans;
+            font: normal normal 600 17px/24px Nunito;
             letter-spacing: 0px;
-            color: #00695C;
+            color: #005ea2; /*#00695C;*/
          }
 
          #svgchart {
@@ -290,7 +291,7 @@
             <div class="modal-content">
                 <div class="modal-body form-horizontal" style="text-align: center; overflow-x: hidden; align-content: center; ">
                     <div class="form-group">
-                        <h3 style="font-family:Arial !important;">Loading</h3> <%--*H3 font set locally since it is subject to bootstrap and app.css, and page, etc.*--%>
+                        <h3 style="font-family:Poppins !important;">Loading</h3> <%--*H3 font set locally since it is subject to bootstrap and app.css, and page, etc.*--%>
                         <img id="imgPageLoadingGif" src="images/LoadSwirl.gif" alt="page loading image" />
                     </div>
                 </div>
@@ -410,13 +411,13 @@
                     <%--*Center Column Material*--%>
                     <%--************************--%>
                     <section id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area">
-                        <div class="cdc-2020-bar container">
+                        <div class="cdc-2020-bar container" style="padding-bottom:25px !important; padding-left:0px !important">
 								<div class="row no-gutters">
 									<div class="bar-item">
 											<a href="default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link3" class="ckd-nav-home-link">										
 											<span class="homebreadcrumb"><u>Home</u></span> </a> 
                                             >
-										    <a style="border-top:#2B8277" id="bcTopicLink" runat="server"></a>  <%--selected topic from top nav --%>
+										    <a class="bodybreadcrumb" style="border-top:#2B8277; text-decoration: none;" id="bcTopicLink" runat="server" ></a>  <%--selected topic from top nav --%>
 											>
                                             <span id="bcMeasure" class="bodybreadcrumb" runat="server">  </span>  <%--selected list item from left nav --%>
                                             <span id="bcIndicator" class="bodybreadcrumb" runat="server">  </span>  <%--selected list item from left nav --%>
@@ -426,7 +427,7 @@
 						</div>
 
                         <div id="divCenter">
-                        <h1 class="IndicatorPagetitle">
+                        <h1 class="IndicatorPagetitle" style="font-family: Poppins;">
                             <asp:Literal ID="litTopic" runat="server" Text="" />
                         </h1>
                         <span class="IndicatorPagetitle showPhoneOnly">
@@ -576,7 +577,7 @@
                                     }
 
                                     .viewDataBy {
-                                        background: #00695C 0% 0% no-repeat padding-box;
+                                        background: /*#00695C*/ #005ea2 0% 0% no-repeat padding-box;
                                         opacity: 1;
                                         width: 362px;
                                         height: 96px;
@@ -587,7 +588,7 @@
 
                                     .viewDataByLabel {
                                         text-align: left;
-                                        font: normal normal bold 17px/20px Open Sans;
+                                        font: normal normal bold 17px/20px Nunito;
                                         letter-spacing: 0px;
                                         color: #FFFFFF;
                                         opacity: 1;
@@ -602,7 +603,8 @@
                                     }
                                     .menu-content{
                                         /*vertical-align: top;*/
-                                        background: #00695C14 0% 0% no-repeat padding-box;
+                                        /*background: #00695C14 0% 0% no-repeat padding-box;*/
+                                        background-color: var(--colors-blue-cool-vivid-5);
                                         opacity: 1;
                                         margin-left: 2px;
                                         margin-right: 2px;      
@@ -703,7 +705,7 @@
                             <div class="row" id="divMapMenu" runat="server">                                
                                 <div class="col-3 chartMapMenu">
                                     <div  for="ddstate" class="chartMapMenuLabel">Select by State</div>
-                                        <select id="ddstate" class="form-control" aria-label="Select by State">
+                                        <select id="ddstate" class="form-control" aria-label="Select by State" style="appearance:auto">
                                             <option value="select">Select a state</option>
                                             <option value="01">Alabama</option>
                                             <option value="02">Alaska</option>
@@ -785,6 +787,59 @@
 
 
                             <script>
+                                function initChartRadioButton() {
+                                    const currentUrl = window.location.href;
+
+                                    const url = new URL(currentUrl);
+
+                                    const params = url.searchParams;
+
+                                    const paramrbstd = params.get('rbstd'); 
+                                    if (paramrbstd != null) {
+                                        console.log(`Radio Button: ${paramrbstd}`); 
+
+                                        const radioButtons = document.querySelectorAll('input[type="radio"][name*="rbstd"]');
+
+                                        // Loop through and select the one with value 'Option 2'
+                                        for (const radioButton of radioButtons) {
+                                            console.log(`radioButton for loop: ${radioButton.value}`);                                             
+
+                                            if (radioButton.value === paramrbstd) {
+                                                console.log(`radioButton.value: ${paramrbstd}`); 
+                                                radioButton.checked = true; // Selects the radio button
+                                                break; // Stop loop after selecting
+                                            }
+                                        }
+
+                                        if (paramrbstd === "1") {
+                                            $("#svgchart").show(); 
+                                            $("#svgchartRel").hide();
+                                            $('#divData').show();
+                                            $('#divDataRel').hide();
+
+                                            var svgchartRel = document.getElementById("svgchartRel");
+                                            svgchartRel.style.opacity = "0";
+                                            var svgchart = document.getElementById("svgchart");
+                                            svgchart.style.opacity = "1";
+
+                                            redrawPlotlyChart();
+
+                                        } else if (paramrbstd === "2") {
+                                            $("#svgchart").hide();
+                                            $("#svgchartRel").show();
+                                            $('#divData').hide();
+                                            $('#divDataRel').show();
+
+                                            var svgchartRel = document.getElementById("svgchartRel");
+                                            svgchartRel.style.opacity = "1";
+                                            var svgchart = document.getElementById("svgchart");
+                                            svgchart.style.opacity = "0";
+
+                                            redrawPlotlyChart();
+                                        }
+                                    }
+                                }
+
                                 function initStdChartTable() {
                                     $("#svgchart").show(); // Select the first radio button
                                     $("#svgchartRel").hide();
@@ -1318,7 +1373,7 @@
                                 <div id="divContentTabs" class="tabs-module">
                                     <a id="detailArea" name="detailArea"></a>
                                     <ul class="nav nav-tabs no-syndicate" id="tabs-3" role="list" style="background-color:#ffffff" aria-label="tabparent" aria-busy="true">
-                                        <li class="nav-item" id="tab-1" role="listitem"><a class="nav-tab-link nav-link active inactive-nav-link" data-toggle="tab" role="link" href="#tab-KeyPoints">Notes</a></li>
+                                        <li class="nav-item active" id="tab-1" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-KeyPoints">Notes</a></li>
                                         <li class="nav-item" id="tab-2" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-ChartDescription">Data Source Description</a></li>
                                         <%--<li class="nav-item"><a class="nav-tab-link nav-link " data-toggle="tab" role="tab" href="#tab-Methods">Indicator Specifications</a></li>--%>
                                         <li class="nav-item" id="tab-3" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-SpecSheet">Indicator Specifications</a></li>
@@ -1451,7 +1506,7 @@
                             <uc1:StratYearsLinksMaps runat="server" id="StratYearsLinksMaps" />
                            
                             <div class="dataSourceRBTitle" id="chartFormatOptions" runat="server" style="margin-top:10px;">&nbsp;&nbsp;Chart Format</div>
-                                <div style="background-color: #F6F6F6; padding-left:5px; margin-top:-5px;" id="chartFormatControls" runat="server">
+                                <div style="background-color: #f6fbff; padding-left:5px; margin-top:-5px;" id="chartFormatControls" runat="server">
                                     <asp:RadioButtonList ID="RB_ChartType" CssClass="radioButtonList" runat="server" RepeatLayout="Table" RepeatDirection="Vertical" >
                                         <asp:ListItem Text="Bar" Value="'bar'"></asp:ListItem>
                                         <asp:ListItem Text="Line" Value="'line'" ></asp:ListItem>
@@ -1462,11 +1517,11 @@
                                 </div>
 
                             <div class="dataSourceRBTitle" id="chartColorOptions" runat="server" style="margin-top:10px;">&nbsp;&nbsp;Chart Colors</div>
-                                <div style="background-color: #F6F6F6; padding-left:5px; margin-top:-5px;" id="chartColorControls" runat="server">
+                                <div style="background-color: #f6fbff; padding-left:5px; margin-top:-5px;" id="chartColorControls" runat="server">
                                     <asp:RadioButtonList ID="RB_ChartColor" CssClass="radioButtonList" runat="server" RepeatLayout="Table" RepeatDirection="Vertical" >
                                         <%--<asp:ListItem Text="Contrast" Value="'#189BDC', '#b0e57c', '#98abc5', '#1f77b4', '#ffb456', '#7f7f7f', '#e377c2', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88'"></asp:ListItem>--%>
                                         <%--<asp:ListItem Text="Contrast" Value="'#6BAED6','#74C476','#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem>--%>
-                                        <asp:ListItem Text="Contrast" Value="'#712177','#007C91','#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem>
+                                        <asp:ListItem Text="Contrast" Value="'#712177','#0b4778','#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem>  <%--'#007C91',--%>
                                         <asp:ListItem Text="Gradient" Value="'#949494','#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b'" ></asp:ListItem>                                       
                                     </asp:RadioButtonList>
                                 </div>
@@ -1590,27 +1645,33 @@
     <%--<div id="bottom-container">--%>
     <!-- *End of Detail Area* -->
     <style>
-        .nav-tab-link.active {
+        .nav-item.active {
             background-color:#E8E8E8!important;
             color:#000000!important;
+            border: 1px solid #A0A0A0;
             border-top:0px!important;
             text-align: center;
-            font: normal normal normal 17px/24px Open Sans;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            /*font: normal normal normal 17px/24px Open Sans;*/
             letter-spacing: 0px;
             opacity: 1;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
         }
         
         .inactive-nav-link {
             text-align: center;
-            font: normal normal normal 17px/24px Open Sans!important;
+            font: normal normal normal 17px/24px Nunito!important;
             letter-spacing: 0px;
-            color: #6E6E6E!important;
+            color: #6E6E6E!important; 
             opacity: 1;
         }
 
         .chartMenuLabel {
             text-align: left;
-            font: normal normal normal 17px/20px Open Sans;
+            font: normal normal normal 17px/20px Nunito;
             letter-spacing: 0px;
             color: #29434E;
             opacity: 1;
@@ -1621,7 +1682,7 @@
 
         .chartMapMenuLabel {
             text-align: left;
-            font: normal normal normal 15px/20px Open Sans;
+            font: normal normal normal 15px/20px Nunito;
             letter-spacing: 0px;
             color: #29434E;
             opacity: 1;
@@ -1637,7 +1698,8 @@
 
         #input-container {
             vertical-align: top;
-            background: #00695C14 0% 0% no-repeat padding-box;
+            /*background: #00695C14 0% 0% no-repeat padding-box;*/
+            background-color: var(--colors-blue-cool-vivid-5);
             opacity: 1;
             height: 107px;
             margin-left: 2px;
@@ -1696,8 +1758,11 @@
                 autoscaleBtn.click();
             }
 
-            $(document).ready(function () {    
+            $(document).ready(function () {   
+                
                 initStdChartTable();
+                initChartRadioButton();
+
                 var divVD = document.getElementById("divViewDataBy");
                 if (typeof (divVD) != 'undefined' && divVD != null) {
                     $('#divMenuData').removeAttr("style");

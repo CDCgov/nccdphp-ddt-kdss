@@ -8,7 +8,7 @@
     }
     .aya-title {
         text-align: left;
-        font: normal normal 600 20px/34px Open Sans;
+        font: normal normal 600 20px/34px Nunito;
         letter-spacing: -0.4px;
         color: #242424;
         text-transform: uppercase;
@@ -16,20 +16,21 @@
     }
     .aya-subtitle {
         text-align: left;
-        font: normal normal 600 30px/34px Open Sans;
+        font: normal normal 600 30px/34px Nunito;
         letter-spacing: -0.6px;
         color: #000000;
         opacity: 1;
         margin-top:15px;
+        border: none;
     }
     .aya-text {
         text-align: left;
-        font: normal normal normal 18px/25px Open Sans;
+        font: normal normal normal 18px/25px Nunito;
         color: #000000;
         opacity: 1;
         padding-top: 15px;
         padding-bottom: 15px;
-        padding-right:15px;
+        padding-right:5px;
     }
     .aya-button {
         background: #FBAB18 0% 0% no-repeat padding-box;
@@ -38,7 +39,7 @@
         width: 164px;
         height:48px;
         text-align: center;
-        font: normal normal 600 17px/23px Open Sans;
+        font: normal normal 600 17px/23px Nunito;
         letter-spacing: 0px;
         color: #000000;
         opacity: 1;
@@ -48,12 +49,13 @@
     .aya-link-div {
         padding-top: 10px;
         padding-bottom: 3px;
+        width:50%;
     }
     .aya-link {
         text-align: left;
-        font: normal normal normal 17px/23px Open Sans;
+        font: normal normal normal 17px/23px Nunito;
         letter-spacing: 0px;
-        color: #00778C;
+        color:#005fa3 !important; /*color: #00778C;*/
         opacity: 1;
         text-decoration:none;
         margin-left:15px;
@@ -62,8 +64,8 @@
 
         /*background: transparent url('/images/Mask_Group_33.png') 0% 0% no-repeat padding-box;*/
         opacity: 1;
-        width: 652px;
-        height: 313px;     
+        /*width: 652px;
+        height: 313px;  */   
         display:block;
     }
     .aya-image-mobile {
@@ -74,15 +76,15 @@
     }
 
     .aya-underline {
-        text-decoration-color:#00695C;
+        text-decoration-color: #005ea2; /*#00695C;*/
         text-underline-offset: 15px;
         text-decoration-thickness: 3px;
     }
 
     .areYouAwareMsg {        
-        background-color: #EBF5F6;      
+        background-color: #f6fbff;      
         /*text-align: justify;*/
-        font: normal normal normal 18px/25px Open Sans;
+        font: normal normal normal 18px/25px Nunito;
         opacity: 1;
         padding-top: 25px;
         padding-bottom: 25px;
@@ -91,10 +93,14 @@
         line-height: normal;
         margin-left: 0px;
     }
+/*    .justify-to-center {
+            justify-content: center;
+            width: 75%;
+    }*/
 
     @media (max-width: 767px) {
         .aya-underline {
-            text-decoration-color:#00695C;
+            text-decoration-color: #005ea2; /*#00695C;*/
             text-underline-offset: 5px;
         }
         .aya-image {
@@ -106,7 +112,7 @@
         }
         .aya-subtitle {
             text-align: left;
-            font: normal normal 600 30px/32px Open Sans;
+            font: normal normal 600 30px/32px Nunito;
             letter-spacing: -0.6px;
             color: #000000;
             opacity: 1;
@@ -126,11 +132,12 @@
             <div style="height=50%; width:99%">
                 <%--<img src="/ckd/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
                 <a href="TopicHome/AwarenessArchive.aspx?topic=25">
-                    <img src="images/AYA_theme_version.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt="Click to view awareness topic archive"/>
+
+                  <img src="/images/AYA_theme_version-t5.jpg" style="margin-left:0%; width:99%; margin-top:0%; margin-bottom:0% " alt="Click to view awareness topic archive"/>
                 </a>
             </div>
-            <div style="height:25%; width:98%"></div>
-            <div style="height:50%; width:98%; display:table-cell; padding-right: 18px; word-spacing: normal;" class ="areYouAwareMsg">
+             <div style="height:50%; width:98%; display:table-cell; padding-right: 18px; word-spacing: normal;" class ="areYouAwareMsg">
+
                 <b><i>Are You Aware? </i></b> is designed to raise  <%--<br /> --%>                                             
                 awareness about important topics relevant to <%-- <br />--%>
                 kidney disease surveillance and prevention.
@@ -139,7 +146,7 @@
         <div class="col-md-6 aya-image-mobile">
             <%--<img src="/ckd/images/Mask_Group_33_mobile.png"  style="width:100%;margin-top:15px" alt=""/>--%>
             <a href="TopicHome/AwarenessArchive.aspx?topic=25">
-                <img src="/ckd/images/AYA_theme_version.png" style="width:100%;margin-top:15px" alt="Click to view awareness topic archive"/> 
+                <img src="../images/AYA_theme_version-t5.jpg" style="width:100%;margin-top:15px" alt="Click to view awareness topic archive"/> 
             </a>
        </div>
 
@@ -147,11 +154,11 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle"><i>Prevalence of Polycystic Kidney Disease Among Medicare Beneficiaries</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Nocturia May Indicate Chronic Kidney Disease or Other Conditions</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
-                Polycystic kidney disease (PKD) is a genetic condition that causes fluid-filled cysts to grow in the kidneys. Typically, in autosomal dominant PKD (the most common form), these cysts progressively damage the kidneys and result in kidney failure. Although rare, PKD is still the fourth leading cause of end stage kidney disease (ESKD) behind diabetes, hypertension, and glomerulonephritis, and accounts for 5% of all ESKD in the United States. Although considered a disease of younger adults, it is not uncommon to encounter patients with a diagnosis of PKD among Medicare beneficiaries (<sup>~</sup>25,000 people in 2021). Whether these older adults represent survivors of autosomal dominant PKD or represent milder forms of PKD, or both, requires further investigation.
+                Nocturia is defined as waking from sleep at night to urinate more than once. It is one of the most common urinary symptoms and occurs more often as people age. Nocturia is almost twice as common among U.S. adults with chronic kidney disease (CKD) stages 3–5 than those without CKD (~50% among CKD stages 3–5 vs. ~25% among those without CKD, in the 2017–March 2020, based on NHANES data). Nocturia can be a sign of more serious underlying conditions such as urinary obstruction or chronic kidney disease, and it is important for people to contact their healthcare provider if they regularly experience this symptom.
                 <br /><br />                
             </div>
 

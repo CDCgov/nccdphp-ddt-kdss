@@ -12,7 +12,7 @@
     }
     .prevalence-title {
         text-align: left;
-        font: normal normal 600 30px/34px Open Sans;
+        font: normal normal 600 30px/34px Nunito;
         letter-spacing: -0.6px;
         color: #000000;
     }
@@ -39,7 +39,7 @@
     }
     .prevalence-subtitle {
         text-align: left;
-        font: normal normal normal 24px/28px Open Sans;
+        font: normal normal normal 24px/28px Nunito;
         letter-spacing: -0.24px;
         color: #29434E;
         opacity: 1;
@@ -47,7 +47,7 @@
     }
     .prevalence-body {
         text-align: left;
-        font: normal normal normal 16px/21px Open Sans;
+        font: normal normal normal 16px/21px Nunito;
         letter-spacing: 0px;
         color: #000000;
         opacity: 1;
@@ -75,7 +75,7 @@
         margin-right: 20px!important;
     }
     .prevalence-underline {
-        text-decoration-color:#00695C;
+        text-decoration-color: #005ea2; /*#00695C;*/
         text-underline-offset: 15px;
         text-decoration-thickness: 3px;
     }
@@ -100,7 +100,7 @@
     @media (max-width: 1500px) {
         .prevalence-subtitle {
             margin-top:0px;
-            font:normal normal normal 18px Open Sans;
+            font:normal normal normal 18px Nunito;
         }
         .prevalence-footer {
             margin-top:0px;
@@ -132,9 +132,9 @@
 <%--*Prevalence of Kidney Disease*--%>
 <%--******************************--%> 
 
-<div class="col-12">
+<div class="col-12" style="margin-top: 2.5rem;">
     <div class="row prevalence-title">
-        <h2><span class="prevalence-prev"><u class="prevalence-underline">Prev</u>alence</span> & Incidence of Chronic Kidney Disease (CKD)</h2>
+        <h2 style="border:none;font-family: Poppins;"><span class="prevalence-prev"><u class="prevalence-underline">Prev</u>alence</span> & Incidence of Chronic Kidney Disease (CKD)</h2>
     </div>
     <div class="row prevalence-row">
         <div class="col-md p-3 prevalence-img-box prevalence-img-box-margin" onclick="location.href='./detail.aspx?Qnum=Q372';">

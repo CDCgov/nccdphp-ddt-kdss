@@ -42,12 +42,12 @@
     <%--*Separator bar*--%>
     <div class="SeparatorBar">
         <div class="col-lg-12">
-            <h4>Chronic Kidney Disease (CKD) in the United States</h4>
+            <h4 style="font-family: Poppins;">Chronic Kidney Disease (CKD) in the United States</h4>
         </div>
     </div>
 
     <div class="col-lg-12 mt-4">
-        <h4>Contact Us</h4>
+        <h4 style="font-family: Poppins;">Contact Us</h4>
     </div>
 
     <a id="contentArea" name="contentArea" />

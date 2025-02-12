@@ -10,7 +10,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+    <link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />
     <style type="text/css">
 
         .readable {
@@ -25,7 +25,7 @@
         }
 
         .navbar-custom {
-            background-color: #288176;
+            background-color: #f6fbff;
         }
 
         .gi {
@@ -39,13 +39,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
 
 
-    <nav class="navbar navbar-expand-sm navbar-expand-lg navbar-expand-med navbar-expand-xs bg-light justify-content-center fixed-top  navbar-custom">
+    <nav style="padding-bottom:1px;padding-top:0px;" class="navbar navbar-expand-sm navbar-expand-lg navbar-expand-med navbar-expand-xs bg-light justify-content-center navbar-custom" >
 
         <!-- Links -->
-        <ul class="navbar-nav w-100">
-            <a class="navbar-brand gi" href="#">
-                <img src="images/graphic_identifier.png" alt="CDC CKD project Logo" style="width: 300px;" />
-            </a>
+        <div class="navbar-nav w-100" style="padding-left:2px !important;background-color:#f6fbff;">
+
+            <%--<a class="navbar-brand gi" href="#">   --%>             
+                <img src="images/CKD_GI_Larger-t5.png<%--graphic_identifier.png--%>" alt="CDC CKD project Logo" style="width: 300px;" />
+            <%--</a>--%>
+            <button type="button" style="width:100%;text-align: right;border:none; background-color:#f6fbff;padding:0px;" class="close" title="Close Window" aria-label="Close" onclick="javascript:window.close(); return false;">
+                    <span aria-hidden="true" class="readable" style="color:black!important">&times;</span>
+                </button>
             <%--
             <li class="nav-item">
                 <a class="nav-link" href="Help.aspx?section=F" title="View Frequently Asked questions">FAQs</a>
@@ -64,12 +68,10 @@
             </li>--%>
 
             <%--*Close*--%>
-            <li class="nav-item" style="width:100%;">
-                <button type="button" class="close btn" title="Close Window" aria-label="Close" onclick="javascript:window.close(); return false;">
-                    <span aria-hidden="true" class="readable" style="color:black!important">&times;</span>
-                </button>
-            </li>
-        </ul>
+            <%--<div class="nav-item" style="width:100%;text-align: right;">--%>
+                <%--<div style="width:100%;text-align: right;border:none; background-color:#f8f9fa;padding:7px;"> </div>--%>
+            <%--</div>--%>
+        </div>
 
     </nav>
 
@@ -79,7 +81,7 @@
     <a id="nav-container" name="nav-container"></a>
     
     <div id="divtabContent" class="col-lg-11" style="max-width:800px;">
-        <div id="divHelpContent" style="width: 100%;">
+        <div id="divHelpContent" style="width: 100%; padding-left:30px;">
 
             <br />
 
@@ -100,11 +102,11 @@
     </div>
     <div class="col-lg-1"></div>
 
-    <script type="text/javascript">
+   <%-- <script type="text/javascript">
         $(document).ready(function () {
             $(this).find('.btn-cdc-mobileview').hide();
             $(this).find('.btn-cdc-contacts').hide();
         });
-    </script>
+    </script>--%>
 </asp:Content>
   

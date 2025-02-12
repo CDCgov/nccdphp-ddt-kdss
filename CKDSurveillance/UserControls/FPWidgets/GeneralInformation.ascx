@@ -8,7 +8,7 @@
     }
     .generalinformation-title {
         text-align: left;
-        font: normal normal 600 20px/34px Open Sans;
+        font: normal normal 600 20px/34px Nunito;
         letter-spacing: -0.4px;
         color: #242424;
         text-transform: uppercase;
@@ -17,7 +17,7 @@
     }
     .additionalresources {
         text-align: left;
-        font: normal normal 600 20px/34px Open Sans;
+        font: normal normal 600 20px/34px Nunito;
         letter-spacing: -0.4px;
         color: #242424;
         text-transform: uppercase;
@@ -27,7 +27,7 @@
     }
     .generalinformation-subtitle {
         text-align: left;
-        font: normal normal normal 24px/33px Open Sans;
+        font: normal normal normal 24px/33px Nunito;
         letter-spacing: -0.24px;
         color: #29434E;
         opacity: 1;
@@ -37,7 +37,7 @@
     }
     .generalinformation-text {
         text-align: left;
-        font: normal normal normal 18px/25px Open Sans;
+        font: normal normal normal 18px/25px Nunito;
         letter-spacing: -0.27px;
         color: #000000;
         opacity: 1;
@@ -46,9 +46,9 @@
     }
     .generalinformation-link {
         text-align: left;
-        font: normal normal normal 18px/52px Open Sans;
+        font: normal normal normal 18px/52px Nunito;
         letter-spacing: 0px;
-        color: #00778C;
+        color:#005fa3 !important; /*color: #00778C;*/
         opacity: 1;        
         text-decoration:none;
     }
@@ -59,9 +59,9 @@
     }
     .generalinformation-link-padding {
         text-align: left;
-        font: normal normal normal 18px/52px Open Sans;
+        font: normal normal normal 18px/52px Nunito;
         letter-spacing: 0px;
-        color: #00778C;
+        color: #005fa3 !important; /*color: #00778C;*/
         opacity: 1;        
         text-decoration:none;
         padding-left:1rem;
@@ -77,7 +77,7 @@
     }
     .generalinformation-box-title {
         text-align: left;
-        font: normal normal 600 20px/34px Open Sans;
+        font: normal normal 600 20px/34px Nunito;
         letter-spacing: -0.4px;
         color: #242424;
         text-transform: uppercase;
@@ -85,16 +85,16 @@
     }
     .generalinformation-box-text {
         text-align: left;
-        font: normal normal normal 18px/25px Open Sans;
+        font: normal normal normal 18px/25px Nunito;
         letter-spacing: 0px;
         color: #000000;
         opacity: 1;
     }
     .generalinformation-box-link {
         text-align: left;
-        font: normal normal normal 19px/52px Open Sans;
+        font: normal normal normal 19px/52px Nunito;
         letter-spacing: 0px;
-        color: #007C91;
+        color: #0b4778 ; /*#007C91;*/
         opacity: 1;
         padding-left: 20px;
     }
@@ -144,7 +144,7 @@
              </div>
         <div class="col-md-9">
             <div class="row generalinformation-title">GENERAL INFORMATION</div>
-            <div class="row generalinformation-subtitle"><a href="https://www.cdc.gov/kidneydisease/publications-resources/ckd-national-facts.html" style="text-decoration:none;color: #00778C" target="_blank">Fact Sheet: Chronic Kidney Disease in the United States, 2023</a></div>
+            <div class="row generalinformation-subtitle"><a href="https://www.cdc.gov/kidneydisease/publications-resources/ckd-national-facts.html" style="padding-left:0px; text-decoration:none; color:#005fa3 !important";<%--color: #00778C" --%>target="_blank">Fact Sheet: Chronic Kidney Disease in the United States, 2023</a></div>
             <div class="row generalinformation-text">When people develop <span style="font-weight:bold">chronic kidney disease (CKD)</span>, their kidneys become damaged and over time may not clean the blood as well as healthy kidneys. If kidneys do not work well, toxic waste and extra fluid accumulate in the body and may lead to high blood pressure, heart disease, stroke, and early death. However, people with CKD and people at risk for CKD can take steps to protect their kidneys with the help of their health care providers.</div>
            <%-- <div class="row">
                 <a href="Documents/CKD_FactSheet_2023.pdf" class="generalinformation-link-padding"  alt="Download CKD Fact Sheet" download>
@@ -155,7 +155,7 @@
                 <div class="generalinformation-box-title">CHRONIC KIDNEY DISEASE (CKD) INITIATIVE</div>
                 <br />
                 <div class="generalinformation-box-text">In 2006, the CDC established the Chronic Kidney Disease (CKD) Initiative to provide public health strategies for promoting kidney health. Current activities of the CKD Initiative include surveillance, epidemiology, health outcomes, and economic studies in partnership with various offices at the CDC, other governmental agencies, universities, and national organizations.
-                <a href="https://www.cdc.gov/kidneydisease/index.html" style="color: #007C91; opacity: 1; text-decoration:none;" target="new">Visit CKD Initiative<span class="fi cdc-icon-external x16"></span></a></div>
+                <a href="https://www.cdc.gov/kidneydisease/index.html" style="color:#0b4778 ; opacity: 1; text-decoration:none;" target="new">Visit CKD Initiative<span class="fi cdc-icon-external x16"></span></a></div>  <%--#007C91--%>
             </div>
         </div>
     </div>

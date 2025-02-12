@@ -344,12 +344,12 @@ namespace CKDSurveillance_RD.UserControls
             StringBuilder sb = new StringBuilder();
             if (qnum == "Q700") {
                 sb.Append("<div class=\"viewDataByLabel\">Select Data Source</div>");
-                sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\"  onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Data Source\" >");
+                sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\"  style=\"appearance:auto\" onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Data Source\" >");
             }
             else
             {
                 sb.Append("<div class=\"viewDataByLabel\">Select Risk Category</div>");
-                sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\"  onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Risk Category\" >");
+                sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\" style=\"appearance:auto\" onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Risk Category\" >");
             }
 
             int i = 0;

@@ -8,7 +8,7 @@
     .stratButtonsContainingDiv
     {        
         width: 175px;
-        background-color: #F6F6F6;
+        background-color: #f6fbff;
         padding: 3px 3px 3px 3px;
         margin-top: .7em;
         margin-bottom: 1em;
@@ -17,7 +17,7 @@
     .YearButtonsContainingDiv
     {
         width: 175px;
-        background-color: #F6F6F6;
+        background-color: #f6fbff;
         padding: 3px 3px 3px 3px;
         margin-bottom: 1em;
     }
@@ -98,13 +98,13 @@
     }
 
     .stratLinks {
-        background-color:#F6F6F6;
+        background-color:#f6fbff;
         border-bottom-left-radius:5px;
         border-bottom-right-radius:5px;
     }
 
     .yearLinks {
-        background-color:#F6F6F6;
+        background-color:#f6fbff;
         border-bottom-left-radius:5px;
         border-bottom-right-radius:5px;
     }

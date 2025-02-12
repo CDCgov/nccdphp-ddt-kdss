@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AboutTheProject.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.AboutTheProject" %>
 
-<h2>About the Project</h2>
+<h2 style="font-family: Poppins;">About the Project</h2>
 
 <br />
 

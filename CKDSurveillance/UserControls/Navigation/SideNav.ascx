@@ -6,7 +6,7 @@
     .navbodyTitle{
 			/*font: normal normal 600 38px/42px Open Sans;*/
 			text-align: left;
-			font-family: Open Sans;
+			font-family: Nunito;
 			font-size:38px;
 			letter-spacing: -0.38px;
 			color: #29434E;
@@ -15,7 +15,7 @@
 	.navbody{
 		/*font: normal normal normal 17px/24px Open Sans;*/
 		text-align: left;
-		font-family: Open Sans;
+		font-family: Nunito;
 		font-size:17px;
 		letter-spacing: 0px;
 		color: #000000;
@@ -27,13 +27,13 @@
 		text-decoration: underline;			
 		letter-spacing: 0px;
 		color: #005EAA;
-		font-family: Open Sans;
+		font-family: Nunito;
 		font-size:14px;
 	}
 	.navbodybreadcrumb{
 		/*font: normal normal normal 14px/24px Open Sans;*/
 		text-align: left;			
-		font-family: Open Sans;
+		font-family: Nunito;
 		font-size:14px;
 		letter-spacing: 0px;
 		color: #000000;
@@ -42,12 +42,12 @@
 		/*font: normal normal 600 17px/48px Open Sans;*/
 		letter-spacing: 0px;			
 		text-align:left;
-		font-family: Open Sans, Semibold;
+		font-family: Nunito, Semibold;
 		font-weight:bold;
 		font-size:17px;
-		color: #00768A;
+		color: #005fa3 !important; /*#00768A;*/
 		opacity: 1;	
-		background: #F5F5F5 0% 0% no-repeat padding-box;
+		background: #f6fbff 0% 0% no-repeat padding-box;
 		border-left: 4px solid;
 		border-top:0px;
 		border-color:#006778; /*0% 0% no-repeat padding-box;*/
@@ -57,7 +57,7 @@
 		/*font: normal normal 600 17px/48px Open Sans;*/
 		letter-spacing: 0px;			
 		text-align:left;
-		font-family: Open Sans, Semibold;
+		font-family: Nunito, Semibold;
 		font-weight:bold;
 		font-size:17px;
 		color: #000000;
@@ -71,7 +71,7 @@
 	.navSectionLinks{
 		/*font: normal normal normal 17px/20px Open Sans;*/
 		text-align: left;			
-		font-family: Open Sans;
+		font-family: Nunito;
 		font-size:17px;
 		letter-spacing: 0px;
 		color: #000000;
@@ -85,7 +85,7 @@
 	.navSectionLinkSelected{
 		/*font: normal normal normal 17px/20px Open Sans;*/
 		text-align: left;			
-		font-family: Open Sans Semibold;
+		font-family: Nunito Semibold;
 		font-size:17px;
 		letter-spacing: 0px;
 		color: #000000;
@@ -96,15 +96,15 @@
 	.navSectionSublinks{
 		/*font: normal normal 600 15px/18px Open Sans;*/
 		text-align: left;			
-		font-family: Open Sans;
+		font-family: Nunito;
 		font-size:15px;
 		letter-spacing: 0px;
-		color: #007C91;
+		color: #0b4778; /*#007C91;*/
 		opacity: 1;
 		text-decoration:none;
 		list-style-type:none;
 		border-left: 4px solid;
-		border-color:#65B0BD; /*0% 0% no-repeat padding-box;*/
+		border-color:var(--colors-blue-cool-vivid-50); /*#65B0BD;*/ /*0% 0% no-repeat padding-box;*/
 		border-bottom: 1px dashed #e0e0e0;
 		border-top:0px;
 		margin-bottom: 0px !important;
@@ -113,7 +113,7 @@
 	.navSectionHeading{
 		text-align: left;
 		/*font: normal normal 600 21px/34px Open Sans;*/
-		font-family: Open Sans;
+		font-family: Nunito;
 		font-size:21px;
 		letter-spacing: -0.21px;
 		color: #242424;
@@ -124,10 +124,10 @@
 	.navARandGIlinks{
 		text-align: left;
 		/*font: normal normal normal 17px/23px Open Sans;*/
-		font-family: Open Sans;
+		font-family: Nunito;
 		font-size:17px;
 		letter-spacing: 0px;
-		color: #00778C !important;
+		color: #005fa3 !important; /*color: #00778C !important;*/
 		opacity: 1;
 		text-decoration: none;
 		padding-left:10px;
@@ -159,7 +159,7 @@
 		list-style: none;			
 	}
 	.logoImg{
-		background: transparent url('/ckd/images/CKDLeftNavLogo.png') 0% 0% no-repeat padding-box;
+		/*background: transparent url('/ckd/images/CKDLeftNavLogo.png') 0% 0% no-repeat padding-box;*/
 		opacity: 1;
 		width: 100%; /*330px;*/
 		height: 100%; /*128px;*/
@@ -167,19 +167,23 @@
 		background-repeat: no-repeat;
 		background-position: center;
         box-shadow: 0px 0px 5px #0000002e;
+		padding-top:23px;
+		padding-bottom:23px;
+		padding-left:18px;
+		padding-right:18px;
 	}
     .selectedLink {
         text-align: left;
-        font: normal normal 600 15px/18px Open Sans;
+        font: normal normal 600 15px/18px Nunito;
         letter-spacing: 0px;
-        color: #00768A!important;
+        color: #005fa3 !important; /*#00768A*/
         opacity: 1;
-        background: #F5F5F5 0% 0% no-repeat padding-box;
+        background: #f6fbff 0% 0% no-repeat padding-box;
     }
 
 	.nav-selected-header {
 		text-align: left;
-		font: normal normal 600 17px/20px Open Sans;
+		font: normal normal 600 17px/20px Nunito;
 		letter-spacing: 0px;
 		color: #000000;
 		opacity: 1;
@@ -190,7 +194,7 @@
     }
     .aya-emailmain-label {
         text-align: left;
-        font: normal normal 500 20px/34px Open Sans;
+        font: normal normal 500 20px/34px Nunito;
         letter-spacing: -0.4px;
         opacity: 1;
         margin-right: 1rem;
@@ -198,7 +202,7 @@
     }
     .aya-emailmain-desc {
         text-align: left;
-        font: normal normal 500 16px/30px Open Sans;
+        font: normal normal 500 16px/30px Nunito;
         letter-spacing: -0.4px;
         opacity: 1;
         margin-right: 1rem;
@@ -206,10 +210,10 @@
     .aya-emailmain-btn {
         width: 99px;
         height: 48px;
-        background: #007C91 0% 0% no-repeat padding-box !important;
+        background: #0b4778 0% 0% no-repeat padding-box !important; /*#007C91*/
         border-radius: 5px;
         opacity: 1;
-        font: normal normal normal 17px/23px Open Sans;
+        font: normal normal normal 17px/23px Nunito;
         letter-spacing: 0px;
         color: #FFFFFF !important;
     }
@@ -226,7 +230,7 @@
 				<div id="cdc-left-nav-menu" >
 					<div ><%--<img src="../../images/CKDLeftNavLogo.png" class="logoImg" />--%>
 						<asp:HyperLink ID="hlLogo" runat="server" NavigateUrl="~/Default.aspx">
-							<img src="/ckd/images/KDLeftNavlogo.jpg" class="logoImg" alt="Kidney Disease Surveillance System logo" />
+							<img src="../images/CKD_GI_Larger-t5.png" class="logoImg"  alt="Kidney Disease Surveillance System logo" />
 						</asp:HyperLink>
 					</div>
 					<br />
@@ -246,9 +250,9 @@
 							<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
 								<div class="accordion indicator-plus accordion-white" role="tabpanel">
 									<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
-										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-20" data-target="#accordion-4i-collapse-20" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
+										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-20" data-target="#accordion-4i-collapse-20" data-bs-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;" href="#accordion-4i-collapse-20">
 											<div class="card-title">
-											<a id="Prevalence" title="Prevalence & Incidence" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-20"> <%--class="card-title"--%>
+											<a id="Prevalence" title="Prevalence & Incidence" style="display:inline; background-color: white !important; font-family:Nunito !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-20"> <%--class="card-title"--%>
 											   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon4"></i>Prevalence & Incidence</a>
 											</div>
 										</div>
@@ -258,8 +262,8 @@
 													<div class="col-12" style="padding-left:20px;">
 														<div id="link_August_2023"   data-parentid="20" >  <%--class="row articlelinkdiv"--%>
 															<ul>                                                        
-																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
-																	<a href="javascript:changeContent('August_2023')" class="articleLink" style="color:#00768A !important">Chronic Kidney Disease Among Older Adults Varies Across US Counties - August 2023</a>
+																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:1px; padding:10px; text-decoration:none;" >
+																	<a href="javascript:changeContent('August_2023')" class="articleLink" style="color:#005fa3 !important;">Chronic Kidney Disease Among Older Adults Varies Across US Counties - August 2023</a>
 																</li>
 															</ul>
 														</div>
@@ -277,9 +281,9 @@
 								<div id="div1" runat="server"><%--style="padding-left:1px;padding-right:1px;"--%>
 								<div class="accordion indicator-plus accordion-white" role="tabpanel">
 									<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
-										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-18" data-target="#accordion-4i-collapse-18" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
+										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-18" data-target="#accordion-4i-collapse-18" data-bs-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;" href="#accordion-4i-collapse-18">
 											<div class="card-title">
-											<a id="Awareness" title="Awareness" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-18"> <%--class="card-title"--%>
+											<a id="Awareness" title="Awareness" style="display:inline; background-color: white !important; font-family:Nunito !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-18"> <%--class="card-title"--%>
 											   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon2"></i>Awareness</a>
 											</div>
 										</div>
@@ -289,8 +293,8 @@
 													<div class="col-12" style="padding-left:20px;">
 														<div id="link_April_2023"   data-parentid="18" >  <%--class="row articlelinkdiv"--%>
 															<ul>                                                        
-																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
-																	<a href="javascript:changeContent('April_2023')" class="articleLink" style="color:#00768A !important">Awareness of Kidney Disease in the U.S. is Increasing, but Remains Low - April 2023</a>
+																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:1px; padding:10px;text-decoration:none;" >
+																	<a href="javascript:changeContent('April_2023')" class="articleLink" style="color:#005fa3 !important;">Awareness of Kidney Disease in the U.S. is Increasing, but Remains Low - April 2023</a>
 																</li>
 															</ul>
 														</div>
@@ -308,9 +312,9 @@
 							<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
 								<div class="accordion indicator-plus accordion-white" role="tabpanel">
 									<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
-										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-17" data-target="#accordion-4i-collapse-17" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
+										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-17" data-target="#accordion-4i-collapse-17" data-bs-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;" href="#accordion-4i-collapse-17">
 											<div class="card-title">
-											<a id="RiskFactorsDiabetes" title="Risk Factors" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-17"> <%--class="card-title"--%>
+											<a id="RiskFactorsDiabetes" title="Risk Factors" style="display:inline; background-color: white !important; font-family:Nunito !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-17"> <%--class="card-title"--%>
 											   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon1"></i>Risk Factors</a>
 											</div>
 										</div>
@@ -321,8 +325,8 @@
 													<div class="col-12" style="padding-left:20px;">
 														<div id="link_December_2023" data-parentid="17" >  <%--class="row articlelinkdiv"--%>
 															<ul>                                                        
-																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
-																	<a href="javascript:changeContent('December_2023')" class="articleLink" style="color:#00768A !important">Self-Reported Physical Activity among US Adults with and without Chronic Kidney Disease - December 2023</a>
+																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:1px; padding:10px; text-decoration:none;" >
+																	<a href="javascript:changeContent('December_2023')" class="articleLink" style="color:#005fa3 !important;">Self-Reported Physical Activity among US Adults with and without Chronic Kidney Disease - December 2023</a>
 																</li>
 															</ul>
 														</div>
@@ -331,8 +335,8 @@
 													<div class="col-12" style="padding-left:20px;">
 														<div id="link_October_2022"   data-parentid="17" >  <%--class="row articlelinkdiv"--%>
 															<ul>                                                        
-																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
-																	<a href="javascript:changeContent('October_2022')" class="articleLink" style="color:#00768A !important">Chronic Kidney Disease Is Prevalent Among Adults with Prediabetes or Undiagnosed Diabetes - October 2022</a>
+																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:1px; padding:10px; text-decoration:none;" >
+																	<a href="javascript:changeContent('October_2022')" class="articleLink" style="color:#005fa3 !important;">Chronic Kidney Disease Is Prevalent Among Adults with Prediabetes or Undiagnosed Diabetes - October 2022</a>
 																</li>
 															</ul>
 														</div>
@@ -351,9 +355,9 @@
 								<div id="div2" runat="server"><%--style="padding-left:1px;padding-right:1px;"--%>
 								<div class="accordion indicator-plus accordion-white" role="tabpanel">
 									<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
-										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-21" data-target="#accordion-4i-collapse-21" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
+										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-21" data-target="#accordion-4i-collapse-21" data-bs-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;" href="#accordion-4i-collapse-21">
 											<div class="card-title">
-											<a id="QualityOfCare" title="Quality Of Care" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-21"> <%--class="card-title"--%>
+											<a id="QualityOfCare" title="Quality Of Care" style="display:inline; background-color: white !important; font-family:Nunito !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-21"> <%--class="card-title"--%>
 											   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon5"></i>Quality Of Care</a>
 											</div>
 										</div>
@@ -363,8 +367,8 @@
 													<div class="col-12" style="padding-left:20px;">
 														<div id="link_February_2024"   data-parentid="21" >  <%--class="row articlelinkdiv"--%>
 															<ul>                                                        
-																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
-																	<a href="javascript:changeContent('February_2024')" class="articleLink" style="color:#00768A !important">Racial/Ethnic Differences in Nephrologist Visits among US Veterans with Advanced Kidney Disease - February 2024</a>
+																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:1px; padding:10px; text-decoration:none;" >
+																	<a href="javascript:changeContent('February_2024')" class="articleLink" style="color:#005fa3 !important;">Racial/Ethnic Differences in Nephrologist Visits among US Veterans with Advanced Kidney Disease - February 2024</a>
 																</li>
 															</ul>
 														</div>
@@ -382,9 +386,9 @@
 							<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
 								<div class="accordion indicator-plus accordion-white" role="tabpanel">
 									<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
-										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-19" data-target="#accordion-4i-collapse-19" data-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;">
+										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-19" data-target="#accordion-4i-collapse-19" data-bs-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;" href="#accordion-4i-collapse-19">
 											<div class="card-title">
-											<a id="SocialDeterminants" title="Social Determinants" style="display:inline; background-color: white !important; font-family:Open Sans !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-19"> <%--class="card-title"--%>
+											<a id="SocialDeterminants" title="Social Determinants" style="display:inline; background-color: white !important; font-family:Nunito !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-19"> <%--class="card-title"--%>
 											   <i class="fi cdc-icon-plus nav-plus"  style = "float: right; background-color: white !important;" id="navplusicon3"></i>Social Determinants</a>
 											</div>
 										</div>
@@ -395,8 +399,8 @@
 													<div class="col-12" style="padding-left:20px;">
 														<div id="link_October_2023" data-parentid="19" >  <%--class="row articlelinkdiv"--%>
 															<ul>                                                        
-																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
-																	<a href="javascript:changeContent('October_2023')" class="articleLink" style="color:#00768A !important">Rising Household Food Insecurity Among Adults With Chronic Kidney Disease in the United States - October 2023</a>
+																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:1px; padding:10px; text-decoration:none;" >
+																	<a href="javascript:changeContent('October_2023')" class="articleLink" style="color:#005fa3 !important;">Rising Household Food Insecurity Among Adults With Chronic Kidney Disease in the United States - October 2023</a>
 																</li>
 															</ul>
 														</div>
@@ -405,8 +409,8 @@
 													<div class="col-12" style="padding-left:20px;">
 														<div id="link_June_2023" data-parentid="19" >  <%--class="row articlelinkdiv"--%>
 															<ul>                                                        
-																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:25px;" >
-																	<a href="javascript:changeContent('June_2023')" class="articleLink" style="color:#00768A !important">Revealing Geographic Patterns: Mapping Poverty and Chronic Kidney Disease in the United States - June 2023</a>
+																<li class="nav-section-home navSectionSublinks navlist selectedLink" style="margin-left:1px; padding:10px; text-decoration:none;" >
+																	<a href="javascript:changeContent('June_2023')" class="articleLink" style="color:#005fa3 !important;">Revealing Geographic Patterns: Mapping Poverty and Chronic Kidney Disease in the United States - June 2023</a>
 																</li>
 															</ul>
 														</div>
@@ -451,7 +455,7 @@
 						<span style="font-weight:600;line-height:normal!important" >General Information </span>
 						<div>
 							<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>Documents/CKD_FactSheet_2023.pdf" class="navARandGIlinks" style= "padding-left:1px !important" alt="Download CKD Fact Sheet" download>
-                                <img class="downloadImg" src="/ckd/images/DataCharts/DownloadCyan.jpg" alt="Download CKD Fact Sheet" role="presentation"/>
+                                <img class="downloadImg" src="../images/DataCharts/DownloadCyan-t5.jpg" alt="Download CKD Fact Sheet" role="presentation"/>
                                 <span class="navARandGIlinks">Download CKD Fact Sheet</span>
                             </a>
 						</div>

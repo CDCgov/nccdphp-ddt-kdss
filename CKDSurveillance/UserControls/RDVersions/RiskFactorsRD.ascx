@@ -5,7 +5,7 @@
      <%--**************--%>
      <%--*Widget Title*--%>
      <%--**************--%>
-    <h3>
+    <h3 style="font-family: Poppins;">
        Focus on Risk Factors and Themes
     </h3>
 

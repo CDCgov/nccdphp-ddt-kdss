@@ -124,7 +124,7 @@ div.panelbutton:hover
 
 /* Message Box begin */
 .messageBox {
-    background-color: #F6F6F6;
+    background-color: #f6fbff;
 /*    border: 1px solid #800000; 
     float: left;*/
     font-weight: bold;
@@ -169,9 +169,8 @@ div.panelbutton:hover
 
 
 /* Panels beging */
-.outer
-{
-    background: #c0c0c0;
+.outer {
+    background: #363636;
 }
 
 /* moved the shadow, so the panels won't have drop shadows by default */

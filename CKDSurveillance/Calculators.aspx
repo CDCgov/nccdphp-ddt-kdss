@@ -58,7 +58,7 @@
 
         .ckdPagetitle{
             text-align: left;
-            font-family: Open Sans !important;
+            font-family: Nunito !important;
             font-size: 38px !important;
             letter-spacing: 0px;
             color: #29434E;
@@ -67,7 +67,7 @@
 
         .ckdIntroduction{            
             padding:25px !important;            
-		    color: #00768A;
+		    color: #005fa3 !important; /*#00768A;*/
             background: #F2F7F7 0% 0% no-repeat padding-box;
             opacity: 1;
 		    border-left: 4px solid;
@@ -84,7 +84,7 @@
         .introTitles{
             text-align: left;
             /*font: normal normal bold 17px/24px Open Sans;*/
-            font-family: Open Sans;
+            font-family: Nunito;
             font-size: 17px !important;
             font-weight: bold !important;
             letter-spacing: 0px;
@@ -94,7 +94,7 @@
         .introContent{
             text-align: left;
             letter-spacing: 0px;
-            font-family: Open Sans;
+            font-family: Nunito;
             font-size: 17px !important;
             letter-spacing: 0px;
             color: #000000 !important;;
@@ -103,7 +103,7 @@
             
         .tabHeader{
             text-align: center;
-            font-family: Open Sans !important;
+            font-family: Nunito !important;
             font-size: 17px !important;
             font-weight: normal !important;
             letter-spacing: 0px;
@@ -120,13 +120,13 @@
         }
 
         .calc-tabs a.active {
-            background:#F5F5F5;
+            background:#f6fbff;
             color:#000000 ;
         }
 
         .calcdescription{
             text-align: left;
-            font-family: Open Sans; 
+            font-family: Nunito; 
             font-size: 17px; 
             letter-spacing: 0px;
             color: #000000;
@@ -134,10 +134,10 @@
         .calcdescriptionLink{
             text-align: left;
             text-decoration: underline;
-            font-family: Open Sans; 
+            font-family: Nunito; 
             font-size: 17px;             
             letter-spacing: 0px;
-            color: #007C91;
+            color: #0b4778; /*#007C91;*/
         }
         .charTableHeaderBg{
             background: #29434EBF 0% 0% no-repeat padding-box;
@@ -145,7 +145,7 @@
         }
         .charTableHeader{  /*Characteristic, This Person, US National Average*/
             text-align: left;
-            font-family: Open Sans; 
+            font-family: Nunito; 
             font-size: 18px; 
             font-weight: 600;
             letter-spacing: 0px;
@@ -155,7 +155,7 @@
         }
         .charTableText {    /*Age Range*/
             text-align: left;
-            font-family: Open Sans;
+            font-family: Nunito;
             font-size: 17px;
             letter-spacing: 0px;
             color: #29434E;
@@ -163,7 +163,7 @@
         }
         .charTableTextHeader{   /*Enter Age and Gender*/
             text-align: left;
-            font-family: Open Sans; 
+            font-family: Nunito; 
             font-size: 17px; 
             letter-spacing: 0px;
             color: #2D2D2D;
@@ -171,13 +171,13 @@
         }
 
         .charTableTextHeaderBg {
-            background: #F5F5F5 0% 0% no-repeat padding-box;
+            background: #f6fbff 0% 0% no-repeat padding-box;
             opacity: 1;
         }
 
         .yesnotext{
             text-align: left;
-            font-family: Open Sans; 
+            font-family: Nunito; 
             font-size: 15px; 
             letter-spacing: 0px;
             color: #5E5E5E;
@@ -186,7 +186,7 @@
 
         .footNotesTitle{
             text-align: left; 
-            font-family:Open Sans; 
+            font-family:Nunito; 
             font-size:22px; 
             font-weight:600 !important; 
             letter-spacing: -0.22px; 
@@ -196,7 +196,7 @@
 
         .footnotetext{
             text-align: left;
-            font-family:Open Sans;
+            font-family:Nunito;
             font-size: 15px;
             letter-spacing: 0px;
             color: #000000;
@@ -205,7 +205,7 @@
 
         .footerRefTitle{
             text-align: left;
-            font-family:Open Sans;
+            font-family:Nunito;
             font-size: 17px;
             font-weight:bold;
             letter-spacing: 0px;
@@ -215,7 +215,7 @@
 
         .footerRefText{
             text-align: left;
-            font-family:Open Sans;
+            font-family:Nunito;
             font-size: 15px;
             letter-spacing: 0px;
             color: #000000;
@@ -224,14 +224,14 @@
         .footerRefLink{
             text-align: left;
             text-decoration: underline;
-            font-family:Open Sans;
+            font-family:Nunito;
             font-size: 15px;
             letter-spacing: 0px;
-            color: #007C91;
+            color:  #0b4778; /*#007C91;*/
         }
 
         .footerRefBg{
-            color: #00768A;
+            color: #005fa3 !important; /* #00768A;*/
             background: #F2F7F7 0% 0% no-repeat padding-box;
             opacity: 1;
             padding:20px;
@@ -249,7 +249,7 @@
         }
         .chartTitle1{   /*Probability of having Stage 3-5...*/
             text-align: left;
-            font-family: Open Sans;
+            font-family: Nunito;
             font-weight: 600; 
             font-size: 18px; 
             letter-spacing: 0px;
@@ -259,14 +259,14 @@
 
         .chartTitle2 {  /*expressed as a percentage....*/
             text-align: left;
-            font-family: Open Sans;
+            font-family: Nunito;
             font-size: 17px; 
             letter-spacing: 0px;
             color: #484848;
         }
         .chartTitle3 {   /*Probability(%) - sideways*/
             text-align: left;
-            font-family: Open Sans;
+            font-family: Nunito;
             font-weight: bold; 
             font-size: 17px;
             letter-spacing: 0px;
@@ -277,7 +277,7 @@
 
         .resetChoicesBtnText{
             text-align: left;
-            font-family: Open Sans;
+            font-family: Nunito;
             font-weight: 600; 
             font-size: 17px;
             letter-spacing: 0px;
@@ -301,10 +301,10 @@
 
         .percentText {
             text-align: left;
-            font-family: Open Sans;
+            font-family: Nunito;
             font-size: 17px !important;
             letter-spacing: 0px;
-            color: #00695C !important;
+            color: /*#00695C*/ #005ea2 !important;
             opacity: 1;
         }
         
@@ -340,7 +340,7 @@
 								</div>
 							</div>
 							<div>
-								<h1 id="content" class="PIbodyTitle "><span id="topicTitle"><asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal></span> </h1>								
+								<h1 id="content" class="PIbodyTitle " style="font-family: Poppins;"><span id="topicTitle"><asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal></span> </h1>								
 							</div>
 							<p>                   
 								<span class="PIbody"><asp:Literal ID="Lit_Desc" runat="server"></asp:Literal></span>
@@ -390,8 +390,8 @@
 
                                     <div id="divContentTabs" class="calc-tabs">
                                         <ul class="nav tabBorder <%--nav-tabs--%> no-syndicate" id="tabs-3" role="tablist">  <%-- nav-item--%>
-                                            <li id="calcTab1" class="" style="margin-bottom: 0em;"><a class="nav-link tabHeader active"  /*font-weight:bold;*/" data-toggle="tab" role="tab" href="#tab-Bang">Calculator 1: Probability of CKD</a></li>
-                                            <li id="calcTab2" class="" ><a style="margin-bottom: 0px;" class="nav-link tabHeader " data-toggle="tab" role="tab" href="#tab-Tangri">Calculator 2: Progression of CKD</a></li>
+                                            <li id="calcTab1" class="" style="margin-bottom: 0em;" role="tab"><a class="nav-link tabHeader active" data-bs-toggle="tab"  href="#tab-Bang">Calculator 1: Probability of CKD</a></li>
+                                            <li id="calcTab2" class="" role="tab"><a style="margin-bottom: 0px;" class="nav-link tabHeader " data-bs-toggle="tab"  href="#tab-Tangri">Calculator 2: Progression of CKD</a></li>
                                         </ul>                                        
 
                                         <div class="tab-content">
@@ -437,7 +437,7 @@
                                                                             <td id="rowAge" scope="row" headers="EAAS colChar" style="width:50%"  class="charTableText" <%--QLabelLeft--%>><span class="charTableText">Age Range * </span></td>
                                                                             <td  headers="EAAS colTP rowAge" style="width:33%">  <%--class="QLabelRight"--%>
                                                                                 <%--<label for="selBang2" style="color: #FFF; height: 0px;"><span class="charTableText">Gender *</span> </label>--%>
-                                                                                <select id="selBang2" aria-label="Select Age Range" class="form-control" onchange="removeRequirement('bage'); submitData('bang');">
+                                                                                <select id="selBang2" aria-label="Select Age Range" class="form-control charTableText" onchange="removeRequirement('bage'); submitData('bang');">
                                                                                     <option value="0">Select Age</option>
                                                                                     <option value="1">20 - 49</option>
                                                                                     <option value="2">50 - 59</option>  <%--<option value="2">50 - 59</option>--%>
@@ -455,12 +455,12 @@
                                                                                     <%--<legend>Sex</legend>--%> <%--update it to Gender--%>
                                                                                     <p class="rbStacker">
                                                                                         <input id="rbSexFemale" type="radio" name="rbSex" value="0" style="margin-top: 6px" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
-                                                                                        <label for="rbSexFemale" class="<%--yesnotext--%> float-left">Female</label>
+                                                                                        <label for="rbSexFemale" class="charTableText float-left">Female</label>
                                                                                     </p>
                                                                                     <br /> 
                                                                                     <p class="rbStacker">
                                                                                         <input id="rbSexMale" type="radio" name="rbSex" value="1" style="margin-top: 6px" class="float-left" onchange="removeRequirement('bsex'); submitData('bang');" />
-                                                                                        <label for="rbSexMale" class="<%--yesnotext--%> float-left">Male</label>
+                                                                                        <label for="rbSexMale" class="charTableText float-left">Male</label>
                                                                                     </p>
                                                                                 </fieldset>
                                                                             </td>
@@ -593,10 +593,10 @@
                                                                                 <fieldset>
                                                                                     <legend>Proteinuria</legend>
                                                                                     <input id="rbProteinuriaYes" type="radio" name="rbProteinuria" value="1" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" />
-                                                                                    <label for="rbProteinuriaYes" class="float-left">Yes</label>
+                                                                                    <label for="rbProteinuriaYes" class="yesnotext float-left">Yes</label>
                                                                                     &nbsp;
                                                                                     <input id="rbProteinuriaNo" type="radio" name="rbProteinuria" value="0" style="margin-top: 5px" class="float-left" onchange="submitData('bang');" checked />
-                                                                                    <label for="rbProteinuriaNo" class="float-left">No</label>
+                                                                                    <label for="rbProteinuriaNo" class="yesnotext float-left">No</label>
                                                                                 </fieldset>
                                                                             </td>
                                                                             <td headers="CKDprob colNA rowProteinUria" ><%--(--%><a class="percentText" style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q11'>10%</a><%--)--%></td>
@@ -604,7 +604,7 @@
 
                                                                         <tr>
                                                                             <td scope="row" style="width:50%"  class="charTableText" >
-                                                                                <span style="text-align: left; font-family:Open Sans; font-size: 14px; letter-spacing: 0px; color: #000000; opacity: 1;">* Required Fields </span>
+                                                                                <span style="text-align: left; font-family:Nunito; font-size: 14px; letter-spacing: 0px; color: #000000; opacity: 1;">* Required Fields </span>
                                                                             </td>
                                                                             <td colspan="2" class="resetChoicesButtonBg">
                                                                                <button id="btnBangReset" class="resetChoicesBtnText" <%--btn btnSubtle--%> onclick="return resetChoices('bang');">Reset Choices</button>
@@ -820,7 +820,7 @@
 
                                                                     <tr>
                                                                         <td scope="row" style="width:50%; vertical-align:middle;"  class="charTableText" >
-                                                                            <span style="text-align: left; font-family:Open Sans; font-size: 14px; letter-spacing: 0px; color: #000000; opacity: 1;">* Required Fields </span>
+                                                                            <span style="text-align: left; font-family:Nunito; font-size: 14px; letter-spacing: 0px; color: #000000; opacity: 1;">* Required Fields </span>
                                                                         </td>
                                                                         <td >
                                                                                 <%--<span class='req'>*</span><span class='inPageNote'>Field is required for a result</span>--%> <%--Commented out in response to comments from UM 11/2019--%>
@@ -828,9 +828,9 @@
                                                                                 <%--****************************************--%>
                                                                                 <%--*Divider between short and long version*--%>
                                                                                 <%--****************************************--%>
-                                                                                <button id="btnShowLongerVersion" style="text-align: left; font-size:17px; font-weight:600; font-family:Open Sans; letter-spacing: 0px; color: #29434E; opacity: 1; border:none; background:white;" <%--class="btn float-right"--%> onclick=" $('.TangriAddedFields').fadeIn(300); $('#btnHideLongerVersion').show(); $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">8 Variable Equation  <i class="fa fa-angle-down"></i></button>
+                                                                                <button id="btnShowLongerVersion" style="text-align: left; font-size:17px; font-weight:600; font-family:Nunito; letter-spacing: 0px; color: #29434E; opacity: 1; border:none; background:white;" <%--class="btn float-right"--%> onclick=" $('.TangriAddedFields').fadeIn(300); $('#btnHideLongerVersion').show(); $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">8 Variable Equation  <i class="fa fa-angle-down"></i></button>
                                                                                 <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
-                                                                                <button id="btnHideLongerVersion" <%--class="btn float-right"--%> style="text-align: left; font-size:17px; font-weight:600; font-family:Open Sans; letter-spacing: 0px; color: #29434E; opacity: 1; border:none; background:white; display: none;" onclick=" $('.TangriAddedFields').fadeOut(300); $('#btnShowLongerVersion').show();  $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">4 Variable Equation  <i class="fa fa-angle-up"></i></button>
+                                                                                <button id="btnHideLongerVersion" <%--class="btn float-right"--%> style="text-align: left; font-size:17px; font-weight:600; font-family:Nunito; letter-spacing: 0px; color: #29434E; opacity: 1; border:none; background:white; display: none;" onclick=" $('.TangriAddedFields').fadeOut(300); $('#btnShowLongerVersion').show();  $(this).hide(); setTimeout(function() {showTangriGraphOnSliderChange();}, 500); return false;">4 Variable Equation  <i class="fa fa-angle-up"></i></button>
                                                                                 <%--Adding a timeout to account for the odd chart redraw in tempalte 4.0--%>
                                                                                 
                                                                         </td>
@@ -1397,7 +1397,7 @@
             //*Show text probability*
             //***********************    
             var legendline = "<div style='padding:5px;'><hr/></div>";
-            var txt = legendline + "<span style='margin-left:30px; text-align: center; font-weight: 600; font-size: 15px; font-family: Open Sans; letter-spacing: 0px; color: #3D3D3D; opacity: 1; padding:10px; text-align: center;'><hr style='width:20px; border: 2px solid #FBAB18; opacity: 1; display: inline-block; vertical-align: middle;' />  &nbsp; U.S. National Average: <a style='text-decoration:none' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q372' target='_blank'>15.4%</a></span>";
+            var txt = legendline + "<span style='margin-left:30px; text-align: center; font-weight: 600; font-size: 15px; font-family: Nunito; letter-spacing: 0px; color: #3D3D3D; opacity: 1; padding:10px; text-align: center;'><hr style='width:20px; border: 2px solid #FBAB18; opacity: 1; display: inline-block; vertical-align: middle;' />  &nbsp; U.S. National Average: <a style='text-decoration:none' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q372' target='_blank'>15.4%</a></span>";
             $('#spnBangAnswer').html(txt).show();
 
 
@@ -1892,7 +1892,7 @@
                 yaxis: {
                     title: '<b>Percent</b>',
                     font: {
-                        family: 'Open Sans',
+                        family: 'Nunito',
                         size: '17px',
                         color: 'rgba(0,0,0,1)' //Black
                     },                    

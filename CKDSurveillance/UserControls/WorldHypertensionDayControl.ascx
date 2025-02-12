@@ -3,7 +3,7 @@
    
 <div class="module page-curl ckd-healthy-people">
     <div class="inner">
-        <h3 style="font-size:16px;">
+        <h3 style="font-size:16px; font-family: Poppins;">
             <strong>World Hypertension Day</strong>
         </h3>
         <br />

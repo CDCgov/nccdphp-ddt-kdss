@@ -8,7 +8,7 @@
      <%--**************--%>
      <%--*Widget Title*--%>
      <%--**************--%>
-    <h3>
+    <h3 style="font-family: Poppins;">
        World Diabetes Day
     </h3>
 

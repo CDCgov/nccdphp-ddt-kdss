@@ -6,7 +6,7 @@
      <%--**************--%>
      <%--*Widget Title*--%>
      <%--**************--%>
-    <h3>
+    <h3 style="font-family: Poppins;">
        <em>Healthy People 2020</em>
     </h3>
 

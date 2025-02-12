@@ -18,11 +18,11 @@ p.access, .hideme {display:none;}
 
 /* General layout divisions */
 
-body {
-	font-family:sans-serif;
-	margin:0;
-	padding:0 2px;
-}
+	body {
+		font-family: Nunito !important; /*sans-serif;*/
+		margin: 0;
+		padding: 0 2px;
+	}
 *:first-child+html body {padding:0;}
 
 #wrapper 

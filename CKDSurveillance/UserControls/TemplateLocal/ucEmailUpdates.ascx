@@ -3,7 +3,7 @@
 
 <div class="module-typeG emailupdates">
 		<span class="sprite-24-govd-icon"></span>
-		<h4>Get Email Updates</h4>
+		<h4 style="font-family: Poppins;">Get Email Updates</h4>
 		<p>To receive email updates about this page, enter your email address:</p>
 		<form name="govdelivery" action="https://public.govdelivery.com/accounts/USCDC/subscribers/qualify">
 			<fieldset>

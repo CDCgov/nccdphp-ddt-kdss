@@ -63,7 +63,7 @@
     }
     .unstyled 
     {        
-        background-color:#F6F6F6;
+        background-color:#f6fbff;
         border-bottom-left-radius:5px;
         border-bottom-right-radius:5px;
     }
@@ -74,11 +74,11 @@
         }
 
     .divMapSelectedYears {
-        background-color:#F6F6F6;
+        background-color:#f6fbff;
     }
 
     .divMapAllYears {
-          background-color:#F6F6F6;
+          background-color:#f6fbff;
     }
 
 

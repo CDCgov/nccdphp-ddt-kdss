@@ -8,7 +8,7 @@ Use this to write customized elements specific to your application
 */
 
 /* new rounded buttons */
-@import url("buttons.css");
+/*@import url("buttons.css");*/
 
 /* these table items are for the Home Page Menu and for "repeater" tables */
 /*.tablegrid
@@ -60,7 +60,7 @@ Use this to write customized elements specific to your application
     padding-top: 5px;
     font-size: 12px;
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;    
-    background-color:#f6f6f6
+    background-color:#f6fbff
 }
 
 /* these are used in repeaters throughout (GridColumnHeading is also used in Grids */
@@ -270,7 +270,7 @@ p#return-link a{background:none;padding:0 !important;text-decoration:underline !
     width:99%;
     height:15px;
     margin:10px 0;
-    background:#f6f6f6;    
+    background:#f6fbff;    
     padding:5px;
     float:left;
     clear:both;
@@ -280,7 +280,7 @@ p#return-link a{background:none;padding:0 !important;text-decoration:underline !
     width:90%;
     height:40px;
     margin:10px 0;
-    background:#f6f6f6; 
+    background:#f6fbff; 
     padding:5px;
     float:left;
     display:block;
@@ -379,7 +379,7 @@ p#return-link a{background:none;padding:0 !important;text-decoration:underline !
 #StartCancel{display:none;clear:both;}
 
 .DataGrid{border:0;}
-.GridColumnHeading{background:#c1ded5;}
+.GridColumnHeading{background:#E1F3F8CC; /*#c1ded5*/}
 
 #scorebox
 {

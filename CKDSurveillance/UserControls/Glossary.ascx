@@ -4,12 +4,12 @@
 
 </style>
 
-        <h2>Glossary</h2>
+        <h2 style="font-family: Poppins;">Glossary</h2>
         <br />
 
         <div class="module roundem glossary">
 	        <div class="inner">
-		        <h4>On this page</h4>
+		        <h4 style="font-family: Poppins;">On this page</h4>
 		        <a href="#jump_AF">[A - F]</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#jump_GL">[G - L]</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#jump_MR">[M - R]</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#jump_SZ">[S - Z]</a>		        
             </div>
         </div>
@@ -18,7 +18,7 @@
             <%--*A-F*--%>
             <%--*****--%>
             <a name="jump_AF"></a>
-            <h3 style="color:#1a7aa2">A-F</h3>
+            <h3 style="color:#1a7aa2; font-family: Poppins;">A-F</h3>
             <div class="glossaryAnswer">
             <asp:Repeater ID="rptGlossaryAF" runat="server">
                      <headertemplate>
@@ -51,7 +51,7 @@
             <%--*G-L*--%>
             <%--*****--%>
             <a name="jump_GL"></a>
-            <h3 style="color:#1a7aa2">G-L</h3>
+            <h3 style="color:#1a7aa2; font-family: Poppins;">G-L</h3>
             <div class="glossaryAnswer">
             <asp:Repeater ID="rptGlossaryGL" runat="server">
                      <headertemplate>
@@ -80,7 +80,7 @@
             <%--*M-R*--%>
             <%--*****--%>
             <a name="jump_MR"></a>
-            <h3 style="color:#1a7aa2">M-R</h3>
+            <h3 style="color:#1a7aa2; font-family: Poppins;">M-R</h3>
             <div class="glossaryAnswer">
             <asp:Repeater ID="rptGlossaryMR" runat="server">
                      <headertemplate>
@@ -109,7 +109,7 @@
             <%--*S-Z*--%>
             <%--*****--%>
             <a id="jump_SZ" name="jump_SZ"></a>
-            <h3 style="color:#1a7aa2">S-Z</h3>
+            <h3 style="color:#1a7aa2; font-family: Poppins;">S-Z</h3>
             <div class="glossaryAnswer">
             <asp:Repeater ID="rptGlossarySZ" runat="server">
                      <headertemplate>

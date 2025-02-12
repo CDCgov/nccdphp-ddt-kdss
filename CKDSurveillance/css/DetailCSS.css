@@ -16,18 +16,21 @@
 /**************/
 .IndicatorPagetitle {
     text-align: left;
-    font: normal normal normal 38px/42px Open Sans !important;
+    font: normal normal normal 38px/42px Poppins !important;
     letter-spacing: -0.38px;
     color: #29434E;
     opacity: 1;
+    margin: 16px;
+    margin-left: 0px !important;
 }
 
 .IndicatorSubPagetitle {
     text-align: left;
-    font: normal normal 600 22px/24px Open Sans;
+    font: normal normal 600 22px/24px Nunito;
     letter-spacing: 0px;
-    color: #00695C;
+    color: #005ea2;  /*#00695C;*/
     opacity: 1;
+    margin-top: 45px;
     margin-bottom: 20px;
 }
 
@@ -43,16 +46,16 @@ table.ckd-details-dynamic-table td {
     padding: 20px;
     border: 1px solid #BFBFBF;
     text-align: center;
-    font: normal normal normal 17px/36px Open Sans;
+    font: normal normal normal 17px/36px Nunito;
 }
 
 table.ckd-details-dynamic-table th {
     padding: 3px;
     border: 1px solid #BFBFBF;
     color: #FFFFFF;
-    background-color: #007C91;
+    background-color: #0b4778; /*#007C91;*/
     text-align: center;
-    font: normal normal 600 17px/24px Open Sans;
+    font: normal normal 600 17px/24px Nunito;
 }
 
 
@@ -103,7 +106,7 @@ div.hovertooltip { /*for the maps hover overs*/
     text-align: left;
     height: 45px;
     padding: 6px;
-    font: bold 12px sans-serif;
+    font: bold 12px Nunito !important; /*sans-serif*/
     background: #EEE;
     border: 1px solid #555;
     border-radius: 8px;
@@ -425,7 +428,7 @@ fieldset {
 }
 
 .divRightContainer {
-    background-color: #F6F6F6;
+    background-color: #f6fbff;
     /*border:solid 1px silver;*/
     border-left: solid 1px #e0e0e0;
     border-bottom-left-radius: 5px;
@@ -508,7 +511,7 @@ fieldset {
     }
 
 .ulNoIndent {
-    background-color: #F6F6F6;
+    background-color: #f6fbff;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 

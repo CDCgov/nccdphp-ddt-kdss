@@ -7,14 +7,16 @@
     }
     .calculator-title {
         text-align: left;
-        font: normal normal 600 30px/45px Open Sans;
+        font: normal normal 600 25px/45px Nunito;
         letter-spacing: -0.6px;
         color: #FFFFFF;
         opacity: 1;
+        margin-top: 3rem;
+        border:none;
     }
     .calculator-text {
         text-align: left;
-        font: normal normal normal 18px/24px Open Sans;
+        font: normal normal normal 18px/24px Nunito;
         letter-spacing: 0px;
         color: #FFFFFF;
         opacity: 1;
@@ -23,7 +25,7 @@
     .calculator-link {
         text-align: center;
         text-decoration: none;
-        font: normal normal 600 18px/24px Open Sans;
+        font: normal normal 600 18px/24px Nunito;
         letter-spacing: 0px;
         color: #FFFFFF;
         opacity: 1;
@@ -38,7 +40,7 @@
         font-size: 25px;
         color: #FFFFFF;
         vertical-align: bottom;
-        margin-left: 10px;
+        margin-left: 1px;
     }
     .right-angle-arrow-white:hover {
         text-decoration:none !important;
@@ -71,13 +73,13 @@
 <div class="calculator-card">
     <div class="row">
 
-            <h2  class="calculator-title col-md-4">Kidney Disease Risk Calculator</h2>
+            <h2  class="calculator-title col-md-4" style="font-size:28px;font-family: Poppins;">Kidney Disease Risk Calculator</h2>
 
-        <div class="col-sm calculator-text">
+        <div class="col-md-5 calculator-text">
             This calculator estimates the probability of having CKD using calculations based on individual characteristics: age, sex, and 7 comorbidities.
         </div>
 
-        <div class="calculator-link"><img src="images/calculator-icon.png" alt="">
+        <div class="col-md-3 calculator-link"><img src="images/calculator-icon.png" alt="">
             <a id="lbkCalculator" title="Risk Calculator" class="calculator-link" href="Calculators.aspx">Access Calculator<i class="fa fa-angle-right right-angle-arrow-white"></i></a> 
 
         </div>

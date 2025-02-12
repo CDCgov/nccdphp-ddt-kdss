@@ -4,7 +4,7 @@
     
         <div class="subc"></div>
 
-        <h3 class="widgetTitleH3" style="font-size:1.2em;">
+        <h3 class="widgetTitleH3" style="font-size:1.2em; font-family: Poppins;">
             <strong>CKD Surveillance Website Introduction</strong>
         </h3>
                   

@@ -2,7 +2,7 @@
 
 <div class="module widgetBorder CornerMe">
     
-        <h3 class="widgetTitleH3" style="font-size:1.2em;">
+        <h3 class="widgetTitleH3" style="font-size:1.2em; font-family: Poppins;">
             World Diabetes Day
         </h3>
         

@@ -13,7 +13,7 @@
     }
 
     .btn-HealthyPeople {
-        background-color:#007C91;
+        background-color: #0b4778; /*#007C91;*/
     }
 
     .btn-close {
@@ -34,7 +34,7 @@
     }
 
     .btn-disclaimer{
-        color: #00778C; /*#007C91; */
+        color: #005fa3 !important ; /*color: #00778C;*/ /*#007C91; */
         /*padding-left:40px; 
         padding-right: 40px; */
         vertical-align:central; 
@@ -79,17 +79,17 @@
 
     .popup-msg-format{
         font-size:18px; 
-        font-family:Open Sans, Regular;
+        font-family:Nunito, Regular;
     }
 
     .databites-msg-header{
         font-size:20px; 
-        font-family:Open Sans, Semibold;
+        font-family:Nunito, Semibold;
         font-weight: bold;
     }
 
     .databites-msg-subheader{
-        font: normal normal normal 18px/25px Open Sans;
+        font: normal normal normal 18px/25px Nunito;
         /*font-size:18px; 
         font-family:  Open Sans;*/ /* Semibold;*/
         /*font-weight: normal;*/ /* bold;*/
@@ -111,12 +111,12 @@
        }
        .dbh-Title{
            font-weight: bold; 
-           font:Open Sans, Semibold; 
-           font-size:30px;
+           font:Nunito, Semibold; 
+           font-size:30px;           
        }
        .dbh-image-desc1{
             text-align: left;
-            font: normal normal normal 24px/28px Open Sans;
+            font: normal normal normal 24px/28px Nunito;
             letter-spacing: -0.24px;
             color: #29434E;
             opacity: 1;
@@ -128,7 +128,7 @@
        }
        .dbh-image-desc2{
             text-align: left;
-            font: normal normal normal 16px/21px Open Sans;
+            font: normal normal normal 16px/21px Nunito;
             letter-spacing: 0px;
             color: #000000;
             opacity: 1;
@@ -178,7 +178,7 @@
     }
     .prev-subtitle {
         text-align: left;
-        font: normal normal normal 24px/28px Open Sans;
+        font: normal normal normal 24px/28px Nunito;
         letter-spacing: -0.24px;
         color: #29434E;
         opacity: 1;
@@ -186,7 +186,7 @@
     }
     .prev-text {
         text-align: left;
-        font: normal normal normal 16px/21px Open Sans;
+        font: normal normal normal 16px/21px Nunito;
         letter-spacing: 0px;
         color: #000000;
         opacity: 1;
@@ -201,7 +201,7 @@
         margin-top:10px;
     }
     .dbh-image {
-        padding-top:100px !important;
+        padding-top:50px !important;
     }
     .dbh-leftcontent {
         padding-left: 0px;
@@ -252,7 +252,7 @@
          @media (max-width: 1500px) {
         .prev-subtitle {
             margin-top:0px;
-            font:normal normal normal 18px Open Sans;
+            font:normal normal normal 18px Nunito;
         }
         .prev-footer {
             margin-top:0px;
@@ -277,8 +277,8 @@
                                   
                 <%--First section (out of 3)--%>
                 <div>                             
-                        <h2><span class="dbh-Title">Data Bite Highlights</span></h2>
-                        <div><hr style="border: 1.5px solid #00695C; background:#00695C; width: 56px; opacity: 1;" /></div>  
+                        <h2 style="border:none; font-family: Poppins;"><span class="dbh-Title">Data Bite Highlights</span></h2>
+                        <div><hr style="border: 1.5px solid #005ea2; /*#00695C;*/ background:/*#00695C;*/ #005ea2; width: 56px; opacity: 1;" /></div>  
                 </div>
                 <div class="col-md-12 dbh-leftcontent">                                      
                     
@@ -286,23 +286,23 @@
                         <span class="databites-msg-header">HEALTHY PEOPLE 2030</span>
                         <br /><br />
                         <span class="databites-msg-subheader">
-                           <a href="https://health.gov/healthypeople" alt="Healthy People 2030" style="text-decoration:none">Healthy People 2030</a> (HP2030) sets data-driven national objectives to improve health and well-being over the next decade. There are 14 goals related to kidney disease, including 10 for CKD. Goals are tracked using several data sources.  
+                           <a href="https://health.gov/healthypeople" alt="Healthy People 2030" style="text-decoration:none; color:#005fa3 !important">Healthy People 2030</a> (HP2030) sets data-driven national objectives to improve health and well-being over the next decade. There are 14 goals related to kidney disease, including 10 for CKD. Goals are tracked using several data sources.  
                             <br /> <br /> 
                             The Kidney Disease Surveillance System also unofficially tracks these goals. Click on the Healthy People 2030 button below to see all the Kidney Disease Surveillance System indicators related to HP2030.
                         </span>
                         <br /><br />
                         <div> 
-                            <span class="btn-HealthyPeople" >            
-                                <a href="data.aspx?categoryID=67" alt="Healthy People 2030" style="background-color:#00778C; padding-right:20px; padding-left:20px;" class="btn btn-primary specialLinkIconLeft float-left" > <%--target="_blank"--%>
+                            <span class="<%--btn-HealthyPeople--%>" >            
+                                <a href="data.aspx?categoryID=67" alt="Healthy People 2030" style="background-color:#005fa3 !important; /*background-color:#00778C;*/ padding-right:20px; padding-left:20px;" class="btn btn-primary specialLinkIconLeft float-left" > <%--target="_blank"--%>
                                     Healthy People 2030
                                 </a>
+                                                  <button type="button" class="btn popup-msg-format btn-disclaimer" data-toggle="modal" data-target="#myModal">  <%--onclick="openDisclaimerMessage()"--%>
+                                        <img id="imgdisclaimerinfosmall" src="./images/DataCharts/disclaimer-info-small-t5.jpg" alt="Disclaimer Information" style="width:24px; height:24px" />
+                                        Disclaimer      
+                                  </button>                                         
                             </span>
                             <%--&nbsp;&nbsp;--%>    
                             <div> <%--class="popup-container">--%>	                           
-                                  <button type="button" class="btn popup-msg-format btn-disclaimer" data-toggle="modal" data-target="#myModal">  <%--onclick="openDisclaimerMessage()"--%>
-                                        <img id="imgdisclaimerinfosmall" src="./images/DataCharts/disclaimer-info-small.jpg" alt="Disclaimer Information" style="width:24px; height:24px" />
-                                        Disclaimer      
-                                  </button>
 
                                   <!-- Modal -->
                                   <div class="modal fade" id="myModal" role="dialog">
@@ -314,7 +314,7 @@
                                                   <%--<span style="font-size: 25px; " >&times;</span>--%>
                                                   <img id="imgClose_window" src="./images/DataCharts/Close_window.jpg" alt="Close" style="width:55px; height:45px; float:right"   />   <%--onclick="closeDisclaimerMessage()"--%>
                                               </button>
-                                              <h3 style="font:Open Sans, Regular; padding-left:15px">Healthy People 2030 Disclaimer </h3>
+                                              <h3 style="font:Poppins, Regular; padding-left:15px">Healthy People 2030 Disclaimer </h3>
                                             </div>
                                             <div class="modal-body"> 
                                                     <hr /><%-- Draw Line--%> <%--<br />--%>                                            

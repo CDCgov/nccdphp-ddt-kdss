@@ -3,7 +3,7 @@
 
 <div class="nccd-modA">
                 
-    <h3 class="widgetTitleH3" style="font-size:1.2em;">
+    <h3 class="widgetTitleH3" style="font-size:1.2em; font-family: Poppins;">
         <strong>National CKD Fact Sheet</strong>
     </h3>
             
@@ -22,7 +22,7 @@
 
  <div class="module" style="margin-top:-1em;">
             
-    <h3 class="widgetTitleH3" style="font-size:1.2em;">
+    <h3 class="widgetTitleH3" style="font-size:1.2em; font-family: Poppins;">
         <strong>CKD Initiative</strong>
     </h3>
             

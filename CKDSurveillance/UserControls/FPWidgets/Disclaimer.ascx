@@ -7,14 +7,14 @@
         opacity: 1;
     }
     .disclaimer-text {
-        font: normal normal normal 15px/20px Open Sans;
+        font: normal normal normal 15px/20px Nunito;
         letter-spacing: 0px;
         color: #565656;
         opacity: 1;
     }
     .disclaimer-title {
         text-align: right;
-        font: normal normal 600 17px/22px Open Sans;
+        font: normal normal 600 17px/22px Nunito;
         letter-spacing: 0px;
         color: #29434E;
         opacity: 1;

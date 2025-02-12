@@ -16,7 +16,7 @@
 <!--[if IE 8]>         <html class="no-js nav theme-cyan lt-ie10 lt-ie9" lang="en-us"> <![endif]-->
 <!--[if IE 9]>         <html class="no-js nav theme-cyan lt-ie10" lang="en-us"> <![endif]-->
 <!--[if !IE]><!-->
-<html class="no-js nav theme-cyan esp" lang="en-us">
+<html class="no-js nav <%--theme-cyan--%> esp" lang="en-us">
 <!--<![endif]-->
 
 <head runat="server">
@@ -39,7 +39,7 @@
     <meta name="robots" content="index,follow" />
     <%--<meta property="cdc:template_version" content="3.0" />--%>
 
-    <% Response.WriteFile(ConfigurationManager.AppSettings["TemplatePackageFolder"].ToString() + "/4.0/includes/head-content.html"); %>
+    <%--<% Response.WriteFile(ConfigurationManager.AppSettings["TemplatePackageFolder"].ToString() + "/5.0/ssi/en/global/head-content.html"); %>--%>
 
 
 
@@ -50,7 +50,7 @@
      If you find you  have a specific needs to an newer version please consult with Chronic development team. -->
 
     <%--Scripts--%>
-    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/scripts.html"));%>
+    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/scripts.html"));%>
     <%--End Scripts--%>
 
     <%--*****--%>
@@ -59,7 +59,7 @@
     <%--<link href="/TemplatePackage/4.0/css/lib/bootstrap24.css" rel="stylesheet" />--%>
     <link href="../App_Themes/custom.css" rel="stylesheet" />
     <link href="../App_Themes/local.css" rel="stylesheet" />
-    <link href="../App_Themes/theme-cyan.css" rel="stylesheet" />
+    <%--<link href="../App_Themes/theme-cyan.css" rel="stylesheet" />--%>
 
 
     <%--*CSS*--%>
@@ -79,11 +79,11 @@
     <header id="header">
         <div class="container">
             <!-- header -->
-            <div class="row " style="margin-left: 20px;">
+            <%--<div class="row " style="margin-left: 20px;">
                 <div id="logo" class="col-xl-9">
-                    <% Response.WriteFile(ConfigurationManager.AppSettings["TemplatePackageFolder"].ToString() + "/4.0/includes/header-logo.html"); %>
+                    <% Response.WriteFile(ConfigurationManager.AppSettings["TemplatePackageFolder"].ToString() + "/5.0/ssi/en/global/site-header-logo.html"); %>
                 </div>
-            </div>
+            </div>--%>
 
             <%-- <div class="row">
                 <div id="gi">
@@ -114,7 +114,7 @@
 
         <%-- <a id="contentArea" name="contentArea" />--%><%--Skip Nave - only One skip in this Masterpage--%>
         <div class="container">
-            <div class="row" style="margin-left: 20px;">
+            <div class="row" style="margin-left: 2px;">
                 <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server" ClientIDMode="Static">
                 </asp:ContentPlaceHolder>
             </div>
@@ -125,21 +125,21 @@
 
         <!-- footer -->
         <%--footer--%>
+        <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/site-footer.html"));%>   <!--4.0 / footer-cdc -->
+
         <footer role="contentinfo" aria-label="footer">
-            <div class="container-fluid footer-wrapper">
+            <%--<div class="container-fluid footer-wrapper">
                 <div class="container">
-                    <%--<telerik:RadCodeBlock runat="server">--%>
-                    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/footer-cdc.html"));%>
-                    <%--</telerik:RadCodeBlock>--%>
+                    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/site-footer.html"));%>   <!--4.0 / footer-cdc -->
                 </div>
-            </div>
-            <div class="container-fluid agency-footer">
-                <div class="container">
+            </div>--%>
+            <%--<div class="container-fluid agency-footer">
+                <div class="container">--%>
                     <%--<telerik:RadCodeBlock runat="server">--%>
-                    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/footer-agency.html"));%>
+                    <% //Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/site-footer.html"));%>   <!-- 4.0 / footer-agency -->
                     <%--</telerik:RadCodeBlock>--%>
-                </div>
-            </div>
+               <%-- </div>
+            </div>--%>
         </footer>
         <%--end footer--%>
 
@@ -151,7 +151,7 @@
         <%--************--%>
         <!-- jQuery is part of the libs.min.js.   It is version 1.8.3.   The responsive template does not support the use of other version.  
      If you find you  have a specific needs to an newer version please consult with Chronic development team. -->
-        <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/metrics.html"));%>
+       <%-- <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/includes_4/metrics.html"));%>--%>
 
         <asp:ScriptManager LoadScriptsBeforeUI="False" ID="ScriptManager1" runat="server">
         </asp:ScriptManager>

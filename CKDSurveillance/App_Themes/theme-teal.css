@@ -40,8 +40,10 @@ Left Nav Colors
 
 #nav,
 #nav-container .bottom {background: transparent url('/ckd/TemplatePackage/images/theme-teal/bg_leftNav.gif') repeat-y top left;}
-#nav ul li {background: #c1ded5;}
-#nav ul li ul li {background: #c5ded6;}
+#nav ul li {background: /*#c1ded5*/ #E1F3F8CC;}
+	#nav ul li ul li {
+		background: /*#c5ded6*/ #E1F3F8CC;
+	}
 #nav-container .bottom {background-position: bottom left;}
 
 /* Selected state for Level 1, 2, 3, and 4 link */

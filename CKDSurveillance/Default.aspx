@@ -115,7 +115,7 @@
         }
 
         .spotlightTitle {
-            font-family: Open Sans, apple-system, blinkmacsystemfont,Segoe UI, Helvetica Neue, arial, sans-serif;
+            font-family: Nunito, Open Sans, apple-system, blinkmacsystemfont,Segoe UI, Helvetica Neue, arial, sans-serif;
         }
 
         .tightCardGroup {
@@ -139,7 +139,7 @@
         .rf-margins
         {
             /*background: transparent linear-gradient(290deg, #007C91 0%, #00695C 100%) 0% 0% no-repeat padding-box;*/ 
-            background: transparent linear-gradient(290deg, #218B9C 0%, #217B70 100%) 0% 0% no-repeat padding-box; 
+            background: transparent linear-gradient(290deg, #0081a1 0%, #0057B7 100%) 0% 0% no-repeat padding-box; 
             opacity:0.9;
         }
 
@@ -150,7 +150,7 @@
             color: #FFFFFF!important;
         }
         #ckd-nav-home-link {
-            color: #007C91 !important;
+            color: #0b4778  !important;  /*#007C91 #0b4778;*/ /*#007C91;*/ /*#0b4778;*/ /*#007C91;*/
         }
         .ckd-nav-home{
             background-color: #FFFFFF;
@@ -159,8 +159,13 @@
             color: #FFFFFF!important;
         }
         .ckd-nav-home-link {
-            color: #007C91 !important;
+            color: #0b4778  !important; /*#007C91*/
         }
+        .justify-to-center {
+            justify-content: center;
+            width: 90%;
+        }
+        
         .main-image-banner {
             background: transparent url('/ckd/images/CKD_MainBanner.png') 0% 0% no-repeat padding-box;
         }
@@ -196,7 +201,7 @@
     <%--*Main Image*--%>
     <%--************--%>
     <div class="row d-lg-block main-image-banner" style="background-position: center; background-size: cover;">
-        <div class="container">
+        <div class="container justify-to-center">
             <uc1:MainImage runat="server" ID="MainImage1" />
         </div>
     </div>
@@ -206,9 +211,9 @@
     <%--*Kidney Disease Surveillance System*--%>
     <%--************************************--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background-color:rgba(78,186,170,0.07); background-color:rgba(78,186,170,0.07);
+    <div class="row pt-0 pb-1 county-check" style="background-color:#f6fbff; background-color:#f6fbff;
 border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom: solid;border-bottom-width: thin;border-bottom-color: #93a0a6;">
-        <div class="container">
+        <div class="container justify-to-center" >
             <uc1:AboutKDS runat="server" ID="AboutKDS1" />
         </div>
     </div>
@@ -218,7 +223,7 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
     <%--*****--%>
 
     <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box; opacity: 1;margin-top: 6px;">
-        <div class="container">
+        <div class="container justify-to-center">
             <uc1:AYA runat="server" ID="AYA1" />
         </div>
     </div>
@@ -228,7 +233,7 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
     <%--*****************--%>
 
     <div class="row pt-0 pb-1 county-check" style="background: #005EAA 0% 0% no-repeat padding-box !important; box-shadow: 0px 3px 6px #0000006B;">
-        <div class="container">
+        <div class="container justify-to-center">
             <uc1:RiskCalculator runat="server" ID="RiskCalculator1" />
         </div>
     </div>
@@ -238,7 +243,7 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
     <%--******************************--%>
 
     <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box;box-shadow: 0px 5px 9px #00000029;opacity: 1; ">
-        <div class="container">
+        <div class="container justify-to-center">
             <uc1:Prevalence runat="server" ID="Prevalence1" />
         </div>
     </div>
@@ -248,7 +253,7 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
     <%--*********************************--%>
 
     <div class="row pt-0 pb-1 county-check rf-margins"> 
-        <div class="container">
+        <div class="container justify-to-center">
              <uc1:RiskFactorsForKD runat="server" ID="RiskFactorsForKD1" />
         </div>
     </div>
@@ -256,8 +261,8 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
     <%--**********************--%>
     <%--*Data Bite highlights*--%>
     <%--**********************--%>
-    <div class="row pt-0 pb-1 county-check" style="background: #F5F5F5 0% 0% no-repeat padding-box; opacity: 1;">
-        <div class="container">
+    <div class="row pt-0 pb-1 county-check" style="background: #f6fbff 0% 0% no-repeat padding-box; opacity: 1;">
+        <div class="container justify-to-center">
             <uc1:DataBiteHighlights runat="server" ID="DataBiteHighlights" />
         </div>
     </div>
@@ -268,10 +273,10 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
     <%--******************************--%>
 
     <div class="row pt-0 pb-1 county-check" style="background: #FFFFFF 0% 0% no-repeat padding-box;box-shadow: 0px -5px 9px #00000029;opacity: 1;">
-        <div class="outcomecontainer showPhoneOnly">
+        <div class="outcomecontainer showPhoneOnly justify-to-center">
             <uc1:OutcomesQofCare runat="server" ID="OutcomesQofCare1" />
         </div>
-        <div class="container phoneNoShow">
+        <div class="container phoneNoShow justify-to-center">
             <uc1:OutcomesQofCare runat="server" ID="OutcomesQofCare2" />
         </div>
     </div>
@@ -280,8 +285,8 @@ border-top: solid;border-top-width: thin;border-top-color: #93a0a6;border-bottom
     <%--*Additional Resources and General Information*--%>
     <%--**********************************************--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background:#EBF5F6 0% 0% no-repeat padding-box;opacity: 1;">
-        <div class="container">
+    <div class="row pt-0 pb-1 county-check" style="background:#f6fbff 0% 0% no-repeat padding-box;opacity: 1;">
+        <div class="container justify-to-center">
             <uc1:GeneralInformation runat="server" ID="GeneralInformation1" />
         </div>
     </div>

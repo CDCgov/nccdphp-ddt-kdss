@@ -580,7 +580,7 @@ img.center,
 	list-style:decimal outside;
 }
 .rounders.grey li, 
-.module.rounders.grey li {border-bottom:1px solid #f6f6f6;}
+.module.rounders.grey li {border-bottom:1px solid #f6fbff;}
 
 .module ol li.mySelection,
 .module ul li.mySelection,
@@ -772,7 +772,7 @@ img.center,
 	width:auto;
 }
 
-.roundem.multiPage-horiz {background-color:#f6f6f6;}
+.roundem.multiPage-horiz {background-color:#f6fbff;}
 
 #content-main .multiPage-horiz h4,
 #content-main .multiPage-horiz h5,

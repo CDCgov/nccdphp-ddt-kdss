@@ -7,7 +7,7 @@
      <%--**************--%>
      <%--*Widget Title*--%>
      <%--**************--%>
-    <h3>
+    <h3 style="font-family: Poppins;">
        CKD Surveillance Publications and Resources 
     </h3>
 

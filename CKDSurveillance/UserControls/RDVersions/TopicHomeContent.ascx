@@ -59,7 +59,7 @@
 		.PIbodyTitle{
 			/*font: normal normal 600 38px/42px Open Sans;*/
 			text-align: left;
-			font-family: Open Sans;
+			font-family: Poppins !important;
 			font-size:38px;
 			letter-spacing: -0.38px;
 			color: #29434E;
@@ -68,7 +68,7 @@
 		.PIbody{
 			/*font: normal normal normal 17px/24px Open Sans;*/
 			text-align: left;
-			font-family: Open Sans;
+			font-family: Nunito !important;
 			font-size:17px;
 			letter-spacing: 0px;
 			color: #000000;
@@ -80,13 +80,13 @@
 			text-decoration: underline;			
 			letter-spacing: 0px;
 			color: #005EAA;
-			font-family: Open Sans;
+			font-family: Nunito !important;
 			font-size:14px;
 		}
 		.PIbodybreadcrumb{
 			/*font: normal normal normal 14px/24px Open Sans;*/
 			text-align: left;			
-			font-family: Open Sans;
+			font-family: Nunito !important;
 			font-size:14px;
 			letter-spacing: 0px;
 			color: #000000;
@@ -95,12 +95,12 @@
 			/*font: normal normal 600 17px/48px Open Sans;*/
 			letter-spacing: 0px;			
 			text-align:left;
-			font-family: Open Sans, Semibold;
+			font-family: Nunito, Semibold !important;
 			font-weight:bold;
 			font-size:17px;
-			color: #007C91;
+			color: #0b4778; /*#007C91;*/
 			opacity: 1;	
-			background: #F5F5F5 0% 0% no-repeat padding-box;
+			background: #f6fbff 0% 0% no-repeat padding-box;
 			border-left: 4px solid;
 			border-color:#006778; /*0% 0% no-repeat padding-box;*/
 			border-bottom: 1px dashed #e0e0e0;
@@ -108,7 +108,7 @@
 		.PInavSectionLinks{
 			/*font: normal normal normal 17px/20px Open Sans;*/
 			text-align: left;			
-			font-family: Open Sans;
+			font-family: Nunito !important;
 			font-size:17px;
 			letter-spacing: 0px;
 			color: #000000;
@@ -120,7 +120,7 @@
 		.PInavSectionLinkSelected{
 			/*font: normal normal normal 17px/20px Open Sans;*/
 			text-align: left;			
-			font-family: Open Sans Semibold;
+			font-family: Nunito Semibold !important;
 			font-size:17px;
 			letter-spacing: 0px;
 			color: #000000;
@@ -131,15 +131,15 @@
 		.PInavSectionSublinks{
 			/*font: normal normal 600 15px/18px Open Sans;*/
 			text-align: left;			
-			font-family: Open Sans;
+			font-family: Nunito !important;
 			font-size:15px;
 			letter-spacing: 0px;
-			color: #007C91;
+			color: #0b4778; /*#007C91;*/
 			opacity: 1;
 			text-decoration:none;
 			list-style-type:none;
 			border-left: 4px solid;
-			border-color:#65B0BD; /*0% 0% no-repeat padding-box;*/
+			border-color: var(--colors-blue-cool-vivid-50); /*#65B0BD;*/ /*0% 0% no-repeat padding-box;*/
 			border-bottom: 1px dashed #e0e0e0;
 			margin-bottom: 0px !important;
 		}
@@ -148,7 +148,7 @@
 		.PInavSectionHeading{
 			text-align: left;
 			/*font: normal normal 600 21px/34px Open Sans;*/
-			font-family: Open Sans;
+			font-family: Nunito !important;
 			font-size:21px;
 			letter-spacing: -0.21px;
 			color: #242424;
@@ -159,10 +159,10 @@
 		.PInavARandGIlinks{
 			text-align: left;
 			/*font: normal normal normal 17px/23px Open Sans;*/
-			font-family: Open Sans;
+			font-family: Nunito !important;
 			font-size:17px;
 			letter-spacing: 0px;
-			color: #00778C !important;
+			color: #005fa3 !important; /*color: #00778C !important;*/
 			opacity: 1;
 			text-decoration: none;
 			padding-left:10px;
@@ -194,7 +194,7 @@
 			list-style: none;			
 		}
 		.logoImg{
-			background: transparent url('/ckd/images/CKDLeftNavLogo.png') 0% 0% no-repeat padding-box;
+			/*background: transparent url('/ckd/images/CKDLeftNavLogo.png') 0% 0% no-repeat padding-box;*/
 			opacity: 1;
 			width: 100%; /*330px;*/
 			height: 100%; /*128px;*/
@@ -232,7 +232,7 @@
              text-align: left;
              /*font: normal normal bold 17px/24px Open Sans;*/
              text-align: left;
-             font-family: Open Sans !important;
+             font-family: Nunito !important;
              font-size: 14px !important;
              font-weight: bold;
              letter-spacing: 0px;
@@ -242,13 +242,13 @@
 
 	.ayaTitle {
 		text-align: left;
-		font-family: Open Sans;
+		font-family: Nunito !important;
 		letter-spacing: -0.22px;
 		color: #000000;
 		opacity: 1;
 	}
     .areYouAwareMsg {        
-        font: normal normal normal 18px/25px Open Sans;
+        font: normal normal normal 18px/25px Nunito !important;
         opacity: 1;
         padding-top: 65px;
         padding-bottom: 25px;
@@ -302,12 +302,12 @@
 	<div class="container d-flex flex-wrap body-wrapper bg-white">
 
 			<!-- Content -->
-			<main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area">
+			<main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area" style="border:none;padding-top: 5px; font-family:Nunito !important;">
 					<div id="PIdivbody" class="row">
-						<div  class="col content">										
-							<div class="cdc-2020-bar container">
+						<div  class="col content" style="padding-left: 3rem;">										
+							<div class="cdc-2020-bar container" style="margin-bottom:1.7rem; ">
 								<div class="row no-gutters">
-									<div class="bar-item">
+									<div class="bar-item" style="padding-left: 1px; ">
 											<a href="../default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link7" class="ckd-nav-home-link">										
 											<span class="PIhomebreadcrumb"><u>Home</u></span> </a> 
 										    <span id="bcTopic" class="PIbodybreadcrumb" runat="server">  </span>  <%--selected topic from top nav --%>
@@ -319,7 +319,7 @@
 							 <div id="ayatop" class="ayatoprow" runat="server" visible="false">
 								<div class="ayatopimg">
 									<%--<img src="/ckd/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
-									<img src="../images/AYA_theme_version.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt="Click to view awareness topic archive"/>
+									<img src="../images/AYA_theme_version-t5.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt="Click to view awareness topic archive"/>
 								</div>
 								<div class="vl"></div>
 								<div class ="areYouAwareMsg">
@@ -329,7 +329,7 @@
 								</div>
 							</div>
 							<div>
-								<h1 id="content" class="PIbodyTitle "><span id="topicTitle"><asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal></span> </h1>								
+								<h1 id="content" class="PIbodyTitle " style="font-family: Poppins;"><span id="topicTitle"><asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal></span> </h1>								
 							</div>
 							<p>                   
 								<span class="PIbody"><asp:Literal ID="Lit_Desc" runat="server"></asp:Literal></span>

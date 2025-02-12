@@ -20,7 +20,7 @@
         /*background: transparent linear-gradient(299deg, #007C91 0%, #00695C 100%) 0% 0% no-repeat padding-box;
         opacity: 1;
        */
-     padding-top: 150px;
+     padding-top: 100px;
      padding-bottom:20px;
      padding-left:55px;
     }
@@ -30,20 +30,20 @@
     
     .rfkd-title1 {  /*Risk Factors*/
         text-align: left;
-        font: normal normal 600 30px/34px Open Sans;
+        font: normal normal 600 30px/34px Nunito;
         letter-spacing: -0.6px;
         /*color: #FCCF7D;*/
     }
     .rfkd-title2 { /*for Kidney Disease*/
         text-align: left;
-        font: normal normal 600 30px/34px Open Sans;
+        font: normal normal 600 30px/34px Nunito;
         letter-spacing: -0.6px;
         color: #FFFFFF;
     }
 
     .rfkd-text {
         text-align: left;
-        font: normal normal 300 18px/24px Open Sans;
+        font: normal normal 300 18px/24px Nunito;
         letter-spacing: 0px;
         color: #FFFFFF;
         opacity: 1;
@@ -56,7 +56,7 @@
         opacity: 1;
         /*width: 164px;*/
         text-align: center;
-        font: normal normal 600 17px/23px Open Sans;
+        font: normal normal 600 17px/23px Nunito;
         letter-spacing: 0px;
         color: #29434E;
         opacity: 1;
@@ -92,7 +92,7 @@
     }
     .rfkd-link-text {
         text-align: center;
-        font: normal normal normal 18px/24px Open Sans;
+        font: normal normal normal 18px/24px Nunito;
         letter-spacing: 0px;
         color: #FFFFFF;
         opacity: 1;
@@ -135,7 +135,7 @@
     }
     .accordionTitle, .accordionTitle h3{
         text-align: left;
-        font: normal normal 600 17px/23px Open Sans;
+        font: normal normal 600 17px/23px Nunito;
         letter-spacing: 0px;
         color: #FFFFFF;
         text-transform: uppercase;
@@ -159,18 +159,18 @@
     .accordionHr {
         border: 1px dashed #C1C1C1;
         opacity: 0.47; /*0.87;*/
-        background: transparent linear-gradient(299deg, #007C91 0%, #00695C 100%) 0% 0% no-repeat padding-box;
+        background: transparent linear-gradient(299deg, #0b4778 0%, /*#00695C*/ #005ea2 100%) 0% 0% no-repeat padding-box; /*#007C91*/
     }
     .rfkd-main{
-        background: transparent linear-gradient(299deg, #007C91 0%, #00695C 100%) 0% 0% no-repeat padding-box !important;
+        background: transparent linear-gradient(299deg, #0081a1 0%, #0057B7 100%) 0% 0% no-repeat padding-box !important; /*#007C91*/
         opacity: 1 !important;
         /*padding: 20px 0;*/
         padding-right: 20px;
         padding-top: 45px;
         padding-bottom: 55px;
         padding-left:-50px !important;
-        margin-left:-65px;
-        margin-right:-65px;
+        /*margin-left:-65px;
+        margin-right:-65px;*/
         display:flex;
         flex-wrap: wrap;        
     }
@@ -239,7 +239,7 @@
 
         <div  class="col-12 col-md-5 rfkd-center-content" style="padding-top:20px;" > 
            
-                    <div id="hdrRF">   <h2>
+                    <div id="hdrRF">   <h2 style="border:none;font-family: Poppins;">
                         <span class="rfkd-title2"><u class="rfkd-underline">Risk</u> Factors </span>        
                         <span class="rfkd-title2">for Kidney Disease</span>   </h2> 
                         <%--<div><hr style="border: 2px solid #FFFFFF; background:#FFFFFF; width: 56px; opacity: 1; margin-bottom: 0em;" /></div>--%>
@@ -313,7 +313,7 @@
               <%--<div class="accordion-body col-md-5 rfkd-center-content" >--%>
                   <div class="rfkd-center-content col-12 col-md-6">        
                         <div class="accordionItem" id="lnkAge">
-                            <div id=titleAge class="accordionTitle age" tabindex="0" role="button" aria-pressed="false"><h3>Age</h3>
+                            <div id=titleAge class="accordionTitle age" tabindex="0" role="button" aria-pressed="false"><h3 style="font-family: Poppins;">Age</h3>
                                   <span><i class="fa fa-plus"></i></span>
                               </div>
                             <div id="rfkdAge" class="rfkd-text accordionContent">  
@@ -323,7 +323,7 @@
                         <hr  class="accordionHr">
 
                          <div class="accordionItem" id="lnkDiabetes">
-                            <div id=titleDiabetes class="accordionTitle diabetes" tabindex="0" role="button" aria-pressed="false" ><h3>Diabetes </h3>
+                            <div id=titleDiabetes class="accordionTitle diabetes" tabindex="0" role="button" aria-pressed="false" ><h3 style="font-family: Poppins;">Diabetes </h3>
                                  <span><i class="fa fa-plus" ></i></span>
                             </div>
                             <div id="rfkdDiabetes" class="rfkd-text accordionContent"> 
@@ -333,7 +333,7 @@
                         <hr class="accordionHr">
 
                         <div class="accordionItem" id="lnkHypertension" >
-                            <div id=titleHypertension class="accordionTitle hypertension" tabindex="0" role="button" aria-pressed="false"><h3>Hypertension</h3>
+                            <div id=titleHypertension class="accordionTitle hypertension" tabindex="0" role="button" aria-pressed="false"><h3 style="font-family: Poppins;">Hypertension</h3>
                                  <span><i class="fa fa-plus"></i></span>
                             </div>
                             <div id="rfkdHypertension" class="rfkd-text accordionContent">  

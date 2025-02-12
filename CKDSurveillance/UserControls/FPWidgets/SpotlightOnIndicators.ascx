@@ -7,7 +7,7 @@
     }
 
     .spotlightTitle {
-        font-family: "Open Sans","apple-system";
+        font-family: "Nunito","apple-system";
     }
     .tab-pane {
         padding-top:5px !important;

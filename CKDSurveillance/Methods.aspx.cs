@@ -78,15 +78,15 @@ namespace CKDSurveillance_RD.MasterPages
             sb.Append("<table class=\"table\" summary=\"This table provides the specification sheet's entry and value for the indicator " + indicatorText + "\" style=\"border:solid 1px #bfbfbf;\" cellpadding=\"2px\" width=\"100%\">");
             sb.Append("<thead>");
             sb.Append("<tr>");
-            sb.Append("<th scope=\"col\" style=\"background-color:#c1ded5; color:#ffb655; border-right:solid 1px #bfbfbf;\">Field</th>");
-            sb.Append("<th scope=\"col\" style=\"background-color:#c1ded5; color:#ffb655; border-right:solid 1px #bfbfbf;\">Data</th>");
+            sb.Append("<th scope=\"col\" style=\"background-color:#E1F3F8CC; color:#ffb655; border-right:solid 1px #bfbfbf;\">Field</th>");
+            sb.Append("<th scope=\"col\" style=\"background-color:#E1F3F8CC; color:#ffb655; border-right:solid 1px #bfbfbf;\">Data</th>");
             sb.Append("<tr>");
             sb.Append("</thead>");
             sb.Append("<tbody>");
 
 
             //*Loop through the rows and get rows*
-            string th1 = "<th scope=\"row\" align=\"left\" valign=\"top\" style=\"border-right:solid 1px silver; border-top:solid 1px silver; padding:3px 3px 3px 3px; background-color:#C1DED5;\">";
+            string th1 = "<th scope=\"row\" align=\"left\" valign=\"top\" style=\"border-right:solid 1px silver; border-top:solid 1px silver; padding:3px 3px 3px 3px; background-color:#E1F3F8CC;\">";
             string td2 = "<td align=\"left\" valign=\"top\" style=\"border-right:solid 1px silver; border-top:solid 1px silver; padding:3px 3px 3px 3px;\">";
             foreach (DataRow dr in dt.Rows)
             {

@@ -40,30 +40,30 @@
         .subTitleHPlink {
             text-align: left;
             /*font: normal normal 600 17px/52px Open Sans;*/
-            font-family:Open Sans;
+            font-family:Nunito;
             font-size: 17px !important;
             font-weight:600 !important;
             letter-spacing: 0px;
             text-decoration: none !important; /*remove underline*/
-            color: #007C91 !important;
+            color:  #0b4778 !important; /*#007C91;*/
             opacity: 1;
             padding-left:10px !important;            
         }
 
         .subTitleHPbg {
-            background: #00695C 0% 0% no-repeat padding-box;             
+            background: /*#00695C*/ #005ea2 0% 0% no-repeat padding-box;             
             opacity: 0.05;   
             padding-top:10px !important;
             padding-bottom:10px !important;
         }
         .subTitleHPleftmargin{
-            background: #00695C 0% 0% no-repeat padding-box;
+            background: /*#00695C*/ #005ea2 0% 0% no-repeat padding-box;
             opacity: 0.15;
         }
         .HPIDheader{
             text-align: left !important;
             /*font: normal normal 600 22px/42px Open Sans;*/
-            font-family:Open Sans !important;
+            font-family:Nunito !important;
             font-size: 22px !important;
             font-weight:600 !important;
             letter-spacing: -0.22px;
@@ -73,7 +73,7 @@
         .HPIDtext{
             text-align: left !important;
             /*font: normal normal normal 17px/24px Open Sans;*/
-            font-family:Open Sans !important;
+            font-family:Nunito !important;
             font-size: 17px !important;
             letter-spacing: 0px;
             color: #000000;
@@ -90,14 +90,22 @@
         .bodyColHeaderText{
             text-align: center;
             /*font: normal normal 600 18px/24px Open Sans;*/
-            font-family:Open Sans !important;
+            font-family:Nunito !important;
             font-size: 19px !important;
             font-weight:600 !important;      /*600	Semi Bold (Demi Bold)    */   
             letter-spacing: 0px;
             color: #FFFFFF;
             opacity: 1;
         }
-
+        PIbodyTitle {
+            font-family: Poppins !important;
+            font-size: 38px !important;
+            letter-spacing: -0.38px;
+            margin-top:17px !important;
+            margin-bottom:12px;
+            /*color: #29434E;
+            opacity: 1;*/
+        }
     </style>
 
 
@@ -107,12 +115,12 @@
 	<div class="container d-flex flex-wrap body-wrapper bg-white">
 
 			<!-- Content -->
-			<main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area">
-					<div id="PIdivbody" class="row">
-						<div  class="col content" style="margin-top: 0px !important;">										
+			<main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area" style="border:0px;padding-top:1px; padding-left:15px; padding-right:15px;">
+					<div id="PIdivbody" class="row" >
+						<div  class="col content" style="margin-top: 0px !important;padding-left:51px; padding-right:15px;border:0px;">										
 							<div class="cdc-2020-bar container">
 								<div class="row no-gutters">
-									<div class="bar-item">
+									<div class="bar-item" style="padding-left:0px;">
 											<a href="default.aspx"  style="border-top:#2B8277" id="ckd-nav-home-link2" class="ckd-nav-home-link">										
 											<span class="PIhomebreadcrumb"><u>Home</u></span> </a> 
 										    <span id="bcTopic" class="PIbodybreadcrumb"> > Healthy People 2030 </span>  <%--selected topic from top nav --%>
@@ -121,8 +129,8 @@
 									</div>
 								</div>
 							</div>
-							<div>
-								<h1 id="content" class="PIbodyTitle "><span id="topicTitle">
+							<div style="padding-top:40px !important; font-size:38px; font-family:Nunito;">
+								<h1 id="content" class="PIbodyTitle" style="font-family: Poppins;"><span id="topicTitle" >
                                     <%--<asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal>--%>
                                     Healthy People 2030
                                     </span> </h1>								

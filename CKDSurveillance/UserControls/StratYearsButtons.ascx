@@ -8,7 +8,7 @@
     .stratButtonsContainingDiv
     {        
         width: 175px;
-        background-color: #F6F6F6;
+        background-color: #f6fbff;
         padding: 3px 3px 3px 3px;
         margin-top: .7em;
         margin-bottom: 1em;
@@ -17,7 +17,7 @@
     .YearButtonsContainingDiv
     {
         width: 175px;
-        background-color: #F6F6F6;
+        background-color: #f6fbff;
         padding: 3px 3px 3px 3px;
         margin-bottom: 1em;
     }
@@ -75,7 +75,7 @@
     <%--*Quintile Color Choices*--%>
     <%--************************--%>
     <div class="stratButtonsContainingDiv roundMe widgetBorder">
-        <h3 class="widgetTitleH3" style="width: 99%; margin-left: -.17em; margin-top: -.2em; font-size: 1.1em; border-bottom: solid .1em silver">
+        <h3 class="widgetTitleH3" style="width: 99%; margin-left: -.17em; margin-top: -.2em; font-size: 1.1em; border-bottom: solid .1em silver; font-family: Poppins;">
             <strong>Define Ranges</strong>&emsp;&emsp;<img id="imgHelpColors" src="images/help_transBG.png" alt="Description of map color options" title="Description of color options" />
         </h3>
 
@@ -115,7 +115,7 @@
     <asp:Repeater ID="rptStratButtons" runat="server" OnItemDataBound="rptStratButtons_ItemDataBound">
         <HeaderTemplate>
             <%--<fieldset>--%>
-                <h3 class="widgetTitleH3" style="width: 99%; margin-left: -.17em; margin-top: -.2em; font-size: 1.1em; border-bottom: solid .1em silver">
+                <h3 class="widgetTitleH3" style="width: 99%; margin-left: -.17em; margin-top: -.2em; font-size: 1.1em; border-bottom: solid .1em silver ;font-family: Poppins;">
                     <strong>View Data By:</strong>
                 </h3>
                 <br />
@@ -156,7 +156,7 @@
                 <br />
                 <%--<fieldset>--%>
 
-                    <h3 class="widgetTitleH3" style="width: 99.5%; margin-left: -.23em; margin-top: -1.65em; font-size: 1.1em; border-bottom: solid .1em silver; border-top: solid .1em silver;">
+                    <h3 class="widgetTitleH3" style="width: 99.5%; margin-left: -.23em; margin-top: -1.65em; font-size: 1.1em; border-bottom: solid .1em silver; border-top: solid .1em silver; font-family: Poppins;">
                         <strong>View Data For:</strong>
                     </h3>
 

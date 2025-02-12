@@ -27,7 +27,7 @@
     {
         border-radius: 5px 5px 0px 0px;
         background: #deeee9;
-        border-bottom: 2px solid #c1ded5;
+        border-bottom: 2px solid /*#c1ded5*/ #E1F3F8CC;
     }
 
     h5 {
@@ -133,7 +133,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 
-                <h4 class="modal-title" id="surveyModalLabel">Help us meet your needs</h4>                  
+                <h4 class="modal-title" id="surveyModalLabel" style="font-family: Poppins;">Help us meet your needs</h4>                  
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
                

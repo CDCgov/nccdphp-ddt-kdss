@@ -5,9 +5,15 @@
 <style type="text/css">
     .tickerDate
     {
-        color: #1a7aa2;
+        color: #005ea2;
 
         font-weight:bold;
+    }
+
+    .nav-section-aya
+    {
+        padding: 13px;
+        border-bottom: 1px dashed #e0e0e0;
     }
 
     .ckd-accordion-header-label {
@@ -70,19 +76,19 @@
     }
 
         .homebreadcrumb{
-			/*font: normal normal normal 14px/24px Open Sans;*/
+			/*font: normal normal normal 14px/24px Nunito;*/
 			text-align: left;
 			text-decoration: underline;			
 			letter-spacing: 0px;
 			color: #005EAA;
-			font-family: Open Sans;
+			font-family: Nunito;
 			font-size:14px;
             /*padding-top: 10px;*/
 		}
 		.bodybreadcrumb{
 			/*font: normal normal normal 14px/24px Open Sans;*/
 			text-align: left;			
-			font-family: Open Sans;
+			font-family: Nunito;
 			font-size:14px;
 			letter-spacing: 0px;
 			color: #000000;
@@ -97,7 +103,7 @@
     <%--**************--%>
     <%--*Widget Title*--%>
     <%--**************--%>
-    <h3>
+    <h3 style="font-family: Poppins;">
         Are You Aware?
        <%--Quick Facts About Kidney Disease--%>
     </h3>
@@ -163,7 +169,7 @@
 	<div class="container d-flex flex-wrap body-wrapper bg-white">
         
 			<!-- Content -->
-			<main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area">
+			<main id="PImainbody"   class="col-xl-9 order-xl-2"  role="main" aria-label="Main Content Area" style="border:none;padding-top: 5px; font-family:Nunito !important;">
 					<div id="PIdivbody" class="row">
 						<div  class="col content">										
 							<div class="cdc-2020-bar container">
@@ -178,7 +184,7 @@
 								</div>
 							</div>
 							<div>
-								<h1 id="content" class="PIbodyTitle "><span id="topicTitle"><asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal></span> </h1>								
+								<h1 id="content" class="PIbodyTitle " style="font-family: Poppins;"><span id="topicTitle" ><asp:Literal ID="Lit_TopicTitle" runat="server"></asp:Literal></span> </h1>								
 							</div>
 							<p>                   
 								<span class="PIbody"><asp:Literal ID="Lit_Desc" runat="server"></asp:Literal></span>

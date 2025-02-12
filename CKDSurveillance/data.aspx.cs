@@ -187,14 +187,14 @@ namespace CKDSurveillance_RD
                 string qtext = row["QuestionText"].ToString();
                 string desc = row["LongDesc"].ToString();                
 
-                sbTable.Append("<div class=\"card bar\" style=\"padding-top:10px;\">"); //begin card bar
+                sbTable.Append("<div class=\"card bar\" style=\"padding-top:10px; border-width:0px;\">"); //begin card bar
 
                 //sbTable.Append("<div class=\"card-header " + cardState + "\" style=\"background-color:#C8D5E4 !important;\" id=\"accordion-4m-card-" + qid.ToString() + "\" data-target=\"#accordion-4m-collapse-" + qid.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
                 //sbTable.Append("<a class=\"card-title\" tabindex=\"0\"  data-controls=\"accordion-4m-collapse-" + qid.ToString() + "\">" + qtext + "</a>");
                 //sbTable.Append("</div>");
 
                 sbTable.Append("<div aria-labelledby=\"accordion-4m-card-" + qid.ToString() + "\" class=\"collapse " + divState + "\" id=\"accordion-4m-collapse-" + qid.ToString() + "\" role=\"tabpanel\">"); //begin content panel
-                sbTable.Append("<div class=\"card body\">"); //begin card body
+                sbTable.Append("<div class=\"card body\" style=\"border-width:0px;\" >"); //begin card body
 
                 sbTable.Append("<div class=\"row\">"); //begin content row                
                 sbTable.Append("<div class=\"col-12\" >"); //begin content col 12 center    ---style=\"padding-left:20px;\"
@@ -234,14 +234,14 @@ namespace CKDSurveillance_RD
 
                 int measureID = ((int)(dr["MeasureID"]));
 
-                sbTable.Append("<div class=\"card bar \" >"); //begin card bar   ---style=\"padding-left:20px;\"
+                sbTable.Append("<div class=\"card bar \" style=\"border-width:0px;\" >"); //begin card bar   ---style=\"padding-left:20px;\"
 
-                sbTable.Append("<div style=\"background: #F5F5F5 0% 0% no-repeat padding-box;\" class=\"card-header ckd-accordion-subcat-header " + cardState + "\"  id=\"accordion-4i-card-" + measureID.ToString() + "\" data-target=\"#accordion-4i-collapse-" + measureID.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
-                sbTable.Append("<a class=\"card-title\" style=\"text-align: left; font-family:Open Sans; font-weight: 17px; letter-spacing: 0px; color: #2D2D2D; padding-top:5px; padding-bottom:5px;\" tabindex=\"0\"  data-controls=\"accordion-4i-collapse-" + measureID.ToString() + "\">" + measureText + "</a>");
+                sbTable.Append("<div style=\"background: #f6fbff 0% 0% no-repeat padding-box;\" class=\"card-header ckd-accordion-subcat-header " + cardState + "\"  id=\"accordion-4i-card-" + measureID.ToString() + "\" data-target=\"#accordion-4i-collapse-" + measureID.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
+                sbTable.Append("<a class=\"card-title\" style=\"text-align: left; font-family:Nunito, Open Sans; font-weight: 17px; letter-spacing: 0px; color: #2D2D2D; padding-top:5px; padding-bottom:5px;\" tabindex=\"0\"  data-controls=\"accordion-4i-collapse-" + measureID.ToString() + "\">" + measureText + "</a>");
                 sbTable.Append("</div>");
 
                 sbTable.Append("<div aria-labelledby=\"accordion-4i-card-" + measureID.ToString() + "\" class=\"collapse " + divState + "\" id=\"accordion-4i-collapse-" + measureID.ToString() + "\" role=\"tabpanel\">"); //begin content panel
-                sbTable.Append("<div class=\"card body\">"); //begin card body
+                sbTable.Append("<div class=\"card body\" style=\"border-width:0px;\" >"); //begin card body
                                 
                                 
                 //*Add Bulleted list of Indicator Links for this Measure*                
@@ -264,7 +264,7 @@ namespace CKDSurveillance_RD
                     // Build link
                     string url = drInd["URL"].ToString().Trim();
                     url = url.Substring(2);
-                    string linkStart = ("<a href=\"" + url + "#refreshPosition\" style=\"text-align: left; text-decoration: underline; letter-spacing: 0px; color: #007C91; opacity: 1; \">");
+                    string linkStart = ("<a href=\"" + url + "#refreshPosition\" style=\"text-align: left; text-decoration: underline; letter-spacing: 0px; color: #0b4778; opacity: 1; \">");  /*#007C91;*/
                     string text = drInd["QuestionText"].ToString().Trim();
                     string linkEnd = "</a>";
                     sbTable.Append(linkStart + text + linkEnd);

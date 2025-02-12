@@ -4,6 +4,7 @@ using System.Web;
 using System.Data;
 using System.Text;
 using ckdlibV2;
+using System.Web.UI.MobileControls;
 
 namespace CKDSurveillance_RD
 {
@@ -98,10 +99,10 @@ namespace CKDSurveillance_RD
 
             if (Request.RawUrl.IndexOf("AreYouAware.aspx") >= 0)
             {
-                Lit_IndicatorText.Visible = false;
-                divAYA.Visible = true;
-                divAYARF.Visible = true;
-                return;
+                TopicID = "0";
+                Lit_IndicatorText.Visible = true;
+                divAYA.Visible = false;
+                divAYARF.Visible = false;
             }
             else if (Request.RawUrl.IndexOf("data.aspx?categoryID=67") >= 0)
             {
@@ -130,7 +131,11 @@ namespace CKDSurveillance_RD
                 return;
 
             //*Get Topics*
-            if (!string.IsNullOrEmpty(TopicID))
+            if (TopicID == "0")
+            {
+                Lit_IndicatorText.Text = AYATableCreation();
+            }
+            else if (!string.IsNullOrEmpty(TopicID))
             {
                 Int32 topicID = Convert.ToInt32(TopicID);
                 DataTable dt = DAL.getTopic(topicID);
@@ -169,36 +174,66 @@ namespace CKDSurveillance_RD
             // *Clean-up*
             DAL = null;
         }
+
+        private string AYATableCreation()
+        {
+            StringBuilder ayaTable = new StringBuilder();
+
+            DataTable dtAYA = DAL.get_AYA_Entries_for_FP_Widget(); 
+
+            //Process table*            
+            foreach (DataRow dr in dtAYA.Rows)
+            {
+                StringBuilder sbAnswer = new StringBuilder();
+
+                sbAnswer.Append("<div class='nav-section-aya'>");
+                sbAnswer.Append("<a class='list-title' style='text-decoration: none' href='" + dr["AYALink"].ToString().Trim() + "'>");
+                sbAnswer.Append(dr["Title"].ToString().Trim());
+                sbAnswer.Append("&nbsp;");
+                sbAnswer.Append("<span class='tickerDate'>" + dr["tickerDate"].ToString().Trim() + "</span>");
+                sbAnswer.Append("</a>");
+                sbAnswer.Append("</div>");
+
+                ayaTable.Append(sbAnswer.ToString().Trim());
+            }
+
+            return ayaTable.ToString().Trim();
+        }
+
         private string MethodsIndicatorsTableCreation(int TopicID, string TopicText)
         {
             StringBuilder sbTable = new StringBuilder();
 
             //Start table HTML
             var href = "";
-            switch (TopicText) {
-                case "Prevalence":
+            switch (TopicID) {
+                case 1:
                     href = directoryPath + "TopicHome/PrevalenceIncidence.aspx?topic=1";
                     break;
-                case "Awareness":
+                case 3:
                     href = directoryPath + "TopicHome/Awareness.aspx?topic=3";
                     break;
-                case "Risk Factors":
+                case 4:
                     href = directoryPath + "TopicHome/BurdenOfRiskFactors.aspx?topic=4";
                     break;
-                case "Outcomes":
+                case 5:
                     href = directoryPath + "TopicHome/HealthConsequences.aspx?topic=5";
                     break;
-                case "Quality of Care":
+                case 6:
                     href = directoryPath + "TopicHome/QualityOfCare.aspx?topic=6";
                     break;
-                case "Social Determinants of Health and Kidney Disease":
+                case 24:
                     href = directoryPath + "TopicHome/SocialDeterminantsOfHealth.aspx?topic=24";
+                    break;
+                case 0:
+                case 25:
+                    href = directoryPath + "TopicHome/AwarenessArchive.aspx?topic=25";
                     break;
                 default:
                     href = directoryPath + "default.aspx";
                     break;
             }
-            sbTable.Append("<div class=\"navBoldHeader nav-section-home d-sm-block\" role=\"tabpanel\" ><span><a style=\"color:#00768A;\" href='" + href +"'/>" + TopicText +"</a></span></div>");
+            sbTable.Append("<div class=\"navBoldHeader nav-section-home d-sm-block\" style=\"Padding:10px ;\" role=\"tabpanel\" ><span><a style=\"color:#0b4778; text-decoration: none;\" href='" + href +"'/>" + TopicText +"</a></span></div>");
             sbTable.Append("<div class=\"accordion indicator-plus accordion-white \" role=\"tabpanel\" >");
 
             DataTable dtMeasures = DAL.getMeasuresByTopicID(TopicID);
@@ -219,8 +254,8 @@ namespace CKDSurveillance_RD
                 //sbTable.Append("<div class=\"nav-section-home navSectionLinks navlist collapsed\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
                 //sbTable.Append("<a tabindex=\"0\"  data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\">" + measureText + "<i class=\"fi cdc-icon-plus nav-plus nav-expandcollapse\"  style = \"float: right;\"  >" + " </i>" + "</a>");
                 if (IsSelected(measureID)) {
-                    sbTable.Append("<div class=\"nav-section-home navSectionLinks navlist nav-selected-header\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tablist\" aria-expanded=\"true\">"); //begin header measureText
-                    sbTable.Append("<div class=\"card-title\" role=\"tab\"><a style=\"display: inline;color:#000000\" tabindex=\"0\"  id=\"accordion-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\" >" + measureText + "<i class=\"fi cdc-icon-minus nav-minus\"  style = \"float: right;\" id=\"navplusicon-" + loopcnt.ToString() + "\" ></i></a></div>");
+                    sbTable.Append("<div class=\"nav-section-home navSectionLinks navlist nav-selected-header\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-bs-toggle=\"collapse\" role=\"tablist\" aria-expanded=\"true\" href=\"#accordion-4-collapse-" + loopcnt.ToString() + "\">"); //begin header measureText
+                    sbTable.Append("<div class=\"card-title\" style=\"padding: 13px; border-bottom: 1px dashed #e0e0e0; \" role=\"tab\"><a style=\"display: inline;color:#000000; text-decoration:none;\" tabindex=\"0\"  id=\"accordion-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\" >" + measureText + "<i class=\"fi cdc-icon-minus nav-minus\"  style = \"float: right; font-size: 20px; color: #bdbdbd;\" id=\"navplusicon-" + loopcnt.ToString() + "\" ></i></a></div>");
                     sbTable.Append("</div>");
 
                     sbTable.Append("<div aria-labelledby=\"accordion-4-card-" + loopcnt.ToString() + "\" class=\"collapse show\" id=\"accordion-4-collapse-" + loopcnt.ToString() + "\" role=\"tabpanel\">"); //begin content panel
@@ -228,8 +263,8 @@ namespace CKDSurveillance_RD
                                               //*Get Measure values*
                 }
                 else {
-                    sbTable.Append("<div class=\"card-header nav-section-home navSectionLinks navlist collapsed\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-toggle=\"collapse\" role=\"tablist\" aria-expanded=\"false\">"); //begin header measureText
-                    sbTable.Append("<div class=\"card-title\" role=\"tab\"><a style=\"display: inline;color:#000000\" tabindex=\"0\"  id=\"accordion-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\" >" + measureText + "<i class=\"fi cdc-icon-plus nav-\"  style = \"float: right;\" id=\"navplusicon-" + loopcnt.ToString() + "\" ></i></a></div>");
+                    sbTable.Append("<div class=\"card-header nav-section-home navSectionLinks navlist collapsed\" id=\"accordion-4-card-" + loopcnt.ToString() + "\" data-target=\"#accordion-4-collapse-" + loopcnt.ToString() + "\" data-bs-toggle=\"collapse\" role=\"tablist\" aria-expanded=\"false\" href=\"#accordion-4-collapse-" + loopcnt.ToString() + "\">"); //begin header measureText
+                    sbTable.Append("<div class=\"card-title\" style=\"padding: 13px; border-bottom: 1px dashed #e0e0e0; \" role=\"tab\"><a style=\"display: inline;color:#000000;text-decoration:none;\" tabindex=\"0\"  id=\"accordion-title-" + loopcnt.ToString() + "\" title=\" " + measureText + "\" data-controls=\"accordion-4-collapse-" + loopcnt.ToString() + "\" >" + measureText + "<i class=\"fi cdc-icon-plus nav-\"  style = \"float: right; font-size: 20px; color: #bdbdbd;\" id=\"navplusicon-" + loopcnt.ToString() + "\" ></i></a></div>");
                     sbTable.Append("</div>");
 
                     sbTable.Append("<div aria-labelledby=\"accordion-4-card-" + loopcnt.ToString() + "\" class=\"collapse\" id=\"accordion-4-collapse-" + loopcnt.ToString() + "\" role=\"tabpanel\">"); //begin content panel
@@ -251,7 +286,7 @@ namespace CKDSurveillance_RD
                 foreach (DataRow drInd in dtIndicators.Rows)
                 {
                     // Build link
-                    string linkStart = ("<a href=\""+ directoryPath +"detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "&topic="+ TopicID + "#refreshPosition\" style=\"color:#000000\">"));
+                    string linkStart = ("<a href=\""+ directoryPath +"detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "&topic="+ TopicID + "#refreshPosition\" style=\"color:#000000;text-decoration:none;\">"));
                     //string linkStart = ("<a href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "#refreshPosition\" + \"#PIdivbody\" >"));
                     string text = drInd["IndicatorText"].ToString().Trim();
                     string linkEnd = "</a>";
@@ -269,11 +304,11 @@ namespace CKDSurveillance_RD
                             //sb_indTable.Append("<li class=\"nav-section-home navSectionSublinks navlist\" style='margin-left:25px;'>");
                             if (drInd["QNUM"].ToString().Trim() == QNum)
                             {
-                                sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist selectedLink\" style='margin-left:25px;'>");
+                                sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist selectedLink\" style='margin-left:1px; padding:10px; text-decoration:none;'>");
                                 sbTable.Replace("navBoldHeader", "navNormalHeader");
                             }
                             else
-                                sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist\" style='margin-left:25px;'>");
+                                sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist\" style='margin-left:1px; padding:10px; text-decoration:none;'>");
                             HF_SN_TopicText.Value = TopicText;
                             containsIndi = true;
                         }
@@ -281,22 +316,22 @@ namespace CKDSurveillance_RD
                         {
                             if (drInd["QNUM"].ToString().Trim() == QNum)
                             {
-                                sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist selectedLink\" style='margin-left:25px;'>");
+                                sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist selectedLink\" style='margin-left:1px; padding:10px; text-decoration:none;'>");
                                 sbTable.Replace("navBoldHeader", "navNormalHeader");
                             }
                             else
-                                sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist\" style='margin-left:25px;'>");
+                                sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist\" style='margin-left:1px; padding:10px; text-decoration:none;'>");
                         }
                     }
                     else
                     {
                         if (drInd["QNUM"].ToString().Trim() == QNum) { 
-                            sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist selectedLink\" style='margin-left:25px;'>");
+                            sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist selectedLink\" style='margin-left:1px; padding:10px; text-decoration:none;'>");
                             sbTable.Replace("navBoldHeader", "navNormalHeader");
-                            linkStart = ("<a href=\""+directoryPath +"detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "&topic=" + TopicID + "#refreshPosition\" class=\"selectedLink\">"));
+                            linkStart = ("<a href=\""+directoryPath +"detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "&topic=" + TopicID + "#refreshPosition\" class=\"selectedLink\" style='text-decoration:none;'>"));
                         }
                         else
-                            sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist\" style='margin-left:25px;'>");
+                            sb_indTable.Append("<li id=\"accordionSubNav-" + loopcnt.ToString() + "-" + text + "\" class=\"nav-section-home navSectionSublinks navlist\" style='margin-left:1px; padding:10px; text-decoration:none;'>");
                     }
 
                     sb_indTable.Append(linkStart + text + linkEnd);

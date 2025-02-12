@@ -16,7 +16,7 @@ table.dataTable tr.even:hover { background: #f0f0f0; }
 table.dataTable tr.odd { line-height:12px; }
 
 table.dataTable tr.odd td.sorting_1 { background-color: #f1f1f1; }
-table.dataTable tr.odd td.sorting_2 { background-color: #f6f6f6; }
+table.dataTable tr.odd td.sorting_2 { background-color: #f6fbff; }
 table.dataTable tr.odd td.sorting_3 { background-color: #fbfbfb; }
 table.dataTable tr.even td.sorting_1 { background-color: #e7e7e7; }
 table.dataTable tr.even td.sorting_2 { background-color: #eaeaea; }
@@ -24,7 +24,7 @@ table.dataTable tr.even td.sorting_3 { background-color: #ededed; }
 
 
 table.dataTable tr.odd th.sorting_1 { background-color: #f1f1f1; }
-table.dataTable tr.odd th.sorting_2 { background-color: #f6f6f6; }
+table.dataTable tr.odd th.sorting_2 { background-color: #f6fbff; }
 table.dataTable tr.odd th.sorting_3 { background-color: #fbfbfb; }
 table.dataTable tr.even th.sorting_1 { background-color: #e7e7e7; }
 table.dataTable tr.even th.sorting_2 { background-color: #eaeaea; }

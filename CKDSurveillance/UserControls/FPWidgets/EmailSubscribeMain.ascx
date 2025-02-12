@@ -8,7 +8,7 @@
     }
     .emailmain-label {
         text-align: left;
-        font: normal normal 500 20px/34px Open Sans;
+        font: normal normal 500 20px/34px Nunito;
         letter-spacing: -0.4px;
         color: #FFFFFF;
         text-transform: uppercase;
@@ -23,7 +23,7 @@
         border: 1px solid #AAAAAA;
         border-radius: 5px;
         text-align: left;
-        font: normal normal 300 18px/24px Open Sans;
+        font: normal normal 300 18px/24px Nunito;
         letter-spacing: 0px;
         color: #727272;
         opacity: 1;
@@ -32,10 +32,10 @@
     .emailmain-btn {
         width: 99px;
         height: 48px;
-        background: #007C91 0% 0% no-repeat padding-box !important;
+        background: #005fa3 /*#0b4778*/  0% 0% no-repeat padding-box !important;  /*#007C91*/
         border-radius: 5px;
         opacity: 1;
-        font: normal normal normal 17px/23px Open Sans;
+        font: normal normal normal 17px/23px Nunito;
         letter-spacing: 0px;
         color: #FFFFFF !important;
     }
@@ -45,7 +45,7 @@
             flex-direction:column;
         }
         .emailmain-label {
-            font: normal normal 500 18px/34px Open Sans;
+            font: normal normal 500 18px/34px Nunito;
             padding-top: 0.2rem;
             margin-right: 3rem;
         }

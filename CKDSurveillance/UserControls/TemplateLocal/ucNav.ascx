@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucNav.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.TemplateLocal.ucNav" %>
 
-<h3><a href="/wcms/3.0/modules/index.html">Gallery Home</a></h3>
+<h3 style="font-family: Poppins;"><a href="/wcms/3.0/modules/index.html">Gallery Home</a></h3>
 <ul id="nav-primary">
 	
 	<li>
