@@ -167,7 +167,7 @@ function drawPlot() {
             yaxis2: { title: "CKD Prevalence %" },
             showlegend: false,
             font: {
-                family: "Open Sans",
+                family: "Nunito",
                 size: 12,
             },
             titlefont: {
