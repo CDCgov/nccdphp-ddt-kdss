@@ -133,7 +133,7 @@
                 <%--<img src="/ckd/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
                 <a href="TopicHome/AwarenessArchive.aspx?topic=25">
 
-                  <img src="/images/AYA_theme_version-t5.jpg" style="margin-left:0%; width:99%; margin-top:0%; margin-bottom:0% " alt="Click to view awareness topic archive"/>
+                  <img src="/ckd/images/AYA_theme_version-t5.jpg" style="margin-left:0%; width:99%; margin-top:0%; margin-bottom:0% " alt="Click to view awareness topic archive"/>
                 </a>
             </div>
              <div style="height:50%; width:98%; display:table-cell; padding-right: 18px; word-spacing: normal;" class ="areYouAwareMsg">
@@ -146,7 +146,7 @@
         <div class="col-md-6 aya-image-mobile">
             <%--<img src="/ckd/images/Mask_Group_33_mobile.png"  style="width:100%;margin-top:15px" alt=""/>--%>
             <a href="TopicHome/AwarenessArchive.aspx?topic=25">
-                <img src="../images/AYA_theme_version-t5.jpg" style="width:100%;margin-top:15px" alt="Click to view awareness topic archive"/> 
+                <img src="/ckd/images/AYA_theme_version-t5.jpg" style="width:100%;margin-top:15px" alt="Click to view awareness topic archive"/> 
             </a>
        </div>
 
