@@ -50,7 +50,7 @@
      If you find you  have a specific needs to an newer version please consult with Chronic development team. -->
 
     <%--Scripts--%>
-    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/scripts.html"));%>
+    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/scripts.html"));%>
     <%--End Scripts--%>
 
     <%--*****--%>
@@ -130,7 +130,7 @@
         <footer role="contentinfo" aria-label="footer">
             <%--<div class="container-fluid footer-wrapper">
                 <div class="container">
-                    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/site-footer.html"));%>   <!--4.0 / footer-cdc -->
+                    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/site-footer.html"));%>   <!--4.0 / footer-cdc -->
                 </div>
             </div>--%>
             <%--<div class="container-fluid agency-footer">

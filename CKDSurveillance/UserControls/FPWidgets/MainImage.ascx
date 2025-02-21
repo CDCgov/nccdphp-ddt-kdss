@@ -32,7 +32,7 @@
         }
         .main-image {
         opacity: 1;
-        width: 1780px;
+        /*width: 1780px;*/
         height: 538px;
     }
         .main-icon {

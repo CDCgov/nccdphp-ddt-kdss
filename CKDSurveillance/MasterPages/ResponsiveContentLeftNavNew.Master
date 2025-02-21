@@ -13,13 +13,13 @@
 
 
 <!DOCTYPE html>
-<html lang="en-us" <%--class="cdc-2022 theme-cyan cdc-page-type-splash cdc-2020"--%>>
+<html lang="en-us">
 <head runat="server">
     <meta name="google-site-verification" content="vuSgbTP5gm9mu35qxMRQp6nC_uX_u82h2GSXTuzLOyc" />
     <title>Kidney Disease Surveillance System</title>
 
     <%--Header Files--%>
-    <%--<% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/head-content.html"));%>--%>
+    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/head-content.html"));%>
     <%--End Header Files--%>
     <link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />
 
@@ -32,27 +32,11 @@
     <meta property="cdc:template_version" content="4.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <%--page styling--%>
-    <%--<link href="../css/Site.css" rel="stylesheet" />--%>
-    <%--end page styling--%>
-
-    <%--NCCD TemplatePackage--%>
-    <!-- remove the ~ for these three links when sending this to the CDC -->
-    <link rel="stylesheet" href="/NCCDTemplatePackage/css/base.css" />
-    <link rel="stylesheet" href="/NCCDTemplatePackage/fonts/font-awesome-latest.css" />
-    <script src="/NCCDTemplatePackage/js/modernizr2.6.2.js"></script>    
-    <%--end NCCD TemplatePackage--%>
-
     <%-- CUSTOM THEMES--%>
-    <%--<link href="../App_Themes/custom.css" rel="stylesheet" />--%>
-    <%--<link href="../App_Themes/local.css?v=202012151234" rel="stylesheet" />--%>
-    <link href="../App_Themes/theme-teal.css" rel="stylesheet" />
-
-    <%--<link href="../App_Themes/graphic-identifier.css" rel="stylesheet" />--%>
+     <link href="../App_Themes/theme-teal.css" rel="stylesheet" />
 
     <%--Scripts--%>
-    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/scripts.html"));%>
-    <script src="../TemplatePackage/contrib/libs/bootstrap/latest/js/bootstrap.bundle.min.js"></script>
+    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/scripts.html"));%>
     <%--End Scripts--%>
 
 
@@ -244,9 +228,9 @@
         }
 
         .cdc-footer__inner {
-            max-width: 1690px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
+            /*max-width: 1690px !important;*/
+            margin-left: 10% !important;
+            margin-right: 10% !important;
             justify-content: center;
         }
 
@@ -355,191 +339,10 @@
                         <a class="navbar-brand" href="https://www.cdc.gov/">
                             <img src="/TemplatePackage/5.0/img/logo/cdc-logo-tag-right.svg" alt="Centers for Disease Control and Prevention">
                         </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="cdc-fa-regular cdc-fa-bars-sort fa-flip-horizontal"></i>
-                        </button>
+                   
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 position-relative">
-                               <%-- <li class="nav-item dropdown healthtopics">
-                                    <a class="nav-link" href="#" id="healthTopicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Health Topics					</a>
-                                    <div class="dropdown-menu animate__animated animate__fadeIn animate__fast" aria-labelledby="healthTopicsDropdown">
-                                        <div class="dropdown-menu-body">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-lg-3">
-                                                        <div class="dropdown-menu-list-title">
-                                                            <a href="/health-topics.html">
-                                                                <span>Health Topics</span>
-                                                                <span class="cdc-fa-house">
-                                                                    <i class="cdc-fa-angle-right"></i>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-3">
-                                                        <ul>
-                                                            <li><a href="/vaccines-adults/recommended-vaccines/index.html">Adult Vaccinations</a></li>
-                                                            <li><a href="/alzheimers-dementia/about/alzheimers.html">Alzheimer’s Disease</a></li>
-                                                            <li><a href="/youth-violence/about/about-bullying.html">Bullying</a></li>
-                                                            <li><a href="/covid/prevention/index.html">COVID-19</a></li>
-                                                            <li><a href="/diabetes/prevention-type-2/index.html">Diabetes</a></li>
-                                                            <li><a href="/fungal/about/index.html">Fungal Diseases</a></li>
-                                                            <li><a href="/hand-foot-mouth/about/index.html">Hand, Foot, and Mouth Disease (HFMD)</a></li>
-                                                            <li><a href="/clean-hands/data-research/facts-stats/">Handwashing</a></li>
-                                                            <li><a href="/healthy-weight-growth/about/tips-for-balancing-food-activity.html">Healthy Weight</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-3 offset-lg-1">
-                                                        <ul>
-                                                            <li><a href="/high-blood-pressure/about/index.html">High Blood Pressure</a></li>
-                                                            <li><a href="/hiv/testing/index.html">HIV Testing</a></li>
-                                                            <li><a href="/lyme/about/index.html">Lyme Disease</a></li>
-                                                            <li><a href="/overdose-prevention/prevention/index.html">Overdose Prevention</a></li>
-                                                            <li><a href="/dengue/prevention/">Preventing Dengue</a></li>
-                                                            <li><a href="/tobacco/tobacco-features/surgeon-generals-report.html">Quit Smoking</a></li>
-                                                            <li><a href="/rsv/about/index.html">Respiratory Syncytial Virus Infection (RSV)</a></li>
-                                                            <li><a href="/group-a-strep/about/strep-throat.html">Strep Throat</a></li>
-                                                            <li><a href="https://wwwnc.cdc.gov/travel">Travelers' Health</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <a href="/common-cold/about/" class="fancy-image">
-                                                            <img src="/homepage/images/common-cold.jpg" alt="Health Topics">
-                                                            <div class="fancy-image__overlay">
-                                                                Common Cold										
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown-menu-footer">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <a href="https://www.cdc.gov/health-topics.html" class="btn btn-outline-primary">A-Z Index										</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown outbreaks">
-                                    <a class="nav-link" href="#" id="outbreaksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">outbreaks</a>
-                                    <div class="dropdown-menu animate__animated animate__fadeIn animate__fast" aria-labelledby="outbreaksDropdown">
-                                        <div class="dropdown-menu-body">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-lg-3">
-                                                        <div class="dropdown-menu-list-title">
-                                                            <a href="https://www.cdc.gov/outbreaks/index.html">
-                                                                <span>Outbreaks												</span>
-                                                                <span class="cdc-fa-house">
-                                                                    <i class="cdc-fa-angle-right"></i>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-3">
-                                                        <ul>
-                                                            <li><a href="https://www.cdc.gov/salmonella/outbreaks/cucumbers-11-24/index.html">Cucumbers</a><span><em>Salmonella</em> Outbreak</span></li>
-                                                            <li><a href="https://www.cdc.gov/listeria/outbreaks/meat-and-poultry-products-11-24.html">Meat and Poultry Products</a><span><em>Listeria</em> Outbreak</span></li>
-                                                            <li><a href="https://www.cdc.gov/ecoli/outbreaks/e-coli-O121.html">Organic Carrots</a><span><em>E. coli&nbsp;</em>Outbreak</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-3 offset-lg-1">
-                                                        <ul>
-                                                            <li><a href="/marburg/situation-summary/index.html">Marburg Outbreak in Rwanda</a><span>Marburg Virus Disease</span></li>
-                                                            <li><a href="/measles/data-research/">Measles</a><span>2024 Outbreaks</span></li>
-                                                            <li><a href="/lead-prevention/news/outbreak-applesauce-pouches.html">Cinnamon Applesauce Pouches</a><span>Lead and Chromium Poisoning</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <a href="https://www.cdc.gov/outbreaks/index.html" class="fancy-image">
-                                                            <img src="/TemplatePackage/5.0/img/homepage/outbreak.svg" alt="Outbreak">
-                                                            <div class="fancy-image__overlay">Find the latest outbreak information from CDC</div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown-menu-footer">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <a href="https://www.cdc.gov/outbreaks/index.html" class="btn btn-outline-primary">All Outbreaks										</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown aboutcdc">
-                                    <a class="nav-link" href="#" id="aboutCDCDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About CDC					</a>
-                                    <div class="dropdown-menu animate__animated animate__fadeIn animate__fast" aria-labelledby="aboutCDCDropdown">
-                                        <div class="dropdown-menu-body">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-lg-3">
-                                                        <div class="dropdown-menu-list-title">
-                                                            <a href="https://www.cdc.gov/about/">
-                                                                <span>About CDC												</span>
-                                                                <span class="cdc-fa-house">
-                                                                    <i class="cdc-fa-angle-right"></i>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-3">
-                                                        <ul>
-                                                            <li><a href="/about/cdc/index.html">About CDC</a></li>
-                                                            <li><a href="/about/leadership/index.html">Leadership</a></li>
-                                                            <li><a href="/about/organization/index.html">Organization</a></li>
-                                                            <li><a href="/about/cdc-director/index.html">Check-in with Dr. Cohen</a></li>
-                                                            <li><a href="/about/advisory-committee-director/index.html">Advisory Committee to the Director</a></li>
-                                                            <li><a href="/about/speakers/index.html">Speakers Bureau</a></li>
-                                                            <li><a href="/museum/index.htm">CDC Museum</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-3 offset-lg-1">
-                                                        <ul>
-                                                            <li><a href="/about/priorities/index.html">Advancing Science and Health Equity</a></li>
-                                                            <li><a href="/about/cdc-moving-forward.html">Moving Forward</a></li>
-                                                            <li><a href="/about/cdc-foundation.html">CDC Foundation</a></li>
-                                                            <li><a href="/about/divisions-offices/index.html">Mission and Org Charts</a></li>
-                                                            <li><a href="/labs/strong-lab-safety/index.html">Lab Safety</a></li>
-                                                            <li><a href="/about/cdc-moving-forward/newcdc-info.html">New CDC.gov</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <a href="https://www.cdc.gov/about/" class="fancy-image">
-                                                            <img src="/TemplatePackage/5.0/img/homepage/aboutcdc.png" alt="About CDC">
-                                                            <div class="fancy-image__overlay">
-                                                                Learn more About CDC										
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown-menu-footer">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <a href="https://www.cdc.gov/about/" class="btn btn-outline-primary">About CDC										</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>--%>
-                                <li class="nav-item dropdown" style="width:400px">
+                                <li class="nav-item dropdown" style="width:400px; visibility: hidden;">
                                     <form id="cdc-desktop-search-form" accept-charset="UTF-8" action="https://search.cdc.gov/search/" class="cdc-header-search-form" method="get" autocomplete="off" role="search" style="display: flex;">
                                         <input class="form-control" type="search" name="query" data-search-input="" aria-label="Search" placeholder="Search" spellcheck="false" autocomplete="off"><div class="cdc-search-complete"></div>
                                         <button type="submit"><span class="cdc-fa-magnifying-glass"></span><span class="visually-hidden">Search</span></button>
@@ -608,7 +411,7 @@
     <%--**************--%>
     <%--*page content*--%>
     <%--**************--%>
-    <div class="container-fluid d-flex flex-wrap body-wrapper bg-white" style="margin-bottom: 12px;">
+    <div class="container-fluid body-wrapper bg-white" style="margin-bottom: 12px;">
         <main class="col-xl-12 order-lg-2" role="main" aria-label="Main Content Area" style="padding-top: 0px; border-left: none; border-right: none;">
             <div class="row visual-element">
                 <div class="col">
@@ -648,7 +451,7 @@
     <%--*Email Subscribe*--%>
     <%--*****************--%>
 
-    <div class="row pt-0 pb-1 county-check" style="background: #29434E 0% 0% no-repeat padding-box; box-shadow: 0px -8px 6px #0000002E; opacity: 1; display: block; margin-bottom: -20px;">
+    <div class="pt-0 pb-1 county-check" style="background: #29434E 0% 0% no-repeat padding-box; box-shadow: 0px -8px 6px #0000002E; opacity: 1; display: block; margin-bottom: -20px;">
         <div class="container">
             <uc1:EmailSubscribeMain runat="server" ID="EmailSubscribeMain1" />
         </div>
@@ -664,19 +467,8 @@
         </div>
     </div>--%>
 
-    <%--footer--%>
-    <%-- <footer role="contentinfo" aria-label="footer" >--%>
-
-
-    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/site-footer.html"));%>
-    <!--4.0 - footer-cdc -->
-    <%--<div class="container-fluid agency-footer">
-            <div class="container">--%>
-    <% //Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/site-footer.html"));%>
-    <!--footer-agency -->
-    <%--</div>
-        </div>--%>
-    <%--</footer>--%>
+    <%--footer--%>   
+    <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/site-footer.html"));%>
     <%--end footer--%>
 
     <asp:ContentPlaceHolder ID="ContentArea2" runat="server" ClientIDMode="Static">
@@ -686,12 +478,6 @@
     <%--scripts and metrics--%>
     <script type="text/javascript" src='<%= HttpRuntime.AppDomainAppVirtualPath.TrimEnd( '/' ) + ("/scripts/jquery.cycle2.js") %>'></script>
     <script type="text/javascript" src='<%= HttpRuntime.AppDomainAppVirtualPath.TrimEnd( '/' ) + ("/scripts/jquery.cycle2.carousel.min.js") %>'></script>
-    <%--<% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/includes_4/metrics.html"));%>--%>
-    <% //Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/includes_4/svg-symbols.html"));%>
-    <% //Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/includes_4/svg-round-social.html"));%>
-    <% //Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/includes_4/svg-white-social.html"));%>
-    <%--<script src="/NCCDTemplatePackage/js/tableColumn.js"></script>--%>
-
     <script type="text/javascript">
 
         

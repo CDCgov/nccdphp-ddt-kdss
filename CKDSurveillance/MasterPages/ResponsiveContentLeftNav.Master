@@ -324,7 +324,7 @@
     <%--**************--%>
     <%--*page content*--%>
     <%--**************--%>
-    <div class="container-fluid d-flex flex-wrap body-wrapper bg-white addGutters" >
+    <div class="container-fluid body-wrapper bg-white addGutters" >
         <main class="col-xl-12 order-lg-2" role="main" aria-label="Main Content Area" style="border-left: none;border-right: none;">
             <div class="row visual-element">
                 <div class="col">
@@ -393,7 +393,7 @@
     <footer role="contentinfo" aria-label="footer">
         <div class="container-fluid footer-wrapper">
             <div class="container" style="margin-left: 160px;">
-                <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/site-footer.html"));%>  <!--4.0 / footer-cdc-->
+                <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/site-footer.html"));%>  <!--4.0 / footer-cdc-->
             </div>
         </div>
         <%--<div class="container-fluid agency-footer">
@@ -440,8 +440,10 @@
         window.pageOptions.navigation.pathToSelect = window.pageOptions.navigation.pathToSelect || window.location.pathname
 
 
-        window.CDC.tp4.public.appInit(window.pageOptions);
-
+        //window.CDC.tp4.public.appInit(window.pageOptions);
+        function initMetrics() {
+            console.long('empty metrics method to prevent errors'); 
+        }
 
     </script>
     <%--<uc1:ucOmniture runat="server" ID="ucOmniture" />--%>
