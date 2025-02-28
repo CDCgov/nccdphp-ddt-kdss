@@ -59,6 +59,7 @@
     color: #ffffff;
     opacity: 1;
     white-space: normal;
+    border-radius:5px;
 }
 
 .pov-slider-body {
@@ -114,7 +115,7 @@ input[type="range"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 98%;
+    width: 99%;
     outline: none;
     position: absolute;
     margin-left: -7%;

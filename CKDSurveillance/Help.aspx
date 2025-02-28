@@ -10,7 +10,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />
+    <%--<link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />--%>
     <style type="text/css">
 
         .readable {

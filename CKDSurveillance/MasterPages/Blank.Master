@@ -17,7 +17,7 @@
     <%--<link href="../App_Themes/bootstrap.min.css" rel="stylesheet" />--%>
     <link href="/TemplatePackage/3.0/css/lib/bootstrap24.css" rel="stylesheet" />
     <link href="../App_Themes/bootstrap.min.css" rel="stylesheet" />
-    <link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />
+    <%--<link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />--%>
     <link href="../TemplatePackage/5.0/css/app.min.css" rel="stylesheet" />
  
     <asp:ContentPlaceHolder ID="head" runat="server">

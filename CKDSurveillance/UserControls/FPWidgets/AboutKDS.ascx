@@ -44,7 +44,7 @@
             <%--*Graphic Identifier*--%>
             <asp:HyperLink ID="hlLogo" runat="server" NavigateUrl="~/Default.aspx">
                 <%--<asp:Image ImageUrl="~/images/graphic_identifier.png" runat="server" AlternateText="Graphic Identifier for CKD Project" CssClass="img-fluid img-responsive" style="width:640px; height: 100%;" />--%>
-                <img id="KDS" src="/images/CKD_GI_Larger-t5.png" alt="Graphic Identifier for CKD Project" Class="img-fluid img-responsive kdsimage" />
+                <img id="KDS" src="images/CKD_GI_Larger-t5.png" alt="Graphic Identifier for CKD Project" Class="img-fluid img-responsive kdsimage" />
             </asp:HyperLink>
         </div> 
         <div class="col-sm-7 aboutsurveillance-text">

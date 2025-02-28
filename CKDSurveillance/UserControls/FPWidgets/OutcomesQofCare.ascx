@@ -38,7 +38,6 @@
         background: #f6fbff 0% 0% no-repeat padding-box;
         border: 1px solid #D9D9D9;
         opacity: 0.81;
-        padding-top:50px;
         padding-bottom:25px;
         padding-left:25px;
         padding-right:200px;

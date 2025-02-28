@@ -143,7 +143,7 @@
          .btnzoomout
          {
             width:130px;
-            background-color: #f6fbff !important;
+            /*background-color: #f6fbff !important;*/
          }
 
          .btnzoom
@@ -563,7 +563,7 @@
                                     }
 
                                     .iconPPTBtn {
-                                        margin-bottom: 5px;
+                                        margin-bottom: 3px;
                                         background-image: url("images/CommonControls/power-point-icon.png");
                                         background-repeat: no-repeat;
                                         background-position: 7px 10px !important;
@@ -584,6 +584,7 @@
                                         padding-top: 10px;
                                         padding-left: 25px!important;
                                         padding-right: 25px!important;
+                                        border-radius: 5px;
                                     }
 
                                     .viewDataByLabel {
@@ -678,7 +679,7 @@
                                     <%-- Download --%>
                                     <div>
                                         <label class="chartMenuLabel">Download:</label>
-                                        <asp:Button ID="csvDownload" CssClass="noPrint btn cdc-icon-download_01 chartDownloadBtn" style="font-size:17px" runat ="server" Text="csv" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01 chartMenuLabel">
+                                        <asp:Button ID="csvDownload" CssClass="noPrint btn cdc-icon-download_01 chartDownloadBtn chartMenuLabel" style="font-size:17px" runat ="server" Text="CSV" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01 chartMenuLabel">
                                         </asp:Button>
                                         <a href="." runat="server" id="lnkCSV" style="text-decoration:none!important" visible="false">
                                             <span class="noPrint btn chartDownloadBtn">csv</span>
@@ -773,8 +774,8 @@
                                     <%--</div>--%>
                                     </asp:Panel>
                                 </div>
-                                <div id="divzoombtn" style="padding-top: 3%;margin-left: 45%;">
-                                    <button  class="noPrint btn btn-light btnzoomout" id="btnreset" type="button" runat="server">Zoom out</button>
+                                <div id="divzoombtn" style="margin-left: 70%;">
+                                    <button  class="noPrint btn btn-blue btnzoomout" id="btnreset" type="button" runat="server">Zoom out</button>
                                 </div>
                             </div>
 
@@ -1692,6 +1693,7 @@
 
         .viewTableBtnLabel {
             padding-top:2px;
+            padding-left:5px;
             top: calc(0.2rem);
             /*padding-right:5px;*/
         }
@@ -1823,7 +1825,7 @@
 
                 if ($("#hfChartID").val() == "4319") {
                     document.getElementById("btnreset").innerHTML = "Reset Filters";
-                    document.getElementById("divzoombtn").style.marginLeft = "60%";
+                    document.getElementById("divzoombtn").style.marginLeft = "75%";
                 }
                 else
                 {

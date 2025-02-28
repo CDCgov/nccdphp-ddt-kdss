@@ -125,7 +125,7 @@
 
         <!-- footer -->
         <%--footer--%>
-        <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/site-footer.html"));%>   <!--4.0 / footer-cdc -->
+        <%--<% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/hp2024/site-footer.html"));%>   --%><!--4.0 / footer-cdc -->
 
         <footer role="contentinfo" aria-label="footer">
             <%--<div class="container-fluid footer-wrapper">

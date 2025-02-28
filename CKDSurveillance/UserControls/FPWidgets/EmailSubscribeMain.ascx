@@ -2,8 +2,8 @@
 
 <style>
     .emailmain {
-        margin-top: 30px;
-        margin-bottom:30px;
+        margin-top: 1%;
+        margin-bottom:1%;
         display: inline-flex;        
     }
     .emailmain-label {

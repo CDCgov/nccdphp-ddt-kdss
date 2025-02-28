@@ -89,12 +89,12 @@
     <div class="row">
         <h1 class="col-md-6 main-text phoneNoShow" style="font-family: Poppins;"><span>Tracking</span> <span class="main-symbol">&</span> <span>Preventing <br />Kidney Disease in America</span></h1>
         <h3 class="col-md-6 main-text showPhoneOnly" style="font-family: Poppins;"><span style="font-weight:bold">Tracking</span> <span class="main-symbol">&</span> Preventing Kidney Disease in America</h3>
-        <div class="col-sx-1 main-icon">
-            <img src="images/main_icon2.png" Class="img-fluid img-responsive" alt=""/>
+        <%--<div class="col-sx-1 main-icon">--%>
+        <%--    <img src="images/main_icon2.png" Class="img-fluid img-responsive" alt=""/>--%>
     <%--    </div>
         <div class="col-sx-1 main-icon" style="padding-left:1em;">--%>
-            <img src="images/main_icon1.png" Class="img-fluid img-responsive" alt=""/>
-        </div>
+        <%--    <img src="images/main_icon1.png" Class="img-fluid img-responsive" alt=""/>--%>
+       <%-- </div>--%>
        <%-- <div class="col-sx-1 main-icon-mobile">
             <img src="images/main_icon2_mobile.png" Class="img-fluid img-responsive" alt=""/>
         </div>

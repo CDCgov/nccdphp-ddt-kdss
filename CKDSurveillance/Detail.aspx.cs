@@ -4921,7 +4921,7 @@ namespace CKDSurveillance_RD.MasterPages
             StringBuilder sb = new StringBuilder();
 
             sb.Append("<div class=\"chartMapMenuLabel\">Select Data Year</div>");
-            sb.Append("<select class=\"form-control\"  onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Data Year\">");
+            sb.Append("<select class=\"form-control\"  onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Data Year\" style=\"appearance:auto\">");
 
             foreach (DataRow dr in yearTable.Rows)
             {

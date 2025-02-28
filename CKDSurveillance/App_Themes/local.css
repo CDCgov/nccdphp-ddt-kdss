@@ -90,11 +90,14 @@ Override Global Style - Paragraph, Text and Table Styles in the Body Content
 ===========================================================
 */
 
+*, ::after, ::before {
+    box-sizing: border-box;
+}
 
 /***//*Fix the font increase issue*/
 div, table, span, ul, li /*,p*/
 {
-    font-family: Verdana;
+    font-family: Nunito;
     font-size: 14pt;
 }
 

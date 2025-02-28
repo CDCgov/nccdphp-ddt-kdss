@@ -21,7 +21,7 @@
     <%--Header Files--%>
     <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/head-content.html"));%>
     <%--End Header Files--%>
-    <link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />
+    <%--<link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />--%>
 
     <%--<meta name="description" content="Centers for Disease Control and Prevention (CDC) Division Name (DN)- CKD Surveillance System />--%>
     <asp:Literal ID="litMetaTagsDescription" runat="server" ClientIDMode="Static" Text="<meta name='description' content='Centers for Disease Control and Prevention (CDC) : CKD Surveillance' />" />
@@ -227,12 +227,12 @@
             border-right: none;
         }
 
-        .cdc-footer__inner {
+        /*.cdc-footer__inner {*/
             /*max-width: 1690px !important;*/
-            margin-left: 10% !important;
+            /*margin-left: 10% !important;
             margin-right: 10% !important;
             justify-content: center;
-        }
+        }*/
 
         .cdc-footer__nav {
             padding-left: 0px !important;
@@ -250,10 +250,10 @@
             width: 300px !important;
             height:101.69px !important;
         }
-        .cdc-footer__nav a {
+       /* .cdc-footer__nav a {
             padding-left:0px !important;
             padding-right:70px !important;
-        }
+        }*/
 
         .a {
             color: #005fa3 !important;
@@ -337,7 +337,7 @@
                 <nav class="navbar navbar-expand-lg navbar-nav__hidden">
                     <div class="container">
                         <a class="navbar-brand" href="https://www.cdc.gov/">
-                            <img src="/TemplatePackage/5.0/img/logo/cdc-logo-tag-right.svg" alt="Centers for Disease Control and Prevention">
+                            <img src="/TemplatePackage/5.0/img/logo/cdc-logo-tag-right.svg" style="max-height: 60px;" alt="Centers for Disease Control and Prevention">
                         </a>
                    
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
