@@ -230,7 +230,7 @@
 				<div id="cdc-left-nav-menu" >
 					<div ><%--<img src="../../images/CKDLeftNavLogo.png" class="logoImg" />--%>
 						<asp:HyperLink ID="hlLogo" runat="server" NavigateUrl="~/Default.aspx">
-							<img src="images/CKD_GI_Larger-t5.png" class="logoImg"  alt="Kidney Disease Surveillance System logo" />
+							<img src="/ckd/images/CKD_GI_Larger-t5.png" class="logoImg"  alt="Kidney Disease Surveillance System logo" />
 						</asp:HyperLink>
 					</div>
 					<br />
@@ -455,7 +455,7 @@
 						<span style="font-weight:600;line-height:normal!important" >General Information </span>
 						<div>
 							<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>Documents/CKD_FactSheet_2023.pdf" class="navARandGIlinks" style= "padding-left:1px !important" alt="Download CKD Fact Sheet" download>
-                                <img class="downloadImg" src="images/DataCharts/DownloadCyan-t5.jpg" alt="Download CKD Fact Sheet" role="presentation"/>
+                                <img class="downloadImg" src="/ckd/images/DataCharts/DownloadCyan-t5.jpg" alt="Download CKD Fact Sheet" role="presentation"/>
                                 <span class="navARandGIlinks">Download CKD Fact Sheet</span>
                             </a>
 						</div>
