@@ -187,7 +187,7 @@ namespace CKDSurveillance_RD
                 StringBuilder sbAnswer = new StringBuilder();
 
                 sbAnswer.Append("<div class='nav-section-aya'>");
-                sbAnswer.Append("<a class='list-title' style='text-decoration: none' href='" + dr["AYALink"].ToString().Trim() + "'>");
+                sbAnswer.Append("<a class='list-title' style='text-decoration: none' href='" + dr["SideNavAYALink"].ToString().Trim() + "'>");
                 sbAnswer.Append(dr["Title"].ToString().Trim());
                 sbAnswer.Append("&nbsp;");
                 sbAnswer.Append("<span class='tickerDate'>" + dr["tickerDate"].ToString().Trim() + "</span>");
