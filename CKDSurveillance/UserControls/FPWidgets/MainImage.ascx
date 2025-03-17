@@ -23,21 +23,23 @@
     }
     @media (min-width: 768px) {
         .main-text {
-            padding-top:20%;
-            padding-bottom:2em;
+            position: absolute;
+            bottom: 0px;
             text-align: left;
-            font: normal normal bold 64px/66px Nunito!important; 
+            font: normal normal bold 64px/66px Nunito !important;
             letter-spacing: -0.64px;
             color: #29434E;
         }
+
         .main-image {
-        opacity: 1;
-        /*width: 1780px;*/
-        height: 538px;
-    }
+            opacity: 1;
+            height: 538px;
+            position: relative;
+        }
+
         .main-icon {
-            display:block;
-            padding-top:23%;        
+            display: block;
+            padding-top: 23%;
         }
     }
     @media (max-width: 767px) {
@@ -88,7 +90,7 @@
 <div class="main-image">
     <div class="row">
         <h1 class="col-md-6 main-text phoneNoShow" style="font-family: Poppins;"><span>Tracking</span> <span class="main-symbol">&</span> <span>Preventing <br />Kidney Disease in America</span></h1>
-        <h3 class="col-md-6 main-text showPhoneOnly" style="font-family: Poppins;"><span style="font-weight:bold">Tracking</span> <span class="main-symbol">&</span> Preventing Kidney Disease in America</h3>
+        <%--<h3 class="col-md-6 main-text showPhoneOnly" style="font-family: Poppins;"><span style="font-weight:bold">Tracking</span> <span class="main-symbol">&</span> Preventing Kidney Disease in America</h3>--%>
         <%--<div class="col-sx-1 main-icon">--%>
         <%--    <img src="images/main_icon2.png" Class="img-fluid img-responsive" alt=""/>--%>
     <%--    </div>
