@@ -319,7 +319,7 @@
 							 <div id="ayatop" class="ayatoprow" runat="server" visible="false">
 								<div class="ayatopimg">
 									<%--<img src="/ckd/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
-									<img src="../images/AYA_theme_version-t5.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt="Click to view awareness topic archive"/>
+									<img src="../images/AYA_theme_version.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt="Click to view awareness topic archive"/>
 								</div>
 								<div class="vl"></div>
 								<div class ="areYouAwareMsg">
