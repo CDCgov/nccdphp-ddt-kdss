@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AYA.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.AYA" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AYA.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.AYA" %>
        
 
 <style type="text/css">
@@ -158,7 +158,7 @@
             </div>
 
             <div class="aya-text">
-                Chronic kidney disease (CKD) can be detected in its early stages through targeted urine testing for albumin (a measure of kidney damage), combined with blood testing for serum creatinine to estimate glomerular filtration rate (a measure of kidney function). Although albuminuria testing has increased over time among U.S. veterans, it remains low. Less than half of veterans with diabetes and less than one quarter of those with hypertension received a test in 2022. Increasing the frequency of testing among those with risk factors for CKD has the potential to improve early detection and treatment, delay disease progression, and increase awareness of CKD. World Kidney Day is an opportunity to remind health care providers and patients about the importance of screening and early detection of kidney disease for timely guideline directed interventions.
+                Chronic kidney disease (CKD) can be detected in its early stages through targeted urine testing for albumin (a measure of kidney damage), combined with blood testing for serum creatinine to estimate glomerular filtration rate (a measure of kidney function). Although albuminuria testing has increased over time among U.S. veterans, it remains low. Less than half of veterans with diabetes and less than one quarter of those with hypertension received a test in 2022. Increasing the frequency of testing among those with risk factors for CKD has the potential to improve early detection and treatment, delay disease progression, and increase awareness of CKD. National Kidney Month is an opportunity to remind health care providers and patients about the importance of screening and early detection of kidney disease for timely guideline directed interventions.
                 <br /><br />                
             </div>
 
