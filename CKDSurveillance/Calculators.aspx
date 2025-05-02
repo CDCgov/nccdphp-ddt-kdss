@@ -313,6 +313,18 @@
             margin: 0px;
           /* padding:0px;*/
         } 
+        
+        .irs-min, .irs-max {
+            color: #112A46!important; 
+        }
+
+        /*.irs-from {*/
+        .min {
+            background: #057F05!important; /* Green */ /* #ff9933;Orange*/
+        }
+
+
+
 
     </style>
 </asp:Content>
@@ -390,8 +402,8 @@
 
                                     <div id="divContentTabs" class="calc-tabs">
                                         <ul class="nav tabBorder <%--nav-tabs--%> no-syndicate" id="tabs-3" role="tablist">  <%-- nav-item--%>
-                                            <li id="calcTab1" class="" style="margin-bottom: 0em;" role="tab"><a class="nav-link tabHeader active" data-bs-toggle="tab"  href="#tab-Bang">Calculator 1: Probability of CKD</a></li>
-                                            <li id="calcTab2" class="" role="tab"><a style="margin-bottom: 0px;" class="nav-link tabHeader " data-bs-toggle="tab"  href="#tab-Tangri">Calculator 2: Progression of CKD</a></li>
+                                            <li id="calcTab1" class="nav-link tabHeader active" style="margin-bottom: 0em;cursor:pointer" role="tab"  data-bs-toggle="tab" href="#tab-Bang">Calculator 1: Probability of CKD</li>
+                                            <li id="calcTab2" class="nav-link tabHeader" style="margin-bottom: 0px;cursor:pointer" role="tab"  data-bs-toggle="tab" href="#tab-Tangri">Calculator 2: Progression of CKD</li>
                                         </ul>                                        
 
                                         <div class="tab-content">
@@ -700,9 +712,8 @@
 
                                                         <%--<div class="Pagetitle">
                                                             Progression of CKD
-                                                        </div>--%>
-
-                                                        <br />
+                                                        </div>
+--%>
 
                                                         <div class="calcdescription" <%--class="description"--%>>
                                                             <p>

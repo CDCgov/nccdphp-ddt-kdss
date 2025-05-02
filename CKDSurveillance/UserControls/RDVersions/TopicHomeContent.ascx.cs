@@ -868,7 +868,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     }
                     
                     sbBodyTable.Append("</div>");
-                    if (date.IndexOf("June 2024") >= 0 || date.IndexOf("August 2024") >= 0 || date.IndexOf("January 2025") >= 0)
+                    if (date.IndexOf("June 2024") >= 0 || date.IndexOf("August 2024") >= 0 || date.IndexOf("May 2025") >= 0)
                     {
                         sbBodyTable.Append("<div style=\"padding-right: 5%; padding-bottom: 3%; padding-left:5%\">");
                     }
