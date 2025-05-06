@@ -1,4 +1,4 @@
-<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AYA.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.AYA" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AYA.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.AYA" %>
        
 
 <style type="text/css">
@@ -154,11 +154,11 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle" style="font-family: Poppins;">Albuminuria Testing Among U.S. Veterans on the Rise, but Still Low </h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Nocturia May Indicate Chronic Kidney Disease or Other Conditions</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
-                Chronic kidney disease (CKD) can be detected in its early stages through targeted urine testing for albumin (a measure of kidney damage), combined with blood testing for serum creatinine to estimate glomerular filtration rate (a measure of kidney function). Although albuminuria testing has increased over time among U.S. veterans, it remains low. Less than half of veterans with diabetes and less than one quarter of those with hypertension received a test in 2022. Increasing the frequency of testing among those with risk factors for CKD has the potential to improve early detection and treatment, delay disease progression, and increase awareness of CKD. National Kidney Month is an opportunity to remind health care providers and patients about the importance of screening and early detection of kidney disease for timely guideline directed interventions.
+                Nocturia is defined as waking from sleep at night to urinate more than once. It is one of the most common urinary symptoms and occurs more often as people age. Nocturia is almost twice as common among U.S. adults with chronic kidney disease (CKD) stages 3–5 than those without CKD (~50% among CKD stages 3–5 vs. ~25% among those without CKD, in the 2017–March 2020, based on NHANES data). Nocturia can be a sign of more serious underlying conditions such as urinary obstruction or chronic kidney disease, and it is important for people to contact their healthcare provider if they regularly experience this symptom.
                 <br /><br />                
             </div>
 
