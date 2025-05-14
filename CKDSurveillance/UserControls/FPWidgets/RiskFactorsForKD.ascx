@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RiskFactorsForKD.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.RiskFactorsForKD" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RiskFactorsForKD.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.RiskFactorsForKD" %>
 
 <%--<link href="App_Themes/bootstrap.min.css" rel="stylesheet" />   --%>    
 
@@ -356,14 +356,23 @@
 
   <script type="text/javascript">
 
-      window.onload = function () {
+      //window.onload = function () {
+      //    $("#divDiabetes").show();
+      //    $("#divHypertension").hide();
+      //    $("#divAge").hide();
+
+      //    // Open the first accordion
+      //    $(".accordionTitle:first").trigger("click");
+      //};
+
+      $(document).ready(function () {
           $("#divDiabetes").show();
           $("#divHypertension").hide();
           $("#divAge").hide();
 
           // Open the first accordion
           $(".accordionTitle:first").trigger("click");
-      };
+      });
 
       function accordDescPerTitle() {
           let accordianTitles = document.querySelectorAll(".accordionTitle");
