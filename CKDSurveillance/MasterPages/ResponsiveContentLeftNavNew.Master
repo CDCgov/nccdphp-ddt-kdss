@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ResponsiveContentLeftNavNew.Master.cs" Inherits="CKDSurveillance_RD.MasterPages.ResponsiveContentLeftNavNew" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ResponsiveContentLeftNavNew.Master.cs" Inherits="CKDSurveillance_RD.MasterPages.ResponsiveContentLeftNavNew" %>
 
 <%@ Register Src="~/UserControls/TemplateLocal/ucSkipNav.ascx" TagPrefix="uc1" TagName="ucSkipNav" %>
 <%@ Register Src="~/UserControls/TemplateLocal/ucBreadcrumbs.ascx" TagPrefix="uc1" TagName="ucBreadcrumbs" %>
@@ -480,42 +480,9 @@
     <script type="text/javascript" src='<%= HttpRuntime.AppDomainAppVirtualPath.TrimEnd( '/' ) + ("/scripts/jquery.cycle2.carousel.min.js") %>'></script>
     <script type="text/javascript">
 
-        
-        <%--s.pageName = document.title;
-        s.channel = "<%= ConfigurationManager.AppSettings["OmnitureApp"] %>";--%>
-
+        s.pageName = document.title;
+        s.channel = "<%= ConfigurationManager.AppSettings["OmnitureApp"] %>";
         window.shortTitle = "CKD";
-
-        let counter = 0,
-            hasMetrics = false;
-
-
-        // Define the callback function
-        function preTrackCallback(request) {
-            // Modify the tracking request here if needed
-            console.warn('PreTrack callback executed');
-            clearTimeout(reinitMetricsTimeout);
-        }
-
-        // Define the callback function
-        function postTrackCallback(request) {
-            counter++;
-            // Modify the tracking request here if needed
-            console.warn('Post callback executed');
-            //clearTimeout(reinitMetricsTimeout);
-            if (counter == 2) {
-                counter = 9999; //do not remove this, it will cause an infinite loop
-                console.warn('Fall Back Metrics Init')
-                executeMetrics();
-            }
-        }
-
-        setTimeout(function () {
-            s.registerPreTrackCallback(preTrackCallback);
-            s.registerPostTrackCallback(postTrackCallback);
-        }, 400)
-        // Register the callback
-
 
         window.pageOptions = window.pageOptions || {};
         window.pageOptions.navigation = window.pageOptions.navigation || {};
@@ -534,76 +501,7 @@
         window.pageOptions.navigation.pathToSelect = window.pageOptions.navigation.pathToSelect || window.location.pathname
 
 
-        //window.CDC.tp4.public.appInit(window.pageOptions);
-
-        function executeMetrics(trackVars = 'prop36,prop41,prop40,prop49,prop46,eVar53,prop2,prop31,prop60,prop62,channel') {
-            const projectName = "CKD";
-            const _s = window.s;
-            _s.linkTrackVars = trackVars;
-            _s.channel = projectName;
-            _s.prop41 = projectName;
-            _s.tl(true, 'o', s);
-            console.log('Metrics Image Sent')
-        }
-
-        //second method to cancel out when double metrics are being sent
-        const initMetrics = () => {
-            try {
-                setTimeout(function () {
-                    const _s = window.s;
-                    _s.registerPreTrackCallback(function (response) {
-                        console.log('Metrics Pre Track');
-                        clearTimeout(reinitMetricsTimeout);
-                    });
-
-                    _s.registerPostTrackCallback(function (response) {
-                        console.log('Metrics Post Success');
-                        counter++;
-                        clearTimeout(reinitMetricsTimeout);
-                        if (counter == 2) {
-                            counter = 9999; //do not remove this, it will cause an infinite loop
-                            console.log('Fall Back Metrics Init')
-                            executeMetrics();
-                        }
-                    });
-                }, 700)
-
-            } catch (err) {
-                console.log(err)
-            }
-        }
-
-        //resend metrics when the post doesn't return the adobe image
-        const reinitMetricsTimeout = setTimeout(function () {
-
-            if (sessionStorage.getItem('customMetric') == "false") {
-                sessionStorage.setItem('customMetric', 'true');
-            } else {
-                console.log('Metrics, reinit')
-                counter = 9999;
-                executeMetrics();
-            }
-
-
-        }, 1200)
-
-        //fix bug when home page is clicked on, metrics are being sent twice
-        $('.ckd-nav-home-link').on('click', function () {
-            if ($('.ckd-nav-home-link').hasClass('homePageActive')) {
-                sessionStorage.setItem('customMetric', 'false');
-            } else {
-                sessionStorage.setItem('customMetric', 'true');
-            }
-        })
-
-        if (performance.navigation.type === 1) {
-            sessionStorage.setItem('customMetric', 'false');
-        }
-
-        window.onload = function () {
-            $('.pageWrapper').removeClass('hide');
-        }
-
+        window.CDC.tp4.public.appInit(window.pageOptions);
 
 
     </script>
