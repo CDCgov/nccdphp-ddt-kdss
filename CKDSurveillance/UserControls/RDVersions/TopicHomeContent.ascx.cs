@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -864,7 +864,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     else
                     {
                         sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; float: left;display: grid;\">");
-                        sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; margin-bottom:5% \"/>");
+                        sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; margin-bottom:5% \" alt=\"Chart: "+ title +" \"/>");
                     }
                     
                     sbBodyTable.Append("</div>");
