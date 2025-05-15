@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" MaintainScrollPositionOnPostback="true" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" AutoEventWireup="true" CodeBehind="Detail.aspx.cs" Inherits="CKDSurveillance_RD.MasterPages.Detail" %>
+<%@ Page Title="" MaintainScrollPositionOnPostback="true" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" AutoEventWireup="true" CodeBehind="Detail.aspx.cs" Inherits="CKDSurveillance_RD.MasterPages.Detail" %>
 
 <%@ Register Src="~/UserControls/StratYearsLinks.ascx" TagPrefix="uc1" TagName="StratYearsButtons" %>
 <%@ Register Src="~/UserControls/FAQGlossaryControl.ascx" TagPrefix="uc1" TagName="FAQGlossaryControl" %>
@@ -1374,11 +1374,11 @@
                                 <div id="divContentTabs" class="tabs-module">
                                     <a id="detailArea" name="detailArea"></a>
                                     <ul class="nav nav-tabs no-syndicate" id="tabs-3" role="list" style="background-color:#ffffff" aria-label="tabparent" aria-busy="true">
-                                        <li class="nav-item active" id="tab-1" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-KeyPoints">Notes</a></li>
-                                        <li class="nav-item" id="tab-2" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-ChartDescription">Data Source Description</a></li>
+                                        <li class="nav-item active" style="margin-top: 0rem !important; margin-bottom: 2rem !important; " id="tab-1" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-KeyPoints">Notes</a></li>
+                                        <li class="nav-item" id="tab-2" style="margin-top: 0rem !important; margin-bottom: 2rem !important; " role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-ChartDescription">Data Source Description</a></li>
                                         <%--<li class="nav-item"><a class="nav-tab-link nav-link " data-toggle="tab" role="tab" href="#tab-Methods">Indicator Specifications</a></li>--%>
-                                        <li class="nav-item" id="tab-3" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-SpecSheet">Indicator Specifications</a></li>
-                                        <li class="nav-item" id="tab-4" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-RefDataSources">References</a></li>
+                                        <li class="nav-item" id="tab-3" style="margin-top: 0rem !important; margin-bottom: 2rem !important; " role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-SpecSheet">Indicator Specifications</a></li>
+                                        <li class="nav-item" id="tab-4" style="margin-top: 0rem !important; margin-bottom: 2rem !important; " role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-RefDataSources">References</a></li>
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" role="tabpanel" tabindex="0" aria-labelledby="tab-1" id="tab-KeyPoints">
@@ -1647,10 +1647,11 @@
     <!-- *End of Detail Area* -->
     <style>
         .nav-item.active {
+            margin-top: 0rem !important;
             background-color:#E8E8E8!important;
             color:#000000!important;
-            border: 1px solid #A0A0A0;
-            border-top:0px!important;
+            border: 1px solid #E8E8E8 !important;
+           /* border-top:0px!important;*/
             text-align: center;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
@@ -1658,7 +1659,7 @@
             /*font: normal normal normal 17px/24px Open Sans;*/
             letter-spacing: 0px;
             opacity: 1;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            /*box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);*/
             border-radius: 6px;
         }
         
@@ -1666,7 +1667,7 @@
             text-align: center;
             font: normal normal normal 17px/24px Nunito!important;
             letter-spacing: 0px;
-            color: #6E6E6E!important; 
+            color: #000000!important; 
             opacity: 1;
         }
 
