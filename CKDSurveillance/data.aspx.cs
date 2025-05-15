@@ -239,7 +239,7 @@ namespace CKDSurveillance_RD
                 sbTable.Append("<div style=\"background: #f6fbff 0% 0% no-repeat padding-box;\" class=\"card-header ckd-accordion-subcat-header " + cardState + "\"  id=\"accordion-4i-card-" + measureID.ToString() + "\" data-target=\"#accordion-4i-collapse-" + measureID.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
                 //sbTable.Append("<div style=\"text-align: left; font-family:Nunito, Open Sans; font-weight: 17px; letter-spacing: 0px; color: #2D2D2D; padding-top:5px; padding-bottom:5px;\" tabindex=\"0\"  data-controls=\"accordion-4i-collapse-" + measureID.ToString() + "\">" + measureText + "</div>");
                 sbTable.Append(measureText);
-                //sbTable.Append("</div>");
+                sbTable.Append("</div>"); //end ckd-accordion-subcat-header
 
                 sbTable.Append("<div aria-labelledby=\"accordion-4i-card-" + measureID.ToString() + "\" class=\"collapse " + divState + "\" id=\"accordion-4i-collapse-" + measureID.ToString() + "\" role=\"tabpanel\">"); //begin content panel
                 sbTable.Append("<div class=\"card body\" style=\"border-width:0px;\" >"); //begin card body
@@ -286,8 +286,7 @@ namespace CKDSurveillance_RD
                 loopcnt++;
 
                 sbTable.Append("</div>"); //end card body
-                sbTable.Append("</div>"); //end content panel
-                sbTable.Append("</div>"); //end ckd-accordion-subcat-header
+                sbTable.Append("</div>"); //end content panel                
                 sbTable.Append("</div>"); //end card bar
             }            
 
