@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OutcomesQofCare.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.OutcomesQofCare" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OutcomesQofCare.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.OutcomesQofCare" %>
        
 
 <style type="text/css">
@@ -30,7 +30,7 @@
         text-align: left;
         font: normal normal normal 18px/45px Nunito !important;
         letter-spacing: 0px;
-        color: #005fa3 !important; /*color: #06778B;*/
+        color: #005999 !important; /*color: #06778B;*/
         opacity: 1;
         text-decoration: none;
     }

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GeneralInformation.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.GeneralInformation" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GeneralInformation.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.GeneralInformation" %>
        
 
 <style type="text/css">
@@ -155,7 +155,7 @@
                 <div class="generalinformation-box-title">CHRONIC KIDNEY DISEASE (CKD) INITIATIVE</div>
                 <br />
                 <div class="generalinformation-box-text">In 2006, the CDC established the Chronic Kidney Disease (CKD) Initiative to provide public health strategies for promoting kidney health. Current activities of the CKD Initiative include surveillance, epidemiology, health outcomes, and economic studies in partnership with various offices at the CDC, other governmental agencies, universities, and national organizations.
-                <a href="https://www.cdc.gov/kidneydisease/index.html" style="color:#0b4778 ; opacity: 1; text-decoration:none;" target="new">Visit CKD Initiative<span class="fi cdc-icon-external x16"></span></a></div>  <%--#007C91--%>
+                <a href="https://www.cdc.gov/kidneydisease/index.html" style="opacity: 1; text-decoration:none;" target="new">Visit CKD Initiative<span class="fi cdc-icon-external x16"></span></a></div>  <%--#007C91--%>
             </div>
         </div>
     </div>

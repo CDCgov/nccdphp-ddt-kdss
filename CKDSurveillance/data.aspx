@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Data.aspx.cs" Inherits="CKDSurveillance_RD.Data" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Data.aspx.cs" Inherits="CKDSurveillance_RD.Data" MasterPageFile="~/MasterPages/ResponsiveContentLeftNavNew.Master" %>
 
 <%@ Register Src="~/UserControls/Navigation/SideNav.ascx" TagPrefix="uc1" TagName="SideNav" %>
 
@@ -197,7 +197,7 @@
                                        <%--*2030*--%>
                                     <div class="row navBoldHeader d-sm-block subTitleHPbg" >   <%--style="background: #00695C 0% 0% no-repeat padding-box; opacity: 0.05; padding-right:0px;margin-right:0px;"--%>
                                         <a class="subTitleHPlink" href="https://health.gov/healthypeople/objectives-and-data/browse-objectives/chronic-kidney-disease" ID="lnkHealthy2030Objectives" target="_blank">View the CKD objectives for Healthy People 2030 &nbsp; 
-                                            <img src="images/HP2030-blackarrow.png" /> </a>
+                                            <img src="images/HP2030-blackarrow.png" alt="open a new window"/> </a>
                                      
                                         <%--   <asp:HyperLink CssClass ="subTitleHPlink"
                                             ID="lnkHealthy2030Objectives" runat="server" NavigateUrl="https://health.gov/healthypeople/objectives-and-data/browse-objectives/chronic-kidney-disease"

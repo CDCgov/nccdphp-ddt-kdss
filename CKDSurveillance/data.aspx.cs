@@ -234,9 +234,9 @@ namespace CKDSurveillance_RD
 
                 int measureID = ((int)(dr["MeasureID"]));
 
-                sbTable.Append("<div class=\"card bar \" style=\"border-width:0px;\" role=\"tablist\" >"); //begin card bar   ---style=\"padding-left:20px;\"
+                sbTable.Append("<div class=\"card bar \" style=\"border-width:0px;\">"); //begin card bar   ---style=\"padding-left:20px;\"
 
-                sbTable.Append("<div style=\"background: #f6fbff 0% 0% no-repeat padding-box;\" class=\"card-header ckd-accordion-subcat-header " + cardState + "\"  id=\"accordion-4i-card-" + measureID.ToString() + "\" data-target=\"#accordion-4i-collapse-" + measureID.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
+                sbTable.Append("<div style=\"background: #f6fbff 0% 0% no-repeat padding-box;\" class=\"card-header ckd-accordion-subcat-header " + cardState + "\"  id=\"accordion-4i-card-" + measureID.ToString() + "\" data-target=\"#accordion-4i-collapse-" + measureID.ToString() + "\" data-toggle=\"collapse\">"); //begin header measureText
                 //sbTable.Append("<div style=\"text-align: left; font-family:Nunito, Open Sans; font-weight: 17px; letter-spacing: 0px; color: #2D2D2D; padding-top:5px; padding-bottom:5px;\" tabindex=\"0\"  data-controls=\"accordion-4i-collapse-" + measureID.ToString() + "\">" + measureText + "</div>");
                 sbTable.Append(measureText);
                 sbTable.Append("</div>"); //end ckd-accordion-subcat-header
