@@ -158,7 +158,7 @@
             </div>
 
             <div class="aya-text">
-                Nocturia is defined by waking from sleep at night to urinate more than once. It is one of the most common urinary symptoms and occurs more often as people age. Nocturia is almost twice as common among U.S. adults with chronic kidney disease (CKD) stages 3–5 than those without CKD (~50% among CKD stages 3–5 vs. ~25% among those without CKD, in the 2017–March 2020, based on NHANES data). Nocturia can be a sign of more serious underlying conditions such as urinary obstruction or chronic kidney disease, and it is important for people to contact their healthcare provider if they regularly experience this symptom.
+                Nocturia is defined by waking from sleep at night to urinate more than once. It is one of the most common urinary symptoms and occurs more often as people age. Nocturia is almost twice as common among U.S. adults with chronic kidney disease (CKD) stages 3–5 than those without CKD (~50% among CKD stages 3-5 vs. ~25% among those without CKD, in the 2017–March 2020, based on NHANES data). Nocturia can be a sign of more serious underlying conditions such as urinary obstruction or chronic kidney disease, and it is important for people to contact their healthcare provider if they regularly experience this symptom.
                 <br /><br />                
             </div>
 
