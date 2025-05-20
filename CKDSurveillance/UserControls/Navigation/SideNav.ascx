@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SideNav.ascx.cs" Inherits="CKDSurveillance_RD.SideNav" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SideNav.ascx.cs" Inherits="CKDSurveillance_RD.SideNav" %>
 <%--<%@ OutputCache Duration="86400" VaryByParam="none"%>--%>
 
 
@@ -249,7 +249,7 @@
 							<%--Prevalence--%>
 							<%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
 								<div class="accordion indicator-plus accordion-white" role="tabpanel">
-									<div  style="padding-left:0px; background-color: none !important;" role="tablist"> <%-- class="card bar "--%>
+									<div  style="padding-left:0px; background-color: none !important;"> <%-- class="card bar "--%>
 										<div class="card-header collapsed nav-section-home navSectionLinks navlist" id="accordion-4i-card-20" data-target="#accordion-4i-collapse-20" data-bs-toggle="collapse" role="tab" aria-expanded="false"  style="background-color: white !important;" href="#accordion-4i-collapse-20">
 											<div class="card-title">
 											<a id="Prevalence" title="Prevalence & Incidence" style="display:inline; background-color: white !important; font-family:Nunito !important; font-size:17px !important; font-weight:600;"  tabindex="0" data-controls="accordion-4i-collapse-20"> <%--class="card-title"--%>
