@@ -22,6 +22,9 @@
   color:#ffffff;
 }
 </style>
+
+<a id="refreshPosition" name="refreshPosition"></a>
+
 <div id="navbarSupportedContentMobile" style="background: linear-gradient(to right, #4c2b64, #0061a2, #0081a1);" class="showPhoneOnly navbar-collapse overlay collapse ">
 	<div class="container overlay-content" id="cdc-meganav-bar"  style="display:block !important;background:linear-gradient(to right, #4c2b64, #0061a2, #0081a1)" data-title="CKD Menu">
 		<nav class="navbar navbar-expand-xl yamm tmp-meganav-bar">
