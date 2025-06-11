@@ -2503,10 +2503,16 @@ namespace CKDSurveillance_RD.MasterPages
                         dsSVG.Tables.Add(dsChart.Tables[2].Copy());
                         zoom_in.Visible = false;
                         zoom_out.Visible = false;
+                        linkedmapfilter.Visible = true;
                     }
 
-                    string d3MapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr);
-                    litD3MapTabs.Text = d3MapJsCode;
+                    if (Application["d3MapJsCode_" + QNum] == null)
+                    {
+                        string d3MapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr);
+                        Application["d3MapJsCode_" + QNum] = d3MapJsCode;
+                    }
+                    litD3MapTabs.Text = Application["d3MapJsCode_" + QNum].ToString();
+                    
                     hfMapType.Value = "6";
                 }
                 else
@@ -4730,10 +4736,10 @@ namespace CKDSurveillance_RD.MasterPages
         {
             DataTable answer = null;
 
-            if (Cache["getPage"] != null)
+            if (Cache["getPage_" + QNUM] != null)
             {
-                answer = (DataTable)Cache["getPage"];
-                DataRow[] drs = answer.Select("QNUM='" + QNUM + "'");
+                answer = (DataTable)Cache["getPage_" + QNUM];
+                DataRow[] drs = answer.Select();
 
                 if (drs.Length > 0)
                 {
@@ -4798,7 +4804,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                 if (dtPage != null)
                 {
-                    Cache.Insert("getPage", dtPage, null, DateTime.MaxValue, TimeSpan.FromDays(2));
+                    Cache.Insert("getPage_" + QNUM, dtPage, null, DateTime.MaxValue, TimeSpan.FromDays(30));
                     answer = dtPage;
                 }
 
