@@ -1,0 +1,153 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\migration\\nccdphp-ddt-ckd\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.PROD.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CKDSurveillance\\Web.PROD.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66A45849-6C2E-4528-AC2D-1B03E34ABBE3}|CKDLib\\ckdlib_v2.vbproj|C:\\migration\\nccdphp-ddt-ckd\\ckdlib\\dbutil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{66A45849-6C2E-4528-AC2D-1B03E34ABBE3}|CKDLib\\ckdlib_v2.vbproj|solutionrelative:ckdlib\\dbutil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66A45849-6C2E-4528-AC2D-1B03E34ABBE3}|CKDLib\\ckdlib_v2.vbproj|C:\\migration\\nccdphp-ddt-ckd\\ckdlib\\arbordataaccessv2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{66A45849-6C2E-4528-AC2D-1B03E34ABBE3}|CKDLib\\ckdlib_v2.vbproj|solutionrelative:ckdlib\\arbordataaccessv2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\UserControls\\FPWidgets\\DataBiteHighlights.ascx||{F390D63C-F7D8-4E74-AA04-57C1ECF53D4D}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CKDSurveillance\\UserControls\\FPWidgets\\DataBiteHighlights.ascx||{F390D63C-F7D8-4E74-AA04-57C1ECF53D4D}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CKDSurveillance\\Default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.QA.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CKDSurveillance\\Web.QA.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.DEV Internet.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CKDSurveillance\\Web.DEV Internet.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.DEV.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CKDSurveillance\\Web.DEV.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataBiteHighlights.ascx",
+              "DocumentMoniker": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\UserControls\\FPWidgets\\DataBiteHighlights.ascx",
+              "RelativeDocumentMoniker": "CKDSurveillance\\UserControls\\FPWidgets\\DataBiteHighlights.ascx",
+              "ToolTip": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\UserControls\\FPWidgets\\DataBiteHighlights.ascx",
+              "RelativeToolTip": "CKDSurveillance\\UserControls\\FPWidgets\\DataBiteHighlights.ascx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
+              "WhenOpened": "2025-06-11T15:24:17.808Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Default.aspx.cs",
+              "DocumentMoniker": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Default.aspx.cs",
+              "RelativeDocumentMoniker": "CKDSurveillance\\Default.aspx.cs",
+              "ToolTip": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Default.aspx.cs",
+              "RelativeToolTip": "CKDSurveillance\\Default.aspx.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T15:24:17.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ArborDataAccessV2.vb",
+              "DocumentMoniker": "C:\\migration\\nccdphp-ddt-ckd\\CKDLib\\ArborDataAccessV2.vb",
+              "RelativeDocumentMoniker": "CKDLib\\ArborDataAccessV2.vb",
+              "ToolTip": "C:\\migration\\nccdphp-ddt-ckd\\CKDLib\\ArborDataAccessV2.vb",
+              "RelativeToolTip": "CKDLib\\ArborDataAccessV2.vb",
+              "ViewState": "AQIAADIAAAAAAAAAAAAgwFgAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-06-11T15:24:17.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DBUtil.vb",
+              "DocumentMoniker": "C:\\migration\\nccdphp-ddt-ckd\\CKDLib\\DBUtil.vb",
+              "RelativeDocumentMoniker": "CKDLib\\DBUtil.vb",
+              "ToolTip": "C:\\migration\\nccdphp-ddt-ckd\\CKDLib\\DBUtil.vb",
+              "RelativeToolTip": "CKDLib\\DBUtil.vb",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-06-11T15:24:17.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.PROD.config",
+              "DocumentMoniker": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.PROD.config",
+              "RelativeDocumentMoniker": "CKDSurveillance\\Web.PROD.config",
+              "ToolTip": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.PROD.config",
+              "RelativeToolTip": "CKDSurveillance\\Web.PROD.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAADCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-11T15:24:17.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Web.QA.config",
+              "DocumentMoniker": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.QA.config",
+              "RelativeDocumentMoniker": "CKDSurveillance\\Web.QA.config",
+              "ToolTip": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.QA.config",
+              "RelativeToolTip": "CKDSurveillance\\Web.QA.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-11T15:24:17.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Web.DEV Internet.config",
+              "DocumentMoniker": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.DEV Internet.config",
+              "RelativeDocumentMoniker": "CKDSurveillance\\Web.DEV Internet.config",
+              "ToolTip": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.DEV Internet.config",
+              "RelativeToolTip": "CKDSurveillance\\Web.DEV Internet.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-11T15:24:17.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Web.DEV.config",
+              "DocumentMoniker": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.DEV.config",
+              "RelativeDocumentMoniker": "CKDSurveillance\\Web.DEV.config",
+              "ToolTip": "C:\\migration\\nccdphp-ddt-ckd\\CKDSurveillance\\Web.DEV.config",
+              "RelativeToolTip": "CKDSurveillance\\Web.DEV.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-11T15:24:17.872Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
