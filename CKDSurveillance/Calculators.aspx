@@ -1069,11 +1069,11 @@
                     rootUrl += "/" + DirPath;
                 }
             }
-            $('#lnkHypertensionQ652').attr('href', rootUrl + '/detail.aspx?Qnum=Q652');
-            $('#lnkDiabetesQ653').attr('href', rootUrl + '/detail.aspx?Qnum=Q653');
-            $('#lnkDiabetesQ151').attr('href', rootUrl + '/detail.aspx?Qnum=Q151');
-            $('#lnkDiabetesQ653-2').attr('href', rootUrl + '/detail.aspx?Qnum=Q653');
-            $('#lnkDiabetesQ11').attr('href', rootUrl + '/detail.aspx?Qnum=Q11');
+            $('#lnkHypertensionQ652').attr('href', rootUrl + 'detail.aspx?Qnum=Q652');
+            $('#lnkDiabetesQ653').attr('href', rootUrl + 'detail.aspx?Qnum=Q653');
+            $('#lnkDiabetesQ151').attr('href', rootUrl + 'detail.aspx?Qnum=Q151');
+            $('#lnkDiabetesQ653-2').attr('href', rootUrl + 'detail.aspx?Qnum=Q653');
+            $('#lnkDiabetesQ11').attr('href', rootUrl + 'detail.aspx?Qnum=Q11');
             //Initiate the content tabs
             //CDC.Gadgets.Tabs.init();
             console.log("initiate Sliders");
