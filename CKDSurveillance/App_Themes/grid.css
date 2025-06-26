@@ -12,14 +12,14 @@
 
 body {
 	border:none;
-	background:#bec3cc fixed url('/ckd/TemplatePackage/images/bgMainDropShadowGradient.png') 0 0 repeat-x;
+	background:#bec3cc fixed url('/kdss/TemplatePackage/images/bgMainDropShadowGradient.png') 0 0 repeat-x;
 	font:75% Nunito, Open Sans, sans-serif, Verdana, Arial, Helvetica ;
 	text-align:left;
 }
 
 #branding {
 	position:relative;
-	background:white url('/ckd/TemplatePackage/images/bgHdrAZ.gif') 0 0 repeat-x;
+	background:white url('/kdss/TemplatePackage/images/bgHdrAZ.gif') 0 0 repeat-x;
 	height:auto;
 	min-width:1px;
 }
@@ -30,11 +30,11 @@ body {
 		padding:0;
 		height:65px;
 		max-width:98%;
-		background:transparent url('/ckd/TemplatePackage/images/cdcHeaderLogo.gif') 5px 20px no-repeat;
+		background:transparent url('/kdss/TemplatePackage/images/cdcHeaderLogo.gif') 5px 20px no-repeat;
 	}
 	.esp #branding #branding-logo {
 		max-width:98%;
-		background:transparent url('/ckd/TemplatePackage/images/esp/cdcHeaderLogo.gif') 5px 20px no-repeat;
+		background:transparent url('/kdss/TemplatePackage/images/esp/cdcHeaderLogo.gif') 5px 20px no-repeat;
 	}
 		#branding-logo span {
 			display:none;
@@ -265,7 +265,7 @@ input[type=radio] {float:left; margin:1px 0.25em 0 0.25em; padding:0; vertical-a
  */
 
 #content-secondary .pageOptions {
-	background:#f5faed url('/ckd/TemplatePackage/images/bg_repeatPageOptions.gif') 0 0;
+	background:#f5faed url('/kdss/TemplatePackage/images/bg_repeatPageOptions.gif') 0 0;
 	margin:0;
 	padding:0;
 	border:none;
@@ -276,7 +276,7 @@ input[type=radio] {float:left; margin:1px 0.25em 0 0.25em; padding:0; vertical-a
 	z-index:999;
 }
 	.pageOptions .pageOptions-inner {
-		background:transparent url('/ckd/TemplatePackage/images/bg_pageOptions.gif') 0 bottom no-repeat;
+		background:transparent url('/kdss/TemplatePackage/images/bg_pageOptions.gif') 0 bottom no-repeat;
 		margin:0;
 		padding:0 0.5em 5px 0.75em;
 		height:auto;

@@ -1406,7 +1406,7 @@ body.widePage.ckd-popup div#content div.main-inner
     display: inline;
     float: left;
     padding: 18px 0px 18px 27px;
-    background: url(/ckd/TemplatePackage/images/icon_mail.gif) no-repeat 0px 18px;
+    background: url(/KDSS/TemplatePackage/images/icon_mail.gif) no-repeat 0px 18px;
 }
 .ckd-contact-us.contact-info .phone-email
 {
@@ -1420,12 +1420,12 @@ body.widePage.ckd-popup div#content div.main-inner
 {
     padding-left: 27px;
     padding-bottom: 6px;
-    background: url(/ckd/TemplatePackage/images/icon_phone.gif) no-repeat 0px 0px;
+    background: url(/KDSS/TemplatePackage/images/icon_phone.gif) no-repeat 0px 0px;
 }
 .ckd-contact-us.contact-info .phone-email .email
 {
     padding-left: 27px;
-    background: url(/ckd/TemplatePackage/images/icon_envelope.gif) no-repeat 0px 0px;
+    background: url(/KDSS/TemplatePackage/images/icon_envelope.gif) no-repeat 0px 0px;
 }
 
 .ckd-contact-us-confirm-message

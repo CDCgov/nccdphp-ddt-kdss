@@ -25,17 +25,16 @@ p.access, .hideme {display:none;}
 	}
 *:first-child+html body {padding:0;}
 
-#wrapper 
-{
-	background:transparent url('/ckd/TemplatePackage/images/bgWrapperRt.png') top right repeat-y;
-	position:relative;
-	margin:0 auto;
-	border:none;
-	padding:0 10px;
-	max-width:1000px;
-	min-width:749px;
-	min-height:auto; /* = resets hasLayout for IE7 = */
-}
+	#wrapper {
+		background: transparent url('<%= ResolveUrl(System.Configuration.ConfigurationManager.AppSettings["DirPath"] + "/TemplatePackage/images/bgWrapperRt.png") %>') top right repeat-y;
+		position: relative;
+		margin: 0 auto;
+		border: none;
+		padding: 0 10px;
+		max-width: 1000px;
+		min-width: 749px;
+		min-height: auto; /* = resets hasLayout for IE7 = */
+	}
 
 body[id=applicationsPage] #wrapper {
 	background:#fff;
@@ -52,7 +51,7 @@ body[id=applicationsPage] #wrapper {
 	width:10px; /* top slice width */
 	margin-left:0;
 	height:100%;
-	background:transparent url('/ckd/TemplatePackage/images/bgWrapperLft.png') top left;
+	background:transparent url('/KDSS/TemplatePackage/images/bgWrapperLft.png') top left;
 	/* z-index:-10; 	* = a negative z-index will cause this not to display in firefox 2 = */
 }
 

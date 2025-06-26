@@ -188,7 +188,7 @@ img.center,
 }
 
 .page-curl {
-	background:#fff url('/ckd/TemplatePackage/images/bgPagecurlShadow.gif') right bottom no-repeat;
+	background:#fff url('/kdss/TemplatePackage/images/bgPagecurlShadow.gif') right bottom no-repeat;
 	margin:0 0 3px 0;
 	padding:0 0 7px 0;
 }
@@ -224,7 +224,7 @@ img.center,
 #content .rounders h3,
 #content .roundem h3 {padding:2px 1px 6px 1px;}
 
-.double-rule h3 {background:#eef7e3 url('/ckd/TemplatePackage/images/bgDoubleH2-noIcon.gif') right bottom repeat-x;}
+.double-rule h3 {background:#eef7e3 url('/kdss/TemplatePackage/images/bgDoubleH2-noIcon.gif') right bottom repeat-x;}
 
 .page-curl h3 {background-color:#eef7e3;}
 .page-curl h5 {
@@ -346,7 +346,7 @@ img.center,
 
 .bullets li,
 .bullet-list li { /** = this should never have links inside of the list = */ 
-	background:transparent url('/ckd/TemplatePackage/images/black_bullet.png') no-repeat 0.3em 0.65em;
+	background:transparent url('/kdss/TemplatePackage/images/black_bullet.png') no-repeat 0.3em 0.65em;
 	margin:0;
 	border-bottom:1px solid transparent;
 	list-style:none;
@@ -357,7 +357,7 @@ img.center,
 
 .bulleted-links li,
 .cdcForYou ul li {
-	background:transparent url('/ckd/TemplatePackage/images/blue_bullet.png') 0.3em 0.65em no-repeat;
+	background:transparent url('/kdss/TemplatePackage/images/blue_bullet.png') 0.3em 0.65em no-repeat;
 	display:block;
 	position:relative;
 	margin:0;
@@ -404,7 +404,7 @@ img.center,
 }
 	.somemore a:hover {text-decoration:underline;}
 	.somemore a {
-		background:transparent url('/ckd/TemplatePackage/images/btn_dblArrows.gif') right bottom no-repeat;
+		background:transparent url('/kdss/TemplatePackage/images/btn_dblArrows.gif') right bottom no-repeat;
 		clear:both;
 		display:block;
 		font-weight:bold;
@@ -417,7 +417,7 @@ img.center,
 	
 	#content .arrow a {
 		position:relative;
-		background:transparent url('/ckd/TemplatePackage/images/btn_dblArrows.gif') right 0.55em no-repeat;
+		background:transparent url('/kdss/TemplatePackage/images/btn_dblArrows.gif') right 0.55em no-repeat;
 		display:block;
 		font-weight:bold;
 		margin:0;
@@ -466,29 +466,29 @@ img.center,
 .rounders .inner,
 .rounders .t,
 .rounders .b,
-.rounders .b div {background:transparent url('/ckd/TemplatePackage/images/bg_twoBlocksGreen.gif') top right no-repeat;}
+.rounders .b div {background:transparent url('/kdss/TemplatePackage/images/bg_twoBlocksGreen.gif') top right no-repeat;}
 
 #content-secondary #news-events .inner,
 #content-secondary #news-events .t,
 #content-secondary #news-events .b,
-#content-secondary #news-events .b div {background-image:url('/ckd/TemplatePackage/images/bg_twoBlocksGreen.gif');}
+#content-secondary #news-events .b div {background-image:url('/kdss/TemplatePackage/images/bg_twoBlocksGreen.gif');}
 
 #content #content-secondary #news-events.rounders h3 {color:#0c5307;}
 
 .rounders.top-blocks .inner,
 .rounders.top-blocks .t,
 .rounders.top-blocks .b,
-.rounders.top-blocks .b div {background-image:url('/ckd/TemplatePackage/images/bg_twoBlocksGreen.gif');}
+.rounders.top-blocks .b div {background-image:url('/kdss/TemplatePackage/images/bg_twoBlocksGreen.gif');}
 
 .rounders.grey .inner,
 .rounders.grey .t,
 .rounders.grey .b,
-.rounders.grey .b div {background-image:url('/ckd/TemplatePackage/images/bg_greyStroke.gif');}
+.rounders.grey .b div {background-image:url('/kdss/TemplatePackage/images/bg_greyStroke.gif');}
 
 .rounders.gold .inner,
 .rounders.gold .t,
 .rounders.gold .b,
-.rounders.gold .b div {background-image:url('/ckd/TemplatePackage/images/bg_roundersGold.gif');}
+.rounders.gold .b div {background-image:url('/kdss/TemplatePackage/images/bg_roundersGold.gif');}
 
 .rounders.email .inner,
 .rounders.email .t,
@@ -497,7 +497,7 @@ img.center,
 #nav-container .rounders .inner,
 #nav-container .rounders .t,
 #nav-container .rounders .b,
-#nav-container .rounders .b div {background-image:url('/ckd/TemplatePackage/images/bg_emailUpdates.gif');}
+#nav-container .rounders .b div {background-image:url('/kdss/TemplatePackage/images/bg_emailUpdates.gif');}
 
 .rounders .inner {
 	position:relative;
@@ -809,12 +809,12 @@ img.center,
 	}
 	.module.multiPage-horiz h4 span a,
 	.multiPage-horiz h4 span a {
-		background:transparent url('/ckd/TemplatePackage/images/arrow-blue-lt.png') 0 center no-repeat;
+		background:transparent url('/kdss/TemplatePackage/images/arrow-blue-lt.png') 0 center no-repeat;
 		padding:0 0 0 1em;
 		text-align:left;
 	}
 	.multiPage-horiz h4 span.nextLink a {
-		background:transparent url('/ckd/TemplatePackage/images/arrow-blue-rt.png') right center no-repeat;
+		background:transparent url('/kdss/TemplatePackage/images/arrow-blue-rt.png') right center no-repeat;
 		padding:0 1em 0 0;
 		float:none;
 	}
@@ -916,7 +916,7 @@ img.center,
 #content-secondary .module {margin-right:12px;}
 
 #content-secondary .related {
-	background:transparent url('/ckd/TemplatePackage/images/bgRelatedLinks.png') 0 0 no-repeat;
+	background:transparent url('/kdss/TemplatePackage/images/bgRelatedLinks.png') 0 0 no-repeat;
 	margin:12px 0;
 	position:relative;
 	width:169px;
@@ -973,14 +973,14 @@ ul.noBullet li {
 
 .relatedMaterial.rounders li {
 	display:list-item;
-	background:transparent url('/ckd/TemplatePackage/images/blue_bullet.png') 0.25em 0.65em no-repeat;
+	background:transparent url('/kdss/TemplatePackage/images/blue_bullet.png') 0.25em 0.65em no-repeat;
 	padding:3px 0 3px 1.25em;
 }
 
 /*.azMenuList {display:none;}
 .homepage .azMenuList, .topicHome .azMenuList {display:block;}*/
 
-.rounders.azMenuList .inner, .rounders.azMenuList .t, .rounders.azMenuList .b, .rounders.azMenuList .b div {background-image:url('/ckd/TemplatePackage/images/bg_accent.gif');}
+.rounders.azMenuList .inner, .rounders.azMenuList .t, .rounders.azMenuList .b, .rounders.azMenuList .b div {background-image:url('/kdss/TemplatePackage/images/bg_accent.gif');}
 .rounders.azMenuList .inner {padding:6px 12px 0 0;}
 .rounders.azMenuList .b {
 	background-color:transparent;

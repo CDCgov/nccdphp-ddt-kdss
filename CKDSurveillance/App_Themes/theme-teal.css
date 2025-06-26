@@ -9,7 +9,7 @@
 
 @media screen, projection
 {
-*:first-child+html body.secondTier #content {background: #fff url('/ckd/TemplatePackage/images/theme-teal/bg_content.gif') left 10px repeat-x;}
+*:first-child+html body.secondTier #content {background: #fff url('/KDSS/TemplatePackage/images/theme-teal/bg_content.gif') left 10px repeat-x;}
 /* 
 ===========================================================
 Header Colors 
@@ -36,10 +36,10 @@ Breadcrumb Colors
 Left Nav Colors 
 ===========================================================
 */
-#content #nav-container h3 a {background-image: url('/ckd/TemplatePackage/images/theme-teal/bg_navH3.gif');}
+#content #nav-container h3 a {background-image: url('/KDSS/TemplatePackage/images/theme-teal/bg_navH3.gif');}
 
 #nav,
-#nav-container .bottom {background: transparent url('/ckd/TemplatePackage/images/theme-teal/bg_leftNav.gif') repeat-y top left;}
+#nav-container .bottom {background: transparent url('/KDSS/TemplatePackage/images/theme-teal/bg_leftNav.gif') repeat-y top left;}
 #nav ul li {background: /*#c1ded5*/ #E1F3F8CC;}
 	#nav ul li ul li {
 		background: /*#c5ded6*/ #E1F3F8CC;
@@ -47,7 +47,7 @@ Left Nav Colors
 #nav-container .bottom {background-position: bottom left;}
 
 /* Selected state for Level 1, 2, 3, and 4 link */
-#nav-container #nav li a.selected, #nav-fourth-level ul a.selected {background-image: url('/ckd/TemplatePackage/images/theme-teal/leftNav_arrow.gif');}
+#nav-container #nav li a.selected, #nav-fourth-level ul a.selected {background-image: url('/KDSS/TemplatePackage/images/theme-teal/leftNav_arrow.gif');}
 
 /*#nav-fourth-level ul a:hover {background-color: #f6fcfb;}*/
 
@@ -56,10 +56,10 @@ Left Nav Colors
  * = Page Options Colors
  */
 #content-secondary .pageOptions {
-	background: #f6fcfb url('/ckd/TemplatePackage/images/theme-teal/bg_repeatPageOptions.gif') 0 0;
+	background: #f6fcfb url('/KDSS/TemplatePackage/images/theme-teal/bg_repeatPageOptions.gif') 0 0;
 	border-top: 1px solid #9ecfc0;
 }
-#content-secondary .pageOptions .pageOptions-inner {background: transparent url('/ckd/TemplatePackage/images/theme-teal/bg_pageOptions.gif') 0 bottom no-repeat;}
+#content-secondary .pageOptions .pageOptions-inner {background: transparent url('/KDSS/TemplatePackage/images/theme-teal/bg_pageOptions.gif') 0 bottom no-repeat;}
 .pageOptions-horizontal, #blog .pageOptions-horizontal,
 .pageOptions-horizontal ul {background-color: #f6fcfb;}
 
@@ -97,12 +97,12 @@ Left Nav Colors
 #blog .rounders.option2 .inner,
 #blog .rounders.option2 .t,
 #blog .rounders.option2 .b,
-#blog .rounders.option2 .b div {background-image: url('/ckd/TemplatePackage/images/theme-teal/bg_twoBlocks.gif');}
+#blog .rounders.option2 .b div {background-image: url('/KDSS/TemplatePackage/images/theme-teal/bg_twoBlocks.gif');}
 
 #content-secondary .rounders .inner,
 #content-secondary .rounders .t,
 #content-secondary .rounders .b,
-#content-secondary .rounders .b div {background-image:url('/ckd/TemplatePackage/images/theme-teal/bg_smallRails.gif');}
+#content-secondary .rounders .b div {background-image:url('/KDSS/TemplatePackage/images/theme-teal/bg_smallRails.gif');}
 
 .rounders .t {
 	position:absolute;
@@ -140,7 +140,7 @@ Left Nav Colors
 
 .page-curl h3 {background-color:#c5ded6;}
 
-.double-rule {background: #c5ded6/* url('/ckd/TemplatePackage/images/theme-teal/bgDivDouble.jpg') 0 0 repeat-x*/;}
-.double-rule h3 {background: #c5ded6 url('/ckd/TemplatePackage/images/theme-teal/bgDoubleRule.gif') right bottom repeat-x;}
+.double-rule {background: #c5ded6/* url('/KDSS/TemplatePackage/images/theme-teal/bgDivDouble.jpg') 0 0 repeat-x*/;}
+.double-rule h3 {background: #c5ded6 url('/KDSS/TemplatePackage/images/theme-teal/bgDoubleRule.gif') right bottom repeat-x;}
 
 }

@@ -338,7 +338,7 @@ namespace CKDSurveillance_RD
 
                     if (drInd["LiteratureInd"].ToString() == "1")
                     {
-                        sb_indTable.Append("&nbsp;<img src='/ckd/images/bookicon.PNG' alt='Published literature or one-time analysis, ongoing surveillance not available' />");
+                        sb_indTable.Append("&nbsp;<img src='/KDSS/images/bookicon.PNG' alt='Published literature or one-time analysis, ongoing surveillance not available' />");
                         containsLitInd = true;
                     }
 

@@ -515,7 +515,7 @@
                                                                                     <label for="rbHypertensionNo" class="yesnotext float-left">No</label>
                                                                                 </fieldset>
                                                                             </td>
-                                                                            <td headers="CKDprob colNA rowHypertension" ><%--(--%><a class="percentText" style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q652'>41%</a><%--<sup>2</sup>)--%></td>
+                                                                            <td headers="CKDprob colNA rowHypertension" ><%--(--%><a id="lnkHypertensionQ652" class="percentText" style="text-decoration:none;" target='_blank' >41%</a><%--<sup>2</sup>)--%></td>
                                                                         </tr>
 
                                                                         <tr>
@@ -545,10 +545,10 @@
                                                                                     <span class="float-right closeX" onclick="$('#divDiabetesPopover').hide();">X</span>
                                                                                     <br />
                                                                                     <p>Having diabetes increases the probability of CKD by about 50%.</p>
-                                                                                    <p>About <a href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q653' target="_blank">10%</a> of the US population has diabetes.</p>
+                                                                                    <p>About <a id="lnkDiabetesQ653"  target="_blank">10%</a> of the US population has diabetes.</p>
                                                                                 </div>
                                                                             </td>
-                                                                            <td headers="CKDprob colNA rowDiabetes" ><%--(--%><a class="percentText" style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q653'>10%</a><%--<sup>3</sup>)--%></td>
+                                                                            <td headers="CKDprob colNA rowDiabetes" ><%--(--%><a id="lnkDiabetesQ653-2" class="percentText" style="text-decoration:none;" target='_blank' >10%</a><%--<sup>3</sup>)--%></td>
                                                                         </tr>
 
                                                                         <tr>
@@ -564,7 +564,7 @@
 
                                                                                 </fieldset>
                                                                             </td>
-                                                                            <td headers="CKDprob colNA rowCVD" ><%--(--%><a class="percentText" style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q151'>8%</a><%--<sup>4</sup>)--%></td>
+                                                                            <td headers="CKDprob colNA rowCVD" ><%--(--%><a id="lnkDiabetesQ151" class="percentText" style="text-decoration:none;" target='_blank' >8%</a><%--<sup>4</sup>)--%></td>
                                                                         </tr>
 
                                                                         <tr>
@@ -611,7 +611,7 @@
                                                                                     <label for="rbProteinuriaNo" class="yesnotext float-left">No</label>
                                                                                 </fieldset>
                                                                             </td>
-                                                                            <td headers="CKDprob colNA rowProteinUria" ><%--(--%><a class="percentText" style="text-decoration:none;" target='_blank' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q11'>10%</a><%--)--%></td>
+                                                                            <td headers="CKDprob colNA rowProteinUria" ><%--(--%><a id="lnkDiabetesQ11" class="percentText" style="text-decoration:none;" target='_blank'>10%</a><%--)--%></td>
                                                                         </tr>
 
                                                                         <tr>
@@ -1057,6 +1057,23 @@
 
         $(document).ready(function () {
 
+            // Get the root URL (protocol + host)
+            var rootUrl = window.location.protocol + "//" + window.location.host;
+            // Get DirPath from web.config via server-side rendering
+            var DirPath = '<%= System.Configuration.ConfigurationManager.AppSettings["DirPath"] ?? "" %>';
+            // Append DirPath to rootUrl
+            if (typeof DirPath !== "undefined" && DirPath) {
+                if (DirPath.startsWith("/")) {
+                    rootUrl += DirPath;
+                } else {
+                    rootUrl += "/" + DirPath;
+                }
+            }
+            $('#lnkHypertensionQ652').attr('href', rootUrl + '/detail.aspx?Qnum=Q652');
+            $('#lnkDiabetesQ653').attr('href', rootUrl + '/detail.aspx?Qnum=Q653');
+            $('#lnkDiabetesQ151').attr('href', rootUrl + '/detail.aspx?Qnum=Q151');
+            $('#lnkDiabetesQ653-2').attr('href', rootUrl + '/detail.aspx?Qnum=Q653');
+            $('#lnkDiabetesQ11').attr('href', rootUrl + '/detail.aspx?Qnum=Q11');
             //Initiate the content tabs
             //CDC.Gadgets.Tabs.init();
             console.log("initiate Sliders");
@@ -1408,7 +1425,7 @@
             //*Show text probability*
             //***********************    
             var legendline = "<div style='padding:5px;'><hr/></div>";
-            var txt = legendline + "<span style='margin-left:30px; text-align: center; font-weight: 600; font-size: 15px; font-family: Nunito; letter-spacing: 0px; color: #3D3D3D; opacity: 1; padding:10px; text-align: center;'><hr style='width:20px; border: 2px solid #FBAB18; opacity: 1; display: inline-block; vertical-align: middle;' />  &nbsp; U.S. National Average: <a style='text-decoration:none' href='https://nccd.cdc.gov/ckd/detail.aspx?Qnum=Q372' target='_blank'>15.4%</a></span>";
+            var txt = legendline + "<span style='margin-left:30px; text-align: center; font-weight: 600; font-size: 15px; font-family: Nunito; letter-spacing: 0px; color: #3D3D3D; opacity: 1; padding:10px; text-align: center;'><hr style='width:20px; border: 2px solid #FBAB18; opacity: 1; display: inline-block; vertical-align: middle;' />  &nbsp; U.S. National Average: <a style='text-decoration:none' href='https://WWWN.cdc.gov/kdss/detail.aspx?Qnum=Q372' target='_blank'>15.4%</a></span>";
             $('#spnBangAnswer').html(txt).show();
 
 
