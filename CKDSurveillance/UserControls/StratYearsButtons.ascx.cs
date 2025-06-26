@@ -84,7 +84,7 @@ namespace CKDSurveillance_RD.UserControls
         {
             string qNum = Request.QueryString["QNum"].Trim();
             string url = Request.RawUrl;
-            //(Example) -->  /ckd/detailButtons.aspx?Qnum=Q380
+            //(Example) -->  /KDSS/detailButtons.aspx?Qnum=Q380
             string chosenStrat = "";
             string chosenYear = "";
 
@@ -261,7 +261,7 @@ namespace CKDSurveillance_RD.UserControls
             //**********************************
             string qnum = Request.QueryString["QNum"].Trim();
             string[] parser = Request.RawUrl.Split('?')[0].Split('/');
-            //Example: /ckd/detailButtons.aspx?Qnum=Q380
+            //Example: /KDSS/detailButtons.aspx?Qnum=Q380
             string pn = parser[parser.Length - 1].Trim();
             string newURL = pn + "?QNum=" + qnum;
             string url = Uri.EscapeUriString(newURL); //Fortify fix
@@ -302,7 +302,7 @@ namespace CKDSurveillance_RD.UserControls
             string qNum = Request.QueryString["QNum"].Trim();
             string url = Request.RawUrl;
 
-            //(Example) -->  /ckd/detailButtons.aspx?Qnum=Q380
+            //(Example) -->  /KDSS/detailButtons.aspx?Qnum=Q380
             string chosenStrat = "";
             string chosenYear = "";
 

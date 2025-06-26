@@ -31,7 +31,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
         private void updateYearRows(DataTable dt, string selStrat)
         {
             string qNum = Request.QueryString["QNum"].Trim();
-            string url = Request.RawUrl;//(Example) -->  /ckd/detailButtons.aspx?Qnum=Q380            
+            string url = Request.RawUrl;//(Example) -->  /KDSS/detailButtons.aspx?Qnum=Q380            
             
             
             string chosenStrat = "";
@@ -201,7 +201,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             string qnum = Request.QueryString["QNum"].Trim();
             string[] parser = Request.RawUrl.Split('?')[0].Split('/');
            
-            //Example: /ckd/detailButtons.aspx?Qnum=Q380
+            //Example: /KDSS/detailButtons.aspx?Qnum=Q380
             string pn = parser[parser.Length - 1].Trim();
             string newURL = "~/" + pn + "?QNum=" + qnum; //added ~/ 5/5/2020 - BS
 
@@ -229,7 +229,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             string qNum = Request.QueryString["QNum"].Trim();            
             string url = Server.UrlDecode(Request.RawUrl); 
             
-            //(Example) -->  /ckd/detailButtons.aspx?Qnum=Q380
+            //(Example) -->  /KDSS/detailButtons.aspx?Qnum=Q380
             string chosenStrat = "";
             string chosenYear = "";
 

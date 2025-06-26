@@ -2512,7 +2512,7 @@ namespace CKDSurveillance_RD.MasterPages
                         Application["d3MapJsCode_" + QNum] = d3MapJsCode;
                     }
                     litD3MapTabs.Text = Application["d3MapJsCode_" + QNum].ToString();
-                    
+
                     hfMapType.Value = "6";
                 }
                 else
@@ -3742,7 +3742,7 @@ namespace CKDSurveillance_RD.MasterPages
             //sb.Append(" ,source: 'images/graphic_identifier.png' ");
             sb.Append(" ,xanchor: 'right', xref: '0', yanchor: 'bottom', yref: '0'}] ");
 
-            //sb.Append(" ,annotations: [" + titleannontations + " { x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://nccd.cdc.gov/ckd ', showarrow: false, font: { size: 9 } },{ x: 0, y: 1.2, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "',showarrow: false }, {text: '<b>" + xaxistitle + "</b>',font: {size: " + yaxisfontsize + "},showarrow: false,align: 'center',x: 0.6, y: 0.0, xref: 'paper',yref: 'paper',xshift: -70,yshift: -60}],"); //, font: { size: 20 }
+            //sb.Append(" ,annotations: [" + titleannontations + " { x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://WWWN.cdc.gov/kdss ', showarrow: false, font: { size: 9 } },{ x: 0, y: 1.2, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "',showarrow: false }, {text: '<b>" + xaxistitle + "</b>',font: {size: " + yaxisfontsize + "},showarrow: false,align: 'center',x: 0.6, y: 0.0, xref: 'paper',yref: 'paper',xshift: -70,yshift: -60}],"); //, font: { size: 20 }
             sb.Append(" ,annotations: [" + titleannontations + " { x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: '', showarrow: false, font: { size: 9 } },{ x: 0, y: 1.2, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '',showarrow: false }, {text: '<b></b>',font: {size: " + yaxisfontsize + "},showarrow: false,align: 'center',x: 0.6, y: 0.0, xref: 'paper',yref: 'paper',xshift: -70,yshift: -60}],"); //, font: { size: 20 }
             sb.Append(" legend: {orientation: 'h',  y: -0.1, font:{size: " + legendfontsize + "}, traceorder:'normal'}," + subplots_xaxis + " barmode: eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', yaxis: {showgrid: true, zeroline:false, range: [0, eval($('#hfChartYValToUse').val())], xshift: -70, linecolor:'#bdbdbd', tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size:  " + yaxistitlefontsize + " } }, margin: {t: 50}};");
 
@@ -3860,7 +3860,7 @@ namespace CKDSurveillance_RD.MasterPages
                 sb.Append(" ,shapes: [ { type:'line', xref: 'paper', x0:0, y0:" + refVal + ", x1:1, y1:" + refVal + ", line:{ color: 'rgb(0, 128, 0 )',  width: 5, dash: 'dot' }}]");
             }
 
-            //sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://nccd.cdc.gov/ckd ', showarrow: false, font: { size: 12 } },{ x: 0, y: 1.12, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "', font: { size: 14 } ,showarrow: false }],"); //, font: { size: 20 }
+            //sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://WWWN.cdc.gov/kdss ', showarrow: false, font: { size: 12 } },{ x: 0, y: 1.12, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "', font: { size: 14 } ,showarrow: false }],"); //, font: { size: 20 }
             //sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: '', showarrow: false, font: { size: 12 } },{ x: 0, y: 1.12, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "', font: { size: 14 } ,showarrow: false }],"); //, font: { size: 20 }
             sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: '', showarrow: false, font: { size: 12 } },{ x: 0, y: 1.12, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '', font: { size: 14 } ,showarrow: false }],"); //, font: { size: 20 }
 
@@ -4775,7 +4775,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                     if (dtPage != null)
                     {
-                        Cache.Insert("getPage", dtPage, null, DateTime.MaxValue, TimeSpan.FromDays(2));
+                        Cache.Insert("getPage_" + QNUM, dtPage, null, DateTime.MaxValue, TimeSpan.FromDays(30));
                         answer = dtPage;
                     }
 
@@ -5077,7 +5077,7 @@ namespace CKDSurveillance_RD.MasterPages
             string qNum = Request.QueryString["QNum"].Trim();
             string url = Request.RawUrl;
 
-            //(Example) -->  /ckd/detailButtons.aspx?Qnum=Q380
+            //(Example) -->  /KDSS/detailButtons.aspx?Qnum=Q380
             string chosenStrat = "";
             string chosenYear = "";
             string topic = "";
@@ -5147,7 +5147,7 @@ namespace CKDSurveillance_RD.MasterPages
         {
             string qNum = Request.QueryString["QNum"].Trim().ToUpper();
             string url = Request.RawUrl;
-            //(Example) -->  /ckd/detailButtons.aspx?Qnum=Q380
+            //(Example) -->  /KDSS/detailButtons.aspx?Qnum=Q380
             string chosenStrat = "";
             string chosenYear = "";
             string topic = "";

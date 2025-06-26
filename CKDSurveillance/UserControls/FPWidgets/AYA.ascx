@@ -1,4 +1,4 @@
-<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AYA.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.AYA" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AYA.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.AYA" %>
        
 
 <style type="text/css">
@@ -130,10 +130,10 @@
 
         <div class="col-md-4 aya-image">
             <div style="width:99%;text-align:center">
-                <%--<img src="/ckd/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
+                <%--<img src="/KDSS/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/KDSS/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
                 <a href="TopicHome/AwarenessArchive.aspx?topic=25">
 
-                  <img src="/ckd/images/AYA_theme_version-t5.jpg" alt="Click to view awareness topic archive"/>
+                  <img src="/KDSS/images/AYA_theme_version-t5.jpg" alt="Click to view awareness topic archive"/>
                 </a>
             </div>
              <div style="height:50%; width:98%; display:table-cell; padding-right: 18px; word-spacing: normal;" class ="areYouAwareMsg">
@@ -144,9 +144,9 @@
             </div>
         </div>
         <div class="col-md-6 aya-image-mobile">
-            <%--<img src="/ckd/images/Mask_Group_33_mobile.png"  style="width:100%;margin-top:15px" alt=""/>--%>
+            <%--<img src="/KDSS/images/Mask_Group_33_mobile.png"  style="width:100%;margin-top:15px" alt=""/>--%>
             <a href="TopicHome/AwarenessArchive.aspx?topic=25">
-                <img src="/ckd/images/AYA_theme_version-t5.jpg" style="width:100%;margin-top:15px" alt="Click to view awareness topic archive"/> 
+                <img src="/KDSS/images/AYA_theme_version-t5.jpg" style="width:100%;margin-top:15px" alt="Click to view awareness topic archive"/> 
             </a>
        </div>
 

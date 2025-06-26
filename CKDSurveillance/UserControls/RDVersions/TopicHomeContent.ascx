@@ -194,7 +194,7 @@
 			list-style: none;			
 		}
 		.logoImg{
-			/*background: transparent url('/ckd/images/CKDLeftNavLogo.png') 0% 0% no-repeat padding-box;*/
+			/*background: transparent url('/KDSS/images/CKDLeftNavLogo.png') 0% 0% no-repeat padding-box;*/
 			opacity: 1;
 			width: 100%; /*330px;*/
 			height: 100%; /*128px;*/
@@ -318,7 +318,7 @@
 							</div>
 							 <div id="ayatop" class="ayatoprow" runat="server" visible="false">
 								<div class="ayatopimg">
-									<%--<img src="/ckd/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/ckd/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
+									<%--<img src="/KDSS/images/AYA_theme_version_1.jpg" style="margin-left:15px;" alt=""/> <img src="/KDSS/images/Mask_Group_33.png" style="margin-left:15px;" alt=""/>--%>
 									<img src="../images/AYA_theme_version.jpg" style="margin-left:0%; width:99%; margin-top:1%; margin-bottom:5% " alt="Click to view awareness topic archive"/>
 								</div>
 								<div class="vl"></div>

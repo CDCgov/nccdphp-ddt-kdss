@@ -15,7 +15,7 @@
 	top:0;
 	left:0;
 	bottom:0;
-	background:transparent url('/ckd/TemplatePackage/images/bg_NavArea_home.gif') 0 0 repeat-y;
+	background:transparent url('/KDSS/TemplatePackage/images/bg_NavArea_home.gif') 0 0 repeat-y;
 	margin:0;
 	border:none;
 	padding:0;
@@ -104,7 +104,7 @@
 			}
 			#wrapper #breadBox ul li a:hover {text-decoration:none;}
 			#wrapper #breadBox ul li a {
-				background:transparent url('/ckd/TemplatePackage/images/bg_breadcrumbsArrow.gif') 0 0.75em no-repeat;
+				background:transparent url('/KDSS/TemplatePackage/images/bg_breadcrumbsArrow.gif') 0 0.75em no-repeat;
 				float:left;
 				margin:0;
 				padding:0.5em 0.4em 0.5em 0.9em;
@@ -121,7 +121,7 @@ p#return-link {
 	margin-bottom:1em;
 }
 	p#return-link a {
-		background:transparent url('/ckd/TemplatePackage/images/arrow_back.gif') left center no-repeat;
+		background:transparent url('/KDSS/TemplatePackage/images/arrow_back.gif') left center no-repeat;
 		padding:3px 0 3px 9px;
 	}
 	p#return-link a:hover {text-decoration:underline;}
@@ -140,7 +140,7 @@ p#return-link {
 }
 
 .topOPage a {
-	background:transparent url('/ckd/TemplatePackage/images/arrow_TOP.png') right center no-repeat;
+	background:transparent url('/KDSS/TemplatePackage/images/arrow_TOP.png') right center no-repeat;
 	clear:both;
 	display:block;
 	float:right;
@@ -502,9 +502,9 @@ p#return-link {
 			border:none;
 			padding:2px 0 2px 2.75em;
 		}
-		#contact-info li.phone {background:url('/ckd/TemplatePackage/images/icon_phone.gif') 0 0 no-repeat;}
-		#contact-info li.mail {background:url('/ckd/TemplatePackage/images/icon_mail.gif') 0 0 no-repeat;}
-		#contact-info li.contact-email {background:url('/ckd/TemplatePackage/images/icon_envelope.gif') 0 0 no-repeat;}
+		#contact-info li.phone {background:url('/KDSS/TemplatePackage/images/icon_phone.gif') 0 0 no-repeat;}
+		#contact-info li.mail {background:url('/KDSS/TemplatePackage/images/icon_mail.gif') 0 0 no-repeat;}
+		#contact-info li.contact-email {background:url('/KDSS/TemplatePackage/images/icon_envelope.gif') 0 0 no-repeat;}
 
 #nav-container .rounders{
 	position:relative;
@@ -539,7 +539,7 @@ p#return-link {
 
 	#content-secondary .rounders h4 {
 		position:relative;
-		background:url('/ckd/TemplatePackage/images/icon_subscribe.gif') left -2px no-repeat;
+		background:url('/KDSS/TemplatePackage/images/icon_subscribe.gif') left -2px no-repeat;
 		color:#333;
 		font-family:"Trebuchet MS";
 		font-size:1.1em;
@@ -673,21 +673,21 @@ p#return-link {
 		padding:0;
 	}
 	
-	ul.services li.email a {background:transparent url('/ckd/TemplatePackage/images/icon_email.gif') 0 center no-repeat;}
-	ul.services li.print a {background:transparent url('/ckd/TemplatePackage/images/icon_print.gif') 0 center no-repeat;}
-	ul.services li.subscribe a {background:transparent url('/ckd/TemplatePackage/images/icon_subscribe.gif') 0 center no-repeat;}
-	ul.services li.pdf a {background:transparent url('/ckd/TemplatePackage/images/icon_pdf.gif') 0 center no-repeat;}
-	ul.services li.podcast a {background:transparent url('/ckd/TemplatePackage/images/icon_podcast.gif') 0 center no-repeat;}
-	ul.services li.rss a {background:transparent url('/ckd/TemplatePackage/images/icon_rss.gif') 0 center no-repeat;}
-	ul.services li.share a {background:transparent url('/ckd/TemplatePackage/images/icon_share.gif') 0 center no-repeat;}
-	ul.services li.favorites a, div.pageOptions-horizontal ul li.favorites a {background:transparent url('/ckd/TemplatePackage/images/favorites.png') 0 center no-repeat;}
-	ul.services li.delicious a, div.pageOptions-horizontal ul li.delicious a {background:transparent url('/ckd/TemplatePackage/images/delicious.png') 0 center no-repeat;}
-	ul.services li.digg a, div.pageOptions-horizontal ul li.digg a {background:transparent url('/ckd/TemplatePackage/images/digg.png') 0 center no-repeat;}
-	ul.services li.facebook a, div.pageOptions-horizontal ul li.facebook a {background:transparent url('/ckd/TemplatePackage/images/facebook.gif') 0 center no-repeat;}
-	ul.services li.google a, div.pageOptions-horizontal ul li.google a {background:transparent url('/ckd/TemplatePackage/images/goog.png') 0 center no-repeat;}
-	ul.services li.technorati a, div.pageOptions-horizontal ul li.technorati a {background:transparent url('/ckd/TemplatePackage/images/technorati.png') 0 center no-repeat;}
-	ul.services li.yahoo a, div.pageOptions-horizontal ul li.yahoo a {background:transparent url('/ckd/TemplatePackage/images/yahoo-myweb.png') 0 center no-repeat;}
-	ul.services li.syndicatethis a {background:transparent url('/ckd/TemplatePackage/images/icon_syndicate.png') 0 center no-repeat;}
+	ul.services li.email a {background:transparent url('/KDSS/TemplatePackage/images/icon_email.gif') 0 center no-repeat;}
+	ul.services li.print a {background:transparent url('/KDSS/TemplatePackage/images/icon_print.gif') 0 center no-repeat;}
+	ul.services li.subscribe a {background:transparent url('/KDSS/TemplatePackage/images/icon_subscribe.gif') 0 center no-repeat;}
+	ul.services li.pdf a {background:transparent url('/KDSS/TemplatePackage/images/icon_pdf.gif') 0 center no-repeat;}
+	ul.services li.podcast a {background:transparent url('/KDSS/TemplatePackage/images/icon_podcast.gif') 0 center no-repeat;}
+	ul.services li.rss a {background:transparent url('/KDSS/TemplatePackage/images/icon_rss.gif') 0 center no-repeat;}
+	ul.services li.share a {background:transparent url('/KDSS/TemplatePackage/images/icon_share.gif') 0 center no-repeat;}
+	ul.services li.favorites a, div.pageOptions-horizontal ul li.favorites a {background:transparent url('/KDSS/TemplatePackage/images/favorites.png') 0 center no-repeat;}
+	ul.services li.delicious a, div.pageOptions-horizontal ul li.delicious a {background:transparent url('/KDSS/TemplatePackage/images/delicious.png') 0 center no-repeat;}
+	ul.services li.digg a, div.pageOptions-horizontal ul li.digg a {background:transparent url('/KDSS/TemplatePackage/images/digg.png') 0 center no-repeat;}
+	ul.services li.facebook a, div.pageOptions-horizontal ul li.facebook a {background:transparent url('/KDSS/TemplatePackage/images/facebook.gif') 0 center no-repeat;}
+	ul.services li.google a, div.pageOptions-horizontal ul li.google a {background:transparent url('/KDSS/TemplatePackage/images/goog.png') 0 center no-repeat;}
+	ul.services li.technorati a, div.pageOptions-horizontal ul li.technorati a {background:transparent url('/KDSS/TemplatePackage/images/technorati.png') 0 center no-repeat;}
+	ul.services li.yahoo a, div.pageOptions-horizontal ul li.yahoo a {background:transparent url('/KDSS/TemplatePackage/images/yahoo-myweb.png') 0 center no-repeat;}
+	ul.services li.syndicatethis a {background:transparent url('/KDSS/TemplatePackage/images/icon_syndicate.png') 0 center no-repeat;}
 	
 	ul.top-divide, ol.top-divide {
 		margin-top:3px;
@@ -717,7 +717,7 @@ div.top-divide h5 {padding:0.25em;}
 
 /* This gives an RSS "bullet" icon */
 .module.blocklist ul li.rss a {
-	background:transparent url('/ckd/TemplatePackage/images/icon_rss.gif') 0 center no-repeat;
+	background:transparent url('/KDSS/TemplatePackage/images/icon_rss.gif') 0 center no-repeat;
 	padding-left:18px;
 }
 .module ul li.rss a img {display:none;}
@@ -1021,14 +1021,14 @@ a.imageHover img {margin-top:3px;}
 				.pageOptions-horizontal ul li.subscribe,
 				.pageOptions-horizontal ul li.pdf{ z-index:-2;}
 				
-				.pageOptions-horizontal ul li.email a{background:url('/ckd/TemplatePackage/images/icon_email.gif') top center no-repeat;}
-				.pageOptions-horizontal ul li.print a{background:url('/ckd/TemplatePackage/images/icon_print.gif') top center  no-repeat;}
-				.pageOptions-horizontal ul li.pdf a{background:url('/ckd/TemplatePackage/images/icon_pdf.gif') top center no-repeat;}
-				.pageOptions-horizontal ul li.subscribe a{background:url('/ckd/TemplatePackage/images/icon_subscribe.gif') top center  no-repeat;}
-				.pageOptions-horizontal ul li.share a{background:url('/ckd/TemplatePackage/images/icon_share.gif') top center  no-repeat;}
-				.pageOptions-horizontal ul li.rss a{background:url('/ckd/TemplatePackage/images/icon_rss.gif') top center no-repeat;}
-				.pageOptions-horizontal ul li.podcast a{background:url('/ckd/TemplatePackage/images/icon_podcast.gif') top center no-repeat;}
-				.pageOptions-horizontal ul li.syndicatethis a{background:url('/ckd/TemplatePackage/images/icon_syndicate.png') top center  no-repeat;}
+				.pageOptions-horizontal ul li.email a{background:url('/KDSS/TemplatePackage/images/icon_email.gif') top center no-repeat;}
+				.pageOptions-horizontal ul li.print a{background:url('/KDSS/TemplatePackage/images/icon_print.gif') top center  no-repeat;}
+				.pageOptions-horizontal ul li.pdf a{background:url('/KDSS/TemplatePackage/images/icon_pdf.gif') top center no-repeat;}
+				.pageOptions-horizontal ul li.subscribe a{background:url('/KDSS/TemplatePackage/images/icon_subscribe.gif') top center  no-repeat;}
+				.pageOptions-horizontal ul li.share a{background:url('/KDSS/TemplatePackage/images/icon_share.gif') top center  no-repeat;}
+				.pageOptions-horizontal ul li.rss a{background:url('/KDSS/TemplatePackage/images/icon_rss.gif') top center no-repeat;}
+				.pageOptions-horizontal ul li.podcast a{background:url('/KDSS/TemplatePackage/images/icon_podcast.gif') top center no-repeat;}
+				.pageOptions-horizontal ul li.syndicatethis a{background:url('/KDSS/TemplatePackage/images/icon_syndicate.png') top center  no-repeat;}
 
 /**
  * = Modifying for applications and wide page updates ======
@@ -1054,14 +1054,14 @@ a.imageHover img {margin-top:3px;}
 	.widePage .pageOptions-horizontal .pageOptions-inner ul.forWide li ul.services a:hover {text-decoration:underline;}
 	.widePage .pageOptions-horizontal .pageOptions-inner ul.forWide li ul.services a {width:auto;}
 				*:first-child+html .widePage .pageOptions-horizontal .pageOptions-inner ul.forWide li ul.services a {width:117px;}
-	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.email a {background:url('/ckd/TemplatePackage/images/icon_email.gif') center no-repeat;}
-	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.print a{background:url('/ckd/TemplatePackage/images/icon_print.gif') center  no-repeat;}
-	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.pdf a{background:url('/ckd/TemplatePackage/images/icon_pdf.gif') center no-repeat;}
-	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.subscribe a{background:url('/ckd/TemplatePackage/images/icon_subscribe.gif') center  no-repeat;}
-	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.share > a{background:url('/ckd/TemplatePackage/images/icon_share.gif') center  no-repeat;}
-	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.rss a{background:url('/ckd/TemplatePackage/images/icon_rss.gif') center no-repeat;}
-	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.podcast a{background:url('/ckd/TemplatePackage/images/icon_podcast.gif') center no-repeat;}
-	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.syndicatethis a{background:url('/ckd/TemplatePackage/images/icon_syndicate.png') center no-repeat;}
+	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.email a {background:url('/KDSS/TemplatePackage/images/icon_email.gif') center no-repeat;}
+	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.print a{background:url('/KDSS/TemplatePackage/images/icon_print.gif') center  no-repeat;}
+	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.pdf a{background:url('/KDSS/TemplatePackage/images/icon_pdf.gif') center no-repeat;}
+	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.subscribe a{background:url('/KDSS/TemplatePackage/images/icon_subscribe.gif') center  no-repeat;}
+	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.share > a{background:url('/KDSS/TemplatePackage/images/icon_share.gif') center  no-repeat;}
+	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.rss a{background:url('/KDSS/TemplatePackage/images/icon_rss.gif') center no-repeat;}
+	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.podcast a{background:url('/KDSS/TemplatePackage/images/icon_podcast.gif') center no-repeat;}
+	.widePage .pageOptions-horizontal .pageOptions-inner > ul li.syndicatethis a{background:url('/KDSS/TemplatePackage/images/icon_syndicate.png') center no-repeat;}
 
 /**
  * = External Linking and Plugins Rules =================================

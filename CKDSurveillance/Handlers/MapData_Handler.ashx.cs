@@ -276,7 +276,7 @@ namespace CKDRD4.Handlers
 
 
 
-            sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://nccd.cdc.gov/ckd ', showarrow: false, font: { size: 9 } },{ x: 0, y: " + titleposition + ", xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "',showarrow: false }],"); //, font: { size: 20 }
+            sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://WWWN.cdc.gov/kdss ', showarrow: false, font: { size: 9 } },{ x: 0, y: " + titleposition + ", xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + title + "',showarrow: false }],"); //, font: { size: 20 }
 
             ////The Y axis label if being moved to the far left of the chart within the client side  $(function () 
             sb.Append("showlegend:false, barmode:  'bar', hovermode: 'closest',hoverinfo: 'none', xaxis: { tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + " }, linecolor:'#bdbdbd', title:'<b>" + xaxistitle + "</b>', titlefont: { size: 12 }},yaxis: {automargin: true, dtick: 1, xshift: -200, linecolor:'#bdbdbd', tickfont: { size: 10 }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: 12 } }};");
@@ -457,7 +457,7 @@ namespace CKDRD4.Handlers
             // sb.Append(" var layout = {title: '" + charttitle + "',yaxis: {autotick:false,  showticklabels: false, ticks: '',  title: 'Counties - (n=" + counties_cnt.ToString() + ")', titlefont: {family: 'Arial', size: 18, color:'black'}}, xaxis: {autotick:false,tickangle: -45}}; ");
 
             sb.Append(" var layout = {autosize:true, height: " + chartheight);
-            sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://nccd.cdc.gov/ckd ', showarrow: false, font: { size: 9 } },{ x: 0, y: " + titleposition + ", xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + charttitle + "',showarrow: false }],"); //, font: { size: 20 }
+            sb.Append(" ,annotations: [{ x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: 'Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://WWWN.cdc.gov/kdss ', showarrow: false, font: { size: 9 } },{ x: 0, y: " + titleposition + ", xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '" + charttitle + "',showarrow: false }],"); //, font: { size: 20 }
 
             ////The Y axis label if being moved to the far left of the chart within the client side  $(function () 
             sb.Append("showlegend:false, barmode:  'bar', hovermode: 'closest',hoverinfo: 'none', xaxis: { autotick:false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + " }, linecolor:'#bdbdbd', title:'<b>Years</b>', titlefont: { size: 12 }},yaxis: {automargin: true, dtick: 1, xshift: -200, linecolor:'#bdbdbd', tickfont: { size: 10 }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: 12 } }};");

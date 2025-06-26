@@ -31,7 +31,7 @@
                             Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States.
                         </p>
                         <p>
-                            website: <a href="https://nccd.cdc.gov/CKD/">https://nccd.cdc.gov/CKD/</a>
+                            website: <a href="https://WWWN.cdc.gov/KDSS/">https://WWWN.cdc.gov/KDSS/</a>
                         </p>
                     </div>
 

@@ -170,7 +170,7 @@
                     <ol type="1">
                         <!--style='font-size:10.0pt;font-family:"Arial","sans-serif"'-->
                         <li class="liText">
-                            Centers for Disease Control and Prevention. Kidney Disease Surveillance System. Prevalence of Diagnosed CKD Among Medicare Beneficiaries Aged ≥ 65 Years, by US State and County. Accessed August 9, 2023. <a href="https://nccd.cdc.gov/CKD/detail.aspx?Qnum=Q705">https://nccd.cdc.gov/CKD/detail.aspx?Qnum=Q705</a>
+                            Centers for Disease Control and Prevention. Kidney Disease Surveillance System. Prevalence of Diagnosed CKD Among Medicare Beneficiaries Aged ≥ 65 Years, by US State and County. Accessed August 9, 2023. <a href="https://WWWN.cdc.gov/KDSS/detail.aspx?Qnum=Q705">https://WWWN.cdc.gov/KDSS/detail.aspx?Qnum=Q705</a>
                         </li>
                         <li class="liText">
                             Lea JP, Nicholas SB. Diabetes mellitus and hypertension: key risk factors for kidney disease. J Natl Med Assoc. 2002;94(8 suppl):7S–15S. PMID: 12152917; PMCID: PMC2594170
@@ -206,6 +206,20 @@
 
              $(".imageurl").attr("onclick", "window.open('" + newhref + "', 'blank')");
              $(".ayaurl").attr("onclick", "window.open('" + newhref + "', 'blank')");
+
+             // Get the root URL (protocol + host)
+             var rootUrl = window.location.protocol + "//" + window.location.host;
+             // Get DirPath from web.config via server-side rendering
+             var DirPath = '<%= System.Configuration.ConfigurationManager.AppSettings["DirPath"] ?? "" %>';
+             // Append DirPath to rootUrl
+             if (typeof DirPath !== "undefined" && DirPath) {
+                 if (DirPath.startsWith("/")) {
+                     rootUrl += DirPath;
+                 } else {
+                     rootUrl += "/" + DirPath;
+                 }
+             }
+             $('#lnkDiabetesQ11').attr('href', rootUrl + '/detail.aspx?Qnum=Q11');
          });
          
          function checkEnterKey(e) {
