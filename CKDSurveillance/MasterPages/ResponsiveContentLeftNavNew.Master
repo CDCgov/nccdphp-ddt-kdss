@@ -11,7 +11,6 @@
 <%@ Register Src="~/UserControls/FPWidgets/EmailSubscribeMain.ascx" TagPrefix="uc1" TagName="EmailSubscribeMain" %>
 <%@ Register Src="~/UserControls/FPWidgets/Disclaimer.ascx" TagPrefix="uc1" TagName="Disclaimer" %>
 
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head runat="server">
@@ -29,25 +28,28 @@
 
     <meta name="keywords" content="CDC, Surveillance, System, Kidney, Chronic, Disease, Renal" />
     <meta name="robots" content="index,follow" />
-    <meta property="cdc:template_version" content="4.0" />
+    <meta property="cdc:template_version" content="5.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <%-- CUSTOM THEMES--%>
-     <link href="../App_Themes/theme-teal.css" rel="stylesheet" />
+    <link href="../App_Themes/theme-teal.css" rel="stylesheet" />
 
     <%--Scripts--%>
     <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/scripts.html"));%>
     <%--End Scripts--%>
 
 
+
     <style>
         .nav-link.active {
-            background-color: #FFFFFF!important;
-            color: #005fa3!important;
+            background-color: #FFFFFF !important;
+            color: #005fa3 !important;
         }
+
         .nav-link.selected {
-            background-color: #FFFFFF!important;
-            color: #005fa3!important;
+            background-color: #FFFFFF !important;
+            color: #005fa3 !important;
         }
 
         .siteTitleBar {
@@ -228,8 +230,8 @@
         }
 
         /*.cdc-footer__inner {*/
-            /*max-width: 1690px !important;*/
-            /*margin-left: 10% !important;
+        /*max-width: 1690px !important;*/
+        /*margin-left: 10% !important;
             margin-right: 10% !important;
             justify-content: center;
         }*/
@@ -242,15 +244,17 @@
             width: 23% !important;
             justify-items: right;
         }
+
         .cdc-footer__body-logo {
             margin: 0px !important;
             padding: 0px;
         }
-        .cdc-footer__body-logo img{
-            width: 300px !important;
-            height:101.69px !important;
-        }
-       /* .cdc-footer__nav a {
+
+            .cdc-footer__body-logo img {
+                width: 300px !important;
+                height: 101.69px !important;
+            }
+        /* .cdc-footer__nav a {
             padding-left:0px !important;
             padding-right:70px !important;
         }*/
@@ -317,21 +321,18 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body class="no-js">
-
+<body class="no-js leftNavNew">
     <%--*****************--%>
     <%--*Skip navigation*--%>
     <%--*****************--%>
     <uc1:ucSkipNav runat="server" ID="ucSkipNav" />
 
-
     <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/site-alert.html"));%>
-
 
     <%--********--%>
     <%--*Header*--%>
     <%--********--%>
-    <div class="container-fluid header-wrapper homepage-ckd-nav  navbar-brand" style="background-color: #005ea2">
+    <div class="container-fluid header-wrapper homepage-ckd-nav navbar-brand cdc-header__desktop" style="background-color: #005ea2">
         <div class="container">
             <header role="banner" aria-label="Header" class="pt-2 header-no-bg menu-container">
                 <nav class="navbar navbar-expand-lg navbar-nav__hidden">
@@ -339,14 +340,14 @@
                         <a class="navbar-brand" href="https://www.cdc.gov/">
                             <img src="/TemplatePackage/5.0/img/logo/cdc-logo-tag-right.svg" style="max-height: 60px;" alt="Centers for Disease Control and Prevention">
                         </a>
-                   
+
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 position-relative">
-                                <li class="nav-item dropdown" style="width:400px; visibility: hidden;">
+                                <li class="nav-item dropdown" style="width: 400px; visibility: hidden;">
                                     <form id="cdc-desktop-search-form" accept-charset="UTF-8" action="https://search.cdc.gov/search/" class="cdc-header-search-form" method="get" autocomplete="off" role="search" style="display: flex;">
                                         <input class="form-control" type="search" name="query" data-search-input="" aria-label="Search" placeholder="Search" spellcheck="false" autocomplete="off"><div class="cdc-search-complete"></div>
                                         <button type="submit"><span class="cdc-fa-magnifying-glass"></span><span class="visually-hidden">Search</span></button>
-                                        <button type="button" style=visibility:hidden;><span class="cdc-icon-close" ></span><span class="visually-hidden">Close</span></button>
+                                        <button type="button" style="visibility: hidden;"><span class="cdc-icon-close"></span><span class="visually-hidden">Close</span></button>
                                     </form>
                                     <a class="nav-link" href="#"><i class="cdc-fa-magnifying-glass me-2"></i>
                                         Search					</a>
@@ -390,14 +391,6 @@
         </div>
     </div>
 
-
-
-    <%--*******************--%>
-    <%--*navigation mobile*--%>
-    <%--*******************--%>
-    <%--<nav role="navigation" aria-label="Mobile Nav" id="mobilenav" class="sticky-top">        --%>
-    <%-- <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/4.0/includes/nav-mobile.html"));%>        --%>
-    <%--</nav>--%>
 
 
     <%--*********--%>
@@ -467,7 +460,7 @@
         </div>
     </div>--%>
 
-    <%--footer--%>   
+    <%--footer--%>
     <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/site-footer.html"));%>
     <%--end footer--%>
 
@@ -478,34 +471,6 @@
     <%--scripts and metrics--%>
     <script type="text/javascript" src='<%= HttpRuntime.AppDomainAppVirtualPath.TrimEnd( '/' ) + ("/scripts/jquery.cycle2.js") %>'></script>
     <script type="text/javascript" src='<%= HttpRuntime.AppDomainAppVirtualPath.TrimEnd( '/' ) + ("/scripts/jquery.cycle2.carousel.min.js") %>'></script>
-    <script type="text/javascript">
-
-        s.pageName = document.title;
-        s.channel = "<%= ConfigurationManager.AppSettings["OmnitureApp"] %>";
-        window.shortTitle = "CKD";
-
-        window.pageOptions = window.pageOptions || {};
-        window.pageOptions.navigation = window.pageOptions.navigation || {};
-
-        window.pageOptions.navigation.breadcrumbs = {
-            mode: 'auto',
-            showCurrentPage: true,
-            prefix: [{
-                text: '<%= ConfigurationManager.AppSettings["AppName"] %>',
-                href: ''
-            }]
-
-        };
-
-        window.pageOptions.navigation.breadcrumbs = window.pageOptions.navigation.breadcrumbs || {};
-        window.pageOptions.navigation.pathToSelect = window.pageOptions.navigation.pathToSelect || window.location.pathname
-
-
-        window.CDC.tp4.public.appInit(window.pageOptions);
-
-
-    </script>
-    <%--<uc1:ucOmniture runat="server" ID="ucOmniture" />--%>
     <%--end scripts and metrics --%>
 
 
@@ -552,8 +517,6 @@
             });
         });
 
-
-
         function recordScreenWidth() {
 
             var w = $(window).width();
@@ -597,7 +560,6 @@
                 }
             });
         }
-
 
         function clearMore() {
             var iv = $('.FAQsMenu').is(':visible');
@@ -716,9 +678,6 @@
                 $(".imageurl, .img-fluid").trigger('click');
             }
         }
-
-
-
     </script>
 
     <script type="text/javascript">

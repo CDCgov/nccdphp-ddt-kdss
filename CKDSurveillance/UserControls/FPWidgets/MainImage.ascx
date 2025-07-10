@@ -1,7 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MainImage.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.MainImage" %>
-
-<link href='/css/Fonts.css?family=Nunito:400,300,600,700,800' rel='stylesheet' type='text/css'>   
-
 <style type="text/css">
     
     .main-icon-mobile {

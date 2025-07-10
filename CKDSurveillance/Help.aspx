@@ -1,6 +1,4 @@
-﻿<%--<%@ Page Title="Help" Language="C#"AutoEventWireup="true" CodeBehind="Help.aspx.cs" Inherits="CKDSurveillance_RD.Help" MasterPageFile="~/MasterPages/ResponsiveContent_popupThin.Master" %>--%>
-
-<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContent_popup.Master" AutoEventWireup="true" CodeBehind="Help.aspx.cs" Inherits="CKDSurveillance_RD.Help" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ResponsiveContent_popup.Master" AutoEventWireup="true" CodeBehind="Help.aspx.cs" Inherits="CKDSurveillance_RD.Help" %>
 
 <%@ Register Src="~/UserControls/Glossary.ascx" TagPrefix="uc1" TagName="Glossary" %>
 <%@ Register Src="~/UserControls/FAQ.ascx" TagPrefix="uc1" TagName="FAQ" %>
