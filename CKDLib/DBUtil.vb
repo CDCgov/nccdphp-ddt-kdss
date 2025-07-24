@@ -8,14 +8,15 @@ Imports System.Data.Common
 Imports System.Configuration
 Imports NG.NCCDPHP.DataAccess
 Imports NG.NCCDPHP.Utilities
-Imports NG.NCCDPHP.DataAccess.Sql
+'Imports NG.NCCDPHP.DataAccess.Sql
+Imports Microsoft.Practices.EnterpriseLibrary.Data.Sql
 
 Public Class DBUtil
     Public Shared Function GetSqlDBConnection() As SqlDatabase
-        Dim sqlDB As New SqlDatabase(ConfigurationManager.AppSettings("Database"), _
-                                     ConfigurationManager.AppSettings("DBAccount"), _
-                                     ConfigurationManager.AppSettings("DBServer"), _
-                                     ConfigurationManager.AppSettings("DBKey"))
+
+        Dim connHelper As New GetDBConnectionString()
+        Dim connectionString As String = connHelper.GetConnectionString()
+        Dim sqlDB As New SqlDatabase(connectionString)
         Return sqlDB
     End Function
 End Class

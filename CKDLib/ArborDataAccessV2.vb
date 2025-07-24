@@ -14,7 +14,8 @@ Imports NG.NCCDPHP.DataAccess2.Sql
 Imports NG.NCCDPHP.Common
 Imports NG.NCCDPHP.DataAccess
 Imports NG.NCCDPHP.Utilities
-Imports NG.NCCDPHP.DataAccess.Sql
+'Imports NG.NCCDPHP.DataAccess.Sql
+Imports Microsoft.Practices.EnterpriseLibrary.Data.Sql
 Imports DocumentFormat.OpenXml.Office2013.Excel
 ''**NG/CDC**''
 
