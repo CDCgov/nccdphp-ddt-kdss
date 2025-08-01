@@ -9,6 +9,7 @@ Imports Newtonsoft.Json
 Imports NG.NCCDPHP.DataAccess
 'Imports NG.NCCDPHP.DataAccess.Sql
 Imports Microsoft.Practices.EnterpriseLibrary.Data.Sql
+Imports ConfigurationManager = System.Configuration.ConfigurationManager
 Public Class GetDBConnectionString
     Private configuration As IConfiguration
 
@@ -62,7 +63,7 @@ Public Class GetDBConnectionString
 
             '    conn.Close()
             'End Using
-
+            strReturn = ConfigurationManager.ConnectionStrings("CKD_2022").ConnectionString.ToString()
         Catch ex As Exception
             Console.WriteLine("Connection String Creation Failed")
             Console.WriteLine("Check Web.config parameters or JSON formatting.")
