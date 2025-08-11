@@ -22,48 +22,10 @@ Public Class GetDBConnectionString
             Dim DBName As String = System.Configuration.ConfigurationManager.AppSettings("DBName")
             Dim DBServer As String = System.Configuration.ConfigurationManager.AppSettings("DBServer")
 
-            ' Build SQL connection string
-            Dim builder As New SqlConnectionStringBuilder()
-
-            'Windows 
-
-            builder.DataSource = DBServer
-            builder.InitialCatalog = DBName
-            builder.IntegratedSecurity = True ' Equivalent to "Integrated Security=SSPI"
-
-            strReturn = builder.ConnectionString
+            Dim connectionString As String = String.Format("Server={0};Database={1};Integrated Security=True;TrustServerCertificate=True", DBServer, DBName)
+            strReturn = connectionString
 
 
-            'strReturn = "Data Source=dsdv-infc-2200.cdc.gov,1433;Initial Catalog=NCCD_DDT_CKD;Integrated Security=SSPI"
-            '' Test 
-            'Dim sqlDB As New SqlDatabase(strReturn)
-
-            'Using conn As New SqlConnection(strReturn)
-            '    conn.Open()
-            '    Console.WriteLine("Connection successful!")
-
-            '    Dim query As String = "SELECT * FROM AYA"
-            '    Using cmd As New SqlCommand(query, conn)
-            '        Using reader As SqlDataReader = cmd.ExecuteReader()
-            '            While reader.Read()
-            '                'Create A New DataTable if needed (optional)
-            '                Dim dt As New DataTable()
-
-            '                'Uncomment below to load data into DataTable
-            '                dt.Load(reader)
-
-            '                'Example:                    Print the first column (adjust index/type as needed)
-            '                For Each row As DataRow In dt.Rows
-            '                    Console.WriteLine(row(0).ToString())
-            '                Next
-            '                Exit While
-            '            End While
-            '        End Using
-            '    End Using
-
-            '    conn.Close()
-            'End Using
-            strReturn = ConfigurationManager.ConnectionStrings("CKD_2022").ConnectionString.ToString()
         Catch ex As Exception
             Console.WriteLine("Connection String Creation Failed")
             Console.WriteLine("Check Web.config parameters or JSON formatting.")
