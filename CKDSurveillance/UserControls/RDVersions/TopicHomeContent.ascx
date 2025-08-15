@@ -4,6 +4,7 @@
 
 <%--*Plotly Charting Tool*--%>
     <script src="../scripts/plotly-latest.min.js"></script>
+    <script src="../scripts/kdss.js"></script>
 
 <style>
     #hovertooltip {
