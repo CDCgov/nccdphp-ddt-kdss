@@ -1882,15 +1882,22 @@
 
             });
 
-            function redrawPlotlyChart()
-            {
+            function redrawPlotlyChart() {
                 //console.log("inside redraw");
                 //not sure what these two lines do commented out for now
                 //$("#svgchart").removeProp("style");
                 //$("#svgchart").prop("style", "display:inline-block");
 
                 createPlotlyChart();
-                createPlotlyChartRel();
+                createPlotlyChartRel(); /* TODO: comment out this block */
+
+                /* TODO: uncomment this block */
+
+                /*
+                if (document.getElementById("divRBSTD") != null) { }
+                    createPlotlyChartRel();
+                }
+                */
 
                 compliance508();
             }
@@ -3176,8 +3183,10 @@
                  .filter(function (d) { return d.id == statecode_tabs; })[0]; // filtering out the state by FIPS code, which is passed in above. get a geojson object (not an array of objects)
              
                  stateClicked_tabs(featurestate_tabs);
+
+                 callHandler(statecode_tabs);
              }
-             callHandler($("#ddstate").val());
+             //callHandler($("#ddstate").val());
 
              
          }

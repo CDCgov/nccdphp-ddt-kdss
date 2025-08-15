@@ -31,6 +31,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             switch (emailDate)
             {
                 case "May_2025":
+                case "August_2025":
                     bcSelListItem.InnerText = "> Outcomes";
                     break;
                 case "February_2024":
