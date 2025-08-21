@@ -30,8 +30,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             String emailDate = Request.QueryString["emailDate"];
             switch (emailDate)
             {
-                case "May_2025":
-                case "August_2025":
+                case "May_2025":                
                     bcSelListItem.InnerText = "> Outcomes";
                     break;
                 case "February_2024":
@@ -46,6 +45,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 case "October_2022":
                 case "October_2024":
                 case "August_2023":
+                case "August_2025":
                     bcSelListItem.InnerText = "> Prevalence & Incidence";
                     break;
                 case "August_2024":

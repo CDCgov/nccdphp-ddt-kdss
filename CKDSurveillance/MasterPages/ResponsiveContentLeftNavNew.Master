@@ -39,6 +39,7 @@
     <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/scripts.html"));%>
     <%--End Scripts--%>
 
+    <script src="../scripts/kdss.js"></script>
 
 
     <style>
