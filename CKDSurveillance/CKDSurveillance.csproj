@@ -399,6 +399,7 @@
     <Content Include="AreYouAware.aspx" />
     <Content Include="AYA\August_2023.html" />
     <Content Include="AYA\August_2024.html" />
+    <Content Include="AYA\August_2025.html" />
     <Content Include="AYA\December_2023.html" />
     <Content Include="AYA\February_2024.html" />
     <Content Include="AYA\Images\April_2024.PNG" />
@@ -406,6 +407,8 @@
     <Content Include="AYA\Images\August_2024-a.png" />
     <Content Include="AYA\Images\August_2024-b.png" />
     <Content Include="AYA\Images\August_2024.PNG" />
+    <Content Include="AYA\Images\August_2025.png" />
+    <Content Include="AYA\Images\August_2025_table.png" />
     <Content Include="AYA\Images\CurrentAYA-a.png" />
     <Content Include="AYA\Images\CurrentAYA-b.png" />
     <Content Include="AYA\Images\CurrentAYA.png" />
@@ -415,6 +418,8 @@
     <Content Include="AYA\Images\June_2024.png" />
     <Content Include="AYA\Images\June_2023.png" />
     <Content Include="AYA\Images\March_2025.png" />
+    <Content Include="AYA\Images\May_2025-a.png" />
+    <Content Include="AYA\Images\May_2025-b.png" />
     <Content Include="AYA\Images\October_2023.png" />
     <Content Include="AYA\Images\October_2024-a.png" />
     <Content Include="AYA\Images\October_2024-b.png" />
@@ -643,6 +648,7 @@
     <Content Include="scripts\d3.v4.min.js" />
     <Content Include="scripts\ion.rangeSlider.js" />
     <Content Include="scripts\jquery.range.js" />
+    <Content Include="scripts\kdss.js" />
     <Content Include="scripts\LinkedMap.js" />
     <Content Include="scripts\plotly-latest.min.js" />
     <Content Include="scripts\SliderFunctions.js" />
@@ -719,6 +725,7 @@
     <Content Include="PPT\Q800.pptx" />
     <Content Include="PPT\Q801.pptx" />
     <Content Include="PPT\Q804.pptx" />
+    <Content Include="PPT\Q811.pptx" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="scripts\local.js" />
     <Content Include="scripts\templateContentEmpty.js" />

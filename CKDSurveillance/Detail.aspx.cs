@@ -2179,6 +2179,7 @@ namespace CKDSurveillance_RD.MasterPages
             string tableSubtitleText = dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString();
             //added 1/22/2019 BS
             string chartShorttitleText = dsChart.Tables["Chart"].Rows[0]["IndicatorShortTitle"].ToString();
+            string chartFormatType = dsChart.Tables["Chart"].Rows[0]["DotNetChartStyleID"].ToString();
             //if (datasourceCount > 1) //if more then 1 datasource is listed then display the chart title 
             //{
             litChartTitleText.Text = chartShorttitleText;
@@ -2214,7 +2215,8 @@ namespace CKDSurveillance_RD.MasterPages
                 QNum.Substring(1) == "700" ||
                 QNum.Substring(1) == "719" ||
                 QNum.Substring(1) == "730" ||
-                QNum.Substring(1) == "761")
+                QNum.Substring(1) == "761" ||
+                chartFormatType == DotNetChartStyle.StackedColumn)
                 litChartTitleText.Visible = false;
             else
             {
@@ -2285,93 +2287,7 @@ namespace CKDSurveillance_RD.MasterPages
                 }
             }
 
-            //litChartTitleText.Text = tableByPopulation.Replace("Year and ", "") ;
-            //litChartTitleText.Text = litChartTitleText.Text.Replace("<br>", "");
-            //litChartTitleText.Text = litChartTitleText.Text.Replace("/Ethnicity", "");
-            //litChartTitleText.Text = litChartTitleText.Text.Replace("For 2019", "");
-
-                //if ((QNum == "Q9") || (QNum == "Q756"))
-                //{
-                //    if (litChartTitleText.Text == "by Year")
-                //    {
-                //        litChartTitleText.Text = "CKD (%)";  //Overall
-                //    }
-                //    else if (litChartTitleText.Text == "by Age")
-                //    {
-                //        litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text + " Category";
-                //    }
-                //    else
-                //    {
-                //        litChartTitleText.Text = "CKD (%), " + litChartTitleText.Text;
-                //    }
-                //}
-                //else if ((QNum == "Q98") || (QNum == "Q759"))
-                //{
-                //    if (litChartTitleText.Text == "by Year")
-                //    {
-                //        litChartTitleText.Text = "Aware of CKD (%)";  //Overall
-                //    }
-                //    else if (litChartTitleText.Text == "by Age")
-                //    {
-                //        litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text + " Category";
-                //    }
-                //    else
-                //    {
-                //        litChartTitleText.Text = "Aware of CKD (%), " + litChartTitleText.Text;
-                //    }
-                //}
-                //else if (QNum == "Q605")
-                //{
-                //    if (litChartTitleText.Text == "by Year")
-                //    {
-                //        litChartTitleText.Text = "ACEi/ARB Use (%)";  //Overall
-                //    }
-                //    else if (litChartTitleText.Text == "by Age")
-                //    {
-                //        litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text + " Category";
-                //    }
-                //    else
-                //    {
-                //        litChartTitleText.Text = "ACEi/ARB Use (%), " + litChartTitleText.Text;
-                //    }
-                //}
-                //else if (QNum == "Q640")
-                //{
-                //    if (litChartTitleText.Text == "by Year")
-                //    {
-                //        litChartTitleText.Text = "Albuminuria Testing (%)";  //Overall
-                //    }
-                //    else if (litChartTitleText.Text == "by Age")
-                //    {
-                //        litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text + " Category";
-                //    }
-                //    else
-                //    {
-                //        litChartTitleText.Text = "Albuminuria Testing (%), " + litChartTitleText.Text;
-                //    }
-                //}
-                //else if ((QNum == "Q364") || (QNum == "Q700") || (QNum == "Q703"))  //subtitle is not needed since it's only one view
-                //{
-                //    litChartTitleText.Text = "";
-                //}
-
-                //if ((datasourceCount > 1) && (viewdatabyCount > 1)) //if more then 1 datasource is listed then display the chart title 
-                //{
-                //if (!string.IsNullOrEmpty(tableByPopulation))
-                //{
-                //    if ((litChartTitleText.Text).Length > 0)
-                //    {
-                //        litChartTitleText.Text = litChartTitleText.Text + " - " + tableByPopulation;
-                //    }
-                //    else
-                //    {
-                //        litChartTitleText.Text = tableByPopulation.Replace("by ", "By ");
-                //    }
-                //}
-                //}
-
-
-                //*Store the Header Text and Title for the Gridview*
+            //*Store the Header Text and Title for the Gridview*
             if (QNum.Substring(1) != "89" && QNum.Substring(1) != "185" && QNum.Substring(1) != "773")
             {
                 Session["TableHeader"] = "<div class=\"addedTableHeader\">" + dsChart.Tables["Chart"].Rows[0]["ChartHeaderWithSuperscripts"].ToString() + tableByPopulation + " (%)</div> <div class=\"addedTableHeaderDataSource\">" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString() + "</div>";
@@ -2714,13 +2630,13 @@ namespace CKDSurveillance_RD.MasterPages
 
             DataTable dtChartHeader = dsChart.Tables[0];
             string chartFormatType = dtChartHeader.Rows[0]["DotNetChartStyleID"].ToString();
-            if (chartFormatType == "3" || QNum.Substring(1) == "756") //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
+            if (chartFormatType == DotNetChartStyle.Line|| QNum.Substring(1) == "756") //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
             {
                 RB_ChartType.SelectedValue = "'line'";
                 hfChartType.Value = "'line'";
                 hfChartMode.Value = "'group'";
             }
-            else if (chartFormatType == "11")
+            else if (chartFormatType == DotNetChartStyle.StackedColumn)
             {
                 RB_ChartType.SelectedValue = "'stacked'";
                 hfChartType.Value = "'bar'";
@@ -3025,7 +2941,7 @@ namespace CKDSurveillance_RD.MasterPages
             string yData_col_final_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
 
             //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-            if (QNum.Substring(1) == "372")
+            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final);
             else
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
@@ -3042,7 +2958,7 @@ namespace CKDSurveillance_RD.MasterPages
                 plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
             //1/12/2021 - BS - added the basedata necessary for animation
-            if (QNum.Substring(1) == "372")
+            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
                 plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata);
             else
                 plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + ", " + wData_col_final);
@@ -3109,7 +3025,7 @@ namespace CKDSurveillance_RD.MasterPages
                 hfMaxYVal.Value = Math.Ceiling((max_yval * Decimal.Parse("1.1"))).ToString();
             hfMaxConfidence.Value = Math.Ceiling((max_confidence * Decimal.Parse("1.1"))).ToString();
 
-            if (chartFormatType == "11")
+            if (chartFormatType == DotNetChartStyle.StackedColumn)
             { //if the default chart type is stacked, then use the maxstacked y value
                 if (string.IsNullOrEmpty(hfChartYValToUse.Value))
                     hfChartYValToUse.Value = hfMaxStackedYVal.Value;
@@ -3152,7 +3068,7 @@ namespace CKDSurveillance_RD.MasterPages
                 }
             }
 
-            createPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, isMapPage);
+            createPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, isMapPage, chartFormatType);
         }
 
         private void buildPlotlyTripleStratChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
@@ -3178,13 +3094,13 @@ namespace CKDSurveillance_RD.MasterPages
 
             DataTable dtChartHeader = dsChart.Tables[0];
             string chartFormatType = dtChartHeader.Rows[0]["DotNetChartStyleID"].ToString();
-            if (chartFormatType == "3") //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
+            if (chartFormatType == DotNetChartStyle.Line) //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
             {
                 RB_ChartType.SelectedValue = "'line'";
                 hfChartType.Value = "'line'";
                 hfChartMode.Value = "'group'";
             }
-            else if (chartFormatType == "11")
+            else if (chartFormatType == DotNetChartStyle.StackedColumn)
             {
                 RB_ChartType.SelectedValue = "'stacked'";
                 hfChartType.Value = "'bar'";
@@ -3787,7 +3703,7 @@ namespace CKDSurveillance_RD.MasterPages
             else
                 this.Lit_PlotlyRel.Text = sb.ToString();
         }
-        private void createPlotlyScript(StringBuilder dataSb, string title, string xaxistitle, string yaxistitle, int xaxiscnt, bool isMapPage)
+        private void createPlotlyScript(StringBuilder dataSb, string title, string xaxistitle, string yaxistitle, int xaxiscnt, bool isMapPage, string chartFormatType = "")
         {
             string xtickfontsize = "19";  //"17";
             string tickangle = "0";
@@ -3895,7 +3811,7 @@ namespace CKDSurveillance_RD.MasterPages
             else
             {
                 //type = category so all values are displayed, not just a group
-                if (QNum.Substring(1) == "372")
+                if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
                     sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }, traceorder:'normal'},  barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
                 else
                     sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:" + dtictval + ", type:'category', showgrid: " + showgridval + ", zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: " + linewidth + ", title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
