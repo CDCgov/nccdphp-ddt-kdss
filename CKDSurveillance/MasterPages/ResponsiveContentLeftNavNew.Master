@@ -326,11 +326,10 @@
         // Disable automatic page view by setting CDC config before DMAT loads
         window.CDC = window.CDC || {};
         window.CDC.ABTest = {};
-        window.CDC.disableAutoPageview = true;
 
         // Build parameters for DMAT (include any needed parameters here)
         const params = {
-            pageview: "false",       // Disable automatic page view for SPA
+            pageview: "true",       // Disable automatic page view for SPA
             ch: "DDT KDSS",           // Your channel
             level1: "Chronic",       // Center Name
             level2: "DDT",           // Division, Office or Program Name
@@ -356,7 +355,20 @@
         }
 
         // Add script to document
-        document.write(scriptDMAT.outerHTML);
+        //document.write(scriptDMAT.outerHTML);
+
+        //const ptitle = document.title;
+        //////check for satellite object per 
+        //setTimeout(function () {
+        //    if (window.hasOwnProperty('_satellite')) {
+        //        var dataObject = {};
+        //        var _satellite = window._satellite;
+        //        dataObject.ch = "DDT KDSS";
+        //        dataObject.pageName = ptitle || document.title;
+        //        _satellite.track('pageview', dataObject);
+        //    }
+        //    console.log("Tracking PageView...completed")
+        //}, 500);
     </script>
 </head>
 <body class="no-js leftNavNew">
