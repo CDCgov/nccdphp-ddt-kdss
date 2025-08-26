@@ -22,7 +22,7 @@
 
       // Build parameters for DMAT (include any needed parameters here)
       const params = {
-          pageview: "false",       // Disable automatic page view for SPA
+          pageview: "true",       // Disable automatic page view for SPA
           ch: "DDT KDSS",           // Your channel
           level1: "Chronic",       // Center Name
           level2: "DDT",           // Division, Office or Program Name
@@ -49,16 +49,6 @@
 
       //Add script to document
       document.write(scriptDMAT.outerHTML);
-
-      // For compatibility with any older code that might expect the topic_levels.js script
-      // Note: This script may no longer be needed with DMAT - check if it's required
-      var scriptJscript = document.createElement("script");
-      if (window.location.href.indexOf("shi.cdc.gov") > -1) {
-          scriptJscript.src = "https://www.cdc.gov/JScript/metrics/topic_levels.js";
-      } else {
-          scriptJscript.src = "https://wwwdev.cdc.gov/JScript/metrics/topic_levels.js";
-      }
-      document.write(scriptJscript.outerHTML);
   </script>
     <meta name="google-site-verification" content="vuSgbTP5gm9mu35qxMRQp6nC_uX_u82h2GSXTuzLOyc" />
     <title>Kidney Disease Surveillance System</title>

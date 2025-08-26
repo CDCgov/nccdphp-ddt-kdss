@@ -8,6 +8,8 @@ namespace CKDSurveillance_RD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Page.Title = "KDSS | Home  | CDC";
+
             //Cache Application Settings
             ManageApplicationSettings();          
         }
