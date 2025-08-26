@@ -355,21 +355,8 @@
             scriptDMAT.src = `https://oadc-dmb-dev.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
         }
 
-         Add script to document
+        //Add script to document
         document.write(scriptDMAT.outerHTML);
-
-        const ptitle = document.title;
-        ////check for satellite object per 
-        setTimeout(function () {
-            if (window.hasOwnProperty('_satellite')) {
-                var dataObject = {};
-                var _satellite = window._satellite;
-                dataObject.ch = "DDT KDSS";
-                dataObject.pageName = ptitle || document.title;
-                _satellite.track('pageview', dataObject);
-            }
-            console.log("Tracking PageView...completed")
-        }, 500);
     </script>
 </head>
 <body class="no-js leftNavNew">
