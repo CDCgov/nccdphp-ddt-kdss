@@ -14,61 +14,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head runat="server">
-    <script>
-        // CRITICAL: Block Adobe FIRST before anything else loads
-        (function () {
-            if (window._adobeBlocked) return;
-            window._adobeBlocked = true;
-
-            // Create complete Adobe stub
-            window.s = {
-                account: '',
-                pageName: '',
-                channel: '',
-                abort: true,
-                t: function () {
-                    console.log('Adobe pageview blocked');
-                    return false;
-                },
-                tl: function () {
-                    console.log('Adobe event blocked');
-                    return false;
-                }
-            };
-
-            window.AppMeasurement = function () { return window.s; };
-            window.s_gi = function () { return window.s; };
-
-            // Create a proper _satellite stub that DMAT can override
-            window._satellite = {
-                track: function (type, data) {
-                    console.log('Satellite track stub:', type, data);
-                    // Let DMAT handle this when it loads
-                    return false;
-                },
-                pageBottom: function () { return false; },
-                initialized: false  // Set to false so DMAT can initialize
-            };
-
-            // Block Adobe script injection attempts
-            const scriptSrcBlock = ['omtrdc.net', 'demdex.net', 'adobe', 'omniture'];
-            const originalCreateElement = document.createElement;
-            document.createElement = function (tagName) {
-                const element = originalCreateElement.call(document, tagName);
-                if (tagName.toLowerCase() === 'script') {
-                    const originalSetAttribute = element.setAttribute;
-                    element.setAttribute = function (name, value) {
-                        if (name === 'src' && scriptSrcBlock.some(domain => value.includes(domain))) {
-                            console.log('Blocked Adobe script:', value);
-                            return;
-                        }
-                        return originalSetAttribute.call(this, name, value);
-                    };
-                }
-                return element;
-            };
-        })();
-    </script>
     <meta name="google-site-verification" content="vuSgbTP5gm9mu35qxMRQp6nC_uX_u82h2GSXTuzLOyc" />
     <title>Kidney Disease Surveillance System</title>
 
@@ -739,41 +684,26 @@
     </script>
 
     <script>
-       
-        // Initialize CDC object for DMAT
-        window.CDC = window.CDC || {};
-        window.CDC.ABTest = {};
-        window.CDC.disableAutoPageview = true;
-
-        // Load DMAT WITHOUT pageview parameter since we're handling it manually
-        var scriptDMAT = document.createElement("script");
-        if (window.location.href.indexOf("wwwn.cdc.gov/kdss/") > -1) {
-            scriptDMAT.src = "https://www.cdc.gov/JScript/dmat/cdc-dmat.js";
-        } else {
-            scriptDMAT.src = "https://oadc-dmb-dev.cdc.gov/JScript/dmat/cdc-dmat.js";
-        }
-
-        // After DMAT loads, use _satellite to track
-        function trackPageWithDMAT() {
-            if (window._satellite) {
-                var dataObject = {};
-                dataObject.ch = "DDT KDSS";
-                dataObject.pageName = document.title || "Kidney Disease Surveillance System";
-                dataObject.prop22 = "Chronic";  // level1
-                dataObject.prop23 = "DDT";      // level2
-                dataObject.prop24 = "CDC Kidney Disease Surveillance System"; // level3
-                dataObject.prop25 = "Chronic Web Application"; // level4
-
-                _satellite.track('pageview', dataObject);
-            }
-        }
-
-        // Call this after DMAT loads
-        window.addEventListener('load', function () {
-            setTimeout(trackPageWithDMAT, 500);
-        });
-
-        //Add script to document
+    // Initialize CDC object for DMAT
+    window.CDC = window.CDC || {};
+    window.CDC.ABTest = {};
+    
+    // Set the properties DMAT will use for its automatic pageview
+    window.s = {
+        pageName: document.title || "Kidney Disease Surveillance System",
+        prop22: "Chronic",
+        prop23: "DDT",
+        prop24: "CDC Kidney Disease Surveillance System",
+        prop25: "Chronic Web Application"
+    };
+    
+    // Load DMAT and let it auto-track with your properties
+    var scriptDMAT = document.createElement("script");
+    if (window.location.href.indexOf("wwwn.cdc.gov/kdss/") > -1) {
+        scriptDMAT.src = "https://www.cdc.gov/JScript/dmat/cdc-dmat.js";
+    } else {
+        scriptDMAT.src = "https://oadc-dmb-dev.cdc.gov/JScript/dmat/cdc-dmat.js";
+    }
         document.write(scriptDMAT.outerHTML);
     </script>
 </body>
