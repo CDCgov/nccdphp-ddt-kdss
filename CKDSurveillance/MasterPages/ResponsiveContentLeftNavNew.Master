@@ -20,7 +20,6 @@
     <%--Header Files--%>
     <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/head-content.html"));%>
     <%--End Header Files--%>
-    <%--<link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />--%>
 
     <%--<meta name="description" content="Centers for Disease Control and Prevention (CDC) Division Name (DN)- CKD Surveillance System />--%>
     <asp:Literal ID="litMetaTagsDescription" runat="server" ClientIDMode="Static" Text="<meta name='description' content='Centers for Disease Control and Prevention (CDC) : CKD Surveillance' />" />
@@ -321,6 +320,43 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+     <script>
+     // Initialize CDC object for DMAT
+     const CDC = {
+         ABTest: {}
+     };
+
+     // Build parameters for DMAT (include any needed parameters here)
+     const params = {
+         pageview: "false",       // Disable automatic page view for SPA
+         ch: "DDT KDSS",           // Your channel
+         level1: "Chronic",       // Center Name
+         level2: "DDT",           // Division, Office or Program Name
+         level3: "CDC Kidney Disease Surveillance System", // CDC Topic Name
+         level4: "Chronic Web Application" // Optional Level 4
+     };
+
+     // Build query string from parameters
+     const queryString = Object.keys(params)
+         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+         .join("&");
+
+     // Create and add DMAT script
+     var scriptDMAT = document.createElement("script");
+
+     // Set appropriate environment URL
+     if (window.location.href.indexOf("wwwn.cdc.gov/kdss/") > -1) {
+         console.log("DMAT PROD")
+         scriptDMAT.src = `https://www.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
+     } else {
+         console.log("DMAT DEV")
+         scriptDMAT.src = `https://oadc-dmb-dev.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
+     }
+
+     // Add script to document
+     document.write(scriptDMAT.outerHTML);
+ </script>
 </head>
 <body class="no-js leftNavNew">
     <%--*****************--%>
