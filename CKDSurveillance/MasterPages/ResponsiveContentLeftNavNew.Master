@@ -688,6 +688,7 @@
      // Disable automatic page view by setting CDC config before DMAT loads
      window.CDC = window.CDC || {};
      window.CDC.ABTest = {};
+     window.CDC.disableAutoPageview = true; 
 
      // Build parameters for DMAT (include any needed parameters here)
      const params = {
