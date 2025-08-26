@@ -321,7 +321,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-
+   
 </head>
 <body class="no-js leftNavNew">
     <%--*****************--%>
@@ -683,42 +683,41 @@
         $(".accordion .card.bar .card-header:not(.ckd-accordion-subcat-header) .card-title").on("keyup", function (a) { console.log('working'); 13 == a.which && $(this).click(); }), $(".ckd-accordion-subcat-header .card-title").on("keyup", function (a) { "block" == $(this).parent().next().css("display") ? ($(this).parent().removeClass("collapsed"), $(this).parent().attr("aria-expanded", "true")) : ($(this).parent().addClass("collapsed"), $(this).parent().attr("aria-expanded", "false")) });
     </script>
 
-   <script>
-    // Initialize CDC object
-    window.CDC = window.CDC || {};
-    window.CDC.ABTest = {};
-    
-    // Set up siteCatalyst which DMAT actually reads from
-    window.siteCatalyst = {
-        setChannel: function(val) { this._channel = val; },
-        getChannel: function() { return this._channel || "DDT KDSS"; },
-        setLevel1: function(val) { this._level1 = val; },
-        setLevel2: function(val) { this._level2 = val; },
-        setLevel3: function(val) { this._level3 = val; },
-        setLevel4: function(val) { this._level4 = val; },
-        getLevel: function(lvl) {
-            return this['_level' + lvl];
-        },
-        _channel: "DDT KDSS",
-        _level1: "Chronic",
-        _level2: "DDT",
-        _level3: "CDC Kidney Disease Surveillance System",
-        _level4: "Chronic Web Application"
-    };
-    
-    // Set s.pageName which DMAT does read
-    window.s = {
-        pageName: document.title || "Kidney Disease Surveillance System"
-    };
-    
-    // Load DMAT
-    var scriptDMAT = document.createElement("script");
-    if (window.location.href.indexOf("wwwn.cdc.gov/kdss/") > -1) {
-        scriptDMAT.src = "https://www.cdc.gov/JScript/dmat/cdc-dmat.js";
-    } else {
-        scriptDMAT.src = "https://oadc-dmb-dev.cdc.gov/JScript/dmat/cdc-dmat.js";
-    }
-    document.write(scriptDMAT.outerHTML);
-</script>
+     <script>
+     // Initialize CDC object for DMAT
+     // Disable automatic page view by setting CDC config before DMAT loads
+     window.CDC = window.CDC || {};
+     window.CDC.ABTest = {};
+
+     // Build parameters for DMAT (include any needed parameters here)
+     const params = {
+         pageview: "false",       // Disable automatic page view for SPA
+         ch: "DDT KDSS",           // Your channel
+         level1: "Chronic",       // Center Name
+         level2: "DDT",           // Division, Office or Program Name
+         level3: "CDC Kidney Disease Surveillance System", // CDC Topic Name
+         level4: "Chronic Web Application" // Optional Level 4
+     };
+
+     // Build query string from parameters
+     const queryString = Object.keys(params)
+         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+         .join("&");
+
+     // Create and add DMAT script
+     var scriptDMAT = document.createElement("script");
+
+     // Set appropriate environment URL
+     if (window.location.href.indexOf("wwwn.cdc.gov/kdss/") > -1) {
+         console.log("DMAT PROD")
+         scriptDMAT.src = `https://www.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
+     } else {
+         console.log("DMAT DEV")
+         scriptDMAT.src = `https://oadc-dmb-dev.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
+     }
+
+     //Add script to document
+     document.write(scriptDMAT.outerHTML);
+ </script>
 </body>
 </html>
