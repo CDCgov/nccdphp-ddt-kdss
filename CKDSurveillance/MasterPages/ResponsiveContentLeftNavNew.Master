@@ -326,11 +326,10 @@
         // Disable automatic page view by setting CDC config before DMAT loads
         window.CDC = window.CDC || {};
         window.CDC.ABTest = {};
-        window.CDC.disableAutoPageview = true;
 
         // Build parameters for DMAT (include any needed parameters here)
         const params = {
-            pageview: "true",       // Disable automatic page view for SPA
+            pageview: "false",       // Disable automatic page view for SPA
             ch: "DDT KDSS",           // Your channel
             level1: "Chronic",       // Center Name
             level2: "DDT",           // Division, Office or Program Name
