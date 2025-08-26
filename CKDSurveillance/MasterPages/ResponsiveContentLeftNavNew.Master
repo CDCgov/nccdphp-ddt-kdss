@@ -14,6 +14,67 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head runat="server">
+    <script>
+        // Add this as early as possible in your page (ideally inline in <head>)
+        (function () {
+            // Flag to track if we've set up our stub
+            if (window._adobeBlocked) return;
+            window._adobeBlocked = true;
+
+            // Create stub immediately to prevent real Adobe from initializing
+            window.s = {
+                account: '',
+                abort: true,  // Tell Adobe to abort if it tries to initialize
+                t: function () {
+                    console.log('Adobe pageview intercepted');
+                    // Your GA tracking here
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'page_view', {
+                            page_title: this.pageName || document.title
+                        });
+                    }
+                },
+                tl: function (o, linkType, linkName) {
+                    console.log('Adobe event intercepted:', linkName);
+                    // Your GA tracking here
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'click', {
+                            event_category: linkType,
+                            event_label: linkName
+                        });
+                    }
+                }
+            };
+
+            // Prevent AppMeasurement from initializing
+            window.AppMeasurement = function () { return window.s; };
+            window.s_gi = function () { return window.s; };
+
+            // Block Adobe's DTM/Launch
+            Object.defineProperty(window, '_satellite', {
+                get: function () { return { track: function () { }, pageBottom: function () { }, initialized: true }; },
+                set: function () { return true; }
+            });
+
+            // Prevent Adobe scripts from being added dynamically
+            const scriptSrcBlock = ['omtrdc.net', 'demdex.net', 'adobe', 'omniture'];
+            const originalCreateElement = document.createElement;
+            document.createElement = function (tagName) {
+                const element = originalCreateElement.call(document, tagName);
+                if (tagName.toLowerCase() === 'script') {
+                    const originalSetAttribute = element.setAttribute;
+                    element.setAttribute = function (name, value) {
+                        if (name === 'src' && scriptSrcBlock.some(domain => value.includes(domain))) {
+                            console.log('Blocked Adobe script:', value);
+                            return;
+                        }
+                        return originalSetAttribute.call(this, name, value);
+                    };
+                }
+                return element;
+            };
+        })();
+    </script>
     <meta name="google-site-verification" content="vuSgbTP5gm9mu35qxMRQp6nC_uX_u82h2GSXTuzLOyc" />
     <title>Kidney Disease Surveillance System</title>
 
@@ -684,6 +745,7 @@
     </script>
 
     <script>
+
         // Initialize CDC object for DMAT
         window.CDC = window.CDC || {};
         window.CDC.ABTest = {};
