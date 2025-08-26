@@ -321,7 +321,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-   
+
 </head>
 <body class="no-js leftNavNew">
     <%--*****************--%>
@@ -683,41 +683,51 @@
         $(".accordion .card.bar .card-header:not(.ckd-accordion-subcat-header) .card-title").on("keyup", function (a) { console.log('working'); 13 == a.which && $(this).click(); }), $(".ckd-accordion-subcat-header .card-title").on("keyup", function (a) { "block" == $(this).parent().next().css("display") ? ($(this).parent().removeClass("collapsed"), $(this).parent().attr("aria-expanded", "true")) : ($(this).parent().addClass("collapsed"), $(this).parent().attr("aria-expanded", "false")) });
     </script>
 
-     <script>
-     // Initialize CDC object for DMAT
-     // Disable automatic page view by setting CDC config before DMAT loads
-     window.CDC = window.CDC || {};
-     window.CDC.ABTest = {};
+    <script>
+        // Initialize CDC object for DMAT
+        // Disable automatic page view by setting CDC config before DMAT loads
+        window.CDC = window.CDC || {};
+        window.CDC.ABTest = {};
 
-     // Build parameters for DMAT (include any needed parameters here)
-     const params = {
-         pageview: "false",       // Disable automatic page view for SPA
-         ch: "DDT KDSS",           // Your channel
-         level1: "Chronic",       // Center Name
-         level2: "DDT",           // Division, Office or Program Name
-         level3: "CDC Kidney Disease Surveillance System", // CDC Topic Name
-         level4: "Chronic Web Application" // Optional Level 4
-     };
+        // Build parameters for DMAT (include any needed parameters here)
+        const params = {
+            pageview: "false",       // Disable automatic page view for SPA
+            ch: "DDT KDSS",           // Your channel
+            level1: "Chronic",       // Center Name
+            level2: "DDT",           // Division, Office or Program Name
+            level3: "CDC Kidney Disease Surveillance System", // CDC Topic Name
+            level4: "Chronic Web Application" // Optional Level 4
+        };
 
-     // Build query string from parameters
-     const queryString = Object.keys(params)
-         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-         .join("&");
+        // Build query string from parameters
+        const queryString = Object.keys(params)
+            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+            .join("&");
 
-     // Create and add DMAT script
-     var scriptDMAT = document.createElement("script");
+        // Create and add DMAT script
+        var scriptDMAT = document.createElement("script");
 
-     // Set appropriate environment URL
-     if (window.location.href.indexOf("wwwn.cdc.gov/kdss/") > -1) {
-         console.log("DMAT PROD")
-         scriptDMAT.src = `https://www.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
-     } else {
-         console.log("DMAT DEV")
-         scriptDMAT.src = `https://oadc-dmb-dev.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
-     }
+        // Set appropriate environment URL
+        if (window.location.href.indexOf("wwwn.cdc.gov/kdss/") > -1) {
+            console.log("DMAT PROD")
+            scriptDMAT.src = `https://www.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
+        } else {
+            console.log("DMAT DEV")
+            scriptDMAT.src = `https://oadc-dmb-dev.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
+        }
 
-     //Add script to document
-     document.write(scriptDMAT.outerHTML);
- </script>
+        //Add script to document
+        document.write(scriptDMAT.outerHTML);
+
+        // For compatibility with any older code that might expect the topic_levels.js script
+        // Note: This script may no longer be needed with DMAT - check if it's required
+        var scriptJscript = document.createElement("script");
+        if (window.location.href.indexOf("shi.cdc.gov") > -1) {
+            scriptJscript.src = "https://www.cdc.gov/JScript/metrics/topic_levels.js";
+        } else {
+            scriptJscript.src = "https://wwwdev.cdc.gov/JScript/metrics/topic_levels.js";
+        }
+        document.write(scriptJscript.outerHTML);
+    </script>
 </body>
 </html>
