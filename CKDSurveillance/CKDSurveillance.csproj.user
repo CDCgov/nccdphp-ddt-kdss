@@ -10,7 +10,6 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <ProjectView>ShowAllFiles</ProjectView>
-    <NameOfLastUsedPublishProfile>C:\TFS\GitRepo4\51349CDCCKD-CDCSide\CKDSurveillance\Properties\PublishProfiles\Dev Internet.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
