@@ -160,7 +160,7 @@
 
                 <table class="ckd-contact-us table-reponsive" style="width: 90%;">
                     <tr>
-                        <td colspan="2">Alternatively, you can contact us via phone, or email.
+                        <td colspan="2">Alternatively, you can contact us via phone or email.
                         </td>
                     </tr>
                     <tr>
