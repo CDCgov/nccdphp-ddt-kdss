@@ -407,7 +407,7 @@
     <Content Include="AYA\Images\August_2024-a.png" />
     <Content Include="AYA\Images\August_2024-b.png" />
     <Content Include="AYA\Images\August_2024.PNG" />
-    <Content Include="AYA\Images\August_2025.png" />
+    <Content Include="AYA\Images\August_2025.svg" />
     <Content Include="AYA\Images\August_2025_table.png" />
     <Content Include="AYA\Images\CurrentAYA-a.png" />
     <Content Include="AYA\Images\CurrentAYA-b.png" />
@@ -918,171 +918,16 @@
     <None Include="Properties\PublishProfiles\Dev Internet.pubxml" />
     <None Include="Properties\PublishProfiles\QA Internet.pubxml" />
     <Content Include="fonts\OpenSans-Bold.ttf" />
-    <None Include="Web.config.prod.Debug.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.DEV Internet.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.DEV.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.TED">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.prod.PROD.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.QA Internet.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.QA.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.QA_SCAN.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.Release.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.prod.Scan.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.VA Scan.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.Debug.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.DEV Internet.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.DEV.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.PROD.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.QA Internet.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.QA.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.QA_SCAN.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.Release.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.stg.Scan.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.TED">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.stg.VA Scan.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.Debug.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.DEV Internet.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.DEV.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.PROD.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.QA Internet.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.QA.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.QA_SCAN.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.Release.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.Scan.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.VA Scan.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.prod">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.Debug.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.DEV Internet.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.DEV.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.PROD.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.QA Internet.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.QA.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.QA_SCAN.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.Release.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.Scan.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.VA Scan.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.DEV Internet.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
     <None Include="Web.DEV.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.PROD.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <None Include="Web.QA Internet.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
     <None Include="Web.QA.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <None Include="Web.QA_SCAN.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web.Scan.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.VA Scan.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
