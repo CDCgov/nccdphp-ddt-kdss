@@ -160,7 +160,7 @@
 
                 <table class="ckd-contact-us table-reponsive" style="width: 90%;">
                     <tr>
-                        <td colspan="2">Alternatively, you can contact us via postal mail, phone, or email.
+                        <td colspan="2">Alternatively, you can contact us via phone, or email.
                         </td>
                     </tr>
                     <tr>
@@ -170,9 +170,6 @@
                                 National Center for Chronic Disease<br />
                                 Prevention and Health Promotion<br />
                                 Centers for Disease Control and Prevention<br />
-                                4770 Buford Highway, NE<br />
-                                Mailstop F75<br />
-                                Atlanta, GA 30341-3717
                             </div>
                         </td>
                         <td>
