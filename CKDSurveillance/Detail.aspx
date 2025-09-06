@@ -1604,15 +1604,13 @@
             function redrawPlotlyChart() {
 
                 createPlotlyChart();
-                createPlotlyChartRel(); /* TODO: comment out this block */
+                //createPlotlyChartRel(); /* TODO: comment out this block */
 
-                /* TODO: uncomment this block */
-
-                /*
+                
                 if (document.getElementById("divRBSTD") != null) { }
                     createPlotlyChartRel();
                 }
-                */
+                
 
                 compliance508();
             }
