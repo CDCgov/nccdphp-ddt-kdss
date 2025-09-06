@@ -4,7 +4,6 @@
 <%@ Register Src="~/UserControls/FAQGlossaryControl.ascx" TagPrefix="uc1" TagName="FAQGlossaryControl" %>
 <%@ Register Src="~/UserControls/RDVersions/StratYearsRD.ascx" TagPrefix="uc1" TagName="StratYearsRD" %>
 <%@ Register Src="~/UserControls/RDVersions/DataSourceDDLsRD.ascx" TagPrefix="uc1" TagName="DataSourceDDLsRD" %>
-<%--<%@ Register Src="~/UserControls/RDVersions/SiteNavigationRD2_Options.ascx" TagPrefix="uc1" TagName="SiteNavigationRD2_Options" %>--%>
 <%@ Register Src="~/UserControls/Navigation/SideNav.ascx" TagPrefix="uc1" TagName="SideNav" %>
 <%@ Register Src="~/UserControls/StratYearsLinksMaps.ascx" TagPrefix="uc1" TagName="StratYearsLinksMaps" %>
 
@@ -17,12 +16,8 @@
     <link href="App_Themes/ion.rangeSlider.css?val=1" rel="stylesheet" />
     <link href="App_Themes/ion.rangeSlider.skinHTML5.css?val=1" rel="stylesheet" />
 
-    <%--<link href="App_Themes/normalize.css?val=1" rel="stylesheet" />--%>
     <script src="scripts/d3.v4.min.js" type="text/javascript"></script>
     <script src="scripts/D3MapFiles/topojson.v1.min.js" type="text/javascript"></script>
-
-    <%--<script src="Scripts/jquery-2.1.4.min.js"></script>--%>
-
 
     <%--*Ion Range Slider JS*--%>
     <script src="scripts/ion.rangeSlider.js" type="text/javascript"></script>
@@ -34,7 +29,6 @@
     <link href="css/LinkedMap.css" rel="stylesheet" />
 
    <script src="Scripts/bootstrap.min.js"></script>
-    <%--<link href="App_Themes/bootstrap.min.css" rel="stylesheet" />--%>
 
     <%--*Temp CSS*--%>
     <asp:Literal ID="litCSS" runat="server" ClientIDMode="Static"></asp:Literal>
@@ -59,12 +53,6 @@
             stroke-width: .5px;
             stroke-linejoin: round;
         }
-
-        /*path[id^=state] {
-            fill: #ccc;
-            stroke: #fff;
-            stroke-width: .5px;
-        }*/
 
         .county:hover {
             fill: orange;
@@ -143,7 +131,6 @@
          .btnzoomout
          {
             width:130px;
-            /*background-color: #f6fbff !important;*/
          }
 
          .btnzoom
@@ -222,7 +209,6 @@
             color: #000000;
          }
          .homebreadcrumb{
-			/*font: normal normal normal 14px/24px Open Sans;*/
 			text-align: left;
 			text-decoration: underline;			
 			letter-spacing: 0px;
@@ -231,7 +217,6 @@
 			font-size:14px;
 		}
 		.bodybreadcrumb{
-			/*font: normal normal normal 14px/24px Open Sans;*/
 			text-align: left;			
 			font-family: Nunito;
 			font-size:14px;
@@ -327,8 +312,6 @@
 
     <div id="top-container">
 
-
-        <%--<a href="#View-Data" class="skippy" title="Skip to View Data" style="font-weight: bold; color: #fff;">Skip directly to View Data</a>--%>
     </div>
 
     <br />
@@ -356,38 +339,15 @@
 
         <asp:HiddenField ID="HF_TopicText" runat="server" />
 
-        <%--*Topic Menu*--%>
-        <%--<div class="col-xl-12">
-            <uc1:SiteNavigationRD2_Options runat="server" ID="SiteNavigationRD2_Options" />
-        </div>--%>
-        <%--*End Topic Menu*--%>
-
-
-
-
-
-
-
 
         <%--*********************--%>
         <%--*RD Data Sources DDL*--%>
         <%--*********************--%>
-        <%--<div class="row">
-            <div class="col-xl-6 col-lg-12">
-                <uc1:DataSourceDDLsRD runat="server" ID="DataSourceDDLsRD1" />
-            </div>
-        </div>--%>
-
+      
         <span style="height: .2em;">&nbsp;</span>
 
         <%--*Strats and Years DDL*--%>
-        <%--<div class="row">
-
-            <div class="col-xl-12 ddlStratHeader">
-                <div id="divStratYearHeader" style="background-color: #DEEEE9; border: solid .1em silver;">Stratification and Year Choices:</div>
-            </div>
-        </div>--%>
-
+      
         <uc1:StratYearsRD runat="server" ID="StratYearsRD1" Visible="false"/>
 
        
@@ -421,7 +381,6 @@
 											>
                                             <span id="bcMeasure" class="bodybreadcrumb" runat="server">  </span>  <%--selected list item from left nav --%>
                                             <span id="bcIndicator" class="bodybreadcrumb" runat="server">  </span>  <%--selected list item from left nav --%>
-											<%--<span id="bcPIlinks" class="PIbodybreadcrumb">  > </span>--%>
 									</div>
 								</div>
 						</div>
@@ -515,11 +474,6 @@
                                         content: "Text";
                                     }
 
-                                    /*a[data-title="Produced with Plotly"] { 
-                                        display:none;
-                                    }*/
-           
-
                                     .js-plotly-plot .plotly .modebar-btn.modebar-btn--logo {
                                         display:none;
                                     }
@@ -527,14 +481,6 @@
                                     .modebar-btn tp-link-policy {
                                         background-color:none !important;
                                     }
-
-                                    /*a:not([href]) {
-                                            background-color:#fff !important;
-                                    }*/
-
-                                    /*.yerror {
-                                        stroke:#bbb !important;
-                                    }*/
 
                                     .legend {
                                         padding-top:10px;
@@ -547,7 +493,6 @@
                                     .chartToolDiv {
                                         position: absolute;
                                         left:65%;
-                                        /*padding-top: 2%!important;*/
                                     }
                                     
                                     .chartDownloadBtn {
@@ -603,8 +548,6 @@
                                         padding-right: 5px; /*15px;*/
                                     }
                                     .menu-content{
-                                        /*vertical-align: top;*/
-                                        /*background: #00695C14 0% 0% no-repeat padding-box;*/
                                         background-color: var(--colors-blue-cool-vivid-5);
                                         opacity: 1;
                                         margin-left: 2px;
@@ -660,10 +603,6 @@
                                 </style>
 
                             <div class="menu-content " id="divMenuContent" style="padding-top:5px;padding-bottom:5px; display: flex; justify-content: flex-end">
-                                <%--*Data Source*--%>
-                                <%--<div class="col ccolstyle">
-                                    <asp:Literal ID="litSourceTabs" runat="server" ClientIDMode="Static" />
-                                </div>--%>
 
                                 <%--*View Data By*--%>
                                  <uc1:StratYearsButtons runat="server" ID="StratYear1" />                                
@@ -687,8 +626,6 @@
                                         <a href="." runat="server" id="lnkPPT" style="text-decoration:none!important">
                                             <span class="noPrint btn ppt-icon iconPPTBtn chartMenuLabel">PPT</span>
                                         </a>
-                                        <%--<asp:Button ID="iconPPT" CssClass="noPrint btn ppt-icon iconPPTBtn" Text="  PPT" runat ="server"  Visible="true" class="iconPPTBtn chartMenuLabel">
-                                        </asp:Button>--%>
                                     </div>
                                 </div>
                             </div>
@@ -702,7 +639,6 @@
                                 </div>
                             <div>
                             </div>
-                            <%--<div class="row"><asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList chartMenuLabel col" Text="95% Confidence Intervals" runat="server" /></div>--%>
                             <div class="row" id="divMapMenu" runat="server">                                
                                 <div class="col-3 chartMapMenu">
                                     <div  for="ddstate" class="chartMapMenuLabel">Select by State</div>
@@ -763,15 +699,12 @@
                                 </div>
                                 <div class="col-2 chartMapMenu" runat="server" id="parentpnlYears" visible="false">
                                     <asp:Panel ID="pnlYears" runat="server">
-                                    <%--<div id="divYearButtonOuter" class="">--%>
 
                                     <%--*******--%>
                                     <%--*Years*--%>
                                     <%--*******--%>
                                     <asp:Literal ID="litYearText" runat="server" Text='<%# Eval("Year") %>'></asp:Literal>
 
-
-                                    <%--</div>--%>
                                     </asp:Panel>
                                 </div>
                                 <div id="divzoombtn" style="margin-left: 70%;">
@@ -908,9 +841,6 @@
                                 function compliance508() {
                                     $('.modebar-group').each(function () {
                                         $(this).find('[data-title="Produced with Plotly"]').remove();//removing this anchor tag so that Plotly becomes 508 compliant.
-                                        //$(this).find('[data-title="Toggle Spike Lines"]').remove();//removing this anchor tag so that Plotly becomes 508 compliant.
-                                        //$(this).find('[data-title="Lasso Select"]').remove();//removing this anchor tag so that Plotly becomes 508 compliant.
-                                        //$(this).find('[data-title="Box Select"]').remove();//removing this anchor tag so that Plotly becomes 508 compliant.
                                     });
 
                                     //adding tabindex
@@ -942,7 +872,6 @@
 
                                     $('a:not([href])').attr("background-color", "none");
                                     //adding keypress check to account for the enter button being pressed
-                                    //$('a[data-title="Download plot as a png"]').focus(function () { console.log("found focus");});
                                     $('a[data-title="Download Chart as PNG"]').keypress(
                                         function () {
                                             downloadBtn = $('a[data-title="Download Chart as PNG"]')[0]
@@ -975,7 +904,6 @@
                                         }
                                     );
 
-                                    //$('a[data-title="Zoom in"]').focus(function () { console.log("found focus");});
                                     $('a[data-title="Zoom in"]').keypress(
                                         function () {
                                             zoominBtn = $('a[data-title="Zoom in"]')[0]
@@ -984,7 +912,6 @@
                                         }
                                     );
 
-                                    //$('a[data-title="Zoom out"]').focus(function () { console.log("found focus");});
                                     $('a[data-title="Zoom out"]').keypress(
                                         function () {
                                             zoomoutBtn = $('a[data-title="Zoom out"]')[0]
@@ -1001,7 +928,6 @@
                                         }
                                     );
 
-                                    //$('a[data-title="Reset"]').focus(function () { console.log("found focus");});
                                     $('a[data-title="Reset axes"]').keypress(
                                         function () {
                                             resetBtn = $('a[data-title="Reset axes"]')[0]
@@ -1010,7 +936,6 @@
                                         }
                                     );
 
-                                    //$('a[data-title="Toggle show closest data on hover"]').focus(function () { console.log("found focus");});
                                     $('a[data-title="Show closest data on hover"]').keypress(
                                         function () {
                                             toggleBtn = $('a[data-title="Show closest data on hover"]')[0]
@@ -1028,7 +953,6 @@
                                     );
 
                                     //end keypress functionality
-                                    //console.log("title= " + $("#map").attr("title"));
                                     $(".main-svg").append("<desc>" + $('meta[name=description]').attr("content") + "</desc>");
                                     $(".main-svg").attr("alt", $('meta[name=description]').attr("content"));
 
@@ -1056,7 +980,6 @@
                                 <div style="width:100%;text-align:right;">
                                     <button  id='exportButton' class="noPrint btn btn-light" type="button" runat="server"><span class="cdc-icon-download_01"></span>&nbsp;Download Map</button>                                    
                                 </div>
-                                <%-- <br />--%>
                                 <%--*Raphael Dynamic Maps (SVG)*--%>
                                 
                                 <div id="map" style="font-size: 8pt; font-family: verdana;" >    
@@ -1081,13 +1004,10 @@
                                                 <img src="images/DataCharts/June_2024.png" runat="server" class="imgsize-d" alt="Prevalence of Awareness of CKD among U.S. Adults by Albuminuria category and eGFR category (2017-2020), data can be reviewed in the CSV download"/>
                                             </div>
                                         </div>
-                                        <%--<img src="images/DataCharts/map1.PNG" id="map1" runat="server" style="height: 650px;"/>
-                                        <img src="images/DataCharts/map2.PNG" id="map2" runat="server" style="height: 650px;"/>--%>
                                     </div>
                                 </div>
                             
                                 <%--*D3 Maps*--%>
-                                <%--<div id="mapdivd3"></div>--%>
                                 <%--*Other Year divs*--%>
                                 <asp:PlaceHolder ID="phDivs" runat="server" ClientIDMode="Static"></asp:PlaceHolder>
                             </asp:Panel>
@@ -1130,16 +1050,6 @@
                                         </tr>                                        
                                         <tr>
                                             <td>
-                                               <%-- <asp:Chart ID="Chart1" runat="server">
-                                                    <Series>
-                                                        <asp:Series Name="Series1">
-                                                        </asp:Series>
-                                                    </Series>
-                                                    <ChartAreas>
-                                                        <asp:ChartArea Name="ChartArea1">
-                                                        </asp:ChartArea>
-                                                    </ChartAreas>
-                                                </asp:Chart>--%>
                                             </td>
                                         </tr>
                                     </table>
@@ -1234,12 +1144,6 @@
                                 </div>
                                  <%-- Linked Map buttons and sliders --%>
 
-                              <%--  <ul class="nav nav-tabs">
-                                  <li class="active"><a data-toggle="tab" href="#tab_maps" id="tabbtn_maps">Maps</a></li>
-                                  <li><a data-toggle="tab" href="#tab_chart" id="tabbtn_chart">Histogram</a></li>
-                                  <li><a data-toggle="tab" href="#tab_heatmap" id="tabbtn_heatmap">Heatmap</a></li>
-                                </ul>--%>
-
                                 <div class="tab-content" id="main_map" style="width:100%;float:left;">
                                   <span id="main_map_title" runat="server" class="chartheader">Population in poverty by county</span>
                                   <div id="tab_maps" class="tab-pane in active">
@@ -1247,7 +1151,6 @@
                                     <div style="width:100%;text-align:right; padding-top:5px;">
                                         <button class="noPrint btn btn-light btnzoom" type="button" id="zoom_in" runat="server">+</button>
                                         <button class="noPrint btn btn-light btnzoom" type="button" id="zoom_out" runat="server">-</button>
-                                        <%--<button  class="noPrint btn btn-light btnzoomout" type="button">Zoom Out</button>--%>
                                     </div>
                                         <span class="msgzoomout" style="visibility:hidden">Select a state from the dropdown below</span>
                                        
@@ -1269,19 +1172,13 @@
                                          <div id="heatmapchart" style="width:90%;"></div>
                                     </div>
                                   </div>
-                                <%--</div>--%>
                                 <div id="mapbar" style="width:70%;float:right;vertical-align:top;text-align:left;font-family: Arial;">
-                                <%--<div style="width:100%;text-align:right;">
-                                    <button  id='exportCountyMapButton' class="noPrint btn btn-light" type="button" ><span class="cdc-icon-download_01"></span>&nbsp;Download County Map</button>
-                                </div>--%>
-
                                       <div style="display:none">
                                          <span>State:</span>&nbsp;<span class="datastatelabel"></span><br />
                                         <span>County:</span>&nbsp;<span class="datacountylabel"></span><br />
                                         <span>Data:</span>&nbsp;<span class="datavaluelabel"></span><br /><br />
                                     </div>
                                     <svg class="legendsvg" width="1000px" height="50px"></svg>
-                                     <!--span >View all US counties</span-->
                                     <label for="cballcounties_id" style="display:none" >View all US counties</label><input type="checkbox" class="cballcounties" id="cballcounties_id" style="display:none" />
 
                                     <span for="heatmapsort" class="heatmapsortlbl">Sort By:</span><br />
@@ -1329,10 +1226,8 @@
                                  
                                     <%--*Download Buttons*--%>
                                     <asp:Button ID="lnkDownload" CssClass="noPrint btn btn-light cdc-icon-download_01" runat="server" Text="Download Table" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01">
-                                        <%--<span class="cdc-icon-download_01"><span id="trackDownload" class="visually-hidden" aria-hidden="true">Clicked DownloadTable Button</span>&nbsp;Download Table</span>--%>
                                     </asp:Button>
                                     <asp:Button ID="btnDownloadChart" runat="server" CssClass="btn btn-light cdc-icon-download_01" OnClick="btnDownloadChart_Click" class="cdc-icon-download_01">
-                                        <%--<span class="cdc-icon-download_01"></span>&nbsp;Download Chart --%>
                                     </asp:Button>
                                     <a href="./Documents/Q705_Table.xlsx" runat="server" id="staticDownloadButton" >
                                         <span class="btn btn-light">Download Table</span>
@@ -1356,12 +1251,6 @@
                             <br />
 
                             <%--*Notes*--%>
-                           <%-- <strong>Notes:</strong><br />
-                            <ul>
-                                <li>* Indicates that the result for this cell was suppressed because of imprecision due to a sample size that was too small or the standard error of the result being too large (&gt;30% of the estimate).</li>
-                                <li>95% confidence intervals, when available, are shown in parentheses.</li>
-                            </ul>                            --%>
-
                             
                         </div>
 
@@ -1376,7 +1265,6 @@
                                     <ul class="nav nav-tabs no-syndicate" id="tabs-3" role="list" style="background-color:#ffffff" aria-label="tabparent" aria-busy="true">
                                         <li class="nav-item active" style="margin-top: 0rem !important; margin-bottom: 2rem !important; " id="tab-1" role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-KeyPoints">Notes</a></li>
                                         <li class="nav-item" id="tab-2" style="margin-top: 0rem !important; margin-bottom: 2rem !important; " role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-ChartDescription">Data Source Description</a></li>
-                                        <%--<li class="nav-item"><a class="nav-tab-link nav-link " data-toggle="tab" role="tab" href="#tab-Methods">Indicator Specifications</a></li>--%>
                                         <li class="nav-item" id="tab-3" style="margin-top: 0rem !important; margin-bottom: 2rem !important; " role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-SpecSheet">Indicator Specifications</a></li>
                                         <li class="nav-item" id="tab-4" style="margin-top: 0rem !important; margin-bottom: 2rem !important; " role="listitem"><a class="nav-tab-link nav-link inactive-nav-link" data-toggle="tab" role="link" href="#tab-RefDataSources">References</a></li>
                                     </ul>
@@ -1386,11 +1274,6 @@
 
                                                 <%--*KP/Methods Content*--%>
                                                 <div class="kptext">
-                                                    <%--<asp:Literal ID="litKPText" runat="server"></asp:Literal>--%>
-                                                    <%--<ul>
-                                                        <li>* Indicates that the result for this cell was suppressed because of imprecision due to a sample size that was too small or the standard error of the result being too large (&gt;30% of the estimate).</li>
-                                                        <li>95% confidence intervals, when available, are shown in parentheses.</li>
-                                                    </ul>   --%>
                                                     <asp:Literal ID="litFootNotesText" runat="server"></asp:Literal>
                                                 </div>
 
@@ -1404,20 +1287,10 @@
                                                 <!--*Chart Explanation*-->
                                                 <%--Spacing is managed on the server-side--%>
                                                 <!--*******************-->
-                                              <%--  <asp:Label ID="lblExplanationHeader" runat="server" Text=""></asp:Label>
-                                                <asp:Label ID="lblExplanationBody" runat="server" />--%>
                                                 <asp:Literal ID="litMethodsDesc" runat="server"></asp:Literal>
 
                                             </div>
                                         </div>
-
-<%--                                        <div class="tab-pane" role="tabpanel" id="tab-Methods">
-                                                <div id="methodsDiv">
-
-                                                    <asp:Literal ID="litMethodsDesc" runat="server"></asp:Literal>
-
-                                                </div>
-                                        </div>--%>
 
                                         <div class="tab-pane" role="tabpanel" tabindex="0" aria-labelledby="tab-3" id="tab-SpecSheet">
                                             <div class="ct-row">
@@ -1432,8 +1305,6 @@
                                             <div class="ct-row">
                                                 <asp:Panel ID="pnlReferences" runat="server" Style="" class="printReferences">
                                                     <div class="tabbyDiv">
-
-                                                        <%--<div style="font-weight: bold; font-size: .9em; font-weight: bold; margin-left: .5em; margin-top: .4em; margin-bottom: .4em;">References and Sources:</div>--%>
 
                                                         <asp:Repeater runat="server" ID="rptrReferences">
                                                             <HeaderTemplate>
@@ -1462,20 +1333,6 @@
                                 </div>
                         </div>
 
-
-<%--                        <p>
-                            <asp:Panel ID="pnlFootnotes" runat="server" CssClass="tabbyDiv" Visible="false">
-                                
-                                <asp:Label ID="lblFootNotesHeader" runat="server" CssClass="detail-module-header" Text="Footnotes:" />
-                                <br />
-                                <asp:Literal ID="litFootNotesText" runat="server"></asp:Literal>
-                                <br />
-                                <br />
-                            </asp:Panel>
-                        </p>--%>
-
-
-
                         <br />
 
                     </div>
@@ -1495,15 +1352,7 @@
 
                         <div id="divLeftContainer" class="divLeftContainer" runat="server" Visible=false>
 
-                            <%--*Data Source*--%>
-                            <%--<asp:Literal ID="litSourceTabs" runat="server" ClientIDMode="Static" />--%>
-
-
-                           
-
                             <%--*Go button Navs*--%>
-                            
-                            <%--<uc1:StratYearsButtons runat="server" ID="StratYear1" />--%>
                             <uc1:StratYearsLinksMaps runat="server" id="StratYearsLinksMaps" />
                            
                             <div class="dataSourceRBTitle" id="chartFormatOptions" runat="server" style="margin-top:10px;">&nbsp;&nbsp;Chart Format</div>
@@ -1514,7 +1363,6 @@
                                         <asp:ListItem Text="Stacked Bar" Value="'stacked'" ></asp:ListItem>
                                     </asp:RadioButtonList>
                         
-                                    <%--<asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList" Text="Confidence Intervals" runat="server" />--%>
                                 </div>
 
                             <div class="dataSourceRBTitle" id="chartColorOptions" runat="server" style="margin-top:10px;">&nbsp;&nbsp;Chart Colors</div>
@@ -1535,64 +1383,6 @@
 
                         <div id="divRightContainer" class="divRightContainer" runat="server">
                             
-                            <%--**************************--%>
-                            <%-- No longer needed (BEGIN) --%>
-                            <%--**************************--%>
-
-                            <%--*AYA related*--%>
-                            <%--<asp:Panel ID="pnlAYA" runat="server" Visible="false">
-                                <div style="font-family: Verdana; font-size: .9em; font-weight: bold; margin-left: .5em; margin-top: .4em;">Related <em>Are You Aware (AYA)</em></div>
-                                <asp:Repeater ID="rptrAYA" runat="server">
-                                    <HeaderTemplate>
-                                        <ul>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <li>
-                                            <asp:HyperLink ID="lnkAYA" runat="server" Target="_blank" NavigateUrl='<%# Eval("AYALink") + "#refreshPosition" %>' Text='<%#Eval("AYAIndicatorText")%>' ToolTip='<%#Eval("AYAIndicatorText")%>'/>
-                                        </li>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </ul>
-                                    </FooterTemplate>
-                                </asp:Repeater>
-                            </asp:Panel>--%>
-                            
-                            <%--************************--%>
-                            <%-- No longer needed (END) --%>
-                            <%--************************--%>
-
-
-                            
-                            <%--**************************--%>
-                            <%-- No longer needed (BEGIN) --%>
-                            <%--**************************--%>
-                            <%--*Related Indicators*--%>
-                            <%--<asp:Panel ID="pnlRelated" runat="server" CssClass="relatedIndicatorPanel" Visible="false">--%>
-
-                                <%--*Title*--%> <%-- UNCOMMENT OUT THE LINE BELOW --%>
-                                <%--<div style="font-family: Verdana; font-size: .9em; font-weight: bold; margin-left: .5em; margin-top: .4em;">Related Indicators</div>--%>
-
-                               <%-- <asp:Repeater runat="server" ID="rptrRelated" Visible ="false">
-                                    <HeaderTemplate>
-                                        <ul>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <li>
-                                            <asp:HyperLink ID="lnkRelated" runat="server" Target="_self" NavigateUrl='<%# Eval("URL") + "#refreshPosition" %>' Text='<%#Eval("RelatedIndicatorText")%>' ToolTip='<%#Eval("RelatedIndicatorText")%>' />
-                                        </li>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </ul>
-                                    </FooterTemplate>
-                                </asp:Repeater>
-
-                            </asp:Panel>  --%>                     
-
-                            <%--************************--%>
-                            <%-- No longer needed (END) --%>
-                            <%--************************--%>
-
-
                             <%--*Most Recently Visited*--%>
                             <asp:PlaceHolder ID="phMRV" runat="server" ></asp:PlaceHolder>
 
@@ -1602,48 +1392,13 @@
 
                     </div>
 
-                    
-                    <%--***********************--%>
-                    <%--*Right Column Material*--%>
-                    <%--***********************--%>
-                    <%--<div id="divRightColumn" class="col-xl-2 col-lg-4">
-                    
-                    </div>--%>
-
                 </div>
             </div>
         </div>
 
-
-       
-        <%--********************--%>
-        <%--*Suggested Citation*--%>
-        <%--********************--%>
-        <%--<div class="row" style="padding-top:20px;">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-
-                <div class="citationHeader">
-                    Suggested Citation:
-                </div>
-
-                <div class="citation-block">
-                    Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States.<br>
-                    website. <a href="http://www.cdc.gov/ckd" class="tp-link-policy">http://www.cdc.gov/ckd</a>
-                </div>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>--%>
-
-
-        <!-- canvas and div for saving image in IE and Edge - possibly no longer needed-->
-        <%-- <div id="canvascontainer">
-            <canvas id="canvas" width="960" height="670"   ></canvas>
-        </div>--%>
         <div id="png-container"  style="width:960px; height:900px;display:none;"></div>
 
     </div>
-    <%--<div id="bottom-container">--%>
     <!-- *End of Detail Area* -->
     <style>
         .nav-item.active {
@@ -1651,15 +1406,12 @@
             background-color:#E8E8E8!important;
             color:#000000!important;
             border: 1px solid #E8E8E8 !important;
-           /* border-top:0px!important;*/
             text-align: center;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             font-size: 18px;
-            /*font: normal normal normal 17px/24px Open Sans;*/
             letter-spacing: 0px;
             opacity: 1;
-            /*box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);*/
             border-radius: 6px;
         }
         
@@ -1696,12 +1448,10 @@
             padding-top:2px;
             padding-left:5px;
             top: calc(0.2rem);
-            /*padding-right:5px;*/
         }
 
         #input-container {
             vertical-align: top;
-            /*background: #00695C14 0% 0% no-repeat padding-box;*/
             background-color: var(--colors-blue-cool-vivid-5);
             opacity: 1;
             height: 107px;
@@ -1735,10 +1485,6 @@
 
     </style>
     <script>
-        //$(".btn-primary").click(function () {
-        //    console.log("inside btn-primary");
-        //    $(this).prop('disabled', true);
-        //});
         function openDataSource(selVal) {
             window.location.href = "./detail.aspx?Qnum=" + selVal + "#refreshPosition";
         }
@@ -1772,28 +1518,14 @@
                     $('#divMenuContent').removeAttr("style");
                     var divCI = document.getElementById("CB_ChartCI");
                     if (typeof (divCI) == 'undefined' || divCI == null) {
-                        //$('#divMenuData').attr("style", "margin-left:28%");  //reducing because the text wraps due to the font increase
                         $('#divMenuData').attr("style", "margin-left:1%");
                     }
                 }else{
                     var divCI = document.getElementById("CB_ChartCI");
                     if (typeof (divCI) == 'undefined' || divCI == null) {
                         $('#divMenuData').removeAttr("style");
-                        //$('#divMenuData').attr("style", "margin-left:63%");
                     }
                 }
-
-                //$('#RBStd_0').on('change', function () {
-                //    if ($(this).is(':checked')) {
-                //        window.location.href = "./detail.aspx?Qnum=" + $(this).val() + "#refreshPosition";
-                //    }
-                //});
-
-                //$('#RBStd_1').on('change', function () {
-                //    if ($(this).is(':checked')) {
-                //        window.location.href = "./detail.aspx?Qnum=" + $(this).val() + "#refreshPosition";
-                //    }
-                //});
                 
                 
                 var sw = $(window).width();
@@ -1810,19 +1542,6 @@
                     else
                         $('.smallscreenmessage').hide();
                 }     
-
-                //$("#skipchartlink").prop("style","");
-                //$("#skipdatatablelink").prop("style","");
-                //$("#skippagedetailslink").prop("style", "");
-
-                ////fix for IE
-                //$("#skipchartlink").attr("style", "");
-                //$("#skipdatatablelink").attr("style", "");
-                //$("#skippagedetailslink").attr("style", "");
-
-                //$("#skipmenu").append("<a href='#chartArea' tabindex='0' class='skippy' id='skipchartlink'>Skip directly to chart</a>");
-                //$("#skipmenu").append("<a href='#View-Data' tabindex='0' class='skippy' id='skipdatatablelink'>Skip directly to data table</a>");
-                //$("#skipmenu").append("<a href='#detailArea' tabindex='0' class='skippy' id='skippagedetailslink'>Skip directly to Key Points, Description, Methods, Field/Data, References</a>");
 
                 if ($("#hfChartID").val() == "4319") {
                     document.getElementById("btnreset").innerHTML = "Reset Filters";
@@ -1883,10 +1602,6 @@
             });
 
             function redrawPlotlyChart() {
-                //console.log("inside redraw");
-                //not sure what these two lines do commented out for now
-                //$("#svgchart").removeProp("style");
-                //$("#svgchart").prop("style", "display:inline-block");
 
                 createPlotlyChart();
                 createPlotlyChartRel(); /* TODO: comment out this block */
@@ -1909,11 +1624,6 @@
                 autoscaleBtn.click();
             }
             
-            //graphdiv.on('plotly_legendclick', function (data) {
-            //    console.log("inside legendclick");
-            //    autoscaleBtn = $('a[data-title="Autoscale"]')[0]
-            //    autoscaleBtn.click();
-            //});
         </script>
     
 </asp:Content>
@@ -1925,12 +1635,9 @@
     <script src="scripts/raphael.js" type="text/javascript"></script>
     <script src="scripts/jquery.usmap2.js?v=4" type="text/javascript"></script>
     <script src="scripts/jquery.corner.js" type="text/javascript"></script>
-    <%--<script src="scripts/bootstrap-dropdown.js"></script>--%>
-
 
     <script type="text/javascript">
     <!--        //
-    //$.noConflict();
 
     $(document).ready(function () {
 
@@ -1939,9 +1646,6 @@
             $(".divRightContainer").show();
         else
             $(".divRightContainer").hide();
-        //Initiate the content tabs
-        //CDC.Gadgets.Tabs.init();
-
 
         if ($('#map').length < 1) {
             //If we are NOT on a map indicator ...
@@ -1967,7 +1671,6 @@
                 keyboard: true,
 
                 onChange: function (data) {
-                    //chooseMap();
                     var val = $('#mapSlider').val();
                     var yrs = $('#hfCSVYears').val().split(',');
                     var curIndex = yrs.indexOf(val);
@@ -1988,32 +1691,6 @@
         }
 
 
-
-        //****************
-        //*Maps Over Time*
-        //****************
-        //*If not a map page - hide the maps over time choice*
-        //if (shouldShow == false) {
-        //    $('.mapsOverTime').hide();
-        //}
-
-        //*show the checkbox*
-        //if ($('#spnAll').hasClass('btnClicked')) {
-        //    $('.mapsOverTime').show();
-        //} else {
-        //    $('.mapsOverTime').hide();
-        //}
-
-        //*change interface when all Years (span) is clicked*
-        //if ($('#cbMultimaps').is(':checked')) {
-        //    $('#btnDownloadChart').hide();
-        //    $('#imgSaveChart').hide();
-        //    $('.tableHeaderBar').hide();
-        //}
-           
-        //if ($('input[id$="btnColorsOneYear"]').attr('src') == 'images/Go_Clicked.png') {
-        //    $('.mapsOverTime').hide();
-        //}
 
 
         $('.ckd-explanation-accordion-header').click(function () {
@@ -2087,20 +1764,10 @@
             $('#spnSelectedYearMinus').hide();
         }
 
-        //if ($('#_ispostback').val() == "True") {
-        //    $('html, body').animate({
-        //        scrollTop: $("#ContentReviewPosition").offset().top
-        //    }, 500);
-        //}
-
-
     });
 
     //*change interface when all Years (span) is clicked*
     function adjustForAllYears() {
-        //$('#btnDownloadChart').hide();
-        //$('#imgSaveChart').hide();
-        //$('.tableHeaderBar').hide();
         $('#hfShowMapSlider').val('1'); //show the slider on postback
 
         //Read the url params - get the QNum
@@ -2186,7 +1853,6 @@
                 } else {
                     newIndex = curIndex + 1;
                 }
-                //newIndex = curIndex + 1;
                 break;
             case "prev":
                 if (curIndex == 0) {
@@ -2194,17 +1860,12 @@
                 } else {
                     newIndex = curIndex - 1;
                 }
-                //newIndex = curIndex - 1;
                 break;
         }
 
         //Set the slider's new position
         slider.update({ from: newIndex });
 
-        //Show the new map
-        //chooseMap();
-
-        //console.log("3 val=" + val + " - curIndex=" + curIndex);
         updateMap(newIndex);
     }
     function sliderAnimateForward(cnt) {
@@ -2212,7 +1873,6 @@
         //If this is a stop - do not animate
         var as = $('#hfAnimateState').val();
         if (as == "0") { return; }
-        //$('#spancounter').text(cnt);
 
 
         var yrs = $('#hfCSVYears').val().split(',');//Note: hfCSVYears is in StratYearButtons.ascx and contains the comma-separated list of years
@@ -2246,10 +1906,6 @@
         //Set the slider's new position
         slider.update({ from: newIndex });
 
-        //Show the new map
-        //chooseMap();
-
-        //console.log("2 val=" + val + " - curIndex=" + curIndex);
         updateMap(newIndex);
 
 
@@ -2346,29 +2002,6 @@
         }
         }
 
-        //function toggleStdChart() {
-
-        //    //Executes on click of span #spnViewDataTable to hide/show table contents
-        //    var showingDefault = $('#svgchart').attr('vis');
-        //    var showingStd = $('#svgchartRel').attr('vis');
-
-        //    switch (showingDefault) {
-        //        case '0':
-        //            $('#svgchartRel').slideUp(1000);
-        //            $('#svgchart').slideDown(1000);
-        //            $('#svgchart').attr('vis', '0');
-        //            $('#svgchartRel').attr('vis', '1');
-        //            //$('#spnViewDataTable').html('&mdash; Hide Data Table');
-        //            break;
-        //        case '1':
-        //            $('#svgchartRel').slideDown(1000);
-        //            $('#svgchart').slideUp(1000);
-        //            $('#svgchartRel').attr('vis', '0');
-        //            $('#svgchart').attr('vis', '1');
-        //            //$('#spnViewDataTable').text('+ View Data Table');
-        //            break;
-        //    }
-        //}
 
     function toggleTableKeyBoard(e) {
 
@@ -2411,9 +2044,7 @@
                 value = 0;
 
             yearselected = yrs[value];
-            //console.log("yearselected=" + yearselected + " - previousyear=" + previousyear);
             fillTheMap(1);
-            //fillTheLegend();
         }
 
         function zoomed() {           
@@ -2443,21 +2074,7 @@
 
         function fillChartTitle_tabs(c_title, c_footer) {
 
-           // d3.select("#countymaptitletextid").remove();
             d3.selectAll(".countymapsvgwrapper .countymaptitletext").remove();
-            //d3.select('.countymapsvgwrapper').append("g")
-            //    .attr("class", "countymaptitletext")
-            //    //.attr("id", "countymaptitletextid")
-            //    .append("text")
-            //    .attr("x", 20)
-            //    .attr("y", 520)
-            //    .text(c_title + "-" + $("#ddstate option:selected").text());
-            //d3.select('.countymapsvgwrapper').append("g")
-            //    .attr("class", "countymaptitletext")
-            //    .append("text")
-            //    .attr("x", 20)
-            //    .attr("y", 540)
-            //    .text(c_footer);
 
             d3.select('.countymapsvgwrapper').append("text")
                 .attr("class", "countymaptitletext")
@@ -2490,21 +2107,10 @@
             var quantize = d3.scaleQuantize()
                 .domain([valMin, valMax])
                 .range(colorarray);
-          //  console.log("quant=" + JSON.stringify(quantize) + " -- valMin:" + valMin + " - valMax:" + valMax);
 
             var ranges = quantize.range().length;
-            //console.log("ranges=" + JSON.stringify(ranges));
-            //console.log("ranges=" + JSON.stringify(ranges));
             var legend = svg.append("g")
                 .attr("transform", "translate (" + margin.left + "," + margin.top + ")");
-
-            //var lb = legend.append("rect")
-            //    .attr("transform", "translate (0,0)")
-            //    .attr("class", "legend-box")
-            //    .attr("fill", "#fff")
-            //    .attr("width", boxwidth)
-            //    .attr("height", ranges * lineheight + 2 * boxmargin + lineheight - keyheight);
-
 
             // make quantized key legend items
             var li = legend.append("g")
@@ -2526,7 +2132,6 @@
                 .style("stroke", "#000")
                 .style("stroke-width", "1px")
                 .style("fill", function (d) {
-                   // console.log("quant-d=" + JSON.stringify(quantize(d[0])));
                     return quantize(d[0]);
                 });
 
@@ -2573,8 +2178,6 @@
         function fillTheMap(type) {
             console.log("FillTheMap");
              $("#range").html(yearselected); //this is the slider
-             //console.log("year=" + yearselected);
-             //console.log("stateData=" + JSON.stringify(stateData));
             // D3 Projection
             var projection = d3.geoAlbersUsa()
                 .translate([width / 2, height / 2]) // translate to center of screen
@@ -2588,9 +2191,6 @@
 
             // Load GeoJSON data and merge with states data
             d3.json("Scripts/D3MapFiles/Coordinates/us-states.json", function (json) {
-           // d3.json("Scripts/D3MapFiles/Coordinates/us-10m.v1.json", function (json) {
-                //if this is the first time generating the map, then draw everything, else.....
-                //if (type == 0) {
                     g_con = svg.append("g")
                         .attr("class","g" + yearselected) //adding the year selected, so it can be referenced later for deletion
                         .selectAll("path")
@@ -2696,17 +2296,15 @@
                     d3.select(this)
                         .data(stateData.filter(function (C) {
                             if (C.year == yearselected && C.name == d.properties.name)
-                                //console.log("name and year=" + C.year + "-" + C.name + " - " + C.color + " - " + C.value);
                             return (C.year == yearselected && C.name == d.properties.name)
                         }))
                         .style("fill", function (Clr) {
                             if (Clr.year == yearselected && Clr.name == d.properties.name)
                                 {
-                                //console.log("name and color=" + Clr.name + " - " + Clr.color);
                                 return Clr.color
                             }
                             
-                        })  //function (D) { return mapcolors[D.colorpercenttile - 1];
+                        })  
                         .on('mouseover', function (D) {
                             
                             if (D.year == yearselected && D.name == d.properties.name) {
@@ -2743,9 +2341,6 @@
                                     .style('transition', '.5s')
                                     .style('opacity', '1')
                                     .html(statedatalabelval );
-                                //hovertooltipdiv.style('left', d3.event.pageX + 'px').style('top', d3.event.pageY - 60 + 'px')
-                                //    .style('display', 'inline-block')
-                                //    .html(D.name + '<br>' + D.value);
                             }
 
                         })
@@ -2793,7 +2388,6 @@
      <script>
 
          var stateData_tabs = [];
-         //const colorarray_tabs = ["#D6EAF8", "#AED6F1", "#85C1E9", "#3498DB", "#2E86C1"];
 
          //***** Q705 change *******/
          const colorarray_tabs = ["#FFFFFF", "#AED6F1", "#85C1E9", "#59B1EC", "#2E86C1"];
@@ -2868,11 +2462,8 @@
                  if(statecode_tabs == "select")
                  {
                      $(".btnzoomout").click();
-                     //processData(allData);
                      return;
                  }
-
-                 //console.log(statecode_tabs);
 
                  var featurestate_tabs = topojson.feature(global_us_tabs, global_us_tabs.objects.states)
                      .features
@@ -2880,9 +2471,6 @@
                  stateClicked_tabs(featurestate_tabs);
 
                  callHandler(statecode_tabs);
-
-                 //$("#tinybarchart").show();
-                 //$("#tinyheatmap").show();
 
                  //10/13/2020
                  if ($("#tabbtn_maps").parent().hasClass("active")) $("#tabbtn_maps").click();
@@ -2903,7 +2491,6 @@
 
              $("#tabbtn_heatmap").click(function () {
                  console.log("inside tabbtn_heatmap click");
-                 //$(".legendsvg").hide();
                  $("#heatmapsort").show();
                  $(".heatmapsortlbl").show();
                  var gd4 = d3.select('#heatmapchart');
@@ -2915,8 +2502,6 @@
                  Plotly.Plots.resize(graphdiv);
 
                  $("#tinystatemap").show();
-                 //$("#tinybarchart").show();
-                 //$("#tinyheatmap").hide();
 
                  $(".btnzoomout").hide();
                  $("#exportCountyMapButton").hide();
@@ -2928,12 +2513,9 @@
 
              });
              $("#tabbtn_maps").click(function () {
-                 //$(".legendsvg").show();
                  $("#heatmapsort").hide();
                  $(".heatmapsortlbl").hide();
                  $("#tinystatemap").hide();
-                 //$("#tinybarchart").show();
-                 //$("#tinyheatmap").show();
                  $(".btnzoomout").show();
                  $("#exportCountyMapButton").show();
                  $(this).parent().addClass("active");
@@ -2942,12 +2524,10 @@
              });
 
              $("#tabbtn_chart").click(function () {
-                 //$(".legendsvg").show();
                  $("#heatmapsort").hide();
                  $(".heatmapsortlbl").hide();
                  $("#tinystatemap").show();
                  $("#tinybarchart").hide();
-                 //$("#tinyheatmap").show();
                  $(".btnzoomout").hide();
                  $("#exportCountyMapButton").hide();
                  $(this).parent().addClass("active");
@@ -2966,13 +2546,6 @@
                  $("#tabbtn_chart").click();
                  console.log("inside tinybarchart click");
              });
-
-
-             //$("#tinyheatmap").click(function () {
-             //    $("#tabbtn_heatmap").click();
-             //    console.log("inside tinyheatmap click");
-             //});
-             //end triggering
 
 
 
@@ -3000,10 +2573,7 @@
 
                      fillColor();
                  }
-                 //d3.select(null); 
                  zoomOutToUS();                 
-                 //$(this).hide();
-                 //$(".msgzoomout").show();
                  showAllCounties();
                  $("#heatmapsort").hide();
                  $(".heatmapsortlbl").hide();
@@ -3018,7 +2588,6 @@
 
              //Fix search box at top(2021-May Release)
              $('#headerSearch').attr('style','max-width:225px;'); //thin up the box a bit
-             //$('.search-submit').attr('style', 'height:33px;'); //btn should match height of txt box
              $('.form-control-clear').remove(); //Remove 'X'
          });
 
@@ -3031,68 +2600,16 @@
                  data: "selectedstate=" + stateval + "^valMin=" + valMin_tabs + "^valMax=" + valMax_tabs + "^sortvalue=" + $("#heatmapsort").val() + "^yr=" + $("#hfCurrentYear").val() + "^chartid=" + $("#hfChartID").val() ,
                  success: function (response) {
 
-                     //createPlotlyBarChart(response)
                      eval(response);
 
                  },
                  error: function (jqXHR, textStatus, errorThrown) {
-                     // console.log("ajax error");
                      alert("textStatus=" + textStatus + " -- AJAX callHandler Error:" + errorThrown);
                  }
              });
          }
 
-         //function callOnSelectedIndexChanged() {
-         //    $.ajax({
-         //        type: "POST",
-         //        url: "Detail.aspx",
-         //        data: "selectedstate=" + stateval + "^valMin=" + valMin_tabs + "^valMax=" + valMax_tabs + "^sortvalue=" + $("#heatmapsort").val() + "^yr=" + $("#hfCurrentYear").val() + "^chartid=" + $("#hfChartID").val(),
-         //        success: function (response) {
-
-         //            console.log("response=" + response);
-         //            //createPlotlyBarChart(response)
-         //            eval(response);
-
-         //        },
-         //        error: function (jqXHR, textStatus, errorThrown) {
-         //            // console.log("ajax error");
-         //            alert("textStatus=" + textStatus + " -- AJAX callHandler Error:" + errorThrown);
-         //        }
-         //    });
-         //}
-
-         //function createUSMapChart(width, height) //datavals, scopeval, xaxis_title, title_var //creating the chart with the data sent back from the proc
-         //{
-         //    $(".countymapsvg").removeProp("style"); //removing the existing style of display none
-         //    $(".countymapsvg").prop("style", "display:inline-block");// adding the style of inline-block
-         //    //d3.select('.countymapsvg g').remove(); //removing the svg g
-
-
-         //    //zoom and pan functionality, function for general zooming and panning
-         //    d3.drag().on("drag", function () { d3.event.stopPropagation(); });
-
-
-         //    svg_tabs
-         //        .call(zoom_tabs);//necessary for the entire map to zoom, calling the variable above
-
-         //    svg_tabs.on("mouseout", function () {
-         //        console.log("inside mouseout");
-         //        hovertooltipdiv_tabs.style("display", "none"); //if the cursor is outside of the map, then hide the hover over
-         //        $(".datastatelabel").html(""); //and empty all of the data labels
-         //        $(".datacountylabel").html("");
-         //        $(".datavaluelabel").html("");
-         //    });
-
-         //    //end zoom and pan functionality
-
-         //    d3.queue() //starting the queue
-         //        .defer(d3.json, "Scripts/D3MapFiles/Coordinates/us-10m.v1.json") //using this json file
-         //        .defer(d3.csv, "Data/prev_county_oneyear.csv") //load csv file here to be used throughout
-         //        .await(mapReady); //calling the 'ready' function
-         //}
-
          function mapReady(error, usdata) { //the 'us' is the json data file from the the queue function, the 'csvdata' is from the csv file data
-             //console.log("csvdata=" + JSON.stringify(csvdata));
              
              if (error) throw error;
              global_us_tabs = usdata; //adding this passed int data to the global data
@@ -3130,7 +2647,6 @@
                  .style("fill", "#ccc")
                  .attr("d", path_tabs) //adding the path projection above
                  .on("mouseover", function (D) {
-                     //console.log("D=" + JSON.stringify(D));
                      var statedatalabelval = createstatehoverover(D.id);
                      hovertooltipdiv_tabs.style('left', d3.event.pageX + 100 + 'px').style('top', d3.event.pageY - 60 + 'px') //displaying the popup on the text in addition to the state
                          .style('display', 'inline-block')
@@ -3141,7 +2657,6 @@
                      $(".datastatelabel").html(statedatalabelval);
                      $(".datacountylabel").html("");
                      $(".datavaluelabel").html("");
-                     //.html(D.name + '<br>' + D.value);
                  })
                  .on("dblclick", reset)
                  .on("click", stateClicked_tabs); //when the state is clicked, call the 'stateclicked' function
@@ -3173,7 +2688,6 @@
              }
 
              //starting off by showing GA first when the map page is loaded
-             //$("#ddstate").val("13");
              $(".btnzoomout").click();
 
              var statecode_tabs = $("#ddstate").val();
@@ -3186,8 +2700,6 @@
 
                  callHandler(statecode_tabs);
              }
-             //callHandler($("#ddstate").val());
-
              
          }
 
@@ -3195,7 +2707,6 @@
          //moved this outside of the createmap function so that it can be accessed by the dropdown state change
          function stateClicked_tabs(d) { //passing in the json string of the state             
              hideAllCounties();
-             //$(".cballcounties").prop("checked", false);
              $(".msgzoomout").hide();
              $(".btnzoomout").show();
              $("#exportCountyMapButton").show();
@@ -3210,7 +2721,6 @@
              });
 
              selectedstateid = statecode;
-             //console.log("d state=" + JSON.stringify(d));
              var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
              var countiesarray = [];
 
@@ -3227,7 +2737,6 @@
                      global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
              }
 
-             //if ($(".cballcounties").prop("checked") == false) {
              //if we don't show all counties then remove the other counties being shown, otherwise keep them displayed
              svg_tabs.selectAll("g.counties").remove();//removing any existing counties that are being displayed
 
@@ -3338,7 +2847,6 @@
                          processData(allData);
                      }
                  });
-             //}
 
              //finding the bounds and location for zooming, from bl.ocks.org/iamkevinv/0a24e9126cd2fa6b283c6f2d774b69a2
              var bounds = path_tabs.bounds(d),
@@ -3455,7 +2963,6 @@
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
                                  countydatalabelval = htmlwrap;
-                                 //countydatalabelval = county_val + " <br> " + data_val;
                              }
 
                              $(".datastatelabel").html(statename);
@@ -3489,7 +2996,6 @@
              states_tabs.transition() //zooming out //have to zoom on the 'states' portion of the svg
                  .duration(750)
                  .call(zoom_tabs.transform, d3.zoomIdentity);
-             //svg.selectAll("g.counties").remove();
              $("#ddstate").val("select");
          }
 
@@ -3518,13 +3024,6 @@
              var legend = legendsvg.append("g")
                  .attr("transform", "translate (" + margin.left + "," + margin.top + ")");
 
-             //var lb = legend.append("rect")
-             //    .attr("transform", "translate (0,0)")
-             //    .attr("class", "legend-box")
-             //    .attr("fill", "#fff")
-             //    .attr("width", boxwidth)
-             //    .attr("height", ranges * lineheight + 2 * boxmargin + lineheight - keyheight);
-
              var lb = legend.append("rect")
                  .attr("transform", "translate (0,0)")
                  .attr("class", "legend-box")
@@ -3538,21 +3037,7 @@
                  .attr("transform", "translate (8,0)")
                  .attr("class", "legend-items");
 
-             //li.selectAll("rect")
-             //    .data(quantize.range().map(function (color) {
-             //        var d = quantize.invertExtent(color);
-             //        if (d[0] == null) d[0] = x.domain()[0];
-             //        if (d[1] == null) d[1] = x.domain()[1];
-             //        return d;
-             //    }))
-             //    .enter().append("rect")
-             //    .attr("y", function (d, i) { return i * lineheight + lineheight - keyheight - 4; })
-             //    .attr("width", keywidth)
-             //    .attr("height", keyheight + 4)
-             //    .style("stroke", "#000")
-             //    .style("stroke-width", "1.5px")
-             //    .style("fill", function (d) { return quantize(d[0]); });
-
+           
              li.selectAll("rect")
                  .data(quantize.range().map(function (color) {
                      var d = quantize.invertExtent(color);
@@ -3733,24 +3218,6 @@
                  
              }
 
-             //***** Q705 change *******/
-
-             //if (dataval === "NA")
-             //    colorval = "#ddd"; //was white at one point
-             //else if (dataval === "MIA")
-             //    colorval = "#ddd"
-             //else if (dataval >= valMin_tabs + (minmaxDiff_tabs * .8)) // > 80th percentile
-             //    colorval = colorarray_tabs[4];
-             //else if (dataval >= (valMin_tabs + (minmaxDiff_tabs * .6)) && dataval < (valMin_tabs + (minmaxDiff_tabs * .8))) //60th - 80th percentile
-             //    colorval = colorarray_tabs[3];
-             //else if (dataval >= (valMin_tabs + (minmaxDiff_tabs * .4)) && dataval < (valMin_tabs + (minmaxDiff_tabs * .6))) //40th - 60th percentile
-             //    colorval = colorarray_tabs[2];
-             //else if (dataval >= (valMin_tabs + (minmaxDiff_tabs * .2)) && dataval < (valMin_tabs + (minmaxDiff_tabs * .4))) //20th - 40th percentile
-             //    colorval = colorarray_tabs[1];
-             //else if (dataval < (valMin_tabs + (minmaxDiff_tabs * .2))) // < 20th percentile
-             //    colorval = colorarray_tabs[0];
-             //console.log("dataval=" + dataval + " - valMin=" + valMin_tabs + " - minmaxDiff=" + minmaxDiff_tabs + " - colorval=" + colorval);
-
              return colorval;
          }
 
@@ -3780,8 +3247,6 @@
              else
                  svgString = new XMLSerializer().serializeToString(document.querySelector('.usmapsvg'));
 
-             //var svgString = new XMLSerializer().serializeToString(document.querySelector('.countymapsvg'));
-
              var canvas = document.getElementById("canvas");
              var ctx = canvas.getContext("2d");
              var DOMURL = self.URL || self.webkitURL || self;
@@ -3801,8 +3266,6 @@
                  document.body.appendChild(link);
                  link.click();
 
-                 //var newTab = window.open();
-                 //newTab.document.write('<img src="' + png + '" />');
              };
              img.src = url;
 
