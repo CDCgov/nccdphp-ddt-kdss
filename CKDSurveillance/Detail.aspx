@@ -1607,7 +1607,7 @@
                 //createPlotlyChartRel(); /* TODO: comment out this block */
 
                 
-                if (document.getElementById("divRBSTD") != null) { }
+                if (document.getElementById("divRBSTD") != null) { 
                     createPlotlyChartRel();
                 }
                 
