@@ -2315,7 +2315,7 @@ namespace CKDSurveillance_RD.MasterPages
                     if (Application["d3MapJsCode_" + QNum] == null)
                     {
                         string d3CountyMapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr, "countymapsvg", "countymapsvgwrapper", "svg_county_tabs");
-                        
+
                         if (QNum.Substring(1) == "761")
                         {
                             string d3StateMapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr, "statemapsvg", "statemapsvgwrapper", "svg_state_tabs");
@@ -2326,7 +2326,7 @@ namespace CKDSurveillance_RD.MasterPages
                     }
 
                     litD3MapTabs.Text = Application["d3MapJsCode_" + QNum].ToString();
-
+                    
                     hfMapType.Value = "6";
                 }
                 else

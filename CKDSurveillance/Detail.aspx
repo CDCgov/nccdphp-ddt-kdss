@@ -2060,10 +2060,15 @@
         }
 
         function zoomed() {           
-            g_con.attr("transform", d3.event.transform); // updated for d3 v4
-            g_text.attr("transform", d3.event.transform); // updated for d3 v4
-            
+            //g_con.attr("transform", d3.event.transform); // updated for d3 v4
+            //g_text.attr("transform", d3.event.transform); // updated for d3 v4
+
+            county_states_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'states' portion of the svg
+            county_counties_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'counties' portion of the svg
+            state_states_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'states' portion of the svg
+            state_counties_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'counties' portion of the svg
         }
+
         function fillTheTitleFooter(c_title, c_footer) {
             console.log("inside fillTheTitleFooter");
             var margin = { "left": 0, "top": 0 };
@@ -2397,7 +2402,7 @@
     <%--**********************--%>
     
 
-    
+        
         <asp:Literal ID="litD3MapTabs" runat="server" />
     <script>
 
@@ -2432,7 +2437,7 @@
          statearray_tabs.forEach(function (statename, index) {
              stateData_tabs.push({ "name": statename, "abbr": abbrarray_tabs[index], "fips": fipsarray_tabs[index] });
          });
-
+         
          var svg_county_tabs = d3.select('.countymapsvg');
          var svg_state_tabs = d3.select('.statemapsvg');
 
@@ -2905,6 +2910,8 @@
                          processData(allData);
                      }
                  });
+             //if we don't show all counties then remove the other counties being shown, otherwise keep them displayed
+             svg_state_tabs.selectAll("g.counties").remove();//removing any existing counties that are being displayed
 
              state_counties_tabs = svg_state_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
                  .data(countiesarray) //using only the filtered counties for the state
@@ -3149,6 +3156,8 @@
                      }
                  });
 
+             svg_state_tabs.selectAll("g.counties").remove();
+
              state_counties_tabs = svg_state_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
                  .data(allCounties) //using only the filtered counties for the state
                  .enter()
@@ -3379,12 +3388,12 @@
 
          }
 
-         function zoomed() {
-             county_states_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'states' portion of the svg
-             county_counties_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'counties' portion of the svg
-             state_states_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'states' portion of the svg
-             state_counties_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'counties' portion of the svg
-         }
+         //function zoomed() {
+             //county_states_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'states' portion of the svg
+             //county_counties_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'counties' portion of the svg
+             //state_states_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'states' portion of the svg
+             //state_counties_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'counties' portion of the svg
+        // }
 
          // If the drag behavior prevents the default click,
          // also stop propagation so we don’t click-to-zoom.
