@@ -2689,6 +2689,32 @@
                  .on("dblclick", reset)
                  .on("click", stateClicked_tabs); //when the state is clicked, call the 'stateclicked' function
 
+             state_states_tabs = svg_state_tabs.append("g")
+
+                 .selectAll("path") //creation of the state paths
+                 .data(topojson.feature(global_us_tabs, global_us_tabs.objects.states).features)
+                 .enter().append("path")
+                 .attr("id", findstateid) //calling the findstateid function
+                 .attr("class", findstatecls) //calling the findstatecls function
+
+                 .style("stroke", "#000")//has to be added here so that the save image function holds onto the style.
+                 .style("stroke-width", "1.5px") //adding thicker state borders
+                 .style("fill", "#ccc")
+                 .attr("d", path_tabs) //adding the path projection above
+                 .on("mouseover", function (D) {
+                     var statedatalabelval = createstatehoverover(D.id);
+                     hovertooltipdiv_tabs.style('left', d3.event.pageX + 100 + 'px').style('top', d3.event.pageY - 60 + 'px') //displaying the popup on the text in addition to the state
+                         .style('display', 'inline-block')
+                         .style('transition', '.5s')
+                         .style('opacity', '1')
+                         .html(statedatalabelval + "<br><br>Click to view county level data");
+
+                     $(".datastatelabel").html(statedatalabelval);
+                     $(".datacountylabel").html("");
+                     $(".datavaluelabel").html("");
+                 })
+                 .on("dblclick", reset)
+                 .on("click", stateClicked_tabs); //when the state is clicked, call the 'stateclicked' function
 
              function createstatehoverover(stateid) {
                  var return_name = "";
@@ -2712,6 +2738,9 @@
 
              function reset() {
                  county_states_tabs.transition() //zooming out //have to zoom on the 'states' portion of the svg
+                     .duration(500)
+                     .call(zoom_tabs.transform, d3.zoomIdentity); // updated for d3 v4
+                 state_states_tabs.transition() //zooming out //have to zoom on the 'states' portion of the svg
                      .duration(500)
                      .call(zoom_tabs.transform, d3.zoomIdentity); // updated for d3 v4
              }
@@ -2877,6 +2906,108 @@
                      }
                  });
 
+             state_counties_tabs = svg_state_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
+                 .data(countiesarray) //using only the filtered counties for the state
+                 .enter()
+                 .append('path').attr('d', path_tabs).attr("id", function (d) { return d.id; })
+
+                 .style("fill", function (cdata) { //loading the csv data in the queue
+                     var filtercountyrow = global_csv_tabs.filter(function (d, i) {
+                         return d.fipscounty == cdata.id; //just match on the countyid from the countiesarray and match it with the fipscounty columns fro mthe excel file and then return the whole row of data
+                     });
+
+                     if (filtercountyrow.length === 0)
+                         dataval = "MIA";
+                     else
+                         dataval = filtercountyrow[0]["countydatavalue"];
+
+                     var colorval;
+                     colorval = findColorVal(dataval);
+
+                     if (selectedFips != "" && cdata.id != selectedFips)
+                         colorval = "#ddd";
+
+                     return colorval;
+                 })
+
+                 .style("stroke", "#444")//has to be added here so that the save image function holds onto the style.
+                 .style("stroke-width", ".5px")
+                 .on("mouseover", function (D) {
+
+                     hovertooltipdiv_tabs.style('left', d3.event.pageX + 50 + 'px').style('top', d3.event.pageY - 60 + 'px') //displaying the popup on the text in addition to the state
+                         .style('display', 'inline-block') //setting up the hover tool div
+                         .style('transition', '.5s')
+                         .style('opacity', '1')
+                         .html(function (h) {
+
+                             var filtercountyrow = global_csv_tabs.filter(function (d, i) {
+                                 return d.fipscounty == D.id; //just match on the countyid and then return the whole row of data
+                             });
+
+                             var county_val;
+                             var data_val;
+                             var countydatalabelval;
+
+                             if (filtercountyrow.length === 0) {
+                                 county_val = "NA";
+                                 data_val = "";
+                                 countydatalabelval = "NA";
+                             }
+                             else if ((filtercountyrow[0]["countydatavalue"] === "NA" || Number(filtercountyrow[0]["countydatavalue"]) <= 10) && $("#hfChartID").val() != "4319") {
+                                 statename = filtercountyrow[0]["state"]
+                                 county_val = filtercountyrow[0]["county"];
+                                 data_val = filtercountyrow[0]["countydatavalue"];
+                                 var color = findColorVal(data_val);
+                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA</div>";
+                                 htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
+                                 htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
+                                 countydatalabelval = htmlwrap;
+                             }
+                             else {
+                                 county_val = filtercountyrow[0]["county"];
+                                 data_val = filtercountyrow[0]["countydatavalue"];
+
+                                 var color = findColorVal(data_val);
+                                 if (selectedFips != "" && D.id != selectedFips)
+                                     color = "#ddd";
+                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + "%</div>";
+
+                                 if ($("#hfChartID").val() === "4319" && data_val === "NA")
+                                     htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + "</div>";
+
+                                 if (statecode == "22")
+                                     htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>Parish: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
+                                 else if (statecode == "02")
+                                     htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>Borough: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
+                                 else
+                                     htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
+
+                                 htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
+                                 countydatalabelval = htmlwrap;
+                             }
+
+                             $(".datastatelabel").html(statename);
+
+                             $(".datacountylabel").removeAttr("style").hide();
+                             $(".datacountylabel").show();
+                             $(".datacountylabel").html(county_val);
+
+                             $(".datavaluelabel").removeAttr("style").hide();
+                             $(".datavaluelabel").show();
+                             $(".datavaluelabel").html(data_val);
+
+                             return countydatalabelval;
+                         })
+
+                 })
+                 .on("click", function (data) {
+                     if ($("#hfChartID").val() == "4319") {
+                         selectedFips = data.id;
+                         stateClicked_tabs(d);
+                         processData(allData);
+                     }
+                 });
+
              //finding the bounds and location for zooming, from bl.ocks.org/iamkevinv/0a24e9126cd2fa6b283c6f2d774b69a2
              var bounds = path_tabs.bounds(d),
                  dx = bounds[1][0] - bounds[0][0],
@@ -2889,7 +3020,9 @@
              county_states_tabs.transition() //have to zoom on the 'states' portion of the svg using the translate and scale calculated from above
                  .duration(750)
                  .call(zoom_tabs.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)); // updated for d3 v4
-
+             state_states_tabs.transition() //have to zoom on the 'states' portion of the svg using the translate and scale calculated from above
+                 .duration(750)
+                 .call(zoom_tabs.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)); // updated for d3 v4
 
              drawTinyStateLevelMap(statecode);
 
@@ -3015,6 +3148,103 @@
                          processData(allData);
                      }
                  });
+
+             state_counties_tabs = svg_state_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
+                 .data(allCounties) //using only the filtered counties for the state
+                 .enter()
+                 .append('path').attr('d', path_tabs).attr("id", function (d) { return d.id; })
+
+                 .style("fill", function (cdata) { //loading the csv data in the queue
+                     var filtercountyrow = global_csv_tabs.filter(function (d, i) {
+                         return d.fipscounty == cdata.id; //just match on the countyid from the countiesarray and match it with the fipscounty columns fro mthe excel file and then return the whole row of data
+                     });
+
+                     if (filtercountyrow.length === 0)
+                         dataval = "MIA";
+                     else
+                         dataval = filtercountyrow[0]["countydatavalue"];
+
+                     var colorval;
+                     colorval = findColorVal(dataval);
+                     if (selectedFips != "" && cdata.id != selectedFips)
+                         colorval = "#ddd";
+
+                     return colorval;
+                 })
+
+                 .style("stroke", "#444")//has to be added here so that the save image function holds onto the style.
+                 .style("stroke-width", ".5px")
+                 .on("mouseover", function (D) {
+
+                     hovertooltipdiv_tabs.style('left', d3.event.pageX + 50 + 'px').style('top', d3.event.pageY - 60 + 'px') //displaying the popup on the text in addition to the state
+                         .style('display', 'inline-block') //setting up the hover tool div
+                         .style('transition', '.5s')
+                         .style('opacity', '1')
+                         .html(function (h) {
+
+                             var filtercountyrow = global_csv_tabs.filter(function (d, i) {
+                                 return d.fipscounty == D.id; //just match on the countyid and then return the whole row of data
+                             });
+
+                             var county_val;
+                             var data_val;
+                             var countydatalabelval;
+                             var statename;
+
+                             if (filtercountyrow.length === 0) {
+                                 county_val = "NA";
+                                 data_val = "";
+                                 countydatalabelval = "NA";
+                             }
+                             else if ((filtercountyrow[0]["countydatavalue"] === "NA" || Number(filtercountyrow[0]["countydatavalue"]) <= 10) && $("#hfChartID").val() != "4319") {
+                                 statename = filtercountyrow[0]["state"]
+                                 county_val = filtercountyrow[0]["county"];
+                                 data_val = filtercountyrow[0]["countydatavalue"];
+                                 var color = findColorVal(data_val);
+                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA</div>";
+                                 htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
+                                 htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
+                                 countydatalabelval = htmlwrap;
+                             }
+                             else {
+                                 statename = filtercountyrow[0]["state"]
+                                 county_val = filtercountyrow[0]["county"];
+                                 data_val = filtercountyrow[0]["countydatavalue"];
+                                 var color = findColorVal(data_val);
+                                 if (selectedFips != "" && D.id != selectedFips)
+                                     color = "#ddd";
+
+                                 var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + "%</div>";
+
+                                 if ($("#hfChartID").val() === "4319" && data_val === "NA")
+                                     htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + "</div>";
+
+                                 htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
+                                 htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
+                                 countydatalabelval = htmlwrap;
+                             }
+
+                             $(".datastatelabel").html(statename);
+
+                             $(".datacountylabel").removeAttr("style").hide();
+                             $(".datacountylabel").show();
+                             $(".datacountylabel").html(county_val);
+
+                             $(".datavaluelabel").removeAttr("style").hide();
+                             $(".datavaluelabel").show();
+                             $(".datavaluelabel").html(data_val);
+
+                             return countydatalabelval;
+                         })
+
+                 })
+                 .on("click", function (data) {
+                     if ($("#hfChartID").val() == "4319") {
+                         selectedFips = data.id;
+                         changeColor();
+                         processData(allData);
+                     }
+                 });
          }
 
          function hideAllCounties() {
@@ -3024,6 +3254,9 @@
 
          function zoomOutToUS() {
              county_states_tabs.transition() //zooming out //have to zoom on the 'states' portion of the svg
+                 .duration(750)
+                 .call(zoom_tabs.transform, d3.zoomIdentity);
+             state_states_tabs.transition() //zooming out //have to zoom on the 'states' portion of the svg
                  .duration(750)
                  .call(zoom_tabs.transform, d3.zoomIdentity);
              $("#ddstate").val("select");
@@ -3149,6 +3382,8 @@
          function zoomed() {
              county_states_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'states' portion of the svg
              county_counties_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'counties' portion of the svg
+             state_states_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'states' portion of the svg
+             state_counties_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'counties' portion of the svg
          }
 
          // If the drag behavior prevents the default click,

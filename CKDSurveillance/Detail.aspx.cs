@@ -3885,9 +3885,9 @@ namespace CKDSurveillance_RD.MasterPages
             if (QNum.Substring(1) == "761")
             {
                 retstr += "$('."+ mapsvg +"').attr('width', '500px');";
-                retstr += "$('."+ mapsvg +"').attr('height', '325px');";
+                retstr += "$('."+ mapsvg +"').attr('height', '400px');";
                 retstr += "$('."+ mapsvgwrapper +"').attr('width', '500px');";
-                retstr += "$('."+ mapsvgwrapper+ "').attr('height', '345px');";
+                retstr += "$('."+ mapsvgwrapper+ "').attr('height', '400px');";
                 
                 retstr += "$('.main-svg').attr('width', '500px');";
                 retstr += "$('.main-svg').attr('height', '300px');";

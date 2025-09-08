@@ -90,6 +90,46 @@ function changeColor() {
             return colorval;
         });
     }
+
+    if (state_counties_tabs != null) {
+        //console.log("changeColor = " + selectedFips);
+        var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
+        var countiesarray = [];
+
+        if (selectedstateid != "") {
+            allCounties.forEach(function (c) { //then loop through all of the counties and filter out based on the first two characters (which is the state)
+                var sid = selectedstateid;
+                var cid = c.id + "";
+                if (cid.slice(0, sid.length) === sid && cid.length - sid.length == 3) countiesarray.push(c);
+            });
+        }
+        else {
+            countiesarray = allCounties;
+        }
+
+        if (colorSelected == colorCKDDark)
+            global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
+        else
+            global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
+
+        state_counties_tabs.data(countiesarray)
+            .style("fill", function (cdata) { //loading the csv data in the queue
+                var filtercountyrow = global_csv_tabs.filter(function (d, i) {
+                    return (d.fipscounty == cdata.id); //just match on the countyid from the countiesarray and match it with the fipscounty columns fro mthe excel file and then return the whole row of data
+                });
+
+                if (filtercountyrow.length === 0)
+                    dataval = "MIA";
+                else
+                    dataval = filtercountyrow[0]["countydatavalue"];
+
+                var colorval;
+                colorval = setColorVal(dataval, "");
+                if (selectedFips != "" && cdata.id != selectedFips)
+                    colorval = "#ddd";
+                return colorval;
+            });
+    }
 }
 
 var x = [],
