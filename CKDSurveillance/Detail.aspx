@@ -86,6 +86,10 @@
             padding-top: 5px;
         }
 
+        .statemapsvg {
+            padding-top: 5px;
+        }
+
         .datastatelabel {
             color: navy;
             font-weight: bold;
@@ -729,6 +733,9 @@
                                     const params = url.searchParams;
 
                                     const paramrbstd = params.get('rbstd'); 
+
+                                    console.log("rbstd = " + paramrbstd);
+
                                     if (paramrbstd != null) {
                                         console.log(`Radio Button: ${paramrbstd}`); 
 
@@ -1154,9 +1161,14 @@
                                     </div>
                                         <span class="msgzoomout" style="visibility:hidden">Select a state from the dropdown below</span>
                                        
-                                    <div style="padding-left:0px; margin-left:-5px;" id="countymap" >
+                                    <div style="padding-left:0px; margin-left:-5px;" id="statemap" runat="server" visible="false">
+                                        <svg class="statemapsvgwrapper" width="1000px" height="660px">
+                                            <svg class="statemapsvg" width="1000px" height="660px" ></svg>
+                                        </svg>
+                                    </div>
+                                    <div style="padding-left:0px; margin-left:-5px;" id="countymap" runat="server" >
                                         <svg class="countymapsvgwrapper" width="1000px" height="660px">
-                                            <svg class="countymapsvg" width="1000px" height="600px" ></svg>
+                                            <svg class="countymapsvg" width="1000px" height="660px" ></svg>
                                         </svg>
                                     </div>
                                   </div>
@@ -1198,7 +1210,8 @@
                                 </div>
                                 <div class="tab-content" id="linkedmap_scatter" style="width:50%;float:left;display:none;">
                                     <span id="linkedmap_scatter_title" runat="server" class="chartheader">Population in poverty and CKD by county</span>
-                                    <div id="tab_linkedmapscatter"></div>
+                                    <div id="tab_linkedstatemapscatter"></div>
+                                    <div id="tab_linkedcountydmapscatter"></div>
                                 </div>
                             </asp:Panel>
 
@@ -1603,9 +1616,10 @@
 
             function redrawPlotlyChart() {
 
-                createPlotlyChart();
-                //createPlotlyChartRel(); /* TODO: comment out this block */
-
+                if ($('#map').length < 1) {
+                    createPlotlyChart();
+                    //createPlotlyChartRel(); /* TODO: comment out this block */
+                }
                 
                 if (document.getElementById("divRBSTD") != null) { 
                     createPlotlyChartRel();
@@ -2072,6 +2086,19 @@
 
         function fillChartTitle_tabs(c_title, c_footer) {
 
+            d3.selectAll(".statemapsvgwrapper .statemaptitletext").remove();
+
+            d3.select('.statemapsvgwrapper').append("text")
+                .attr("class", "statemaptitletext")
+                .attr("x", 20)
+                .attr("y", 630)
+                .text(c_title + "-" + $("#ddstate option:selected").text());
+            d3.select('.statemapsvgwrapper').append("text")
+                .attr("class", "statemaptitletext")
+                .attr("x", 20)
+                .attr("y", 650)
+                .text(c_footer);
+
             d3.selectAll(".countymapsvgwrapper .countymaptitletext").remove();
 
             d3.select('.countymapsvgwrapper').append("text")
@@ -2406,16 +2433,19 @@
              stateData_tabs.push({ "name": statename, "abbr": abbrarray_tabs[index], "fips": fipsarray_tabs[index] });
          });
 
-         var svg_tabs = d3.select('.countymapsvg');
-         var width_tabs = svg_tabs.attr("width");
-         var height_tabs = svg_tabs.attr("height");
+         var svg_county_tabs = d3.select('.countymapsvg');
+         var svg_state_tabs = d3.select('.statemapsvg');
+
+         var width_tabs = svg_county_tabs.attr("width");
+         var height_tabs = svg_county_tabs.attr("height");
+
          var actualwidth_tabs = width_tabs.replace("px", ""); //numeric value used for width
          var actualheight_tabs = height_tabs.replace("px", ""); //numeric value used for height
 
          var hovertooltipdiv_tabs = d3.select('body').append('div').attr('class', 'hovertooltip_tabs'); //adding hover tooltip div
 
          var mapcolors_tabs = ['#c6dbef', '#9ecae1', '#4292c6', '#08519c', '#081e6b'];//'#deebf7',
-         var counties_tabs, states_tabs; //global variables to be used throughout
+         var county_counties_tabs, county_states_tabs, state_counties_tabs, state_states_tabs; //global variables to be used throughout
 
          var valMin_tabs, valMax_tabs, minmaxDiff_tabs; //public variables to be used for legend and the color fill of the counties
 
@@ -2632,7 +2662,7 @@
              var path_tabs = d3.geoPath()
                  .projection(projection);
 
-             states_tabs = svg_tabs.append("g")
+             county_states_tabs = svg_county_tabs.append("g")
 
                  .selectAll("path") //creation of the state paths
                  .data(topojson.feature(global_us_tabs, global_us_tabs.objects.states).features)
@@ -2659,6 +2689,7 @@
                  .on("dblclick", reset)
                  .on("click", stateClicked_tabs); //when the state is clicked, call the 'stateclicked' function
 
+
              function createstatehoverover(stateid) {
                  var return_name = "";
                  d3.select(this)
@@ -2680,7 +2711,7 @@
              }
 
              function reset() {
-                 states_tabs.transition() //zooming out //have to zoom on the 'states' portion of the svg
+                 county_states_tabs.transition() //zooming out //have to zoom on the 'states' portion of the svg
                      .duration(500)
                      .call(zoom_tabs.transform, d3.zoomIdentity); // updated for d3 v4
              }
@@ -2736,7 +2767,7 @@
              }
 
              //if we don't show all counties then remove the other counties being shown, otherwise keep them displayed
-             svg_tabs.selectAll("g.counties").remove();//removing any existing counties that are being displayed
+             svg_county_tabs.selectAll("g.counties").remove();//removing any existing counties that are being displayed
 
              //added 10/7/2020 to project the counties to fit to the actual width and height variables
              var countyprojectiondata = topojson.feature(global_us_tabs, global_us_tabs.objects.counties);
@@ -2744,7 +2775,7 @@
              var path_tabs = d3.geoPath()
                  .projection(countyprojection);
 
-             counties_tabs = svg_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
+             county_counties_tabs = svg_county_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
                  .data(countiesarray) //using only the filtered counties for the state
                  .enter()
                  .append('path').attr('d', path_tabs).attr("id", function (d) { return d.id; })
@@ -2855,7 +2886,7 @@
                  scale = Math.max(1, Math.min(8, 0.9 / Math.max(dx / actualwidth_tabs, dy / actualheight_tabs))),
                  translate = [actualwidth_tabs / 2 - scale * x, actualheight_tabs / 2 - scale * y];
 
-             states_tabs.transition() //have to zoom on the 'states' portion of the svg using the translate and scale calculated from above
+             county_states_tabs.transition() //have to zoom on the 'states' portion of the svg using the translate and scale calculated from above
                  .duration(750)
                  .call(zoom_tabs.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)); // updated for d3 v4
 
@@ -2879,7 +2910,7 @@
                      global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
              }
 
-             svg_tabs.selectAll("g.counties").remove();
+             svg_county_tabs.selectAll("g.counties").remove();
 
              var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
              
@@ -2888,7 +2919,7 @@
              var path_tabs = d3.geoPath()
                  .projection(countyprojection);
 
-             counties_tabs = svg_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
+             county_counties_tabs = svg_county_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
                  .data(allCounties) //using only the filtered counties for the state
                  .enter()
                  .append('path').attr('d', path_tabs).attr("id", function (d) { return d.id; })
@@ -2987,11 +3018,12 @@
          }
 
          function hideAllCounties() {
-             svg_tabs.selectAll("g.counties").remove();
+             svg_state_tabs.selectAll("g.counties").remove();
+             svg_county_tabs.selectAll("g.counties").remove();
          }
 
          function zoomOutToUS() {
-             states_tabs.transition() //zooming out //have to zoom on the 'states' portion of the svg
+             county_states_tabs.transition() //zooming out //have to zoom on the 'states' portion of the svg
                  .duration(750)
                  .call(zoom_tabs.transform, d3.zoomIdentity);
              $("#ddstate").val("select");
@@ -3115,8 +3147,8 @@
          }
 
          function zoomed() {
-             states_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'states' portion of the svg
-             counties_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'counties' portion of the svg
+             county_states_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'states' portion of the svg
+             county_counties_tabs.attr("transform", d3.event.transform); // updated for d3 v4 //have to zoom on the 'counties' portion of the svg
          }
 
          // If the drag behavior prevents the default click,

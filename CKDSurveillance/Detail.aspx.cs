@@ -2309,13 +2309,22 @@ namespace CKDSurveillance_RD.MasterPages
                         zoom_in.Visible = false;
                         zoom_out.Visible = false;
                         linkedmapfilter.Visible = true;
+                        statemap.Visible = true;
                     }
 
                     if (Application["d3MapJsCode_" + QNum] == null)
                     {
-                        string d3MapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr);
-                        Application["d3MapJsCode_" + QNum] = d3MapJsCode;
+                        string d3CountyMapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr, "countymapsvg", "countymapsvgwrapper", "svg_county_tabs");
+                        
+                        if (QNum.Substring(1) == "761")
+                        {
+                            string d3StateMapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr, "statemapsvg", "statemapsvgwrapper", "svg_state_tabs");
+
+                            d3CountyMapJsCode = d3StateMapJsCode + " " + d3CountyMapJsCode;
+                        }
+                        Application["d3MapJsCode_" + QNum] = d3CountyMapJsCode;
                     }
+
                     litD3MapTabs.Text = Application["d3MapJsCode_" + QNum].ToString();
 
                     hfMapType.Value = "6";
@@ -3842,7 +3851,7 @@ namespace CKDSurveillance_RD.MasterPages
             retstr += "</script>";
             return retstr;
         }
-        private string getD3MapTabsJSCode(DataSet ds, string divTitle, string mapTitleLine1, string mapTitleLine2, string chartTitle, bool allyears, string yr)
+        private string getD3MapTabsJSCode(DataSet ds, string divTitle, string mapTitleLine1, string mapTitleLine2, string chartTitle, bool allyears, string yr, string mapsvg = "", string mapsvgwrapper = "", string svg_tabs = "")
         {
             string countydataarray = "var countyDataArray = [";
             //looping through the data
@@ -3875,10 +3884,10 @@ namespace CKDSurveillance_RD.MasterPages
             
             if (QNum.Substring(1) == "761")
             {
-                retstr += "$('.countymapsvg').attr('width', '500px');";
-                retstr += "$('.countymapsvg').attr('height', '325px');";
-                retstr += "$('.countymapsvgwrapper').attr('width', '500px');";
-                retstr += "$('.countymapsvgwrapper').attr('height', '345px');";
+                retstr += "$('."+ mapsvg +"').attr('width', '500px');";
+                retstr += "$('."+ mapsvg +"').attr('height', '325px');";
+                retstr += "$('."+ mapsvgwrapper +"').attr('width', '500px');";
+                retstr += "$('."+ mapsvgwrapper+ "').attr('height', '345px');";
                 
                 retstr += "$('.main-svg').attr('width', '500px');";
                 retstr += "$('.main-svg').attr('height', '300px');";
@@ -4003,15 +4012,23 @@ namespace CKDSurveillance_RD.MasterPages
             //begin createUSMapChart
             retstr += "function createUSMapChart(width, height)"; //datavals, scopeval, xaxis_title, title_var //creating the chart with the data sent back from the proc
             retstr += "{";
-            retstr += "$('.countymapsvg').removeProp('style');"; //removing the existing style of display none
-            retstr += "$('.countymapsvg').prop('style', 'display:inline-block');";// adding the style of inline-block            
+
+            if (QNum.Substring(1) == "761")
+            {
+                retstr += "$('." + mapsvg + "').removeProp('style');"; //removing the existing style of display none
+                retstr += "$('." + mapsvg + "').prop('style', 'display:inline-block');";// adding the style of inline-block            
+            }
+            else {
+                retstr += "$('.countymapsvg').removeProp('style');"; //removing the existing style of display none
+                retstr += "$('.countymapsvg').prop('style', 'display:inline-block');";// adding the style of inline-block            
+            }
 
             //zoom and pan functionality, function for general zooming and panning
             retstr += "d3.drag().on('drag', function() { d3.event.stopPropagation(); });";
 
-            retstr += "svg_tabs.call(zoom_tabs);";//necessary for the entire map to zoom, calling the variable above
+            retstr += svg_tabs + ".call(zoom_tabs);";//necessary for the entire map to zoom, calling the variable above
 
-            retstr += "svg_tabs.on('mouseout', function()";
+            retstr += svg_tabs + ".on('mouseout', function()";
             retstr += "{";
             retstr += "hovertooltipdiv_tabs.style('display', 'none');"; //if the cursor is outside of the map, then hide the hover over
             retstr += "$('.datastatelabel').html('');"; //and empty all of the data labels

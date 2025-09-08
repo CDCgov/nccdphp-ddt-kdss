@@ -51,7 +51,7 @@ function Pov_Selected() {
 
 function changeColor() {
     
-    if (counties_tabs != null) {
+    if (county_counties_tabs != null) {
         //console.log("changeColor = " + selectedFips);
         var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
         var countiesarray = [];
@@ -72,7 +72,7 @@ function changeColor() {
         else
             global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
 
-        counties_tabs.data(countiesarray)
+        county_counties_tabs.data(countiesarray)
             .style("fill", function (cdata) { //loading the csv data in the queue
             var filtercountyrow = global_csv_tabs.filter(function (d, i) {
                 return (d.fipscounty == cdata.id); //just match on the countyid from the countiesarray and match it with the fipscounty columns fro mthe excel file and then return the whole row of data
@@ -104,8 +104,8 @@ var x = [],
     lightStates = [],
     standard_deviation = [];
 
-function drawPlot() {
-    var graphDiv = document.getElementById("tab_linkedmapscatter");
+function drawPlot(chartname) {
+    var graphDiv = document.getElementById(chartname);
     
     Plotly.newPlot(
         graphDiv,
@@ -204,7 +204,6 @@ function drawPlot() {
         $(".btnzoomout").click();
     });
 }
-
 function processData(allRows) {
     (x = []),
         (lightX = []),
@@ -282,7 +281,8 @@ function processData(allRows) {
         colorSelectedLightArray = colorPOVLightArray;
     }
 
-    drawPlot();
+    drawPlot("tab_linkedstatemapscatter");
+    drawPlot("tab_linkedcountydmapscatter");
 }
 
 var minGap = 0;
