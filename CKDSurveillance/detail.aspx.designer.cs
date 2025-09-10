@@ -429,6 +429,24 @@ namespace CKDSurveillance_RD.MasterPages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMapMenu;
 
         /// <summary>
+        /// divRBMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRBMap;
+
+        /// <summary>
+        /// rblMapLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblMapLevel;
+
+        /// <summary>
         /// parentpnlYears control.
         /// </summary>
         /// <remarks>

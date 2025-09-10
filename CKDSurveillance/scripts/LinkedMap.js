@@ -31,7 +31,8 @@ const pov_colorarray_tabs = ["#dfdddd", "#e2d9d9", "#e4d6d5", "#e7d2d1", "#e9cec
 
 function updateSelectedColor(colorType) {
     colorSelected = colorType;
-    processData(allData);
+    processData(allstateData);
+    processData(allcountyData);
     changeColor();
 }
 
@@ -52,7 +53,6 @@ function Pov_Selected() {
 function changeColor() {
     
     if (county_counties_tabs != null) {
-        //console.log("changeColor = " + selectedFips);
         var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
         var countiesarray = [];
 
@@ -68,9 +68,9 @@ function changeColor() {
         }
 
         if (colorSelected == colorCKDDark)
-            global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
+            global_csv_tabs = mapData.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
         else
-            global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
+            global_csv_tabs = mapData.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
 
         county_counties_tabs.data(countiesarray)
             .style("fill", function (cdata) { //loading the csv data in the queue
@@ -92,7 +92,6 @@ function changeColor() {
     }
 
     if (state_counties_tabs != null) {
-        //console.log("changeColor = " + selectedFips);
         var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
         var countiesarray = [];
 
@@ -108,9 +107,9 @@ function changeColor() {
         }
 
         if (colorSelected == colorCKDDark)
-            global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
+            global_csv_tabs = mapData.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
         else
-            global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
+            global_csv_tabs = mapData.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
 
         state_counties_tabs.data(countiesarray)
             .style("fill", function (cdata) { //loading the csv data in the queue
@@ -146,7 +145,7 @@ var x = [],
 
 function drawPlot(chartname) {
     var graphDiv = document.getElementById(chartname);
-    
+
     Plotly.newPlot(
         graphDiv,
         [            
@@ -237,7 +236,8 @@ function drawPlot(chartname) {
 
         changeColor();
 
-        processData(allData);
+        processData(allstateData);
+        processData(allcountyData);
     });      
 
     graphDiv.on("plotly_doubleclick", function () {
@@ -259,11 +259,18 @@ function processData(allRows) {
         (colorPOVDarkArray = []),
         (colorPOVLightArray = []),
         (colorCKDDarkArray = []),
-        (colorCKDLightArray = []);
+        (colorCKDLightArray = []),
+        (dataToProcess = []);
 
+    if (allRows.length > 100) {
+        dataToProcess = allcountyData;
+    }
+    else {
+        dataToProcess = allstateData;
+    }
     if (colorSelected == colorCKDDark) {
         for (var i = 0; i < allRows.length; i++) {
-            row = allData[i];            
+            row = dataToProcess[i];
             if (
                 Number(minX) <= Number(row["Below_poverty_threshold"]) &&
                 Number(maxX) >= Number(row["Below_poverty_threshold"]) &&
@@ -292,7 +299,7 @@ function processData(allRows) {
         colorSelectedLightArray = colorCKDLightArray;
     } else {
         for (var i = 0; i < allRows.length; i++) {
-            row = allData[i];
+            row = dataToProcess[i];
             if (
                 Number(minX) <= Number(row["Below_poverty_threshold"]) &&
                 Number(maxX) >= Number(row["Below_poverty_threshold"]) &&
@@ -321,8 +328,12 @@ function processData(allRows) {
         colorSelectedLightArray = colorPOVLightArray;
     }
 
-    drawPlot("tab_linkedstatemapscatter");
-    drawPlot("tab_linkedcountydmapscatter");
+    if (allRows.length < 100) {
+        drawPlot("tab_linkedstatemapscatter");
+    }
+    else {
+        drawPlot("tab_linkedcountymapscatter");
+    }
 }
 
 var minGap = 0;
@@ -352,7 +363,8 @@ function pov_slideOne() {
 
     changeColor();
 
-    processData(allData);
+    processData(allstateData);
+    processData(allcountyData);
 }
 
 function pov_slideTwo() {
@@ -379,7 +391,8 @@ function pov_slideTwo() {
 
     changeColor();
 
-    processData(allData);
+    processData(allstateData);
+    processData(allcountyData);
 }
 
 function ckd_slideOne() {
@@ -407,7 +420,8 @@ function ckd_slideOne() {
 
     changeColor();
 
-    processData(allData);
+    processData(allstateData);
+    processData(allcountyData);
 }
 
 function ckd_slideTwo() {
@@ -435,7 +449,8 @@ function ckd_slideTwo() {
 
     changeColor();
 
-    processData(allData);
+    processData(allstateData);
+    processData(allcountyData);
 }
 
 function fillColor() {

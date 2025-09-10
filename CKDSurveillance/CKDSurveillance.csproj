@@ -638,6 +638,7 @@
     <Content Include="NewIndicatorList.aspx" />
     <Content Include="PrimaryCarePhysicians.aspx" />
     <Content Include="Research.aspx" />
+    <Content Include="scripts\D3MapFiles\topojson.min.js" />
     <Content Include="scripts\D3MapFiles\topojson.v1.min.js" />
     <Content Include="scripts\D3MapFiles\Coordinates\us-states.json" />
     <Content Include="scripts\D3MapFiles\Coordinates\us-10m.v1.json" />
@@ -918,6 +919,7 @@
     <None Include="Properties\PublishProfiles\Dev Internet.pubxml" />
     <None Include="Properties\PublishProfiles\QA Internet.pubxml" />
     <Content Include="fonts\OpenSans-Bold.ttf" />
+    <Content Include="scripts\D3MapFiles\Coordinates\states-albers-10m.json" />
     <None Include="Web.DEV.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2025,7 +2027,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52871</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/KDSS</IISUrl>
+          <IISUrl>http://localhost/CKDSurveillance</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

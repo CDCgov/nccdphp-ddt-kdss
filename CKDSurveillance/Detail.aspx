@@ -17,7 +17,8 @@
     <link href="App_Themes/ion.rangeSlider.skinHTML5.css?val=1" rel="stylesheet" />
 
     <script src="scripts/d3.v4.min.js" type="text/javascript"></script>
-    <script src="scripts/D3MapFiles/topojson.v1.min.js" type="text/javascript"></script>
+    <%--<script src="scripts/D3MapFiles/topojson.v1.min.js" type="text/javascript"></script>--%>
+    <script src="scripts/D3MapFiles/topojson.min.js" type="text/javascript"></script>
 
     <%--*Ion Range Slider JS*--%>
     <script src="scripts/ion.rangeSlider.js" type="text/javascript"></script>
@@ -701,6 +702,13 @@
                                             <option value="56">Wyoming</option>
                                         </select>
                                 </div>
+                                <div style="width:50%;margin:auto;text-align: left!important;" runat="server" id="divRBMap" class="chartMenuLabel">  
+                                    <span>View By</span>
+                                        <asp:RadioButtonList ID="rblMapLevel" CssClass="radioButtonList" runat="server" RepeatDirection="Horizontal" >
+                                            <asp:ListItem Text="State" Value="1"></asp:ListItem>  <%--'#007C91',--%>
+                                            <asp:ListItem Text="County" Value="2" ></asp:ListItem>                                       
+                                        </asp:RadioButtonList>
+                                </div>
                                 <div class="col-2 chartMapMenu" runat="server" id="parentpnlYears" visible="false">
                                     <asp:Panel ID="pnlYears" runat="server">
 
@@ -1161,12 +1169,12 @@
                                     </div>
                                         <span class="msgzoomout" style="visibility:hidden">Select a state from the dropdown below</span>
                                        
-                                    <div style="padding-left:0px; margin-left:-5px;" id="statemap" runat="server" visible="false">
+                                    <div style="padding-left:0px; margin-left:-5px;" id="statemap" runat="server">
                                         <svg class="statemapsvgwrapper" width="1000px" height="660px">
                                             <svg class="statemapsvg" width="1000px" height="660px" ></svg>
                                         </svg>
                                     </div>
-                                    <div style="padding-left:0px; margin-left:-5px;" id="countymap" runat="server" >
+                                    <div style="padding-left:0px; margin-left:-5px;" id="countymap" runat="server">
                                         <svg class="countymapsvgwrapper" width="1000px" height="660px">
                                             <svg class="countymapsvg" width="1000px" height="660px" ></svg>
                                         </svg>
@@ -1211,7 +1219,7 @@
                                 <div class="tab-content" id="linkedmap_scatter" style="width:50%;float:left;display:none;">
                                     <span id="linkedmap_scatter_title" runat="server" class="chartheader">Population in poverty and CKD by county</span>
                                     <div id="tab_linkedstatemapscatter"></div>
-                                    <div id="tab_linkedcountydmapscatter"></div>
+                                    <div id="tab_linkedcountymapscatter"></div>
                                 </div>
                             </asp:Panel>
 
@@ -1612,6 +1620,29 @@
                     redrawPlotlyChart();
                 })
 
+                $("input[id*='rblMapLevel']").click(function () {
+                    var selectedMapLevel = $("input[id*='rblMapLevel']:checked").val();
+                    if (selectedMapLevel == 1) {
+                        $('#statemap').show();
+                        $('#tab_linkedstatemapscatter').show();
+                        $('#countymap').hide();
+                        $('#tab_linkedcountymapscatter').hide(); 
+                    }
+                    else {
+                        $('#statemap').hide();
+                        $('#tab_linkedstatemapscatter').hide();
+                        $('#countymap').show();
+                        $('#tab_linkedcountymapscatter').show();
+                    }
+                })
+
+                const rbSelectedMap = document.getElementsById('rblMapLevel');
+
+                // Check if there are any radio buttons in the collection
+                if (rbSelectedMap.length > 0) {
+                    // Set the 'checked' property of the first radio button to true
+                    rbSelectedMap[0].checked = true;
+                }
             });
 
             function redrawPlotlyChart() {
@@ -2416,7 +2447,7 @@
     <%--*BEGIN  D3 Maps V2 TABS chart update*--%>
     <%--**********************--%>
      <script>
-
+         
          var stateData_tabs = [];
 
          //***** Q705 change *******/
@@ -2511,7 +2542,8 @@
                  else if ($("#tabbtn_heatmap").parent().hasClass("active")) $("#tabbtn_heatmap").click(); 
 
                  if ($("#hfChartID").val() == "4319") {
-                     processData(allData);
+                     processData(allstateData);
+                     processData(allcountyData);
                  }
              });
 
@@ -2615,7 +2647,8 @@
                  $("#tinyheatmap").hide();
 
                  if ($("#hfChartID").val() == "4319") {
-                     processData(allData);
+                     processData(allstateData);
+                     processData(allcountyData);
                  }
              });
 
@@ -2643,14 +2676,15 @@
          }
 
          function mapReady(error, usdata) { //the 'us' is the json data file from the the queue function, the 'csvdata' is from the csv file data
-             
+             console.log('mapReady');
              if (error) throw error;
              global_us_tabs = usdata; //adding this passed int data to the global data
+             //countyDataArray = mapData;
              if ($("#hfChartID").val() == "4319") {
                  if(colorSelected == colorCKDDark)
-                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
+                     global_csv_tabs = mapData.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
                  else
-                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
+                     global_csv_tabs = mapData.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
              }
              else
                 global_csv_tabs = countyDataArray;//csvdata; //adding this passed int data to the global data
@@ -2664,8 +2698,7 @@
              //added 10/7/2020 to shrink the map to the actual width and height
              var stateprojectiondata = topojson.feature(usdata, usdata.objects.states);
              var projection = d3.geoIdentity().fitSize([actualwidth_tabs, actualheight_tabs], stateprojectiondata);
-             var path_tabs = d3.geoPath()
-                 .projection(projection);
+             var path_tabs = d3.geoPath().projection(projection);
 
              county_states_tabs = svg_county_tabs.append("g")
 
@@ -2785,19 +2818,27 @@
 
              selectedstateid = statecode;
              var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
+             var allStates = topojson.feature(global_us_tabs, global_us_tabs.objects.states).features; //finding all states
              var countiesarray = [];
+             var statesarray = [];
 
              allCounties.forEach(function (c) { //then loop through all of the counties and filter out based on the first two characters (which is the state)
                  var sid = statecode;
                  var cid = c.id + "";
                  if (cid.slice(0, sid.length) === sid && cid.length - sid.length == 3) countiesarray.push(c);
              });
+             allStates.forEach(function (c) { //then loop through all of the counties and filter out based on the first two characters (which is the state)
+                 var sid = statecode;
+                 var cid = c.id + "";
+                 if (cid.slice(0, sid.length) === sid && cid.length - sid.length == 3) statesarray.push(c);
+             });
+
 
              if ($("#hfChartID").val() == "4319") {
                  if (colorSelected == colorCKDDark)
-                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
+                     global_csv_tabs = mapData.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
                  else
-                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
+                     global_csv_tabs = mapData.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
              }
 
              //if we don't show all counties then remove the other counties being shown, otherwise keep them displayed
@@ -2806,8 +2847,7 @@
              //added 10/7/2020 to project the counties to fit to the actual width and height variables
              var countyprojectiondata = topojson.feature(global_us_tabs, global_us_tabs.objects.counties);
              var countyprojection = d3.geoIdentity().fitSize([actualwidth_tabs, actualheight_tabs], countyprojectiondata);
-             var path_tabs = d3.geoPath()
-                 .projection(countyprojection);
+             var path_tabs = d3.geoPath().projection(countyprojection);
 
              county_counties_tabs = svg_county_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
                  .data(countiesarray) //using only the filtered counties for the state
@@ -2907,20 +2947,21 @@
                      if ($("#hfChartID").val() == "4319") {
                          selectedFips = data.id;
                          stateClicked_tabs(d);
-                         processData(allData);
+                         processData(allstateData);
+                         processData(allcountyData);
                      }
                  });
              //if we don't show all counties then remove the other counties being shown, otherwise keep them displayed
              svg_state_tabs.selectAll("g.counties").remove();//removing any existing counties that are being displayed
 
              state_counties_tabs = svg_state_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
-                 .data(countiesarray) //using only the filtered counties for the state
+                 .data(statesarray) //using only the filtered counties for the state
                  .enter()
                  .append('path').attr('d', path_tabs).attr("id", function (d) { return d.id; })
 
                  .style("fill", function (cdata) { //loading the csv data in the queue
                      var filtercountyrow = global_csv_tabs.filter(function (d, i) {
-                         return d.fipscounty == cdata.id; //just match on the countyid from the countiesarray and match it with the fipscounty columns fro mthe excel file and then return the whole row of data
+                         return d.fipsstate == cdata.id; //just match on the countyid from the statesarray and match it with the fipsstate columns fro mthe excel file and then return the whole row of data
                      });
 
                      if (filtercountyrow.length === 0)
@@ -3011,7 +3052,8 @@
                      if ($("#hfChartID").val() == "4319") {
                          selectedFips = data.id;
                          stateClicked_tabs(d);
-                         processData(allData);
+                         processData(allstateData);
+                         processData(allcountyData);
                      }
                  });
 
@@ -3045,19 +3087,20 @@
              selectedstateid = "";
              if ($("#hfChartID").val() == "4319") {
                  if (colorSelected == colorCKDDark)
-                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
+                     global_csv_tabs = mapData.filter(val => val.datatype.includes("CKD"));//csvdata; //adding this passed int data to the global data
                  else
-                     global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
+                     global_csv_tabs = mapData.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
              }
 
              svg_county_tabs.selectAll("g.counties").remove();
 
              var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
+
+             var allStates = topojson.feature(global_us_tabs, global_us_tabs.objects.states).features; //finding all states
              
              var countyprojectiondata = topojson.feature(global_us_tabs, global_us_tabs.objects.counties);
              var countyprojection = d3.geoIdentity().fitSize([actualwidth_tabs, actualheight_tabs], countyprojectiondata);
-             var path_tabs = d3.geoPath()
-                 .projection(countyprojection);
+             var path_tabs = d3.geoPath().projection(countyprojection);
 
              county_counties_tabs = svg_county_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
                  .data(allCounties) //using only the filtered counties for the state
@@ -3152,20 +3195,21 @@
                      if ($("#hfChartID").val() == "4319") {
                          selectedFips = data.id;
                          changeColor();
-                         processData(allData);
+                         processData(allstateData);
+                         processData(allcountyData);
                      }
                  });
 
              svg_state_tabs.selectAll("g.counties").remove();
 
              state_counties_tabs = svg_state_tabs.append('g').attr('class', 'counties').selectAll('path') //begin drawing the paths
-                 .data(allCounties) //using only the filtered counties for the state
+                 .data(allStates) //using only the filtered counties for the state
                  .enter()
                  .append('path').attr('d', path_tabs).attr("id", function (d) { return d.id; })
 
                  .style("fill", function (cdata) { //loading the csv data in the queue
                      var filtercountyrow = global_csv_tabs.filter(function (d, i) {
-                         return d.fipscounty == cdata.id; //just match on the countyid from the countiesarray and match it with the fipscounty columns fro mthe excel file and then return the whole row of data
+                         return d.fipsstate == cdata.id; //just match on the countyid from the statesarray and match it with the fipsstate columns fro mthe excel file and then return the whole row of data
                      });
 
                      if (filtercountyrow.length === 0)
@@ -3251,7 +3295,8 @@
                      if ($("#hfChartID").val() == "4319") {
                          selectedFips = data.id;
                          changeColor();
-                         processData(allData);
+                         processData(allstateData);
+                         processData(allcountyData);
                      }
                  });
          }

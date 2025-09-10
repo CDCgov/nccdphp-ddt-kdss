@@ -107,3 +107,15 @@ public class  DotNetChartStyle
     public static readonly string StateLevelMap = "5";
     public static readonly string CountyLevelMap = "6";
 }
+
+public class MapLevelVariable
+{
+    public static readonly string county = "county";
+    public static readonly string state = "state";
+    public static readonly string countymapsvg = "countymapsvg";
+    public static readonly string countymapsvgwrapper = "countymapsvgwrapper";
+    public static readonly string svg_county_tabs = "svg_county_tabs";
+    public static readonly string statemapsvg = "statemapsvg";
+    public static readonly string statemapsvgwrapper = "statemapsvgwrapper";
+    public static readonly string svg_state_tabs = "svg_state_tabs";
+}

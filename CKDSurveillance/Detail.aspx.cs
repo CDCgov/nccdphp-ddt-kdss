@@ -315,6 +315,11 @@ namespace CKDSurveillance_RD.MasterPages
                     else
                         CB_ChartCI.Visible = true;
 
+                    if (QNum.Substring(1) == "761")
+                        divRBMap.Visible = true;
+                    else
+                        divRBMap.Visible = false;
+
                     divStaticLeft.Visible = false;
                     pnlMap.Style.Remove("overflow-x");
                     pnlMap.Style.Add("overflow-x", "auto");
@@ -2299,13 +2304,16 @@ namespace CKDSurveillance_RD.MasterPages
                 {
                     //*Do not use superscripts, as this leaves extra HTML lying around when used in the alt tag.
                     string title = dsChart.Tables["Chart"].Rows[0]["ChartHeader"].ToString().Trim();
+                    DataSet dsSVGState = new DataSet();                    
                     dsSVG.Tables.Add(dsChart.Tables[1].Copy()); //data
 
                     //still need to add the legend
 
                     if (QNum.Substring(1) == "761")
                     {
-                        dsSVG.Tables.Add(dsChart.Tables[2].Copy());
+                        dsSVG.Tables.Add(dsChart.Tables[2].Copy()); // county data
+                        dsSVGState.Tables.Add(dsChart.Tables[3].Copy());
+                        dsSVGState.Tables.Add(dsChart.Tables[4].Copy()); // state data
                         zoom_in.Visible = false;
                         zoom_out.Visible = false;
                         linkedmapfilter.Visible = true;
@@ -2314,11 +2322,11 @@ namespace CKDSurveillance_RD.MasterPages
 
                     if (Application["d3MapJsCode_" + QNum] == null)
                     {
-                        string d3CountyMapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr, "countymapsvg", "countymapsvgwrapper", "svg_county_tabs");
+                        string d3CountyMapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr, MapLevelVariable.countymapsvg, MapLevelVariable.countymapsvgwrapper, MapLevelVariable.svg_county_tabs, MapLevelVariable.county);
 
                         if (QNum.Substring(1) == "761")
                         {
-                            string d3StateMapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr, "statemapsvg", "statemapsvgwrapper", "svg_state_tabs");
+                            string d3StateMapJsCode = getD3MapTabsJSCode(dsSVGState, "map", chartTitleText, chartSubTitleText, title, false, yr, MapLevelVariable.statemapsvg, MapLevelVariable.statemapsvgwrapper, MapLevelVariable.svg_state_tabs, MapLevelVariable.state);
 
                             d3CountyMapJsCode = d3StateMapJsCode + " " + d3CountyMapJsCode;
                         }
@@ -3851,11 +3859,11 @@ namespace CKDSurveillance_RD.MasterPages
             retstr += "</script>";
             return retstr;
         }
-        private string getD3MapTabsJSCode(DataSet ds, string divTitle, string mapTitleLine1, string mapTitleLine2, string chartTitle, bool allyears, string yr, string mapsvg = "", string mapsvgwrapper = "", string svg_tabs = "")
+        private string getD3MapTabsJSCode(DataSet ds, string divTitle, string mapTitleLine1, string mapTitleLine2, string chartTitle, bool allyears, string yr, string mapsvg = "", string mapsvgwrapper = "", string svg_tabs = "", string maplevel = "county")
         {
-            string countydataarray = "var countyDataArray = [";
+            string countydataarray = "var " + maplevel+ "DataArray = [";
             //looping through the data
-            foreach (DataRow dr in ds.Tables[0].Rows)
+            foreach (DataRow dr in ds.Tables[0].Rows) //County level data
             {
                 string countyfips = dr["Secondary"].ToString();
                 string statefips = dr["FIPSState"].ToString();
@@ -3881,7 +3889,8 @@ namespace CKDSurveillance_RD.MasterPages
 
             retstr += "<script type='text/javascript'>";
             retstr += countydataarray;//adding the county level data
-            
+            retstr += "var mapData = " + maplevel + "DataArray;";
+
             if (QNum.Substring(1) == "761")
             {
                 retstr += "$('."+ mapsvg +"').attr('width', '500px');";
@@ -3945,7 +3954,8 @@ namespace CKDSurveillance_RD.MasterPages
             retstr += "{ ";
             
             retstr += "if (error) throw error; ";
-            retstr += "var csvdata = countyDataArray; ";
+            //retstr += "var csvdata = countyDataArray; ";
+            retstr += "var csvdata = " + maplevel + "DataArray; ";
             retstr += "var featurestate = topojson.feature(us, us.objects.states)";
             retstr += ".features";
             retstr += ".filter(function(d) { return d.id == statecode; })[0];"; // filtering out the state by FIPS code, which is passed in above. get a geojson object (not an array of objects)
@@ -4039,21 +4049,29 @@ namespace CKDSurveillance_RD.MasterPages
             //end zoom and pan functionality
 
             retstr += "d3.queue()"; //starting the queue
-            retstr += ".defer(d3.json, 'Scripts/D3MapFiles/Coordinates/us-10m.v1.json')"; //using this json file            
+
+            if (maplevel == MapLevelVariable.county)
+            {
+                retstr += ".defer(d3.json, 'Scripts/D3MapFiles/Coordinates/us-10m.v1.json')"; //using this json file 
+            }
+            else {
+                retstr += ".defer(d3.json, 'Scripts/D3MapFiles/Coordinates/states-albers-10m.json')"; //using this json file
+            }
+
             retstr += ".await(mapReady);"; //calling the 'ready' function
             retstr += "}";
 
             if (ds.Tables.Count > 1) //initialize dataset for scatter chart
             {
                 DataTable dt = ds.Tables[1];
-                retstr += "var allData = [";
+                retstr += "var all" + maplevel +"Data = [";
                 foreach (DataRow dr in dt.Rows)
                 {
                     retstr += "{ 'AnyCKD_rate': '" + dr["AnyCKD_rate"] + "', 'Below_poverty_threshold': '" + dr["Below_poverty_threshold"] + "', 'STATE': '" + dr["STATE"] + "', 'COUNTY': '" + dr["COUNTY"] + "', 'fipscounty': '" + dr["fipscounty"] + "', 'FIPSState': '" + dr["FIPSState"] + "' },";
                 }
                 retstr = retstr.Substring(0, retstr.Length - 1);
                 retstr += "];";
-                retstr += "processData(allData);";
+                retstr += "processData(all" + maplevel  + "Data);";
             }
             
             //end createUSMapChart
