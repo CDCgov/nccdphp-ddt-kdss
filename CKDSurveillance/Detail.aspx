@@ -3582,19 +3582,19 @@
                  legendtext2 = "< 14%";
                  legendtext3 = "14 - 16.9%";
                  legendtext4 = "17 - 19.9%";
-                 legendtext5 = "≥ 20%";
+                 legendtext5 = "\u2265 20%";
              } else if ($("#hfChartID").val() == "4039") { //Diabetes
                  legendtext1 = "NA";
                  legendtext2 = "< 22%";
                  legendtext3 = "22 - 26.9%";
                  legendtext4 = "27 - 31.9%";
-                 legendtext5 = "≥ 32%";
+                 legendtext5 = "\u2265 32%";
              } else if ($("#hfChartID").val() == "4040") { //Hypertension
                  legendtext1 = "NA";
                  legendtext2 = "< 18%";
                  legendtext3 = "18 - 20.9%";
                  legendtext4 = "21 - 24.9%";
-                 legendtext5 = "≥ 25 %";
+                 legendtext5 = "\u2265 25 %";
              }
 
              li.append("text")
