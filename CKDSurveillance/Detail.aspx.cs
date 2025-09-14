@@ -2428,8 +2428,7 @@ namespace CKDSurveillance_RD.MasterPages
                         string d3MapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr);
                         Session[d3MapSessionKey] = d3MapJsCode;
                     }
-                    if (Session[d3MapSessionKey] != null)
-                        litD3MapTabs.Text = Session[d3MapSessionKey].ToString();
+                    litD3MapTabs.Text = Session[d3MapSessionKey].ToString();
 
                     hfMapType.Value = "6";
                 }
