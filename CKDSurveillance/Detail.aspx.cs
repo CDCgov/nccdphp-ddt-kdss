@@ -2422,12 +2422,14 @@ namespace CKDSurveillance_RD.MasterPages
                         linkedmapfilter.Visible = true;
                     }
 
-                    if (Session["d3MapJsCode_" + QNum + "_" + chartID + "_" + yr] == null)
+                    var d3MapSessionKey = "d3MapJsCode_" + QNum + "_" + chartID + "_" + yr;
+                    if (Session[d3MapSessionKey] == null)
                     {
                         string d3MapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr);
-                        Session["d3MapJsCode_" + QNum + "_" + chartID + "_" + yr] = d3MapJsCode;
+                        Session[d3MapSessionKey] = d3MapJsCode;
                     }
-                    litD3MapTabs.Text = Session["d3MapJsCode_" + QNum + "_" + chartID + "_" + yr].ToString();
+                    if (Session[d3MapSessionKey] != null)
+                        litD3MapTabs.Text = Session[d3MapSessionKey].ToString();
 
                     hfMapType.Value = "6";
                 }
