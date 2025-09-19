@@ -412,6 +412,7 @@
     <Content Include="AYA\Images\CurrentAYA-a.png" />
     <Content Include="AYA\Images\CurrentAYA-b.png" />
     <Content Include="AYA\Images\CurrentAYA.png" />
+    <Content Include="AYA\Images\CurrentAYA.svg" />
     <Content Include="AYA\Images\December_2023.png" />
     <Content Include="AYA\Images\December_2024.png" />
     <Content Include="AYA\Images\February_2024.png" />
