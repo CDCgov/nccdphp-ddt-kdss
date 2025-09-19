@@ -60,6 +60,6 @@
     <Folder Include="20250915-CKD-465" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
+    <None Include="20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
   </ItemGroup>
 </Project>
