@@ -154,11 +154,11 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Prevalence of Cardiovascular-Kidney-Metabolic Syndrome Is Rising Among U.S. Adults</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Provider Awareness of Chronic Kidney Disease in the Military Health System</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
-                Cardiovascular-kidney-metabolic (CKM) syndrome is a highly prevalent disorder in the U.S. adult population. It represents the complex interactions between metabolic and vascular risk factors and chronic diseases, and it identifies people at high risk for multimorbidity and unfavorable outcomes. Most adults and an increasing proportion of young adults in the United States have one or more components of this syndrome. The increasing prevalence of CKM syndrome among adults and resulting shrinking of the healthy population is a public health problem that may require multidisciplinary approaches. Lifestyle modification, pharmacotherapy, and attention to social and environmental determinants of health could be key for reducing the burden and complications of this syndrome.
+                Healthcare provider awareness is a key factor for patient awareness of chronic kidney disease (CKD). Data from 2016 to 2023 in the Military Health System showed that among beneficiaries with laboratory values indicating CKD stage 3, about one-third also had CKD diagnosis codes entered by their providers in the electronic health record. These data might reflect missed opportunities to implement effective therapies to prevent and slow progression of CKD and its complications. The factors contributing to low provider awareness may not be clear. A concerted approach including provider education and more effective use of clinical support systems may be necessary.
                 <br /><br />                
             </div>
 
