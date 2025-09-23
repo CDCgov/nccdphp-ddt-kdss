@@ -27,37 +27,8 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
 
             bcTopic.InnerText = "> Are You Aware Topics ";
 
-            String emailDate = Request.QueryString["emailDate"];
-            switch (emailDate)
-            {
-                case "May_2025":                
-                    bcSelListItem.InnerText = "> Outcomes";
-                    break;
-                case "February_2024":
-                case "March_2025":
-                    bcSelListItem.InnerText = "> Quality of Care";
-                    break;
-                case "April_2023":
-                case "June_2024":
-                    bcSelListItem.InnerText = "> Awareness";
-                    break;
-                case "December_2023":
-                case "October_2022":
-                case "October_2024":
-                case "August_2023":
-                case "August_2025":
-                    bcSelListItem.InnerText = "> Prevalence & Incidence";
-                    break;
-                case "August_2024":
-                    bcSelListItem.InnerText = "> Risk Factors";
-                    break;
-                case "June_2023":
-                case "October_2023":
-                case "April_2024":
-                    bcSelListItem.InnerText = "> Social Determinants";
-                    break;
-            }
-
+            string topicText = Request.QueryString["TopicText"];
+            bcSelListItem.InnerText = "> " + topicText;
         }
     }
 }

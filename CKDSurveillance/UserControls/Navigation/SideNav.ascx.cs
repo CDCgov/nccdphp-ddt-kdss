@@ -185,9 +185,15 @@ namespace CKDSurveillance_RD
             foreach (DataRow dr in dtAYA.Rows)
             {
                 StringBuilder sbAnswer = new StringBuilder();
-
+                string link = dr["SideNavAYALink"].ToString().Trim();
+                string topicText = "";
+                if (dr["TopicText"] != null)
+                {
+                    topicText = dr["TopicText"].ToString().TrimStart().TrimEnd();
+                    link = link + "&TopicText=" + HttpUtility.UrlEncode(topicText);
+                }
                 sbAnswer.Append("<div class='nav-section-aya'>");
-                sbAnswer.Append("<a class='list-title' style='text-decoration: none' href='" + dr["SideNavAYALink"].ToString().Trim() + "'>");
+                sbAnswer.Append("<a class='list-title' style='text-decoration: none' href='" + link + "'>");
                 sbAnswer.Append(dr["Title"].ToString().Trim());
                 sbAnswer.Append("&nbsp;");
                 sbAnswer.Append("<span class='tickerDate'>" + dr["tickerDate"].ToString().Trim() + "</span>");
