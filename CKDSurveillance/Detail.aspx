@@ -329,6 +329,7 @@
         <asp:HiddenField ID="hfChartMode" runat="server" />
         <asp:HiddenField ID="hfChartColor" runat="server" />
         <asp:HiddenField ID="hfShowCI" runat="server" />
+        <asp:HiddenField ID="hfShowCIShadow" runat="server" />
         <asp:HiddenField ID="hfMapType" runat="server" />
         <asp:HiddenField ID="hfCurrentYear" runat="server" />
         <asp:HiddenField ID="hfChartID" runat="server" />
@@ -1503,8 +1504,37 @@
 
             function legendAutoScaleClick() { //this function is called after the chart has been created in the createPlotlyScript and createTripleStratPlotlyScript functions. It's purpose is to execute the clicking of the Autoscale button
                 console.log("inside legendclick");
-                autoscaleBtn = $('a[data-title="Autoscale"]')[0]
-                autoscaleBtn.click();
+                autoscaleBtn = $('a[data-title="Autoscale"]')[0];
+                if (autoscaleBtn != null) {
+                    autoscaleBtn.click();
+                    console.log("inside legendclick 2");
+                }
+            }
+
+            //function cloneVisibility(src) {
+            //    return src.map(t => (t.visible !== undefined ? t.visible : true));
+            //}
+
+            function legendCustomClick(eventData) {
+                //const clickedIndex = eventData.curveNumber;
+                //const alleventdata = eventData.data;
+                //const trace = eventData.data[clickedIndex];
+                //const group = trace.legendgroup;
+                //const isVisible = trace.visible !== "legendonly";
+                //const newVisibility = isVisible ? "legendonly" : true;
+
+                ////eventData.data[clickedIndex + 1].visible = newVisibility;
+                //const currentVisibility = cloneVisibility(eventData.data);
+
+                //eventData.data.forEach((t, i) => (t.visible = currentVisibility[i]));
+
+                ////alleventdata.forEach(t => {
+                ////    if (t.legendgroup === group) t.visible = "legendonly";// newVisibility;
+                ////});
+
+                //redrawPlotlyChart();
+                //// Allow default trace toggling to proceed if not returning false
+                return false; 
             }
 
             $(document).ready(function () {   
@@ -1559,12 +1589,19 @@
                             $('#hfChartYValToUse').val($('#hfMaxConfidence').val()); // if the confidence intervals checkbox is checked then use the max confidence value to draw the chart
                         }
                         $('#hfShowCI').val("true");
+                        if ($('#hfChartType').val() == "'line'") {
+                            $('#hfShowCIShadow').val("true");
+                        }
+                        else {
+                            $('#hfShowCIShadow').val("false");
+                        }
                     }
                     else {
                         if ($('#hfMaxYVal').val() > $('#hfChartYValToUse').val()) {
                             $('#hfChartYValToUse').val($('#hfMaxYVal').val()); // if the confidence intervals checkbox is NOT checked then use the max y value to draw the chart
                         }
                         $('#hfShowCI').val("false");
+                        $('#hfShowCIShadow').val("false");
                     }
 
                     redrawPlotlyChart();
@@ -1604,15 +1641,13 @@
             function redrawPlotlyChart() {
 
                 createPlotlyChart();
-                createPlotlyChartRel(); /* TODO: comment out this block */
+                //createPlotlyChartRel(); /* TODO: comment out this block */
 
                 /* TODO: uncomment this block */
 
-                /*
-                if (document.getElementById("divRBSTD") != null) { }
+                if (document.getElementById("divRBSTD") != null) { 
                     createPlotlyChartRel();
                 }
-                */
 
                 compliance508();
             }
