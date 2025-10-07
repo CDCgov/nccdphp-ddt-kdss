@@ -1511,28 +1511,7 @@
                 }
             }
 
-            //function cloneVisibility(src) {
-            //    return src.map(t => (t.visible !== undefined ? t.visible : true));
-            //}
-
             function legendCustomClick(eventData) {
-                //const clickedIndex = eventData.curveNumber;
-                //const alleventdata = eventData.data;
-                //const trace = eventData.data[clickedIndex];
-                //const group = trace.legendgroup;
-                //const isVisible = trace.visible !== "legendonly";
-                //const newVisibility = isVisible ? "legendonly" : true;
-
-                ////eventData.data[clickedIndex + 1].visible = newVisibility;
-                //const currentVisibility = cloneVisibility(eventData.data);
-
-                //eventData.data.forEach((t, i) => (t.visible = currentVisibility[i]));
-
-                ////alleventdata.forEach(t => {
-                ////    if (t.legendgroup === group) t.visible = "legendonly";// newVisibility;
-                ////});
-
-                //redrawPlotlyChart();
                 //// Allow default trace toggling to proceed if not returning false
                 return false; 
             }
