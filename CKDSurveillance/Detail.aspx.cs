@@ -592,7 +592,7 @@ namespace CKDSurveillance_RD.MasterPages
             //*Get Page Data*
             //***************
             DataTable dtPage = getCachedPageData(QNum);
-
+            DataTable linkedPages = createPageLinkRows();
 
             //**************
             //*Manage Title*
@@ -630,7 +630,7 @@ namespace CKDSurveillance_RD.MasterPages
             {
                 if (QNum.ToUpper().StartsWith("Q"))
                 {
-                    StratYear1.loadStratsAndYears(dtPage);
+                    StratYear1.loadStratsAndYears(dtPage, linkedPages);
                 }
 
                 divChartInstruction.Visible = StratYear1.IsViewDataByVisible;
@@ -4950,6 +4950,31 @@ namespace CKDSurveillance_RD.MasterPages
                 dt.Rows[0]["Link"] = "";
             }
 
+        }
+
+        private DataTable createPageLinkRows()
+        {
+            DataTable linkedPages = DAL.getPageLinks(QNum);
+            linkedPages = AddLinkSelectedColumns(linkedPages);
+            DataColumn dcViewBy = new DataColumn("ViewBy", typeof(string));
+            linkedPages.Columns.Add(dcViewBy);
+            foreach (DataRow dr in linkedPages.Rows)
+            {
+                var qnum = dr[3].ToString().Trim();
+                var dataSource = dr[4].ToString().Trim();
+                dr["ViewBy"] = dataSource;
+                dr["Link"] = "~/detail.aspx?Qnum=" + qnum;
+                if (qnum == QNum)
+                {
+                    dr["selected"] = 1;
+                }
+                else
+                {
+                    dr["selected"] = 0;
+                }
+            }
+
+            return linkedPages;
         }
 
         private void updateYearRows(DataTable dt, string selStrat)

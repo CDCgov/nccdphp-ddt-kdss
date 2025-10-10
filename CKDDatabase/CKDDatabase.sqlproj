@@ -58,8 +58,12 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="20250915-CKD-465" />
+    <Folder Include="20251007-CKD-456" />
   </ItemGroup>
   <ItemGroup>
     <None Include="20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="20251007-CKD-456\CreateGetLinkedPagesProcedure.sql" />
   </ItemGroup>
 </Project>
