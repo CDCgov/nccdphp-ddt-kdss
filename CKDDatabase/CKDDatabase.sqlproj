@@ -64,7 +64,7 @@
     <None Include="20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="20251106-DatabaseUpdate\Object.sql" />
-    <Build Include="20251106-DatabaseUpdate\Data.sql" />
+    <None Include="20251106-DatabaseUpdate\Object.sql" />
+    <None Include="20251106-DatabaseUpdate\Data.sql" />
   </ItemGroup>
 </Project>
