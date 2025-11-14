@@ -2316,13 +2316,13 @@ namespace CKDSurveillance_RD.MasterPages
                         linkedmapfilter.Visible = true;
                     }
 
-                    var d3MapSessionKey = "d3MapJsCode_" + QNum + "_" + chartID + "_" + yr;
-                    if (Session[d3MapSessionKey] == null)
+                    var d3MapCacheKey = "d3MapJsCode_" + QNum + "_" + chartID + "_" + yr;
+                    if (Cache[d3MapCacheKey] == null)
                     {
                         string d3MapJsCode = getD3MapTabsJSCode(dsSVG, "map", chartTitleText, chartSubTitleText, title, false, yr);
-                        Session[d3MapSessionKey] = d3MapJsCode;
+                        Cache.Insert(d3MapCacheKey, d3MapJsCode, null, DateTime.MaxValue, TimeSpan.FromDays(2));
                     }
-                    litD3MapTabs.Text = Session[d3MapSessionKey].ToString();
+                    litD3MapTabs.Text = Cache[d3MapCacheKey].ToString();
 
                     hfMapType.Value = "6";
                 }

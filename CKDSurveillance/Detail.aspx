@@ -618,7 +618,7 @@
                                     <%-- Download --%>
                                     <div>
                                         <label class="chartMenuLabel">Download:</label>
-                                        <asp:Button ID="csvDownload" CssClass="noPrint btn cdc-icon-download_01 chartDownloadBtn chartMenuLabel" style="font-size:17px" runat ="server" Text="CSV" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01 chartMenuLabel">
+                                        <asp:Button ID="csvDownload" CssClass="noPrint btn chartDownloadBtn chartMenuLabel" style="font-size:17px" runat ="server" Text="CSV" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01 chartMenuLabel">
                                         </asp:Button>
                                         <a href="." runat="server" id="lnkCSV" style="text-decoration:none!important" visible="false">
                                             <span class="noPrint btn chartDownloadBtn">csv</span>
