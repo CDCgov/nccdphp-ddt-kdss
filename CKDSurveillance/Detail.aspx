@@ -524,12 +524,13 @@
                                     .viewDataBy {
                                         background: /*#00695C*/ #005ea2 0% 0% no-repeat padding-box;
                                         opacity: 1;
-                                        width: 362px;
+                                        width: fit-content;
                                         height: 96px;
                                         padding-top: 10px;
                                         padding-left: 25px!important;
                                         padding-right: 25px!important;
                                         border-radius: 5px;
+                                        display: inline-block;
                                     }
 
                                     .viewDataByLabel {
@@ -539,7 +540,6 @@
                                         color: #FFFFFF;
                                         opacity: 1;
                                         margin-bottom: 5px;
-                                        margin-left:-15px !important;
                                     }
                                     
                                     .menu-content div{
@@ -551,14 +551,13 @@
                                         background-color: var(--colors-blue-cool-vivid-5);
                                         opacity: 1;
                                         margin-left: 2px;
-                                        margin-right: 2px;      
-                                        display: flex;
+                                        margin-right: 2px;
                                         align-items: center;
                                     }
                                     .menu-content-menu {
                                         margin-left: 2px;
                                         margin-right: 2px;
-                                        vertical-align:sub;
+                                        vertical-align:middle;
                                         margin-right: 0;
                                     }
                                     .moveright {
@@ -567,7 +566,6 @@
                                         margin-right: 0;
                                         padding-left: 1px;
                                         padding-right: 1px;
-                                        width: 52%;
                                     }
 
                                     @media (max-width: 767px) {
@@ -604,31 +602,31 @@
 
                             <div class="menu-content " id="divMenuContent" style="padding-top:5px;padding-bottom:5px; display: flex; justify-content: flex-end">
 
-                                <%--*View Data By*--%>
-                                 <uc1:StratYearsButtons runat="server" ID="StratYear1" />                                
-                                 <div class="menu-content-menu" style="width:40%">
-                                    <asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList chartMenuLabel col" Text="95% Confidence Intervals" runat="server" aria-label="95% Confidence Intervals"/>
-                                </div>
-                                <%-- View as table--%>
-                                <div class="menu-content-menu moveright" id="divMenuData" style="margin-left:5%">
-                                    <div class="custom-control custom-switch" id="btnViewAsTable" runat="server" >
-                                        <input type="checkbox" class="custom-control-input" id="chViewTable"  onclick="toggleChartTable()">
-                                        <label class="custom-control-label chartMenuLabel viewTableBtnLabel" for="chViewTable" >View as table</label>
-                                    </div>
-                                    <%-- Download --%>
-                                    <div>
-                                        <label class="chartMenuLabel">Download:</label>
-                                        <asp:Button ID="csvDownload" CssClass="noPrint btn chartDownloadBtn chartMenuLabel" style="font-size:17px" runat ="server" Text="CSV" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01 chartMenuLabel">
-                                        </asp:Button>
-                                        <a href="." runat="server" id="lnkCSV" style="text-decoration:none!important" visible="false">
-                                            <span class="noPrint btn chartDownloadBtn">csv</span>
-                                        </a>
-                                        <a href="." runat="server" id="lnkPPT" style="text-decoration:none!important">
-                                            <span class="noPrint btn ppt-icon iconPPTBtn chartMenuLabel">PPT</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                                        <%--*View Data By*--%>
+                                         <uc1:StratYearsButtons runat="server" ID="StratYear1" />                                
+                                         <div class="menu-content-menu" style="width:fit-content;">
+                                            <asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList chartMenuLabel col" Text="95% Confidence Intervals" runat="server" aria-label="95% Confidence Intervals"/>
+                                        </div>
+                                        <%-- View as table--%>
+                                        <div class="menu-content-menu moveright" id="divMenuData" style="margin-left:5%">
+                                            <div class="custom-control custom-switch" id="btnViewAsTable" runat="server" >
+                                                <input type="checkbox" class="custom-control-input" id="chViewTable"  onclick="toggleChartTable()">
+                                                <label class="custom-control-label chartMenuLabel viewTableBtnLabel" for="chViewTable" >View as table</label>
+                                            </div>
+                                            <%-- Download --%>
+                                            <div>
+                                                <label class="chartMenuLabel">Download:</label>
+                                                <asp:Button ID="csvDownload" CssClass="noPrint btn chartDownloadBtn chartMenuLabel" style="font-size:17px" runat ="server" Text="CSV" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01 chartMenuLabel">
+                                                </asp:Button>
+                                                <a href="." runat="server" id="lnkCSV" style="text-decoration:none!important" visible="false">
+                                                    <span class="noPrint btn chartDownloadBtn">csv</span>
+                                                </a>
+                                                <a href="." runat="server" id="lnkPPT" style="text-decoration:none!important">
+                                                    <span class="noPrint btn ppt-icon iconPPTBtn chartMenuLabel">PPT</span>
+                                                </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                 <div style="width:50%;margin:auto;text-align: center!important;" runat="server" id="divRBSTD" class="chartMenuLabel">  
                                     <fieldset><legend></legend>
                                     <input type="radio" id="rbstd1" value="1" name="rbstd" runat="server" checked />
@@ -1507,8 +1505,8 @@
                 autoscaleBtn.click();
             }
 
-            $(document).ready(function () {   
-                
+            $(document).ready(function () {
+
                 initStdChartTable();
                 initChartRadioButton();
 
@@ -1526,8 +1524,8 @@
                         $('#divMenuData').removeAttr("style");
                     }
                 }
-                
-                
+
+
                 var sw = $(window).width();
                 $('#tableHeaderBar').hide();
 
@@ -1541,7 +1539,7 @@
                     }
                     else
                         $('.smallscreenmessage').hide();
-                }     
+                }
 
                 if ($("#hfChartID").val() == "4319") {
                     document.getElementById("btnreset").innerHTML = "Reset Filters";
@@ -1572,7 +1570,7 @@
                 });
 
                 $("input[id*='RB_ChartType']").click(function () {
-                    
+
                     if ($("input[name*='RB_ChartType']:checked").val() == "'stacked'") {
                         $('#hfChartType').val("'bar'");
                         $('#hfChartMode').val("'stack'");
@@ -1623,7 +1621,7 @@
                 autoscaleBtn = $('a[data-title="Autoscale"]')[0]
                 autoscaleBtn.click();
             }
-            
+
         </script>
     
 </asp:Content>
@@ -1674,7 +1672,7 @@
                     var val = $('#mapSlider').val();
                     var yrs = $('#hfCSVYears').val().split(',');
                     var curIndex = yrs.indexOf(val);
-                    
+
                     updateMap(curIndex);
                 }
             });
@@ -1744,7 +1742,7 @@
 
         //Show correct nav on Map pages
         if ($('#hfMapWhatNavToShow').val() == 's') {
-            $('#divMapSelectedYears').show();           
+            $('#divMapSelectedYears').show();
             $('#divMapAllYears').hide();
 
             $('#spnAcrossAllYearsPlus').show();
@@ -1752,7 +1750,7 @@
 
             $('#spnSelectedYearPlus').hide();
             $('#spnSelectedYearMinus').show();
-            
+
         } else {
             $('#divMapSelectedYears').hide();
             $('#divMapAllYears').show();
@@ -1839,7 +1837,7 @@
         var min = 0;
         var max = parseInt(yrs.length);
 
-        
+
 
         //Get  current slider text value
         var val = $('#mapSlider').val();
@@ -1902,7 +1900,7 @@
         } else {
             newIndex = curIndex + 1;
         }
-        
+
         //Set the slider's new position
         slider.update({ from: newIndex });
 
@@ -1914,7 +1912,7 @@
             sliderAnimateForward(cnt);
         }, 1000);
     }
-    
+
 
     $(window).resize(function () {
         adjustBreadCrumbs();
@@ -1922,7 +1920,7 @@
         wrapRelatedMostRecent();
 
         var sw = $(window).width();
-        
+
         if ($('#map').length < 1) {
             //If we are NOT on a map indicator, then hide the small screen message
             $('.smallscreenmessage').hide();
@@ -1933,8 +1931,8 @@
             }
             else
                 $('.smallscreenmessage').hide();
-        }       
-        
+        }
+
     });
 
 
@@ -2000,7 +1998,7 @@
                 $('#spnViewDataTable').text('+ View Data Table');
                 break;
         }
-        }
+    }
 
 
     function toggleTableKeyBoard(e) {

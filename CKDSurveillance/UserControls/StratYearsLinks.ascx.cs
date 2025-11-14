@@ -18,11 +18,11 @@ namespace CKDSurveillance_RD.UserControls
         {
             get
             {
-                return cbMultimaps.Checked;                
+                return cbMultimaps.Checked;
             }
         }
         public bool showQuintileColorRanges
-        {            
+        {
             set
             {
                 pnlQuintileRanges.Visible = value;
@@ -57,7 +57,7 @@ namespace CKDSurveillance_RD.UserControls
         }
         public int yearCount
         {
-            get 
+            get
             {
                 if (Session["YearCount"] != null)
                 {
@@ -66,11 +66,11 @@ namespace CKDSurveillance_RD.UserControls
                 else
                 {
                     return 0;
-                }                
+                }
             }
         }
 
-        bool boolViewDataByVisible = false;   
+        bool boolViewDataByVisible = false;
         public bool IsViewDataByVisible
         {
             get {
@@ -101,7 +101,7 @@ namespace CKDSurveillance_RD.UserControls
 
                     btnAll.Visible = true;
                     btnOneYear.Visible = false;
-                                        
+
                     litOneYear.Text = "<span id='spnChosenYear' class='curMapSetting'>Chosen Year</span>";
                     litOneYear.Visible = true;
                     litAll.Visible = false;
@@ -163,7 +163,7 @@ namespace CKDSurveillance_RD.UserControls
             }
 
         }
-        public void loadStratsAndYears(DataTable dt)
+        public void loadStratsAndYears(DataTable dt, DataTable linkedPages)
         {
             _dtStratyears = dt;
 
@@ -192,8 +192,12 @@ namespace CKDSurveillance_RD.UserControls
             //*Add two columns [link + selected]*
             stratTable = AddLinkSelectedColumns(stratTable);
             updateStratRows(stratTable);
-            divViewDataBy.Visible = true;
+            //divViewDataBy.Visible = true;
 
+
+            bool stratsAvailable = false;
+            bool linkedPagesAvailable = false;
+            StringBuilder sb = new StringBuilder();
             //Do not show strat name on map pages
             if (qNum.ToLower() != "q69" && qNum.ToLower() != "q96" && qNum.ToLower() != "q235" && qNum.ToLower() != "q600")
             {
@@ -201,18 +205,22 @@ namespace CKDSurveillance_RD.UserControls
                 {
                     if (stratTable.Rows.Count > 2)
                     {
-                        // populateStrats(stratTable);
-                        if(!populateStratsDropDown(stratTable))
-                            divViewDataBy.Visible = false;
-                    }                    
+                        stratsAvailable = populateStratsDropDown(stratTable, sb);
+                    }
                 }
                 else
                 {
-                    //populateStrats(stratTable);
-                    if(!populateStratsDropDown(stratTable))
-                        divViewDataBy.Visible= false;
+                    stratsAvailable = populateStratsDropDown(stratTable, sb);
                 }
             }
+
+            if (linkedPages.Rows.Count > 1)
+            {
+                linkedPagesAvailable = populatePageLinkDropDown(linkedPages, sb);
+            }
+            litStratText.Text = sb.ToString().Trim();
+
+            divViewDataBy.Visible = (stratsAvailable || linkedPagesAvailable);
 
             IsViewDataByVisible = divViewDataBy.Visible;
 
@@ -240,7 +248,7 @@ namespace CKDSurveillance_RD.UserControls
             DataView dvYear = new DataView(_dtStratyears);
             DataTable yrTable = dvYear.ToTable();
 
-            
+
 
 
             //*Add needed columns & filter rows based on chosen strat*
@@ -248,7 +256,7 @@ namespace CKDSurveillance_RD.UserControls
             DataView yrDV = yrTable.DefaultView;
 
             if (stratTable.Rows.Count > 0)
-            {                
+            {
                 yrDV.RowFilter = "viewby in ('" + selectedStrat + "')";
                 yrDV.Sort = "StratificationDisplayOrder DESC";
             }
@@ -284,7 +292,7 @@ namespace CKDSurveillance_RD.UserControls
                 string yrParam = Request.QueryString["Year"].Trim();
 
                 DataView dvYearCheck = yrTableFiltered.DefaultView;
-                
+
                 dvYearCheck.RowFilter = "year in('" + yrParam + "')";
 
                 if (dvYearCheck.Count == 0)
@@ -327,7 +335,7 @@ namespace CKDSurveillance_RD.UserControls
                 {
                     sb.Append("<strong>" + dr["ViewBy"].ToString().Trim() + "</strong>"); //adding boldness to the selected data
                 }
-                
+
                 sb.Append("</li>");
             }
             sb.Append("</ul>");
@@ -336,48 +344,83 @@ namespace CKDSurveillance_RD.UserControls
 
         }
 
-        private bool populateStratsDropDown(DataTable stratTable)
+        private bool populatePageLinkDropDown(DataTable linkedPages, StringBuilder sb)
         {
             string qnum = Request.QueryString["QNum"].Trim();
 
             StringBuilder sbInst = new StringBuilder();
-            StringBuilder sb = new StringBuilder();
-            if (qnum == "Q700") {
-                sb.Append("<div class=\"viewDataByLabel\">Select Data Source</div>");
-                sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\"  style=\"appearance:auto\" onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Data Source\" >");
-            }
-            else
-            {
-                sb.Append("<div class=\"viewDataByLabel\">Select Risk Category</div>");
-                sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\" style=\"appearance:auto\" onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Risk Category\" >");
-            }
+
+            sb.Append("<div style=\"float:left\"><div class=\"viewDataByLabel\">Data Source</div>");
+            sb.Append("<select id=\"plViewDataBy\" class=\"form-control\"  style=\"appearance:auto\" onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Page Source\" >");
 
             int i = 0;
 
-            foreach (DataRow dr in stratTable.Rows)
+            foreach (DataRow dr in linkedPages.Rows)
             {
                 i++;
                 if (Convert.ToInt32(dr["selected"]) != 1)
                 {
                     sb.Append("<option value='" + dr["link"].ToString().Replace("~/", "").Trim() + "'>");
-                    sb.Append(dr["ViewBy"].ToString().Trim());
+                    sb.Append(HttpUtility.HtmlEncode(dr["ViewBy"].ToString().Trim()));
                     sb.Append("</option>");
 
                 }
                 else if (Convert.ToInt32(dr["selected"]) == 1)
                 {
-                    sb.Append("<option selected>" + dr["ViewBy"].ToString().Trim() + "</option>");
+                    sb.Append("<option selected>" + HttpUtility.HtmlEncode(dr["ViewBy"].ToString().Trim()) + "</option>");
                 }
-
-                if(i< stratTable.Rows.Count)
-                    sbInst.Append("<span class=\"spnRiskCategory\">" + dr["ViewBy"].ToString().Trim() + "</span>, ");
-                else
-                    sbInst.Append("and <span class=\"spnRiskCategory\">" + dr["ViewBy"].ToString().Trim() + "</span>.");
             }
 
-            sb.Append("</select>");
+            sb.Append("</select></div>");
 
-            litStratText.Text = sb.ToString().Trim();
+            return (linkedPages.Rows.Count > 1);
+        }
+
+        private bool populateStratsDropDown(DataTable stratTable, StringBuilder sb)
+        {
+            string qnum = Request.QueryString["QNum"].Trim();
+
+            if (stratTable.Rows.Count > 1)
+            {
+                StringBuilder sbInst = new StringBuilder();
+
+                if (qnum == "Q700")
+                {
+                    sb.Append("<div style=\"float:left\"><label class=\"viewDataByLabel\">Select Data Source</label>");
+                    sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\"  style=\"appearance:auto\" onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Data Source\" >");
+                }
+                else
+                {
+                    sb.Append("<div style=\"float:left\"><label class=\"viewDataByLabel\">Select Risk Category</label>");
+                    sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\" style=\"appearance:auto\" onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Risk Category\" >");
+                }
+
+                int i = 0;
+
+                foreach (DataRow dr in stratTable.Rows)
+                {
+                    i++;
+                    if (Convert.ToInt32(dr["selected"]) != 1)
+                    {
+                        sb.Append("<option value='" + dr["link"].ToString().Replace("~/", "").Trim() + "'>");
+                        sb.Append(dr["ViewBy"].ToString().Trim());
+                        sb.Append("</option>");
+
+                    }
+                    else if (Convert.ToInt32(dr["selected"]) == 1)
+                    {
+                        sb.Append("<option selected>" + dr["ViewBy"].ToString().Trim() + "</option>");
+                    }
+
+                if(i< stratTable.Rows.Count)
+                        sbInst.Append("<span class=\"spnRiskCategory\">" + dr["ViewBy"].ToString().Trim() + "</span>, ");
+                    else
+                        sbInst.Append("and <span class=\"spnRiskCategory\">" + dr["ViewBy"].ToString().Trim() + "</span>.");
+                }
+
+                sb.Append("</select></div>");
+
+            }
 
             return (stratTable.Rows.Count > 1);
         }
@@ -410,7 +453,7 @@ namespace CKDSurveillance_RD.UserControls
             Response.Redirect(url);
 
         }
-        
+
         private DataTable AddLinkSelectedColumns(DataTable dt)
         {
 
@@ -496,7 +539,7 @@ namespace CKDSurveillance_RD.UserControls
             }
 
         }
-       
+
 
 
         //*Map color distribution*      
@@ -526,6 +569,6 @@ namespace CKDSurveillance_RD.UserControls
 
         }
 
-              
+
     }
 }
