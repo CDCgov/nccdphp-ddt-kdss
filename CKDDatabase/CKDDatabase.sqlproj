@@ -59,6 +59,7 @@
     <Folder Include="Properties" />
     <Folder Include="20250915-CKD-465" />
     <Folder Include="20251106-DatabaseUpdate" />
+    <Folder Include="20251117-2025Nov17Release" />
   </ItemGroup>
   <ItemGroup>
     <None Include="20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
@@ -66,5 +67,9 @@
   <ItemGroup>
     <None Include="20251106-DatabaseUpdate\Object.sql" />
     <None Include="20251106-DatabaseUpdate\Data.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="20251117-2025Nov17Release\Data.sql" />
+    <Build Include="20251117-2025Nov17Release\Object.sql" />
   </ItemGroup>
 </Project>
