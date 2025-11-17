@@ -39,8 +39,12 @@ namespace CKDRD4.Handlers
                     //DataSet dsChart = DAL.getChartForMaps(Convert.ToInt32(chartID), selectedyear, "y"); //hard coding for a single year
                     DataTable dsAllYearsTable = dsAllYearsChart.Tables[0];
                     DataView dvyeardata = dsAllYearsTable.DefaultView;
-                    dvyeardata.RowFilter = "fipsstate = " + fipsstate_int.ToString() + " AND year = " + selectedyear;
-                    
+                    string rowfilter = "fipsstate = " + fipsstate_int.ToString();
+
+                    if (chartID != "4319" || selectedyear != "0")
+                        rowfilter += " AND year = " + selectedyear;
+
+                    dvyeardata.RowFilter = rowfilter;
 
                     //DataView csvview = new DataView(ReadCsvFile("~/Data/prev_county_oneyear.csv"));
                     //csvview.RowFilter = "fipsstate = " + fipsstate_int.ToString();

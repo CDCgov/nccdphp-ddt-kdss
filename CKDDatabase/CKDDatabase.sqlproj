@@ -69,7 +69,7 @@
     <None Include="20251106-DatabaseUpdate\Data.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="20251117-2025Nov17Release\Data.sql" />
-    <Build Include="20251117-2025Nov17Release\Object.sql" />
+    <None Include="20251117-2025Nov17Release\Data.sql" />
+    <None Include="20251117-2025Nov17Release\Object.sql" />
   </ItemGroup>
 </Project>
