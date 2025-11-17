@@ -48,6 +48,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Prefer32Bit>false</Prefer32Bit>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <PublishDir>..\PrecompiledWeb\KDSS\</PublishDir>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -247,8 +248,9 @@
       <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0-preview1-24530-04\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.IO.Packaging, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Packaging.8.0.0\lib\net462\System.IO.Packaging.dll</HintPath>
+    <Reference Include="System.IO.Packaging, Version=8.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.IO.Packaging.8.0.1\lib\net462\System.IO.Packaging.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.IO.Pipelines, Version=9.0.0.7, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.9.0.7\lib\net462\System.IO.Pipelines.dll</HintPath>
@@ -398,6 +400,7 @@
     <Content Include="AreYouAware.aspx" />
     <Content Include="AYA\August_2023.html" />
     <Content Include="AYA\August_2024.html" />
+    <Content Include="AYA\August_2025.html" />
     <Content Include="AYA\December_2023.html" />
     <Content Include="AYA\February_2024.html" />
     <Content Include="AYA\Images\April_2024.PNG" />
@@ -405,15 +408,20 @@
     <Content Include="AYA\Images\August_2024-a.png" />
     <Content Include="AYA\Images\August_2024-b.png" />
     <Content Include="AYA\Images\August_2024.PNG" />
+    <Content Include="AYA\Images\August_2025.svg" />
+    <Content Include="AYA\Images\August_2025_table.png" />
     <Content Include="AYA\Images\CurrentAYA-a.png" />
     <Content Include="AYA\Images\CurrentAYA-b.png" />
     <Content Include="AYA\Images\CurrentAYA.png" />
+    <Content Include="AYA\Images\CurrentAYA.svg" />
     <Content Include="AYA\Images\December_2023.png" />
     <Content Include="AYA\Images\December_2024.png" />
     <Content Include="AYA\Images\February_2024.png" />
     <Content Include="AYA\Images\June_2024.png" />
     <Content Include="AYA\Images\June_2023.png" />
     <Content Include="AYA\Images\March_2025.png" />
+    <Content Include="AYA\Images\May_2025-a.png" />
+    <Content Include="AYA\Images\May_2025-b.png" />
     <Content Include="AYA\Images\October_2023.png" />
     <Content Include="AYA\Images\October_2024-a.png" />
     <Content Include="AYA\Images\October_2024-b.png" />
@@ -642,6 +650,7 @@
     <Content Include="scripts\d3.v4.min.js" />
     <Content Include="scripts\ion.rangeSlider.js" />
     <Content Include="scripts\jquery.range.js" />
+    <Content Include="scripts\kdss.js" />
     <Content Include="scripts\LinkedMap.js" />
     <Content Include="scripts\plotly-latest.min.js" />
     <Content Include="scripts\SliderFunctions.js" />
@@ -692,7 +701,6 @@
     <Content Include="PPT\Q719.pptx" />
     <Content Include="PPT\Q730.pptx" />
     <Content Include="PPT\Q756.pptx" />
-    <Content Include="PPT\Q759.pptx" />
     <Content Include="PPT\Q762.pptx" />
     <Content Include="PPT\Q763.pptx" />
     <Content Include="PPT\Q764.pptx" />
@@ -718,6 +726,11 @@
     <Content Include="PPT\Q800.pptx" />
     <Content Include="PPT\Q801.pptx" />
     <Content Include="PPT\Q804.pptx" />
+    <Content Include="PPT\Q811.pptx" />
+    <Content Include="PPT\Q759.pptx" />
+    <Content Include="PPT\Q812.pptx" />
+    <Content Include="PPT\Q813.pptx" />
+    <Content Include="PPT\Q814.pptx" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="scripts\local.js" />
     <Content Include="scripts\templateContentEmpty.js" />
@@ -910,171 +923,16 @@
     <None Include="Properties\PublishProfiles\Dev Internet.pubxml" />
     <None Include="Properties\PublishProfiles\QA Internet.pubxml" />
     <Content Include="fonts\OpenSans-Bold.ttf" />
-    <None Include="Web.config.prod.Debug.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.DEV Internet.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.DEV.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.TED">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.prod.PROD.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.QA Internet.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.QA.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.QA_SCAN.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.Release.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.prod.Scan.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.prod.VA Scan.TED">
-      <DependentUpon>Web.config.prod.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.Debug.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.DEV Internet.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.DEV.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.PROD.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.QA Internet.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.QA.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.QA_SCAN.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.Release.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.stg.Scan.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg.TED">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.stg.VA Scan.TED">
-      <DependentUpon>Web.config.stg.TED</DependentUpon>
-    </None>
-    <None Include="Web.config.stg">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.Debug.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.DEV Internet.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.DEV.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.PROD.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.QA Internet.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.QA.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.QA_SCAN.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.Release.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.Scan.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.VA Scan.stg">
-      <DependentUpon>Web.config.stg</DependentUpon>
-    </None>
-    <None Include="Web.config.prod">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.Debug.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.DEV Internet.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.DEV.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.PROD.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.QA Internet.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.QA.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.QA_SCAN.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.Release.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.config.Scan.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.config.VA Scan.prod">
-      <DependentUpon>Web.config.prod</DependentUpon>
-    </None>
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.DEV Internet.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
     <None Include="Web.DEV.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.PROD.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <None Include="Web.QA Internet.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
     <None Include="Web.QA.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <None Include="Web.QA_SCAN.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web.Scan.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.VA Scan.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>

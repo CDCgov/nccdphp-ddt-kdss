@@ -17,8 +17,9 @@ namespace CKDSurveillance_RD
             Page.Title = ConfigurationManager.AppSettings["AppName"].ToString() + " Application Error";
 
             //*Set the contactus link behaviors for a pop-up*
-            lnkContact.Attributes.Add("onclick", "return popupWindow('" + HttpRuntime.AppDomainAppVirtualPath.TrimEnd('/') + ("/contactUs.aspx") + "', 800, 600);");
-
+            lnkContact.NavigateUrl = "javascript:void(0);";
+            lnkContact.Target = "";
+            lnkContact.Attributes.Add("onclick", "popupWindow('" + HttpRuntime.AppDomainAppVirtualPath.TrimEnd('/') + "/contactUs.aspx', 800, 600); return false;");            
             //*************************
             //*Build the error message*
             //*************************

@@ -11,7 +11,7 @@ namespace CKDSurveillance_RD.TopicHome
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Page.Title = "KDSS | Prevalence and Incidence | CDC";
         }
     }
 }

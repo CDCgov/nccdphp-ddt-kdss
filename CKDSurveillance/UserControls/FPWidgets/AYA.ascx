@@ -154,11 +154,11 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Nocturia May Indicate Chronic Kidney Disease or Other Conditions</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Provider Awareness of Chronic Kidney Disease in the Military Health System</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
-                Nocturia is defined by waking from sleep at night to urinate more than once. It is one of the most common urinary symptoms and occurs more often as people age. Nocturia is almost twice as common among U.S. adults with chronic kidney disease (CKD) stages 3-5 than those without CKD (~50% among CKD stages 3-5 vs. ~25% among those without CKD, in the 2017-March 2020, based on NHANES data). Nocturia can be a sign of more serious underlying conditions such as urinary obstruction or chronic kidney disease, and it is important for people to contact their healthcare provider if they regularly experience this symptom.
+                Healthcare provider awareness is a key factor for patient awareness of chronic kidney disease (CKD). Data from 2016 to 2023 in the Military Health System showed that among beneficiaries with laboratory values indicating CKD stage 3, about one-third also had CKD diagnosis codes entered by their providers in the electronic health record. These data might reflect missed opportunities to implement effective therapies to prevent and slow progression of CKD and its complications. The factors contributing to low provider awareness may not be clear. A concerted approach including provider education and more effective use of clinical support systems may be necessary.
                 <br /><br />                
             </div>
 

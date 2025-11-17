@@ -316,8 +316,9 @@
                             <div id=titleAge class="accordionTitle age" tabindex="0" role="button" aria-pressed="false"><h3 style="font-family: Poppins;">Age</h3>
                                   <span><i class="fa fa-plus"></i></span>
                               </div>
-                            <div id="rfkdAge" class="rfkd-text accordionContent">  
-                              Although kidney disease can occur at any age, CKD is more frequently associated with older age. In the National Health and Nutrition Examination Survey (NHANES) of 2017–March 2020, the prevalence of CKD among those aged 18–39 years old was 6.1%; in those aged 40–59 years old, 10.9%; in those aged 60–69 years old, 18.5%; and in those 70 years of age and older, it was 38.4%.
+                            <div id="rfkdAge" class="rfkd-text accordionContent"> 
+                                
+                              Although kidney disease can occur at any age, CKD is more frequently associated with older age. In the National Health and Nutrition Examination Survey (NHANES) of 2017-March 2020, the prevalence of CKD among those aged 18-39 years old was 6.1%; in those aged 40-59 years old, 10.9%; in those aged 60-69 years old, 18.5%; and in those 70 years of age and older, it was 38.4%.
                             </div>                
                         </div>
                         <hr  class="accordionHr">
@@ -327,7 +328,7 @@
                                  <span><i class="fa fa-plus" ></i></span>
                             </div>
                             <div id="rfkdDiabetes" class="rfkd-text accordionContent"> 
-                                Diabetes is a leading risk factor for CKD. Persons with diabetes make up the fastest-growing group of kidney dialysis and transplant recipients in the United States. The prevalence of CKD among adults with diabetes has decreased from 42.3% in the 2001–2004 National Health and Nutrition Examination Survey (NHANES) to 38.5% in the 2017–March 2020 survey.
+                               Diabetes is a leading risk factor for CKD. Persons with diabetes make up the fastest-growing group of kidney dialysis and transplant recipients in the United States. The prevalence of CKD among adults with diabetes has decreased from 42.3% in the 2001- 2004 National Health and Nutrition Examination Survey (NHANES) to 38.5% in the 2017- March 2020 survey.
                             </div>
                         </div>
                         <hr class="accordionHr">
@@ -337,7 +338,7 @@
                                  <span><i class="fa fa-plus"></i></span>
                             </div>
                             <div id="rfkdHypertension" class="rfkd-text accordionContent">  
-                                Hypertension is the second leading risk factor for CKD. CKD can also lead to the development of hypertension through multiple mechanisms. The prevalence of CKD among adults with hypertension has remained stable, representing 24.5% in the 2001–2004 National Health and Nutrition Examination Survey (NHANES) to 24.6% in the 2017–March 2020 survey.
+                               Hypertension is the second leading risk factor for CKD. CKD can also lead to the development of hypertension through multiple mechanisms. The prevalence of CKD among adults with hypertension has remained stable, representing 24.5% in the 2001-2004 National Health and Nutrition Examination Survey (NHANES) to 24.6% in the 2017-March 2020 survey.
                             </div>
                         </div>
                         <hr class="accordionHr">

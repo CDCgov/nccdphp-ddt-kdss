@@ -28,6 +28,13 @@ namespace CKDSurveillance_RD.UserControls.FPWidgets
             string link = dtAYA.Rows[rowToUse]["AYALink"].ToString().Trim();
             link = link.Replace("../", "");
 
+            string topicText = "";
+            if(dtAYA.Rows[rowToUse]["TopicText"] != null)
+            {
+                topicText = dtAYA.Rows[rowToUse]["TopicText"].ToString().TrimStart().TrimEnd();
+                link = link + "&TopicText=" + HttpUtility.UrlEncode(topicText);
+            }
+
             //*Build button string*
             StringBuilder sb = new StringBuilder();
             sb.Append("<a href='");

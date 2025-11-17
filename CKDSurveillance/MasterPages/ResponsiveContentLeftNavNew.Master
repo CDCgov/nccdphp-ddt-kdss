@@ -14,13 +14,48 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head runat="server">
+      <script>
+      // Initialize CDC object for DMAT
+      // Disable automatic page view by setting CDC config before DMAT loads
+      window.CDC = window.CDC || {};
+      window.CDC.ABTest = {};
+
+      // Build parameters for DMAT (include any needed parameters here)
+      const params = {
+          pageview: "true",       // Disable automatic page view for SPA
+          ch: "DDT KDSS",           // Your channel
+          level1: "Chronic",       // Center Name
+          level2: "DDT",           // Division, Office or Program Name
+          level3: "CDC Kidney Disease Surveillance System", // CDC Topic Name
+          level4: "Chronic Web Application" // Optional Level 4
+      };
+
+      // Build query string from parameters
+      const queryString = Object.keys(params)
+          .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+          .join("&");
+
+      // Create and add DMAT script
+      var scriptDMAT = document.createElement("script");
+
+      // Set appropriate environment URL
+      if (window.location.href.indexOf("wwwn.cdc.gov/kdss/") > -1) {
+          console.log("DMAT PROD")
+          scriptDMAT.src = `https://www.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
+      } else {
+          console.log("DMAT DEV")
+          scriptDMAT.src = `https://oadc-dmb-dev.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
+      }
+
+      //Add script to document
+      document.write(scriptDMAT.outerHTML);
+  </script>
     <meta name="google-site-verification" content="vuSgbTP5gm9mu35qxMRQp6nC_uX_u82h2GSXTuzLOyc" />
     <title>Kidney Disease Surveillance System</title>
 
     <%--Header Files--%>
     <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/head-content.html"));%>
     <%--End Header Files--%>
-    <%--<link href="../TemplatePackage/5.0/css/homepage/hp-2024.min.css" rel="stylesheet" />--%>
 
     <%--<meta name="description" content="Centers for Disease Control and Prevention (CDC) Division Name (DN)- CKD Surveillance System />--%>
     <asp:Literal ID="litMetaTagsDescription" runat="server" ClientIDMode="Static" Text="<meta name='description' content='Centers for Disease Control and Prevention (CDC) : CKD Surveillance' />" />
@@ -39,6 +74,7 @@
     <% Response.WriteFile((ConfigurationManager.AppSettings["TemplatePackageFolder"] + "/5.0/ssi/en/global/scripts.html"));%>
     <%--End Scripts--%>
 
+    <script src="../scripts/kdss.js"></script>
 
 
     <style>
@@ -320,6 +356,8 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+
 </head>
 <body class="no-js leftNavNew">
     <%--*****************--%>
@@ -467,12 +505,8 @@
     <asp:ContentPlaceHolder ID="ContentArea2" runat="server" ClientIDMode="Static">
     </asp:ContentPlaceHolder>
 
-
-    <%--scripts and metrics--%>
     <script type="text/javascript" src='<%= HttpRuntime.AppDomainAppVirtualPath.TrimEnd( '/' ) + ("/scripts/jquery.cycle2.js") %>'></script>
     <script type="text/javascript" src='<%= HttpRuntime.AppDomainAppVirtualPath.TrimEnd( '/' ) + ("/scripts/jquery.cycle2.carousel.min.js") %>'></script>
-    <%--end scripts and metrics --%>
-
 
     <%--custom javascript--%>
     <asp:ContentPlaceHolder ID="CustomJavaScript" runat="server"></asp:ContentPlaceHolder>
@@ -684,5 +718,7 @@
         $(".accordion .card.bar .card-title").on("keypress", function (a) { a.preventDefault(); })
         $(".accordion .card.bar .card-header:not(.ckd-accordion-subcat-header) .card-title").on("keyup", function (a) { console.log('working'); 13 == a.which && $(this).click(); }), $(".ckd-accordion-subcat-header .card-title").on("keyup", function (a) { "block" == $(this).parent().next().css("display") ? ($(this).parent().removeClass("collapsed"), $(this).parent().attr("aria-expanded", "true")) : ($(this).parent().addClass("collapsed"), $(this).parent().attr("aria-expanded", "false")) });
     </script>
+
+  
 </body>
 </html>

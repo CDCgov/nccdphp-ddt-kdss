@@ -96,8 +96,14 @@ public class FacetTableConstants
     public static readonly string FACET_AUDIENCE = "03";
     public static readonly string FACET_LANGUAGE = "04";
     public static readonly string FACET_PUB_YEAR = "05";
+}
 
-
-
-
+public class  DotNetChartStyle
+{
+    public static readonly string Column = "10";
+    public static readonly string Line = "3";
+    public static readonly string StackedColumn = "11";
+    public static readonly string BoxPlot = "28";
+    public static readonly string StateLevelMap = "5";
+    public static readonly string CountyLevelMap = "6";
 }

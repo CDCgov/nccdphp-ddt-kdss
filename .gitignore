@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/CKD v8.0
+/CKDLib/obj/Debug
+/CKDSurveillance/obj/Debug
