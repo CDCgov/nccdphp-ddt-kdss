@@ -734,6 +734,10 @@
     <Content Include="PPT\Q812.pptx" />
     <Content Include="PPT\Q813.pptx" />
     <Content Include="PPT\Q814.pptx" />
+    <Content Include="PPT\Q805.pptx" />
+    <Content Include="PPT\Q806.pptx" />
+    <Content Include="PPT\Q807.pptx" />
+    <Content Include="PPT\Q808.pptx" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="scripts\local.js" />
     <Content Include="scripts\templateContentEmpty.js" />
