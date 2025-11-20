@@ -43,7 +43,7 @@
         <div class="navbar-nav w-100" style="padding-left:2px !important;background-color:#f6fbff;">
 
             <%--<a class="navbar-brand gi" href="#">   --%>             
-                <img src="images/CKD_GI_Larger-t5.png<%--graphic_identifier.png--%>" alt="CDC CKD project Logo" style="width: 300px;" />
+                <img src="images/CKD_GI_Larger-t5.png<%--graphic_identifier.png--%>" alt="CDC CKD project Logo" aria-hidden="true" style="width: 300px;" />
             <%--</a>--%>
             <button type="button" style="width:100%;text-align: right;border:none; background-color:#f6fbff;padding:0px;" class="close" title="Close Window" aria-label="Close" onclick="javascript:window.close(); return false;">
                     <span aria-hidden="true" class="readable" style="color:black!important">&times;</span>

@@ -230,7 +230,7 @@
 				<div id="cdc-left-nav-menu" >
 					<div ><%--<img src="../../images/CKDLeftNavLogo.png" class="logoImg" />--%>
 						<asp:HyperLink ID="hlLogo" runat="server" NavigateUrl="~/Default.aspx">
-							<img src="/KDSS/images/CKD_GI_Larger-t5.png" class="logoImg"  alt="Kidney Disease Surveillance System logo" />
+							<img src="/KDSS/images/CKD_GI_Larger-t5.png" class="logoImg"  alt="Kidney Disease Surveillance System logo" aria-hidden="true" />
 						</asp:HyperLink>
 					</div>
 					<br />
