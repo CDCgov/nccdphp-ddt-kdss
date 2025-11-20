@@ -435,8 +435,10 @@
     <Content Include="AYA\March_2025.html" />
     <Content Include="AYA\October_2022.html" />
     <Content Include="AYA\April_2024.html" />
+    <Content Include="AYA\October_2022_new.png" />
     <Content Include="AYA\October_2023.html" />
     <Content Include="AYA\October_2024.html" />
+    <Content Include="AYA\October_2025.html" />
     <Content Include="Blocked.aspx" />
     <Content Include="Calculators.aspx" />
     <Content Include="css\Fonts.css" />
