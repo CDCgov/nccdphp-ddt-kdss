@@ -80,4 +80,7 @@
   <ItemGroup>
     <None Include="20251124-2025Nov17Release\Data-v2.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="20251124-2025Nov17Release\Data-v3.sql" />
+  </ItemGroup>
 </Project>
