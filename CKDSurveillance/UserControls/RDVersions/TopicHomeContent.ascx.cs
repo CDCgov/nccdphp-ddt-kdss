@@ -841,7 +841,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     string ayaCurrentImg1 = "CurrentAYA-a.png";
                     string ayaCurrentImg2 = "CurrentAYA-b.png";
                     sbBodyTable.Append("<div class=\"div-table-row\" style=\"background-color: #F6FBFF;\">");
-                    sbBodyTable.Append("<div style=\"font-size: 26px;font-weight: 400; padding-left: 5%; padding-top:20px; \">Latest Spotlight</div>");
+                    sbBodyTable.Append("<h2 style=\"font-size: 26px;font-weight: 400; padding-left: 5%; padding-top:20px; color:color:rgb(28, 29, 31);;\">Latest Spotlight</h2>");
                     if (date.IndexOf("June 2024") >= 0)
                     {
                         sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; display: grid;\">");
@@ -890,7 +890,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 else
                 {
                     if (rowNum == 2) {                        
-                        sbBodyTable.Append("<div class=\"div-table-row\">&nbsp;</div><div class=\"div-table-row\" style=\"font-size: 26px;font-weight: 400;\">Are You Aware Archive</div>");
+                        sbBodyTable.Append("<h2 class=\"div-table-row\">&nbsp;</div><div class=\"div-table-row\" style=\"font-size: 26px;font-weight: 400; color:rgb(28, 29, 31);\">Are You Aware Archive</h2>");
                     }
                     sbBodyTable.Append("<div class=\"div-table-row dateformat\">" + date + "</div>");
                     sbBodyTable.Append("<div class=\"div-table-row ayaTitle\">" + linkStart + title + linkEnd + "</div>");
