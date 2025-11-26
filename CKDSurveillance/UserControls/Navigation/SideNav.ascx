@@ -121,6 +121,17 @@
 		opacity: 1;		
         margin-top: 20px;
 	}
+	/* 508 Fix: Style for heading elements to match visual design */
+	.navSectionHeading h2,
+	.navSectionHeading h3 {
+		font-family: Nunito;
+		font-size: 21px;
+		font-weight: 600;
+		letter-spacing: -0.21px;
+		color: #242424;
+		margin: 0;
+		padding: 0;
+	}
 	.navARandGIlinks{
 		text-align: left;
 		/*font: normal normal normal 17px/23px Open Sans;*/
@@ -200,6 +211,18 @@
         margin-right: 1rem;
 		font-weight:600;
     }
+	/* 508 Fix: Style for h3 heading in email signup to match visual design */
+	h3.aya-emailmain-label {
+		text-align: left;
+		font-family: Nunito;
+		font-size: 20px;
+		font-weight: 600;
+		letter-spacing: -0.4px;
+		opacity: 1;
+		margin-right: 1rem;
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+	}
     .aya-emailmain-desc {
         text-align: left;
         font: normal normal 500 16px/30px Nunito;
@@ -217,6 +240,19 @@
         letter-spacing: 0px;
         color: #FFFFFF !important;
     }
+	/* 508 Fix: Style for Are You Aware Topics heading */
+	h2.navBoldHeader-heading {
+		font-family: Nunito, Semibold;
+		font-weight: bold;
+		font-size: 17px;
+		letter-spacing: 0px;
+		text-align: left;
+		color: #005fa3 !important;
+		opacity: 1;
+		background: white !important;
+		margin: 0;
+		padding: 0;
+	}
 </style>
 
 
@@ -240,7 +276,8 @@
 					  
                     <div><%-- class="card-header nav-section-home navSectionLinks navlist"--%>
 						<div id="divAYA" runat="server"  class="navBoldHeader nav-section-home d-sm-block" style="background:white !important;"  role="tabpanel"><%-- class="card-header nav-section-home navSectionLinks navlist"--%>
-							Are You Aware Topics          
+							<%-- 508 Fix: Changed from plain text to proper heading element --%>
+							<h2 class="navBoldHeader-heading">Are You Aware Topics</h2>
 						</div>
 						<div id="divAYARF" runat="server"><%--style="padding-left:1px;padding-right:1px;"--%>
 
@@ -429,10 +466,13 @@
 					 <div class="nccd-modb emailupdates" id="aya_signup" runat="server" style="margin-left: -15px;"> 
 						<form name="govdelivery" action="https://public.govdelivery.com/accounts/USCDC/subscribers/qualify">
 							<fieldset>
+								<%-- 508 Fix: Added legend for fieldset accessibility --%>
+								<legend class="sr-only">Email Newsletter Signup</legend>
 								<div class="aya-emailmain">
-									<label for="gov-d-email" class="aya-emailmain-label">Signup For Latest</label>
-									<label class="aya-emailmain-desc">Description of what users will get in newsletter.</label>
-									<button id="btnSubmitEmailSubscription" class="btn aya-emailmain-btn">Signup</button>
+									<%-- 508 Fix: Changed from label to h3 heading element --%>
+									<h3 class="aya-emailmain-label">Signup For Latest</h3>
+									<p class="aya-emailmain-desc">Description of what users will get in newsletter.</p>
+									<button id="btnSubmitEmailSubscription" class="btn aya-emailmain-btn" type="submit">Signup</button>
 								</div>
 							</fieldset>
 						</form>
@@ -440,8 +480,10 @@
 					<br />
                 
 					<div id="divARandGI" runat="server">
-					<div class="navSectionHeading ">						
-						<span style="font-weight:600;" >Additional Resources </span><div style="height:7px;"></div>
+					<div class="navSectionHeading ">
+						<%-- 508 Fix: Changed from span to h2 heading element --%>
+						<h2 style="font-weight:600; font-size:21px; margin:0;">Additional Resources</h2>
+						<div style="height:7px;"></div>
 						<div><div>
 							<div class="navARbottomline"><a href="<%=ConfigurationManager.AppSettings["DirPath"]%>data.aspx?categoryID=67" <%--href="https://health.gov/healthypeople"--%> class="navARandGIlinks">Healthy People &nbsp;</a></div>
 							<div class="navARbottomline"><a href="<%=ConfigurationManager.AppSettings["DirPath"]%>Help.aspx?section=G" class="navARandGIlinks"  target="popup"  onclick="window.open('<%=ConfigurationManager.AppSettings["DirPath"]%>help.aspx?section=G','popup','width=800,height=600'); return false;" >Glossary</a></div>
@@ -451,11 +493,12 @@
 
 					</div>
 					<br />
-					<div class="navSectionHeading ">						
-						<span style="font-weight:600;line-height:normal!important" >General Information </span>
+					<div class="navSectionHeading ">
+						<%-- 508 Fix: Changed from span to h2 heading element --%>
+						<h2 style="font-weight:600; font-size:21px; line-height:normal !important; margin:0;">General Information</h2>
 						<div>
 							<a href="<%=ConfigurationManager.AppSettings["DirPath"]%>Documents/CKD_FactSheet_2023.pdf" class="navARandGIlinks" style= "padding-left:1px !important" alt="Download CKD Fact Sheet" download>
-                                <img class="downloadImg" src="/KDSS/images/DataCharts/DownloadCyan-t5.jpg" alt="Download CKD Fact Sheet" role="presentation"/>
+                                <img class="downloadImg" src="/KDSS/images/DataCharts/DownloadCyan-t5.jpg" alt="" role="presentation"/>
                                 <span class="navARandGIlinks">Download CKD Fact Sheet</span>
                             </a>
 						</div>
@@ -474,28 +517,28 @@
 <asp:HiddenField ID="HF_SN_TopicText" runat="server" />
 
 <script type="text/javascript">
-	$(document).ready(function () {
+    $(document).ready(function () {
         $('.card-title').bind('keypress', function (e) {
-			if (e.keyCode == 13) {
-				if ($(this).parent().hasClass("collapsed")) {
-					$(this).parent().removeClass("collapsed");
-					$(this).parent().attr("aria-expanded", "true");
-					$(this).parent().next().addClass("show");
+            if (e.keyCode == 13) {
+                if ($(this).parent().hasClass("collapsed")) {
+                    $(this).parent().removeClass("collapsed");
+                    $(this).parent().attr("aria-expanded", "true");
+                    $(this).parent().next().addClass("show");
                     $(this).parent()
                         .find(".fi")
                         .addClass("cdc-icon-minus")
                         .removeClass("cdc-icon-plus");
-				} else {
+                } else {
                     $(this).parent().addClass("collapsed");
                     $(this).parent().attr("aria-expanded", "false");
-					$(this).parent().next().removeClass("show");
+                    $(this).parent().next().removeClass("show");
                     $(this).parent()
                         .find(".fi")
                         .addClass("cdc-icon-plus")
                         .removeClass("cdc-icon-minus");
-				}
+                }
             }
-		});
+        });
 
         // Add minus icon for collapse element which is open by default
         $(".collapse.show").each(function () {

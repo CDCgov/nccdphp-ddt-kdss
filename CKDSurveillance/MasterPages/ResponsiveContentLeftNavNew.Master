@@ -14,42 +14,42 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head runat="server">
-      <script>
-      // Initialize CDC object for DMAT
-      // Disable automatic page view by setting CDC config before DMAT loads
-      window.CDC = window.CDC || {};
-      window.CDC.ABTest = {};
+    <script>
+        // Initialize CDC object for DMAT
+        // Disable automatic page view by setting CDC config before DMAT loads
+        window.CDC = window.CDC || {};
+        window.CDC.ABTest = {};
 
-      // Build parameters for DMAT (include any needed parameters here)
-      const params = {
-          pageview: "true",       // Disable automatic page view for SPA
-          ch: "DDT KDSS",           // Your channel
-          level1: "Chronic",       // Center Name
-          level2: "DDT",           // Division, Office or Program Name
-          level3: "CDC Kidney Disease Surveillance System", // CDC Topic Name
-          level4: "Chronic Web Application" // Optional Level 4
-      };
+        // Build parameters for DMAT (include any needed parameters here)
+        const params = {
+            pageview: "true",       // Disable automatic page view for SPA
+            ch: "DDT KDSS",           // Your channel
+            level1: "Chronic",       // Center Name
+            level2: "DDT",           // Division, Office or Program Name
+            level3: "CDC Kidney Disease Surveillance System", // CDC Topic Name
+            level4: "Chronic Web Application" // Optional Level 4
+        };
 
-      // Build query string from parameters
-      const queryString = Object.keys(params)
-          .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-          .join("&");
+        // Build query string from parameters
+        const queryString = Object.keys(params)
+            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+            .join("&");
 
-      // Create and add DMAT script
-      var scriptDMAT = document.createElement("script");
+        // Create and add DMAT script
+        var scriptDMAT = document.createElement("script");
 
-      // Set appropriate environment URL
-      if (window.location.href.indexOf("wwwn.cdc.gov/kdss/") > -1) {
-          console.log("DMAT PROD")
-          scriptDMAT.src = `https://www.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
-      } else {
-          console.log("DMAT DEV")
-          scriptDMAT.src = `https://oadc-dmb-dev.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
-      }
+        // Set appropriate environment URL
+        if (window.location.href.indexOf("wwwn.cdc.gov/kdss/") > -1) {
+            console.log("DMAT PROD")
+            scriptDMAT.src = `https://www.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
+        } else {
+            console.log("DMAT DEV")
+            scriptDMAT.src = `https://oadc-dmb-dev.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
+        }
 
-      //Add script to document
-      document.write(scriptDMAT.outerHTML);
-  </script>
+        //Add script to document
+        document.write(scriptDMAT.outerHTML);
+    </script>
     <meta name="google-site-verification" content="vuSgbTP5gm9mu35qxMRQp6nC_uX_u82h2GSXTuzLOyc" />
     <title>Kidney Disease Surveillance System</title>
 
@@ -75,7 +75,6 @@
     <%--End Scripts--%>
 
     <script src="../scripts/kdss.js"></script>
-
 
     <style>
         .nav-link.active {
@@ -109,13 +108,6 @@
                 display: none;
             }
         }
-        /*@media (max-width: 498px)
-    {
-        .breadcrumbs
-        {
-            display:none !important;
-        }
-    }*/
 
         @media (max-width: 767px) {
             .phoneNoShow {
@@ -138,10 +130,7 @@
                 opacity: 1;
                 margin-left: -15px !important;
             }
-            /*#mobile-menu
-        {
-            margin-left:-1.5em;
-        }*/
+
             .ckd-toggle-btn {
                 display: block;
                 border-style: solid;
@@ -153,10 +142,6 @@
         .tabs-module ul {
             margin: 0 0 0px 0px !important;
         }
-
-        /*ul {
-            margin: 0 0 10px 25px !important;
-        }*/
 
         .tableHeaderBar {
             /*Bar above the data table*/
@@ -173,9 +158,6 @@
         }
 
         .tab-content {
-            /*border-left: solid 1px #dee2e6;
-            border-right: solid 1px #dee2e6;
-            border-bottom: solid 1px #dee2e6;*/
             border-radius: 5px;
         }
 
@@ -265,13 +247,6 @@
             border-right: none;
         }
 
-        /*.cdc-footer__inner {*/
-        /*max-width: 1690px !important;*/
-        /*margin-left: 10% !important;
-            margin-right: 10% !important;
-            justify-content: center;
-        }*/
-
         .cdc-footer__nav {
             padding-left: 0px !important;
         }
@@ -290,10 +265,6 @@
                 width: 300px !important;
                 height: 101.69px !important;
             }
-        /* .cdc-footer__nav a {
-            padding-left:0px !important;
-            padding-right:70px !important;
-        }*/
 
         .a {
             color: #005fa3 !important;
@@ -347,17 +318,36 @@
                 }
 
             #navbarSupportedSearch, .homepage-ckd-nav .site-title .navbar-nav li.nav-item.bg-blue-d {
-                /*box-shadow: 0 7px 9px 0 rgba(51, 51, 51, 0.4);*/
                 box-shadow: 1px 7px 9px rgba(51, 51, 51, 0.5) !important;
             }
         }
-    </style>
 
+        #pit-dashboard {
+            display: none !important;
+        }
+
+        /*override focus indicator*/
+        :root {
+            --focus-color-light: #ffffff;
+            --focus-color-dark: #005fcc;
+            --focus-offset: 2px;
+        }
+
+        *:focus {
+            outline: 2px solid var(--focus-color-light) !important;
+            outline-offset: var(--focus-offset) !important;
+            box-shadow: 0 0 0 4px var(--focus-color-dark) !important;
+        }
+
+        *:focus-visible {
+            outline: 2px solid var(--focus-color-light) !important;
+            outline-offset: var(--focus-offset) !important;
+            box-shadow: 0 0 0 4px var(--focus-color-dark) !important;
+        }
+    </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-
-
 </head>
 <body class="no-js leftNavNew">
     <%--*****************--%>
@@ -407,24 +397,14 @@
         <div class="container">
             <div class="d-flex">
                 <header class="text-white fw-500 pt-1 pb-1 siteTitleBar header-no-bg">
-                    <%--display-6 --%>
                     <a href="<%= ConfigurationManager.AppSettings["DirPath"]%>default.aspx">Kidney Disease Surveillance System</a>
                 </header>
-                <%--<div class="col-md-1 ckd-toggle-btn">--%>
                 <button id="ham" class="navbar-toggler navbar-light collapsed showPhoneOnly" type="button" data-toggle="collapse" data-target="#navbarSupportedContentMobile"
                     aria-controls="navbarSupportedContentMobile" aria-expanded="false" aria-label="Toggle navigation" style="padding-left: 0px; padding-right: 0px;">
-                    <%--<i class="dropdown-menu-medium-search-icon" aria-hidden="true">--%>
-                    <i class="fa fa-bars" aria-hidden="true" style="color: #FFFFFF;">
-                        <%--<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;">
-			                    <g transform="matrix(2.24081,0,0,1.9375,-1.96324,2.4375)">
-				                    <path d="M4,7L26,7M4,15L26,15M4,23L26,23" style="fill:rgb(4,45,74);fill-rule:nonzero;stroke:rgb(255,255,255);stroke-width:1.25px;"></path>
-				                    </g>
-			                    </svg>--%>
-                    </i>
+                    <i class="fa fa-bars" aria-hidden="true" style="color: #FFFFFF;"></i>
                     <span class="fi" style="color: #FFFFFF; font-size: smaller">Menu</span>
                     <i class="fi cdc-icon-close dropdown-menu-medium-close-icon" aria-hidden="true"><span>CLOSE</span></i>
                 </button>
-                <%--</div>--%>
             </div>
         </div>
     </div>
@@ -706,7 +686,7 @@
         }
 
         function checkEnterKey(e) {
-            /* [AYA] - check if enter key was pressed whilst the image hath focus (508 from 3/12/2020)*/
+            /* [AYA] - check if enter key was pressed whilst the image has focus (508 from 3/12/2020)*/
             if (e.keyCode == 13) {
                 console.log('in master page!');
                 $(".imageurl, .img-fluid").trigger('click');
@@ -719,6 +699,6 @@
         $(".accordion .card.bar .card-header:not(.ckd-accordion-subcat-header) .card-title").on("keyup", function (a) { console.log('working'); 13 == a.which && $(this).click(); }), $(".ckd-accordion-subcat-header .card-title").on("keyup", function (a) { "block" == $(this).parent().next().css("display") ? ($(this).parent().removeClass("collapsed"), $(this).parent().attr("aria-expanded", "true")) : ($(this).parent().addClass("collapsed"), $(this).parent().attr("aria-expanded", "false")) });
     </script>
 
-  
+
 </body>
 </html>

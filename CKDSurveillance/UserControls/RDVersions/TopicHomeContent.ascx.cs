@@ -864,7 +864,9 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                     else
                     {
                         sbBodyTable.Append("<div style=\"padding-left: 10px; padding-bottom: 10px; float: left;display: grid;\">");
-                        sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; margin-bottom:5% \" alt=\"Chart: "+ title +" \"/>");
+                        //sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; margin-bottom:5% \" alt=\"Chart: "+ title +" \"/>");
+                        //Fix 508 alt 11/25/2025
+                        sbBodyTable.Append("<img src=\"../AYA/images/" + ayaCurrentImg + "\" style=\"margin-left:5%; width:80%; margin-top:5%; margin-bottom:5% \" alt=\"Chart: "+ "Service Members and Their Dependents With eGFR-Based CKD Stages 3–5 Who Also Have a Diagnosis Code for CKD in the Military Health System" + " \"/>");
                     }
                     
                     sbBodyTable.Append("</div>");
