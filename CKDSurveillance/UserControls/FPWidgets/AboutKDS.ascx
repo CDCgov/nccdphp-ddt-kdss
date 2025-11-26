@@ -1,34 +1,38 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AboutKDS.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.FPWidgets.AboutKDS" %>
-       
+
 
 <style type="text/css">
     .aboutsurveillance {
-        margin-top:25px;
+        margin-top: 25px;
         margin-left: -25px;
-        margin-bottom:25px;
+        margin-bottom: 25px;
     }
+
     .aboutsurveillance-link {
-        color:#005fa3 !important;
-        font-weight:bold;
-        text-decoration:none !important;
+        color: #005fa3 !important;
+        font-weight: bold;
+        text-decoration: none !important;
     }
+
     .aboutsurveillance-text {
         text-align: justify;
         font: normal normal normal 16px/18px Nunito;
         letter-spacing: 0px;
         color: #000000;
         opacity: 1;
-        padding-top:15px;
-        margin-left:15px;
+        padding-top: 15px;
+        margin-left: 15px;
         line-height: normal;
     }
+
     .kdsimage {
         mix-blend-mode: multiply;
         opacity: 1;
     }
+
     @media (max-width: 767px) {
         .aboutsurveillance-text {
-            text-align:left;
+            text-align: left;
         }
     }
 </style>
@@ -36,7 +40,7 @@
 
 <%--************************************--%>
 <%--*Kidney Disease Surveillance System*--%>
-<%--************************************--%> 
+<%--************************************--%>
 
 <div class="col-12 aboutsurveillance">
     <div class="row">
@@ -45,10 +49,11 @@
             <asp:HyperLink ID="hlLogo" runat="server" NavigateUrl="~/Default.aspx">
                 <%--<asp:Image ImageUrl="~/images/graphic_identifier.png" runat="server" AlternateText="Graphic Identifier for CKD Project" CssClass="img-fluid img-responsive" style="width:640px; height: 100%;" />--%>
                 <img id="KDS" src="images/CKD_GI_Larger-t5.png" alt="Graphic Identifier for CKD Project" aria-hidden="true" Class="img-fluid img-responsive kdsimage" />
+                 <span class="sr-only">Kidney Disease Surveillance System logo</span>
             </asp:HyperLink>
-        </div> 
+        </div>
         <div class="col-sm-7 aboutsurveillance-text">
-            <div style="margin-bottom:25px;">
+            <div style="margin-bottom: 25px;">
                 The Kidney Disease Surveillance System is a comprehensive information system for kidney disease to inform and stimulate public health action. The purpose of the system is to support efforts to reduce the burden and impact of kidney disease on the United States.
             </div>
             <a id="lnkAboutProject" title="Information about the CKD Surveillance Project" class="ckd-glossary-link aboutsurveillance-link" onclick="return popupWindow('Help.aspx?section=H', 800, 600);" href="Help.aspx?section=H"><span>About Surveillance</span><i class="fa fa-angle-right right-angle-arrow"></i></a>
@@ -103,4 +108,4 @@
         }
         return false;
     }
-</script>            
+</script>
