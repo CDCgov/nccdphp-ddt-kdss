@@ -329,6 +329,7 @@
         <asp:HiddenField ID="hfChartMode" runat="server" />
         <asp:HiddenField ID="hfChartColor" runat="server" />
         <asp:HiddenField ID="hfShowCI" runat="server" />
+        <asp:HiddenField ID="hfShowCIShadow" runat="server" />
         <asp:HiddenField ID="hfMapType" runat="server" />
         <asp:HiddenField ID="hfCurrentYear" runat="server" />
         <asp:HiddenField ID="hfChartID" runat="server" />
@@ -524,12 +525,13 @@
                                     .viewDataBy {
                                         background: /*#00695C*/ #005ea2 0% 0% no-repeat padding-box;
                                         opacity: 1;
-                                        width: 362px;
+                                        width: fit-content;
                                         height: 96px;
                                         padding-top: 10px;
                                         padding-left: 25px!important;
                                         padding-right: 25px!important;
                                         border-radius: 5px;
+                                        display: inline-block;
                                     }
 
                                     .viewDataByLabel {
@@ -539,7 +541,6 @@
                                         color: #FFFFFF;
                                         opacity: 1;
                                         margin-bottom: 5px;
-                                        margin-left:-15px !important;
                                     }
                                     
                                     .menu-content div{
@@ -551,14 +552,13 @@
                                         background-color: var(--colors-blue-cool-vivid-5);
                                         opacity: 1;
                                         margin-left: 2px;
-                                        margin-right: 2px;      
-                                        display: flex;
+                                        margin-right: 2px;
                                         align-items: center;
                                     }
                                     .menu-content-menu {
                                         margin-left: 2px;
                                         margin-right: 2px;
-                                        vertical-align:sub;
+                                        vertical-align:middle;
                                         margin-right: 0;
                                     }
                                     .moveright {
@@ -567,7 +567,6 @@
                                         margin-right: 0;
                                         padding-left: 1px;
                                         padding-right: 1px;
-                                        width: 52%;
                                     }
 
                                     @media (max-width: 767px) {
@@ -604,31 +603,31 @@
 
                             <div class="menu-content " id="divMenuContent" style="padding-top:5px;padding-bottom:5px; display: flex; justify-content: flex-end">
 
-                                <%--*View Data By*--%>
-                                 <uc1:StratYearsButtons runat="server" ID="StratYear1" />                                
-                                 <div class="menu-content-menu" style="width:40%">
-                                    <asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList chartMenuLabel col" Text="95% Confidence Intervals" runat="server" aria-label="95% Confidence Intervals"/>
-                                </div>
-                                <%-- View as table--%>
-                                <div class="menu-content-menu moveright" id="divMenuData" style="margin-left:5%">
-                                    <div class="custom-control custom-switch" id="btnViewAsTable" runat="server" >
-                                        <input type="checkbox" class="custom-control-input" id="chViewTable"  onclick="toggleChartTable()">
-                                        <label class="custom-control-label chartMenuLabel viewTableBtnLabel" for="chViewTable" >View as table</label>
-                                    </div>
-                                    <%-- Download --%>
-                                    <div>
-                                        <label class="chartMenuLabel">Download:</label>
-                                        <asp:Button ID="csvDownload" CssClass="noPrint btn chartDownloadBtn chartMenuLabel" style="font-size:17px" runat ="server" Text="CSV" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01 chartMenuLabel">
-                                        </asp:Button>
-                                        <a href="." runat="server" id="lnkCSV" style="text-decoration:none!important" visible="false">
-                                            <span class="noPrint btn chartDownloadBtn">csv</span>
-                                        </a>
-                                        <a href="." runat="server" id="lnkPPT" style="text-decoration:none!important">
-                                            <span class="noPrint btn ppt-icon iconPPTBtn chartMenuLabel">PPT</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                                        <%--*View Data By*--%>
+                                         <uc1:StratYearsButtons runat="server" ID="StratYear1" />                                
+                                         <div class="menu-content-menu" style="width:fit-content;">
+                                            <asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList chartMenuLabel col" Text="95% Confidence Intervals" runat="server" aria-label="95% Confidence Intervals"/>
+                                        </div>
+                                        <%-- View as table--%>
+                                        <div class="menu-content-menu moveright" id="divMenuData" style="margin-left:5%">
+                                            <div class="custom-control custom-switch" id="btnViewAsTable" runat="server" >
+                                                <input type="checkbox" class="custom-control-input" id="chViewTable"  onclick="toggleChartTable()">
+                                                <label class="custom-control-label chartMenuLabel viewTableBtnLabel" for="chViewTable" >View as table</label>
+                                            </div>
+                                            <%-- Download --%>
+                                            <div>
+                                                <label class="chartMenuLabel">Download:</label>
+                                                <asp:Button ID="csvDownload" CssClass="noPrint btn chartDownloadBtn chartMenuLabel" style="font-size:17px" runat ="server" Text="CSV" Visible="true" OnClick="lnkDownloadBottom_Click" class="cdc-icon-download_01 chartMenuLabel">
+                                                </asp:Button>
+                                                <a href="." runat="server" id="lnkCSV" style="text-decoration:none!important" visible="false">
+                                                    <span class="noPrint btn chartDownloadBtn chartMenuLabel">CSV</span>
+                                                </a>
+                                                <a href="." runat="server" id="lnkPPT" style="text-decoration:none!important">
+                                                    <span class="noPrint btn ppt-icon iconPPTBtn chartMenuLabel">PPT</span>
+                                                </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                 <div style="width:50%;margin:auto;text-align: center!important;" runat="server" id="divRBSTD" class="chartMenuLabel">  
                                     <fieldset><legend></legend>
                                     <input type="radio" id="rbstd1" value="1" name="rbstd" runat="server" checked />
@@ -728,25 +727,25 @@
 
                                     const params = url.searchParams;
 
-                                    const paramrbstd = params.get('rbstd');
+                                    const paramrbstd = params.get('rbstd'); 
                                     if (paramrbstd != null) {
-                                        console.log(`Radio Button: ${paramrbstd}`);
+                                        console.log(`Radio Button: ${paramrbstd}`); 
 
                                         const radioButtons = document.querySelectorAll('input[type="radio"][name*="rbstd"]');
 
                                         // Loop through and select the one with value 'Option 2'
                                         for (const radioButton of radioButtons) {
-                                            console.log(`radioButton for loop: ${radioButton.value}`);
+                                            console.log(`radioButton for loop: ${radioButton.value}`);                                             
 
                                             if (radioButton.value === paramrbstd) {
-                                                console.log(`radioButton.value: ${paramrbstd}`);
+                                                console.log(`radioButton.value: ${paramrbstd}`); 
                                                 radioButton.checked = true; // Selects the radio button
                                                 break; // Stop loop after selecting
                                             }
                                         }
 
                                         if (paramrbstd === "1") {
-                                            $("#svgchart").show();
+                                            $("#svgchart").show(); 
                                             $("#svgchartRel").hide();
                                             $('#divData').show();
                                             $('#divDataRel').hide();
@@ -1312,7 +1311,7 @@
                                                             </HeaderTemplate>
                                                             <ItemTemplate>
 
-                                                                <li style="margin-bottom: .9em;">
+                                                                <li style="margin-bottom: .9em; list-style-type: decimal;">
                                                                     <asp:Literal ID="lblRefences" runat="server" Text='<%# Eval("ReferenceText") %>' ClientIDMode="AutoID"></asp:Literal>
                                                                     <br />
                                                                     <asp:HyperLink runat="server" Target="_self" NavigateUrl='<%# Eval("URL") %>' Text='<%#Eval("URL").ToString().Replace("-", "&#8209;")%>' ToolTip='<%#Eval("URL")%>' />
@@ -1503,9 +1502,17 @@
 
             function legendAutoScaleClick() { //this function is called after the chart has been created in the createPlotlyScript and createTripleStratPlotlyScript functions. It's purpose is to execute the clicking of the Autoscale button
                 console.log("inside legendclick");
-                autoscaleBtn = $('a[data-title="Autoscale"]')[0]
-                autoscaleBtn.click();
+                autoscaleBtn = $('a[data-title="Autoscale"]')[0];
+                if (autoscaleBtn != null) {
+                    autoscaleBtn.click();
+                    console.log("inside legendclick 2");
+                }
             }
+
+            function legendCustomClick(eventData) {
+                return false;
+            }
+
 
             $(document).ready(function () {   
                 
@@ -1553,20 +1560,26 @@
                 }
 
                 $("input[id*='CB_ChartCI']").click(function () {
-                    console.log("cbchart=" + $(this).prop('checked'));
                     if ($(this).prop('checked')) {
                         if ($('#hfMaxConfidence').val() > $('#hfChartYValToUse').val()) {
                             $('#hfChartYValToUse').val($('#hfMaxConfidence').val()); // if the confidence intervals checkbox is checked then use the max confidence value to draw the chart
                         }
                         $('#hfShowCI').val("true");
+                        if ($('#hfChartType').val() == "'line'") {
+                            $('#hfShowCIShadow').val("true");
+                        }
+                        else {
+                            $('#hfShowCIShadow').val("false");
+                        }
                     }
                     else {
                         if ($('#hfMaxYVal').val() > $('#hfChartYValToUse').val()) {
                             $('#hfChartYValToUse').val($('#hfMaxYVal').val()); // if the confidence intervals checkbox is NOT checked then use the max y value to draw the chart
                         }
                         $('#hfShowCI').val("false");
+                        $('#hfShowCIShadow').val("false");
                     }
-
+                    
                     redrawPlotlyChart();
 
                 });
@@ -1602,17 +1615,11 @@
             });
 
             function redrawPlotlyChart() {
-
                 createPlotlyChart();
-                createPlotlyChartRel(); /* TODO: comment out this block */
 
-                /* TODO: uncomment this block */
-
-                /*
-                if (document.getElementById("divRBSTD") != null) { }
+                if (document.getElementById("divRBSTD") != null) {
                     createPlotlyChartRel();
                 }
-                */
 
                 compliance508();
             }
@@ -2027,12 +2034,12 @@
     <script>
         var previousyear;
         function updateMap(value) {
-
+            
             var yrs = $('#hfCSVYears').val().split(',');
-            console.log("yrs len=" + yrs.length + "- value=" + value + " - yr 0= " + yrs[0]);
-
+            console.log("yrs len=" +yrs.length + "- value=" + value + " - yr 0= " + yrs[0]);
+                           
             if (value == 0) //first year in the slider
-                previousyear = yrs[yrs.length - 1];
+                previousyear = yrs[yrs.length - 1]; 
             else if (value == yrs.length) //last year in the slider
                 previousyear = yrs[0];
             else
@@ -2047,10 +2054,10 @@
             fillTheMap(1);
         }
 
-        function zoomed() {
+        function zoomed() {           
             g_con.attr("transform", d3.event.transform); // updated for d3 v4
             g_text.attr("transform", d3.event.transform); // updated for d3 v4
-
+            
         }
         function fillTheTitleFooter(c_title, c_footer) {
             console.log("inside fillTheTitleFooter");
@@ -2060,7 +2067,7 @@
                 .attr("transform", "translate (" + margin.left + "," + margin.top + ")");
             console.log("ctitle=" + c_title);
             console.log("c_footer=" + c_footer);
-            title_g.append("text")
+            title_g.append("text")    
                 .attr("x", 20)
                 .attr("y", 15)
                 .attr("class", "maptitletext")
@@ -2120,7 +2127,7 @@
             li.selectAll("rect")
                 .data(quantize.range().map(function (color) {
                     var d = quantize.invertExtent(color);
-
+                    
                     if (d[0] == null) d[0] = x.domain()[0];
                     if (d[1] == null) d[1] = x.domain()[1];
                     return d;
@@ -2177,7 +2184,7 @@
 
         function fillTheMap(type) {
             console.log("FillTheMap");
-            $("#range").html(yearselected); //this is the slider
+             $("#range").html(yearselected); //this is the slider
             // D3 Projection
             var projection = d3.geoAlbersUsa()
                 .translate([width / 2, height / 2]) // translate to center of screen
@@ -2191,87 +2198,87 @@
 
             // Load GeoJSON data and merge with states data
             d3.json("Scripts/D3MapFiles/Coordinates/us-states.json", function (json) {
-                g_con = svg.append("g")
+                    g_con = svg.append("g")
                     .attr("class", "g" + yearselected) //adding the year selected, so it can be referenced later for deletion
-                    .selectAll("path")
-                    .data(json.features)
-                    .enter()
-                    .append("path")
-                    .attr("d", path)
-                    .style("stroke", "#333")
-                    .style("stroke-width", "1")
-                    .each(fillState);
+                        .selectAll("path")
+                        .data(json.features)
+                        .enter()
+                        .append("path")
+                        .attr("d", path)
+                        .style("stroke", "#333")
+                        .style("stroke-width", "1")
+                        .each(fillState);
 
-                g_text = svg.append("g")
-                    .attr("class", "gtext" + yearselected) //adding the year selected, so it can be referenced later for deletion
-                    .selectAll("text")
-                    .data(json.features)
-                    .enter()
-                    .append("svg:text")
-                    .attr("x", function (d) {
+                    g_text = svg.append("g")
+                        .attr("class", "gtext" + yearselected) //adding the year selected, so it can be referenced later for deletion
+                        .selectAll("text")
+                        .data(json.features)
+                        .enter()
+                        .append("svg:text")
+                        .attr("x", function (d) {
 
-                        if (d.properties.name.indexOf("Michigan") > -1)
-                            return path.centroid(d)[0] + 8;
-                        else if (d.properties.name.indexOf("Florida") > -1)
-                            return path.centroid(d)[0] + 10;
-                        else if (d.properties.name.indexOf("Delaware") > -1)
-                            return path.centroid(d)[0] + 17;
-                        else if (d.properties.name.indexOf("New Jersey") > -1)
-                            return path.centroid(d)[0] + 17;
-                        else if (d.properties.name.indexOf("Louisiana") > -1)
-                            return path.centroid(d)[0] - 10;
-                        else if (d.properties.name.indexOf("Hawaii") > -1)
-                            return path.centroid(d)[0] - 20;
-                        else if (d.properties.name.indexOf("Maryland") > -1)
-                            return path.centroid(d)[0] + 10;
-                        else if (d.properties.name.indexOf("Rhode Island") > -1)
-                            return path.centroid(d)[0] + 10;
-                        else if (d.properties.name.indexOf("California") > -1)
-                            return path.centroid(d)[0] - 10;
-                        else
-                            return path.centroid(d)[0];
+                            if (d.properties.name.indexOf("Michigan") > -1)
+                                return path.centroid(d)[0] + 8;
+                            else if (d.properties.name.indexOf("Florida") > -1)
+                                return path.centroid(d)[0] + 10;
+                            else if (d.properties.name.indexOf("Delaware") > -1)
+                                return path.centroid(d)[0] + 17;
+                            else if (d.properties.name.indexOf("New Jersey") > -1)
+                                return path.centroid(d)[0] + 17;
+                            else if (d.properties.name.indexOf("Louisiana") > -1)
+                                return path.centroid(d)[0] - 10;
+                            else if (d.properties.name.indexOf("Hawaii") > -1)
+                                return path.centroid(d)[0] - 20;
+                            else if (d.properties.name.indexOf("Maryland") > -1)
+                                return path.centroid(d)[0] + 10;
+                            else if (d.properties.name.indexOf("Rhode Island") > -1)
+                                return path.centroid(d)[0] + 10;
+                            else if (d.properties.name.indexOf("California") > -1)
+                                return path.centroid(d)[0] - 10;
+                            else
+                                return path.centroid(d)[0];
 
-                    })
-                    .attr("y", function (d) {
-                        if (d.properties.name.indexOf("Michigan") > -1)
-                            return path.centroid(d)[1] + 20;
-                        else if (d.properties.name.indexOf("Connecticut") > -1)
-                            return path.centroid(d)[1] + 4;
-                        else if (d.properties.name.indexOf("Rhode Island") > -1)
-                            return path.centroid(d)[1] + 15;
-                        else if (d.properties.name.indexOf("Massachusetts") > -1)
-                            return path.centroid(d)[1] + 2;
-                        else if (d.properties.name.indexOf("Kentucky") > -1)
-                            return path.centroid(d)[1] + 5;
-                        else if (d.properties.name.indexOf("Tennessee") > -1)
-                            return path.centroid(d)[1] + 5;
-                        else if (d.properties.name.indexOf("New Hampshire") > -1)
-                            return path.centroid(d)[1] + 10;
-                        else if (d.properties.name.indexOf("Vermont") > -1)
-                            return path.centroid(d)[1] - 3;
-                        else if (d.properties.name.indexOf("Delaware") > -1)
-                            return path.centroid(d)[1] + 10;
-                        else if (d.properties.name.indexOf("New Jersey") > -1)
-                            return path.centroid(d)[1] + 10;
-                        else if (d.properties.name.indexOf("Maryland") > -1)
-                            return path.centroid(d)[1] + 10;
-                        else
-                            return path.centroid(d)[1];
-                    })
-                    .attr("text-anchor", "middle")
-                    .attr('font-size', '8pt')
-                    .attr('font-weight', 'bold')
-                    .each(fillText);
+                        })
+                        .attr("y", function (d) {
+                            if (d.properties.name.indexOf("Michigan") > -1)
+                                return path.centroid(d)[1] + 20;
+                            else if (d.properties.name.indexOf("Connecticut") > -1)
+                                return path.centroid(d)[1] + 4;
+                            else if (d.properties.name.indexOf("Rhode Island") > -1)
+                                return path.centroid(d)[1] + 15;
+                            else if (d.properties.name.indexOf("Massachusetts") > -1)
+                                return path.centroid(d)[1] + 2;
+                            else if (d.properties.name.indexOf("Kentucky") > -1)
+                                return path.centroid(d)[1] + 5;
+                            else if (d.properties.name.indexOf("Tennessee") > -1)
+                                return path.centroid(d)[1] + 5;
+                            else if (d.properties.name.indexOf("New Hampshire") > -1)
+                                return path.centroid(d)[1] + 10;
+                            else if (d.properties.name.indexOf("Vermont") > -1)
+                                return path.centroid(d)[1] - 3;
+                            else if (d.properties.name.indexOf("Delaware") > -1)
+                                return path.centroid(d)[1] + 10;
+                            else if (d.properties.name.indexOf("New Jersey") > -1)
+                                return path.centroid(d)[1] + 10;
+                            else if (d.properties.name.indexOf("Maryland") > -1)
+                                return path.centroid(d)[1] + 10;
+                            else
+                                return path.centroid(d)[1];
+                        })
+                        .attr("text-anchor", "middle")
+                        .attr('font-size', '8pt')
+                        .attr('font-weight', 'bold')
+                        .each(fillText);
 
-                if (type == 1) //only if this is an update, which is driven by the slider
-                {
-                    //setting the previous year here so that the previous year svg group <g> can be deleted after the current group is drawn. 
-                    //sequence is important so that there isn't a 'blip' on the screen
-                    svg.selectAll("g.g" + previousyear).remove();//removing previous map
-                    svg.selectAll("g.gtext" + previousyear).remove(); //removing previous map text
-                }
+                    if (type == 1) //only if this is an update, which is driven by the slider
+                    {
+                         //setting the previous year here so that the previous year svg group <g> can be deleted after the current group is drawn. 
+                        //sequence is important so that there isn't a 'blip' on the screen
+                        svg.selectAll("g.g" + previousyear).remove();//removing previous map
+                        svg.selectAll("g.gtext" + previousyear).remove(); //removing previous map text
+                    }
                 //}
-
+                
                 function fillText(d) {
                     //filtering the stateData array(local) and then pulling the abbreviation from it to display on the map
                     d3.select(this)
@@ -2290,28 +2297,28 @@
                 }
 
                 function fillState(d) {
-
+                    
                     d3.select(this).style('fill', null);
-
+                    
                     d3.select(this)
                         .data(stateData.filter(function (C) {
                             if (C.year == yearselected && C.name == d.properties.name)
-                                return (C.year == yearselected && C.name == d.properties.name)
+                            return (C.year == yearselected && C.name == d.properties.name)
                         }))
                         .style("fill", function (Clr) {
                             if (Clr.year == yearselected && Clr.name == d.properties.name) {
                                 return Clr.color
                             }
-
-                        })
+                            
+                        })  
                         .on('mouseover', function (D) {
-
+                            
                             if (D.year == yearselected && D.name == d.properties.name) {
                                 hovertooltipdiv.style('left', d3.event.pageX + 'px').style('top', d3.event.pageY - 60 + 'px')
                                     .style('display', 'inline-block')
                                     .html(D.name + '<br>' + D.value);
                             }
-
+                            
                         })
                         .on('mouseout', function (D) { hovertooltipdiv.style('display', 'none'); });
                 }
@@ -2330,7 +2337,7 @@
                                 return Clr.color
                             }
 
-                        })
+                        })  
                         .on('mouseover', function (D) {
 
                             if (D.name == d.properties.name) { //D.year == yearselected &&
@@ -2375,8 +2382,8 @@
         <asp:Literal ID="litD3MapTabs" runat="server" />
     <script>
 
-
-</script>
+       
+    </script>
      <%--**********************--%>
     <%--*END Used for Map JS Tabs code*--%>
     <%--**********************--%>
@@ -2402,7 +2409,7 @@
          const fipsarray_tabs = ["01", "02", "05", "04", "06", "08", "09", "11", "10", "12", "13", "15", "19", "16", "17", "18", "20", "21", "22", "23", "24",
              "25", "26", "27", "29", "28", "30", "31", "32", "33", "34", "35", "36", "37", "38",
              "39", "40", "41", "42", "44", "45", "46", "47", "48", "49", "50", "51", "53", "55", "54", "56"];
-
+        
          statearray_tabs.forEach(function (statename, index) {
              stateData_tabs.push({ "name": statename, "abbr": abbrarray_tabs[index], "fips": fipsarray_tabs[index] });
          });
@@ -2428,31 +2435,31 @@
              .on("zoom", zoomed); //default values set for 'zooming', calling the 'zoomed' function below
 
          $(document).ready(function () {
-
+            
              $("#tinystatemap").hide();//hiding the state map on load
              $("#heatmapsort").hide(); //hide on load
-             $(".heatmapsortlbl").hide();
+             $(".heatmapsortlbl").hide();             
 
              var mapwidth_tabs = 790, //setting the height and width to mathc the values of the svg above
                  mapheight_tabs = 500;
 
              if ($('#hfMapType').val() == "6") { //if this is a county map, then create it along with displaying the tabs
-
+                 
                  createUSMapChart(mapwidth_tabs, mapheight_tabs); //creating the map on page load
                  $("#pnlD3MapsTabs").show();//show the map tabs panel
                  $("#pnlMap").hide(); //hide the existing map panel
                  $("#btnDownloadChart").hide(); //hide the download chart button
                  $("#chartFormatOptions").hide(); //hide the formatting options
-                 $("#chartFormatControls").hide();
+                 $("#chartFormatControls").hide(); 
                  $("#chartColorOptions").hide(); //hide the color options
-                 $("#chartColorControls").hide();
+                 $("#chartColorControls").hide(); 
 
                  console.log("createUSMapChart");
-
+              
              }
              else
                  $("#pnlD3MapsTabs").hide(); //otherwise hide the map tabs panel
-
+             
 
              $("#ddstate").change(function () {
 
@@ -2473,7 +2480,7 @@
                  //10/13/2020
                  if ($("#tabbtn_maps").parent().hasClass("active")) $("#tabbtn_maps").click();
                  else if ($("#tabbtn_chart").parent().hasClass("active")) $("#tabbtn_chart").click();
-                 else if ($("#tabbtn_heatmap").parent().hasClass("active")) $("#tabbtn_heatmap").click();
+                 else if ($("#tabbtn_heatmap").parent().hasClass("active")) $("#tabbtn_heatmap").click(); 
 
                  if ($("#hfChartID").val() == "4319") {
                      processData(allData);
@@ -2503,7 +2510,7 @@
 
                  $(".btnzoomout").hide();
                  $("#exportCountyMapButton").hide();
-
+                 
 
                  $(this).parent().addClass("active");
                  $("#tabbtn_maps").parent().removeClass("active");
@@ -2571,7 +2578,7 @@
 
                      fillColor();
                  }
-                 zoomOutToUS();
+                 zoomOutToUS();                 
                  showAllCounties();
                  $("#heatmapsort").hide();
                  $(".heatmapsortlbl").hide();
@@ -2595,7 +2602,7 @@
              $.ajax({
                  type: "POST",
                  url: "Handlers/MapData_Handler.ashx",
-                 data: "selectedstate=" + stateval + "^valMin=" + valMin_tabs + "^valMax=" + valMax_tabs + "^sortvalue=" + $("#heatmapsort").val() + "^yr=" + $("#hfCurrentYear").val() + "^chartid=" + $("#hfChartID").val(),
+                 data: "selectedstate=" + stateval + "^valMin=" + valMin_tabs + "^valMax=" + valMax_tabs + "^sortvalue=" + $("#heatmapsort").val() + "^yr=" + $("#hfCurrentYear").val() + "^chartid=" + $("#hfChartID").val() ,
                  success: function (response) {
 
                      eval(response);
@@ -2608,7 +2615,7 @@
          }
 
          function mapReady(error, usdata) { //the 'us' is the json data file from the the queue function, the 'csvdata' is from the csv file data
-
+             
              if (error) throw error;
              global_us_tabs = usdata; //adding this passed int data to the global data
              if ($("#hfChartID").val() == "4319") {
@@ -2618,7 +2625,7 @@
                      global_csv_tabs = countyDataArray.filter(val => val.datatype.includes("POV"));//csvdata; //adding this passed int data to the global data
              }
              else
-                 global_csv_tabs = countyDataArray;//csvdata; //adding this passed int data to the global data
+                global_csv_tabs = countyDataArray;//csvdata; //adding this passed int data to the global data
 
              valMin_tabs = d3.min(global_csv_tabs, function (d) { return +d.countydatavalue; });//finding the minimum value in the csv data
              valMax_tabs = d3.max(global_csv_tabs, function (d) { return +d.countydatavalue; });//finding the maximum value in the csv data
@@ -2691,14 +2698,14 @@
              var statecode_tabs = $("#ddstate").val();
              if (statecode_tabs != "select") {
                  var featurestate_tabs = topojson.feature(global_us_tabs, global_us_tabs.objects.states)
-                     .features
-                     .filter(function (d) { return d.id == statecode_tabs; })[0]; // filtering out the state by FIPS code, which is passed in above. get a geojson object (not an array of objects)
-
+                 .features
+                 .filter(function (d) { return d.id == statecode_tabs; })[0]; // filtering out the state by FIPS code, which is passed in above. get a geojson object (not an array of objects)
+             
                  stateClicked_tabs(featurestate_tabs);
 
                  callHandler(statecode_tabs);
              }
-
+             
          }
 
 
@@ -2758,7 +2765,7 @@
                          dataval = "MIA";
                      else
                          dataval = filtercountyrow[0]["countydatavalue"];
-
+                     
                      var colorval;
                      colorval = findColorVal(dataval);
 
@@ -2804,7 +2811,7 @@
                              else {
                                  county_val = filtercountyrow[0]["county"];
                                  data_val = filtercountyrow[0]["countydatavalue"];
-
+                                 
                                  var color = findColorVal(data_val);
                                  if (selectedFips != "" && D.id != selectedFips)
                                      color = "#ddd";
@@ -2819,7 +2826,7 @@
                                      htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>Borough: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
                                  else
                                      htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
-
+                                 
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
                                  countydatalabelval = htmlwrap;
                              }
@@ -2866,7 +2873,7 @@
                  $("#ddstate").val(statecode);
                  callHandler(statecode);
              }
-
+                 
          }
 
          //moved this outside of the createmap function so that it can be accessed by the dropdown state change
@@ -2882,7 +2889,7 @@
              svg_tabs.selectAll("g.counties").remove();
 
              var allCounties = topojson.feature(global_us_tabs, global_us_tabs.objects.counties).features; //finding all counties
-
+             
              var countyprojectiondata = topojson.feature(global_us_tabs, global_us_tabs.objects.counties);
              var countyprojection = d3.geoIdentity().fitSize([actualwidth_tabs, actualheight_tabs], countyprojectiondata);
              var path_tabs = d3.geoPath()
@@ -2939,7 +2946,7 @@
                                  statename = filtercountyrow[0]["state"]
                                  county_val = filtercountyrow[0]["county"];
                                  data_val = filtercountyrow[0]["countydatavalue"];
-                                 var color = findColorVal(data_val);
+                                 var color = findColorVal(data_val);                                
                                  var htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>NA</div>";
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
@@ -2957,7 +2964,7 @@
 
                                  if ($("#hfChartID").val() === "4319" && data_val === "NA")
                                      htmlwrap = "<div style='background-color:" + color + ";font-weight:bold;font-size:22px;text-align:center'>" + data_val + "</div>";
-
+                                
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px;font-size:18px'>County: <span style='font-weight:bold;font-size:18px'>" + county_val + "</span></div>";
                                  htmlwrap = htmlwrap + "<div style='margin-top:5px'>State: <span >" + statename + "</span></div>";
                                  countydatalabelval = htmlwrap;
@@ -3035,7 +3042,7 @@
                  .attr("transform", "translate (8,0)")
                  .attr("class", "legend-items");
 
-
+           
              li.selectAll("rect")
                  .data(quantize.range().map(function (color) {
                      var d = quantize.invertExtent(color);
@@ -3058,7 +3065,7 @@
              var legendtext2 = "";
              var legendtext3 = "";
              var legendtext4 = "";
-             var legendtext5 = "";
+             var legendtext5 = "";            
 
              if ($("#hfChartID").val() == "4019") { //Overall
                  legendtext1 = "NA";
@@ -3125,23 +3132,23 @@
              if (d3.event.defaultPrevented) d3.event.stopPropagation();
          }
 
-         function findColorVal(dataval) {
+         function findColorVal(dataval) {    
              var colorval;
              //***** Q705 change *******/
              if ($("#hfChartID").val() == "4019") { //Overall
                  if (dataval === "NA")
-                     colorval = "#ddd"; //was white at one point
+                    colorval = "#ddd"; //was white at one point
                  else if (dataval === "MIA")
                      colorval = "#ddd";
-                 else if (dataval >= valMin_tabs + 20)
+                 else if (dataval >= valMin_tabs + 20) 
                      colorval = colorarray_tabs[4];
                  else if (dataval >= (valMin_tabs + 17) && dataval < (valMin_tabs + 20))
                      colorval = colorarray_tabs[3];
-                 else if (dataval >= (valMin_tabs + 14) && dataval < (valMin_tabs + 17))
+                 else if (dataval >= (valMin_tabs + 14) && dataval < (valMin_tabs + 17)) 
                      colorval = colorarray_tabs[2];
-                 else if (dataval >= (valMin_tabs + 10) && dataval < (valMin_tabs + 14))
+                 else if (dataval >= (valMin_tabs + 10) && dataval < (valMin_tabs + 14)) 
                      colorval = colorarray_tabs[1];
-                 else if (dataval < (valMin_tabs + 10))
+                 else if (dataval < (valMin_tabs + 10)) 
                      colorval = colorarray_tabs[0];
 
              } else if ($("#hfChartID").val() == "4039") { //Diabetes
@@ -3149,7 +3156,7 @@
                      colorval = "#ddd"; //was white at one point
                  else if (dataval === "MIA")
                      colorval = "#ddd";
-                 else if (dataval >= valMin_tabs + 32)
+                 else if (dataval >= valMin_tabs + 32) 
                      colorval = colorarray_tabs[4];
                  else if (dataval >= (valMin_tabs + 27) && dataval < (valMin_tabs + 32))
                      colorval = colorarray_tabs[3];
@@ -3165,18 +3172,18 @@
                      colorval = "#ddd"; //was white at one point
                  else if (dataval === "MIA")
                      colorval = "#ddd";
-                 else if (dataval >= valMin_tabs + 25)
+                 else if (dataval >= valMin_tabs + 25) 
                      colorval = colorarray_tabs[4];
-                 else if (dataval >= (valMin_tabs + 21) && dataval < (valMin_tabs + 25))
+                 else if (dataval >= (valMin_tabs + 21) && dataval < (valMin_tabs + 25)) 
                      colorval = colorarray_tabs[3];
-                 else if (dataval >= (valMin_tabs + 18) && dataval < (valMin_tabs + 21))
+                 else if (dataval >= (valMin_tabs + 18) && dataval < (valMin_tabs + 21)) 
                      colorval = colorarray_tabs[2];
-                 else if (dataval >= (valMin_tabs + 10) && dataval < (valMin_tabs + 18))
+                 else if (dataval >= (valMin_tabs + 10) && dataval < (valMin_tabs + 18)) 
                      colorval = colorarray_tabs[1];
-                 else if (dataval < (valMin_tabs + 10))
+                 else if (dataval < (valMin_tabs + 10)) 
                      colorval = colorarray_tabs[0];
              }
-             /* Linked Map */
+                 /* Linked Map */
              else if ($("#hfChartID").val() == "4319") { /* TODO: add logic for CKD and POV */
                  var interval = 1.9;
                  if (dataval === "NA")
@@ -3207,13 +3214,13 @@
                          }
                      }
                  }
-                 else
-                     colorval = "#ddd";
+                 else 
+                    colorval = "#ddd";
 
                  document.getElementById("main_map").style.width = "50%";
                  document.getElementById("linkedmap_scatter").style.display = "initial";
                  document.getElementById("mapbar").style.display = "none";
-
+                 
              }
 
              return colorval;
@@ -3254,7 +3261,7 @@
              img.onload = function () {
                  ctx.drawImage(img, 0, 0);
                  var png = canvas.toDataURL("image/png");
-
+                 
                  document.querySelector('#png-container').innerHTML = '<img src="' + png + '"/>';
                  DOMURL.revokeObjectURL(png);
 

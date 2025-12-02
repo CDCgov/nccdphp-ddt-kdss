@@ -14,8 +14,7 @@ Imports NG.NCCDPHP.DataAccess2.Sql
 Imports NG.NCCDPHP.Common
 Imports NG.NCCDPHP.DataAccess
 Imports NG.NCCDPHP.Utilities
-'Imports NG.NCCDPHP.DataAccess.Sql
-Imports Microsoft.Practices.EnterpriseLibrary.Data.Sql
+Imports NG.NCCDPHP.DataAccess.Sql
 Imports DocumentFormat.OpenXml.Office2013.Excel
 ''**NG/CDC**''
 
@@ -2252,6 +2251,35 @@ Public Class ArborDataAccessV2
         '***********************
         Return dtAnswer
 
+    End Function
+
+    Public Function getPageLinks(ByVal QNum As String) As DataTable
+        Dim dtAnswer As DataTable
+
+        Dim ds As DataSet = New DataSet()
+
+        Dim sql As String = "proc_GetLinkedPagesFromQNum"
+
+        Try
+            '********************************
+            '*Execute SP and get the Dataset*
+            '********************************
+            Dim sp1 As New SqlParameter("@QNum", QNum)
+            Dim sqlparams As SqlParameter() = {sp1}
+
+            ds = returnDataSet(sqlparams, sql, "LinkedPages")
+            dtAnswer = ds.Tables(0)
+
+        Catch sqlEx As SqlException
+            Throw
+        Catch ex As Exception
+            Throw
+        End Try
+
+        '***********************
+        '*Return the Data Table*
+        '***********************
+        Return dtAnswer
     End Function
 
     Public Sub insertSurveyAnswer(ByVal sessionid As String, ByVal qid As String, ByVal aid As String, Optional ByVal atext As String = Nothing)
