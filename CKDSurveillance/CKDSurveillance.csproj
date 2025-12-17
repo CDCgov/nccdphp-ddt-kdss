@@ -402,6 +402,7 @@
     <Content Include="AYA\August_2024.html" />
     <Content Include="AYA\August_2025.html" />
     <Content Include="AYA\December_2023.html" />
+    <Content Include="AYA\December_2025.html" />
     <Content Include="AYA\February_2024.html" />
     <Content Include="AYA\Images\April_2024.PNG" />
     <Content Include="AYA\Images\August_2023.png" />
@@ -416,6 +417,7 @@
     <Content Include="AYA\Images\CurrentAYA.svg" />
     <Content Include="AYA\Images\December_2023.png" />
     <Content Include="AYA\Images\December_2024.png" />
+    <Content Include="AYA\Images\December_2025.svg" />
     <Content Include="AYA\Images\February_2024.png" />
     <Content Include="AYA\Images\June_2024.png" />
     <Content Include="AYA\Images\June_2023.png" />
