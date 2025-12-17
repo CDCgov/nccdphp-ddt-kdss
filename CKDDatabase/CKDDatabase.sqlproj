@@ -61,9 +61,11 @@
     <Folder Include="20251106-DatabaseUpdate" />
     <Folder Include="20251117-2025Nov17Release" />
     <Folder Include="20251124-2025Nov17Release" />
+    <Folder Include="20251217-CDC-Feedback" />
   </ItemGroup>
   <ItemGroup>
     <None Include="20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
+    <None Include="20251217-CDC-Feedback\1.Data.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="20251106-DatabaseUpdate\Object.sql" />
