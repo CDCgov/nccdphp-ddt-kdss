@@ -2006,9 +2006,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'VA Scan|AnyCPU'">
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEV|AnyCPU'">
-    <OutputPath>bin\</OutputPath>
-  </PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEV|AnyCPU'">
+  <OutputPath>bin\</OutputPath>
+  <DeployOnBuild>true</DeployOnBuild>
+  <WebPublishMethod>Package</WebPublishMethod>
+  <PackageAsSingleFile>false</PackageAsSingleFile>
+  <PackageLocation>obj\DEV\Package</PackageLocation>
+</PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '_Scan|AnyCPU'">
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
