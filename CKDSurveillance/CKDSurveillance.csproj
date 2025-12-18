@@ -2006,7 +2006,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'VA Scan|AnyCPU'">
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
-<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEV|AnyCPU'">
+<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
   <OutputPath>bin\</OutputPath>
   <DeployOnBuild>true</DeployOnBuild>
   <WebPublishMethod>Package</WebPublishMethod>
