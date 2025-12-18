@@ -2011,7 +2011,7 @@
   <DeployOnBuild>true</DeployOnBuild>
   <WebPublishMethod>Package</WebPublishMethod>
   <PackageAsSingleFile>false</PackageAsSingleFile>
-  <PackageLocation>obj\DEV\Package</PackageLocation>
+  <PackageLocation>obj\Dev\Package</PackageLocation>
 </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '_Scan|AnyCPU'">
     <OutputPath>bin\</OutputPath>
