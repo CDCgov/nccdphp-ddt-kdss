@@ -1,22 +1,11 @@
-﻿Imports Microsoft.VisualBasic
-Imports System.Configuration
+﻿Imports System.Configuration
 Imports System.Data.SqlClient
-Imports System.Data
-Imports System.Text
-Imports System.Xml
-
-''**ARBOR RESEARCH**''
-Imports NG.NCCDPHP.DataAccess2.Sql
+'Imports NG.NCCDPHP.DataAccess.Sql
 ''**ARBOR RESEARCH**''
 
 
 ''**NG/CDC**''
-Imports NG.NCCDPHP.Common
-Imports NG.NCCDPHP.DataAccess
-Imports NG.NCCDPHP.Utilities
-'Imports NG.NCCDPHP.DataAccess.Sql
-Imports Microsoft.Practices.EnterpriseLibrary.Data.Sql
-Imports DocumentFormat.OpenXml.Office2013.Excel
+''**ARBOR RESEARCH**''
 ''**NG/CDC**''
 
 
@@ -2352,25 +2341,50 @@ Public Class ArborDataAccessV2
     End Function
 
     Public Function proc_GetAgeSTDLabel() As DataTable
-        Dim ds As DataSet = New DataSet()
-
+        Dim dtAnswer As DataTable
         Try
             Dim Sql As String = "proc_GetAgeSTDLabel"
 
             '********************************
             '*Execute SP and get the Dataset*
             '********************************
-            ds = returnDataSet(Sql, "AgeSTDLabel")
-
+            Dim ds = returnDataSet(Sql, "AgeSTDLabel")
+            If ds.Tables(0).Rows.Count > 0 Then
+                dtAnswer = ds.Tables(0)
+            Else
+                dtAnswer = Nothing
+            End If
         Catch sqlEx As SqlException
             Throw
         Catch ex As Exception
             Throw
         End Try
 
-        Return ds.Tables(0)
+        Return dtAnswer
     End Function
 
+    Public Function getStratColorCode(ByVal chartId As Integer, ByVal stratSeq As Integer) As DataTable
+        Dim dtAnswer As DataTable
+        Try
+            Dim sql As String = "proc_GetStratColorCode"
+
+            Dim p1 As New SqlParameter("@ChartID", chartId)
+            Dim p2 As New SqlParameter("@StratSeq", stratSeq)
+            Dim sqlparam As SqlParameter() = {p1, p2}
+
+            Dim ds = returnDataSet(sqlparam, sql, "StratColorCode")
+            If ds.Tables(0).Rows.Count > 0 Then
+                dtAnswer = ds.Tables(0)
+            Else
+                dtAnswer = Nothing
+            End If
+        Catch ex As Exception
+            Throw
+        End Try
+
+        Return dtAnswer
+
+    End Function
 #End Region
 
 #Region "Utility"
