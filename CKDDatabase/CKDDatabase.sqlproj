@@ -63,11 +63,13 @@
     <Folder Include="20251124-2025Nov17Release" />
     <Folder Include="20251217-CDC-Feedback" />
     <Folder Include="20251218-CDC-Feedback" />
+    <Folder Include="20251223-2025Dec23Release" />
   </ItemGroup>
   <ItemGroup>
     <None Include="20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
     <None Include="20251217-CDC-Feedback\1.Data.sql" />
     <None Include="20251218-CDC-Feedback\1.Data.sql" />
+    <None Include="20251223-2025Dec23Release\1-20251223-2025Dec23Release.Data.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="20251106-DatabaseUpdate\Object.sql" />
