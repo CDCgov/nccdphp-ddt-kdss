@@ -1372,9 +1372,6 @@
                                         <%--<asp:ListItem Text="Contrast" Value="'#6BAED6','#74C476','#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem>--%>
                                         <asp:ListItem Text="Contrast" Value="'#712177','#0b4778','#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem>  <%--'#007C91',--%>
                                         <asp:ListItem Text="Gradient" Value="'#949494','#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b'" ></asp:ListItem>                                  
-                                        <asp:ListItem Text="Contrast-Age-804"  Value="'#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem> 
-                                        <asp:ListItem Text="Contrast-Age-805"  Value="'#712177','#0b4778','#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem> 
-                                        <asp:ListItem Text="Contrast-Age-807"  Value="'#0b4778','#969696','#FD8D3C', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#98CA32', '#9D0E01', '#EA3E88','#189BDC', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#e377c2', '#ffb456'"></asp:ListItem> 
                                     </asp:RadioButtonList>
                                 </div>
                         </div>
