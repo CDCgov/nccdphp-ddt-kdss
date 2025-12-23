@@ -2508,7 +2508,18 @@ namespace CKDSurveillance_RD.MasterPages
             {
                 RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
             }
-
+            else if (chartID == "4320") //Q804
+            {
+                RB_ChartColor.SelectedIndex = 2;
+            }
+            else if (chartID == "4336" || chartID == "4341") //Q805, Q806
+            {
+                RB_ChartColor.SelectedIndex = 3;
+            }
+            else if (chartID == "4350" ) //Q807
+            {
+                RB_ChartColor.SelectedIndex = 4;
+            }
             //*Get Page*
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
 
