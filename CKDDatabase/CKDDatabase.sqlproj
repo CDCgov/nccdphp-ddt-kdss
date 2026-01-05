@@ -64,7 +64,6 @@
     <Folder Include="20251217-CDC-Feedback" />
     <Folder Include="20251218-CDC-Feedback" />
     <Folder Include="20251229-2025Dec29Release" />
-    <Folder Include="20260102-2026Jan05Release" />
   </ItemGroup>
   <ItemGroup>
     <None Include="20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
@@ -72,8 +71,6 @@
     <None Include="20251218-CDC-Feedback\1.Data.sql" />
     <None Include="20251229-2025Dec29Release\2-20251229-2025Dec29Release.Data.sql" />
     <None Include="20251229-2025Dec29Release\3-20251229-2025Dec29Release.Data.sql" />
-    <None Include="20260102-2026Jan05Release\2-20260102-2026Jan05Release.Data.sql" />
-    <None Include="20260102-2026Jan05Release\3-20260102-2026Jan05Release.Data.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="20251106-DatabaseUpdate\Object.sql" />
@@ -94,7 +91,6 @@
     <None Include="20251124-2025Nov17Release\Data-v3.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="20251229-2025Dec29Release\1-20251229-2025Dec29Release.Object.sql" />
-    <Build Include="20260102-2026Jan05Release\1-20260102-2026Jan05Release.Object.sql" />
+    <None Include="20251229-2025Dec29Release\1-20251229-2025Dec29Release.Object.sql" />
   </ItemGroup>
 </Project>
