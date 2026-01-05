@@ -107,3 +107,9 @@ public class  DotNetChartStyle
     public static readonly string StateLevelMap = "5";
     public static readonly string CountyLevelMap = "6";
 }
+
+public class StratificationSequence { 
+    public static readonly int SEQUENCE_1 = 1;
+    public static readonly int SEQUENCE_2 = 2;
+    public static readonly int SEQUENCE_3 = 3;
+}

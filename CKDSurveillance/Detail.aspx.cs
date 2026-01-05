@@ -2502,15 +2502,35 @@ namespace CKDSurveillance_RD.MasterPages
         }
         private void buildPlotlyChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, bool isMapPage)
         {
+            ArborDataAccessV2 DAL = new ArborDataAccessV2();
             string hovertemplate = "hovertemplate: '%{text}'";
+            string selectedColor = "";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
+            selectedColor = RB_ChartColor.SelectedValue;
             if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
             {
                 RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
+                selectedColor = RB_ChartColor.SelectedValue;
             }
-
+            else if (QNum.Substring(1) == "805" || QNum.Substring(1) == "806" || QNum.Substring(1) == "807" || QNum.Substring(1) == "808")
+            {
+                //TODO: get code from db
+                if (int.TryParse(chartID, out int intChartID))
+                {
+                    DataTable stratColorList = DAL.getStratColorCode(intChartID, StratificationSequence.SEQUENCE_2);
+                    if (stratColorList != null && stratColorList.Rows != null && stratColorList.Rows.Count > 0)
+                    {
+                        selectedColor = "";
+                        foreach (DataRow row in stratColorList.Rows)
+                        {
+                            selectedColor += "'" + row["StratificationColor"].ToString() + "',";
+                        }
+                        selectedColor = selectedColor.TrimEnd(',');
+                    }
+                }
+            }
             //*Get Page*
-            ArborDataAccessV2 DAL = new ArborDataAccessV2();
+            
 
             //*If this is a Map, it will have no records*
             if (dtPage.Rows.Count == 0) { return; }
@@ -2540,7 +2560,7 @@ namespace CKDSurveillance_RD.MasterPages
             double max_width = 0.4;
 
             //4/21/20 - the hidden field is filled with the initial radio button selections
-            hfChartColor.Value = RB_ChartColor.SelectedValue;
+            hfChartColor.Value = selectedColor;
 
             DataTable dtChart_preSort = dsChart.Tables[1];
             DataTable dtChart_maxHeight = dsChart.Tables[1];
