@@ -27,7 +27,6 @@
     <script src="scripts/LinkedMap.js"></script>
 
     <link href="css/LinkedMap.css" rel="stylesheet" />
-    <link href="css/ChartTooltip.css" rel="stylesheet" />
 
    <script src="Scripts/bootstrap.min.js"></script>
 
