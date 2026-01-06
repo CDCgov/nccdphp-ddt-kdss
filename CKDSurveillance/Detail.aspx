@@ -1568,7 +1568,7 @@
                         if ($('#hfMaxConfidence').val() > $('#hfChartYValToUse').val()) {
                             $('#hfChartYValToUse').val($('#hfMaxConfidence').val()); // if the confidence intervals checkbox is checked then use the max confidence value to draw the chart
                         }
-                        $('#hfShowCI').val("true");
+                        //$('#hfShowCI').val("true");
 
                         if ($('#hfChartType').val() == "'line'") {
                             $('#hfShowCIShadow').val("true");
