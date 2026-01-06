@@ -27,6 +27,7 @@
     <script src="scripts/LinkedMap.js"></script>
 
     <link href="css/LinkedMap.css" rel="stylesheet" />
+    <link href="css/ChartTooltip.css" rel="stylesheet" />
 
    <script src="Scripts/bootstrap.min.js"></script>
 
@@ -329,6 +330,7 @@
         <asp:HiddenField ID="hfChartMode" runat="server" />
         <asp:HiddenField ID="hfChartColor" runat="server" />
         <asp:HiddenField ID="hfShowCI" runat="server" />
+        <asp:HiddenField ID="hfShowCIShadow" runat="server" />
         <asp:HiddenField ID="hfMapType" runat="server" />
         <asp:HiddenField ID="hfCurrentYear" runat="server" />
         <asp:HiddenField ID="hfChartID" runat="server" />
@@ -1503,8 +1505,17 @@
 
             function legendAutoScaleClick() { //this function is called after the chart has been created in the createPlotlyScript and createTripleStratPlotlyScript functions. It's purpose is to execute the clicking of the Autoscale button
                 console.log("inside legendclick");
-                autoscaleBtn = $('a[data-title="Autoscale"]')[0]
-                autoscaleBtn.click();
+                //autoscaleBtn = $('a[data-title="Autoscale"]')[0]
+                //autoscaleBtn.click();
+                autoscaleBtn = $('a[data-title="Autoscale"]')[0];
+                if (autoscaleBtn != null) {
+                    autoscaleBtn.click();
+                    console.log("inside legendclick 2");
+                }
+            }
+
+            function legendCustomClick(eventData) {
+                return false;
             }
 
             $(document).ready(function () {   
@@ -1559,12 +1570,20 @@
                             $('#hfChartYValToUse').val($('#hfMaxConfidence').val()); // if the confidence intervals checkbox is checked then use the max confidence value to draw the chart
                         }
                         $('#hfShowCI').val("true");
+
+                        if ($('#hfChartType').val() == "'line'") {
+                            $('#hfShowCIShadow').val("true");
+                        }
+                        else {
+                            $('#hfShowCIShadow').val("false");
+                        }
                     }
                     else {
                         if ($('#hfMaxYVal').val() > $('#hfChartYValToUse').val()) {
                             $('#hfChartYValToUse').val($('#hfMaxYVal').val()); // if the confidence intervals checkbox is NOT checked then use the max y value to draw the chart
                         }
                         $('#hfShowCI').val("false");
+                        $('#hfShowCIShadow').val("false");
                     }
 
                     redrawPlotlyChart();
@@ -1604,15 +1623,11 @@
             function redrawPlotlyChart() {
 
                 createPlotlyChart();
-                createPlotlyChartRel(); /* TODO: comment out this block */
+                //createPlotlyChartRel(); /* TODO: comment out this block */
 
-                /* TODO: uncomment this block */
-
-                /*
-                if (document.getElementById("divRBSTD") != null) { }
+                if (document.getElementById("divRBSTD") != null) { 
                     createPlotlyChartRel();
                 }
-                */
 
                 compliance508();
             }

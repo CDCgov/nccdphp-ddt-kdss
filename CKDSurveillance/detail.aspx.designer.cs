@@ -105,6 +105,15 @@ namespace CKDSurveillance_RD.MasterPages
         protected global::System.Web.UI.WebControls.HiddenField hfShowCI;
 
         /// <summary>
+        /// hfShowCIShadow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfShowCIShadow;
+
+        /// <summary>
         /// hfMapType control.
         /// </summary>
         /// <remarks>
