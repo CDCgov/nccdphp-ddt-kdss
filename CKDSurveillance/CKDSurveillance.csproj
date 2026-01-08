@@ -402,7 +402,7 @@
     <Content Include="AYA\August_2024.html" />
     <Content Include="AYA\August_2025.html" />
     <Content Include="AYA\December_2023.html" />
-    <Content Include="AYA\December_2025.html" />
+    <Content Include="AYA\January_2026.html" />
     <Content Include="AYA\February_2024.html" />
     <Content Include="AYA\Images\April_2024.PNG" />
     <Content Include="AYA\Images\August_2023.png" />
@@ -417,7 +417,7 @@
     <Content Include="AYA\Images\CurrentAYA.svg" />
     <Content Include="AYA\Images\December_2023.png" />
     <Content Include="AYA\Images\December_2024.png" />
-    <Content Include="AYA\Images\December_2025.svg" />
+    <Content Include="AYA\Images\January_2026.svg" />
     <Content Include="AYA\Images\February_2024.png" />
     <Content Include="AYA\Images\June_2024.png" />
     <Content Include="AYA\Images\June_2023.png" />
@@ -2006,13 +2006,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'VA Scan|AnyCPU'">
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
-<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
-  <OutputPath>bin\</OutputPath>
-  <DeployOnBuild>true</DeployOnBuild>
-  <WebPublishMethod>Package</WebPublishMethod>
-  <PackageAsSingleFile>false</PackageAsSingleFile>
-  <PackageLocation>obj\Dev\Package</PackageLocation>
-</PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DeployOnBuild>true</DeployOnBuild>
+    <WebPublishMethod>Package</WebPublishMethod>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+    <PackageLocation>obj\Dev\Package</PackageLocation>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '_Scan|AnyCPU'">
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
