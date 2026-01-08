@@ -66,6 +66,7 @@
     <Folder Include="20251229-2025Dec29Release" />
     <Folder Include="20251223-2025Dec23Release" />
     <Folder Include="20260107-2026Jan07Release" />
+    <Folder Include="20260108-2026Jan08Release" />
   </ItemGroup>
   <ItemGroup>
     <None Include="20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
@@ -74,6 +75,7 @@
     <None Include="20251229-2025Dec29Release\2-20251229-2025Dec29Release.Data.sql" />
     <None Include="20251229-2025Dec29Release\3-20251229-2025Dec29Release.Data.sql" />
     <None Include="20251223-2025Dec23Release\1-20251223-2025Dec23Release.Data.sql" />
+    <None Include="20260108-2026Jan08Release\1-20260108-2026Jan08Release.Data.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="20251106-DatabaseUpdate\Object.sql" />
