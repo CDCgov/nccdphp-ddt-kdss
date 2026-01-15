@@ -1,11 +1,11 @@
 # PROD
 
-Zip all required files for the KDSS Database PROD environment and prefix them with "KDSSDatabase_PROD". 
-For any file containing a CREATE statement, add the GRANT permission at the end. 
-Also, ensure all files include a USE statement with the correct database.
-Additionally, prefix each script with a number indicating its execution order.
+- [ ] Zip all required files for the KDSS Database PROD environment and prefix them with "KDSSDatabase_PROD". 
+- [ ] For any file containing a CREATE statement, add the GRANT permission at the end. 
+- [ ] Ensure each script file includes a USE statement with the correct database at the top.
+- [ ] Prefix each script with a number indicating its execution order.
 
-Example:
+Example of prefix script files:
 ```
 1.20250915_UpdateCurrentAyaFigure.sql
 2.20251106_DatabaseUpdate_Object.sql
