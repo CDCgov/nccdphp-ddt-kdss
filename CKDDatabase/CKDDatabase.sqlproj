@@ -60,5 +60,36 @@
     <Folder Include="DEV" />
     <Folder Include="QA" />
     <Folder Include="PROD" />
+    <Folder Include="DEV\20250915-CKD-465" />
+    <Folder Include="DEV\20251106-DatabaseUpdate" />
+    <Folder Include="DEV\20251117-2025Nov17Release" />
+    <Folder Include="DEV\20251124-2025Nov17Release" />
+    <Folder Include="DEV\20251217-CDC-Feedback" />
+    <Folder Include="DEV\20251218-CDC-Feedback" />
+    <Folder Include="DEV\20251223-2025Dec23Release" />
+    <Folder Include="DEV\20251229-2025Dec29Release" />
+    <Folder Include="DEV\20260107-2026Jan07Release" />
+    <Folder Include="DEV\20260108-2026Jan08Release" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="DEV\20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
+    <Build Include="DEV\20251106-DatabaseUpdate\Data.sql" />
+    <Build Include="DEV\20251106-DatabaseUpdate\Object.sql" />
+    <Build Include="DEV\20251117-2025Nov17Release\Data.sql" />
+    <Build Include="DEV\20251117-2025Nov17Release\Object.sql" />
+    <Build Include="DEV\20251124-2025Nov17Release\Data.sql" />
+    <Build Include="DEV\20251124-2025Nov17Release\Data-v2.sql" />
+    <Build Include="DEV\20251124-2025Nov17Release\Data-v3.sql" />
+    <Build Include="DEV\20251124-2025Nov17Release\Object.sql" />
+    <Build Include="DEV\20251229-2025Dec29Release\1-20251229-2025Dec29Release.Object.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DEV\20251217-CDC-Feedback\1.Data.sql" />
+    <None Include="DEV\20251218-CDC-Feedback\1.Data.sql" />
+    <None Include="DEV\20251223-2025Dec23Release\1-20251223-2025Dec23Release.Data.sql" />
+    <None Include="DEV\20251229-2025Dec29Release\2-20251229-2025Dec29Release.Data.sql" />
+    <None Include="DEV\20251229-2025Dec29Release\3-20251229-2025Dec29Release.Data.sql" />
+    <None Include="DEV\20260107-2026Jan07Release\1-20260107-2026Jan07Release.Data.sql" />
+    <None Include="DEV\20260108-2026Jan08Release\1-20260108-2026Jan08Release.Data.sql" />
   </ItemGroup>
 </Project>
