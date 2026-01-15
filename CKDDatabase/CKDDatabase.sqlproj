@@ -91,7 +91,7 @@
     <None Include="DEV\20251229-2025Dec29Release\3-20251229-2025Dec29Release.Data.sql" />
     <None Include="DEV\20260107-2026Jan07Release\1-20260107-2026Jan07Release.Data.sql" />
     <None Include="DEV\20260108-2026Jan08Release\1-20260108-2026Jan08Release.Data.sql" />
-    <None Include="PROD\ReadMe.md" />
-    <None Include="QA\ReadMe.md" />
+    <None Include="PROD\README.md" />
+    <None Include="QA\README.md" />
   </ItemGroup>
 </Project>
