@@ -1,6 +1,6 @@
 # PROD
 
-- [ ] Zip all required files for the KDSS Database PROD environment and prefix them with "KDSSDatabase_PROD". 
+- [ ] Zip all required files for the KDSS Database PROD environment into a folder prefixed with "KDSSDatabase_PROD".
 - [ ] For any file containing a CREATE statement, add the GRANT permission at the end. 
 - [ ] Ensure each script file includes a USE statement with the correct database at the top.
 - [ ] Prefix each script with a number indicating its execution order.
