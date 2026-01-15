@@ -57,51 +57,8 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="20250915-CKD-465" />
-    <Folder Include="20251106-DatabaseUpdate" />
-    <Folder Include="20251117-2025Nov17Release" />
-    <Folder Include="20251124-2025Nov17Release" />
-    <Folder Include="20251217-CDC-Feedback" />
-    <Folder Include="20251218-CDC-Feedback" />
-    <Folder Include="20251229-2025Dec29Release" />
-    <Folder Include="20251223-2025Dec23Release" />
-    <Folder Include="20260107-2026Jan07Release" />
-    <Folder Include="20260108-2026Jan08Release" />
     <Folder Include="DEV" />
     <Folder Include="QA" />
     <Folder Include="PROD" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
-    <None Include="20251217-CDC-Feedback\1.Data.sql" />
-    <None Include="20251218-CDC-Feedback\1.Data.sql" />
-    <None Include="20251229-2025Dec29Release\2-20251229-2025Dec29Release.Data.sql" />
-    <None Include="20251229-2025Dec29Release\3-20251229-2025Dec29Release.Data.sql" />
-    <None Include="20251223-2025Dec23Release\1-20251223-2025Dec23Release.Data.sql" />
-    <None Include="20260108-2026Jan08Release\1-20260108-2026Jan08Release.Data.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="20251106-DatabaseUpdate\Object.sql" />
-    <None Include="20251106-DatabaseUpdate\Data.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="20251117-2025Nov17Release\Data.sql" />
-    <None Include="20251117-2025Nov17Release\Object.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="20251124-2025Nov17Release\Data.sql" />
-    <None Include="20251124-2025Nov17Release\Object.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="20251124-2025Nov17Release\Data-v2.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="20251124-2025Nov17Release\Data-v3.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="20251229-2025Dec29Release\1-20251229-2025Dec29Release.Object.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="20260107-2026Jan07Release\1-20260107-2026Jan07Release.Data.sql" />
   </ItemGroup>
 </Project>
