@@ -1,4 +1,4 @@
-#QA
+# QA
 
 Zip all required files for the KDSS Database QA environment and prefix them with "KDSSDatabase_QA". 
 For any file containing a CREATE statement, add the GRANT permission at the end. 
