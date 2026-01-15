@@ -5,7 +5,7 @@
 - [ ] Ensure each script file includes a USE statement with the correct database at the top.
 - [ ] Prefix each script with a number indicating its execution order.
 
-Example of prefix script files:
+Example of prefix script files with execution order:
 ```
 1.20250915_UpdateCurrentAyaFigure.sql
 2.20251106_DatabaseUpdate_Object.sql
