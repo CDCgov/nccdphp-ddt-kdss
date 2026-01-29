@@ -383,8 +383,16 @@ namespace CKDSurveillance_RD.UserControls
             {
                 StringBuilder sbInst = new StringBuilder();
 
-                sb.Append("<div style=\"float:left\"><label class=\"viewDataByLabel\">Select Risk Category</label>");
-                sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\" style=\"appearance:auto\" onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Risk Category\" >");
+                if (qnum == "Q700")
+                {
+                    sb.Append("<div style=\"float:left\"><label class=\"viewDataByLabel\">Select Data Source</label>");
+                    sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\"  style=\"appearance:auto\" onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Data Source\" >");
+                }
+                else
+                {
+                    sb.Append("<div style=\"float:left\"><label class=\"viewDataByLabel\">Select Risk Category</label>");
+                    sb.Append("<select id=\"cbViewDataBy\" class=\"form-control\" style=\"appearance:auto\" onchange=\"openViewDataBy(this.value);\" aria-label=\"Select Risk Category\" >");
+                }
 
                 int i = 0;
 
