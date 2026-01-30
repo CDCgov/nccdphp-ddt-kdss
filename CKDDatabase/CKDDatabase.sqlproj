@@ -84,6 +84,7 @@
     <None Include="DEV\20251124-2025Nov17Release\Object.sql" />
     <None Include="DEV\20251229-2025Dec29Release\1-20251229-2025Dec29Release.Object.sql" />
     <None Include="DEV\20260130-2026Jan30Release\1-20260130-2026Jan30Release.Data.sql" />
+    <None Include="DEV\20260130-2026Jan30Release\2-20260130-2026Jan30Release.Data.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20251217-CDC-Feedback\1.Data.sql" />
