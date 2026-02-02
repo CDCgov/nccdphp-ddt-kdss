@@ -27,14 +27,14 @@
 
 
     <%--*Linked Image*--%>    
-        <a href="http://www.healthypeople.gov/2020/topics-objectives/topic/chronic-kidney-disease/objectives" target="_blank">
+        <a href="https://www.healthypeople.gov/2020/topics-objectives/topic/chronic-kidney-disease/objectives" target="_blank">
             <img id="imgHealthyPeople"  src="images/healthyPeople.jpg" alt="Healthy People 2020" align="left" />
         </a>    
     
 
     <%--*Linked Text *--%>
     <div>        
-        <a href="http://www.healthypeople.gov/2020/topics-objectives/topic/chronic-kidney-disease/objectives" target="_blank">Go to official Healthy People 2020 Web Site</a>
+        <a href="https://www.healthypeople.gov/2020/topics-objectives/topic/chronic-kidney-disease/objectives" target="_blank">Go to official Healthy People 2020 Web Site</a>
     </div>
 
 </div>

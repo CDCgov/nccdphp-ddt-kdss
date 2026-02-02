@@ -22,7 +22,7 @@
         <p>
             Information for people living with kidney disease, or at risk
             of developing kidney disease, and their friends and family
-            members is available from the <a href="http://nkdep.nih.gov/" target="_blank">National Kidney Disease
+            members is available from the <a href="https://nkdep.nih.gov/" target="_blank">National Kidney Disease
             Education Program</a>.
         </p>
     </div>

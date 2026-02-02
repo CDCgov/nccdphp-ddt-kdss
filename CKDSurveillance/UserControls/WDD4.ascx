@@ -8,7 +8,7 @@
 
 
         <div class="text-center"> <%--style="margin-left:-.5em;">--%><%--subc--%>
-            <a href="http://www.cdc.gov/diabetes/programs/initiatives/diabetes-kidney-connection.html" target="_blank">
+            <a href="https://www.cdc.gov/diabetes/programs/initiatives/diabetes-kidney-connection.html" target="_blank">
                 <img src="images/WDD4.jpg" border="0" alt="World Kidney Day Promotional Image" style="max-width:100%; "/>
             </a>
 
@@ -23,7 +23,7 @@
 			<br />
                     </li>
 		    <li>
-                        <a href="http://www.cdc.gov/diabetes/managing/eatright.html">Learn About Healthy Food Choices</a>
+                        <a href="https://www.cdc.gov/diabetes/managing/eatright.html">Learn About Healthy Food Choices</a>
                     </li>
                 </ul>
             </div>

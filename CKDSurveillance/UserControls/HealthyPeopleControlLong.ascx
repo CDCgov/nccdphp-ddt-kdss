@@ -33,14 +33,14 @@
                         
                         <%--*Linked Image*--%>
                         <div style="float:left; display:inline-block;">
-                            <a href="http://www.healthypeople.gov/2020/topics-objectives/topic/chronic-kidney-disease/objectives" target="_blank">
+                            <a href="https://www.healthypeople.gov/2020/topics-objectives/topic/chronic-kidney-disease/objectives" target="_blank">
                                 <asp:image id="imgHealthyPeople" runat="server" imageurl="~/images/healthyPeople.jpg" alternatetext="Healthy People 2020" cssclass="ckd-healthy-people" />
                             </a>
                         </div>
 
                         <%--*Out Icon*--%>
                         <div style="float:left; width:10px; height:50px;">
-                            <a href="http://www.cdc.gov/Other/disclaimer.html" target="_blank" style="text-decoration:none;">
+                            <a href="https://www.cdc.gov/Other/disclaimer.html" target="_blank" style="text-decoration:none;">
                                 <asp:Image ID="ingOutImage" runat="server" AlternateText="Healthy People 2020 Open an External Web Site" ToolTip="External Web Site" ImageUrl="~/images/icon_out.png" Width="10px" />
                             </a>
                         </div>
@@ -49,7 +49,7 @@
                         <%--*Linked Text *--%>
                         <div style="float:left; width:300px; height:50px;">
                             <br style="height:10px;" />
-                            <a href="http://www.healthypeople.gov/2020/topics-objectives/topic/chronic-kidney-disease/objectives" target="_blank">Go to official Healthy People 2020 Web Site</a>
+                            <a href="https://www.healthypeople.gov/2020/topics-objectives/topic/chronic-kidney-disease/objectives" target="_blank">Go to official Healthy People 2020 Web Site</a>
                         </div>
 
               </div>                                                                                                  

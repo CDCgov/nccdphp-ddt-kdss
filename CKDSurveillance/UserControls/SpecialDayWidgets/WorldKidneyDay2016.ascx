@@ -12,8 +12,8 @@
         <div id="divPlaceHolder" style="border:solid .05em silver;"> <!--height:175px; width:300px">-->            
                 <img id="imgWKD2016" src="images/16_262603_leonard_mar_ckd.jpg" usemap="#WKD" alt="March is National Kidney Month" />            
                 <map name="WKD">
-                    <area shape="rect" coords="0,0,381,35" href="http://www.cdc.gov/mmwr/volumes/65/wr/mm6508a4.htm?s_cid=mm6508a4_e" alt="March is National Kidney Month" target="_blank"/>
-                    <area shape="rect" coords="0,36,381,261" href="http://www.cdc.gov/Features/WorldKidneyDay" alt="World Kidney Day" target="_blank"/>
+                    <area shape="rect" coords="0,0,381,35" href="https://www.cdc.gov/mmwr/volumes/65/wr/mm6508a4.htm?s_cid=mm6508a4_e" alt="March is National Kidney Month" target="_blank"/>
+                    <area shape="rect" coords="0,36,381,261" href="https://www.cdc.gov/Features/WorldKidneyDay" alt="World Kidney Day" target="_blank"/>
                 </map>                            
         </div>
         

@@ -15,8 +15,8 @@ namespace CKDSurveillance_RD.UserControls
         {
             
         string configCitation = ConfigurationManager.AppSettings["chartboilerplate"].ToString();
-        string link = "<a href=\"http://www.cdc.gov/ckd\">http://www.cdc.gov/ckd</a>";
-        string citationLine1 = configCitation.Replace("@DT@", DateTime.Now.Year.ToString()).Replace("|", "/").Replace("-", "—").Replace("Web site. http://nccd.cdc.gov/CKD.", "").Trim();
+        string link = "<a href=\"https://www.cdc.gov/ckd\">https://www.cdc.gov/ckd</a>";
+        string citationLine1 = configCitation.Replace("@DT@", DateTime.Now.Year.ToString()).Replace("|", "/").Replace("-", "—").Replace("Web site. https://nccd.cdc.gov/CKD.", "").Trim();
         string citationLine2 = "website. " + link; 
         litCitation.Text = citationLine1 + "<br />" + citationLine2;
         }

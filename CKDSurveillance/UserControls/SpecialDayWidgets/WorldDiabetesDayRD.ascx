@@ -14,7 +14,7 @@
 
     <div>
         <p>
-            <%--<a href="http://www.idf.org/worlddiabetesday" target="_blank">--%>
+            <%--<a href="https://www.idf.org/worlddiabetesday" target="_blank">--%>
                 <asp:Image runat="server" class="center" alt="World Diabetes Day Logo" src="images/WDDlogosmall.png" />
             <%--</a>--%>
         </p>
@@ -40,7 +40,7 @@
                                 <asp:HyperLink ID="HyperLink2" runat="server" CssClass="ckd-faq-link" text="View Surveillance System Diabetes-Related Indicators" NavigateUrl="~/FactorsOfInterest.aspx?type=Diabetes" />
                             </li>
                             <li>
-                                <a href="http://www.cdc.gov/diabetes/managing/eatright.html" target="_blank">Healthy Eating and Diabetes</a>
+                                <a href="https://www.cdc.gov/diabetes/managing/eatright.html" target="_blank">Healthy Eating and Diabetes</a>
                             </li>
                         </ul>
                     </div>
