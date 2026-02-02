@@ -70,6 +70,7 @@
     <Folder Include="DEV\20251229-2025Dec29Release" />
     <Folder Include="DEV\20260107-2026Jan07Release" />
     <Folder Include="DEV\20260108-2026Jan08Release" />
+    <Folder Include="DEV\20260121Jan21Release" />
     <Folder Include="DEV\20260130-2026Jan30Release" />
     <Folder Include="QA\KDSSDatabase_QA_20260202" />
   </ItemGroup>
@@ -98,5 +99,6 @@
     <None Include="DEV\20260108-2026Jan08Release\1-20260108-2026Jan08Release.Data.sql" />
     <None Include="PROD\README.md" />
     <None Include="QA\README.md" />
+    <None Include="DEV\20260121Jan21Release\1-20260121-2026Jan21Release.Data.sql" />
   </ItemGroup>
 </Project>

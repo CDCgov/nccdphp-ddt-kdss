@@ -1,6 +1,5 @@
 ﻿Imports System.Configuration
 Imports System.Data.SqlClient
-'Imports NG.NCCDPHP.DataAccess.Sql
 ''**ARBOR RESEARCH**''
 
 
@@ -20,22 +19,12 @@ Public Class ArborDataAccessV2
 
         Dim answer As String = ""
 
-        ''**ARBOR RESEARCH**''
         ''Get the connection string from the Web.config
         If (ConfigurationManager.AppSettings("Environment") = "MPR") Then
             answer = ConfigurationManager.ConnectionStrings("CKD_NEW").ConnectionString.ToString()
         Else
             answer = DBUtil.GetSqlDBConnection().ConnectionString()
         End If
-
-        'answer = cryptor.DecryptString(encrypted_string)
-        ''**ARBOR RESEARCH**''
-
-
-        ''**NG/CDC**''
-        ''answer = GetSqlDBConnectionByPlainConnectionString().ConnectionString
-        'answer = DBUtil.GetSqlDBConnection().ConnectionString()
-        ''**NG/CDC**''
 
         Return answer
     End Function
