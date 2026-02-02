@@ -19,7 +19,7 @@
 
                     <%--*Initiative*--%>
                     <p>
-                        The <a href="http://www.cdc.gov/diabetes/programs/initiatives/kidney.html" target="_blank">Chronic Kidney Disease Initiative</a>  is designed to provide comprehensive public health strategies for promoting kidney health.
+                        The <a href="https://www.cdc.gov/diabetes/programs/initiatives/kidney.html" target="_blank">Chronic Kidney Disease Initiative</a>  is designed to provide comprehensive public health strategies for promoting kidney health.
                     </p>
                 </div>
 
