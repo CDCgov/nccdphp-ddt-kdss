@@ -11,11 +11,11 @@
             <span class="hidden">Enter Email Address</span>
             <input type="text" class="email" name="email" value="" onfocus="this.value=''" />
             </label>
-             <br /><a class="explain" href="http://www.cdc.gov/emailupdates/">What's this?</a>
+             <br /><a class="explain" href="https://www.cdc.gov/emailupdates/">What's this?</a>
             <a href="javascript:quicksubscribe();return false;" class="btn  btn-secondary">Submit</a>
             <noscript>
                
-            <a class="explain" href="http://www.cdc.gov/emailupdates/">What's this?</a>
+            <a class="explain" href="https://www.cdc.gov/emailupdates/">What's this?</a>
             <label><span class="hidden">Submit Button</span>
             <input type="submit" class="button submit" name="commit" value="Submit" /></label>
             </noscript>

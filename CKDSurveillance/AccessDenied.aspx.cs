@@ -14,7 +14,7 @@ namespace CKDSurveillance_RD
         {
             Page.Title = Page.Title = ConfigurationManager.AppSettings["AppName"].ToString() + " Access Denied";
 
-            lnkAdmin.NavigateUrl = "http://www.cdc.gov/cdc-info/requestform.html";
+            lnkAdmin.NavigateUrl = "https://www.cdc.gov/cdc-info/requestform.html";
 
         }
 

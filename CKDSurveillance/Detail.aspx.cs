@@ -1424,7 +1424,7 @@ namespace CKDSurveillance_RD.MasterPages
             dt.Columns.Add(col1);
 
             DataRow dr = dt.NewRow();
-            dr["Suggested Citation"] = "Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. http://www.cdc.gov/ckd";
+            dr["Suggested Citation"] = "Centers for Disease Control and Prevention. Chronic Kidney Disease Surveillance System—United States. website. https://www.cdc.gov/ckd";
             dt.Rows.Add(dr);
 
             return dt;
@@ -2396,9 +2396,9 @@ namespace CKDSurveillance_RD.MasterPages
             //**************************
             //*General Chart Properties*
             //**************************
-            string link = "http://nccd.cdc.gov/CKD.";
+            string link = "https://nccd.cdc.gov/CKD.";
             string configCitation = ConfigurationManager.AppSettings["chartboilerplate"].ToString();
-            string citationLine1 = configCitation.Replace("@DT@", DateTime.Now.Year.ToString()).Replace("|", "/").Replace("-", "—").Replace("Web site. http://nccd.cdc.gov/CKD.", "").Trim();
+            string citationLine1 = configCitation.Replace("@DT@", DateTime.Now.Year.ToString()).Replace("|", "/").Replace("-", "—").Replace("Web site. https://nccd.cdc.gov/CKD.", "").Trim();
             string citationLine2 = "website. " + link;
         }
         private void buildPlotlyBarChartForMaps(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, bool isMapPage)

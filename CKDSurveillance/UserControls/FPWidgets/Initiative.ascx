@@ -13,7 +13,7 @@
                     <img src="./images/Kidney_Blue.png" alt="Information about the CKD Initiative" class="card-img-top img-fluid p-0 tinyNounImage">
                 </div>
                 <div class="col-sm-10" style="padding: 5px;">
-                    The <a href="http://www.cdc.gov/diabetes/programs/initiatives/kidney.html" target="_blank">Chronic Kidney Disease Initiative</a>  is designed to provide comprehensive public health strategies for promoting kidney health                        
+                    The <a href="https://www.cdc.gov/diabetes/programs/initiatives/kidney.html" target="_blank">Chronic Kidney Disease Initiative</a>  is designed to provide comprehensive public health strategies for promoting kidney health                        
                     <br />
                     <br />
                 </div>

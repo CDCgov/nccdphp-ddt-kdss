@@ -699,7 +699,7 @@
                                                     Bang H, Vupputuri S, Shoham DA, Klemmer PJ, Falk RJ, Mazumdar M, Gipson D, Colindres RE, Kshirsagar AV. SCreening for Occult REnal Disease (SCORED): A simple prediction model for chronic kidney disease. 
                                                         <em>Arch Intern Med.</em> 2007 Feb 26;167(4):374-81.  </span>              
                                                         <br />
-                                                    <a class="footerRefLink" target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17325299">www.ncbi.nlm.nih.gov/pubmed/17325299</a>
+                                                    <a class="footerRefLink" target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17325299">www.ncbi.nlm.nih.gov/pubmed/17325299</a>
 
                                                 </div>
                                             </div>
@@ -1024,7 +1024,7 @@
                                                     Tangri N, Stevens LA, Griffith J, Tighiouart H, Djurdjev O, Naimark D, Levin A, Levey AS. A predictive model for progression of chronic kidney disease to kidney failure. 
                                                         <em>JAMA.</em> 2011 Apr 20;305(15):1553-9. doi: 10.1001/jama.2011.451. Epub 2011 Apr 11. </span>
                                                         <br />
-                                                    <a class="footerRefLink" href="http://www.ncbi.nlm.nih.gov/pubmed/21482743" target="_blank">www.ncbi.nlm.nih.gov/pubmed/21482743</a>
+                                                    <a class="footerRefLink" href="https://www.ncbi.nlm.nih.gov/pubmed/21482743" target="_blank">www.ncbi.nlm.nih.gov/pubmed/21482743</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -2835,7 +2835,7 @@
             //console.log("inside Update Slider");
             //If a value is added to a textbox, the sliders should honor the new value
 
-            //http://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html -- see (Range slider public methods)
+            //https://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html -- see (Range slider public methods)
             var $slider;
 
             switch (slidername) {

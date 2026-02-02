@@ -12,7 +12,7 @@
         
         <br />
         
-        <a target="_blank" href="http://www.cdc.gov/diabetes/programs/initiatives/kidney.html">Learn more...</a>
+        <a target="_blank" href="https://www.cdc.gov/diabetes/programs/initiatives/kidney.html">Learn more...</a>
         
         <br />
         

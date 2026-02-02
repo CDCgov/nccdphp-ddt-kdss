@@ -14,8 +14,8 @@
                     <img id="imgWDD2017" src="images/17_283823-A_Ojeda_Natl_Diabetes_Month_B.png" alt="November is National Diabetes Month" style="width:385px;" />
                 </a>
                 <%--<map name="WDD">
-                    <area shape="rect" coords="0,0,381,35" href="http://www.cdc.gov/diabetes/programs/initiatives/diabetes-kidney-connection.html " alt="November is National Diabetes Month" target="_blank"/>
-                    <area shape="rect" coords="0,36,381,261" href="http://www.cdc.gov/features/worldkidneyday/ " alt="World Diabetes Day" target="_blank"/>
+                    <area shape="rect" coords="0,0,381,35" href="https://www.cdc.gov/diabetes/programs/initiatives/diabetes-kidney-connection.html " alt="November is National Diabetes Month" target="_blank"/>
+                    <area shape="rect" coords="0,36,381,261" href="https://www.cdc.gov/features/worldkidneyday/ " alt="World Diabetes Day" target="_blank"/>
                 </map>--%>                            
         </div>
         

@@ -1,10 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucFooterLocalContact.ascx.cs" Inherits="CKDSurveillance_RD.UserControls.ucFooterLocalContact" %>
 <section>
 	<h6><span class="icon-angle-down visible-one pull-left"></span>Contact Us</h6>
-	<address class="address hidden-one" itemscope="itemscope" itemtype="http://www.schema.org/Organization">
+	<address class="address hidden-one" itemscope="itemscope" itemtype="https://www.schema.org/Organization">
 		<div itemprop="name">Office of the Associate Director for Communications</div>
 		<div itemprop="name">Division of Public Affairs</div>
-		<div class="value" itemprop="address" itemscope="itemscope" itemtype="http://www.schema.org/PostalAddress">
+		<div class="value" itemprop="address" itemscope="itemscope" itemtype="https://www.schema.org/PostalAddress">
 			<!-- Specific local address information follows (as required) -->
 			<!--
 			<span itemprop="streetAddress">1600 Clifton Rd.</span>
@@ -16,8 +16,8 @@
 		</div>
 		<!--div class="value" itemprop="telephone">800-CDC-INFO (800-232-4636)</div-->
 		<!--div class="value" itemprop="email"><a href="mailto:info@cdc.gov">Contact CDC-INFO</a></div-->
-		<div class="value" itemprop="contactPoint" itemscope="itemscope" itemtype="http://www.schema.org/ContactPoint">
-			<span itemprop="url"><a href="http://www.cdc.gov/cdc-info/requestform.html">Contact CDC-INFO</a></span>
+		<div class="value" itemprop="contactPoint" itemscope="itemscope" itemtype="https://www.schema.org/ContactPoint">
+			<span itemprop="url"><a href="https://www.cdc.gov/cdc-info/requestform.html">Contact CDC-INFO</a></span>
 		</div>
 	</address>
 </section>

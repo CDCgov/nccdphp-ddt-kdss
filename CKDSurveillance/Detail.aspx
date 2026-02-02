@@ -3273,7 +3273,7 @@
          // Below are the functions that handle actual exporting:
          // getSVGString ( svgNode ) and svgString2Image( svgString, width, height, format, callback )
          function getSVGString(svgNode) {
-             svgNode.setAttribute('xlink', 'http://www.w3.org/1999/xlink');
+             svgNode.setAttribute('xlink', 'https://www.w3.org/1999/xlink');
              var cssStyleText = getCSSStyles(svgNode);
              appendCSS(cssStyleText, svgNode);
 

@@ -7,16 +7,16 @@
      
     <div>
        
-        <%--http://www.cdc.gov/features/worldkidneyday/ --%>
+        <%--https://www.cdc.gov/features/worldkidneyday/ --%>
 
         <div id="divPlaceHolder" style="border:solid .05em silver;"> <!--height:175px; width:300px">-->                        
                 <img id="imgWHD2016" src="images/whd_2016.jpg" usemap="#WHD" alt="May is National Hypertension Month" />            
                 <map name="WHD">
-                    <area shape="rect" coords="0,0,381,35" href="http://www.cdc.gov/features/worldkidneyday/" alt="May is National Hypertension Month" target="_blank"/>
-                    <area shape="rect" coords="0,36,381,261" href="http://www.cdc.gov/bloodpressure/measure.htm"" alt="High Blood Pressure damages Kidneys" target="_blank"/>
+                    <area shape="rect" coords="0,0,381,35" href="https://www.cdc.gov/features/worldkidneyday/" alt="May is National Hypertension Month" target="_blank"/>
+                    <area shape="rect" coords="0,36,381,261" href="https://www.cdc.gov/bloodpressure/measure.htm"" alt="High Blood Pressure damages Kidneys" target="_blank"/>
                 </map>
 
-            <%--<a href="http://www.cdc.gov/features/worldkidneyday/">
+            <%--<a href="https://www.cdc.gov/features/worldkidneyday/">
                 <img id="imgOneInTwo" src="images/one-of-two-linkedin.jpg" style="width:383px;" alt="One of two adults aged 30-64 is expected to develop chronic kidney disease in their lifetime" />
             </a>--%>
 

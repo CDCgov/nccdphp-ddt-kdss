@@ -175,7 +175,7 @@
                         <td>
                             <ul class="cdcPhone">
                                 <li>(770) 488-5000</li>
-                                <li><a href="http://www.cdc.gov/cdc-info/requestform.html" target="_blank">Contact CDC-INFO</a></li>
+                                <li><a href="https://www.cdc.gov/cdc-info/requestform.html" target="_blank">Contact CDC-INFO</a></li>
                             </ul>
                         </td>
                     </tr>

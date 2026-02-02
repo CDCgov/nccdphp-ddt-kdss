@@ -21,14 +21,14 @@
                             </td>
                             <td width="80%">
                                 <div style="padding-left:40px;">
-                                    <a href="http://www.idf.org/worlddiabetesday" target="_blank">
+                                    <a href="https://www.idf.org/worlddiabetesday" target="_blank">
                                         <asp:Image ID="imgWDDLogo" ImageUrl="~/images/WDDlogosmall.png" runat="server" Width="180px" AlternateText="World Diabetes Day logo" style="display:block;"/>
                                     </a>
                                 </div>
                             </td>
                             <td width="10%">
                                 <div id="divExternalSite" style="width:12px; float:left; border:none; height:110px;">
-                                    <a href="http://www.cdc.gov/Other/disclaimer.html" target="_blank">
+                                    <a href="https://www.cdc.gov/Other/disclaimer.html" target="_blank">
                                         <asp:Image id="imgExternalSiteWKDImage" runat="server" ImageUrl="~/images/icon_out.png" style="float:left;" ImageAlign="left"  title="External Web Site" AlternateText="World Diabetes Day Logo link Opens an External Web Site"/>
                                     </a>
                                 </div>
@@ -67,7 +67,7 @@
                                             <asp:HyperLink ID="HyperLink1" runat="server" CssClass="ckd-faq-link" text="View Surveillance System Diabetes-Related Indicators" NavigateUrl="~/FactorsOfInterest.aspx?type=Diabetes" />
                                         </li>
                                         <li>
-                                            <a href="http://www.cdc.gov/Features/LivingWithDiabetes/" target="_blank">Healthy Living and Diabetes</a>
+                                            <a href="https://www.cdc.gov/Features/LivingWithDiabetes/" target="_blank">Healthy Living and Diabetes</a>
                                         </li>
                                     </ul>
                                 </div>
