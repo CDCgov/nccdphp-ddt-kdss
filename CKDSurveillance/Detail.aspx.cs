@@ -2806,7 +2806,7 @@ namespace CKDSurveillance_RD.MasterPages
                     else if (current_serieslabel == "Overall")
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", connectgaps: true, mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'}, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color:'#000000'},marker: {color: '#000000', size: 12}};"); //appending the 'row' to the data name and adding the array data
                     else
-                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", connectgaps: true, mode: 'lines+markers', line: { simplify: false, width:5},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }};"); //appending the 'row' to the data name and adding the array data
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", connectgaps: false, mode: 'lines+markers', line: { simplify: false, width:5},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }};"); //appending the 'row' to the data name and adding the array data
 
                     //1/12/2021 - BS - added the basedata necessary for animation
                     plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col_basedata);
@@ -2816,7 +2816,7 @@ namespace CKDSurveillance_RD.MasterPages
                     else if (current_serieslabel == "Overall")
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ",connectgaps: true, mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'}, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color:'#000000'},marker: {color: '#000000' , size: 12}};"); //appending the 'row' to the data name and adding the array data
                     else
-                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ",connectgaps: true, mode: 'lines+markers', line: { simplify: false, width:5}, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])}, marker: {color: eval(colors_split[" + colorarray_inc + "]) , size: 12}};"); //appending the 'row' to the data name and adding the array data
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ",connectgaps: false, mode: 'lines+markers', line: { simplify: false, width:5}, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])}, marker: {color: eval(colors_split[" + colorarray_inc + "]) , size: 12}};"); //appending the 'row' to the data name and adding the array data
 
                     string ciData_col = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
 
@@ -2908,7 +2908,7 @@ namespace CKDSurveillance_RD.MasterPages
             else if (current_serieslabel == "Overall")
                 plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color:'#000000'},marker: {color: '#000000' , size: 12}};"); //appending the 'row' to the data name and adding the array data
             else
-                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},marker: {color: eval(colors_split[" + colorarray_inc + "]) , size: 12}};"); //appending the 'row' to the data name and adding the array data
+                plotlyStr.Append(", connectgaps: false, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},marker: {color: eval(colors_split[" + colorarray_inc + "]) , size: 12}};"); //appending the 'row' to the data name and adding the array data
 
             //1/12/2021 - BS - added the basedata necessary for animation
             if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn || chartID == "4409" || chartID == "4412")
@@ -2922,7 +2922,7 @@ namespace CKDSurveillance_RD.MasterPages
             else if (current_serieslabel == "Overall")
                 plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: '#000000'}, marker: {color: '#000000' , size: 12}};"); //appending the 'row' to the data name and adding the array data
             else
-                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5}, legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},marker: {color: eval(colors_split[" + colorarray_inc + "]) , size: 12}};"); //appending the 'row' to the data name and adding the array data
+                plotlyStr.Append(", connectgaps: false, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5}, legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},marker: {color: eval(colors_split[" + colorarray_inc + "]) , size: 12}};"); //appending the 'row' to the data name and adding the array data
 
             /*** 10/7/2022 Add reference line ***/
             var refVal = RefValue(QNum);
@@ -3307,12 +3307,12 @@ namespace CKDSurveillance_RD.MasterPages
                             plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
 
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: true,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
                         //1/12/2021 - BS - added the basedata necessary for animation
                         plotlyStr.Append(" var basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col_basedata + ", " + wData_col);
                         //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
-                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ",connectgaps: true, line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ",connectgaps: false, line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                         plotlyGroups = plotlyGroups + "data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ","; //adding the above data variable to the group variable
@@ -3519,11 +3519,11 @@ namespace CKDSurveillance_RD.MasterPages
                     plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
 
                 //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: true,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
                 //1/12/2021 - BS - added the basedata necessary for animation
                 plotlyStr.Append(" var basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + "," + wData_col_final);
-                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: true,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
                 //9/28/2020 - BS - added the increment value of 'final' to the data variable string so that it is unique
                 plotlyGroups = plotlyGroups + "data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
@@ -4496,6 +4496,7 @@ namespace CKDSurveillance_RD.MasterPages
             string answer = "";
 
             if (value == "*" || value.ToLower() == "na" || value.ToLower() == "") { return value; }
+            if(value.ToLower() == "none") { return ""; }
 
 
             Double num = Convert.ToDouble(value);
