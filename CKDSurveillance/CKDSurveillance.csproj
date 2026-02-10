@@ -442,7 +442,6 @@
 		<Content Include="AYA\October_2023.html" />
 		<Content Include="AYA\October_2024.html" />
 		<Content Include="AYA\October_2025.html" />
-		<Content Include="Blocked.aspx" />
 		<Content Include="Calculators.aspx" />
 		<Content Include="css\Fonts.css" />
 		<Content Include="css\LinkedMap.css" />
@@ -959,13 +958,6 @@
 		</Compile>
 		<Compile Include="AreYouAware.aspx.designer.cs">
 			<DependentUpon>AreYouAware.aspx</DependentUpon>
-		</Compile>
-		<Compile Include="Blocked.aspx.cs">
-			<DependentUpon>Blocked.aspx</DependentUpon>
-			<SubType>ASPXCodeBehind</SubType>
-		</Compile>
-		<Compile Include="Blocked.aspx.designer.cs">
-			<DependentUpon>Blocked.aspx</DependentUpon>
 		</Compile>
 		<Compile Include="Calculators.aspx.cs">
 			<DependentUpon>Calculators.aspx</DependentUpon>
