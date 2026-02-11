@@ -77,6 +77,7 @@
     <Folder Include="DEV\20260205-2026Feb05Release" />
     <Folder Include="DEV\20260209-2026Feb09Release" />
     <Folder Include="QA\KDSSDatabase_QA_20260209" />
+    <Folder Include="PROD\KDSSDatabase_PROD_20260211" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
@@ -96,6 +97,7 @@
     <None Include="DEV\20260205-2026Feb05Release\1-20260205-2026Feb05Release.Data.sql" />
     <None Include="DEV\20260209-2026Feb09Release\1-20260209-2026Feb09Release.Data.sql" />
     <None Include="QA\KDSSDatabase_QA_20260209\KDSSDatabase_QA_20260209.zip" />
+    <None Include="PROD\KDSSDatabase_PROD_20260211\KDSSDatabase_PROD_20260211.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20251217-CDC-Feedback\1.Data.sql" />
