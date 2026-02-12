@@ -202,6 +202,15 @@ namespace CKDSurveillance_RD.MasterPages
                     showCI = true;
                     CB_ChartCI.Checked = true;
                     hfShowCI.Value = "true";
+
+                    if (hfChartType.Value == "line")
+                    {
+                        hfShowCIShadow.Value = "true";
+                    }
+                    else
+                    {
+                        hfShowCIShadow.Value = "false";
+                    }
                 }
                 else
                     showCI = false;
@@ -245,6 +254,7 @@ namespace CKDSurveillance_RD.MasterPages
                 if (!showCI)
                 {
                     hfShowCI.Value = "false";
+                    hfShowCIShadow.Value = "false";
                     CB_ChartCI.Checked = false;
                 }
 
@@ -625,7 +635,7 @@ namespace CKDSurveillance_RD.MasterPages
                     StratYear1.loadStratsAndYears(dtPage);
                 }
 
-                divChartInstruction.Visible = StratYear1.IsViewDataByVisible;
+                //divChartInstruction.Visible = StratYear1.IsViewDataByVisible;
 
                 if (QNum.ToUpper().StartsWith("Q"))
                 {
@@ -2352,8 +2362,15 @@ namespace CKDSurveillance_RD.MasterPages
                     btnDownloadChart.Enabled = false;
                     btnDownloadChart.Visible = false;
 
-                    buildPlotlyTripleStratChart(chartID.ToString(), dtPage, "<b>" + titletext + "</b>" + bypopulation + "<br>" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString(), dsChart.Tables[0].Rows[0]["XAxisLabel"].ToString(), dsChart.Tables[0].Rows[0]["YAxisLabel"].ToString(), dv);
-
+                    //Call different version for line chart and bar chart, so that the line chart can have the enhanced confidence intervals
+                    if (chartFormatType == DotNetChartStyle.Line)
+                    { 
+                        buildPlotlyTripleStratLineChart(chartID.ToString(), dtPage, "<b>" + titletext + "</b>" + bypopulation + "<br>" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString(), dsChart.Tables[0].Rows[0]["XAxisLabel"].ToString(), dsChart.Tables[0].Rows[0]["YAxisLabel"].ToString(), dv);
+                    }
+                    else
+                    {
+                        buildPlotlyTripleStratChart(chartID.ToString(), dtPage, "<b>" + titletext + "</b>" + bypopulation + "<br>" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString(), dsChart.Tables[0].Rows[0]["XAxisLabel"].ToString(), dsChart.Tables[0].Rows[0]["YAxisLabel"].ToString(), dv);
+                    }
 
                 }
             }
@@ -2375,7 +2392,16 @@ namespace CKDSurveillance_RD.MasterPages
                 string bypopulation = wrapText(dsChart.Tables[0].Rows[0]["ByPopulation"].ToString(), 100);
                 if (bypopulation != "")
                     bypopulation = "<br><b>" + bypopulation + "</b>";
-                buildPlotlyChart(chartID.ToString(), dtPage, "<b>" + titletext + "</b>" + bypopulation + "<br>" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString(), dsChart.Tables[0].Rows[0]["XAxisLabel"].ToString(), dsChart.Tables[0].Rows[0]["YAxisLabel"].ToString(), false);
+
+                //Call different version for line chart and bar chart, so that the line chart can have the enhanced confidence intervals
+                if (chartFormatType == DotNetChartStyle.Line)
+                {
+                    buildPlotlyLineChart(chartID.ToString(), dtPage, "<b>" + titletext + "</b>" + bypopulation + "<br>" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString(), dsChart.Tables[0].Rows[0]["XAxisLabel"].ToString(), dsChart.Tables[0].Rows[0]["YAxisLabel"].ToString(), false);
+                }
+                else {
+                    buildPlotlyChart(chartID.ToString(), dtPage, "<b>" + titletext + "</b>" + bypopulation + "<br>" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString(), dsChart.Tables[0].Rows[0]["XAxisLabel"].ToString(), dsChart.Tables[0].Rows[0]["YAxisLabel"].ToString(), false);
+                }
+
 
             }
 
@@ -2443,20 +2469,8 @@ namespace CKDSurveillance_RD.MasterPages
             string plotlyGroups = "var data = [";
 
             StringBuilder plotlyStr = new StringBuilder();
-
-            /*create data array logic*/
-
-            string current_serieslabel = "";
-            string theData = "";
-
-            //*************************************** Third Attempt
-
-            theData = "[ ";
-
             if (max_xaxis_cnt > 7) max_xaxis_cnt = 7;
             int wrapsize = 100 / max_xaxis_cnt;//finding the number of data points and wrapping the x-axis labels accordingly
-
-            int colorarray_inc = 0;
             string colorval = "";
             for (int i = 0; i <= dtChart.Rows.Count - 1; i++)
             {
@@ -2650,12 +2664,6 @@ namespace CKDSurveillance_RD.MasterPages
             /*create data array logic*/
 
             string current_serieslabel = "";
-            string theData = "";
-
-            //*************************************** Third Attempt
-
-            theData = "[ ";
-
             Regex regex = new Regex(@"[\d]");
             if (max_xaxis_cnt > 7) max_xaxis_cnt = 7;
             int wrapsize = 100 / max_xaxis_cnt;//finding the number of data points and wrapping the x-axis labels accordingly
@@ -2980,6 +2988,511 @@ namespace CKDSurveillance_RD.MasterPages
             createPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, isMapPage, chartFormatType);
         }
 
+        private void buildPlotlyLineChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, bool isMapPage)
+        {
+            ArborDataAccessV2 DAL = new ArborDataAccessV2();
+            string hovertemplate = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
+            string selectedColor = "";
+            RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
+            selectedColor = RB_ChartColor.SelectedValue;
+            if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
+            {
+                RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
+                selectedColor = RB_ChartColor.SelectedValue;
+            }
+            else if (QNum.Substring(1) == "805" || QNum.Substring(1) == "806" || QNum.Substring(1) == "807" || QNum.Substring(1) == "808")
+            {
+                //TODO: get code from db
+                if (int.TryParse(chartID, out int intChartID))
+                {
+                    DataTable stratColorList = DAL.getStratColorCode(intChartID, StratificationSequence.SEQUENCE_2);
+                    if (stratColorList != null && stratColorList.Rows != null && stratColorList.Rows.Count > 0)
+                    {
+                        selectedColor = "";
+                        foreach (DataRow row in stratColorList.Rows)
+                        {
+                            selectedColor += "'" + row["StratificationColor"].ToString() + "',";
+                        }
+                        selectedColor = selectedColor.TrimEnd(',');
+                    }
+                }
+            }
+            //*Get Page*
+
+
+            //*If this is a Map, it will have no records*
+            if (dtPage.Rows.Count == 0) { return; }
+
+
+            string quintileColorSetting = getQuintileColorSetting();
+
+
+            //*Get ChartID*
+            string yr = getYear();
+            DataSet dsChart = DAL.getChart(Convert.ToInt32(chartID), yr, quintileColorSetting);
+
+            DataTable dtChartHeader = dsChart.Tables[0];
+            string chartFormatType = dtChartHeader.Rows[0]["DotNetChartStyleID"].ToString();
+            if (chartFormatType == DotNetChartStyle.Line || QNum.Substring(1) == "756") //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
+            {
+                RB_ChartType.SelectedValue = "'line'";
+                hfChartType.Value = "'line'";
+                hfChartMode.Value = "'group'";
+            }
+            else if (chartFormatType == DotNetChartStyle.StackedColumn)
+            {
+                RB_ChartType.SelectedValue = "'stacked'";
+                hfChartType.Value = "'bar'";
+                hfChartMode.Value = "'stack'";
+            }
+            double max_width = 0.4;
+
+            //4/21/20 - the hidden field is filled with the initial radio button selections
+            hfChartColor.Value = selectedColor;
+
+            DataTable dtChart_preSort = dsChart.Tables[1];
+            DataTable dtChart_maxHeight = dsChart.Tables[1];
+
+            //BEGIN the finding the max value for a stacked bar chart
+            dtChart_maxHeight = datableReSort(dtChart_maxHeight, "Tertiary, Secondary", "ASC");
+
+            decimal max_stacked_yval = -1;
+            decimal current_stacked_yval = -1;
+            string current_stacked_secondary = "";
+            for (int i = 0; i <= dtChart_maxHeight.Rows.Count - 1; i++)
+            {
+                string secondary = dtChart_maxHeight.Rows[i]["Secondary"].ToString();
+
+                string datapoint = dtChart_maxHeight.Rows[i]["DataPoint"].ToString();
+                if (current_stacked_secondary != secondary)
+                {
+                    current_stacked_secondary = secondary;//moving on to the next secondary grouping
+                    if (current_stacked_yval > max_stacked_yval) //if the combined total of the values is larger than the current max, reset the current max with the current value
+                    {
+                        max_stacked_yval = current_stacked_yval;
+                    }
+                    decimal outdec;
+                    if (decimal.TryParse(datapoint, out outdec))//reseting the current stacked value
+                        current_stacked_yval = Decimal.Parse(datapoint);
+                    else
+                        current_stacked_yval = -1;
+                }
+                else
+                {
+                    decimal outdec;
+                    if (decimal.TryParse(datapoint, out outdec))
+                        current_stacked_yval = current_stacked_yval + Decimal.Parse(datapoint);
+
+                }
+            }
+            hfMaxStackedYVal.Value = Math.Ceiling((max_stacked_yval * Decimal.Parse("1.1"))).ToString();
+            //END the finding the max value for a stacked bar chart
+
+            DataTable dtChart = new DataTable();
+            if (QNum.Substring(1) == "226")
+            {
+                dtChart = datableReSort(dtChart_preSort, "SeriesLabel", "DESC"); //hardcoded as of 11/2, 2006 data is missing for some strats, changed the order because the 'Other' strat has 2006 data which will resolve the display issue
+            }
+            else
+                dtChart = dtChart_preSort; // No longer sorting by SeriesLabel, let the proc handle the sorting. 
+
+            int xaxis_cnt = 0;
+            int max_xaxis_cnt = 0;
+            string current_s_compare = "";
+            for (int i = 0; i <= dtChart.Rows.Count - 1; i++)
+            {
+                string s_compare = dtChart.Rows[i]["SeriesLabel"].ToString();
+
+                if (current_s_compare == "" || current_s_compare != s_compare)
+                {
+                    if (xaxis_cnt > max_xaxis_cnt)
+                        max_xaxis_cnt = xaxis_cnt;
+
+                    current_s_compare = s_compare;
+                    xaxis_cnt = 1;//start the increment
+                }
+                else
+                {
+                    xaxis_cnt++;
+                }
+            }
+
+            if (max_xaxis_cnt == 0) max_xaxis_cnt = xaxis_cnt; //if there is only one series, then set the max count to the xaxis count
+            if (max_xaxis_cnt <= 7) max_width = (max_xaxis_cnt * 0.1) / 2;
+
+            string hfval_x = "x:[ "; //starting the arrays and adding spaces to so that the last character parse below doesn't fail
+            string hfval_y = "y:[ ";
+            string hfval_w = "width:[ ";
+            string hfval_y_basedata = "y:[ ";
+            string high_confidence = "";
+            string low_confidence = "";
+            string hovertext = "";
+
+            string plotlyGroups = "var data = [";
+            string plotlyBaseGroups = "var basedata = ["; //this will consist of all '0' values for the baseline aspect of the animated portion
+            decimal max_yval = -1; //this will be used to determine the height of the plot for the animated portion
+            decimal max_confidence = -1; //this will be used to determine the height of the plot for the animated portion with confidence intervals
+
+            StringBuilder plotlyStr = new StringBuilder();
+
+            /*create data array logic*/
+
+            string current_serieslabel = "";
+            Regex regex = new Regex(@"[\d]");
+            if (max_xaxis_cnt > 7) max_xaxis_cnt = 7;
+            int wrapsize = 100 / max_xaxis_cnt;//finding the number of data points and wrapping the x-axis labels accordingly
+
+            int colorarray_inc = 0;
+            var refXPos = "";
+            var ciLoStr = "";
+            var ciHiStr = "";
+
+            for (int i = 0; i <= dtChart.Rows.Count - 1; i++)
+            {
+                string secondary = dtChart.Rows[i]["Secondary"].ToString();
+                secondary = wrapText(secondary, wrapsize);
+                string serieslabel = dtChart.Rows[i]["SeriesLabel"].ToString();
+                string datapoint = dtChart.Rows[i]["DataPoint"].ToString();
+                string ehigh = dtChart.Rows[i]["HighConfidenceInterval"].ToString();
+                string elow = dtChart.Rows[i]["LowConfidenceInterval"].ToString();
+                serieslabel = serieslabel.Replace("&", "and"); //overridding the & so that the chart doesn't fail
+                var refXPosNum = 0.0;
+                if (QNum.Substring(1) == "751" && Double.TryParse(secondary, out refXPosNum))
+                    refXPos = (refXPosNum - 1).ToString();
+                else
+                    refXPos = secondary;
+
+                decimal high_con_diff = -1; //initial setup
+                decimal low_con_diff = -1;
+
+                datapoint = datapoint.Replace("*", "null");
+
+                Decimal outdec = 0;
+                //finding the maxiumum value for the y-axis so the graph can be displayed properly
+                if (Decimal.TryParse(datapoint, out outdec))
+                {
+                    Decimal minmaxchk_datapoint = Decimal.Parse(datapoint);
+
+                    if (max_yval == -1) max_yval = minmaxchk_datapoint;
+                    else if (minmaxchk_datapoint > max_yval) max_yval = minmaxchk_datapoint;
+                }
+
+                //finding the maxiumum value for the confidence intervals so the graph can be displayed properly
+                if (Decimal.TryParse(ehigh, out outdec))
+                {
+                    Decimal minmaxchk_ehigh = Decimal.Parse(ehigh);
+
+                    if (max_confidence == -1) max_confidence = minmaxchk_ehigh;
+                    else if (minmaxchk_ehigh > max_confidence) max_confidence = minmaxchk_ehigh;
+                }
+
+
+                if (!String.IsNullOrEmpty(datapoint))
+                {
+                    if (!String.IsNullOrEmpty(ehigh))
+                        high_con_diff = Convert.ToDecimal(ehigh) - Convert.ToDecimal(datapoint);
+
+                    if (!String.IsNullOrEmpty(elow))
+                        low_con_diff = Convert.ToDecimal(datapoint) - Convert.ToDecimal(elow);
+                }
+
+                if (QNum.Substring(1) == "372")
+                {
+                    if (ehigh != "")
+                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 3);
+                    if (elow != "")
+                        elow = elow.Substring(0, elow.IndexOf(".") + 3);//showing only the two characters after the decimal
+                }
+                else
+                {
+                    if (ehigh != "")
+                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
+                    if (elow != "")
+                        elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
+                }
+
+                string str_high_con_diff = ""; //setup the string variable to be displayed
+                string str_low_con_diff = "";
+
+                if (high_con_diff != -1)//if the high difference isn't -1 then display the difference, otherwise display an empty string
+                    str_high_con_diff = high_con_diff.ToString();
+                else
+                    str_high_con_diff = "";
+
+                if (low_con_diff != -1)//if the low difference isn't -1 then display the difference, otherwise display an empty string
+                    str_low_con_diff = low_con_diff.ToString();
+                else
+                    str_low_con_diff = "";
+
+                if (current_serieslabel == "" || current_serieslabel == serieslabel)
+                {
+                    hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
+                    hfval_y = hfval_y + "'" + datapoint + "',"; //finding the actual data value                  
+                    hfval_w = hfval_w + max_width + ",";
+                    hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value        
+
+                    high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
+                    low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
+                    hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+                    ciLoStr = ciLoStr + elow + ",";
+                    ciHiStr = ciHiStr + ehigh + ",";
+                    current_serieslabel = serieslabel;
+                }
+                else if (current_serieslabel != serieslabel)
+                {
+                    string xData_col = hfval_x.Substring(0, hfval_x.Length - 1) + "]";//removing the last comma
+                    string yData_col = hfval_y.Substring(0, hfval_y.Length - 1) + "]";//removing the last comma                    
+                    string wData_col = hfval_w.Substring(0, hfval_w.Length - 1) + "]";//removing the last comma
+                    string yData_col_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
+                    string ciXData_col = "var ciXaxis = [" + hfval_x.Substring(3, hfval_x.Length - 4) + "];";
+                    string ciLoData_col = "var ciLoVal" + cleanString(current_serieslabel) + " = [" + ciLoStr.Substring(0, ciLoStr.Length - 1) + "];";//removing the last comma
+                    string ciHiData_col = "var ciHiVal" + cleanString(current_serieslabel) + " = [" + ciHiStr.Substring(0, ciHiStr.Length - 1) + "];";//removing the last comma   
+
+                    string hiConData_col = "";
+                    string loConData_col = "";
+                    string hovertextData = "";
+
+                    if (regex.IsMatch(high_confidence) && regex.IsMatch(low_confidence)) //both have numeric values
+                    {
+                        hiConData_col = "array:[ " + high_confidence.Substring(0, high_confidence.Length - 1) + "]";
+                        loConData_col = "arrayminus:[ " + low_confidence.Substring(0, low_confidence.Length - 1) + "]";
+                        hovertextData = "text:[ " + hovertext.Substring(0, hovertext.Length - 1) + "]";
+                    }
+                    else
+                    {
+                        hiConData_col = "array:[ ]";
+                        loConData_col = "arrayminus:[ ]";
+                        hovertextData = "text:[ ]";
+                    }
+
+
+                    //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
+                    plotlyStr.Append(" var data" + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col);
+
+                    if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
+                        plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+
+                    //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
+                    if (current_serieslabel == "Total")
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", connectgaps: true, mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'}, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color:'#000000'}, marker: {color: '#000000', size: 12}};"); //appending the 'row' to the data name and adding the array data
+                    else if (current_serieslabel == "Overall")
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", connectgaps: true, mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'}, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color:'#000000'},marker: {color: '#000000', size: 12}};"); //appending the 'row' to the data name and adding the array data
+                    else
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", connectgaps: true, mode: 'lines+markers', line: { simplify: false, width:5},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }};"); //appending the 'row' to the data name and adding the array data
+
+                    //1/12/2021 - BS - added the basedata necessary for animation
+                    plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col_basedata);
+                    //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
+                    if (current_serieslabel == "Total")
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ",connectgaps: true, mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'}, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: '#000000'},marker: {color: '#000000' , size: 12}};"); //appending the 'row' to the data name and adding the array data
+                    else if (current_serieslabel == "Overall")
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ",connectgaps: true, mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'}, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color:'#000000'},marker: {color: '#000000' , size: 12}};"); //appending the 'row' to the data name and adding the array data
+                    else
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ",connectgaps: true, mode: 'lines+markers', line: { simplify: false, width:5}, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])}, marker: {color: eval(colors_split[" + colorarray_inc + "]) , size: 12}};"); //appending the 'row' to the data name and adding the array data
+
+                    string ciData_col = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
+
+                    if (current_serieslabel == "Total" || current_serieslabel == "Overall")
+                    {
+                        ciData_col = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: '#000000'},fillcolor: '#000000', opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
+                    }
+
+                    plotlyStr.Append(ciXData_col + ciLoData_col + ciHiData_col + ciData_col);
+
+                    //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
+                    plotlyGroups = plotlyGroups + "data" + cleanString(current_serieslabel) + i.ToString() + ", ciData" + cleanString(current_serieslabel) + ","; //adding the above data variable to the group variable
+                    //1/12/2021 - BS - added the basedata necessary for animation
+                    plotlyBaseGroups = plotlyBaseGroups + "basedata" + cleanString(current_serieslabel) + i.ToString() + ", ciData" + cleanString(current_serieslabel) + ","; //adding the above basedata variable to the group variable
+
+                    hfval_x = "x:[ ";//resetting the arrays and adding spaces to so that the last character parse below doesn't fail
+                    hfval_y = "y:[ ";
+                    hfval_w = "width:[ ";
+                    hfval_y_basedata = "y:[ ";
+                    high_confidence = "";
+                    low_confidence = "";
+                    hovertext = "";
+                    colorarray_inc++;
+                    ciLoStr = "";
+                    ciHiStr = "";
+
+                    hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
+                    hfval_y = hfval_y + "'" + datapoint + "',"; //finding the actual data value
+                    hfval_w = hfval_w + max_width + ",";
+                    hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value        
+
+                    high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
+                    low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
+                    hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+
+                    ciLoStr = ciLoStr + elow + ",";
+                    ciHiStr = ciHiStr + ehigh + ",";
+
+                    current_serieslabel = serieslabel;
+                }
+            }
+
+            string hiConData_col_final = "";//high_confidence.Substring(0, high_confidence.Length - 1) + "]";//removing the last comma
+            string loConData_col_final = "";//low_confidence.Substring(0, low_confidence.Length - 1) + "]";//removing the last comma
+            string hovertextData_final = "";//hovertext.Substring(0, hovertext.Length - 1) + "]";//removing the last comma
+
+            if (regex.IsMatch(high_confidence) && regex.IsMatch(low_confidence)) //if both are numeric, then add all of the values to the array. This accounts for missing CIs
+            {
+                hiConData_col_final = "array:[ " + high_confidence.Substring(0, high_confidence.Length - 1) + "]";
+                loConData_col_final = "arrayminus:[ " + low_confidence.Substring(0, low_confidence.Length - 1) + "]";
+                hovertextData_final = "text:[ " + hovertext.Substring(0, hovertext.Length - 1) + "]";
+            }
+            else //otherwise don't display any values, this accounts for scenarios where there aren't CIs
+            {
+                hiConData_col_final = "array:[ ]";
+                loConData_col_final = "arrayminus:[ ]";
+                hovertextData_final = "text:[ ]";
+            }
+
+            string xData_col_final = hfval_x.Substring(0, hfval_x.Length - 1) + "]";//removing the last comma
+            string yData_col_final = hfval_y.Substring(0, hfval_y.Length - 1) + "]";//removing the last comma
+            string wData_col_final = hfval_w.Substring(0, hfval_w.Length - 1) + "]";//removing the last comma
+            string yData_col_final_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
+
+            string ciXaxis = "var ciXaxis = " + xData_col_final.Substring(2) + ";";
+            string ciLoVal = "var ciLoVal" + cleanString(current_serieslabel) + " = [" + ciLoStr.Substring(0, ciLoStr.Length - 1) + "];";
+            string ciHiVal = "var ciHiVal" + cleanString(current_serieslabel) + " = [" + ciHiStr.Substring(0, ciHiStr.Length - 1) + "];";
+
+            string ciData = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
+            if (current_serieslabel == "Total" || current_serieslabel == "Overall")
+            {
+                ciData = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color:'#000000'},fillcolor: '#000000', opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
+            }
+
+            plotlyStr.Append(ciXaxis + ciHiVal + ciLoVal + ciData);
+
+            //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
+            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn || chartID == "4409" || chartID == "4412")
+                plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final);
+            else
+                plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
+
+            if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]" && hovertextData_final != "text:[ ]") //if there are empty values, then don't display the hover text for the errors
+                plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+
+            //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
+            if (current_serieslabel == "Total")
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: '#000000'},marker: {color: '#000000' , size: 12}};"); //appending the 'row' to the data name and adding the array data
+            else if (current_serieslabel == "Overall")
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color:'#000000'},marker: {color: '#000000' , size: 12}};"); //appending the 'row' to the data name and adding the array data
+            else
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},marker: {color: eval(colors_split[" + colorarray_inc + "]) , size: 12}};"); //appending the 'row' to the data name and adding the array data
+
+            //1/12/2021 - BS - added the basedata necessary for animation
+            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn || chartID == "4409" || chartID == "4412")
+                plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata);
+            else
+                plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + ", " + wData_col_final);
+
+            if (current_serieslabel == "Total")
+                //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: '#000000'},marker: {color: '#000000' , size: 12}};"); //appending the 'row' to the data name and adding the array data
+            else if (current_serieslabel == "Overall")
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5, dash:'dot'},legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: '#000000'}, marker: {color: '#000000' , size: 12}};"); //appending the 'row' to the data name and adding the array data
+            else
+                plotlyStr.Append(", connectgaps: true, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", mode: 'lines+markers', line: { simplify: false, width:5}, legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},marker: {color: eval(colors_split[" + colorarray_inc + "]) , size: 12}};"); //appending the 'row' to the data name and adding the array data
+
+            /*** 10/7/2022 Add reference line ***/
+            var refVal = RefValue(QNum);
+            if (refVal > 0)
+            {
+                if (QNum.Substring(1) != "754")
+                    plotlyStr.Append(" var refLine = {x: ['" + refXPos + "'],  y:[" + (refVal * 1.04) + "], textfont:{color: '#000000', size:'12px'}, mode: 'text', text:['<b>HP 2030 Target=" + refVal + "%</b>'],showlegend: false};");
+                else
+                    plotlyStr.Append(" var refLine = {x: ['" + refXPos + "'],  y:[" + (refVal * 1.04) + "], textfont:{color: '#000000', size:'12px'}, mode: 'text', text:['<b>HP 2030 Target=" + refVal + "</b>'],showlegend: false};");
+            }
+            //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique                                                                                                                                                                                 
+            plotlyGroups = plotlyGroups + "data" + cleanString(current_serieslabel) + "final , ciData" + cleanString(current_serieslabel) + ","; //adding the above data variable to the group variable
+            plotlyBaseGroups = plotlyBaseGroups + "basedata" + cleanString(current_serieslabel) + "final , ciData" + cleanString(current_serieslabel) + ","; //adding the above data variable to the group variable
+
+            //HF_D3Data.Value = theData;
+            if (plotlyGroups == "var data = [")// if this variable hasn't been added to, then add the above chartdata
+                plotlyGroups = plotlyGroups + "chartdata ";
+            if (plotlyBaseGroups == "var basedata = [")// if this variable hasn't been added to, then add the above chartdata
+                plotlyBaseGroups = plotlyBaseGroups + "basechartdata ";
+
+            string dataGroups = plotlyGroups.Substring(0, plotlyGroups.Length - 1) + "];";//otherwise, close the array and add it to the plotly string
+
+            /*** 10/7/2022 Add reference line ***/
+            //adding the base group data
+            dataGroups = dataGroups + plotlyBaseGroups.Substring(0, plotlyBaseGroups.Length - 1);//otherwise, close the array and add it to the plotly string
+            if (refVal > 0)
+            {
+                dataGroups = dataGroups + ",refLine ];";
+            }
+            else
+            {
+                dataGroups = dataGroups + "];";
+            }
+
+            plotlyStr.Append(dataGroups);
+            /*end Create data array logic*/
+
+            if (!plotlyStr.ToString().Contains("error_y")) //if confidence intervals aren't in the plotly string, then hide the checkbox
+                CB_ChartCI.Visible = false;
+
+            //adding the lix values to the hiddenfields to be referenced in the markup, commented out 4/9/2021
+            //adding the max values to the hiddenfields to be referenced in the markup, adding a cushion to the top of the chart to account for the title that has been added for the triple strat
+            if (QNum.Substring(1) == "751") /*** 10/7/2022 Display y axis up to 71 to display target ***/
+                hfMaxYVal.Value = (Math.Ceiling((max_yval * Decimal.Parse("1.1"))) + 7).ToString();
+            else if (max_yval < (Decimal)0.3)
+                hfMaxYVal.Value = "0.3";
+            else if (max_yval < (Decimal)0.5)
+                hfMaxYVal.Value = "0.5";
+            else
+                hfMaxYVal.Value = Math.Ceiling((max_yval * Decimal.Parse("1.1"))).ToString();
+            hfMaxConfidence.Value = Math.Ceiling((max_confidence * Decimal.Parse("1.1"))).ToString();
+
+            if (chartFormatType == DotNetChartStyle.StackedColumn)
+            { //if the default chart type is stacked, then use the maxstacked y value
+                if (string.IsNullOrEmpty(hfChartYValToUse.Value))
+                    hfChartYValToUse.Value = hfMaxStackedYVal.Value;
+                else
+                {
+                    double y1;
+                    double y2;
+
+                    double.TryParse(hfChartYValToUse.Value, out y1);
+                    double.TryParse(hfMaxStackedYVal.Value, out y2);
+                    hfChartYValToUse.Value = Math.Max(y1, y2).ToString();
+                }
+            }
+            else if (CB_ChartCI.Checked)
+            { //if the confidence intervals checkbox is checked, then use the max confidence value
+                if (string.IsNullOrEmpty(hfChartYValToUse.Value))
+                    hfChartYValToUse.Value = hfMaxConfidence.Value;
+                else
+                {
+                    double y1;
+                    double y2;
+
+                    double.TryParse(hfChartYValToUse.Value, out y1);
+                    double.TryParse(hfMaxConfidence.Value, out y2);
+                    hfChartYValToUse.Value = Math.Max(y1, y2).ToString();
+                }
+            }
+            else
+            { //otherwise use the max Y value
+                if (string.IsNullOrEmpty(hfChartYValToUse.Value))
+                    hfChartYValToUse.Value = hfMaxYVal.Value;
+                else
+                {
+                    double y1;
+                    double y2;
+
+                    double.TryParse(hfChartYValToUse.Value, out y1);
+                    double.TryParse(hfMaxYVal.Value, out y2);
+                    hfChartYValToUse.Value = Math.Max(y1, y2).ToString();
+                }
+            }
+
+            createPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, isMapPage, chartFormatType);
+        }
+
         private void buildPlotlyTripleStratChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
         {
             string hovertemplate = "hovertemplate: '%{text}'";
@@ -3132,11 +3645,6 @@ namespace CKDSurveillance_RD.MasterPages
                 /*create data array logic*/
 
                 string current_serieslabel = "";
-                string theData = "";
-
-                //*************************************** Third Attempt
-
-                theData = "[ ";
 
                 //Regex regex = new Regex(@"^\d+");//if there are digits anywhere in the data, then display the CI
                 Regex regex = new Regex(@"[\d]");
@@ -3521,16 +4029,549 @@ namespace CKDSurveillance_RD.MasterPages
 
             createTripleStratPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, tert_cnt, subplots, subplots_xaxis, titleannontations);
         }
+
+        private void buildPlotlyTripleStratLineChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
+        {
+            string hovertemplate = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
+            RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
+            if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
+                RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
+
+            //*Get Page*
+            ArborDataAccessV2 DAL = new ArborDataAccessV2();
+
+            //*If this is a Map, it will have no records*
+            if (dtPage.Rows.Count == 0) { return; }
+
+
+            string quintileColorSetting = getQuintileColorSetting();
+
+
+            //*Get ChartID*
+            string yr = getYear();
+            DataSet dsChart = DAL.getChart(Convert.ToInt32(chartID), yr, quintileColorSetting);
+
+            DataTable dtChartHeader = dsChart.Tables[0];
+            string chartFormatType = dtChartHeader.Rows[0]["DotNetChartStyleID"].ToString();
+            if (chartFormatType == DotNetChartStyle.Line) //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
+            {
+                RB_ChartType.SelectedValue = "'line'";
+                hfChartType.Value = "'line'";
+                hfChartMode.Value = "'group'";
+            }
+            else if (chartFormatType == DotNetChartStyle.StackedColumn)
+            {
+                RB_ChartType.SelectedValue = "'stacked'";
+                hfChartType.Value = "'bar'";
+                hfChartMode.Value = "'stack'";
+            }
+
+            //4/21/20 - the hidden field is filled with the initial radio button selections
+            hfChartColor.Value = RB_ChartColor.SelectedValue;
+
+            DataTable dtChart_preSort = dsChart.Tables[1];
+
+            DataTable dtChart_maxHeight = dsChart.Tables[1];
+
+            //BEGIN the finding the max value for a stacked bar chart
+            dtChart_maxHeight = datableReSort(dtChart_maxHeight, "Tertiary, Secondary", "ASC");
+
+            decimal max_stacked_yval = -1;
+            decimal current_stacked_yval = -1;
+            string current_stacked_secondary = "";
+            for (int i = 0; i <= dtChart_maxHeight.Rows.Count - 1; i++)
+            {
+                string secondary = dtChart_maxHeight.Rows[i]["Secondary"].ToString();
+
+                string datapoint = dtChart_maxHeight.Rows[i]["DataPoint"].ToString();
+                if (current_stacked_secondary != secondary)
+                {
+                    current_stacked_secondary = secondary;//moving on to the next secondary grouping
+                    if (current_stacked_yval > max_stacked_yval) //if the combined total of the values is larger than the current max, reset the current max with the current value
+                    {
+                        max_stacked_yval = current_stacked_yval;
+                    }
+                    decimal outdec;
+                    if (decimal.TryParse(datapoint, out outdec))//reseting the current stacked value
+                        current_stacked_yval = Decimal.Parse(datapoint);
+                    else
+                        current_stacked_yval = -1;
+                }
+                else
+                {
+                    decimal outdec;
+                    if (decimal.TryParse(datapoint, out outdec))
+                        current_stacked_yval = current_stacked_yval + Decimal.Parse(datapoint);
+
+                }
+            }
+            hfMaxStackedYVal.Value = Math.Ceiling((max_stacked_yval * Decimal.Parse("1.1"))).ToString();
+            //END the finding the max value for a stacked bar chart
+
+            //finding the distinct years
+            DataView tertiaryView = new DataView(dtChart_preSort);
+            DataTable distinctTertiary = tertiaryView.ToTable(true, "Tertiary");
+            DataTable distinctSecondary = tertiaryView.ToTable(true, "Secondary");
+
+            int totalxaxiscnt = distinctTertiary.Rows.Count * distinctSecondary.Rows.Count;
+            string tickangle = "0";
+
+            if (QNum.Substring(1) == "700")
+            {
+                tickangle = "10";
+            }
+
+
+            string plotlyGroups = "";
+            string plotlyBaseGroups = ""; //this will consist of all '0' values for the baseline aspect of the animated portion
+
+            StringBuilder plotlyStr = new StringBuilder();
+            int max_xaxis_cnt = 0;
+            int tert_cnt = 0;
+            double max_width = 0.4;
+            string subplots = "";
+            string subplots_xaxis = "";
+            string legendbool = "true";
+            string titleannontations = "";
+            List<string> xaxisArray = new List<string>();
+            decimal max_yval = -1; //this will be used to determine the height of the plot for the animated portion
+            decimal max_confidence = -1; //this will be used to determine the height of the plot for the animated portion with confidence intervals
+
+
+            for (int t = 0; t <= distinctTertiary.Rows.Count - 1; t++)
+            {
+                tert_cnt = t + 1;
+
+                string tertiary_var = distinctTertiary.Rows[t]["Tertiary"].ToString();
+                DataTable dtChart2 = dtChart_preSort.Select("Tertiary = '" + tertiary_var + "'").CopyToDataTable();
+                DataTable dtChart = dtChart2;
+
+                int xaxis_cnt = 0;
+
+                string current_s_compare = "";
+                for (int i = 0; i <= dtChart.Rows.Count - 1; i++)
+                {
+                    string s_compare = dtChart.Rows[i]["SeriesLabel"].ToString();
+
+                    if (current_s_compare == "" || current_s_compare != s_compare)
+                    {
+                        if (xaxis_cnt > max_xaxis_cnt)
+                            max_xaxis_cnt = xaxis_cnt;
+
+                        current_s_compare = s_compare;
+                        xaxis_cnt = 1;//start the increment
+                    }
+                    else
+                    {
+                        xaxis_cnt++;
+                    }
+                }
+
+                if (max_xaxis_cnt == 0) max_xaxis_cnt = xaxis_cnt; //if there is only one series, then set the max count to the xaxis count
+
+                string hfval_x = "x:[ "; //starting the arrays and adding spaces to so that the last character parse below doesn't fail
+                string hfval_y = "y:[ ";
+                string hfval_w = "width:[ ";
+                string hfval_y_basedata = "y:[ ";
+                string high_confidence = "";
+                string low_confidence = "";
+                string hovertext = "";
+
+
+
+                /*create data array logic*/
+
+                string current_serieslabel = "";
+
+                //Regex regex = new Regex(@"^\d+");//if there are digits anywhere in the data, then display the CI
+                Regex regex = new Regex(@"[\d]");
+                if (max_xaxis_cnt > 7) max_xaxis_cnt = 7;
+                else max_width = (max_xaxis_cnt * 0.1) / 2;
+
+                int wrapsize = 100 / max_xaxis_cnt;//finding the number of data points and wrapping the x-axis labels accordingly
+
+                int colorarray_inc = 0;
+                for (int i = 0; i <= dtChart.Rows.Count - 1; i++)
+                {
+                    string secondary = dtChart.Rows[i]["Secondary"].ToString();
+                    secondary = wrapText(secondary, wrapsize);
+                    string serieslabel = dtChart.Rows[i]["SeriesLabel"].ToString();
+                    string datapoint = dtChart.Rows[i]["DataPoint"].ToString();
+                    string ehigh = dtChart.Rows[i]["HighConfidenceInterval"].ToString();
+                    string elow = dtChart.Rows[i]["LowConfidenceInterval"].ToString();
+                    serieslabel = serieslabel.Replace("&", "and"); //overridding the & so that the chart doesn't fail
+
+                    decimal high_con_diff = -1; //initial setup
+                    decimal low_con_diff = -1;
+
+                    datapoint = datapoint.Replace("*", "null");
+
+                    Decimal outdec = 0;
+                    //finding the maxiumum value for the y-axis so the graph can be displayed properly
+                    if (Decimal.TryParse(datapoint, out outdec))
+                    {
+                        Decimal minmaxchk_datapoint = Decimal.Parse(datapoint);
+
+                        if (max_yval == -1)
+                        {
+                            if (QNum.Substring(1) == "801" && secondary == "70+ years")
+                            {
+                                max_yval = minmaxchk_datapoint;
+                            }
+                            else
+                            {
+                                max_yval = minmaxchk_datapoint;
+                            }
+                        }
+                        else if (QNum.Substring(1) == "801")
+                        {
+                            if (secondary == "70+ years")
+                            {
+                                max_yval += minmaxchk_datapoint;
+                            }
+                        }
+                        else if (minmaxchk_datapoint > max_yval) max_yval = minmaxchk_datapoint;
+                    }
+
+                    //finding the maxiumum value for the confidence intervals so the graph can be displayed properly
+                    if (Decimal.TryParse(ehigh, out outdec))
+                    {
+                        Decimal minmaxchk_ehigh = Decimal.Parse(ehigh);
+
+                        if (max_confidence == -1) max_confidence = minmaxchk_ehigh;
+                        else if (minmaxchk_ehigh > max_confidence) max_confidence = minmaxchk_ehigh;
+                    }
+
+                    if (!String.IsNullOrEmpty(datapoint))
+                    {
+                        if (!String.IsNullOrEmpty(ehigh))
+                            high_con_diff = Convert.ToDecimal(ehigh) - Convert.ToDecimal(datapoint);
+
+                        if (!String.IsNullOrEmpty(elow))
+                            low_con_diff = Convert.ToDecimal(datapoint) - Convert.ToDecimal(elow);
+                    }
+
+                    if (ehigh != "")
+                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
+                    if (elow != "")
+                        elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
+
+                    string str_high_con_diff = ""; //setup the string variable to be displayed
+                    string str_low_con_diff = "";
+
+                    if (high_con_diff != -1)//if the high difference isn't -1 then display the difference, otherwise display an empty string
+                        str_high_con_diff = high_con_diff.ToString();
+                    else
+                        str_high_con_diff = "";
+
+                    if (low_con_diff != -1)//if the low difference isn't -1 then display the difference, otherwise display an empty string
+                        str_low_con_diff = low_con_diff.ToString();
+                    else
+                        str_low_con_diff = "";
+
+                    if (current_serieslabel == "" || current_serieslabel == serieslabel)
+                    {
+                        hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
+                        hfval_y = hfval_y + "'" + datapoint + "',"; //finding the actual data value                  
+                        hfval_w = hfval_w + max_width + ",";
+                        hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value  
+
+                        high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
+                        low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
+                        hovertext = hovertext + "'" + secondary + ":&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+                        current_serieslabel = serieslabel;
+                    }
+                    else if (current_serieslabel != serieslabel)
+                    {
+                        string xData_col = hfval_x.Substring(0, hfval_x.Length - 1) + "]";//removing the last comma
+                        string yData_col = hfval_y.Substring(0, hfval_y.Length - 1) + "]";//removing the last comma
+                        string wData_col = hfval_w.Substring(0, hfval_w.Length - 1) + "]";//removing the last comma
+                        string yData_col_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma                    
+
+                        string hiConData_col = "";
+                        string loConData_col = "";
+                        string hovertextData = "";
+
+                        if (regex.IsMatch(high_confidence) && regex.IsMatch(low_confidence)) //both have numeric values
+                        {
+                            hiConData_col = "array:[ " + high_confidence.Substring(0, high_confidence.Length - 1) + "]";
+                            loConData_col = "arrayminus:[ " + low_confidence.Substring(0, low_confidence.Length - 1) + "]";
+                            hovertextData = "text:[ " + hovertext.Substring(0, hovertext.Length - 1) + "]";
+                        }
+                        else
+                        {
+                            hiConData_col = "array:[ ]";
+                            loConData_col = "arrayminus:[ ]";
+                            hovertextData = "text:[ ]";
+                        }
+
+                        //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
+                        plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col + "," + wData_col);
+                        if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
+                            plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+
+                        //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: true,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+
+                        //1/12/2021 - BS - added the basedata necessary for animation
+                        plotlyStr.Append(" var basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col_basedata + ", " + wData_col);
+                        //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ",connectgaps: true, line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+
+                        //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
+                        plotlyGroups = plotlyGroups + "data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ","; //adding the above data variable to the group variable
+
+                        //1/12/2021 - BS - added the basedata necessary for animation
+                        plotlyBaseGroups = plotlyBaseGroups + "basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ","; //adding the above basedata variable to the group variable
+
+                        xaxisArray.Add(hfval_x);
+                        hfval_x = "x:[ ";//resetting the arrays and adding spaces to so that the last character parse below doesn't fail
+                        hfval_y = "y:[ ";
+                        hfval_w = "width:[ ";
+                        hfval_y_basedata = "y:[ ";
+                        high_confidence = "";
+                        low_confidence = "";
+                        hovertext = "";
+                        colorarray_inc++;
+
+                        hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
+                        hfval_y = hfval_y + "'" + datapoint + "',"; //finding the actual data value
+                        hfval_w = hfval_w + max_width + ",";
+
+                        hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value   
+
+                        high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
+                        low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
+                        hovertext = hovertext + "'" + secondary + ":&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+
+                        current_serieslabel = serieslabel;
+                    }
+
+                }
+
+                float xtextloc_float = tert_cnt / (float)distinctTertiary.Rows.Count;
+
+
+                int tripChartCnt = distinctTertiary.Rows.Count;
+
+                switch (tripChartCnt)
+                {
+                    //setting the position of the text on the triple strat backgrounds based on the number of strats and the length of each strat name  
+                    case 1:
+
+                        if (tert_cnt == 1) xtextloc_float = .5F;
+                        else xtextloc_float = .5F;
+                        break;
+                    case 2:
+                        string tertStr_c2 = distinctTertiary.Rows[tert_cnt - 1][0].ToString();
+                        int tertCharLen_c2 = tertStr_c2.Length;
+                        if (tert_cnt == 1) if (tertCharLen_c2 > 12) xtextloc_float = .18F; else xtextloc_float = .21F;
+                        else if (tert_cnt == 2) if (tertCharLen_c2 > 12) xtextloc_float = .82F; else xtextloc_float = .79F;
+                        break;
+                    case 3:
+                        string tertStr_c3 = distinctTertiary.Rows[tert_cnt - 1][0].ToString();
+                        int tertCharLen_c3 = tertStr_c3.Length;
+                        if (tert_cnt == 1) { if (tertCharLen_c3 > 12) xtextloc_float = .05F; else if (tertCharLen_c3 > 6) xtextloc_float = .1F; else xtextloc_float = .13F; }
+                        else if (tert_cnt == 2) xtextloc_float = .5F;
+                        else if (tert_cnt == 3) { if (tertCharLen_c3 > 12) xtextloc_float = .92F; else if (tertCharLen_c3 > 6) xtextloc_float = .9F; else xtextloc_float = .87F; }
+                        else xtextloc_float = .87F;
+                        break;
+                    case 4:
+                        string tertStr_c4 = distinctTertiary.Rows[tert_cnt - 1][0].ToString();
+                        int tertCharLen_c4 = tertStr_c4.Length;
+                        if (tert_cnt == 1) { if (tertCharLen_c4 > 12) xtextloc_float = .05F; else if (tertCharLen_c4 > 6) xtextloc_float = .07F; else xtextloc_float = .1F; }
+                        else if (tert_cnt == 2) { if (tertCharLen_c4 > 12) xtextloc_float = .3F; else if (tertCharLen_c4 > 6) xtextloc_float = .38F; else xtextloc_float = .37F; }
+                        else if (tert_cnt == 3) { if (tertCharLen_c4 > 12) xtextloc_float = .65F; else if (tertCharLen_c4 > 6) xtextloc_float = .63F; else xtextloc_float = .63F; }
+                        else if (tert_cnt == 4) { if (tertCharLen_c4 > 12) xtextloc_float = .92F; else if (tertCharLen_c4 > 6) xtextloc_float = .93F; else xtextloc_float = .9F; }
+                        else xtextloc_float = .95F;
+                        break;
+                    case 5: //Q156 - race, Q664
+                        string tertStr_c5 = distinctTertiary.Rows[tert_cnt - 1][0].ToString();
+                        int tertCharLen_c5 = tertStr_c5.Length;
+                        if (tert_cnt == 1) { if (tertCharLen_c5 > 12) xtextloc_float = .01F; else if (tertCharLen_c5 > 6) xtextloc_float = .05F; else xtextloc_float = .13F; }
+                        else if (tert_cnt == 2) { if (tertCharLen_c5 > 12) xtextloc_float = .22F; else if (tertCharLen_c5 > 6) xtextloc_float = .25F; else xtextloc_float = .35F; }
+                        else if (tert_cnt == 3) xtextloc_float = .5F;
+                        else if (tert_cnt == 4) { if (tertCharLen_c5 > 12) xtextloc_float = .8F; else if (tertCharLen_c5 > 6) xtextloc_float = .75F; else xtextloc_float = .73F; }
+                        else if (tert_cnt == 5) { if (tertCharLen_c5 > 12) xtextloc_float = .98F; else if (tertCharLen_c5 > 6) xtextloc_float = .9F; else xtextloc_float = .93F; }
+                        else xtextloc_float = .92F;
+                        break;
+                    case 6: //Q711 - year (no longer for Q711), now Q272 stage, gender, year, Q706 year-hypertension
+                        string tertStr_c6 = distinctTertiary.Rows[tert_cnt - 1][0].ToString();
+                        int tertCharLen_c6 = tertStr_c6.Length;
+                        if (tert_cnt == 1) { if (tertCharLen_c6 > 12) xtextloc_float = .01F; else if (tertCharLen_c6 > 6) xtextloc_float = .04F; else if (tertCharLen_c6 > 3) xtextloc_float = .06F; else xtextloc_float = .03F; }
+                        else if (tert_cnt == 2) { if (tertCharLen_c6 > 12) xtextloc_float = .20F; else if (tertCharLen_c6 > 6) xtextloc_float = .21F; else if (tertCharLen_c6 > 3) xtextloc_float = .22F; else xtextloc_float = .23F; }
+                        else if (tert_cnt == 3) { if (tertCharLen_c6 > 12) xtextloc_float = .35F; else if (tertCharLen_c6 > 6) xtextloc_float = .42F; else if (tertCharLen_c6 > 3) xtextloc_float = .41F; else xtextloc_float = .45F; }
+                        else if (tert_cnt == 4) { if (tertCharLen_c6 > 12) xtextloc_float = .55F; else if (tertCharLen_c6 > 6) xtextloc_float = .59F; else if (tertCharLen_c6 > 3) xtextloc_float = .57F; else xtextloc_float = .65F; }
+                        else if (tert_cnt == 5) { if (tertCharLen_c6 > 12) xtextloc_float = .75F; else if (tertCharLen_c6 > 6) xtextloc_float = .8F; else if (tertCharLen_c6 > 3) xtextloc_float = .77F; else xtextloc_float = .82F; }
+                        else if (tert_cnt == 6) { if (tertCharLen_c6 > 12) xtextloc_float = .87F; else if (tertCharLen_c6 > 6) xtextloc_float = .96F; else if (tertCharLen_c6 > 3) xtextloc_float = .94F; else xtextloc_float = .98F; }
+                        else xtextloc_float = .92F;
+                        break;
+                    case 7: //Q272 - hypertension, year, ckd stage
+                        string tertStr_c7 = distinctTertiary.Rows[tert_cnt - 1][0].ToString();
+                        int tertCharLen_c7 = tertStr_c7.Length;
+                        if (tert_cnt == 1) { if (tertCharLen_c7 > 12) xtextloc_float = .01F; else if (tertCharLen_c7 > 6) xtextloc_float = .02F; else xtextloc_float = .06F; }
+                        else if (tert_cnt == 2) { if (tertCharLen_c7 > 12) xtextloc_float = .22F; else if (tertCharLen_c7 > 6) xtextloc_float = .18F; else xtextloc_float = .23F; }
+                        else if (tert_cnt == 3) { if (tertCharLen_c7 > 12) xtextloc_float = .7F; else if (tertCharLen_c7 > 6) xtextloc_float = .36F; else xtextloc_float = .42F; }
+                        else if (tert_cnt == 4) { if (tertCharLen_c7 > 12) xtextloc_float = .7F; else if (tertCharLen_c7 > 6) xtextloc_float = .5F; else xtextloc_float = .59F; }
+                        else if (tert_cnt == 5) { if (tertCharLen_c7 > 12) xtextloc_float = .8F; else if (tertCharLen_c7 > 6) xtextloc_float = .69F; else xtextloc_float = .78F; }
+                        else if (tert_cnt == 6) { if (tertCharLen_c7 > 12) xtextloc_float = .85F; else if (tertCharLen_c7 > 6) xtextloc_float = .84F; else xtextloc_float = .8F; }
+                        else if (tert_cnt == 7) { if (tertCharLen_c7 > 12) xtextloc_float = .9F; else if (tertCharLen_c7 > 6) xtextloc_float = .9F; else xtextloc_float = .96F; }
+                        else xtextloc_float = .92F;
+                        break;
+                    case 9: //Q272 - age, year, stage, all text is between 6 and 12 characters in length
+                        string tertStr_c8 = distinctTertiary.Rows[tert_cnt - 1][0].ToString();
+                        int tertCharLen_c8 = tertStr_c8.Length;
+                        if (tert_cnt == 1) { if (tertCharLen_c8 > 12) xtextloc_float = .01F; else if (tertCharLen_c8 > 6) xtextloc_float = .005F; else xtextloc_float = .06F; }
+                        else if (tert_cnt == 2) { if (tertCharLen_c8 > 12) xtextloc_float = .22F; else if (tertCharLen_c8 > 6) xtextloc_float = .13F; else xtextloc_float = .23F; }
+                        else if (tert_cnt == 3) { if (tertCharLen_c8 > 12) xtextloc_float = .7F; else if (tertCharLen_c8 > 6) xtextloc_float = .24F; else xtextloc_float = .42F; }
+                        else if (tert_cnt == 4) { if (tertCharLen_c8 > 12) xtextloc_float = .7F; else if (tertCharLen_c8 > 6) xtextloc_float = .39F; else xtextloc_float = .59F; }
+                        else if (tert_cnt == 5) { if (tertCharLen_c8 > 12) xtextloc_float = .8F; else if (tertCharLen_c8 > 6) xtextloc_float = .5F; else xtextloc_float = .78F; }
+                        else if (tert_cnt == 6) { if (tertCharLen_c8 > 12) xtextloc_float = .85F; else if (tertCharLen_c8 > 6) xtextloc_float = .61F; else xtextloc_float = .95F; }
+                        else if (tert_cnt == 7) { if (tertCharLen_c8 > 12) xtextloc_float = .85F; else if (tertCharLen_c8 > 6) xtextloc_float = .75F; else xtextloc_float = .95F; }
+                        else if (tert_cnt == 8) { if (tertCharLen_c8 > 12) xtextloc_float = .85F; else if (tertCharLen_c8 > 6) xtextloc_float = .88F; else xtextloc_float = .95F; }
+                        else if (tert_cnt == 9) { if (tertCharLen_c8 > 12) xtextloc_float = .85F; else if (tertCharLen_c8 > 6) xtextloc_float = .95F; else xtextloc_float = .97F; }
+                        else xtextloc_float = .92F;
+                        break;
+                    case 14: //Q651 - years
+                        string tertStr_c14 = distinctTertiary.Rows[tert_cnt - 1][0].ToString();
+                        int tertCharLen_c14 = tertStr_c14.Length;
+                        if (tert_cnt == 1) { if (tertCharLen_c14 > 12) xtextloc_float = .01F; else if (tertCharLen_c14 > 6) xtextloc_float = .05F; else xtextloc_float = .01F; }//05
+                        else if (tert_cnt == 2) { if (tertCharLen_c14 > 12) xtextloc_float = .22F; else if (tertCharLen_c14 > 6) xtextloc_float = .27F; else xtextloc_float = .08F; }//06
+                        else if (tert_cnt == 3) { if (tertCharLen_c14 > 12) xtextloc_float = .7F; else if (tertCharLen_c14 > 6) xtextloc_float = .65F; else xtextloc_float = .15F; }//07
+                        else if (tert_cnt == 4) { if (tertCharLen_c14 > 12) xtextloc_float = .7F; else if (tertCharLen_c14 > 6) xtextloc_float = .65F; else xtextloc_float = .23F; }//08
+                        else if (tert_cnt == 5) { if (tertCharLen_c14 > 12) xtextloc_float = .8F; else if (tertCharLen_c14 > 6) xtextloc_float = .85F; else xtextloc_float = .30F; }//09
+                        else if (tert_cnt == 6) { if (tertCharLen_c14 > 12) xtextloc_float = .85F; else if (tertCharLen_c14 > 6) xtextloc_float = .9F; else xtextloc_float = .39F; }//10
+                        else if (tert_cnt == 7) { if (tertCharLen_c14 > 12) xtextloc_float = .22F; else if (tertCharLen_c14 > 6) xtextloc_float = .27F; else xtextloc_float = .46F; }//11
+                        else if (tert_cnt == 8) { if (tertCharLen_c14 > 12) xtextloc_float = .7F; else if (tertCharLen_c14 > 6) xtextloc_float = .65F; else xtextloc_float = .54F; }//12
+                        else if (tert_cnt == 9) { if (tertCharLen_c14 > 12) xtextloc_float = .7F; else if (tertCharLen_c14 > 6) xtextloc_float = .65F; else xtextloc_float = .61F; }//13
+                        else if (tert_cnt == 10) { if (tertCharLen_c14 > 12) xtextloc_float = .8F; else if (tertCharLen_c14 > 6) xtextloc_float = .85F; else xtextloc_float = .70F; }//14
+                        else if (tert_cnt == 11) { if (tertCharLen_c14 > 12) xtextloc_float = .85F; else if (tertCharLen_c14 > 6) xtextloc_float = .9F; else xtextloc_float = .77F; }//15
+                        else if (tert_cnt == 12) { if (tertCharLen_c14 > 12) xtextloc_float = .22F; else if (tertCharLen_c14 > 6) xtextloc_float = .27F; else xtextloc_float = .85F; }//16
+                        else if (tert_cnt == 13) { if (tertCharLen_c14 > 12) xtextloc_float = .7F; else if (tertCharLen_c14 > 6) xtextloc_float = .65F; else xtextloc_float = .92F; }//17
+                        else if (tert_cnt == 14) { if (tertCharLen_c14 > 12) xtextloc_float = .7F; else if (tertCharLen_c14 > 6) xtextloc_float = .65F; else xtextloc_float = .99F; }//18
+                        else xtextloc_float = .92F;
+                        break;
+                }
+
+                string triplestratfontsize = "17";// 06/17/2021 REMOVE THIS LINE
+                tickangle = "0";
+                if (QNum.Substring(1) == "700")
+                {
+                    tickangle = "10";
+                }
+
+                titleannontations = titleannontations + " {text: '" + tertiary_var + "',font: {size: " + triplestratfontsize + "},showarrow: false,align: 'center',x: " + xtextloc_float.ToString() + ",y: 1.0,xref: 'paper',yref: 'paper'},";
+
+
+                string hiConData_col_final = "";//high_confidence.Substring(0, high_confidence.Length - 1) + "]";//removing the last comma
+                string loConData_col_final = "";//low_confidence.Substring(0, low_confidence.Length - 1) + "]";//removing the last comma
+                string hovertextData_final = "";//hovertext.Substring(0, hovertext.Length - 1) + "]";//removing the last comma                
+
+                if (regex.IsMatch(high_confidence) && regex.IsMatch(low_confidence)) //if both are numeric, then add all of the values to the array. This accounts for missing CIs
+                {
+                    hiConData_col_final = "array:[ " + high_confidence.Substring(0, high_confidence.Length - 1) + "]";
+                    loConData_col_final = "arrayminus:[ " + low_confidence.Substring(0, low_confidence.Length - 1) + "]";
+                    hovertextData_final = "text:[ " + hovertext.Substring(0, hovertext.Length - 1) + "]";
+                }
+                else //otherwise don't display any values, this accounts for scenarios where there aren't CIs
+                {
+                    hiConData_col_final = "array:[ ]";
+                    loConData_col_final = "arrayminus:[ ]";
+                    hovertextData_final = "text:[ ]";
+                }
+
+                //creating an array of [1,2,3,etc] based on the number of items on the xaxis. this loop increments through them to create the array
+                string xaxistickarray = "";
+                for (int i = 0; i < max_xaxis_cnt; i++)
+                {
+                    xaxistickarray = xaxistickarray + i.ToString() + ",";
+                }
+                xaxistickarray = xaxistickarray.Substring(0, xaxistickarray.Length - 1);
+
+                string longest = "";
+                int longestindex = -1;
+                xaxisArray.Add(hfval_x); //adding the final hfval_x to this array so that it can be compared
+                for (int ind = 0; ind < xaxisArray.Count; ind++) //loop through the array and find the longest value, this accounts for strats that are missing data
+                {
+                    if (xaxisArray[ind].Length > longest.Length)
+                    {
+                        longest = xaxisArray[ind];
+                        longestindex = ind;
+                    }
+                    ;
+                }
+
+
+
+
+                string hfval_x_ticks = xaxisArray[longestindex]; //once found, set it to the hfval_x so that it can be used
+
+
+                subplots = subplots + "'x" + tert_cnt + "',";
+                subplots_xaxis = subplots_xaxis + "xaxis" + tert_cnt + ": { dtick:1, linewidth: 0, showgrid: false, type: 'category', tickmode:'array', tickangle:" + tickangle + ", tickfont: {size: " + triplestratfontsize + " }, tickvals:[" + hfval_x_ticks.Substring(3, hfval_x_ticks.Length - 4) + "], ticktext:[" + hfval_x_ticks.Substring(3, hfval_x_ticks.Length - 4) + "]}, "; //removing the x:[ from the front of the string
+
+                string xData_col_final = hfval_x.Substring(0, hfval_x.Length - 1) + "]";//removing the last comma
+                string yData_col_final = hfval_y.Substring(0, hfval_y.Length - 1) + "]";//removing the last comma
+                string wData_col_final = hfval_w.Substring(0, hfval_w.Length - 1) + "]";//removing the last comma
+                string yData_col_final_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
+
+
+
+                //9/28/2020 - BS - added the increment value of 'final' to the data variable string so that it is unique
+                plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + "," + wData_col_final);
+                if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]" && hovertextData_final != "text:[ ]") //if there are empty values, then don't display the hover text for the errors
+                    plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+
+                //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
+                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: true,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+
+                //1/12/2021 - BS - added the basedata necessary for animation
+                plotlyStr.Append(" var basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + "," + wData_col_final);
+                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: true,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+
+                //9/28/2020 - BS - added the increment value of 'final' to the data variable string so that it is unique
+                plotlyGroups = plotlyGroups + "data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
+
+                plotlyBaseGroups = plotlyBaseGroups + "basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
+
+                /*end Create data array logic*/
+
+                if (!plotlyStr.ToString().Contains("error_y")) //if confidence intervals aren't in the plotly string, then hide the checkbox
+                    CB_ChartCI.Visible = false;
+
+                legendbool = "false"; //resetting this variable so that only the first legend is showing
+            }
+
+            plotlyGroups = "var data = [" + plotlyGroups;
+            plotlyBaseGroups = "var basedata = [" + plotlyBaseGroups; //this will consist of all '0' values for the baseline aspect of the animated portion
+
+            string dataGroups = plotlyGroups.Substring(0, plotlyGroups.Length - 1) + "];";//otherwise, close the array and add it to the plotly string
+
+            //adding the base group data
+            dataGroups = dataGroups + plotlyBaseGroups.Substring(0, plotlyBaseGroups.Length - 1) + "];";//otherwise, close the array and add it to the plotly string
+
+            plotlyStr.Append(dataGroups);
+
+            subplots = subplots.Substring(0, subplots.Length - 1);
+
+            //adding the max values to the hiddenfields to be referenced in the markup, adding a cushion to the top of the chart to account for the title that has been added for the triple strat
+            hfMaxYVal.Value = Math.Ceiling((max_yval * Decimal.Parse("1.1"))).ToString();
+            hfMaxConfidence.Value = Math.Ceiling((max_confidence * Decimal.Parse("1.1"))).ToString();
+
+            if (CB_ChartCI.Checked) //if the confidence intervals checkbox is checked, then use the max confidence value
+                hfChartYValToUse.Value = hfMaxConfidence.Value;
+            else //otherwise use the max Y value
+                hfChartYValToUse.Value = hfMaxYVal.Value;
+
+            createTripleStratPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, tert_cnt, subplots, subplots_xaxis, titleannontations);
+        }
+
         private void createTripleStratPlotlyScript(StringBuilder dataSb, string title, string xaxistitle, string yaxistitle, int xaxiscnt, int tert_cnt, string subplots, string subplots_xaxis, string titleannontations)
         {
-            string xtickfontsize = "19";  //"17";
-            string tickangle = "0";
             string yaxistitlefontsize = "21";
 
             if (xaxiscnt >= 7 || QNum.Substring(1) == "700")
             {
-                xtickfontsize = "19";  //"16";
-                tickangle = "10";
             }
 
             string yaxisfontsize = "19";  //"17";
@@ -3559,12 +4600,12 @@ namespace CKDSurveillance_RD.MasterPages
             sb.Append(" ,grid: { rows: 1, columns: " + tert_cnt + ", subplots: [" + subplots + "], pattern: 'coupled' }");
             sb.Append(" ,plot_bgcolor: '#FFFFFF' ");
             ////comment out the three lines below to hide the graphic identifier
-            sb.Append(" ,images: [{ x: 0.20, y: 1.18, sizex: 0.3, sizey: 0.3, 'opacity': 0.6");
+            sb.Append(" ,images: [{ layer: 'below', x: 0.20, y: 1.18, sizex: 0.3, sizey: 0.3, 'opacity': 0.6");
             //sb.Append(" ,source: 'images/graphic_identifier.png' ");
             sb.Append(" ,xanchor: 'right', xref: '0', yanchor: 'bottom', yref: '0'}] ");
 
             sb.Append(" ,annotations: [" + titleannontations + " { x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: '', showarrow: false, font: { size: 9 } },{ x: 0, y: 1.2, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '',showarrow: false }, {text: '<b></b>',font: {size: " + yaxisfontsize + "},showarrow: false,align: 'center',x: 0.6, y: 0.0, xref: 'paper',yref: 'paper',xshift: -70,yshift: -60}],"); //, font: { size: 20 }
-            sb.Append(" legend: {orientation: 'h',  y: -0.1, font:{size: " + legendfontsize + "}, traceorder:'normal'}," + subplots_xaxis + " barmode: eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', yaxis: {showgrid: true, zeroline:false, range: [0, eval($('#hfChartYValToUse').val())], xshift: -70, linecolor:'#bdbdbd', tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size:  " + yaxistitlefontsize + " } }, margin: {t: 50}};");
+            sb.Append(" legend: {orientation: 'h',  y: -0.1, font:{size: " + legendfontsize + "}, traceorder:'normal'}," + subplots_xaxis + " barmode: eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#000000',font: { color: '#000000', size: 14 }}, yaxis: {showgrid: true, zeroline:false, range: [0, eval($('#hfChartYValToUse').val())], xshift: -70, linecolor:'#bdbdbd', tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size:  " + yaxistitlefontsize + " } }, margin: {t: 50}};");
 
             if (isDefaultStd)
                 sb.Append(" var gd4 = d3.select('#svgchart');");
@@ -3594,7 +4635,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             sb.Append("");
             //2/9/2021 = BS- calling the auto scale so that the graph is redrawn with the remaining data taking up the entire chart (this is necessary for the animation to work properly), it must be above the window.resize or an error is caused
-            sb.Append(" graphdiv.on('plotly_legendclick', function(data) {legendAutoScaleClick(); }); ");
+            sb.Append(" graphdiv.on('plotly_legendclick', function(data) {legendAutoScaleClick(); legendCustomClick(data);}); ");
 
             sb.Append("window.onresize = function(){ Plotly.Plots.resize(graphdiv); }");
             sb.Append("}");
@@ -3661,7 +4702,7 @@ namespace CKDSurveillance_RD.MasterPages
 
 
             ////comment out the three lines below to hide the graphic identifier (used to pull images for the AYA)
-            sb.Append(" ,images: [{  x: 0.20, y: 1.1, sizex: 0.3, sizey: 0.3, 'opacity': 0.6,");
+            sb.Append(" ,images: [{  layer: 'below', x: 0.20, y: 1.1, sizex: 0.3, sizey: 0.3, 'opacity': 0.6,");
             sb.Append(" xanchor: 'right', xref: '0', yanchor: 'bottom', yref: '0' }] ");
 
             //}
@@ -3701,15 +4742,15 @@ namespace CKDSurveillance_RD.MasterPages
             if (isMapPage == true)
             {
                 //modify the x axis ticks/values for maps, dtick=1 shows all labels, automargin: true displays all labels and doesn't cut off text
-                sb.Append("showlegend:false, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, tickangle:" + tickangle + ", showgrid: false, tickfont: { size: " + xtickfontsize + " }, linewidth: 0, titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true,automargin: true, dtick: 1, xshift: -200, linewidth: 0, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+                sb.Append("showlegend:false, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest', xaxis: {dtick:1, tickangle:" + tickangle + ", showgrid: false, tickfont: { size: " + xtickfontsize + " }, linewidth: 0, titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true,automargin: true, dtick: 1, xshift: -200, linewidth: 0, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
             }
             else
             {
                 //type = category so all values are displayed, not just a group
                 if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
-                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }, traceorder:'normal'},  barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }, traceorder:'normal'},  barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#000000',font: { color: '#000000', size: 14 }}, xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
                 else
-                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:" + dtictval + ", type:'category', showgrid: " + showgridval + ", zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: " + linewidth + ", title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#000000',font: { color: '#000000', size: 14 }}, xaxis: {dtick:" + dtictval + ", type:'category', showgrid: " + showgridval + ", zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: " + linewidth + ", title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
             }
 
             if (isDefaultStd)
@@ -3751,7 +4792,7 @@ namespace CKDSurveillance_RD.MasterPages
 
             sb.Append("");
             //2/9/2021 = BS- calling the auto scale so that the graph is redrawn with the remaining data taking up the entire chart (this is necessary for the animation to work properly), it must be above the window.resize or an error is caused
-            sb.Append(" graphdiv.on('plotly_legendclick', function(data) {legendAutoScaleClick(); }); ");
+            sb.Append(" graphdiv.on('plotly_legendclick', function(data) {legendAutoScaleClick(); legendCustomClick(data);}); ");
 
             sb.Append("window.onresize = function(){ Plotly.Plots.resize(graphdiv); }");
 
