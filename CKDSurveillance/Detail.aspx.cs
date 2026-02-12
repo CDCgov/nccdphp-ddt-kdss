@@ -3129,6 +3129,9 @@ namespace CKDSurveillance_RD.MasterPages
             string hovertext = "";
 
             string plotlyGroups = "var data = [";
+            string plotlyDataGroups = "";
+            string plotlyBaseDataGroups = "";
+            string ciDataGroups = "";
             string plotlyBaseGroups = "var basedata = ["; //this will consist of all '0' values for the baseline aspect of the animated portion
             decimal max_yval = -1; //this will be used to determine the height of the plot for the animated portion
             decimal max_confidence = -1; //this will be used to determine the height of the plot for the animated portion with confidence intervals
@@ -3300,9 +3303,9 @@ namespace CKDSurveillance_RD.MasterPages
                     plotlyStr.Append(ciXData_col + ciLoData_col + ciHiData_col + ciData_col);
 
                     //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-                    plotlyGroups = plotlyGroups + "data" + cleanString(current_serieslabel) + i.ToString() + ", ciData" + cleanString(current_serieslabel) + ","; //adding the above data variable to the group variable
-                    //1/12/2021 - BS - added the basedata necessary for animation
-                    plotlyBaseGroups = plotlyBaseGroups + "basedata" + cleanString(current_serieslabel) + i.ToString() + ", ciData" + cleanString(current_serieslabel) + ","; //adding the above basedata variable to the group variable
+                    ciDataGroups = ciDataGroups + "ciData" + cleanString(current_serieslabel) + ","; //adding the above data variable to the CI group variable
+                    plotlyDataGroups = plotlyDataGroups + "data" + cleanString(current_serieslabel) + i.ToString() + ","; //adding the above data variable to the data group variable
+                    plotlyBaseDataGroups = plotlyBaseDataGroups + "basedata" + cleanString(current_serieslabel) + i.ToString() + ","; //adding the above basedata variable to the basedata group variabl;
 
                     hfval_x = "x:[ ";//resetting the arrays and adding spaces to so that the last character parse below doesn't fail
                     hfval_y = "y:[ ";
@@ -3330,6 +3333,9 @@ namespace CKDSurveillance_RD.MasterPages
                     current_serieslabel = serieslabel;
                 }
             }
+
+            plotlyGroups = plotlyGroups + ciDataGroups + plotlyDataGroups; //adding the CI data and the actual data to the group variable
+            plotlyBaseGroups = plotlyBaseGroups + ciDataGroups + plotlyBaseDataGroups; //adding the CI data and the actual basedata to the group variable
 
             string hiConData_col_final = "";//high_confidence.Substring(0, high_confidence.Length - 1) + "]";//removing the last comma
             string loConData_col_final = "";//low_confidence.Substring(0, low_confidence.Length - 1) + "]";//removing the last comma
@@ -3406,8 +3412,8 @@ namespace CKDSurveillance_RD.MasterPages
                     plotlyStr.Append(" var refLine = {x: ['" + refXPos + "'],  y:[" + (refVal * 1.04) + "], textfont:{color: '#000000', size:'12px'}, mode: 'text', text:['<b>HP 2030 Target=" + refVal + "</b>'],showlegend: false};");
             }
             //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique                                                                                                                                                                                 
-            plotlyGroups = plotlyGroups + "data" + cleanString(current_serieslabel) + "final , ciData" + cleanString(current_serieslabel) + ","; //adding the above data variable to the group variable
-            plotlyBaseGroups = plotlyBaseGroups + "basedata" + cleanString(current_serieslabel) + "final , ciData" + cleanString(current_serieslabel) + ","; //adding the above data variable to the group variable
+            plotlyGroups = plotlyGroups + "ciData" + cleanString(current_serieslabel) + ",data" + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
+            plotlyBaseGroups = plotlyBaseGroups + " ciData" + cleanString(current_serieslabel) + ",basedata" + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
 
             //HF_D3Data.Value = theData;
             if (plotlyGroups == "var data = [")// if this variable hasn't been added to, then add the above chartdata
