@@ -2364,7 +2364,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                     //Call different version for line chart and bar chart, so that the line chart can have the enhanced confidence intervals
                     if (chartFormatType == DotNetChartStyle.Line)
-                    { 
+                    {
                         buildPlotlyTripleStratLineChart(chartID.ToString(), dtPage, "<b>" + titletext + "</b>" + bypopulation + "<br>" + dsChart.Tables["Chart"].Rows[0]["DataSourceFullName"].ToString(), dsChart.Tables[0].Rows[0]["XAxisLabel"].ToString(), dsChart.Tables[0].Rows[0]["YAxisLabel"].ToString(), dv);
                     }
                     else
@@ -4132,9 +4132,6 @@ namespace CKDSurveillance_RD.MasterPages
             }
 
 
-            string plotlyGroups = "";
-            string plotlyBaseGroups = ""; //this will consist of all '0' values for the baseline aspect of the animated portion
-
             StringBuilder plotlyStr = new StringBuilder();
             int max_xaxis_cnt = 0;
             int tert_cnt = 0;
@@ -4147,6 +4144,9 @@ namespace CKDSurveillance_RD.MasterPages
             decimal max_yval = -1; //this will be used to determine the height of the plot for the animated portion
             decimal max_confidence = -1; //this will be used to determine the height of the plot for the animated portion with confidence intervals
 
+            StringBuilder plotlyDataGroups = new StringBuilder();
+            StringBuilder plotlyBaseDataGroups = new StringBuilder();
+            StringBuilder ciDataGroups = new StringBuilder();
 
             for (int t = 0; t <= distinctTertiary.Rows.Count - 1; t++)
             {
@@ -4186,6 +4186,8 @@ namespace CKDSurveillance_RD.MasterPages
                 string high_confidence = "";
                 string low_confidence = "";
                 string hovertext = "";
+                string ciLoStr = "";
+                string ciHiStr = "";
 
 
 
@@ -4288,7 +4290,9 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'" + secondary + ":&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+                        hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+                        ciLoStr = ciLoStr + elow + ",";
+                        ciHiStr = ciHiStr + ehigh + ",";
                         current_serieslabel = serieslabel;
                     }
                     else if (current_serieslabel != serieslabel)
@@ -4296,7 +4300,10 @@ namespace CKDSurveillance_RD.MasterPages
                         string xData_col = hfval_x.Substring(0, hfval_x.Length - 1) + "]";//removing the last comma
                         string yData_col = hfval_y.Substring(0, hfval_y.Length - 1) + "]";//removing the last comma
                         string wData_col = hfval_w.Substring(0, hfval_w.Length - 1) + "]";//removing the last comma
-                        string yData_col_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma                    
+                        string yData_col_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
+                        string ciXData_col = "var ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = [" + hfval_x.Substring(3, hfval_x.Length - 4) + "];";
+                        string ciLoData_col = "var ciLoVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = [" + ciLoStr.Substring(0, ciLoStr.Length - 1) + "];";//removing the last comma
+                        string ciHiData_col = "var ciHiVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = [" + ciHiStr.Substring(0, ciHiStr.Length - 1) + "];";//removing the last comma   
 
                         string hiConData_col = "";
                         string loConData_col = "";
@@ -4321,18 +4328,21 @@ namespace CKDSurveillance_RD.MasterPages
                             plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
 
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,mode: 'lines+markers',line: { simplify: false, width:5}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
                         //1/12/2021 - BS - added the basedata necessary for animation
                         plotlyStr.Append(" var basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col_basedata + ", " + wData_col);
                         //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
-                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ",connectgaps: false, line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+                        plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ",connectgaps: false,mode: 'lines+markers', line: { simplify: false, width:5}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+
+                        string ciData_col = "var ciData" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {x: [...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ", ...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ".slice().reverse()], y: [...ciLoVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ", ...ciHiVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ".slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val()), xaxis:'x" + tert_cnt + "'};";
+
+                        plotlyStr.Append(ciXData_col + ciLoData_col + ciHiData_col + ciData_col);
 
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-                        plotlyGroups = plotlyGroups + "data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ","; //adding the above data variable to the group variable
-
-                        //1/12/2021 - BS - added the basedata necessary for animation
-                        plotlyBaseGroups = plotlyBaseGroups + "basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ","; //adding the above basedata variable to the group variable
+                        ciDataGroups.Append("ciData" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ","); //adding the above data variable to the CI group variable
+                        plotlyDataGroups.Append("data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ","); //adding the above data variable to the data group variable
+                        plotlyBaseDataGroups.Append("basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ","); //adding the above basedata variable to the basedata group variable
 
                         xaxisArray.Add(hfval_x);
                         hfval_x = "x:[ ";//resetting the arrays and adding spaces to so that the last character parse below doesn't fail
@@ -4342,6 +4352,8 @@ namespace CKDSurveillance_RD.MasterPages
                         high_confidence = "";
                         low_confidence = "";
                         hovertext = "";
+                        ciLoStr = "";
+                        ciHiStr = "";
                         colorarray_inc++;
 
                         hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
@@ -4352,7 +4364,9 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'" + secondary + ":&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+                        hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+                        ciLoStr = ciLoStr + elow + ",";
+                        ciHiStr = ciHiStr + ehigh + ",";
 
                         current_serieslabel = serieslabel;
                     }
@@ -4525,7 +4539,13 @@ namespace CKDSurveillance_RD.MasterPages
                 string wData_col_final = hfval_w.Substring(0, hfval_w.Length - 1) + "]";//removing the last comma
                 string yData_col_final_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
 
+                string ciXaxis = "var ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = " + xData_col_final.Substring(2) + ";";
+                string ciLoVal = "var ciLoVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = [" + ciLoStr.Substring(0, ciLoStr.Length - 1) + "];";
+                string ciHiVal = "var ciHiVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = [" + ciHiStr.Substring(0, ciHiStr.Length - 1) + "];";
 
+                string ciData = "var ciData" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {x: [...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final, ...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final.slice().reverse()], y: [...ciLoVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final, ...ciHiVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final.slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val()), xaxis:'x" + tert_cnt + "'};";
+
+                plotlyStr.Append(ciXaxis + ciHiVal + ciLoVal + ciData);
 
                 //9/28/2020 - BS - added the increment value of 'final' to the data variable string so that it is unique
                 plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + "," + wData_col_final);
@@ -4533,16 +4553,16 @@ namespace CKDSurveillance_RD.MasterPages
                     plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
 
                 //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,mode: 'lines+markers',line: { simplify: false, width:5}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
                 //1/12/2021 - BS - added the basedata necessary for animation
                 plotlyStr.Append(" var basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + "," + wData_col_final);
-                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
+                plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,mode: 'lines+markers',line: { simplify: false, width:5}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
                 //9/28/2020 - BS - added the increment value of 'final' to the data variable string so that it is unique
-                plotlyGroups = plotlyGroups + "data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
-
-                plotlyBaseGroups = plotlyBaseGroups + "basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
+                ciDataGroups.Append("ciData" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final,");
+                plotlyDataGroups.Append("data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final,"); //adding the above data variable to the group variable
+                plotlyBaseDataGroups.Append("basedata" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final,"); //adding the above data variable to the group variable
 
                 /*end Create data array logic*/
 
@@ -4552,8 +4572,8 @@ namespace CKDSurveillance_RD.MasterPages
                 legendbool = "false"; //resetting this variable so that only the first legend is showing
             }
 
-            plotlyGroups = "var data = [" + plotlyGroups;
-            plotlyBaseGroups = "var basedata = [" + plotlyBaseGroups; //this will consist of all '0' values for the baseline aspect of the animated portion
+            string plotlyGroups = "var data = [" + ciDataGroups.ToString() + plotlyDataGroups.ToString();
+            string plotlyBaseGroups = "var basedata = [" + ciDataGroups.ToString() + plotlyBaseDataGroups.ToString(); //this will consist of all '0' values for the baseline aspect of the animated portion
 
             string dataGroups = plotlyGroups.Substring(0, plotlyGroups.Length - 1) + "];";//otherwise, close the array and add it to the plotly string
 
