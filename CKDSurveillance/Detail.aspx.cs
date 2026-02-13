@@ -2869,7 +2869,7 @@ namespace CKDSurveillance_RD.MasterPages
             string yData_col_final_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
 
             //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
+            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn || chartID == "4409" || chartID == "4412")
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final);
             else
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
@@ -2888,7 +2888,7 @@ namespace CKDSurveillance_RD.MasterPages
                 plotlyStr.Append(", connectgaps: false, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", line: { simplify: false, width:3}, meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
             //1/12/2021 - BS - added the basedata necessary for animation
-            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
+            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn || chartID == "4409" || chartID == "4412")
                 plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata);
             else
                 plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + ", " + wData_col_final);
