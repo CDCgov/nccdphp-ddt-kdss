@@ -2757,7 +2757,10 @@ namespace CKDSurveillance_RD.MasterPages
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                    hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+                    if (!String.IsNullOrEmpty(ehigh) && !String.IsNullOrEmpty(elow))
+                        hovertext = hovertext + FormatHoverText(elow, ehigh);
+                    else
+                        hovertext = hovertext + "'',";
 
                     current_serieslabel = serieslabel;
                 }
@@ -2831,7 +2834,10 @@ namespace CKDSurveillance_RD.MasterPages
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                    hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+                    if (!String.IsNullOrEmpty(ehigh) && !String.IsNullOrEmpty(elow) && CB_ChartCI.Visible)
+                        hovertext = hovertext + FormatHoverText(elow, ehigh);
+                    else
+                        hovertext = hovertext + "'',";
 
                     current_serieslabel = serieslabel;
                 }
@@ -3150,6 +3156,7 @@ namespace CKDSurveillance_RD.MasterPages
             var refXPos = "";
             var ciLoStr = "";
             var ciHiStr = "";
+            bool hasAnyCI = false; // Track if any CIs exist
 
             for (int i = 0; i <= dtChart.Rows.Count - 1; i++)
             {
@@ -3194,10 +3201,16 @@ namespace CKDSurveillance_RD.MasterPages
                 if (!String.IsNullOrEmpty(datapoint))
                 {
                     if (!String.IsNullOrEmpty(ehigh))
+                    {
                         high_con_diff = Convert.ToDecimal(ehigh) - Convert.ToDecimal(datapoint);
+                        hasAnyCI = true;
+                    }
 
                     if (!String.IsNullOrEmpty(elow))
+                    {
                         low_con_diff = Convert.ToDecimal(datapoint) - Convert.ToDecimal(elow);
+                        hasAnyCI = true;
+                    }
                 }
 
                 if (QNum.Substring(1) == "372")
@@ -3237,9 +3250,16 @@ namespace CKDSurveillance_RD.MasterPages
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                    hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
-                    ciLoStr = ciLoStr + elow + ",";
-                    ciHiStr = ciHiStr + ehigh + ",";
+
+                    // Always add hover text in the same format, even if CI values are empty
+                    if (!String.IsNullOrEmpty(ehigh) && !String.IsNullOrEmpty(elow))
+                        hovertext = hovertext + FormatHoverText(elow, ehigh);
+                    else
+                        hovertext = hovertext + "'',";
+                    //hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>No CI Available</b>',";
+
+                    ciLoStr = ciLoStr + (String.IsNullOrEmpty(elow) ? "0" : elow) + ",";
+                    ciHiStr = ciHiStr + (String.IsNullOrEmpty(ehigh) ? "0" : ehigh) + ",";
                     current_serieslabel = serieslabel;
                 }
                 else if (current_serieslabel != serieslabel)
@@ -3275,6 +3295,8 @@ namespace CKDSurveillance_RD.MasterPages
 
                     if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
                         plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+                    else
+                        plotlyStr.Append(", " + hovertextData + "," + hovertemplate); // Include hover text even without error bars
 
                     //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
                     if (current_serieslabel == "Total")
@@ -3326,10 +3348,16 @@ namespace CKDSurveillance_RD.MasterPages
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                    hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
 
-                    ciLoStr = ciLoStr + elow + ",";
-                    ciHiStr = ciHiStr + ehigh + ",";
+                    // Always add hover text in the same format
+                    if (!String.IsNullOrEmpty(ehigh) && !String.IsNullOrEmpty(elow))
+                        hovertext = hovertext + FormatHoverText(elow, ehigh);
+                    else
+                        hovertext = hovertext + "'',";
+                    //hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>No CI Available</b>',";
+
+                    ciLoStr = ciLoStr + (String.IsNullOrEmpty(elow) ? "0" : elow) + ",";
+                    ciHiStr = ciHiStr + (String.IsNullOrEmpty(ehigh) ? "0" : ehigh) + ",";
 
                     current_serieslabel = serieslabel;
                 }
@@ -3346,14 +3374,15 @@ namespace CKDSurveillance_RD.MasterPages
             {
                 hiConData_col_final = "array:[ " + high_confidence.Substring(0, high_confidence.Length - 1) + "]";
                 loConData_col_final = "arrayminus:[ " + low_confidence.Substring(0, low_confidence.Length - 1) + "]";
-                hovertextData_final = "text:[ " + hovertext.Substring(0, hovertext.Length - 1) + "]";
             }
             else //otherwise don't display any values, this accounts for scenarios where there aren't CIs
             {
                 hiConData_col_final = "array:[ ]";
                 loConData_col_final = "arrayminus:[ ]";
-                hovertextData_final = "text:[ ]";
             }
+
+            // Always include hover text
+            hovertextData_final = "text:[ " + hovertext.Substring(0, hovertext.Length - 1) + "]";
 
             string xData_col_final = hfval_x.Substring(0, hfval_x.Length - 1) + "]";//removing the last comma
             string yData_col_final = hfval_y.Substring(0, hfval_y.Length - 1) + "]";//removing the last comma
@@ -3378,8 +3407,10 @@ namespace CKDSurveillance_RD.MasterPages
             else
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
 
-            if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]" && hovertextData_final != "text:[ ]") //if there are empty values, then don't display the hover text for the errors
+            if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]") //if there are error bars
                 plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+            else // No error bars but still include hover text
+                plotlyStr.Append(", " + hovertextData_final + "," + hovertemplate);
 
             //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
             if (current_serieslabel == "Total")
@@ -3417,8 +3448,8 @@ namespace CKDSurveillance_RD.MasterPages
             //plotlyGroups = plotlyGroups + ciDataGroups + plotlyDataGroups; //adding the CI data and the actual data to the group variable
             //plotlyBaseGroups = plotlyBaseGroups + ciDataGroups + plotlyBaseDataGroups; //adding the CI data and the actual basedata to th
 
-            plotlyGroups = plotlyGroups + ciDataGroups  + "ciData" + cleanString(current_serieslabel) + ", " +  plotlyDataGroups + "data" + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
-            plotlyBaseGroups = plotlyBaseGroups + ciDataGroups  + " ciData" + cleanString(current_serieslabel) + ", " + plotlyBaseDataGroups + "basedata" + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
+            plotlyGroups = plotlyGroups + ciDataGroups + "ciData" + cleanString(current_serieslabel) + ", " + plotlyDataGroups + "data" + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
+            plotlyBaseGroups = plotlyBaseGroups + ciDataGroups + " ciData" + cleanString(current_serieslabel) + ", " + plotlyBaseDataGroups + "basedata" + cleanString(current_serieslabel) + "final ,"; //adding the above data variable to the group variable
 
             //HF_D3Data.Value = theData;
             if (plotlyGroups == "var data = [")// if this variable hasn't been added to, then add the above chartdata
@@ -3506,7 +3537,7 @@ namespace CKDSurveillance_RD.MasterPages
 
         private void buildPlotlyTripleStratChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
         {
-            string hovertemplate = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>95% CI: %{text}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
                 RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
@@ -3750,7 +3781,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'" + elow + "-" + ehigh + "',";
+                        hovertext = hovertext + FormatHoverText(elow, ehigh);
 
                         current_serieslabel = serieslabel;
                     }
@@ -3815,7 +3846,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'" + elow + "-" + ehigh + "',";
+                        hovertext = hovertext + FormatHoverText(elow, ehigh);
 
                         current_serieslabel = serieslabel;
                     }
@@ -4289,7 +4320,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+                        hovertext = hovertext + FormatHoverText(elow, ehigh);
                         ciLoStr = ciLoStr + elow + ",";
                         ciHiStr = ciHiStr + ehigh + ",";
                         current_serieslabel = serieslabel;
@@ -4363,7 +4394,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + elow + "-" + ehigh + "</b> 95% CI',";
+                        hovertext = hovertext + FormatHoverText(elow, ehigh);
                         ciLoStr = ciLoStr + elow + ",";
                         ciHiStr = ciHiStr + ehigh + ",";
 
@@ -6106,6 +6137,11 @@ namespace CKDSurveillance_RD.MasterPages
             }
 
             return html;
+        }
+
+        protected string FormatHoverText(string strlow, string strhigh)
+        {
+            return "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + strlow + "-" + strhigh + "</b> 95% CI',";
         }
     }
 }
