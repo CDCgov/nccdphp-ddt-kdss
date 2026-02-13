@@ -2779,21 +2779,23 @@ namespace CKDSurveillance_RD.MasterPages
                     {
                         hiConData_col = "array:[ " + high_confidence.Substring(0, high_confidence.Length - 1) + "]";
                         loConData_col = "arrayminus:[ " + low_confidence.Substring(0, low_confidence.Length - 1) + "]";
-                        hovertextData = "text:[ " + hovertext.Substring(0, hovertext.Length - 1) + "]";
                     }
                     else
                     {
                         hiConData_col = "array:[ ]";
                         loConData_col = "arrayminus:[ ]";
-                        hovertextData = "text:[ ]";
                     }
 
+                    // Always include hover text regardless of CI presence
+                    hovertextData = "text:[ " + hovertext.Substring(0, hovertext.Length - 1) + "]";
 
                     //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                     plotlyStr.Append(" var data" + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col);
 
                     if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
                         plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+                    else
+                        plotlyStr.Append(", " + hovertextData + "," + hovertemplate); // Include hover text even without error bars
 
                     //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
                     if (current_serieslabel == "Total")
@@ -2851,14 +2853,15 @@ namespace CKDSurveillance_RD.MasterPages
             {
                 hiConData_col_final = "array:[ " + high_confidence.Substring(0, high_confidence.Length - 1) + "]";
                 loConData_col_final = "arrayminus:[ " + low_confidence.Substring(0, low_confidence.Length - 1) + "]";
-                hovertextData_final = "text:[ " + hovertext.Substring(0, hovertext.Length - 1) + "]";
             }
             else //otherwise don't display any values, this accounts for scenarios where there aren't CIs
             {
                 hiConData_col_final = "array:[ ]";
                 loConData_col_final = "arrayminus:[ ]";
-                hovertextData_final = "text:[ ]";
             }
+
+            // Always include hover text regardless of CI presence
+            hovertextData_final = "text:[ " + hovertext.Substring(0, hovertext.Length - 1) + "]";
 
             string xData_col_final = hfval_x.Substring(0, hfval_x.Length - 1) + "]";//removing the last comma
             string yData_col_final = hfval_y.Substring(0, hfval_y.Length - 1) + "]";//removing the last comma
@@ -2871,8 +2874,10 @@ namespace CKDSurveillance_RD.MasterPages
             else
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
 
-            if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]" && hovertextData_final != "text:[ ]") //if there are empty values, then don't display the hover text for the errors
+            if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]") //if there are error bars
                 plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+            else // No error bars but still include hover text
+                plotlyStr.Append(", " + hovertextData_final + "," + hovertemplate);
 
             //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
             if (current_serieslabel == "Total")
