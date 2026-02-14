@@ -3004,6 +3004,7 @@ namespace CKDSurveillance_RD.MasterPages
         {
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
             string hovertemplate = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
+            string hovertemplateNoCI = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
             string selectedColor = "";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             selectedColor = RB_ChartColor.SelectedValue;
@@ -3261,7 +3262,6 @@ namespace CKDSurveillance_RD.MasterPages
                         hovertext = hovertext + FormatHoverText(elow, ehigh);
                     else
                         hovertext = hovertext + "'',";
-                    //hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>No CI Available</b>',";
 
                     ciLoStr = ciLoStr + (String.IsNullOrEmpty(elow) ? "0" : elow) + ",";
                     ciHiStr = ciHiStr + (String.IsNullOrEmpty(ehigh) ? "0" : ehigh) + ",";
@@ -3301,7 +3301,7 @@ namespace CKDSurveillance_RD.MasterPages
                     if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
                         plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
                     else
-                        plotlyStr.Append(", " + hovertextData + "," + hovertemplate); // Include hover text even without error bars
+                        plotlyStr.Append(", " + hovertextData + "," + hovertemplateNoCI); // Include hover text even without error bars
 
                     //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
                     if (current_serieslabel == "Total")
@@ -3359,7 +3359,6 @@ namespace CKDSurveillance_RD.MasterPages
                         hovertext = hovertext + FormatHoverText(elow, ehigh);
                     else
                         hovertext = hovertext + "'',";
-                    //hovertext = hovertext + "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>No CI Available</b>',";
 
                     ciLoStr = ciLoStr + (String.IsNullOrEmpty(elow) ? "0" : elow) + ",";
                     ciHiStr = ciHiStr + (String.IsNullOrEmpty(ehigh) ? "0" : ehigh) + ",";
@@ -3415,7 +3414,7 @@ namespace CKDSurveillance_RD.MasterPages
             if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]") //if there are error bars
                 plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
             else // No error bars but still include hover text
-                plotlyStr.Append(", " + hovertextData_final + "," + hovertemplate);
+                plotlyStr.Append(", " + hovertextData_final + "," + hovertemplateNoCI);
 
             //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
             if (current_serieslabel == "Total")
@@ -4078,6 +4077,7 @@ namespace CKDSurveillance_RD.MasterPages
         private void buildPlotlyTripleStratLineChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
         {
             string hovertemplate = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
+
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
                 RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
