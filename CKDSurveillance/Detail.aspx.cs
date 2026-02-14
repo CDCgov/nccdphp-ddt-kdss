@@ -5246,8 +5246,8 @@ namespace CKDSurveillance_RD.MasterPages
                         hasErrors = true;
                     }
                     else {
-                        var ds = DAL.getPage("Q" + num);
-                        if(ds == null || ds.Tables == null || ds.Tables.Count == 0 || ds.Tables[0].Rows == null || ds.Tables[0].Rows.Count == 0)
+                        var ds = getCachedPageData("Q" + num);
+                        if(ds == null || ds.Rows == null || ds.Rows.Count == 0)
                         {
                             hasErrors = true;
                         }
