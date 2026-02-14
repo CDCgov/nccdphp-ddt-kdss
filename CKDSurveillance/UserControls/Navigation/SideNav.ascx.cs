@@ -74,21 +74,17 @@ namespace CKDSurveillance_RD
 
             //**************
             //*Get Topic ID*
-            //**************
-            if (Session["TopicID"] != null)
+            //**************            
+            if (ViewState["TopicID"] != null)
             {
-                TopicID = Session["TopicID"].ToString();
+                TopicID = ViewState["TopicID"].ToString();
             }
-            //else if (ViewState["TopicID"] != null)
-            //{
-            //    TopicID = ViewState["TopicID"].ToString();
-            //}
-            //else if (Request.QueryString["topic"] != null)
-            //{
-            //    TopicID = Request.QueryString["topic"].ToString().Trim();
-            //}
+            else if (Request.QueryString["topic"] != null)
+            {
+                TopicID = Request.QueryString["topic"].ToString().Trim();
+            }
             //Set this in session for access by Methods page
-            //Session["TopicID"] = TopicID;
+            Session["TopicID"] = TopicID;
 
             //*************
             //*Get QNumber*
@@ -101,7 +97,17 @@ namespace CKDSurveillance_RD
             Session["qnum"] = QNum;
             aya_signup.Visible = false;
 
-            if (Request.RawUrl.IndexOf("AreYouAware.aspx") >= 0)
+            if (TopicID != TopicConstants.PrevalenceIncidence &&
+                TopicID != TopicConstants.Awareness &&
+                TopicID != TopicConstants.RiskFactors &&
+                TopicID != TopicConstants.Outcomes &&
+                TopicID != TopicConstants.QualityOfCare &&
+                TopicID != TopicConstants.SocialDeterminantsOfHealth &&
+                TopicID != TopicConstants.AYAArchive)
+            {
+                Response.Redirect(directoryPath + "Default.aspx");
+            }
+            else if (Request.RawUrl.IndexOf("AreYouAware.aspx") >= 0)
             {
                 TopicID = "0";
                 Lit_IndicatorText.Visible = true;
@@ -116,7 +122,8 @@ namespace CKDSurveillance_RD
                 divAYARF.Visible = false;
                 return;
             }
-            else if (TopicID == "25") { // Awareness Archive
+            else if (TopicID == TopicConstants.AYAArchive)
+            { // Awareness Archive
                 Lit_IndicatorText.Visible = false;
                 divAYA.Visible = false;
                 divAYARF.Visible = false;
@@ -183,7 +190,7 @@ namespace CKDSurveillance_RD
         {
             StringBuilder ayaTable = new StringBuilder();
 
-            DataTable dtAYA = DAL.get_AYA_Entries_for_FP_Widget(); 
+            DataTable dtAYA = DAL.get_AYA_Entries_for_FP_Widget();
 
             //Process table*            
             foreach (DataRow dr in dtAYA.Rows)

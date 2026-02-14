@@ -46,19 +46,15 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             ChartType_2 = dt.Rows[0]["TopicHomeChartType_2"].ToString();
             Year_2 = dt.Rows[0]["TopicHomeChartYear_2"].ToString();
 
-            if (TopicID == TopicConstants.AYAArchive) {
+            if (TopicID.ToString() == TopicConstants.AYAArchive) {
                 createAYAPageContent();
             }
-            else if (TopicID != TopicConstants.SocialDeterminantsOfHealth)
+            else if (TopicID.ToString() != TopicConstants.SocialDeterminantsOfHealth)
             {
-                //sdohimg1.Visible = false;
-                //sdohimg2.Visible = false;
                 createPageContent();
             }            
             else
             {
-                //sdohimg1.Visible = true;
-                //sdohimg2.Visible = true;
                 createStaticPageContent();
             }
         }
@@ -962,7 +958,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
                 {
                     sbBodyTable.Append("<div class=\"div-table-row nav-section-home\" style=\"border-left: 4px; padding:10px; border-bottom: 1px dashed #e0e0e0; \" >");
                     // Build link
-                    string linkStart = ("<a style=\"text-align: left; font-family: Nunito; font-size: 18px; letter-spacing: 0px; color: #0b4778; opacity: 1; text-decoration:none; \"  href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "#refreshPosition\" + \"#PIdivbody\" >"));  /*#007C91*/
+                    string linkStart = ("<a style=\"text-align: left; font-family: Nunito; font-size: 18px; letter-spacing: 0px; color: #0b4778; opacity: 1; text-decoration:none; \"  href=\"../detail.aspx?Qnum=" + (drInd["QNUM"].ToString().Trim() + "&topic=" + TopicID + "#refreshPosition\" + \"#PIdivbody\" >"));  /*#007C91*/
                     string text = drInd["IndicatorText"].ToString().Trim();
                     string linkEnd = "</a>";
 

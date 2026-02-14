@@ -448,7 +448,11 @@ namespace CKDSurveillance_RD.UserControls
                 //chosenYear = chosenYear;
             }
 
-            topic = Session["TopicID"]?.ToString();
+            if (url.Contains("&topic"))
+            {
+                topic = Request.QueryString["topic"].Trim().Replace("%20", " ").Trim();
+                //chosenYear = chosenYear;
+            }
 
             //*Populate Table values and set 'selected' value*
             foreach (DataRow dr in dt.Rows)

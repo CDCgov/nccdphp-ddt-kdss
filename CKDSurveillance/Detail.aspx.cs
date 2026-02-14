@@ -5227,9 +5227,33 @@ namespace CKDSurveillance_RD.MasterPages
                 else if (!Utilities.CheckForNumeric(num))
                 {
                     hasErrors = true;
+                }               
+                else
+                {
+                    string s = url.Replace("&amp;", "&");
+
+                    var m = Regex.Match(s, @"(?:\?|&)(?i:topic)=([^&#]+)");
+                    string topic = m.Success ? m.Groups[1].Value : null;
+
+                    if (topic != TopicConstants.PrevalenceIncidence &&
+                       topic != TopicConstants.Awareness &&
+                       topic != TopicConstants.RiskFactors &&
+                       topic != TopicConstants.Outcomes &&
+                       topic != TopicConstants.QualityOfCare &&
+                       topic != TopicConstants.SocialDeterminantsOfHealth &&
+                       topic != TopicConstants.AYAArchive)
+                    {
+                        hasErrors = true;
+                    }
+                    else {
+                        var ds = DAL.getPage("Q" + num);
+                        if(ds == null || ds.Tables == null || ds.Tables.Count == 0 || ds.Tables[0].Rows == null || ds.Tables[0].Rows.Count == 0)
+                        {
+                            hasErrors = true;
+                        }
+                    }
                 }
             }
-
 
             return hasErrors;
 
