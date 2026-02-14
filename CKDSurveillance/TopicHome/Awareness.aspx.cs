@@ -11,7 +11,6 @@ namespace CKDSurveillance_RD.TopicHome
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["TopicID"] = TopicConstants.Awareness;
             Page.Title = "KDSS | Awareness  | CDC";
         }
     }

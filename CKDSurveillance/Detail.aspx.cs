@@ -6016,10 +6016,10 @@ namespace CKDSurveillance_RD.MasterPages
                 chosenYear = Request.QueryString["Year"].Trim().Replace("%20", " ").Trim();
             }
 
-            //if (url.Contains("&topic"))
-           // {
-                topic = Session["TopicID"]?.ToString();
-            //}
+            if (url.Contains("&topic"))
+            {
+                topic = Request.QueryString["topic"].Trim().Replace("%20", " ").Trim();
+            }
 
             //*Populate Table values and set 'selected' value*
             foreach (DataRow dr in dt.Rows)
@@ -6080,8 +6080,10 @@ namespace CKDSurveillance_RD.MasterPages
             {
                 chosenYear = Request.QueryString["Year"].Trim().Replace("%20", " ").Trim();
             }
-            
-            topic = Session["TopicID"]?.ToString();
+            if (url.Contains("&topic"))
+            {
+                topic = Request.QueryString["topic"].Trim().Replace("%20", " ").Trim();
+            }
 
             //*Populate Table values and set 'selected' value*
             foreach (DataRow dr in dt.Rows)
