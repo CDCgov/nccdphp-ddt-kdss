@@ -46,10 +46,10 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
             ChartType_2 = dt.Rows[0]["TopicHomeChartType_2"].ToString();
             Year_2 = dt.Rows[0]["TopicHomeChartYear_2"].ToString();
 
-            if (TopicID == 25) {
+            if (TopicID == TopicConstants.AYAArchive) {
                 createAYAPageContent();
             }
-            else if (TopicID != 24)
+            else if (TopicID != TopicConstants.SocialDeterminantsOfHealth)
             {
                 //sdohimg1.Visible = false;
                 //sdohimg2.Visible = false;

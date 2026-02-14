@@ -36,27 +36,27 @@
 					</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link bodybreadcrumb" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/PrevalenceIncidence.aspx?topic=1">
+						<a class="nav-link bodybreadcrumb" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/PrevalenceIncidence.aspx">
 							Prevalence & Incidence </a>
 				</li>
                 <li class="nav-item dropdown">
-						<a class="nav-link bodybreadcrumb" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/Awareness.aspx?topic=3">
+						<a class="nav-link bodybreadcrumb" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/Awareness.aspx">
 							Awareness</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link bodybreadcrumb" data-menu-id="4591" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/BurdenOfRiskFactors.aspx?topic=4" >
+						<a class="nav-link bodybreadcrumb" data-menu-id="4591" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/BurdenOfRiskFactors.aspx" >
 						Risk Factors</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link bodybreadcrumb" data-menu-id="2797" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/HealthConsequences.aspx?topic=5" >
+						<a class="nav-link bodybreadcrumb" data-menu-id="2797" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/HealthConsequences.aspx" >
 							Outcomes</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link bodybreadcrumb" data-menu-id="2093" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/QualityOfCare.aspx?topic=6" >
+						<a class="nav-link bodybreadcrumb" data-menu-id="2093" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/QualityOfCare.aspx" >
 							Quality of Care</a>
 				</li>
 				<li class="nav-item dropdown">
-						<a class="nav-link bodybreadcrumb" data-menu-id="2095" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/SocialDeterminantsOfHealth.aspx?topic=24" >
+						<a class="nav-link bodybreadcrumb" data-menu-id="2095" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/SocialDeterminantsOfHealth.aspx" >
 							Social Determinants</a>
 				</li>
 			</ul>
@@ -75,27 +75,27 @@
 					</a>
 				</li>
 				<li class="nav-item dropdown" style="border:0px !important;">
-						<a class="btn btn-outline-white mainNavMenu" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/PrevalenceIncidence.aspx?topic=1" id="nav-PI">
+						<a class="btn btn-outline-white mainNavMenu" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/PrevalenceIncidence.aspx" id="nav-PI">
 							Prevalence & Incidence</a>
 				</li>
                 <li class="nav-item dropdown" style="border:0px !important;">
-						<a class="btn btn-outline-white mainNavMenu" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/Awareness.aspx?topic=3" id="nav-AR">
+						<a class="btn btn-outline-white mainNavMenu" data-menu-id="2091" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/Awareness.aspx" id="nav-AR">
 							Awareness</a>
 				</li>
 				<li class="nav-item dropdown" style="border:0px !important;">
-						<a class="btn btn-outline-white mainNavMenu" data-menu-id="4591" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/BurdenOfRiskFactors.aspx?topic=4" id="nav-RF">
+						<a class="btn btn-outline-white mainNavMenu" data-menu-id="4591" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/BurdenOfRiskFactors.aspx" id="nav-RF">
 						Risk Factors</a>
 				</li>
 				<li class="nav-item dropdown" style="border:0px !important;">
-						<a class="btn btn-outline-white mainNavMenu" data-menu-id="2797" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/HealthConsequences.aspx?topic=5"id="nav-HC">
+						<a class="btn btn-outline-white mainNavMenu" data-menu-id="2797" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/HealthConsequences.aspx"id="nav-HC">
 							Outcomes</a>
 				</li>
 				<li class="nav-item dropdown" style="border:0px !important;">
-						<a class="btn btn-outline-white mainNavMenu" data-menu-id="2093" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/QualityOfCare.aspx?topic=6" id="nav-QC">
+						<a class="btn btn-outline-white mainNavMenu" data-menu-id="2093" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/QualityOfCare.aspx" id="nav-QC">
 							Quality of Care</a>
 				</li>
 				<li class="nav-item dropdown" style="border:0px !important;">
-						<a class="btn btn-outline-white mainNavMenu" data-menu-id="2095" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/SocialDeterminantsOfHealth.aspx?topic=24" id="nav-SDOH">
+						<a class="btn btn-outline-white mainNavMenu" data-menu-id="2095" href="<%=ConfigurationManager.AppSettings["DirPath"]%>TopicHome/SocialDeterminantsOfHealth.aspx" id="nav-SDOH">
 							Social Determinants</a>
 				</li>
 			</ul>

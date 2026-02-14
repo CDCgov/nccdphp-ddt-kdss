@@ -11,8 +11,8 @@ namespace CKDSurveillance_RD.TopicHome
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["TopicID"] = TopicConstants.SocialDeterminantsOfHealth;
             Page.Title = "KDSS | Social Determinants  | CDC";
-
         }
     }
 }

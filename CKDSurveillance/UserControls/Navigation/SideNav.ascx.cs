@@ -74,17 +74,21 @@ namespace CKDSurveillance_RD
 
             //**************
             //*Get Topic ID*
-            //**************            
-            if (ViewState["TopicID"] != null)
+            //**************
+            if (Session["TopicID"] != null)
             {
-                TopicID = ViewState["TopicID"].ToString();
+                TopicID = Session["TopicID"].ToString();
             }
-            else if (Request.QueryString["topic"] != null)
-            {
-                TopicID = Request.QueryString["topic"].ToString().Trim();
-            }
+            //else if (ViewState["TopicID"] != null)
+            //{
+            //    TopicID = ViewState["TopicID"].ToString();
+            //}
+            //else if (Request.QueryString["topic"] != null)
+            //{
+            //    TopicID = Request.QueryString["topic"].ToString().Trim();
+            //}
             //Set this in session for access by Methods page
-            Session["TopicID"] = TopicID;
+            //Session["TopicID"] = TopicID;
 
             //*************
             //*Get QNumber*

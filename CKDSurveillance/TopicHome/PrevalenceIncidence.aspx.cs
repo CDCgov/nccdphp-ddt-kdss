@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace CKDSurveillance_RD.TopicHome
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["TopicID"] = TopicConstants.PrevalenceIncidence;
             Page.Title = "KDSS | Prevalence and Incidence | CDC";
         }
     }
