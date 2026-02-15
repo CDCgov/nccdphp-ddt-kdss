@@ -109,7 +109,21 @@
         var topic = getParameterByName('topic');
         var qnum = getParameterByName('Qnum');
 
-        if (qnum == null) qnum = "";
+		if (qnum == null) qnum = "";
+
+		var document_href = document.location.href.toLowerCase();
+		if (document_href.indexOf("prevalenceincidence") >= 0)
+			topic = 1;
+		else if (document_href.indexOf("awareness") >= 0)
+			topic = 3;
+		else if (document_href.indexOf("burdenofriskfactors") >= 0)
+			topic = 4;
+		else if (document_href.indexOf("healthconsequences") >= 0)
+			topic = 5;
+		else if (document_href.indexOf("qualityofcare") >= 0)
+			topic = 6;
+		else if (document_href.indexOf("socialdeterminantsofhealth") >= 0)
+            topic = 24;
 
         if (topic == 1 || qnum.toUpperCase() == "Q372"
             || qnum.toUpperCase().replace("Q", "").replace("S", "") == "9"
