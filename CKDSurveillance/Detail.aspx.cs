@@ -3263,8 +3263,15 @@ namespace CKDSurveillance_RD.MasterPages
                     else
                         hovertext = hovertext + "'',";
 
+                    if (!String.IsNullOrEmpty(datapoint) && datapoint.ToLower().Contains("none"))
+                    {
+                        elow = "'None'";
+                        ehigh = "'None'";
+                    }
+
                     ciLoStr = ciLoStr + (String.IsNullOrEmpty(elow) ? "0" : elow) + ",";
                     ciHiStr = ciHiStr + (String.IsNullOrEmpty(ehigh) ? "0" : ehigh) + ",";
+                    
                     current_serieslabel = serieslabel;
                 }
                 else if (current_serieslabel != serieslabel)
@@ -3321,11 +3328,11 @@ namespace CKDSurveillance_RD.MasterPages
                     else
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', type: " + hfChartType.Value + ",connectgaps: false, mode: 'lines+markers', line: { simplify: false, width:5}, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])}, marker: {color: eval(colors_split[" + colorarray_inc + "]) , size: 12}};"); //appending the 'row' to the data name and adding the array data
 
-                    string ciData_col = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
+                    string ciData_col = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', connectgaps:false, legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
 
                     if (current_serieslabel == "Total" || current_serieslabel == "Overall")
                     {
-                        ciData_col = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: '#000000'},fillcolor: '#000000', opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
+                        ciData_col = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', connectgaps:false, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: '#000000'},fillcolor: '#000000', opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
                     }
 
                     plotlyStr.Append(ciXData_col + ciLoData_col + ciHiData_col + ciData_col);
@@ -3359,6 +3366,12 @@ namespace CKDSurveillance_RD.MasterPages
                         hovertext = hovertext + FormatHoverText(elow, ehigh);
                     else
                         hovertext = hovertext + "'',";
+
+                    if(!String.IsNullOrEmpty(datapoint) && datapoint.ToLower().Contains("none"))
+                    {
+                        elow = "'None'";
+                        ehigh = "'None'";
+                    }
 
                     ciLoStr = ciLoStr + (String.IsNullOrEmpty(elow) ? "0" : elow) + ",";
                     ciHiStr = ciHiStr + (String.IsNullOrEmpty(ehigh) ? "0" : ehigh) + ",";
@@ -3397,10 +3410,10 @@ namespace CKDSurveillance_RD.MasterPages
             string ciLoVal = "var ciLoVal" + cleanString(current_serieslabel) + " = [" + ciLoStr.Substring(0, ciLoStr.Length - 1) + "];";
             string ciHiVal = "var ciHiVal" + cleanString(current_serieslabel) + " = [" + ciHiStr.Substring(0, ciHiStr.Length - 1) + "];";
 
-            string ciData = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
+            string ciData = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', connectgaps:false, legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
             if (current_serieslabel == "Total" || current_serieslabel == "Overall")
             {
-                ciData = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color:'#000000'},fillcolor: '#000000', opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
+                ciData = "var ciData" + cleanString(current_serieslabel) + " = {x: [...ciXaxis, ...ciXaxis.slice().reverse()], y: [...ciLoVal" + cleanString(current_serieslabel) + ", ...ciHiVal" + cleanString(current_serieslabel) + ".slice().reverse()], fill: 'toself', connectgaps:false, legendgroup: '" + current_serieslabel + "',meta:{group: '" + current_serieslabel + "', color:'#000000'},fillcolor: '#000000', opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val())};";
             }
 
             plotlyStr.Append(ciXaxis + ciHiVal + ciLoVal + ciData);
@@ -4370,7 +4383,7 @@ namespace CKDSurveillance_RD.MasterPages
                         //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ",connectgaps: false,mode: 'lines+markers', line: { simplify: false, width:5}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
-                        string ciData_col = "var ciData" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {x: [...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ", ...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ".slice().reverse()], y: [...ciLoVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ", ...ciHiVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ".slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val()), xaxis:'x" + tert_cnt + "'};";
+                        string ciData_col = "var ciData" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {x: [...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ", ...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ".slice().reverse()], y: [...ciLoVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ", ...ciHiVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + ".slice().reverse()], fill: 'toself', connectgaps:false, legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val()), xaxis:'x" + tert_cnt + "'};";
 
                         plotlyStr.Append(ciXData_col + ciLoData_col + ciHiData_col + ciData_col);
 
@@ -4578,7 +4591,7 @@ namespace CKDSurveillance_RD.MasterPages
                 string ciLoVal = "var ciLoVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = [" + ciLoStr.Substring(0, ciLoStr.Length - 1) + "];";
                 string ciHiVal = "var ciHiVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = [" + ciHiStr.Substring(0, ciHiStr.Length - 1) + "];";
 
-                string ciData = "var ciData" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {x: [...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final, ...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final.slice().reverse()], y: [...ciLoVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final, ...ciHiVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final.slice().reverse()], fill: 'toself', legendgroup: '" + current_serieslabel + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val()), xaxis:'x" + tert_cnt + "'};";
+                string ciData = "var ciData" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {x: [...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final, ...ciXaxis" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final.slice().reverse()], y: [...ciLoVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final, ...ciHiVal" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final.slice().reverse()], fill: 'toself', connectgaps:false, legendgroup: '" + current_serieslabel + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},fillcolor: eval(colors_split[" + colorarray_inc + "]), opacity: 0.2, line: { color: 'transparent' }, showlegend: false, hoverinfo: 'skip',hovertemplate: '<extra></extra>', visible: eval($('#hfShowCIShadow').val()), xaxis:'x" + tert_cnt + "'};";
 
                 plotlyStr.Append(ciXaxis + ciHiVal + ciLoVal + ciData);
 
