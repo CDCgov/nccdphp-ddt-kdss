@@ -1502,13 +1502,14 @@
         <script>
 
             function legendAutoScaleClick() { //this function is called after the chart has been created in the createPlotlyScript and createTripleStratPlotlyScript functions. It's purpose is to execute the clicking of the Autoscale button
-                console.log("inside legendclick");
-                autoscaleBtn = $('a[data-title="Autoscale"]')[0]
-                autoscaleBtn.click();
+                autoscaleBtn = $('a[data-title="Autoscale"]')[0];
+                if (autoscaleBtn != null) {
+                    autoscaleBtn.click();
+                }
             }
 
-            $(document).ready(function () {   
-                
+            $(document).ready(function () {
+
                 initStdChartTable();
                 initChartRadioButton();
 
@@ -1526,8 +1527,8 @@
                         $('#divMenuData').removeAttr("style");
                     }
                 }
-                
-                
+
+
                 var sw = $(window).width();
                 $('#tableHeaderBar').hide();
 
@@ -1541,7 +1542,7 @@
                     }
                     else
                         $('.smallscreenmessage').hide();
-                }     
+                }
 
                 if ($("#hfChartID").val() == "4319") {
                     document.getElementById("btnreset").innerHTML = "Reset Filters";
@@ -1572,7 +1573,7 @@
                 });
 
                 $("input[id*='RB_ChartType']").click(function () {
-                    
+
                     if ($("input[name*='RB_ChartType']:checked").val() == "'stacked'") {
                         $('#hfChartType').val("'bar'");
                         $('#hfChartMode').val("'stack'");
@@ -1604,15 +1605,15 @@
             function redrawPlotlyChart() {
 
                 createPlotlyChart();
-                createPlotlyChartRel(); /* TODO: comment out this block */
+                //createPlotlyChartRel(); /* TODO: comment out this block */
 
                 /* TODO: uncomment this block */
 
-                /*
-                if (document.getElementById("divRBSTD") != null) { }
+
+                if (document.getElementById("divRBSTD") != null) {
                     createPlotlyChartRel();
                 }
-                */
+
 
                 compliance508();
             }
@@ -1623,7 +1624,7 @@
                 autoscaleBtn = $('a[data-title="Autoscale"]')[0]
                 autoscaleBtn.click();
             }
-            
+
         </script>
     
 </asp:Content>
@@ -1674,7 +1675,7 @@
                     var val = $('#mapSlider').val();
                     var yrs = $('#hfCSVYears').val().split(',');
                     var curIndex = yrs.indexOf(val);
-                    
+
                     updateMap(curIndex);
                 }
             });
@@ -1744,7 +1745,7 @@
 
         //Show correct nav on Map pages
         if ($('#hfMapWhatNavToShow').val() == 's') {
-            $('#divMapSelectedYears').show();           
+            $('#divMapSelectedYears').show();
             $('#divMapAllYears').hide();
 
             $('#spnAcrossAllYearsPlus').show();
@@ -1752,7 +1753,7 @@
 
             $('#spnSelectedYearPlus').hide();
             $('#spnSelectedYearMinus').show();
-            
+
         } else {
             $('#divMapSelectedYears').hide();
             $('#divMapAllYears').show();
@@ -1839,7 +1840,7 @@
         var min = 0;
         var max = parseInt(yrs.length);
 
-        
+
 
         //Get  current slider text value
         var val = $('#mapSlider').val();
@@ -1902,7 +1903,7 @@
         } else {
             newIndex = curIndex + 1;
         }
-        
+
         //Set the slider's new position
         slider.update({ from: newIndex });
 
@@ -1914,7 +1915,7 @@
             sliderAnimateForward(cnt);
         }, 1000);
     }
-    
+
 
     $(window).resize(function () {
         adjustBreadCrumbs();
@@ -1922,7 +1923,7 @@
         wrapRelatedMostRecent();
 
         var sw = $(window).width();
-        
+
         if ($('#map').length < 1) {
             //If we are NOT on a map indicator, then hide the small screen message
             $('.smallscreenmessage').hide();
@@ -1933,8 +1934,8 @@
             }
             else
                 $('.smallscreenmessage').hide();
-        }       
-        
+        }
+
     });
 
 
@@ -2000,7 +2001,7 @@
                 $('#spnViewDataTable').text('+ View Data Table');
                 break;
         }
-        }
+    }
 
 
     function toggleTableKeyBoard(e) {
