@@ -19,9 +19,13 @@ Public Class GetDBConnectionString
         Try
 
             ' Read DB settings from Web.config
-            Dim DBAppSettings As String = System.Configuration.ConfigurationManager.AppSettings("DBConnectionString")
+            Dim DBName As String = System.Configuration.ConfigurationManager.AppSettings("DBName")
+            Dim DBServer As String = System.Configuration.ConfigurationManager.AppSettings("DBServer")        
 
-            strReturn = DBAppSettings
+            Dim connectionString As String = String.Format("Server={0};Database={1};Encrypt=true;TrustServerCertificate=true;Persist Security Info=True;Integrated Security=SSPI", DBServer, DBName)
+            strReturn = connectionString
+
+
         Catch ex As Exception
             Console.WriteLine("Connection String Creation Failed")
             Console.WriteLine("Check Web.config parameters or JSON formatting.")
@@ -30,6 +34,9 @@ Public Class GetDBConnectionString
         End Try
 
         Return strReturn
+
+
+
     End Function
     Public Class PasswordResponse
         Public Property Password As String
