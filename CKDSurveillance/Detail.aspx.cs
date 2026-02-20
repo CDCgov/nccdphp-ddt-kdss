@@ -269,7 +269,7 @@ namespace CKDSurveillance_RD.MasterPages
                     string indicatorText = dtHeader.Rows[0]["Indicator"].ToString();
                     string topicID = dtHeader.Rows[0]["TopicID"].ToString();
 
-                    Session["TopicID"] = topicID;
+                    //Session["TopicID"] = topicID;
 
                     switch (topicID)
                     {
@@ -2209,7 +2209,7 @@ namespace CKDSurveillance_RD.MasterPages
             litTopicMobile.Text = litTopic.Text;
 
             //change in what is to be displayed 3/19/2020
-            this.Title = "CDC Surveillance System: " + chartShorttitleText;// +" - QNum:" + Session["qnum"].ToString();//updating the page title dynamically to optimize SEO //removed QNUM 11/20
+            this.Title = "CDC Surveillance System: " + chartShorttitleText;
             this.MetaDescription = Session["TitleNoFN"].ToString();//updating the page meta description dynamically to optimize SEO
 
             //Remove anything created in the masterpage for this Meta tag so as not to have duplicate description tags (3/20/2020)

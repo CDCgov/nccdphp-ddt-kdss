@@ -102,7 +102,7 @@ namespace CKDSurveillance_RD
                     TopicID = "25"; 
             }
             //Set this in session for access by Methods page
-            Session["TopicID"] = TopicID;
+            //Session["TopicID"] = TopicID;
 
             //*************
             //*Get QNumber*
@@ -172,7 +172,7 @@ namespace CKDSurveillance_RD
                     if(dtDetails != null && dtDetails.Rows != null && dtDetails.Rows.Count > 0)
                     {
                         TopicID = dtDetails.Rows[0]["TopicID"].ToString();
-                        Session["TopicID"] = TopicID;
+                        //Session["TopicID"] = TopicID;
                     }
                 }
 
@@ -201,7 +201,7 @@ namespace CKDSurveillance_RD
                         if (string.IsNullOrEmpty(TopicID))
                         {
                             TopicID = topicID.ToString();
-                            Session["TopicID"] = topicID;
+                            //Session["TopicID"] = topicID;
                         }
                         break;
                     }
