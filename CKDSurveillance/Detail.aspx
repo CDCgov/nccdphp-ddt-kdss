@@ -922,8 +922,9 @@
 
                                     $('a[data-title="Autoscale"]').keypress(
                                         function () {
-                                            autoscaleBtn = $('a[data-title="Autoscale"]')[0]
-                                            autoscaleBtn.click();
+                                            autoscaleBtn = $('a[data-title="Autoscale"]')[0];
+                                            if (autoscaleBtn != null)
+                                                autoscaleBtn.click();
                                             console.log("clicked Autoscale");
                                         }
                                     );
@@ -1503,8 +1504,9 @@
 
             function legendAutoScaleClick() { //this function is called after the chart has been created in the createPlotlyScript and createTripleStratPlotlyScript functions. It's purpose is to execute the clicking of the Autoscale button
                 console.log("inside legendclick");
-                autoscaleBtn = $('a[data-title="Autoscale"]')[0]
-                autoscaleBtn.click();
+                autoscaleBtn = $('a[data-title="Autoscale"]')[0];
+                if (autoscaleBtn != null)
+                    autoscaleBtn.click();
             }
 
             $(document).ready(function () {   
@@ -1604,15 +1606,15 @@
             function redrawPlotlyChart() {
 
                 createPlotlyChart();
-                createPlotlyChartRel(); /* TODO: comment out this block */
+                //createPlotlyChartRel(); /* TODO: comment out this block */
 
                 /* TODO: uncomment this block */
 
-                /*
-                if (document.getElementById("divRBSTD") != null) { }
+                
+                if (document.getElementById("divRBSTD") != null) {
                     createPlotlyChartRel();
                 }
-                */
+                
 
                 compliance508();
             }
@@ -1620,8 +1622,9 @@
             //calling the auto scale so that the graph is redrawn with the remaining data taking up the entire chart
             function clickAutoScaleButton() {
                 console.log("inside clickAutoScaleButton");
-                autoscaleBtn = $('a[data-title="Autoscale"]')[0]
-                autoscaleBtn.click();
+                autoscaleBtn = $('a[data-title="Autoscale"]')[0];
+                if (autoscaleBtn != null)
+                    autoscaleBtn.click();
             }
             
         </script>
