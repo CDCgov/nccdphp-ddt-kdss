@@ -114,6 +114,7 @@
     <None Include="PROD\KDSSDatabase_PROD_20260302\KDSSDatabase_PROD_20260302.zip" />
     <None Include="DEV\20260309-2026Mar09Release\1-20260309-2026Mar09Release.Data.sql" />
     <None Include="DEV\20260309-2026Mar09Release\2-20260309-2026Mar09Release.Data.sql" />
+    <None Include="DEV\20260309-2026Mar09Release\3-20260309-2026Mar09Release.Data.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20251217-CDC-Feedback\1.Data.sql" />
