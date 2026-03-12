@@ -154,11 +154,11 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Provider Awareness of Chronic Kidney Disease in the Military Health System</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Higher Prevalence of Anemia among Non-Hispanic Black Adults with Chronic Kidney Disease </i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
-                Healthcare provider awareness is a key factor for patient awareness of chronic kidney disease (CKD). Data from 2016 to 2023 in the Military Health System showed that among beneficiaries with laboratory values indicating CKD stage 3, about one-third also had CKD diagnosis codes entered by their providers in the electronic health record. These data might reflect missed opportunities to implement effective therapies to prevent and slow progression of CKD and its complications. The factors contributing to low provider awareness may not be clear. A concerted approach including provider education and more effective use of clinical support systems may be necessary.
+                Anemia (low hemoglobin level) is a well-known complication in chronic kidney disease (CKD) that gets worse with progression of the disease. National survey data show that over the past two decades, anemia has been more common among those with CKD than without CKD. Additionally, it is consistently more common among Black adults with CKD than other racial and ethnic groups. Anemia related to CKD is important to recognize and manage early on to optimize patients’ quality of life. Awareness of factors specific to Black populations (e.g., genetics, poorer access to healthcare, faster progression of CKD) may additionally help providers in improving management of anemia in CKD in this patient population.
                 <br /><br />                
             </div>
 
