@@ -1509,6 +1509,66 @@
                     autoscaleBtn.click();
             }
 
+            function syncLegendStrikeThroughFromLegendState(graphdiv) {
+                var legendItems = graphdiv.querySelectorAll('.legend .traces');
+                if (!legendItems || legendItems.length === 0) return;
+
+                for (var i = 0; i < legendItems.length; i++) {
+                    var legendItem = legendItems[i];
+                    var isDimmed = isLegendItemDimmed(legendItem);
+                    applyLegendStrikeThrough(legendItem, isDimmed);
+                }
+            }
+
+            function isLegendItemDimmed(legendItem) {
+                if (!legendItem) return false;
+
+                var style = window.getComputedStyle(legendItem);
+                var opacity = parseFloat(style.opacity);
+
+                // Plotly dims inactive legend items; treat anything below 1 as inactive
+                return !isNaN(opacity) && opacity < 1;
+            }
+
+            function applyLegendStrikeThrough(legendItem, shouldStrike) {
+                if (!legendItem) return;
+
+                var textNode = legendItem.querySelector('text');
+                if (!textNode) return;
+
+                textNode.style.textDecoration = shouldStrike ? 'line-through' : 'none';
+                textNode.style.textDecorationLine = shouldStrike ? 'line-through' : 'none';
+            }
+
+            function syncLegendStrikeThrough(graphdiv) {
+                if (!graphdiv) return;
+
+                var legendItems = graphdiv.querySelectorAll('.legend .traces');
+                if (!legendItems || legendItems.length === 0) return;
+
+                for (var i = 0; i < legendItems.length; i++) {
+                    applyLegendStrikeThrough(
+                        legendItems[i],
+                        graphdiv._legendStrikeState && graphdiv._legendStrikeState[i]
+                    );
+                }
+            }
+
+            //function applyLegendStrikeThrough(legendItem, shouldStrike) {
+            //    if (!legendItem) return;
+
+            //    var textNode = legendItem.querySelector('text');
+            //    if (!textNode) return;
+
+            //    if (shouldStrike) {
+            //        textNode.style.textDecoration = 'line-through';
+            //        textNode.style.textDecorationLine = 'line-through';
+            //    } else {
+            //        textNode.style.textDecoration = 'none';
+            //        textNode.style.textDecorationLine = 'none';
+            //    }
+            //}
+
             $(document).ready(function () {   
                 
                 initStdChartTable();
