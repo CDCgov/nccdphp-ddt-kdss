@@ -158,7 +158,7 @@
             </div>
 
             <div class="aya-text">
-                Anemia (low hemoglobin level) is a well-known complication in chronic kidney disease (CKD) that gets worse with progression of the disease. National survey data show that over the past two decades, anemia has been more common among those with CKD than without CKD. Additionally, it is consistently more common among Black adults with CKD than other racial and ethnic groups. Anemia related to CKD is important to recognize and manage early on to optimize patients’ quality of life. Awareness of factors specific to Black populations (e.g., genetics, poorer access to healthcare, faster progression of CKD) may additionally help providers in improving management of anemia in CKD in this patient population.
+                Anemia (low hemoglobin) is a well-known complication in chronic kidney disease (CKD) that gets worse with progression of CKD. National survey data show anemia among individuals with CKD is consistently more common among Black adults than other racial and ethnic groups. Anemia related to CKD is important to recognize and manage early to optimize patients’ quality of life.  
                 <br /><br />                
             </div>
 
