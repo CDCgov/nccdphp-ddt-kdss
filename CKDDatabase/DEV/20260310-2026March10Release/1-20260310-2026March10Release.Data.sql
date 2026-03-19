@@ -18,7 +18,7 @@ INSERT INTO dbo.AYA
 VALUES
 (   N'March',  -- Month - nchar(10)
     '2026',   -- Year - varchar(4)
-    N'Higher Prevalence of Anemia among Non-Hispanic Black Adults with Chronic Kidney Disease',  -- Title - nvarchar(2000)
+    N'Higher Prevalence of Anemia Among Non-Hispanic Black Adults With Chronic Kidney Disease',  -- Title - nvarchar(2000)
     N'../AreYouAware.aspx?emailDate=March_2026',  -- AYALink - nvarchar(200)
     'Q808',   -- QNUM - varchar(6)
     N'https://wwwn.cdc.gov/KDSS/detail.aspx?Qnum=Q808&topic=5&Strat=Race%2FEthnicity',  -- CKDSurveillanceChartLink - nvarchar(200)
