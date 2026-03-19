@@ -39,7 +39,7 @@
         var scriptDMAT = document.createElement("script");
 
         // Set appropriate environment URL
-        if (window.location.href.indexOf("wwwn.cdc.gov/kdss/") > -1) {
+        if (window.location.href.toLowerCase().indexOf("wwwn.cdc.gov/kdss/") > -1) {
             console.log("DMAT PROD")
             scriptDMAT.src = `https://www.cdc.gov/JScript/dmat/cdc-dmat.js?${queryString}`;
         } else {
