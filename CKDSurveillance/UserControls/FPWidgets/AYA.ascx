@@ -154,7 +154,7 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Higher Prevalence of Anemia among Non-Hispanic Black Adults With Chronic Kidney Disease </i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Higher Prevalence of Anemia Among Non-Hispanic Black Adults With Chronic Kidney Disease </i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
