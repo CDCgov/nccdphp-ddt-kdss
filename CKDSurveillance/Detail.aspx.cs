@@ -16,6 +16,7 @@ using ckdlibV2;
 using CKDSurveillance_RD.UserControls;
 using System.Web.Security.AntiXss;
 using DocumentFormat.OpenXml.Spreadsheet;
+using System.Runtime.InteropServices.Expando;
 
 
 namespace CKDSurveillance_RD.MasterPages
@@ -584,7 +585,7 @@ namespace CKDSurveillance_RD.MasterPages
             //*Get Page Data*
             //***************
             DataTable dtPage = getCachedPageData(QNum);
-
+            DataTable linkedPages = createPageLinkRows();
 
             //**************
             //*Manage Title*
@@ -622,7 +623,7 @@ namespace CKDSurveillance_RD.MasterPages
             {
                 if (QNum.ToUpper().StartsWith("Q"))
                 {
-                    StratYear1.loadStratsAndYears(dtPage);
+                    StratYear1.loadStratsAndYears(dtPage, linkedPages);
                 }
 
                 divChartInstruction.Visible = StratYear1.IsViewDataByVisible;
@@ -2853,7 +2854,7 @@ namespace CKDSurveillance_RD.MasterPages
             string yData_col_final_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
 
             //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
+            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn || (QNum.Substring(1) == "818" && cleanString(current_serieslabel.ToLower()) != "overall"))
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final);
             else
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
@@ -2870,7 +2871,7 @@ namespace CKDSurveillance_RD.MasterPages
                 plotlyStr.Append(", connectgaps: false, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
             //1/12/2021 - BS - added the basedata necessary for animation
-            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
+            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn || (QNum.Substring(1) == "818" && cleanString(current_serieslabel.ToLower()) != "overall"))
                 plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata);
             else
                 plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + ", " + wData_col_final);
@@ -4930,6 +4931,33 @@ namespace CKDSurveillance_RD.MasterPages
                 dt.Rows[0]["Link"] = "";
             }
 
+        }
+
+        private DataTable createPageLinkRows()
+        {
+            DataTable linkedPages = DAL.getPageLinks(QNum);
+            linkedPages = AddLinkSelectedColumns(linkedPages);
+            DataColumn dcViewBy = new DataColumn("ViewBy", typeof(string));
+            linkedPages.Columns.Add(dcViewBy);
+            foreach (DataRow dr in linkedPages.Rows)
+            {
+                var qnum = dr[3].ToString().Trim();
+                var dataSource = dr[4].ToString().Trim();
+                var topicId = dr[5].ToString().Trim();
+
+                dr["ViewBy"] = dataSource;
+                dr["Link"] = "~/detail.aspx?Qnum=" + qnum + "&topic=" + topicId;
+                if (qnum == QNum)
+                {
+                    dr["selected"] = 1;
+                }
+                else
+                {
+                    dr["selected"] = 0;
+                }
+            }
+
+            return linkedPages;
         }
 
         private void updateYearRows(DataTable dt, string selStrat)
