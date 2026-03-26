@@ -1501,10 +1501,50 @@
         <script>
 
             function legendAutoScaleClick() { //this function is called after the chart has been created in the createPlotlyScript and createTripleStratPlotlyScript functions. It's purpose is to execute the clicking of the Autoscale button
-                console.log("inside legendclick");
+                //console.log("inside legendclick");
                 autoscaleBtn = $('a[data-title="Autoscale"]')[0];
                 if (autoscaleBtn != null)
                     autoscaleBtn.click();
+            }
+
+            function syncLegendStrikeThroughFromLegendState(graphdiv) {
+                var legendItems = graphdiv.querySelectorAll('.legend .traces');
+                if (!legendItems || legendItems.length === 0) return;
+                for (var i = 0; i < legendItems.length; i++) {
+                    var legendItem = legendItems[i];
+                    var isDimmed = isLegendItemDimmed(legendItem);
+                    applyLegendStrikeThrough(legendItem, isDimmed);
+                }
+            }
+            function isLegendItemDimmed(legendItem) {
+                if (!legendItem) return false;
+                var style = window.getComputedStyle(legendItem);
+                var opacity = parseFloat(style.opacity);
+                var textNode = legendItem.querySelector('text');
+                console.log('opacity  = ' + opacity + ' textNode =' + textNode.dataval);
+                // Plotly dims inactive legend items; treat anything below 1 as inactive
+                if (opacity < 1) legendItem.style.opacity = "0.9";
+                return (!isNaN(opacity) && opacity < 1);
+            }
+            function applyLegendStrikeThrough(legendItem, shouldStrike) {
+                if (!legendItem) return;
+                var textNode = legendItem.querySelector('text');
+                if (!textNode) return;
+
+                //#737373 #000000
+                textNode.style.fill = shouldStrike ? '#737373' : '#000000';
+                var style = window.getComputedStyle(legendItem);
+            }
+            function syncLegendStrikeThrough(graphdiv) {
+                if (!graphdiv) return;
+                var legendItems = graphdiv.querySelectorAll('.legend .traces');
+                if (!legendItems || legendItems.length === 0) return;
+                for (var i = 0; i < legendItems.length; i++) {
+                    applyLegendStrikeThrough(
+                        legendItems[i],
+                        graphdiv._legendStrikeState && graphdiv._legendStrikeState[i]
+                    );
+                }
             }
 
             $(document).ready(function () {   

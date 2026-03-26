@@ -3591,11 +3591,13 @@ namespace CKDSurveillance_RD.MasterPages
 
             sb.Append(" })"); //this line and the one below are for the animation
             //add the animation line here, this will need to be dynamic based on load. Animation can be turned on/off
-            sb.Append(".then(function () {Plotly.animate(graphdiv, {data: data, layout: layout}, { transition: {duration: 0, easing: 'cubic-in-out'},  frame: { duration: 1000 } }) });");
+            sb.Append(".then(function () {Plotly.animate(graphdiv, {data: data, layout: layout}, { transition: {duration: 0, easing: 'cubic-in-out'},  frame: { duration: 1000 } }); syncLegendStrikeThrough(graphdiv); });");
 
             sb.Append("");
             //2/9/2021 = BS- calling the auto scale so that the graph is redrawn with the remaining data taking up the entire chart (this is necessary for the animation to work properly), it must be above the window.resize or an error is caused
-            sb.Append(" graphdiv.on('plotly_legendclick', function(data) {legendAutoScaleClick(); }); ");
+            sb.Append(" graphdiv.on('plotly_legendclick', function(evt) {  requestAnimationFrame(function () {    syncLegendStrikeThrough(graphdiv);    legendAutoScaleClick();  });}); ");
+            sb.Append(" graphdiv.on('plotly_legenddoubleclick', function(evt) {  requestAnimationFrame(function () {    syncLegendStrikeThroughFromLegendState(graphdiv);    legendAutoScaleClick();  });});");
+            sb.Append(" graphdiv.on('plotly_afterplot', function() {syncLegendStrikeThroughFromLegendState(graphdiv); });");
 
             sb.Append("window.onresize = function(){ Plotly.Plots.resize(graphdiv); }");
             sb.Append("}");
@@ -3743,7 +3745,7 @@ namespace CKDSurveillance_RD.MasterPages
             {
                 sb.Append(" })"); //this line and the one below are for the animation
                                   //add the animation line here, this will need to be dynamic based on load. Animation can be turned on/off
-                sb.Append(".then(function () {Plotly.animate(graphdiv, {data: data, layout: layout}, { transition: {duration: 0, easing: 'cubic-in-out'},  frame: { duration: 1000 } }) });");
+                sb.Append(".then(function () {Plotly.animate(graphdiv, {data: data, layout: layout}, { transition: {duration: 0, easing: 'cubic-in-out'},  frame: { duration: 1000 } }) ; syncLegendStrikeThrough(graphdiv); });");
             }
 
             //max and min y value is needed to draw the chart initially
@@ -3752,7 +3754,9 @@ namespace CKDSurveillance_RD.MasterPages
 
             sb.Append("");
             //2/9/2021 = BS- calling the auto scale so that the graph is redrawn with the remaining data taking up the entire chart (this is necessary for the animation to work properly), it must be above the window.resize or an error is caused
-            sb.Append(" graphdiv.on('plotly_legendclick', function(data) {legendAutoScaleClick(); }); ");
+            sb.Append(" graphdiv.on('plotly_legendclick', function(evt) {  requestAnimationFrame(function () {    syncLegendStrikeThrough(graphdiv);    legendAutoScaleClick();  });}); ");
+            sb.Append(" graphdiv.on('plotly_legenddoubleclick', function(evt) {  requestAnimationFrame(function () {    syncLegendStrikeThroughFromLegendState(graphdiv);    legendAutoScaleClick();  });});");
+            sb.Append(" graphdiv.on('plotly_afterplot', function() {syncLegendStrikeThroughFromLegendState(graphdiv); });");
 
             sb.Append("window.onresize = function(){ Plotly.Plots.resize(graphdiv); }");
 
