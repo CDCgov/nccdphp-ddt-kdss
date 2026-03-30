@@ -1531,8 +1531,8 @@
                 var textNode = legendItem.querySelector('text');
                 if (!textNode) return;
 
-                //#737373 #000000
-                textNode.style.fill = shouldStrike ? '#737373' : '#000000';
+                //#636363 --> #737373 #000000
+                textNode.style.fill = shouldStrike ? '#636363' : '#000000';
                 var style = window.getComputedStyle(legendItem);
             }
             function syncLegendStrikeThrough(graphdiv) {
