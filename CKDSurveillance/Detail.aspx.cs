@@ -2713,20 +2713,27 @@ namespace CKDSurveillance_RD.MasterPages
                         low_con_diff = Convert.ToDecimal(datapoint) - Convert.ToDecimal(elow);
                 }
 
-                if (QNum.Substring(1) == "372")
+                if (dtChartHeader != null && dtChartHeader.Rows != null && dtChartHeader.Rows.Count > 0 && dtChartHeader.Rows[0]["SignificantDigits"] != null)
                 {
-                    if (ehigh != "")
-                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 3);
-                    if (elow != "")
-                        elow = elow.Substring(0, elow.IndexOf(".") + 3);//showing only the two characters after the decimal
+                    int.TryParse(dtChartHeader.Rows[0]["SignificantDigits"].ToString(), out int sigDigits);
+                    ehigh = buildSigDigits(ehigh, sigDigits);
+                    elow = buildSigDigits(elow, sigDigits);
                 }
-                else
-                {
-                    if (ehigh != "")
-                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
-                    if (elow != "")
-                        elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
-                }
+
+                //if (QNum.Substring(1) == "372")
+                //{
+                //    if (ehigh != "")
+                //        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 3);
+                //    if (elow != "")
+                //        elow = elow.Substring(0, elow.IndexOf(".") + 3);//showing only the two characters after the decimal
+                //}
+                //else
+                //{
+                //    if (ehigh != "")
+                //        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
+                //    if (elow != "")
+                //        elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
+                //}
 
                 string str_high_con_diff = ""; //setup the string variable to be displayed
                 string str_low_con_diff = "";
@@ -3207,10 +3214,12 @@ namespace CKDSurveillance_RD.MasterPages
                             low_con_diff = Convert.ToDecimal(datapoint) - Convert.ToDecimal(elow);
                     }
 
-                    if (ehigh != "")
-                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
-                    if (elow != "")
-                        elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
+                    if (dtChartHeader != null && dtChartHeader.Rows != null && dtChartHeader.Rows.Count > 0 && dtChartHeader.Rows[0]["SignificantDigits"] != null)
+                    {
+                        int.TryParse(dtChartHeader.Rows[0]["SignificantDigits"].ToString(), out int sigDigits);
+                        ehigh = buildSigDigits(ehigh, sigDigits);
+                        elow = buildSigDigits(elow, sigDigits);
+                    }
 
                     string str_high_con_diff = ""; //setup the string variable to be displayed
                     string str_low_con_diff = "";
