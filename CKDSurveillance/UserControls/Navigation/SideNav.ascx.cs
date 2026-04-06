@@ -83,6 +83,23 @@ namespace CKDSurveillance_RD
             {
                 TopicID = Request.QueryString["topic"].ToString().Trim();
             }
+            if (!string.IsNullOrEmpty(path))
+            {
+                if (path.ToLower().IndexOf("prevalenceincidence.aspx") >= 0)
+                    TopicID = "1";
+                else if (path.ToLower().IndexOf("awareness.aspx") >= 0)
+                    TopicID = "3";
+                else if (path.ToLower().IndexOf("burdenofriskfactors.aspx") >= 0)
+                    TopicID = "4";
+                else if (path.ToLower().IndexOf("healthconsequences.aspx") >= 0)
+                    TopicID = "5";
+                else if (path.ToLower().IndexOf("qualityofcare.aspx") >= 0)
+                    TopicID = "6";
+                else if (path.ToLower().IndexOf("socialdeterminantsofhealth.aspx") >= 0)
+                    TopicID = "24";
+                else if (path.ToLower().IndexOf("awarenessarchive.aspx") >= 0)
+                    TopicID = "25";
+            }
             //Set this in session for access by Methods page
             Session["TopicID"] = TopicID;
 
