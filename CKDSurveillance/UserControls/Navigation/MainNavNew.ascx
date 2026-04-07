@@ -111,7 +111,9 @@
 
 		if (qnum == null) qnum = ""; 
 
-        var document_href = document.location.href.toLowerCase();
+		var document_href = document.location.href.toLowerCase();
+		if (document_href == null) document_href = "";
+
         if (document_href.indexOf("prevalenceincidence") >= 0)
             topic = 1;
         else if (document_href.indexOf("awareness") >= 0)
