@@ -474,3 +474,7 @@ $RECYCLE.BIN/
 *.msp
 /CKDSurveillance/NCCDTemplatePackage
 /CKDSurveillance/TemplatePackage
+/CKDSurveillance/Properties/PublishProfiles/Dev Internet.pubxml
+/.vs/CKD v8.0/config/applicationhost.config
+/.vs/CKD v8.0/v17/.suo
+/.vs/CKD v8.0/v17/DocumentLayout.json
