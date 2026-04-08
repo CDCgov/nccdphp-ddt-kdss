@@ -155,4 +155,7 @@
   <ItemGroup>
     <None Include="DEV\20260326-2026Apr06Release\3-20260326-2026Apr06Release-1.Object.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="DEV\20260326-2026Apr06Release\6-20260326-2026Apr06Release-1.Object.sql" />
+  </ItemGroup>
 </Project>
