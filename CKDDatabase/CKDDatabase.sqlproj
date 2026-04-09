@@ -136,6 +136,7 @@
     <None Include="QA\KDSSDatabase_QA_20260320\3-20260319-2026Mar19Release.zip" />
     <None Include="DEV\20260326-2026Apr06Release\4-20260326-2026Apr06Release-1.Data.sql" />
     <None Include="DEV\20260326-2026Apr06Release\5-20260326-2026Apr06Release-1.Data.sql" />
+    <None Include="DEV\20260326-2026Apr06Release\7-20260326-2026Apr06Release-1.Data.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20251217-CDC-Feedback\1.Data.sql" />
@@ -157,5 +158,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20260326-2026Apr06Release\6-20260326-2026Apr06Release-1.Object.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DEV\20260326-2026Apr06Release\2-20260326-2026Apr06Release-1.Object.sql" />
   </ItemGroup>
 </Project>
