@@ -329,6 +329,7 @@
         <asp:HiddenField ID="hfChartMode" runat="server" />
         <asp:HiddenField ID="hfChartColor" runat="server" />
         <asp:HiddenField ID="hfShowCI" runat="server" />
+        <asp:HiddenField ID="hfShowCIShadow" runat="server" />
         <asp:HiddenField ID="hfMapType" runat="server" />
         <asp:HiddenField ID="hfCurrentYear" runat="server" />
         <asp:HiddenField ID="hfChartID" runat="server" />
@@ -1593,18 +1594,27 @@
                 }
 
                 $("input[id*='CB_ChartCI']").click(function () {
-                    console.log("cbchart=" + $(this).prop('checked'));
+
                     if ($(this).prop('checked')) {
                         if ($('#hfMaxConfidence').val() > $('#hfChartYValToUse').val()) {
                             $('#hfChartYValToUse').val($('#hfMaxConfidence').val()); // if the confidence intervals checkbox is checked then use the max confidence value to draw the chart
                         }
-                        $('#hfShowCI').val("true");
+                        //$('#hfShowCI').val("true");
+                        if ($('#hfChartType').val() == "'line'") {
+                            $('#hfShowCIShadow').val("true");
+                            $('#hfShowCI').val("false");
+                        }
+                        else {
+                            $('#hfShowCIShadow').val("false");
+                            $('#hfShowCI').val("true");
+                        }
                     }
                     else {
                         if ($('#hfMaxYVal').val() > $('#hfChartYValToUse').val()) {
                             $('#hfChartYValToUse').val($('#hfMaxYVal').val()); // if the confidence intervals checkbox is NOT checked then use the max y value to draw the chart
                         }
                         $('#hfShowCI').val("false");
+                        $('#hfShowCIShadow').val("false");
                     }
 
                     redrawPlotlyChart();
