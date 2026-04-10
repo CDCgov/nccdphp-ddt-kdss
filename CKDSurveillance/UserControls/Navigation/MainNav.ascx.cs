@@ -21,17 +21,17 @@ namespace CKDSurveillance_RD
         protected void Page_Load(object sender, EventArgs e)
         {
             string path = HttpContext.Current.Request.Url.AbsolutePath;
-            if (path.ToLower().IndexOf("topichome") > -1) //trying to account for the additional folder level of the topichome pages
+            if (!string.IsNullOrEmpty(path) && path.ToLower().IndexOf("topichome") > -1) //trying to account for the additional folder level of the topichome pages
                 directoryPath = "../";
             else
                 directoryPath = "";
 
-            if (path.ToLower().IndexOf("detail") == -1)
+            if (!string.IsNullOrEmpty(path) && path.ToLower().IndexOf("detail") == -1)
                 Session["SelectedIndicator"] = "";
 
 
             //Is this a chart page? [affects decision to format a selected indicator]
-            if (!path.ToLower().Contains("detail.aspx"))
+            if (!string.IsNullOrEmpty(path) && !path.ToLower().Contains("detail.aspx"))
             {
                 isDetailpage = false;
             }
