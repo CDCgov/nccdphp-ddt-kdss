@@ -13,7 +13,7 @@
 </p>
 
 <p>
-    The Kidney Disease Surveillance System is funded by CDC as a contract with the University of Michigan in Ann Arbor, Michigan. The project officials from CDC are Meda E. Pavkov, MD, PhD; and Sola Han, PharmD, PhD. The University of Michigan team includes Rajiv Saran, MBBS, MD, MRCP, MS (project director [PD]/principal investigator [PI]); Jennifer Bragg-Gresham, MS, PhD (MPI); Tiffany Veinot, MLS, PhD (MPI); William Herman, MD, MPH; Michael Heung, MD, MS; Zubin Modi, MD, MS; Joseph Vassalotti, MD; Nicholas Hartman, MS, PhD; Yam Hoon Lim, MEd; Ana Laura Licon, MS; Alexander Kime, MSW; and Meera Tandan, MPH, PhD. The surveillance system website was developed in partnership with Mathematica, Inc. The Mathematica team includes Andrés Nigenda, Jun Park-Lee, Matt Straface, Maggie Carlin, Fred Kiesche, Aivo Kivi, Maxwell Miller, Kasia Mocek, and Brian Stone.
+    The Kidney Disease Surveillance System is funded by CDC as a contract with the University of Michigan in Ann Arbor, Michigan. The project official from CDC is Meda E. Pavkov, MD, PhD. The University of Michigan team includes Rajiv Saran, MBBS, MD, MRCP, MS (project director [PD]/principal investigator [PI]); Jennifer Bragg-Gresham, MS, PhD (MPI); Brenda Gillespie, PhD (MPI); Tiffany Veinot, MLS, PhD (MPI); William Herman, MD, MPH; Hal Morgenstern, PhD; Michael Heung, MD, MS; Yun Han, PhD; Zubin Modi, MD, MS; Austin Stack, MD, MS; Joseph Vassalotti, MD; Yam Hoon Lim, MEd; Miao Yu, MS; and Ana Laura Licon, MS. The surveillance system website was developed in partnership with Mathematica, Inc. The Mathematica team includes Jesse Chandler, Aivo Kivi, Jayasudha Kumar, Jun Park-Lee, Ludson Worsham, Meng Wu, Ana Realpe, and Vladimir Gomez-Fernandez.
 </p>
 
 
