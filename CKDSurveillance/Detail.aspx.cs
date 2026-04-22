@@ -2520,7 +2520,7 @@ namespace CKDSurveillance_RD.MasterPages
         private void buildPlotlyChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, bool isMapPage)
         {
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
-            string hovertemplate = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
             string selectedColor = "";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             selectedColor = RB_ChartColor.SelectedValue;
@@ -2788,7 +2788,7 @@ namespace CKDSurveillance_RD.MasterPages
                     plotlyStr.Append(" var data" + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col);
 
                     if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
-                        plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+                        plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
                     else
                         plotlyStr.Append(", " + hovertextData + "," + hovertemplate); // Include hover text even without error bars
 
@@ -2870,7 +2870,7 @@ namespace CKDSurveillance_RD.MasterPages
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
 
             if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]") //if there are error bars
-                plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+                plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
             else // No error bars but still include hover text
                 plotlyStr.Append(", " + hovertextData_final + "," + hovertemplate);
 
@@ -3001,8 +3001,8 @@ namespace CKDSurveillance_RD.MasterPages
         private void buildPlotlyLineChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, bool isMapPage)
         {
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
-            string hovertemplate = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
-            string hovertemplateNoCI = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span>%{text}<extra></extra>'";
+            string hovertemplateNoCI = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
             string selectedColor = "";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             selectedColor = RB_ChartColor.SelectedValue;
@@ -3311,7 +3311,12 @@ namespace CKDSurveillance_RD.MasterPages
                     plotlyStr.Append(" var data" + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col);
 
                     if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
-                        plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+                    {
+                        if(QNum.Substring(1) == "807" && URLStrat.IndexOf("Ethnicity") >= 0 && current_serieslabel.ToLower() == "other")
+                            plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+                        else
+                            plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+                    }
                     else
                         plotlyStr.Append(", " + hovertextData + "," + hovertemplateNoCI); // Include hover text even without error bars
 
@@ -3430,7 +3435,12 @@ namespace CKDSurveillance_RD.MasterPages
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
 
             if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]") //if there are error bars
-                plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+            {
+                if (QNum.Substring(1) == "807"  && URLStrat.IndexOf("Ethnicity") >= 0 && current_serieslabel.ToLower() == "other")
+                    plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+                else
+                    plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+            }
             else // No error bars but still include hover text
                 plotlyStr.Append(", " + hovertextData_final + "," + hovertemplateNoCI);
 
@@ -3563,7 +3573,7 @@ namespace CKDSurveillance_RD.MasterPages
 
         private void buildPlotlyTripleStratChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
         {
-            string hovertemplate = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
                 RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
@@ -3840,7 +3850,7 @@ namespace CKDSurveillance_RD.MasterPages
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                         plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col + "," + wData_col);
                         if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
-                            plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+                            plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
 
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + i.ToString() + "', showlegend: " + legendbool + ", meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])}, type: " + hfChartType.Value + ", connectgaps: false,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
@@ -4052,7 +4062,7 @@ namespace CKDSurveillance_RD.MasterPages
                 //9/28/2020 - BS - added the increment value of 'final' to the data variable string so that it is unique
                 plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + "," + wData_col_final);
                 if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]" && hovertextData_final != "text:[ ]") //if there are empty values, then don't display the hover text for the errors
-                    plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+                    plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
 
                 //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                 plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + cleanString(current_serieslabel) + "final', showlegend: " + legendbool + ", meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])}, type: " + hfChartType.Value + ", connectgaps: false,line: { simplify: false}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
@@ -4104,7 +4114,7 @@ namespace CKDSurveillance_RD.MasterPages
 
         private void buildPlotlyTripleStratLineChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
         {
-            string hovertemplate = "hovertemplate:'<b>%{y}%</b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span>%{text}<extra></extra>'";
 
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
@@ -4395,8 +4405,12 @@ namespace CKDSurveillance_RD.MasterPages
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                         plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col + "," + wData_col);
                         if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
-                            plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
-
+                        {
+                            if (QNum.Substring(1) == "807" && URLStrat.IndexOf("Ethnicity") >= 0 && current_serieslabel.ToLower() == "other")
+                                plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+                            else
+                                plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+                        }
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,mode: 'lines+markers',line: { simplify: false, width:5}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
@@ -4620,8 +4634,12 @@ namespace CKDSurveillance_RD.MasterPages
                 //9/28/2020 - BS - added the increment value of 'final' to the data variable string so that it is unique
                 plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + "," + wData_col_final);
                 if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]" && hovertextData_final != "text:[ ]") //if there are empty values, then don't display the hover text for the errors
-                    plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: '#222', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
-
+                {
+                    if (QNum.Substring(1) == "807"  && URLStrat.IndexOf("Ethnicity") >= 0 && current_serieslabel.ToLower() == "other")
+                        plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+                    else
+                        plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+                }
                 //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                 plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,mode: 'lines+markers',line: { simplify: false, width:5}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
 
@@ -4704,7 +4722,7 @@ namespace CKDSurveillance_RD.MasterPages
             sb.Append(" ,xanchor: 'right', xref: '0', yanchor: 'bottom', yref: '0'}] ");
 
             sb.Append(" ,annotations: [" + titleannontations + " { x: 0, y: 0, xshift: -70, yshift: -80, sizex: 0.3, sizey: 0.3, yref: 'paper', xref: 'paper', align: 'left', text: '', showarrow: false, font: { size: 9 } },{ x: 0, y: 1.2, xshift: -70, yref: 'paper', xref: 'paper', align: 'left', text: '',showarrow: false }, {text: '<b></b>',font: {size: " + yaxisfontsize + "},showarrow: false,align: 'center',x: 0.6, y: 0.0, xref: 'paper',yref: 'paper',xshift: -70,yshift: -60}],"); //, font: { size: 20 }
-            sb.Append(" legend: {orientation: 'h',  y: -0.1, font:{size: " + legendfontsize + "}, traceorder:'normal'}," + subplots_xaxis + " barmode: eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#000000',font: { color: '#000000', size: 14 }}, yaxis: {showgrid: true, zeroline:false, range: [0, eval($('#hfChartYValToUse').val())], xshift: -70, linecolor:'#bdbdbd', tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size:  " + yaxistitlefontsize + " } }, margin: {t: 50}};");
+            sb.Append(" legend: {orientation: 'h',  y: -0.1, font:{size: " + legendfontsize + "}, traceorder:'normal'}," + subplots_xaxis + " barmode: eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#D3D3D3',font: { color: '#000000', size: 14 }}, yaxis: {showgrid: true, zeroline:false, range: [0, eval($('#hfChartYValToUse').val())], xshift: -70, linecolor:'#bdbdbd', tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size:  " + yaxistitlefontsize + " } }, margin: {t: 50}};");
 
             if (isDefaultStd)
                 sb.Append(" var gd4 = d3.select('#svgchart');");
@@ -4849,9 +4867,9 @@ namespace CKDSurveillance_RD.MasterPages
             {
                 //type = category so all values are displayed, not just a group
                 if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
-                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }, traceorder:'normal'},  barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#000000',font: { color: '#000000', size: 14 }}, xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }, traceorder:'normal'},  barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#D3D3D3',font: { color: '#000000', size: 14 }}, xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
                 else
-                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#000000',font: { color: '#000000', size: 14 }}, xaxis: {dtick:" + dtictval + ", type:'category', showgrid: " + showgridval + ", zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: " + linewidth + ", title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#D3D3D3',font: { color: '#000000', size: 14 }}, xaxis: {dtick:" + dtictval + ", type:'category', showgrid: " + showgridval + ", zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: " + linewidth + ", title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
             }
 
             if (isDefaultStd)
@@ -6235,7 +6253,7 @@ namespace CKDSurveillance_RD.MasterPages
 
         protected string FormatHoverText(string strlow, string strhigh)
         {
-            return "'&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br><b>" + strlow + "-" + strhigh + "</b> 95% CI',";
+            return "'<br><b><span style=\"font-size:15px;\">" + strlow + "-" + strhigh + "</span></b> 95% CI',";
         }
     }
 }
