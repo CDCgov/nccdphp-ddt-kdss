@@ -1307,21 +1307,21 @@
                                                     <div class="tabbyDiv">
 
                                                         <asp:Repeater runat="server" ID="rptrReferences">
-                                                            <HeaderTemplate>
+                                                            <%--<HeaderTemplate>
                                                                 <ul>
-                                                            </HeaderTemplate>
+                                                            </HeaderTemplate>--%>
                                                             <ItemTemplate>
 
-                                                                <li style="margin-bottom: .9em;">
+                                                                <%--<li style="margin-bottom: .9em;">--%>
                                                                     <asp:Literal ID="lblRefences" runat="server" Text='<%# Eval("ReferenceText") %>' ClientIDMode="AutoID"></asp:Literal>
                                                                     <br />
                                                                     <asp:HyperLink runat="server" Target="_self" NavigateUrl='<%# Eval("URL") %>' Text='<%#Eval("URL").ToString().Replace("-", "&#8209;")%>' ToolTip='<%#Eval("URL")%>' />
-                                                                </li>
+                                                               <%-- </li>--%>
 
                                                             </ItemTemplate>
-                                                            <FooterTemplate>
+                                                           <%-- <FooterTemplate>
                                                                 </ul>
-                                                            </FooterTemplate>
+                                                            </FooterTemplate>--%>
                                                         </asp:Repeater>
 
                                                     </div>
