@@ -139,6 +139,7 @@
     <None Include="DEV\20260326-2026Apr06Release\5-20260326-2026Apr06Release-1.Data.sql" />
     <None Include="DEV\20260326-2026Apr06Release\7-20260326-2026Apr06Release-1.Data.sql" />
     <None Include="DEV\20260423-2026Apr23Release\1-20260423-2026Apr23Release.Data.sql" />
+    <None Include="DEV\20260423-2026Apr23Release\3-20260501-2026Apr23Release.Data.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20251217-CDC-Feedback\1.Data.sql" />
@@ -163,5 +164,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20260326-2026Apr06Release\2-20260326-2026Apr06Release-1.Object.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DEV\20260423-2026Apr23Release\2-20260501-2026Apr23Release.Object.sql" />
   </ItemGroup>
 </Project>
