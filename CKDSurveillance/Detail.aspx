@@ -1522,7 +1522,7 @@
                 var style = window.getComputedStyle(legendItem);
                 var opacity = parseFloat(style.opacity);
                 var textNode = legendItem.querySelector('text');
-                console.log('opacity  = ' + opacity + ' textNode =' + textNode.dataval);
+                //console.log('opacity  = ' + opacity + ' textNode =' + textNode.dataval);
                 // Plotly dims inactive legend items; treat anything below 1 as inactive
                 if (opacity < 1) legendItem.style.opacity = "0.9";
                 return (!isNaN(opacity) && opacity < 1);

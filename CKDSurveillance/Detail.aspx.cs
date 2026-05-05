@@ -3312,10 +3312,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                     if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
                     {
-                        if(QNum.Substring(1) == "807" && URLStrat.IndexOf("Ethnicity") >= 0 && current_serieslabel.ToLower() == "other")
-                            plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
-                        else
-                            plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+                        plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
                     }
                     else
                         plotlyStr.Append(", " + hovertextData + "," + hovertemplateNoCI); // Include hover text even without error bars
@@ -3437,7 +3434,7 @@ namespace CKDSurveillance_RD.MasterPages
             if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]") //if there are error bars
             {
                 if (QNum.Substring(1) == "807"  && URLStrat.IndexOf("Ethnicity") >= 0 && current_serieslabel.ToLower() == "other")
-                    plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+                    plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'rgba(111, 116, 39, 0.30)', thickness:4, symmetric: false, "+ hiConData_col_final.Substring(0, hiConData_col_final.IndexOf(",")) + "] ," + loConData_col_final.Substring(0, loConData_col_final.IndexOf(",")) + "]}, " + hovertextData_final + "," + hovertemplate);
                 else
                     plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
             }
@@ -4406,10 +4403,7 @@ namespace CKDSurveillance_RD.MasterPages
                         plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + i.ToString() + " = {" + xData_col + " , " + yData_col + "," + wData_col);
                         if (!(hiConData_col == "array:[ ]" && loConData_col == "arrayminus:[ ]"))
                         {
-                            if (QNum.Substring(1) == "807" && URLStrat.IndexOf("Ethnicity") >= 0 && current_serieslabel.ToLower() == "other")
-                                plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:1, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
-                            else
-                                plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
+                            plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
                         }
                         //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                         plotlyStr.Append(",  name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,mode: 'lines+markers',line: { simplify: false, width:5}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
@@ -4635,10 +4629,7 @@ namespace CKDSurveillance_RD.MasterPages
                 plotlyStr.Append(" var data" + cleanString(tertiary_var) + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + "," + wData_col_final);
                 if (hiConData_col_final != "array:[ ]" && loConData_col_final != "arrayminus:[ ]" && hovertextData_final != "text:[ ]") //if there are empty values, then don't display the hover text for the errors
                 {
-                    if (QNum.Substring(1) == "807"  && URLStrat.IndexOf("Ethnicity") >= 0 && current_serieslabel.ToLower() == "other")
-                        plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:1, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
-                    else
-                        plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
+                    plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
                 }
                 //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
                 plotlyStr.Append(", name: '" + current_serieslabel + "', legendgroup: '" + current_serieslabel + "final', meta:{group: '" + current_serieslabel + "', color: eval(colors_split[" + colorarray_inc + "])},showlegend: " + legendbool + ", type: " + hfChartType.Value + ", connectgaps: false,mode: 'lines+markers',line: { simplify: false, width:5}, marker: {color: eval(colors_split[" + colorarray_inc + "]), size: 12 }, xaxis:'x" + tert_cnt + "'};"); //appending the 'row' to the data name and adding the array data
