@@ -524,12 +524,13 @@
                                     .viewDataBy {
                                         background: /*#00695C*/ #005ea2 0% 0% no-repeat padding-box;
                                         opacity: 1;
-                                        width: 362px;
+                                        width: fit-content;
                                         height: 96px;
                                         padding-top: 10px;
                                         padding-left: 25px!important;
                                         padding-right: 25px!important;
                                         border-radius: 5px;
+                                        display: inline-block;
                                     }
 
                                     .viewDataByLabel {
@@ -539,7 +540,6 @@
                                         color: #FFFFFF;
                                         opacity: 1;
                                         margin-bottom: 5px;
-                                        margin-left:-15px !important;
                                     }
                                     
                                     .menu-content div{
@@ -552,13 +552,12 @@
                                         opacity: 1;
                                         margin-left: 2px;
                                         margin-right: 2px;      
-                                        display: flex;
                                         align-items: center;
                                     }
                                     .menu-content-menu {
                                         margin-left: 2px;
                                         margin-right: 2px;
-                                        vertical-align:sub;
+                                        vertical-align:middle;
                                         margin-right: 0;
                                     }
                                     .moveright {
@@ -567,7 +566,6 @@
                                         margin-right: 0;
                                         padding-left: 1px;
                                         padding-right: 1px;
-                                        width: 52%;
                                     }
 
                                     @media (max-width: 767px) {
@@ -606,7 +604,7 @@
 
                                 <%--*View Data By*--%>
                                  <uc1:StratYearsButtons runat="server" ID="StratYear1" />                                
-                                 <div class="menu-content-menu" style="width:40%">
+                                 <div class="menu-content-menu" style="width:fit-content">
                                     <asp:CheckBox ID="CB_ChartCI" CssClass="checkBoxList chartMenuLabel col" Text="95% Confidence Intervals" runat="server" aria-label="95% Confidence Intervals"/>
                                 </div>
                                 <%-- View as table--%>
@@ -1503,10 +1501,50 @@
         <script>
 
             function legendAutoScaleClick() { //this function is called after the chart has been created in the createPlotlyScript and createTripleStratPlotlyScript functions. It's purpose is to execute the clicking of the Autoscale button
-                console.log("inside legendclick");
+                //console.log("inside legendclick");
                 autoscaleBtn = $('a[data-title="Autoscale"]')[0];
                 if (autoscaleBtn != null)
                     autoscaleBtn.click();
+            }
+
+            function syncLegendStrikeThroughFromLegendState(graphdiv) {
+                var legendItems = graphdiv.querySelectorAll('.legend .traces');
+                if (!legendItems || legendItems.length === 0) return;
+                for (var i = 0; i < legendItems.length; i++) {
+                    var legendItem = legendItems[i];
+                    var isDimmed = isLegendItemDimmed(legendItem);
+                    applyLegendStrikeThrough(legendItem, isDimmed);
+                }
+            }
+            function isLegendItemDimmed(legendItem) {
+                if (!legendItem) return false;
+                var style = window.getComputedStyle(legendItem);
+                var opacity = parseFloat(style.opacity);
+                var textNode = legendItem.querySelector('text');
+                console.log('opacity  = ' + opacity + ' textNode =' + textNode.dataval);
+                // Plotly dims inactive legend items; treat anything below 1 as inactive
+                if (opacity < 1) legendItem.style.opacity = "0.9";
+                return (!isNaN(opacity) && opacity < 1);
+            }
+            function applyLegendStrikeThrough(legendItem, shouldStrike) {
+                if (!legendItem) return;
+                var textNode = legendItem.querySelector('text');
+                if (!textNode) return;
+
+                //#636363 --> #737373 #000000
+                textNode.style.fill = shouldStrike ? '#636363' : '#000000';
+                var style = window.getComputedStyle(legendItem);
+            }
+            function syncLegendStrikeThrough(graphdiv) {
+                if (!graphdiv) return;
+                var legendItems = graphdiv.querySelectorAll('.legend .traces');
+                if (!legendItems || legendItems.length === 0) return;
+                for (var i = 0; i < legendItems.length; i++) {
+                    applyLegendStrikeThrough(
+                        legendItems[i],
+                        graphdiv._legendStrikeState && graphdiv._legendStrikeState[i]
+                    );
+                }
             }
 
             $(document).ready(function () {   

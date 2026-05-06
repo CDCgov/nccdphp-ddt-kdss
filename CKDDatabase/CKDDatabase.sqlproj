@@ -92,6 +92,8 @@
     <Folder Include="DEV\20260319-2026Mar19Release" />
     <Folder Include="QA\KDSSDatabase_QA_20260320" />
     <Folder Include="PROD\KDSSDatabase_PROD_20260320" />
+    <Folder Include="DEV\20260326-2026Apr06Release" />
+    <Folder Include="DEV\20260423-2026Apr23Release" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
@@ -133,6 +135,10 @@
     <None Include="QA\KDSSDatabase_QA_20260320\1-20260310-2026March10Release.zip" />
     <None Include="QA\KDSSDatabase_QA_20260320\2-20260312-2026Mar12Release.zip" />
     <None Include="QA\KDSSDatabase_QA_20260320\3-20260319-2026Mar19Release.zip" />
+    <None Include="DEV\20260326-2026Apr06Release\4-20260326-2026Apr06Release-1.Data.sql" />
+    <None Include="DEV\20260326-2026Apr06Release\5-20260326-2026Apr06Release-1.Data.sql" />
+    <None Include="DEV\20260326-2026Apr06Release\7-20260326-2026Apr06Release-1.Data.sql" />
+    <None Include="DEV\20260423-2026Apr23Release\3-20260501-2026Apr23Release.Data.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20251217-CDC-Feedback\1.Data.sql" />
@@ -145,5 +151,20 @@
     <None Include="PROD\README.md" />
     <None Include="QA\README.md" />
     <None Include="DEV\20260121Jan21Release\1-20260121-2026Jan21Release.Data.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DEV\20260326-2026Apr06Release\1-20260326-2026Apr06Release-1.Object.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DEV\20260326-2026Apr06Release\3-20260326-2026Apr06Release-1.Object.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DEV\20260326-2026Apr06Release\6-20260326-2026Apr06Release-1.Object.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DEV\20260326-2026Apr06Release\2-20260326-2026Apr06Release-1.Object.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DEV\20260423-2026Apr23Release\2-20260501-2026Apr23Release.Object.sql" />
   </ItemGroup>
 </Project>

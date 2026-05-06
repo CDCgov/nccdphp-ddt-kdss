@@ -16,6 +16,7 @@ using ckdlibV2;
 using CKDSurveillance_RD.UserControls;
 using System.Web.Security.AntiXss;
 using DocumentFormat.OpenXml.Spreadsheet;
+using System.Runtime.InteropServices.Expando;
 
 
 namespace CKDSurveillance_RD.MasterPages
@@ -584,7 +585,7 @@ namespace CKDSurveillance_RD.MasterPages
             //*Get Page Data*
             //***************
             DataTable dtPage = getCachedPageData(QNum);
-
+            DataTable linkedPages = createPageLinkRows();
 
             //**************
             //*Manage Title*
@@ -622,7 +623,7 @@ namespace CKDSurveillance_RD.MasterPages
             {
                 if (QNum.ToUpper().StartsWith("Q"))
                 {
-                    StratYear1.loadStratsAndYears(dtPage);
+                    StratYear1.loadStratsAndYears(dtPage, linkedPages);
                 }
 
                 divChartInstruction.Visible = StratYear1.IsViewDataByVisible;
@@ -2712,20 +2713,27 @@ namespace CKDSurveillance_RD.MasterPages
                         low_con_diff = Convert.ToDecimal(datapoint) - Convert.ToDecimal(elow);
                 }
 
-                if (QNum.Substring(1) == "372")
+                if (dtChartHeader != null && dtChartHeader.Rows != null && dtChartHeader.Rows.Count > 0 && dtChartHeader.Rows[0]["SignificantDigits"] != null)
                 {
-                    if (ehigh != "")
-                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 3);
-                    if (elow != "")
-                        elow = elow.Substring(0, elow.IndexOf(".") + 3);//showing only the two characters after the decimal
+                    int.TryParse(dtChartHeader.Rows[0]["SignificantDigits"].ToString(), out int sigDigits);
+                    ehigh = buildSigDigits(ehigh, sigDigits);
+                    elow = buildSigDigits(elow, sigDigits);
                 }
-                else
-                {
-                    if (ehigh != "")
-                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
-                    if (elow != "")
-                        elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
-                }
+
+                //if (QNum.Substring(1) == "372")
+                //{
+                //    if (ehigh != "")
+                //        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 3);
+                //    if (elow != "")
+                //        elow = elow.Substring(0, elow.IndexOf(".") + 3);//showing only the two characters after the decimal
+                //}
+                //else
+                //{
+                //    if (ehigh != "")
+                //        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
+                //    if (elow != "")
+                //        elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
+                //}
 
                 string str_high_con_diff = ""; //setup the string variable to be displayed
                 string str_low_con_diff = "";
@@ -2853,7 +2861,7 @@ namespace CKDSurveillance_RD.MasterPages
             string yData_col_final_basedata = hfval_y_basedata.Substring(0, hfval_y_basedata.Length - 1) + "]";//removing the last comma
 
             //9/28/2020 - BS - added the increment value of 'i' to the data variable string so that it is unique
-            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
+            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn || (QNum.Substring(1) == "818" && cleanString(current_serieslabel.ToLower()) != "overall"))
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final);
             else
                 plotlyStr.Append(" var data" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final + ", " + wData_col_final);
@@ -2870,7 +2878,7 @@ namespace CKDSurveillance_RD.MasterPages
                 plotlyStr.Append(", connectgaps: false, name: '" + current_serieslabel + "', type: " + hfChartType.Value + ", line: { simplify: false, width:3}, marker: {color: eval(colors_split[" + colorarray_inc + "]) }};"); //appending the 'row' to the data name and adding the array data
 
             //1/12/2021 - BS - added the basedata necessary for animation
-            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
+            if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn || (QNum.Substring(1) == "818" && cleanString(current_serieslabel.ToLower()) != "overall"))
                 plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata);
             else
                 plotlyStr.Append(" var basedata" + cleanString(current_serieslabel) + "final = {" + xData_col_final + " , " + yData_col_final_basedata + ", " + wData_col_final);
@@ -3206,10 +3214,12 @@ namespace CKDSurveillance_RD.MasterPages
                             low_con_diff = Convert.ToDecimal(datapoint) - Convert.ToDecimal(elow);
                     }
 
-                    if (ehigh != "")
-                        ehigh = ehigh.Substring(0, ehigh.IndexOf(".") + 2);
-                    if (elow != "")
-                        elow = elow.Substring(0, elow.IndexOf(".") + 2);//showing only the two characters after the decimal
+                    if (dtChartHeader != null && dtChartHeader.Rows != null && dtChartHeader.Rows.Count > 0 && dtChartHeader.Rows[0]["SignificantDigits"] != null)
+                    {
+                        int.TryParse(dtChartHeader.Rows[0]["SignificantDigits"].ToString(), out int sigDigits);
+                        ehigh = buildSigDigits(ehigh, sigDigits);
+                        elow = buildSigDigits(elow, sigDigits);
+                    }
 
                     string str_high_con_diff = ""; //setup the string variable to be displayed
                     string str_low_con_diff = "";
@@ -3590,11 +3600,13 @@ namespace CKDSurveillance_RD.MasterPages
 
             sb.Append(" })"); //this line and the one below are for the animation
             //add the animation line here, this will need to be dynamic based on load. Animation can be turned on/off
-            sb.Append(".then(function () {Plotly.animate(graphdiv, {data: data, layout: layout}, { transition: {duration: 0, easing: 'cubic-in-out'},  frame: { duration: 1000 } }) });");
+            sb.Append(".then(function () {Plotly.animate(graphdiv, {data: data, layout: layout}, { transition: {duration: 0, easing: 'cubic-in-out'},  frame: { duration: 1000 } }); syncLegendStrikeThrough(graphdiv); });");
 
             sb.Append("");
             //2/9/2021 = BS- calling the auto scale so that the graph is redrawn with the remaining data taking up the entire chart (this is necessary for the animation to work properly), it must be above the window.resize or an error is caused
-            sb.Append(" graphdiv.on('plotly_legendclick', function(data) {legendAutoScaleClick(); }); ");
+            sb.Append(" graphdiv.on('plotly_legendclick', function(evt) {  requestAnimationFrame(function () {    syncLegendStrikeThrough(graphdiv);    legendAutoScaleClick();  });}); ");
+            sb.Append(" graphdiv.on('plotly_legenddoubleclick', function(evt) {  requestAnimationFrame(function () {    syncLegendStrikeThroughFromLegendState(graphdiv);    legendAutoScaleClick();  });});");
+            sb.Append(" graphdiv.on('plotly_afterplot', function() {syncLegendStrikeThroughFromLegendState(graphdiv); });");
 
             sb.Append("window.onresize = function(){ Plotly.Plots.resize(graphdiv); }");
             sb.Append("}");
@@ -3742,7 +3754,7 @@ namespace CKDSurveillance_RD.MasterPages
             {
                 sb.Append(" })"); //this line and the one below are for the animation
                                   //add the animation line here, this will need to be dynamic based on load. Animation can be turned on/off
-                sb.Append(".then(function () {Plotly.animate(graphdiv, {data: data, layout: layout}, { transition: {duration: 0, easing: 'cubic-in-out'},  frame: { duration: 1000 } }) });");
+                sb.Append(".then(function () {Plotly.animate(graphdiv, {data: data, layout: layout}, { transition: {duration: 0, easing: 'cubic-in-out'},  frame: { duration: 1000 } }) ; syncLegendStrikeThrough(graphdiv); });");
             }
 
             //max and min y value is needed to draw the chart initially
@@ -3751,7 +3763,9 @@ namespace CKDSurveillance_RD.MasterPages
 
             sb.Append("");
             //2/9/2021 = BS- calling the auto scale so that the graph is redrawn with the remaining data taking up the entire chart (this is necessary for the animation to work properly), it must be above the window.resize or an error is caused
-            sb.Append(" graphdiv.on('plotly_legendclick', function(data) {legendAutoScaleClick(); }); ");
+            sb.Append(" graphdiv.on('plotly_legendclick', function(evt) {  requestAnimationFrame(function () {    syncLegendStrikeThrough(graphdiv);    legendAutoScaleClick();  });}); ");
+            sb.Append(" graphdiv.on('plotly_legenddoubleclick', function(evt) {  requestAnimationFrame(function () {    syncLegendStrikeThroughFromLegendState(graphdiv);    legendAutoScaleClick();  });});");
+            sb.Append(" graphdiv.on('plotly_afterplot', function() {syncLegendStrikeThroughFromLegendState(graphdiv); });");
 
             sb.Append("window.onresize = function(){ Plotly.Plots.resize(graphdiv); }");
 
@@ -4930,6 +4944,33 @@ namespace CKDSurveillance_RD.MasterPages
                 dt.Rows[0]["Link"] = "";
             }
 
+        }
+
+        private DataTable createPageLinkRows()
+        {
+            DataTable linkedPages = DAL.getPageLinks(QNum);
+            linkedPages = AddLinkSelectedColumns(linkedPages);
+            DataColumn dcViewBy = new DataColumn("ViewBy", typeof(string));
+            linkedPages.Columns.Add(dcViewBy);
+            foreach (DataRow dr in linkedPages.Rows)
+            {
+                var qnum = dr[3].ToString().Trim();
+                var dataSource = dr[4].ToString().Trim();
+                var topicId = dr[5].ToString().Trim();
+
+                dr["ViewBy"] = dataSource;
+                dr["Link"] = "~/detail.aspx?Qnum=" + qnum + "&topic=" + topicId;
+                if (qnum == QNum)
+                {
+                    dr["selected"] = 1;
+                }
+                else
+                {
+                    dr["selected"] = 0;
+                }
+            }
+
+            return linkedPages;
         }
 
         private void updateYearRows(DataTable dt, string selStrat)
