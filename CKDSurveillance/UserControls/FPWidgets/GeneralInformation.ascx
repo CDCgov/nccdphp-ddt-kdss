@@ -144,7 +144,7 @@
              </div>
         <div class="col-md-9">
             <div class="row generalinformation-title">GENERAL INFORMATION</div>
-            <div class="row generalinformation-subtitle"><a href="https://www.cdc.gov/kidney-disease/php/data-research/index.html" style="padding-left:0px; text-decoration:none; color:#005fa3 !important";<%--color: #00778C" --%>target="_blank">Fact Sheet: Chronic Kidney Disease in the United States, 2023</a></div>
+            <div class="row generalinformation-subtitle"><a href="https://www.cdc.gov/kidney-disease/media/pdfs/CKD-Factsheet-H.pdf" style="padding-left:0px; text-decoration:none; color:#005fa3 !important";<%--color: #00778C" --%>target="_blank">Fact Sheet: Chronic Kidney Disease in the United States, 2026</a></div>
             <div class="row generalinformation-text">With chronic kidney disease (CKD), kidneys become damaged and over time may not clean the blood as well as healthy kidneys. If kidneys don't work well, toxic waste and extra fluid accumulate in the body and may lead to high blood pressure, heart disease, stroke, and early death. However, people with CKD and people at risk for CKD can take steps to protect their kidneys with the help of their health care providers.</div>
            <%-- <div class="row">
                 <a href="Documents/CKD_FactSheet_2023.pdf" class="generalinformation-link-padding"  alt="Download CKD Fact Sheet" download>
