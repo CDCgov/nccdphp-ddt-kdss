@@ -154,11 +154,11 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Chronic Kidney Disease in the United States: The New CDC Fact Sheet is Published</i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Higher Prevalence of Anemia Among Non-Hispanic Black Adults With Chronic Kidney Disease </i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
-                The CDC recently published its 2026 Factsheet on Chronic Kidney Disease (CKD). The Factsheet outlines key statistics and an overview of CKD Epidemiology, and overall management strategies.  
+                Anemia (low hemoglobin) is a well-known complication in chronic kidney disease (CKD) that gets worse with progression of CKD. National survey data show anemia among individuals with CKD is consistently more common among Black adults than other racial and ethnic groups. Anemia related to CKD is important to recognize and manage early to optimize patients’ quality of life.  
                 <br /><br />                
             </div>
 
