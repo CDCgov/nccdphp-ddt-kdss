@@ -540,7 +540,7 @@
                     <%-- 508 Fix: Changed from span to h2 heading element --%>
                     <h2 style="font-weight: 600; font-size: 21px; line-height: normal !important; margin: 0;">General Information</h2>
                     <div>
-                        <a href="https://www.cdc.gov/kidney-disease/media/pdfs/CKD-Factsheet-H.pdf" class="navARandGIlinks" style="padding-left: 1px !important" alt="Download CKD Fact Sheet" download>
+                        <a href="<%=ConfigurationManager.AppSettings["DirPath"]%>Documents/CKD_FactSheet_2023.pdf" class="navARandGIlinks" style="padding-left: 1px !important" alt="Download CKD Fact Sheet" download>
                             <img class="downloadImg" src="/KDSS/images/DataCharts/DownloadCyan-t5.jpg" alt="Download CKD Fact Sheet" role="presentation" />
                             <span class="navARandGIlinks">Download CKD Fact Sheet</span>
                         </a>
