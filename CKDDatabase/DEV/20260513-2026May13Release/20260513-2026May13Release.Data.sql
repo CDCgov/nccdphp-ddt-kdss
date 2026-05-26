@@ -16,7 +16,7 @@ INSERT INTO dbo.AYA
     MonthNum
 )
 VALUES
-(   N'May',  -- Month - nchar(10)
+(   N'June',  -- Month - nchar(10)
     '2026',   -- Year - varchar(4)
     N'Chronic Kidney Disease in the United States: The New CDC Fact Sheet is Published',  -- Title - nvarchar(2000)
     N'../AreYouAware.aspx?emailDate=May_2026',  -- AYALink - nvarchar(200)
