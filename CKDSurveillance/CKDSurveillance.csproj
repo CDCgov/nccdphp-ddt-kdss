@@ -404,6 +404,8 @@
     <Content Include="AYA\December_2023.html" />
     <Content Include="AYA\Images\CurrentAYA.svg" />
     <Content Include="AYA\Images\March_2026.svg" />
+    <Content Include="AYA\Images\June_2026.svg" />
+    <Content Include="AYA\June_2026.html" />
     <Content Include="AYA\March_2026.html" />
     <Content Include="AYA\January_2026.html" />
     <Content Include="AYA\February_2024.html" />
