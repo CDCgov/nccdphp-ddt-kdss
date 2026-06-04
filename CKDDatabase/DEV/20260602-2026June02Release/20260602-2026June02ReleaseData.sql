@@ -1,19 +1,4 @@
-/*
-Run this script on:
-
-AWSSQLPRODM.mathematica.net.51349_CDCCKD    -  This database will be modified
-
-to synchronize it with:
-
-AWSSQLSTGM.mathematica.net.51349_CDCCKD_TED
-
-You are recommended to back up your database before running this script
-
-Script created by SQL Data Compare version 15.3.6.25729 from Red Gate Software Ltd at 6/2/2026 1:56:19 PM
-
-*/
-		
-USE [51349_CDCCKD]
+USE [NCCD_DDT_CKD]
 SET NUMERIC_ROUNDABORT OFF
 GO
 SET ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT, QUOTED_IDENTIFIER, ANSI_NULLS, NOCOUNT ON
