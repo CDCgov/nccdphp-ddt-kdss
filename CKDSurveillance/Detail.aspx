@@ -329,7 +329,6 @@
         <asp:HiddenField ID="hfChartMode" runat="server" />
         <asp:HiddenField ID="hfChartColor" runat="server" />
         <asp:HiddenField ID="hfShowCI" runat="server" />
-        <asp:HiddenField ID="hfShowCIShadow" runat="server" />
         <asp:HiddenField ID="hfMapType" runat="server" />
         <asp:HiddenField ID="hfCurrentYear" runat="server" />
         <asp:HiddenField ID="hfChartID" runat="server" />
