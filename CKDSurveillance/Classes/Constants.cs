@@ -113,14 +113,3 @@ public class StratificationSequence {
     public static readonly int SEQUENCE_2 = 2;
     public static readonly int SEQUENCE_3 = 3;
 }
-
-public class TopicConstants
-{
-    public static readonly string PrevalenceIncidence = "1";
-    public static readonly string Awareness = "3";
-    public static readonly string RiskFactors = "4";
-    public static readonly string Outcomes = "5";
-    public static readonly string QualityOfCare = "6";
-    public static readonly string SocialDeterminantsOfHealth = "24";
-    public static readonly string AYAArchive = "25";
-}

@@ -154,11 +154,11 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Higher Prevalence of Anemia Among Non-Hispanic Black Adults With Chronic Kidney Disease </i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Chronic Kidney Disease in the United States: The New CDC Report on the State of CKD </i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
-                Anemia (low hemoglobin) is a well-known complication in chronic kidney disease (CKD) that gets worse with progression of CKD. National survey data show anemia among individuals with CKD is consistently more common among Black adults than other racial and ethnic groups. Anemia related to CKD is important to recognize and manage early to optimize patients’ quality of life.  
+                CDC recently published its 2026 report on chronic kidney disease (CKD). The report shares updated national estimates of CKD in the United States. It also highlights how CKD affects different groups and shares steps people can take to help manage CKD and protect their kidney and heart health.  
                 <br /><br />                
             </div>
 

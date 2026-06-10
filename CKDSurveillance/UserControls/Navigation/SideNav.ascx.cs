@@ -57,17 +57,17 @@ namespace CKDSurveillance_RD
         protected void Page_Load(object sender, EventArgs e)
         {
             string path = HttpContext.Current.Request.Url.AbsolutePath;
-            if (!string.IsNullOrEmpty(path) && path.ToLower().IndexOf("topichome") > -1) //trying to account for the additional folder level of the topichome pages
+            if (path.ToLower().IndexOf("topichome") > -1) //trying to account for the additional folder level of the topichome pages
                 directoryPath = "../";
             else
                 directoryPath = "";
 
-            if (!string.IsNullOrEmpty(path) && path.ToLower().IndexOf("detail") == -1)
+            if (path.ToLower().IndexOf("detail") == -1)
                 Session["SelectedIndicator"] = "";
 
 
             //Is this a chart page? [affects decision to format a selected indicator]
-            if (!string.IsNullOrEmpty(path) && !path.ToLower().Contains("detail.aspx"))
+            if (!path.ToLower().Contains("detail.aspx"))
             {
                 isDetailpage = false;
             }
@@ -82,23 +82,6 @@ namespace CKDSurveillance_RD
             else if (Request.QueryString["topic"] != null)
             {
                 TopicID = Request.QueryString["topic"].ToString().Trim();
-            }
-            if (!string.IsNullOrEmpty(path))
-            {
-                if (path.ToLower().IndexOf("prevalenceincidence.aspx") >= 0)
-                    TopicID = TopicConstants.PrevalenceIncidence;
-                else if (path.ToLower().IndexOf("awareness.aspx") >= 0)
-                    TopicID = TopicConstants.Awareness;
-                else if (path.ToLower().IndexOf("burdenofriskfactors.aspx") >= 0)
-                    TopicID = TopicConstants.RiskFactors;
-                else if (path.ToLower().IndexOf("healthconsequences.aspx") >= 0)
-                    TopicID = TopicConstants.Outcomes;
-                else if (path.ToLower().IndexOf("qualityofcare.aspx") >= 0)
-                    TopicID = TopicConstants.QualityOfCare;
-                else if (path.ToLower().IndexOf("socialdeterminantsofhealth.aspx") >= 0)
-                    TopicID = TopicConstants.SocialDeterminantsOfHealth;
-                else if (path.ToLower().IndexOf("awarenessarchive.aspx") >= 0)
-                    TopicID =  TopicConstants.AYAArchive;
             }
             //Set this in session for access by Methods page
             Session["TopicID"] = TopicID;
