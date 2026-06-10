@@ -2795,7 +2795,7 @@ namespace CKDSurveillance_RD.MasterPages
                         plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
                     }
                     else
-                        plotlyStr.Append(", " + hovertextData + "," + hovertemplateNoCI); // Include hover text even without error bars
+                        plotlyStr.Append(", " + hovertextData + "," + hovertemplate); // Include hover text even without error bars
 
                     //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
                     if (current_serieslabel == "Total")
@@ -2878,7 +2878,7 @@ namespace CKDSurveillance_RD.MasterPages
                     plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
             }
             else // No error bars but still include hover text
-                plotlyStr.Append(", " + hovertextData_final + "," + hovertemplateNoCI);
+                plotlyStr.Append(", " + hovertextData_final + "," + hovertemplate);
 
             //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
             if (current_serieslabel == "Total")
