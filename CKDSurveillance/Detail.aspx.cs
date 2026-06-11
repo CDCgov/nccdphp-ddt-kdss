@@ -203,6 +203,15 @@ namespace CKDSurveillance_RD.MasterPages
                     showCI = true;
                     CB_ChartCI.Checked = true;
                     hfShowCI.Value = "true";
+
+                    if (hfChartType.Value == "line")
+                    {
+                        hfShowCIShadow.Value = "true";
+                    }
+                    else
+                    {
+                        hfShowCIShadow.Value = "false";
+                    }
                 }
                 else
                     showCI = false;
@@ -246,6 +255,7 @@ namespace CKDSurveillance_RD.MasterPages
                 if (!showCI)
                 {
                     hfShowCI.Value = "false";
+                    hfShowCIShadow.Value = "false";
                     CB_ChartCI.Checked = false;
                 }
 
@@ -2520,6 +2530,7 @@ namespace CKDSurveillance_RD.MasterPages
         {
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
             string hovertemplate = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
+            string hovertemplateNoCI = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
             string selectedColor = "";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             selectedColor = RB_ChartColor.SelectedValue;
@@ -2813,7 +2824,7 @@ namespace CKDSurveillance_RD.MasterPages
                         plotlyStr.Append(", error_y: { visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col + " ," + loConData_col + "}," + hovertextData + "," + hovertemplate);
                     }
                     else
-                        plotlyStr.Append(", " + hovertextData + "," + hovertemplate); // Include hover text even without error bars
+                        plotlyStr.Append(", " + hovertextData + "," + hovertemplateNoCI); // Include hover text even without error bars
 
                     //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
                     if (current_serieslabel == "Total")
