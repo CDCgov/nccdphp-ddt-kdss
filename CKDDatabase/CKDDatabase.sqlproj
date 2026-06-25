@@ -187,6 +187,6 @@
     <None Include="DEV\20260602-2026June02Release\20260602-2026June02ReleaseData.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="DEV\20260625-2026June25Release\20260625-2026June25ReleaseData.sql" />
+    <None Include="DEV\20260625-2026June25Release\20260625-2026June25ReleaseData.sql" />
   </ItemGroup>
 </Project>

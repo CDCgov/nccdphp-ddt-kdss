@@ -1,19 +1,4 @@
-/*
-Run this script on:
-
-awssqlprodm.51349_CDCCKD    -  This database will be modified
-
-to synchronize it with:
-
-awssqlstgm.51349_CDCCKD_TED
-
-You are recommended to back up your database before running this script
-
-Script created by SQL Data Compare version 15.3.6.25729 from Red Gate Software Ltd at 6/25/2026 10:54:45 AM
-
-*/
-		
-USE [51349_CDCCKD]
+USE [NCCD_DDT_CKD]
 SET NUMERIC_ROUNDABORT OFF
 GO
 SET ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT, QUOTED_IDENTIFIER, ANSI_NULLS, NOCOUNT ON
