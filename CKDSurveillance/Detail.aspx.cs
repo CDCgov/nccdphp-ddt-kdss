@@ -180,7 +180,7 @@ namespace CKDSurveillance_RD.MasterPages
         protected void Page_Load(object sender, EventArgs e)
         {
             //buildPageScripts();
-
+            
             string browser = "";
             if (Request.Browser != null) browser = Request.Browser.Browser.ToString().ToLower();
             if (browser == "internetexplorer")
@@ -2529,8 +2529,9 @@ namespace CKDSurveillance_RD.MasterPages
         private void buildPlotlyChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, bool isMapPage)
         {
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
-            string hovertemplate = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
-            string hovertemplateNoCI = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span> in %{x}<extra></extra>'";
+            string hovertemplateNoCI = "hovertemplate:'<span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
+
             string selectedColor = "";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             selectedColor = RB_ChartColor.SelectedValue;
@@ -2784,7 +2785,7 @@ namespace CKDSurveillance_RD.MasterPages
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
                     if (!String.IsNullOrEmpty(ehigh) && !String.IsNullOrEmpty(elow))
-                        hovertext = hovertext + FormatHoverText(elow, ehigh);
+                        hovertext = hovertext + FormatHoverText(elow, ehigh, datapoint);
                     else
                         hovertext = hovertext + "'',";
                     //hovertext = hovertext + "'High:" + ehigh + " - Low:" + elow + "',";//hovertext , adding the text value, though this maybe emptied out during the numeric check below
@@ -2865,8 +2866,8 @@ namespace CKDSurveillance_RD.MasterPages
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                    if (!String.IsNullOrEmpty(ehigh) && !String.IsNullOrEmpty(elow) && CB_ChartCI.Visible)
-                        hovertext = hovertext + FormatHoverText(elow, ehigh);
+                    if (!String.IsNullOrEmpty(ehigh) && !String.IsNullOrEmpty(elow))//&& CB_ChartCI.Visible)
+                        hovertext = hovertext + FormatHoverText(elow, ehigh, datapoint);
                     else
                         hovertext = hovertext + "'',";
 
@@ -3038,8 +3039,8 @@ namespace CKDSurveillance_RD.MasterPages
         private void buildPlotlyLineChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, bool isMapPage)
         {
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
-            string hovertemplate = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span>%{text}<extra></extra>'";
-            string hovertemplateNoCI = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span> in %{x}<extra></extra>'";
+            string hovertemplateNoCI = "hovertemplate:'<span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
             string selectedColor = "";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             selectedColor = RB_ChartColor.SelectedValue;
@@ -3301,7 +3302,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                     // Always add hover text in the same format, even if CI values are empty
                     if (!String.IsNullOrEmpty(ehigh) && !String.IsNullOrEmpty(elow))
-                        hovertext = hovertext + FormatHoverText(elow, ehigh);
+                        hovertext = hovertext + FormatHoverText(elow, ehigh, datapoint);
                     else
                         hovertext = hovertext + "'',";
 
@@ -3407,7 +3408,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                     // Always add hover text in the same format
                     if (!String.IsNullOrEmpty(ehigh) && !String.IsNullOrEmpty(elow))
-                        hovertext = hovertext + FormatHoverText(elow, ehigh);
+                        hovertext = hovertext + FormatHoverText(elow, ehigh, datapoint);
                     else
                         hovertext = hovertext + "'',";
 
@@ -3607,7 +3608,7 @@ namespace CKDSurveillance_RD.MasterPages
 
         private void buildPlotlyTripleStratChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
         {
-            string hovertemplate = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br>%{text}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span> in %{x}<extra></extra>'";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
                 RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
@@ -3860,7 +3861,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'" + secondary + ": " + datapoint + " (95% CI: " + elow + "-" + ehigh + ")" + "',";
+                        hovertext = hovertext + FormatHoverText(elow, ehigh, datapoint);
 
                         current_serieslabel = serieslabel;
                     }
@@ -3925,7 +3926,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + "'" + secondary + ": " + datapoint + " (95% CI: " + elow + "-" + ehigh + ")" + "',";
+                        hovertext = hovertext + FormatHoverText(elow, ehigh, datapoint);
 
                         current_serieslabel = serieslabel;
                     }
@@ -4150,7 +4151,8 @@ namespace CKDSurveillance_RD.MasterPages
         }
         private void buildPlotlyTripleStratLineChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
         {
-            string hovertemplate = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span>%{text}<extra></extra>'";
+            //string hovertemplate = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span>%{text}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span> in %{x}<extra></extra>'";
 
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
@@ -4406,7 +4408,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + FormatHoverText(elow, ehigh);
+                        hovertext = hovertext + FormatHoverText(elow, ehigh, datapoint);
                         ciLoStr = ciLoStr + elow + ",";
                         ciHiStr = ciHiStr + ehigh + ",";
                         current_serieslabel = serieslabel;
@@ -4481,7 +4483,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                         high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                         low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
-                        hovertext = hovertext + FormatHoverText(elow, ehigh);
+                        hovertext = hovertext + FormatHoverText(elow, ehigh, datapoint);
                         ciLoStr = ciLoStr + elow + ",";
                         ciHiStr = ciHiStr + ehigh + ",";
 
@@ -6265,9 +6267,9 @@ namespace CKDSurveillance_RD.MasterPages
             return html;
         }
 
-        protected string FormatHoverText(string strlow, string strhigh)
+        protected string FormatHoverText(string strlow, string strhigh, string yval = "")
         {
-            return "'<br><b><span style=\"font-size:15px;\">" + strlow + "-" + strhigh + "</span></b> 95% CI',";
+            return "'<br><b><span style=\"font-size:16px;\">" + yval + "%</span></b><br><b><span style=\"font-size:14px;\">" + strlow + "-" + strhigh + "</span></b> 95% CI',";
         }
     }
 }
