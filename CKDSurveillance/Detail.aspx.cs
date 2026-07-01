@@ -2530,7 +2530,7 @@ namespace CKDSurveillance_RD.MasterPages
         {
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
             string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span> in %{x}<extra></extra>'";
-            string hovertemplateNoCI = "hovertemplate:'<span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
+            string hovertemplateNoCI = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
 
             string selectedColor = "";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
@@ -2911,7 +2911,7 @@ namespace CKDSurveillance_RD.MasterPages
                     plotlyStr.Append(", error_y: {visible: eval($('#hfShowCI').val()), type: 'data', color: 'eval(colors_split[\" + colorarray_inc + \"])', thickness:0, symmetric: false, " + hiConData_col_final + " ," + loConData_col_final + "}, " + hovertextData_final + "," + hovertemplate);
             }
             else // No error bars but still include hover text
-                plotlyStr.Append(", " + hovertextData_final + "," + hovertemplate);
+                plotlyStr.Append(", " + hovertextData_final + "," + hovertemplateNoCI);
 
             //2/8/2021 - BS - adding the 'line: { simplify: false }' parameter to help smooth the line animation, without it only the first three data points animate
             if (current_serieslabel == "Total")
@@ -3040,7 +3040,7 @@ namespace CKDSurveillance_RD.MasterPages
         {
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
             string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span> in %{x}<extra></extra>'";
-            string hovertemplateNoCI = "hovertemplate:'<span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
+            string hovertemplateNoCI = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
             string selectedColor = "";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             selectedColor = RB_ChartColor.SelectedValue;
@@ -4151,7 +4151,6 @@ namespace CKDSurveillance_RD.MasterPages
         }
         private void buildPlotlyTripleStratLineChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
         {
-            //string hovertemplate = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}%</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span>%{text}<extra></extra>'";
             string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span> in %{x}<extra></extra>'";
 
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
@@ -6269,7 +6268,7 @@ namespace CKDSurveillance_RD.MasterPages
 
         protected string FormatHoverText(string strlow, string strhigh, string yval = "")
         {
-            return "'<br><b><span style=\"font-size:16px;\">" + yval + "%</span></b><br><b><span style=\"font-size:14px;\">" + strlow + "-" + strhigh + "</span></b> 95% CI',";
+            return "'<br><b><span style=\"font-size:16px;\">" + yval + "</span></b><br><b><span style=\"font-size:14px;\">" + strlow + "-" + strhigh + "</span></b> 95% CI',";
         }
     }
 }
