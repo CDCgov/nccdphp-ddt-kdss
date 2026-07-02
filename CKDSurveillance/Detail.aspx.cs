@@ -167,7 +167,14 @@ namespace CKDSurveillance_RD.MasterPages
 
         public string CurrentYear
         {
-            get { return Convert.ToString(Session["currentYear"]); }
+            get
+            {
+                if (Session["currentYear"] != null)
+                {
+                    return Convert.ToString(Session["currentYear"]);
+                }
+                return string.Empty;
+            }
             set { Session["currentYear"] = value; }
         }
 
@@ -407,7 +414,7 @@ namespace CKDSurveillance_RD.MasterPages
 
                 foreach (DataRow row in dtAppsSettings.Rows)
                 {
-                    if (row["NAme"].ToString() == "PPTQNums")
+                    if (row["Name"].ToString() == "PPTQNums")
                     {
                         PPTs = row["Value"].ToString();
                         break;
