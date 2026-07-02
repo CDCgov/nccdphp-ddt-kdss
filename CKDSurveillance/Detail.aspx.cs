@@ -2529,7 +2529,7 @@ namespace CKDSurveillance_RD.MasterPages
         private void buildPlotlyChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, bool isMapPage)
         {
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
-            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span> in %{x}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span><span style=\"font-size:12px;\"> in %{x}</span><extra></extra>'";
             string hovertemplateNoCI = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
 
             string selectedColor = "";
@@ -3041,7 +3041,7 @@ namespace CKDSurveillance_RD.MasterPages
         private void buildPlotlyLineChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, bool isMapPage)
         {
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
-            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span> in %{x}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span><span style=\"font-size:12px;\"> in %{x}</span><extra></extra>'";
             string hovertemplateNoCI = "hovertemplate:'<b><span style=\"font-size:16px;\">%{y}</span></b><br><span style=\"color:%{meta.color};\">%{meta.group}</span> in %{x}<extra></extra>'";
             string selectedColor = "";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
@@ -3610,7 +3610,7 @@ namespace CKDSurveillance_RD.MasterPages
 
         private void buildPlotlyTripleStratChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
         {
-            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span> in %{x}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span><span style=\"font-size:12px;\"> in %{x}</span><extra></extra>'";
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
                 RB_ChartColor.SelectedIndex = 1;//colorarray = new string[] { "#949494", "#08a3b4", "#4169e1", "#00008b", "#ffb456", "#7f7f7f", "#e377c2", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#98CA32", "#9D0E01", "#EA3E88" };
@@ -4154,7 +4154,7 @@ namespace CKDSurveillance_RD.MasterPages
         }
         private void buildPlotlyTripleStratLineChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
         {
-            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span> in %{x}<extra></extra>'";
+            string hovertemplate = "hovertemplate:'%{text}<br><span style=\"display:block; text-align:center;color:#cfcfcf;\">────────────</span><br><span style=\"color:%{meta.color};font-size:12px;\">%{meta.group}</span><span style=\"font-size:12px;\"> in %{x}</span><extra></extra>'";
 
             RB_ChartColor.SelectedIndex = 0; //default value is selected here (Contrast)
             if (QNum.Substring(1) == "712")//reset the charts for the March 2020 AYA
