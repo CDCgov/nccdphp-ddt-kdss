@@ -1305,21 +1305,33 @@
                                                 <asp:Panel ID="pnlReferences" runat="server" Style="" class="printReferences">
                                                     <div class="tabbyDiv">
 
-                                                        <asp:Repeater runat="server" ID="rptrReferences">
+                                                         <%--*ul and li are emitted through<a href="Blocked.aspx">Blocked.aspx</a> asp:Literal so that the static tags don't get stripped, maintaining the list styling*--%>
+                                                        <asp:Repeater runat="server" ID="rptrReferences">                                                           
                                                             <HeaderTemplate>
-                                                                <ul>
+                                                                <asp:Literal runat="server" Text="&lt;ul&gt;" />
                                                             </HeaderTemplate>
+
                                                             <ItemTemplate>
+                                                                <asp:Literal runat="server" Text="&lt;li style=&quot;margin-bottom: .9em;&quot;&gt;" />
 
-                                                                <li style="margin-bottom: .9em;">
-                                                                    <asp:Literal ID="lblRefences" runat="server" Text='<%# Eval("ReferenceText") %>' ClientIDMode="AutoID"></asp:Literal>
-                                                                    <br />
-                                                                    <asp:HyperLink runat="server" Target="_self" NavigateUrl='<%# Eval("URL") %>' Text='<%#Eval("URL").ToString().Replace("-", "&#8209;")%>' ToolTip='<%#Eval("URL")%>' />
-                                                                </li>
+                                                                <asp:Literal ID="lblRefences" runat="server"
+                                                                    Text='<%# Eval("ReferenceText") %>'
+                                                                    Mode="PassThrough"
+                                                                    ClientIDMode="AutoID"/>
 
+                                                                <br />
+
+                                                               <asp:HyperLink runat="server"
+                                                                    Target="_self"
+                                                                    NavigateUrl='<%# Eval("URL") %>'
+                                                                    Text='<%# Convert.ToString(Eval("URL")).Replace("-", "&#8209;") %>'
+                                                                    ToolTip='<%# Eval("URL") %>' />
+
+                                                                <asp:Literal runat="server" Text="&lt;/li&gt;" />
                                                             </ItemTemplate>
+
                                                             <FooterTemplate>
-                                                                </ul>
+                                                                <asp:Literal runat="server" Text="&lt;/ul&gt;" />
                                                             </FooterTemplate>
                                                         </asp:Repeater>
 
