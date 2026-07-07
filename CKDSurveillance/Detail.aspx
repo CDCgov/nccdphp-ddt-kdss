@@ -1305,7 +1305,7 @@
                                                 <asp:Panel ID="pnlReferences" runat="server" Style="" class="printReferences">
                                                     <div class="tabbyDiv">
 
-                                                         <%--*ul and li are emitted through<a href="Blocked.aspx">Blocked.aspx</a> asp:Literal so that the static tags don't get stripped, maintaining the list styling*--%>
+                                                         <%--*ul and li are emitted through asp:Literal so that the static tags don't get stripped, maintaining the list styling*--%>
                                                         <asp:Repeater runat="server" ID="rptrReferences">                                                           
                                                             <HeaderTemplate>
                                                                 <asp:Literal runat="server" Text="&lt;ul&gt;" />
@@ -1314,7 +1314,7 @@
                                                             <ItemTemplate>
                                                                 <asp:Literal runat="server" Text="&lt;li style=&quot;margin-bottom: .9em;&quot;&gt;" />
 
-                                                                <asp:Literal ID="lblRefences" runat="server"
+                                                                <asp:Literal ID="lblReferences" runat="server"
                                                                     Text='<%# Eval("ReferenceText") %>'
                                                                     Mode="PassThrough"
                                                                     ClientIDMode="AutoID"/>
