@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-    <h1 style="font-family: Poppins;">Application Error</h1>
+    <h2 style="font-family: Poppins;">Application Error</h2>
 
     <p>
         <asp:Label ID="lblErrorMessage" runat="server"></asp:Label>

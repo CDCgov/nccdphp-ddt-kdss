@@ -329,6 +329,7 @@
         <asp:HiddenField ID="hfChartMode" runat="server" />
         <asp:HiddenField ID="hfChartColor" runat="server" />
         <asp:HiddenField ID="hfShowCI" runat="server" />
+        <asp:HiddenField ID="hfShowCIShadow" runat="server" />
         <asp:HiddenField ID="hfMapType" runat="server" />
         <asp:HiddenField ID="hfCurrentYear" runat="server" />
         <asp:HiddenField ID="hfChartID" runat="server" />
@@ -1533,7 +1534,7 @@
                 var style = window.getComputedStyle(legendItem);
                 var opacity = parseFloat(style.opacity);
                 var textNode = legendItem.querySelector('text');
-                console.log('opacity  = ' + opacity + ' textNode =' + textNode.dataval);
+                //console.log('opacity  = ' + opacity + ' textNode =' + textNode.dataval);
                 // Plotly dims inactive legend items; treat anything below 1 as inactive
                 if (opacity < 1) legendItem.style.opacity = "0.9";
                 return (!isNaN(opacity) && opacity < 1);
@@ -1605,18 +1606,24 @@
                 }
 
                 $("input[id*='CB_ChartCI']").click(function () {
-                    console.log("cbchart=" + $(this).prop('checked'));
                     if ($(this).prop('checked')) {
                         if ($('#hfMaxConfidence').val() > $('#hfChartYValToUse').val()) {
                             $('#hfChartYValToUse').val($('#hfMaxConfidence').val()); // if the confidence intervals checkbox is checked then use the max confidence value to draw the chart
                         }
                         $('#hfShowCI').val("true");
+                        if ($('#hfChartType').val() == "'line'") {
+                            $('#hfShowCIShadow').val("true");
+                        }
+                        else {
+                            $('#hfShowCIShadow').val("false");
+                        }
                     }
                     else {
                         if ($('#hfMaxYVal').val() > $('#hfChartYValToUse').val()) {
                             $('#hfChartYValToUse').val($('#hfMaxYVal').val()); // if the confidence intervals checkbox is NOT checked then use the max y value to draw the chart
                         }
                         $('#hfShowCI').val("false");
+                        $('#hfShowCIShadow').val("false");
                     }
 
                     redrawPlotlyChart();
