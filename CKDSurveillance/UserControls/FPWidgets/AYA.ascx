@@ -138,7 +138,7 @@
             </div>
              <div style="height:50%; width:98%; display:table-cell; padding-right: 18px; word-spacing: normal;" class ="areYouAwareMsg">
 
-                <b><i>Are You Aware? </i></b> is designed to raise  <%--<br /> --%>                               <script src="../../scripts/UtilityRD.js"></script>              
+                <b><i>Are You Aware? </i></b> is designed to raise  <%--<br /> --%>                                             
                 awareness about important topics relevant to <%-- <br />--%>
                 kidney disease surveillance and prevention.
             </div>

@@ -198,4 +198,7 @@
   <ItemGroup>
     <None Include="DEV\20260706-2026Jul06Release\20260706-2026Jul06ReleaseData.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="DEV\20260715-2026July15Release\20260715-2026July15Release.sql" />
+  </ItemGroup>
 </Project>
