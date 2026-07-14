@@ -138,7 +138,7 @@
             </div>
              <div style="height:50%; width:98%; display:table-cell; padding-right: 18px; word-spacing: normal;" class ="areYouAwareMsg">
 
-                <b><i>Are You Aware? </i></b> is designed to raise  <%--<br /> --%>                                             
+                <b><i>Are You Aware? </i></b> is designed to raise  <%--<br /> --%>                               <script src="../../scripts/UtilityRD.js"></script>              
                 awareness about important topics relevant to <%-- <br />--%>
                 kidney disease surveillance and prevention.
             </div>
@@ -154,11 +154,11 @@
             <%--<div class="aya-title">ARE YOU AWARE?</div>--%>
 
             <div>
-                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Chronic Kidney Disease in the United States: The New CDC Report on the State of CKD </i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
+                <h2 class="aya-subtitle" style="font-family: Poppins;"><i>Increasing Use of GLP-1 RA Medications Among Adults With Type 2 Diabetes and Chronic Kidney Disease </i></h2>   <%--<br /><u class="aya-underline">Low</u>--%>
             </div>
 
             <div class="aya-text">
-                CDC recently published its 2026 report on chronic kidney disease (CKD). The report shares updated national estimates of CKD in the United States. It also highlights how CKD affects different groups and shares steps people can take to help manage CKD and protect their kidney and heart health.  
+                Glucagon-like peptide-1 receptor agonists (GLP-1 RAs) have beneficial effects in the management of chronic kidney disease (CKD), type 2 diabetes, obesity, and cardiovascular disease. From 2016 to 2023, GLP-1 RA medication use increased among Military Health System beneficiaries with type 2 diabetes and CKD, rising from 5.5% to 36.6% overall. The rapidly increasing use of GLP-1 RAs shows a change in how type 2 diabetes and CKD are managed.  
                 <br /><br />                
             </div>
 
