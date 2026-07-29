@@ -119,7 +119,7 @@
 
 <div class="row general-information">
         <div class="col-md-3">
-                <div class="row additionalresources">ADDITIONAL RESOURCES</div>
+                <div><h2 class="row additionalresources">ADDITIONAL RESOURCES</h2></div>
                 <ul class="generalinformation-link">
                   <%--  <li class="generalinformation-link-li">
                         <a href="/help.aspx?section=F" class="generalinformation-link" target="popup"
@@ -143,7 +143,7 @@
                 </ul>
              </div>
         <div class="col-md-9">
-            <div class="row generalinformation-title">GENERAL INFORMATION</div>
+            <div><h2 class="row generalinformation-title">GENERAL INFORMATION</h2></div>
             <div class="row generalinformation-subtitle"><a href="https://www.cdc.gov/kidney-disease/media/pdfs/CKD-Factsheet-H.pdf" style="padding-left:0px; text-decoration:none; color:#005fa3 !important";<%--color: #00778C" --%>target="_blank">Fact Sheet: Chronic Kidney Disease in the United States, 2026</a></div>
             <div class="row generalinformation-text">With chronic kidney disease (CKD), kidneys become damaged and over time may not clean the blood as well as healthy kidneys. If kidneys don't work well, toxic waste and extra fluid accumulate in the body and may lead to high blood pressure, heart disease, stroke, and early death. However, people with CKD and people at risk for CKD can take steps to protect their kidneys with the help of their health care providers.</div>
            <%-- <div class="row">
@@ -152,7 +152,7 @@
             </div>--%>
             <br />
             <div class="generalinformation-box">
-                <div class="generalinformation-box-title">CHRONIC KIDNEY DISEASE (CKD) INITIATIVE</div>
+                <div><h3 class="generalinformation-box-title">CHRONIC KIDNEY DISEASE (CKD) INITIATIVE</h3> </div>
                 <br />
                 <div class="generalinformation-box-text">In 2006, the CDC established the Chronic Kidney Disease (CKD) Initiative to provide public health strategies for promoting kidney health. Current activities of the CKD Initiative include surveillance, epidemiology, health outcomes, and economic studies in partnership with various offices at the CDC, other governmental agencies, universities, and national organizations.
                 <a href="https://www.cdc.gov/kidneydisease/index.html" style="opacity: 1; text-decoration:none;" target="new">Visit CKD Initiative<span class="fi cdc-icon-external x16"></span></a></div>  <%--#007C91--%>

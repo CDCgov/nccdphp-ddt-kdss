@@ -381,7 +381,7 @@
                             <img src="/TemplatePackage/5.0/img/logo/cdc-logo-tag-right.svg" style="max-height: 60px;" alt="Centers for Disease Control and Prevention">
                         </a>
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 position-relative">
                                 <li class="nav-item dropdown" style="width: 400px; visibility: hidden;">
                                     <form id="cdc-desktop-search-form" accept-charset="UTF-8" action="https://search.cdc.gov/search/" class="cdc-header-search-form" method="get" autocomplete="off" role="search" style="display: flex;">
@@ -393,7 +393,7 @@
                                         Search					</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div>-->
                     </div>
                 </nav>
             </header>
