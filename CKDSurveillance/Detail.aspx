@@ -622,8 +622,8 @@
                                         <a href="." runat="server" id="lnkCSV" style="text-decoration:none!important" visible="false">
                                             <span class="noPrint btn chartDownloadBtn">csv</span>
                                         </a>
-                                        <a href="." runat="server" id="lnkPPT" style="text-decoration:none!important">
-                                            <span class="noPrint btn ppt-icon iconPPTBtn chartMenuLabel">PPT</span>
+                                        <a href="." role="button" runat="server" id="lnkPPT" style="text-decoration:none!important">
+                                            <span role="button" class="noPrint btn ppt-icon iconPPTBtn chartMenuLabel">PPT</span>
                                         </a>
                                     </div>
                                 </div>
