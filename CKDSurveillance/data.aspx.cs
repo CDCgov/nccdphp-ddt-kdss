@@ -234,54 +234,55 @@ namespace CKDSurveillance_RD
 
                 int measureID = ((int)(dr["MeasureID"]));
 
-                sbTable.Append("<div class=\"card bar \" style=\"border-width:0px;\">"); //begin card bar   ---style=\"padding-left:20px;\"
+                sbTable.Append("<div class=\"card bar \" style=\"border-width:0px;\">"); //begin card bar
 
                 sbTable.Append("<div style=\"background: #f6fbff 0% 0% no-repeat padding-box;\" class=\"card-header ckd-accordion-subcat-header " + cardState + "\"  id=\"accordion-4i-card-" + measureID.ToString() + "\" data-target=\"#accordion-4i-collapse-" + measureID.ToString() + "\" data-toggle=\"collapse\">"); //begin header measureText
-                //sbTable.Append("<div style=\"text-align: left; font-family:Nunito, Open Sans; font-weight: 17px; letter-spacing: 0px; color: #2D2D2D; padding-top:5px; padding-bottom:5px;\" tabindex=\"0\"  data-controls=\"accordion-4i-collapse-" + measureID.ToString() + "\">" + measureText + "</div>");
                 sbTable.Append(measureText);
                 sbTable.Append("</div>"); //end ckd-accordion-subcat-header
 
                 sbTable.Append("<div aria-labelledby=\"accordion-4i-card-" + measureID.ToString() + "\" class=\"collapse " + divState + "\" id=\"accordion-4i-collapse-" + measureID.ToString() + "\" role=\"tabpanel\">"); //begin content panel
                 sbTable.Append("<div class=\"card body\" style=\"border-width:0px;\" >"); //begin card body
-                                
-                                
-                //*Add Bulleted list of Indicator Links for this Measure*                
+
+                //*Add table of Indicator Links for this Measure*                
                 DataTable dtIndicators = DAL.getIndicators(measureID);
 
                 //Manage datasource list
                 collectDataSources(dtIndicators);
 
-
-                //*Cycle through all indicators*
-                StringBuilder sb_indTable = new StringBuilder();
-
-
-                
-                //bool containsIndi = false;
-                foreach (DataRow drInd in dtIndicators.Rows)
+                //*Cycle through all indicators and build table*
+                if (dtIndicators.Rows.Count > 0)
                 {
-                    sbTable.Append("<div class=\"row\" style=\"padding-top:5px; padding-bottom:5px\">"); //begin row
-                    sbTable.Append("<div class=\"col-6\" style=\"padding-left:30px; \">"); //begin link col, no size definition because we want the layout to remain the same regardless of size
-                    // Build link
-                    string url = drInd["URL"].ToString().Trim();
-                    url = url.Substring(2);
-                    string linkStart = ("<a href=\"" + url + "#refreshPosition\" style=\"text-align: left; text-decoration: underline; letter-spacing: 0px; color: #0b4778; opacity: 1; \">");  /*#007C91;*/
-                    string text = drInd["QuestionText"].ToString().Trim();
-                    string linkEnd = "</a>";
-                    sbTable.Append(linkStart + text + linkEnd);
+                    sbTable.Append("<table class=\"table indicator-table\" style=\"width: 100%; margin-bottom: 0;\">");
+                    sbTable.Append("<tbody>");
 
-                    sbTable.Append("</div>"); //end begin link col
-                    sbTable.Append("<div class=\"col-3\" style=\"text-align:center\">" + drInd["DataSources"].ToString() + "</div>");
-                    sbTable.Append("<div class=\"col-3\" style=\"text-align:center\">" + drInd["Most Recent Year"].ToString() + "</div>");
-                    //sbTable.Append("<div class=\"col-2\" style=\"text-align:center\">" + drInd["Most Recent Year"].ToString() + "</div>");
-                    //sbTable.Append("<div class=\"col-3\" style=\"text-align:center\">" + drInd["DataSources"].ToString() + "</div>");
-                    sbTable.Append("</div>"); //end row                   
+                    foreach (DataRow drInd in dtIndicators.Rows)
+                    {
+                        sbTable.Append("<tr>"); //begin row
+                        
+                        // Column 1: Indicator Link (50%)
+                        sbTable.Append("<td style=\"padding-left:30px; text-align:left; width: 50%;\">"); 
+                        string url = drInd["URL"].ToString().Trim();
+                        url = url.Substring(2);
+                        string linkStart = ("<a href=\"" + url + "#refreshPosition\" style=\"text-align: left; text-decoration: underline; letter-spacing: 0px; color: #0b4778; opacity: 1;\">");
+                        string text = drInd["QuestionText"].ToString().Trim();
+                        string linkEnd = "</a>";
+                        sbTable.Append(linkStart + text + linkEnd);
+                        sbTable.Append("</td>");
+                        
+                        // Column 2: Data Source (25%)
+                        sbTable.Append("<td style=\"text-align:center; width: 25%;\">" + drInd["DataSources"].ToString() + "</td>");
+                        
+                        // Column 3: Most Recent Year (25%)
+                        sbTable.Append("<td style=\"text-align:center; width: 25%;\">" + drInd["Most Recent Year"].ToString() + "</td>");
+                        
+                        sbTable.Append("</tr>"); //end row
+                    }
+
+                    sbTable.Append("</tbody>");
+                    sbTable.Append("</table>");
                 }
 
-                sbTable.Append(sb_indTable); //adding the indicator links
-                //*Close the list and row*
-
-                // *Clean-up*
+                //*Clean-up*
                 dtIndicators.Dispose();
                 loopcnt++;
 
