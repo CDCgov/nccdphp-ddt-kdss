@@ -34,7 +34,7 @@
     }
 
     .btn-disclaimer{
-        color: #005fa3 !important ; /*color: #00778C;*/ /*#007C91; */
+        color: #005fa3 ; /*color: #00778C;*/ /*#007C91; */
         /*padding-left:40px; 
         padding-right: 40px; */
         vertical-align:central; 
