@@ -361,7 +361,7 @@
 							<div>
                                 <div class="col-xl-12">
 
-                                    <div class="ckdPagetitle">Chronic Kidney Disease Risk Calculators</div>
+                                    <h2 class="ckdPagetitle">Chronic Kidney Disease Risk Calculators</h2>
 
                     <div id="_dvHP2020Description" runat="server" style="clear: both; margin-top: 10px; margin-left:20px;" >  
                             <div  style="margin-top: 10px">                              
@@ -433,9 +433,9 @@
 
                                                                     <thead>
                                                                         <tr class="charTableHeaderBg">
-                                                                            <td id="colChar" scope="col" class="charTableHeader" style="width:50%">Characteristic</td>
-                                                                            <td id="colTP" scope="col" class="charTableHeader" style="width:30%">This Person</td>
-                                                                            <td id="colNA" scope="col" class="charTableHeader" style="width:20%">US National<br /> Average</td>
+                                                                            <th id="colChar" scope="col" class="charTableHeader" style="width:50%">Characteristic</th>
+                                                                            <th id="colTP" scope="col" class="charTableHeader" style="width:30%">This Person</th>
+                                                                            <th id="colNA" scope="col" class="charTableHeader" style="width:20%">US National<br /> Average</th>
                                                                         </tr>
                                                                     </thead>
 
@@ -736,8 +736,8 @@
                                                                     
                                                                     <thead>
                                                                         <tr class="charTableHeaderBg">
-                                                                            <td id="colCharT2" scope="col" class="charTableHeader" style="width:50%; height:76px;">Characteristic</td>
-                                                                            <td id="colTPT2" scope="col" class="charTableHeader" style="width:50%">This Person</td>
+                                                                            <th id="colCharT2" scope="col" class="charTableHeader" style="width:50%; height:76px;">Characteristic</th>
+                                                                            <th id="colTPT2" scope="col" class="charTableHeader" style="width:50%">This Person</th>
                                                                         </tr>
                                                                     </thead>                                                                    
                                                                     
