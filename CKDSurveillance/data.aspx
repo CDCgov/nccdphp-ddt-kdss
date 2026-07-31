@@ -106,6 +106,79 @@
             /*color: #29434E;
             opacity: 1;*/
         }
+
+        /* HP 2030 Indicators Table Styles */
+        .hp2030-indicators-table {
+            width: 100%;
+            margin-bottom: 0;
+            border-collapse: collapse;
+        }
+
+        .hp2030-indicators-table thead th {
+            vertical-align: middle;
+            border: none;
+        }
+
+        .indicator-details-table {
+            width: 100%;
+            margin-bottom: 0;
+            border: none;
+        }
+
+        .indicator-details-table tbody tr {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .indicator-details-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .indicator-details-table td {
+            vertical-align: middle;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .indicator-details-table td a {
+            text-decoration: underline;
+            color: #0b4778;
+        }
+
+        .indicator-details-table td a:hover {
+            text-decoration: none;
+        }
+
+        /* Indicator Table Styles */
+        .indicator-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .indicator-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .indicator-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .indicator-table td {
+            padding: 10px 15px;
+            vertical-align: middle;
+        }
+
+        .indicator-table td:first-child {
+            padding-left: 30px;
+        }
+
+        .indicator-table td a {
+            color: #0b4778;
+            text-decoration: underline;
+        }
+
+        .indicator-table td a:hover {
+            text-decoration: none;
+        }
     </style>
 
 
@@ -225,23 +298,25 @@
                     Healthy People 2030 provides science-based national objectives for improving the health of all Americans.
                 </div>
             <br />
-                <div class="row ckd-accordion-table-header-row bodyColHeaderBg" >
-                    <div class="col-6 accordion-table-header bodyColHeaderText" style="text-align: left !important;">Indicators Related To HP 2030 Objectives</div>
-                    <div class="col-3 accordion-table-header bodyColHeaderText">Data Source</div>
-                    <div class="col-3 accordion-table-header bodyColHeaderText">Most Recent Year</div>
-                </div>
-                
-            
-            <div class="row">
-                <%--<div class="col-xl-1"></div>
-                <div class="col-xl-10">--%>
-                    <div class="accordion indicator-plus accordion-white" role="tabpanel">
+                <!-- Table Header -->
+                <table class="hp2030-indicators-table">
+                <thead>
+                    <tr class="bodyColHeaderBg">
+                        <th class="accordion-table-header bodyColHeaderText" style="text-align: left !important;">Indicators Related To HP 2030 Objectives</th>
+                        <th class="accordion-table-header bodyColHeaderText">Data Source</th>
+                        <th class="accordion-table-header bodyColHeaderText">Most Recent Year</th>
+                    </tr>
+                </thead>
+            </table>
 
-                        <asp:Literal ID="litHp2020" runat="server" Visible="true"></asp:Literal>
+                <!-- Accordion with dynamic content -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="accordion indicator-plus accordion-white" role="tabpanel">
+                            <asp:Literal ID="litHp2020" runat="server" Visible="true"></asp:Literal>
+                        </div>
                     </div>
-                <%--</div>
-                <div class="col-xl-1"></div>--%>
-            </div>
+                </div>
 
         </div>
 
