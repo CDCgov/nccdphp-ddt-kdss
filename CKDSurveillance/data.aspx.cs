@@ -169,46 +169,47 @@ namespace CKDSurveillance_RD
             StringBuilder sbTable = new StringBuilder();
             string cardState = "collapsed";
             string divState = "";
-            
 
             foreach (DataRow row in dtCategories.Rows)
             {
                 int qid = Convert.ToInt16(row["QuestionID"]);
-                if (healthypeople == 1 || Convert.ToInt32(Request.QueryString["CategoryID"]) == qid) //if it is healthy people or a match on a category query string then show that card
+                if (healthypeople == 1 || Convert.ToInt32(Request.QueryString["CategoryID"]) == qid)
                 {
                     cardState = "";
                     divState = "show";
                 }
-                else //otherwise hide the card, needs to be reset in each loop
+                else
                 {
                     cardState = "collapsed";
                     divState = "";
                 }
                 string qtext = row["QuestionText"].ToString();
-                string desc = row["LongDesc"].ToString();                
+                string desc = row["LongDesc"].ToString();
 
-                sbTable.Append("<div class=\"card bar\" style=\"padding-top:10px; border-width:0px;\">"); //begin card bar
+                if (healthypeople == 1)
+                {
+                    // HP2030: output topic as a <th> group header row directly in the table
+                    sbTable.Append("<tr><th colspan=\"3\" class=\"ckd-accordion-subcat-header\" style=\"background:#f6fbff; text-align:left; padding:10px 15px; font-weight:600;\">" + qtext + "</th></tr>");
+                    sbTable.Append(MethodsIndicatorsTableCreation(qid, qtext, desc, healthypeople, cardState, divState));
+                }
+                else
+                {
+                    // Browse by Topic: keep accordion structure
+                    sbTable.Append("<div class=\"card bar\" style=\"padding-top:10px; border-width:0px;\">"); //begin card bar
 
-                //sbTable.Append("<div class=\"card-header " + cardState + "\" style=\"background-color:#C8D5E4 !important;\" id=\"accordion-4m-card-" + qid.ToString() + "\" data-target=\"#accordion-4m-collapse-" + qid.ToString() + "\" data-toggle=\"collapse\" role=\"tab\" aria-expanded=\"false\">"); //begin header measureText
-                //sbTable.Append("<a class=\"card-title\" tabindex=\"0\"  data-controls=\"accordion-4m-collapse-" + qid.ToString() + "\">" + qtext + "</a>");
-                //sbTable.Append("</div>");
+                    sbTable.Append("<div aria-label=\"" + qtext + "\" class=\"collapse " + divState + "\" id=\"accordion-4m-collapse-" + qid.ToString() + "\" role=\"region\">"); //begin content panel
+                    sbTable.Append("<div class=\"card body\" style=\"border-width:0px;\" >"); //begin card body
 
-                sbTable.Append("<div aria-labelledby=\"accordion-4m-card-" + qid.ToString() + "\" class=\"collapse " + divState + "\" id=\"accordion-4m-collapse-" + qid.ToString() + "\" role=\"tabpanel\">"); //begin content panel
-                sbTable.Append("<div class=\"card body\" style=\"border-width:0px;\" >"); //begin card body
+                    sbTable.Append("<div class=\"row\">"); //begin content row
+                    sbTable.Append("<div class=\"col-12\" >");
+                    sbTable.Append(MethodsIndicatorsTableCreation(qid, qtext, desc, healthypeople, cardState, divState));
 
-                sbTable.Append("<div class=\"row\">"); //begin content row                
-                sbTable.Append("<div class=\"col-12\" >"); //begin content col 12 center    ---style=\"padding-left:20px;\"
-                //sbTable.Append("<div>" + desc + "</div><br/>");
-                sbTable.Append(MethodsIndicatorsTableCreation(qid, qtext, desc, healthypeople, cardState, divState));
-
-                sbTable.Append("</div>"); //end content col 11 center
-
-                sbTable.Append("</div>"); //end content row
-
-                sbTable.Append("</div>"); //end card body
-                sbTable.Append("</div>"); //end content panel
-                sbTable.Append("</div>"); //end card bar
-
+                    sbTable.Append("</div>"); //end content col
+                    sbTable.Append("</div>"); //end content row
+                    sbTable.Append("</div>"); //end card body
+                    sbTable.Append("</div>"); //end content panel
+                    sbTable.Append("</div>"); //end card bar
+                }
             }
 
             return sbTable.ToString();
@@ -216,85 +217,109 @@ namespace CKDSurveillance_RD
 
         private string MethodsIndicatorsTableCreation(int TopicID, string TopicText, string TopicDesc, int healthypeople, string cardState, string divState)
         {
-            StringBuilder sbTable = new StringBuilder();          
+            StringBuilder sbTable = new StringBuilder();
 
             DataTable dtMeasures = DAL.getMeasuresByTopicID(TopicID, healthypeople);
 
             int loopcnt = 0;
-            int rowcnt = dtMeasures.Rows.Count;            
+            int rowcnt = dtMeasures.Rows.Count;
 
-            
-            // *Get all Measures for this Topic
             foreach (DataRow dr in dtMeasures.Rows)
             {
                 string measureText = dr["MeasureText"].ToString().Trim();
-                //this line is for testing and needs to be removed after we receive 2030 data from Michigan
-                //measureText = measureText.Replace("HP2020", "CKD");  //Example --> HP2020 – 1: Reduce the Percentage of the U.S. Population with Chronic Kidney Disease
-                //measureText = measureText.Replace(":", "-");
-
                 int measureID = ((int)(dr["MeasureID"]));
 
-                sbTable.Append("<div class=\"card bar \" style=\"border-width:0px;\">"); //begin card bar
-
-                sbTable.Append("<div style=\"background: #f6fbff 0% 0% no-repeat padding-box;\" class=\"card-header ckd-accordion-subcat-header " + cardState + "\"  id=\"accordion-4i-card-" + measureID.ToString() + "\" data-target=\"#accordion-4i-collapse-" + measureID.ToString() + "\" data-toggle=\"collapse\">"); //begin header measureText
-                sbTable.Append(measureText);
-                sbTable.Append("</div>"); //end ckd-accordion-subcat-header
-
-                sbTable.Append("<div aria-labelledby=\"accordion-4i-card-" + measureID.ToString() + "\" class=\"collapse " + divState + "\" id=\"accordion-4i-collapse-" + measureID.ToString() + "\" role=\"tabpanel\">"); //begin content panel
-                sbTable.Append("<div class=\"card body\" style=\"border-width:0px;\" >"); //begin card body
-
-                //*Add table of Indicator Links for this Measure*                
                 DataTable dtIndicators = DAL.getIndicators(measureID);
 
                 //Manage datasource list
                 collectDataSources(dtIndicators);
 
-                //*Cycle through all indicators and build table*
-                if (dtIndicators.Rows.Count > 0)
+                if (healthypeople == 1)
                 {
-                    sbTable.Append("<table class=\"table indicator-table\" style=\"width: 100%; margin-bottom: 0;\">");
-                    sbTable.Append("<tbody>");
+                    // HP2030: output measure as a subheader <tr> row, then indicator <tr> rows
+                    sbTable.Append("<tr><th colspan=\"3\" class=\"ckd-accordion-subcat-header\" style=\"background:#e8f0f7; text-align:left; padding:8px 15px 8px 30px; font-weight:600;\">" + measureText + "</th></tr>");
 
-                    foreach (DataRow drInd in dtIndicators.Rows)
+                    if (dtIndicators.Rows.Count > 0)
                     {
-                        sbTable.Append("<tr>"); //begin row
-                        
-                        // Column 1: Indicator Link (50%)
-                        sbTable.Append("<td style=\"padding-left:30px; text-align:left; width: 50%;\">"); 
-                        string url = drInd["URL"].ToString().Trim();
-                        url = url.Substring(2);
-                        string linkStart = ("<a href=\"" + url + "#refreshPosition\" style=\"text-align: left; text-decoration: underline; letter-spacing: 0px; color: #0b4778; opacity: 1;\">");
-                        string text = drInd["QuestionText"].ToString().Trim();
-                        string linkEnd = "</a>";
-                        sbTable.Append(linkStart + text + linkEnd);
-                        sbTable.Append("</td>");
-                        
-                        // Column 2: Data Source (25%)
-                        sbTable.Append("<td style=\"text-align:center; width: 25%;\">" + drInd["DataSources"].ToString() + "</td>");
-                        
-                        // Column 3: Most Recent Year (25%)
-                        sbTable.Append("<td style=\"text-align:center; width: 25%;\">" + drInd["Most Recent Year"].ToString() + "</td>");
-                        
-                        sbTable.Append("</tr>"); //end row
+                        foreach (DataRow drInd in dtIndicators.Rows)
+                        {
+                            string url = drInd["URL"].ToString().Trim();
+                            url = url.Substring(2);
+                            string text = drInd["QuestionText"].ToString().Trim();
+                            string dataSource = drInd["DataSources"].ToString();
+                            string mostRecentYear = drInd["Most Recent Year"].ToString();
+
+                            sbTable.Append("<tr>");
+                            sbTable.Append("<td style=\"padding-left:45px; text-align:left; width:50%;\">");
+                            sbTable.Append("<a href=\"" + url + "#refreshPosition\" style=\"text-align:left; text-decoration:underline; letter-spacing:0px; color:#0b4778; opacity:1;\">" + text + "</a>");
+                            sbTable.Append("</td>");
+                            sbTable.Append("<td style=\"text-align:center; width:25%;\">" + dataSource + "</td>");
+                            sbTable.Append("<td style=\"text-align:center; width:25%;\">" + mostRecentYear + "</td>");
+                            sbTable.Append("</tr>");
+                        }
+                    }
+                }
+                else
+                {
+                    // Browse by Topic: keep accordion structure with inner table
+                    sbTable.Append("<div class=\"card bar \" style=\"border-width:0px;\">"); //begin card bar
+
+                    sbTable.Append("<div style=\"background: #f6fbff 0% 0% no-repeat padding-box;\" class=\"card-header ckd-accordion-subcat-header " + cardState + "\"  id=\"accordion-4i-card-" + measureID.ToString() + "\" data-target=\"#accordion-4i-collapse-" + measureID.ToString() + "\" data-toggle=\"collapse\">"); //begin header measureText
+                    sbTable.Append(measureText);
+                    sbTable.Append("</div>"); //end ckd-accordion-subcat-header
+
+                    sbTable.Append("<div aria-labelledby=\"accordion-4i-card-" + measureID.ToString() + "\" class=\"collapse " + divState + "\" id=\"accordion-4i-collapse-" + measureID.ToString() + "\" role=\"region\">"); //begin content panel
+                    sbTable.Append("<div class=\"card body\" style=\"border-width:0px;\" >"); //begin card body
+
+                    if (dtIndicators.Rows.Count > 0)
+                    {
+                        sbTable.Append("<table class=\"table indicator-table\" style=\"width: 100%; margin-bottom: 0;\">");
+                        sbTable.Append("<thead class=\"visually-hidden\"><tr>");
+                        sbTable.Append("<th scope=\"col\">Indicator</th>");
+                        sbTable.Append("<th scope=\"col\">Data Source</th>");
+                        sbTable.Append("<th scope=\"col\">Most Recent Year</th>");
+                        sbTable.Append("</tr></thead>");
+                        sbTable.Append("<tbody>");
+
+                        foreach (DataRow drInd in dtIndicators.Rows)
+                        {
+                            sbTable.Append("<tr>"); //begin row
+
+                            // Column 1: Indicator Link (50%)
+                            sbTable.Append("<td style=\"padding-left:30px; text-align:left; width: 50%;\">");
+                            string url = drInd["URL"].ToString().Trim();
+                            url = url.Substring(2);
+                            string linkStart = ("<a href=\"" + url + "#refreshPosition\" style=\"text-align: left; text-decoration: underline; letter-spacing: 0px; color: #0b4778; opacity: 1;\">");
+                            string text = drInd["QuestionText"].ToString().Trim();
+                            string linkEnd = "</a>";
+                            sbTable.Append(linkStart + text + linkEnd);
+                            sbTable.Append("</td>");
+
+                            // Column 2: Data Source (25%)
+                            sbTable.Append("<td style=\"text-align:center; width: 25%;\">" + drInd["DataSources"].ToString() + "</td>");
+
+                            // Column 3: Most Recent Year (25%)
+                            sbTable.Append("<td style=\"text-align:center; width: 25%;\">" + drInd["Most Recent Year"].ToString() + "</td>");
+
+                            sbTable.Append("</tr>"); //end row
+                        }
+
+                        sbTable.Append("</tbody>");
+                        sbTable.Append("</table>");
                     }
 
-                    sbTable.Append("</tbody>");
-                    sbTable.Append("</table>");
+                    sbTable.Append("</div>"); //end card body
+                    sbTable.Append("</div>"); //end content panel
+                    sbTable.Append("</div>"); //end card bar
                 }
 
                 //*Clean-up*
                 dtIndicators.Dispose();
                 loopcnt++;
-
-                sbTable.Append("</div>"); //end card body
-                sbTable.Append("</div>"); //end content panel                
-                sbTable.Append("</div>"); //end card bar
-            }            
-
+            }
 
             //*Clean-up*
             dtMeasures.Dispose();
-
 
             return sbTable.ToString();
         }
