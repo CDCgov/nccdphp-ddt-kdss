@@ -282,7 +282,7 @@ namespace CKDSurveillance_RD.UserControls.RDVersions
 
         private void buildPlotlyChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, string yr, string smallchart, string charttype)
         {
-            string[] colorarray = new string[] { "#01808E", "#b0e57c", "#98abc5", "#1f77b4", "#ffb456", "#7f7f7f", "#D04638", "#8c564b", "#444444", "#ff6456", "#e4e51b", "#aa51ff", "#627800", "#9D0E01", "#EA3E88" };
+            string[] colorarray = new string[] { "#01808E", "#b0e57c", "#98abc5", "#1f77b4", "#ffb456", "#7f7f7f", "#D04638", "#8c564b", "#444444", "#01808E", "#627800", "#aa51ff", "#627800", "#9D0E01", "#EA3E88" };
             //*Get Page*
             ArborDataAccessV2 DAL = new ArborDataAccessV2();
 

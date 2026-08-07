@@ -1382,8 +1382,8 @@
                                     <asp:RadioButtonList ID="RB_ChartColor" CssClass="radioButtonList" runat="server" RepeatLayout="Table" RepeatDirection="Vertical" >
                                         <%--<asp:ListItem Text="Contrast" Value="'#01808E', '#b0e57c', '#98abc5', '#1f77b4', '#ffb456', '#7f7f7f', '#e377c2', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#627800', '#9D0E01', '#EA3E88'"></asp:ListItem>--%>
                                         <%--<asp:ListItem Text="Contrast" Value="'#6BAED6','#74C476','#767676','#C75301', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#627800', '#9D0E01', '#EA3E88','#01808E', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#D04638', '#ffb456'"></asp:ListItem>--%>
-                                        <asp:ListItem Text="Contrast" Value="'#712177','#0b4778','#767676','#C75301', '#8c564b', '#444444', '#ff6456', '#e4e51b', '#aa51ff', '#627800', '#9D0E01', '#EA3E88','#01808E', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#D04638', '#ffb456'"></asp:ListItem>  <%--'#007C91',--%>
-                                        <asp:ListItem Text="Gradient" Value="'#949494','#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b'" ></asp:ListItem>                                  
+                                        <asp:ListItem Text="Contrast" Value="'#712177','#0b4778','#767676','#C75301', '#8c564b', '#444444', '#D04638', '#627800', '#aa51ff', '#627800', '#9D0E01', '#EA3E88','#01808E', '#b0e57c', '#98abc5', '#1f77b4','#7f7f7f', '#D04638', '#ffb456'"></asp:ListItem>  <%--'#007C91',--%>
+                                        <asp:ListItem Text="Gradient" Value="'#949494','#01808E', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b', '#949494', '#08a3b4', '#4169e1', '#00008b'" ></asp:ListItem>                                  
                                     </asp:RadioButtonList>
                                 </div>
                         </div>
