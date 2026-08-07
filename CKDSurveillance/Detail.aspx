@@ -411,9 +411,9 @@
                         <hr style="border: 1px solid #C3C3C3; opacity: 0.42;margin-top: 1px !important;" />
                         <%--*Chart Title*--%>
 
-                        <div class="IndicatorSubPagetitle">
+                        <h2 class="IndicatorSubPagetitle">
                             <asp:Literal ID="litChartTitleText" runat="server" Text="" Visible="true"></asp:Literal>  <%--Text="Big Bold Chart Title"--%>
-                        </div>
+                        </h2>
                         <asp:Literal ID="litDDLMeasInd" ClientIDMode="Static" runat="server"></asp:Literal>
                         <asp:Literal ID="litChartSubTitleText" runat="server" Text="Subtitle of Data source Name" Visible="false"></asp:Literal>
   
