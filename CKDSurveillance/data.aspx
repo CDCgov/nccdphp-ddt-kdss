@@ -247,13 +247,13 @@
                     <asp:Literal ID="litDataSources" runat="server" Text="" ClientIDMode="Static" />                
             </div>
             <div class="row">               
-                    <div class="accordion indicator-plus accordion-white" role="tabpanel">
+                    <div class="accordion indicator-plus accordion-white" role="region" aria-label="Browse Data by Topic - Indicators">
                         <asp:Literal ID="litIndicators" runat="server"></asp:Literal>
                     </div>               
             </div>
 
             <div class="row">                
-                    <div class="accordion indicator-plus accordion-white" role="tabpanel">
+                    <div class="accordion indicator-plus accordion-white" role="region" aria-label="Browse Data by Topic - Special Populations">
                         <asp:Literal ID="litSpecialPops" runat="server"></asp:Literal>
                     </div>                
             </div>
@@ -298,25 +298,23 @@
                     Healthy People 2030 provides science-based national objectives for improving the health of all Americans.
                 </div>
             <br />
-                <!-- Table Header -->
+                <!-- Table Header and Body for HP2030 -->
                 <table class="hp2030-indicators-table">
-                <thead>
-                    <tr class="bodyColHeaderBg">
-                        <th class="accordion-table-header bodyColHeaderText" style="text-align: left !important;">Indicators Related To HP 2030 Objectives</th>
-                        <th class="accordion-table-header bodyColHeaderText">Data Source</th>
-                        <th class="accordion-table-header bodyColHeaderText">Most Recent Year</th>
-                    </tr>
-                </thead>
-            </table>
+                    <caption class="visually-hidden">Healthy People 2030 CKD Indicators: Indicators, Data Sources, and Most Recent Years</caption>
+                    <thead>
+                        <tr class="bodyColHeaderBg">
+                            <th id="hp2030ColIndicator" class="accordion-table-header bodyColHeaderText" style="text-align: left !important;">Indicators Related To HP 2030 Objectives</th>
+                            <th id="hp2030ColDataSource" class="accordion-table-header bodyColHeaderText">Data Source</th>
+                            <th id="hp2030ColYear" class="accordion-table-header bodyColHeaderText">Most Recent Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <asp:Literal ID="litHp2020" runat="server" Visible="true"></asp:Literal>
+                    </tbody>
+                </table>
 
                 <!-- Accordion with dynamic content -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="accordion indicator-plus accordion-white" role="tabpanel">
-                            <asp:Literal ID="litHp2020" runat="server" Visible="true"></asp:Literal>
-                        </div>
-                    </div>
-                </div>
+                
 
         </div>
 
