@@ -2581,6 +2581,8 @@ namespace CKDSurveillance_RD.MasterPages
 
             DataTable dtChartHeader = dsChart.Tables[0];
             string chartFormatType = dtChartHeader.Rows[0]["DotNetChartStyleID"].ToString();
+            bool isXAxisDate = dtChartHeader.Rows[0]["IsXAxisDate"].ToString() == "1"
+                               || string.Equals(dtChartHeader.Rows[0]["IsXAxisDate"].ToString(), "true", StringComparison.OrdinalIgnoreCase);
             if (chartFormatType == DotNetChartStyle.Line || QNum.Substring(1) == "756") //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
             {
                 RB_ChartType.SelectedValue = "'line'";
@@ -2673,6 +2675,7 @@ namespace CKDSurveillance_RD.MasterPages
             string hfval_y = "y:[ ";
             string hfval_w = "width:[ ";
             string hfval_y_basedata = "y:[ ";
+            string hfval_x_ticktext = "x:[ "; //Secondary labels used as ticktext when IsXAxisDate=1
             string high_confidence = "";
             string low_confidence = "";
             string hovertext = "";
@@ -2703,6 +2706,7 @@ namespace CKDSurveillance_RD.MasterPages
             for (int i = 0; i <= dtChart.Rows.Count - 1; i++)
             {
                 string secondary = dtChart.Rows[i]["Secondary"].ToString();
+                string secondaryCode = dtChart.Rows[i]["SecondaryCode"].ToString(); //real date value used as x when IsXAxisDate=1
                 secondary = wrapText(secondary, wrapsize);
                 string serieslabel = dtChart.Rows[i]["SeriesLabel"].ToString();
                 string datapoint = dtChart.Rows[i]["DataPoint"].ToString();
@@ -2860,6 +2864,7 @@ namespace CKDSurveillance_RD.MasterPages
                     plotlyBaseGroups = plotlyBaseGroups + "basedata" + cleanString(current_serieslabel) + i.ToString() + ","; //adding the above basedata variable to the group variable
 
                     hfval_x = "x:[ ";//resetting the arrays and adding spaces to so that the last character parse below doesn't fail
+                    hfval_x_ticktext = "x:[ ";
                     hfval_y = "y:[ ";
                     hfval_w = "width:[ ";
                     hfval_y_basedata = "y:[ ";
@@ -2868,10 +2873,11 @@ namespace CKDSurveillance_RD.MasterPages
                     hovertext = "";
                     colorarray_inc++;
 
-                    hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
+                    hfval_x = hfval_x + "'" + (isXAxisDate ? secondaryCode : secondary) + "',"; //finding the 'column' value
+                    hfval_x_ticktext = hfval_x_ticktext + "'" + secondary + "',"; //display label for ticktext
                     hfval_y = hfval_y + "'" + datapoint + "',"; //finding the actual data value
                     hfval_w = hfval_w + max_width + ",";
-                    hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value        
+                    hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value       
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
@@ -3042,7 +3048,13 @@ namespace CKDSurveillance_RD.MasterPages
                 }
             }
 
-            createPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, isMapPage, chartFormatType);
+                        // tickvals = SecondaryCode date strings (actual x positions plotted)
+            // ticktext = Secondary labels (what is displayed on the axis)
+            string xAxisTickVals = hfval_x.Substring(4).TrimEnd(',');
+            string xAxisTickText = hfval_x_ticktext.Substring(4).TrimEnd(',');
+
+            createPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, isMapPage, chartFormatType, isXAxisDate, xAxisTickVals, xAxisTickText);
+            //createPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, isMapPage, chartFormatType);
         }
 
         private void buildPlotlyLineChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, bool isMapPage)
@@ -3091,6 +3103,8 @@ namespace CKDSurveillance_RD.MasterPages
 
             DataTable dtChartHeader = dsChart.Tables[0];
             string chartFormatType = dtChartHeader.Rows[0]["DotNetChartStyleID"].ToString();
+            bool isXAxisDate = dtChartHeader.Rows[0]["IsXAxisDate"].ToString() == "1"
+                               || string.Equals(dtChartHeader.Rows[0]["IsXAxisDate"].ToString(), "true", StringComparison.OrdinalIgnoreCase);
             if (chartFormatType == DotNetChartStyle.Line || QNum.Substring(1) == "756") //if the chart has been setup to display as a line, then default to this value. This value comes from t_chart and t_chartStyle
             {
                 RB_ChartType.SelectedValue = "'line'";
@@ -3182,6 +3196,7 @@ namespace CKDSurveillance_RD.MasterPages
             string hfval_y = "y:[ ";
             string hfval_w = "width:[ ";
             string hfval_y_basedata = "y:[ ";
+            string hfval_x_ticktext = "x:[ "; //Secondary labels used as ticktext when IsXAxisDate=1
             string high_confidence = "";
             string low_confidence = "";
             string hovertext = "";
@@ -3212,6 +3227,7 @@ namespace CKDSurveillance_RD.MasterPages
             for (int i = 0; i <= dtChart.Rows.Count - 1; i++)
             {
                 string secondary = dtChart.Rows[i]["Secondary"].ToString();
+                string secondaryCode = dtChart.Rows[i]["SecondaryCode"].ToString(); //real date value used as x when IsXAxisDate=1
                 secondary = wrapText(secondary, wrapsize);
                 string serieslabel = dtChart.Rows[i]["SeriesLabel"].ToString();
                 string datapoint = dtChart.Rows[i]["DataPoint"].ToString();
@@ -3301,10 +3317,11 @@ namespace CKDSurveillance_RD.MasterPages
 
                 if (current_serieslabel == "" || current_serieslabel == serieslabel)
                 {
-                    hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
+                    hfval_x = hfval_x + "'" + (isXAxisDate ? secondaryCode : secondary) + "',"; //finding the 'column' value
+                    hfval_x_ticktext = hfval_x_ticktext + "'" + secondary + "',"; //display label for ticktext
                     hfval_y = hfval_y + "'" + datapoint + "',"; //finding the actual data value                  
                     hfval_w = hfval_w + max_width + ",";
-                    hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value        
+                    hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value               
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
@@ -3397,6 +3414,7 @@ namespace CKDSurveillance_RD.MasterPages
                     plotlyBaseDataGroups = plotlyBaseDataGroups + "basedata" + cleanString(current_serieslabel) + i.ToString() + ","; //adding the above basedata variable to the basedata group variabl;
 
                     hfval_x = "x:[ ";//resetting the arrays and adding spaces to so that the last character parse below doesn't fail
+                    hfval_x_ticktext = "x:[ ";
                     hfval_y = "y:[ ";
                     hfval_w = "width:[ ";
                     hfval_y_basedata = "y:[ ";
@@ -3407,10 +3425,11 @@ namespace CKDSurveillance_RD.MasterPages
                     ciLoStr = "";
                     ciHiStr = "";
 
-                    hfval_x = hfval_x + "'" + secondary + "',"; //finding the 'column' value
+                    hfval_x = hfval_x + "'" + (isXAxisDate ? secondaryCode : secondary) + "',"; //finding the 'column' value
+                    hfval_x_ticktext = hfval_x_ticktext + "'" + secondary + "',"; //display label for ticktext
                     hfval_y = hfval_y + "'" + datapoint + "',"; //finding the actual data value
                     hfval_w = hfval_w + max_width + ",";
-                    hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value        
+                    hfval_y_basedata = hfval_y_basedata + "'0',"; //adding the base data value               
 
                     high_confidence = high_confidence + "'" + str_high_con_diff + "',"; //high confidence intervals adding the string from above
                     low_confidence = low_confidence + "'" + str_low_con_diff + "',"; //low confidence intervals adding the string from above
@@ -3612,7 +3631,12 @@ namespace CKDSurveillance_RD.MasterPages
                 }
             }
 
-            createPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, isMapPage, chartFormatType);
+            // tickvals = SecondaryCode date strings (actual x positions plotted)
+            // ticktext = Secondary labels (what is displayed on the axis)
+            string xAxisTickVals = hfval_x.Substring(4).TrimEnd(',');
+            string xAxisTickText = hfval_x_ticktext.Substring(4).TrimEnd(',');
+
+            createPlotlyScript(plotlyStr, chartTitle, xaxisTitle, yaxisTitle, max_xaxis_cnt, isMapPage, chartFormatType, isXAxisDate, xAxisTickVals, xAxisTickText);
         }
 
         private void buildPlotlyTripleStratChart(string chartID, DataTable dtPage, string chartTitle, string xaxisTitle, string yaxisTitle, DataView vData)
@@ -4814,7 +4838,7 @@ namespace CKDSurveillance_RD.MasterPages
             else
                 this.Lit_PlotlyRel.Text = sb.ToString();
         }
-        private void createPlotlyScript(StringBuilder dataSb, string title, string xaxistitle, string yaxistitle, int xaxiscnt, bool isMapPage, string chartFormatType = "")
+        private void createPlotlyScript(StringBuilder dataSb, string title, string xaxistitle, string yaxistitle, int xaxiscnt, bool isMapPage, string chartFormatType = "", bool isXAxisDate = false, string xAxisTickVals = "", string xAxisTickText = "")
         {
             string xtickfontsize = "19";  //"17";
             string tickangle = "0";
@@ -4912,6 +4936,15 @@ namespace CKDSurveillance_RD.MasterPages
                 //modify the x axis ticks/values for maps, dtick=1 shows all labels, automargin: true displays all labels and doesn't cut off text
                 sb.Append("showlegend:false, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverinfo: 'none', xaxis: {dtick:1, tickangle:" + tickangle + ", showgrid: false, tickfont: { size: " + xtickfontsize + " }, linewidth: 0, titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true,automargin: true, dtick: 1, xshift: -200, linewidth: 0, tickfont: { size: " + yaxisfontsize + " }, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
             }
+            else if (isXAxisDate)
+            {
+                // Use real date values (SecondaryCode) as x; override displayed ticks with
+                // tickvals (SecondaryCode) + ticktext (Secondary human-readable labels).
+                if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
+                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }, traceorder:'normal'}, barmode: eval($('#hfChartMode').val()), hovermode: 'closest', hoverlabel: {bgcolor: '#ffffff', bordercolor: '#D3D3D3', font: { color: '#000000', size: 14 }}, xaxis: {type:'date', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }, tickmode:'array', tickvals:[" + xAxisTickVals + "], ticktext:[" + xAxisTickText + "]}, yaxis: {range: [0, eval($('#hfChartYValToUse').val())], showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + ", color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+                else
+                    sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode: eval($('#hfChartMode').val()), hovermode: 'closest', hoverlabel: {bgcolor: '#ffffff', bordercolor: '#D3D3D3', font: { color: '#000000', size: 14 }}, xaxis: {type:'date', showgrid: " + showgridval + ", zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: " + linewidth + ", title:'<b></b>', titlefont: { size: " + xtickfontsize + " }, tickmode:'array', tickvals:[" + xAxisTickVals + "], ticktext:[" + xAxisTickText + "]}, yaxis: {range: [0, eval($('#hfChartYValToUse').val())], showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + ", color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+            }
             else
             {
                 //type = category so all values are displayed, not just a group
@@ -4920,6 +4953,14 @@ namespace CKDSurveillance_RD.MasterPages
                 else
                     sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#D3D3D3',font: { color: '#000000', size: 14 }}, xaxis: {dtick:" + dtictval + ", type:'category', showgrid: " + showgridval + ", zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: " + linewidth + ", title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
             }
+            //else
+            //{
+            //    //type = category so all values are displayed, not just a group
+            //    if (QNum.Substring(1) == "372" || chartFormatType == DotNetChartStyle.StackedColumn)
+            //        sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }, traceorder:'normal'},  barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#D3D3D3',font: { color: '#000000', size: 14 }}, xaxis: {dtick:1, type:'category', showgrid: false, zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: 0, title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+            //    else
+            //        sb.Append(" legend: {'orientation': 'h', font: { size: " + legendfontsize + " }}, barmode:  eval($('#hfChartMode').val()), hovermode: 'closest',hoverlabel: {bgcolor: '#ffffff', bordercolor: '#D3D3D3',font: { color: '#000000', size: 14 }}, xaxis: {dtick:" + dtictval + ", type:'category', showgrid: " + showgridval + ", zeroline: false, tickangle:" + tickangle + ", tickfont: { size: " + xtickfontsize + ", color:'black' }, linewidth: " + linewidth + ", title:'<b></b>', titlefont: { size: " + xtickfontsize + " }},yaxis: {range: [0, eval($('#hfChartYValToUse').val())],showgrid: true, zeroline: false, xshift: -70, linewidth: 0, tickfont: { size: " + yaxisfontsize + " , color:'black'}, title:'<b>" + yaxistitle + "</b>', titlefont: { size: " + yaxistitlefontsize + " } }};");
+            //}
 
             if (isDefaultStd)
                 sb.Append(" var gd4 = d3.select('#svgchart');");
