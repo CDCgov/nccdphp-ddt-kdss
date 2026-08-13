@@ -189,8 +189,9 @@ namespace CKDSurveillance_RD
                 if (healthypeople == 1)
                 {
                     // HP2030: output topic as a <th> group header row directly in the table
-                    sbTable.Append("<tr><th colspan=\"3\" class=\"ckd-accordion-subcat-header\" style=\"background:#f6fbff; text-align:left; padding:10px 15px; font-weight:600;\">" + qtext + "</th></tr>");
-                    sbTable.Append(MethodsIndicatorsTableCreation(qid, qtext, desc, healthypeople, cardState, divState));
+                    string topicId = "hp2030Topic_" + qid.ToString();
+                    sbTable.Append("<tr><th id=\"" + topicId + "\" colspan=\"3\" class=\"ckd-accordion-subcat-header\" style=\"background:#f6fbff; text-align:left; padding:10px 15px; font-weight:600;\">" + qtext + "</th></tr>");
+                    sbTable.Append(MethodsIndicatorsTableCreation(qid, qtext, desc, healthypeople, cardState, divState, topicId));
                 }
                 else
                 {
@@ -215,7 +216,7 @@ namespace CKDSurveillance_RD
             return sbTable.ToString();
         }
 
-        private string MethodsIndicatorsTableCreation(int TopicID, string TopicText, string TopicDesc, int healthypeople, string cardState, string divState)
+        private string MethodsIndicatorsTableCreation(int TopicID, string TopicText, string TopicDesc, int healthypeople, string cardState, string divState, string topicId = "")
         {
             StringBuilder sbTable = new StringBuilder();
 
@@ -231,13 +232,12 @@ namespace CKDSurveillance_RD
 
                 DataTable dtIndicators = DAL.getIndicators(measureID);
 
-                //Manage datasource list
                 collectDataSources(dtIndicators);
 
                 if (healthypeople == 1)
                 {
-                    // HP2030: output measure as a subheader <tr> row, then indicator <tr> rows
-                    sbTable.Append("<tr><th colspan=\"3\" class=\"ckd-accordion-subcat-header\" style=\"background:#e8f0f7; text-align:left; padding:8px 15px 8px 30px; font-weight:600;\">" + measureText + "</th></tr>");
+                    string measureId = "hp2030Measure_" + measureID.ToString();
+                    sbTable.Append("<tr><th id=\"" + measureId + "\" colspan=\"3\" class=\"ckd-accordion-subcat-header\" style=\"background:#e8f0f7; text-align:left; padding:8px 15px 8px 30px; font-weight:600;\">" + measureText + "</th></tr>");
 
                     if (dtIndicators.Rows.Count > 0)
                     {
@@ -249,12 +249,17 @@ namespace CKDSurveillance_RD
                             string dataSource = drInd["DataSources"].ToString();
                             string mostRecentYear = drInd["Most Recent Year"].ToString();
 
+                            // Build the full headers chain: column header + topic group + measure subgroup
+                            string indicatorHeaders = "hp2030ColIndicator " + topicId + " " + measureId;
+                            string dataSourceHeaders = "hp2030ColDataSource " + topicId + " " + measureId;
+                            string yearHeaders = "hp2030ColYear " + topicId + " " + measureId;
+
                             sbTable.Append("<tr>");
-                            sbTable.Append("<td style=\"padding-left:45px; text-align:left; width:50%;\">");
+                            sbTable.Append("<td headers=\"" + indicatorHeaders + "\" style=\"padding-left:45px; text-align:left; width:50%;\">");
                             sbTable.Append("<a href=\"" + url + "#refreshPosition\" style=\"text-align:left; text-decoration:underline; letter-spacing:0px; color:#0b4778; opacity:1;\">" + text + "</a>");
                             sbTable.Append("</td>");
-                            sbTable.Append("<td style=\"text-align:center; width:25%;\">" + dataSource + "</td>");
-                            sbTable.Append("<td style=\"text-align:center; width:25%;\">" + mostRecentYear + "</td>");
+                            sbTable.Append("<td headers=\"" + dataSourceHeaders + "\" style=\"text-align:center; width:25%;\">" + dataSource + "</td>");
+                            sbTable.Append("<td headers=\"" + yearHeaders + "\" style=\"text-align:center; width:25%;\">" + mostRecentYear + "</td>");
                             sbTable.Append("</tr>");
                         }
                     }
