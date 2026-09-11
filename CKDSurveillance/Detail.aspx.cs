@@ -1493,7 +1493,7 @@ namespace CKDSurveillance_RD.MasterPages
             string yr = getYear();
             DataSet ds;
 
-            if (maptype == "6" && chartID > 0)
+            if (maptype == "6" && (chartID > 0 || chartID == -3))
             {
                 ds = DAL.getExcelDownloadForMaps(chartID, yr);
                 DataTable dsTableZero = ds.Tables[0];
