@@ -104,6 +104,7 @@
     <Folder Include="DEV\20260811-2026Aug11Release" />
     <Folder Include="QA\KDSSDatabase_QA_20260813" />
     <Folder Include="PROD\KDSSDatabase_PROD_20260817" />
+    <Folder Include="DEV\20260911-2026Sep11Release" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20250915-CKD-465\UpdateCurrentAyaFigure.sql" />
@@ -214,5 +215,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DEV\20260715-2026July15Release\20260715-2026July15Release.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DEV\20260911-2026Sep11Release\20260911-2026Sep11.sql" />
   </ItemGroup>
 </Project>
